@@ -37,19 +37,6 @@
             overflow: hidden;
         }
 
-        /* Filigrane en arrière-plan de l'en-tête */
-        header::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-image: url('https://lh3.googleusercontent.com/d/1kHeCZGiFp1hK2TIy9-Lmr5mKTRrg5z_8');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.15;
-            pointer-events: none;
-            z-index: 1;
-        }
-
         .header-container {
             position: relative;
             z-index: 2;
@@ -98,35 +85,6 @@
             color: var(--primary-color);
             font-weight: 600;
             letter-spacing: 0.02em;
-        }
-
-        .header-logos {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            align-items: center;
-            margin-top: 2rem;
-            padding-top: 1.5rem;
-            border-top: 1px dashed var(--border-color);
-        }
-
-        .header-logos a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .header-logos img {
-            max-height: 70px;
-            width: auto;
-            object-fit: contain;
-            filter: grayscale(10%);
-            transition: filter 0.2s, transform 0.2s;
-        }
-
-        .header-logos img:hover {
-            filter: grayscale(0%);
-            transform: scale(1.03);
         }
 
         .header-badge {
@@ -352,7 +310,6 @@
             width: 100%;
         }
 
-        /* Modal Styles */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -506,7 +463,6 @@
 
     <header>
         <div class="header-container">
-            <!-- Colonne de gauche (60%) -->
             <div class="header-left">
                 <div class="header-badge">Recherche académique</div>
                 <h1>Penser l'accessibilité</h1>
@@ -514,7 +470,7 @@
                     L'accessibilité ne saurait se réduire à une simple mise aux normes technique ou architecturale ; elle constitue le révélateur profond des structures politiques, symboliques et relationnelles qui régissent l'espace public et l'autonomie des sujets. À travers cette collection de contributions empiriques et théoriques, chaque article consigne une facette de cette mise en tension entre les prescriptions normatives de la cité et la réalité des parcours individuels.
                 </p>
                 <div class="header-meta">
-                    DOI : <a href="http://dx.doi.org/10.13140/RG.2.2.15371.87842" target="_blank" rel="noopener noreferrer">10.13140/RG.2.2.35504.53768</a>[cite: 1]
+                    DOI : 10.13140/RG.2.2.35504.53768[cite: 1]
                 </div>
                 <div class="header-actions">
                     <button class="btn-header" onclick="openModal('video', 'Présentation introductive — Vidéo', 'https://drive.google.com/file/d/10Va3etjn9wZIqrVnByyNXDVM-XPKOHkK/preview?autoplay=1')">Visionner la vidéo de présentation</button>
@@ -522,7 +478,6 @@
                 </div>
             </div>
 
-            <!-- Colonne de droite (40%) -->
             <div class="header-right">
                 <div class="header-right-content">
                     <p class="header-right-text">
@@ -531,14 +486,6 @@
                     <div class="header-right-codirection">
                         Éditeurs : François Routhier (CIRRIS) et Pierre Fraser<br/>Coéditeurs : Olivier Bernard et Véronique Leclerc
                     </div>
-                </div>
-                <div class="header-logos">
-                    <a href="https://cirris.ulaval.ca/" target="_blank" rel="noopener noreferrer">
-                        <img src="https://lh3.googleusercontent.com/d/14lMgvY3Q-x2P4gTgpqbSxYmPhfIPcKHy" alt="Logo CIRRIS">
-                    </a>
-                    <a href="https://villesinclusives.org/" target="_blank" rel="noopener noreferrer">
-                        <img src="https://lh3.googleusercontent.com/d/1GqDiMMMP4O_pO7HgCDOECAdPbuHRUCHP" alt="Logo partenaire">
-                    </a>
                 </div>
             </div>
         </div>
@@ -564,7 +511,6 @@
                     </div>
                 </article>
 
-                <!-- Article 1.2 -->
                 <article class="article-card" id="article-handicaps-transports">
                     <div class="article-media">
                         <img src="https://lh3.googleusercontent.com/d/1rYflEw0cdSTVhyj6ya-K-zXeTZbIDV7b?auto=format&fit=crop&w=600&q=80" alt="Transports urbains">
@@ -580,7 +526,6 @@
                     </div>
                 </article>
 
-                <!-- Article 1.3 -->
                 <article class="article-card" id="article-monuments-capacitisme">
                     <div class="article-media">
                         <img src="https://lh3.googleusercontent.com/d/1hfB8ne3eTSmA9MiTkBZ2K-zv8GBf5GNH?usp=drive_link?auto=format&fit=crop&w=600&q=80" alt="Monuments au capacitisme">
@@ -601,7 +546,6 @@
         <section class="theme-section">
             <h2 class="theme-title">2. Éducation, langues et institutions scolaires</h2>
             <div class="grid-container">
-                <!-- Article 2.1 -->
                 <article class="article-card" id="article-kelly-anne">
                     <div class="article-media">
                         <img src="https://lh3.googleusercontent.com/d/1HXLLg-FeMBjRSwApTmGB08YiwSY2Z2fc?auto=format&fit=crop&w=600&q=80" alt="Élève sourde signeure">
@@ -617,7 +561,6 @@
                     </div>
                 </article>
 
-                <!-- Article 2.2 -->
                 <article class="article-card" id="article-implants-cochleaires">
                     <div class="article-media">
                         <img src="https://lh3.googleusercontent.com/d/1DpRYkpL3qLNlDKeWZDaTbvyBIGHxswpZ?auto=format&fit=crop&w=600&q=80" alt="Implants cochléaires">
@@ -633,7 +576,6 @@
                     </div>
                 </article>
 
-                <!-- Article 2.3 -->
                 <article class="article-card" id="article-biblio-inclusive">
                     <div class="article-media">
                         <img src="https://lh3.googleusercontent.com/d/1B00FQSRh0u5UBEkv8ng7AJJ5J8khc9xc?auto=format&fit=crop&w=600&q=80" alt="Bibliothèque scolaire inclusive">
@@ -648,7 +590,6 @@
                     </div>
                 </article>
 
-                <!-- Article 2.4 -->
                 <article class="article-card" id="article-classe-inclusive">
                     <div class="article-media">
                         <img src="https://lh3.googleusercontent.com/d/1KKDYo2TOaYdY9tFAkhOHc7jbjUhXyCSP?auto=format&fit=crop&w=600&q=80" alt="Salle de classe inclusive">
@@ -669,7 +610,6 @@
         <section class="theme-section">
             <h2 class="theme-title">3. Travail, autonomie résidentielle et loisirs</h2>
             <div class="grid-container">
-                <!-- Article 3.1 -->
                 <article class="article-card" id="article-jai-mon-appart">
                     <div class="article-media">
                         <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=600&q=80" alt="J'ai mon appart">
@@ -677,7 +617,7 @@
                     <div class="article-content">
                         <div class="article-doi">Autonomie résidentielle</div>
                         <h3 class="article-title">« J'ai mon appart' ! » : pour adultes DI et autistes</h3>
-                        <p class="article-summary">Présentation du projet concnernant l'accès à l'autonomie résidentielle pour les adultes présentant une déficience intellectuelle ou un autisme.</p>
+                        <p class="article-summary">Présentation du projet concernant l'accès à l'autonomie résidentielle pour les adultes présentant une déficience intellectuelle ou un autisme.</p>
                         <div class="article-actions">
                             <button class="btn-modal" onclick="openModal('pdf', 'J\'ai mon appart\' !', 'https://drive.google.com/file/d/1N3_gEKxZ_d_RYRRr-FJmV7Zl9ZLYGMZJ/preview')">Lire le PDF</button>
                             <button class="btn-modal video-btn" onclick="openModal('jai-mon-appart-playlist', '« J\'ai mon appart\' » — Vidéos', '')">Vidéos</button>
@@ -685,7 +625,6 @@
                     </div>
                 </article>
 
-                <!-- Article 3.2 -->
                 <article class="article-card" id="article-travail-autistes">
                     <div class="article-media">
                         <img src="https://lh3.googleusercontent.com/d/1YqwmIclmP2AlY9EY0AszBGQjCVrvEOo6?auto=format&fit=crop&w=600&q=80" alt="Travail en épicerie">
@@ -701,7 +640,6 @@
                     </div>
                 </article>
 
-                <!-- Article 3.3 -->
                 <article class="article-card" id="article-loisir-inclusif">
                     <div class="article-media">
                         <img src="https://images.unsplash.com/photo-1519331379826-f10be5486c6f?auto=format&fit=crop&w=600&q=80" alt="Loisir inclusif">
@@ -717,7 +655,6 @@
                     </div>
                 </article>
 
-                <!-- Article 3.4 -->
                 <article class="article-card" id="article-unir-forces">
                     <div class="article-media">
                         <img src="https://lh3.googleusercontent.com/d/1RiKg_1ZlYRLQWS5Dq1ODMoyXMVfTVneJ?auto=format&fit=crop&w=600&q=80" alt="Loisir des personnes ayant des besoins particuliers">
@@ -733,7 +670,6 @@
                     </div>
                 </article>
 
-                <!-- Article 3.5 -->
                 <article class="article-card" id="article-musees-inclusifs">
                     <div class="article-media">
                         <img src="https://lh3.googleusercontent.com/d/1JRmS6brg_yaM4sbH_rOxPffvk-wEpof_?auto=format&fit=crop&w=600&q=80" alt="Musées inclusifs">
@@ -754,7 +690,6 @@
         <section class="theme-section">
             <h2 class="theme-title">4. Expérience vécue, stigmates et politiques publiques</h2>
             <div class="grid-container">
-                <!-- Article 4.1 -->
                 <article class="article-card" id="article-participation-sociale">
                     <div class="article-media">
                         <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="Participation sociale">
@@ -764,13 +699,12 @@
                         <h3 class="article-title">Participation sociale à la suite d'un traumatisme cranio-cérébral</h3>
                         <p class="article-summary">Analyse des trajectoires de réinsertion sociale et des obstacles rencontrés par les individus après un traumatisme cranio-cérébral sévère.</p>
                         <div class="article-actions">
-                            <button class="btn-modal" onclick="openModal('pdf', 'Participation sociale à la suite d\'un traumatisme cranio-cérébral', 'https://drive.google.com/file/d/1GNAMRMocC2ixLvWrsfwkHr9yHh-No2K8/preview')">Lire le PDF</button>
-                            <button class="btn-modal video-btn" onclick="openModal('video', 'Participation sociale - Capsule', 'https://photosociete.com/videos/tcc-capsule.mp4?autoplay=1')">Vidéo</button>
+                            <button class="btn-modal" onclick="openModal('pdf', 'Participation sociale à la suite d\'un traumatisme cranio-cérébral', 'https://drive.google.com/file/d/1g9dn2gDQxdxBSqG4EixOBIYmtQF-fSO7/preview')">Lire le PDF</button>
+                            <button class="btn-modal video-btn" onclick="openModal('tcc-playlist', 'Participation sociale — Vidéos', '')">Vidéos</button>
                         </div>
                     </div>
                 </article>
 
-                <!-- Article 4.2 -->
                 <article class="article-card" id="article-droits-humains">
                     <div class="article-media">
                         <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80" alt="Regard de droits humains">
@@ -786,7 +720,6 @@
                     </div>
                 </article>
 
-                <!-- Article 4.3 -->
                 <article class="article-card" id="article-ophq-plans">
                     <div class="article-media">
                         <img src="https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=600&q=80" alt="OPHQ plans d'action">
@@ -802,7 +735,6 @@
                     </div>
                 </article>
 
-                <!-- Article 4.4 -->
                 <article class="article-card" id="article-pas-les-bienvenus">
                     <div class="article-media">
                         <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=600&q=80" alt="Sentiment d'exclusion">
@@ -818,7 +750,6 @@
                     </div>
                 </article>
 
-                <!-- Article 4.5 -->
                 <article class="article-card" id="article-prejuges-difference">
                     <div class="article-media">
                         <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=600&q=80" alt="Préjugés face à la différence">
@@ -834,7 +765,6 @@
                     </div>
                 </article>
 
-                <!-- Article 4.6 -->
                 <article class="article-card" id="article-recherche-militante">
                     <div class="article-media">
                         <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80" alt="Recherche militante">
@@ -939,7 +869,21 @@
             { title: "Changer la dynamique d'autonomie", url: "https://drive.google.com/file/d/1CbaV8POjHT8K3hrOBK-qtyLN5McwQJFf/preview?autoplay=1" },
             { title: "Miser sur les activités de groupe", url: "https://drive.google.com/file/d/1Rb6xE_bUX9m9HqYQqRnvts6dju7CZVl0/preview?autoplay=1" },
             { title: "Importance du soutien familial", url: "https://drive.google.com/file/d/1sY-Udz7YtumOcs6Zk4pWV9tR6fgkR1Ef/preview?autoplay=1" },
-            { title: "Partager une passion", url: "https://drive.google.com/file/d/1eVDNWBieQp6KhivqQup1LZF43NqXZOei/preview?autoplay=1" },
+            { title: "Partager une passion", url: "https://drive.google.com/file/d/1eVDNWBieQp6KhivqQup1LZF43NqXZOei/preview?autoplay=1" }
+        ];
+
+        const tccPlaylistVideos = [
+            { title: "Moment de répit pour les proches-aidants", url: "https://drive.google.com/file/d/1VTPCV7OMpdBkKiwSaAvhy-i3LhQ8yUEU/preview?autoplay=1" },
+            { title: "Capitaliser sur les forces de chacun", url: "https://drive.google.com/file/d/10yBqvxYBrLB1wVpOR82UnNxt00Tflwti/preview?autoplay=1" },
+            { title: "Approche orientée vers l'individu", url: "https://drive.google.com/file/d/1MC4vW_dkHKIt19swT5u1l23N_Hg24aL5/preview?autoplay=1" },
+            { title: "Accompagnement aux repas", url: "https://drive.google.com/file/d/1ZJ_71C5d4BRADUg4S6Wv7T8d9M-lxxTD/preview?autoplay=1" },
+            { title: "Collaboration entre les organismes communautaires", url: "https://drive.google.com/file/d/1I8d9ZSQbIYwHShnNnubkWENzHqGk0YoL/preview?autoplay=1" },
+            { title: "Importance des associations et du milieu communautaire", url: "https://drive.google.com/file/d/1pDEG1kjR9VWSmqfEjr1LcPYP87RpH1-d/preview?autoplay=1" },
+            { title: "Force des symboles", url: "https://drive.google.com/file/d/1U4AWAvjtnIa4yiJ_hh4GVn0u7xrSiBLw/preview?autoplay=1" },
+            { title: "Aide individualisée à la maison", url: "https://drive.google.com/file/d/1HAN02-hld1OkVdDaXpkRG3oWqWMRlLnb/preview?autoplay=1" },
+            { title: "Bienfaits du yoga", url: "https://drive.google.com/file/d/1Gf0K_bxHWDvinVG-YAx0Lg297HMJfiUy/preview?autoplay=1" },
+            { title: "Un outil de lâcher-prise", url: "https://drive.google.com/file/d/1TpwnK34HTk37D_YkteRFFrWbYYFVX3US/preview?autoplay=1" },
+            { title: "Congrès Connexion TCC-QC", url: "https://drive.google.com/file/d/1-Q8UhXRi3sH-j2e_AUvI7QafbwUuXdUf/preview?autoplay=1" }
         ];
 
         function openModal(type, title, url) {
@@ -951,7 +895,7 @@
                 iframe.className = 'pdf-frame';
                 iframe.src = url;
                 modalBodyContent.appendChild(iframe);
-            } else if (type === 'playlist-transport' || type === 'kelly-anne-playlist' || type === 'implants-playlist' || type === 'epicerie-playlist' || type === 'jai-mon-appart-playlist') {
+            } else if (type === 'playlist-transport' || type === 'kelly-anne-playlist' || type === 'implants-playlist' || type === 'epicerie-playlist' || type === 'jai-mon-appart-playlist' || type === 'tcc-playlist') {
                 let currentList = playlistVideos;
                 let sidebarHeading = 'Capsules Vidéo';
                 if (type === 'kelly-anne-playlist') {
@@ -966,6 +910,9 @@
                 } else if (type === 'jai-mon-appart-playlist') {
                     currentList = jaiMonAppartVideos;
                     sidebarHeading = "J'ai mon appart'";
+                } else if (type === 'tcc-playlist') {
+                    currentList = tccPlaylistVideos;
+                    sidebarHeading = 'Participation sociale (TCC)';
                 }
 
                 const layout = document.createElement('div');
