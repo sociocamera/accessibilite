@@ -79,53 +79,54 @@
             width: 100%;
         }
 
-.header-container {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 3rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-    display: grid;
-    grid-template-columns: 60% 40%;
-    gap: 3.5rem;
-    align-items: start;
-}
+        .header-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 3rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            display: grid;
+            grid-template-columns: 60% 40%;
+            gap: 3.5rem;
+            align-items: start;
+        }
+        
         .header-left, .header-right {
             display: flex;
             flex-direction: column;
-            min-width: 0; /* Empêche les éléments flexibles de dépasser de leur conteneur grid */
-            overflow: hidden; /* Empêche tout débordement visuel */
+            min-width: 0;
+            overflow: hidden;
         }
 
- .header-right {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    border-left: 1px solid var(--border-color);
-    padding-left: 2rem; /* Réduit légèrement pour laisser de l'air de sécurité */
-    min-width: 0;        /* Empêche l'élément grid de déborder */
-    box-sizing: border-box;
-}
+        .header-right {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            border-left: 1px solid var(--border-color);
+            padding-left: 2rem;
+            min-width: 0;
+            box-sizing: border-box;
+        }
 
-.header-right-content {
-    width: 100%;
-    max-width: 100%;
-    overflow: hidden;
-}
+        .header-right-content {
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
+        }
 
-.header-right-text {
-    font-size: 1.05rem;
-    color: var(--accent-color);
-    text-align: justify;
-    margin-bottom: 1.5rem;
-    line-height: 1.75;
-    word-break: normal;
-    overflow-wrap: break-word;
-    hyphens: auto;
-}
+        .header-right-text {
+            font-size: 1.05rem;
+            color: var(--accent-color);
+            text-align: justify;
+            margin-bottom: 1.5rem;
+            line-height: 1.75;
+            word-break: normal;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
 
         .header-right-codirection {
             font-size: 0.95rem;
@@ -359,6 +360,26 @@
             color: var(--accent-color);
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        /* Bouton flottant ou lien pour afficher les logs */
+        .btn-logs {
+            background-color: #3182ce;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            transition: background-color 0.2s;
+        }
+        .btn-logs:hover {
+            background-color: #2b6cb0;
         }
 
         /* Modale */
@@ -407,6 +428,47 @@
             background-color: #1a202c;
             display: flex;
             overflow: hidden;
+        }
+
+        /* Styles spécifiques pour le visualiseur de logs */
+        .logs-body {
+            background-color: #0f172a;
+            color: #38bdf8;
+            font-family: monospace;
+            padding: 2rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            width: 100%;
+            height: 100%;
+        }
+        .logs-actions {
+            display: flex;
+            gap: 1rem;
+        }
+        .logs-btn {
+            background: #1e293b;
+            color: #f8fafc;
+            border: 1px solid #475569;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        .logs-btn:hover {
+            background: #334155;
+        }
+        .logs-content {
+            background: #020617;
+            padding: 1.5rem;
+            border-radius: 6px;
+            border: 1px solid #1e293b;
+            white-space: pre-wrap;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            flex: 1;
+            overflow-y: auto;
         }
 
         .pdf-frame, .video-frame {
@@ -551,7 +613,7 @@
                         <h3 class="article-title">Le tramway de Québec : transformer la ville pour la rendre plus inclusive</h3>
                         <p class="article-summary">Analyse des enjeux sociopolitiques, territoriaux et urbanistiques liés à l'implantation d'un système de transport structurant pour repenser l'accessibilité globale dans la capitale.</p>
                         <div class="article-actions">
-                            <button class="btn-modal" onclick="openModal('pdf', 'Le tramway de Québec : transformer la ville pour la rendre plus inclusive', 'https://drive.google.com/file/d/14oLWBk3XNfmzeI_kQznXgmsFdWUeqXMR/preview')">Lire le PDF</button>
+                            <button class="btn-modal" onclick="logAndOpenModal('pdf', 'Le tramway de Québec : transformer la ville pour la rendre plus inclusive', 'https://drive.google.com/file/d/14oLWBk3XNfmzeI_kQznXgmsFdWUeqXMR/preview')">Lire le PDF</button>
                         </div>
                     </div>
                 </article>
@@ -565,8 +627,8 @@
                         <h3 class="article-title">Handicaps et transports urbains</h3>
                         <p class="article-summary">Examen des barrières systémiques dans les réseaux de transport en commun et pistes d'amélioration pour la mobilité autonome.</p>
                         <div class="article-actions">
-                            <button class="btn-modal" onclick="openModal('pdf', 'Handicaps et transports urbains', 'https://drive.google.com/file/d/1GNAMRMocC2ixLvWrsfwkHr9yHh-No2K8/preview')">Lire le PDF</button>
-                            <button class="btn-modal video-btn" onclick="openModal('playlist-transport', 'Handicaps et transports urbains — Vidéos', '')">Vidéos</button>
+                            <button class="btn-modal" onclick="logAndOpenModal('pdf', 'Handicaps et transports urbains', 'https://drive.google.com/file/d/1GNAMRMocC2ixLvWrsfwkHr9yHh-No2K8/preview')">Lire le PDF</button>
+                            <button class="btn-modal video-btn" onclick="logAndOpenModal('playlist-transport', 'Handicaps et transports urbains — Vidéos', '')">Vidéos</button>
                         </div> 
                     </div>
                 </article>
@@ -580,7 +642,7 @@
                         <h3 class="article-title">Monuments au capacitisme</h3>
                         <p class="article-summary">Réflexion critique sur l'architecture monumentale et les symboles urbains qui perpétuent l'exclusion physique et sociale.</p>
                         <div class="article-actions">
-                            <button class="btn-modal" onclick="openModal('pdf', 'Monuments au capacitisme', 'https://drive.google.com/file/d/1WRPL5qCCaF1_ObT4Um2ZFVXpj2uG6Kih/preview')">Lire le PDF</button>
+                            <button class="btn-modal" onclick="logAndOpenModal('pdf', 'Monuments au capacitisme', 'https://drive.google.com/file/d/1WRPL5qCCaF1_ObT4Um2ZFVXpj2uG6Kih/preview')">Lire le PDF</button>
                         </div>
                     </div>
                 </article>
@@ -600,8 +662,8 @@
                         <h3 class="article-title">Dans la classe de Kelly-Anne, élève sourde signeure</h3>
                         <p class="article-summary">Immersion sociolinguistique dans le quotidien d'une élève pratiquant la Langue des Signes Québécoise au sein d'un établissement régulier.</p>
                         <div class="article-actions">
-                            <button class="btn-modal" onclick="openModal('pdf', 'Dans la classe de Kelly-Anne', 'https://drive.google.com/file/d/1uYfS2OkLDLDnIKvXWSkyvnizs1R4qvqB/preview')">Lire le PDF</button>
-                            <button class="btn-modal video-btn" onclick="openModal('kelly-anne-playlist', 'Dans la classe de Kelly-Anne — Vidéos', '')">Vidéos</button>
+                            <button class="btn-modal" onclick="logAndOpenModal('pdf', 'Dans la classe de Kelly-Anne', 'https://drive.google.com/file/d/1uYfS2OkLDLDnIKvXWSkyvnizs1R4qvqB/preview')">Lire le PDF</button>
+                            <button class="btn-modal video-btn" onclick="logAndOpenModal('kelly-anne-playlist', 'Dans la classe de Kelly-Anne — Vidéos', '')">Vidéos</button>
                         </div>
                     </div>
                 </article>
@@ -615,8 +677,8 @@
                         <h3 class="article-title">Implants cochléaires : enjeux et défis en milieu scolaire</h3>
                         <p class="article-summary">Évaluation des dynamiques d'intégration auditive et des adaptations acoustiques requises pour les enfants appareillés.</p>
                         <div class="article-actions">
-                            <button class="btn-modal" onclick="openModal('pdf', 'Implants cochléaires', 'https://drive.google.com/file/d/1RVsDkIeJkqyH6S9TKLMDPVRQxJfG5MU-/preview')">Lire le PDF</button>
-                            <button class="btn-modal video-btn" onclick="openModal('implants-playlist', 'Implants cochléaires — Vidéos', '')">Vidéos</button>
+                            <button class="btn-modal" onclick="logAndOpenModal('pdf', 'Implants cochléaires', 'https://drive.google.com/file/d/1RVsDkIeJkqyH6S9TKLMDPVRQxJfG5MU-/preview')">Lire le PDF</button>
+                            <button class="btn-modal video-btn" onclick="logAndOpenModal('implants-playlist', 'Implants cochléaires — Vidéos', '')">Vidéos</button>
                         </div>
                     </div>
                 </article>
@@ -630,7 +692,7 @@
                         <h3 class="article-title">Co-conception d'une bibliothèque scolaire inclusive</h3>
                         <p class="article-summary">Réflexion méthodologique sur l'aménagement participatif des espaces documentaires scolaires ouverts à la diversité fonctionnelle.</p>
                         <div class="article-actions">
-                            <button class="btn-modal" onclick="openModal('pdf', 'Co-conception d\'une bibliothèque scolaire inclusive', 'https://drive.google.com/file/d/1RlqcLdIKPu0c4wLh5n-dCSVUAtn33631/preview')">Lire le PDF</button>
+                            <button class="btn-modal" onclick="logAndOpenModal('pdf', 'Co-conception d\'une bibliothèque scolaire inclusive', 'https://drive.google.com/file/d/1RlqcLdIKPu0c4wLh5n-dCSVUAtn33631/preview')">Lire le PDF</button>
                         </div>
                     </div>
                 </article>
@@ -644,7 +706,7 @@
                         <h3 class="article-title">Co-conception d'une salle de classe inclusive</h3>
                         <p class="article-summary">Examen des critères architecturaux et pédagogiques nécessaires pour repenser l'ergonomie des espaces d'apprentissage ordinaires.</p>
                         <div class="article-actions">
-                            <button class="btn-modal" onclick="openModal('pdf', 'Co-conception d\'une salle de classe inclusive', 'https://drive.google.com/file/d/1q82k5X5VObZLB5XmxRfx1OKRfSErCqSE/preview')">Lire le PDF</button>
+                            <button class="btn-modal" onclick="logAndOpenModal('pdf', 'Co-conception d\'une salle de classe inclusive', 'https://drive.google.com/file/d/1q82k5X5VObZLB5XmxRfx1OKRfSErCqSE/preview')">Lire le PDF</button>
                         </div>
                     </div>
                 </article>
@@ -664,8 +726,8 @@
                         <h3 class="article-title">« J'ai mon appart' ! » pour adultes DI et autistes</h3>
                         <p class="article-summary">Présentation du projet concernant l'accès à l'autonomie résidentielle pour les adultes présentant une déficience intellectuelle ou un autisme.</p>
                         <div class="article-actions">
-                            <button class="btn-modal" onclick="openModal('pdf', 'J\'ai mon appart\' !', 'https://drive.google.com/file/d/1N3_gEKxZ_d_RYRRr-FJmV7Zl9ZLYGMZJ/preview')">Lire le PDF</button>
-                            <button class="btn-modal video-btn" onclick="openModal('jai-mon-appart-playlist', '« J\'ai mon appart\' » — Vidéos', '')">Vidéos</button>
+                            <button class="btn-modal" onclick="logAndOpenModal('pdf', 'J\'ai mon appart\' !', 'https://drive.google.com/file/d/1N3_gEKxZ_d_RYRRr-FJmV7Zl9ZLYGMZJ/preview')">Lire le PDF</button>
+                            <button class="btn-modal video-btn" onclick="logAndOpenModal('jai-mon-appart-playlist', '« J\'ai mon appart\' » — Vidéos', '')">Vidéos</button>
                         </div>
                     </div>
                 </article>
@@ -679,8 +741,8 @@
                         <h3 class="article-title">Le travail des personnes autistes en épicerie</h3>
                         <p class="article-summary">Étude empirique sur l'intégration professionnelle ordinaire, l'organisation des tâches et les aménagements relationnels en milieu commercial.</p>
                         <div class="article-actions">
-                            <button class="btn-modal" onclick="openModal('pdf', 'Le travail des personnes autistes', 'https://drive.google.com/file/d/1EJRCxqyOenQST9vzDzR_B2O_GLSwtgRJ/preview')">Lire le PDF</button>
-                            <button class="btn-modal video-btn" onclick="openModal('epicerie-playlist', 'Travail en épicerie — Vidéos', '')">Vidéos</button>
+                            <button class="btn-modal" onclick="logAndOpenModal('pdf', 'Le travail des personnes autistes', 'https://drive.google.com/file/d/1EJRCxqyOenQST9vzDzR_B2O_GLSwtgRJ/preview')">Lire le PDF</button>
+                            <button class="btn-modal video-btn" onclick="logAndOpenModal('epicerie-playlist', 'Travail en épicerie — Vidéos', '')">Vidéos</button>
                         </div>
                     </div>
                 </article>
@@ -694,8 +756,8 @@
                         <h3 class="article-title">L'expérience inclusive de loisir : au-delà de l'accessibilité</h3>
                         <p class="article-summary">Comment repenser l'activité récréative non pas sous l'angle de la simple adaptation, mais à travers l'expérience partagée et l'appartenance.</p>
                         <div class="article-actions">
-                            <button class="btn-modal" onclick="openModal('pdf', 'L\'expérience inclusive de loisir', 'https://drive.google.com/file/d/1mzF0vJWcddYdPQWSVdt42Dz3xVR6stS-/preview')">Lire le PDF</button>
-                            <button class="btn-modal video-btn" onclick="openModal('loisir-inclusif-playlist', 'L\'expérience inclusive de loisir — Vidéos', '')">Vidéos</button>
+                            <button class="btn-modal" onclick="logAndOpenModal('pdf', 'L\'expérience inclusive de loisir', 'https://drive.google.com/file/d/1mzF0vJWcddYdPQWSVdt42Dz3xVR6stS-/preview')">Lire le PDF</button>
+                            <button class="btn-modal video-btn" onclick="logAndOpenModal('loisir-inclusif-playlist', 'L\'expérience inclusive de loisir — Vidéos', '')">Vidéos</button>
                         </div>
                     </div>
                 </article>
@@ -709,8 +771,8 @@
                         <h3 class="article-title">Unir nos forces pour la réussite du loisir des personnes ayant des besoins particuliers</h3>
                         <p class="article-summary">Coordination des acteurs municipaux et communautaires pour soutenir l'inclusion active dans les programmes de loisirs.</p>
                         <div class="article-actions">
-                            <button class="btn-modal" onclick="openModal('pdf', 'Unir nos forces pour le loisir', 'https://drive.google.com/file/d/18cDjwSI7xwIjIP7eZZfyESqFtWzCvfy3/preview')">Lire le PDF</button>
-                            <button class="btn-modal video-btn" onclick="openModal('video', 'Unir nos forces - Capsule', 'https://drive.google.com/file/d/1Ess1PR7ToDzT5D55Y2QkiNWyTK-xzUON/preview?autoplay=1')">Vidéo</button>
+                            <button class="btn-modal" onclick="logAndOpenModal('pdf', 'Unir nos forces pour le loisir', 'https://drive.google.com/file/d/18cDjwSI7xwIjIP7eZZfyESqFtWzCvfy3/preview')">Lire le PDF</button>
+                            <button class="btn-modal video-btn" onclick="logAndOpenModal('video', 'Unir nos forces - Capsule', 'https://drive.google.com/file/d/1Ess1PR7ToDzT5D55Y2QkiNWyTK-xzUON/preview?autoplay=1')">Vidéo</button>
                         </div>
                     </div>
                 </article>
@@ -724,7 +786,7 @@
                         <h3 class="article-title">Les musées inclusifs : le cas du MNBAQ</h3>
                         <p class="article-summary">Analyse des pratiques de médiation culturelle et d'accessibilité muséale au Musée national des beaux-arts du Québec.</p>
                         <div class="article-actions">
-                            <button class="btn-modal" onclick="openModal('pdf', 'Les musées inclusifs', 'https://drive.google.com/file/d/1UyefEXpLpIaxrdGEdIP3Kf8Otbvmharc/preview')">Lire le PDF</button>
+                            <button class="btn-modal" onclick="logAndOpenModal('pdf', 'Les musées inclusifs', 'https://drive.google.com/file/d/1UyefEXpLpIaxrdGEdIP3Kf8Otbvmharc/preview')">Lire le PDF</button>
                         </div>
                     </div>
                 </article>
@@ -744,8 +806,8 @@
                         <h3 class="article-title">Participation sociale à la suite d'un traumatisme cranio-cérébral</h3>
                         <p class="article-summary">Analyse des trajectoires de réinsertion sociale et des obstacles rencontrés par les individus après un traumatisme cranio-cérébral sévère.</p>
                         <div class="article-actions">
-                            <button class="btn-modal" onclick="openModal('pdf', 'Participation sociale à la suite d\'un traumatisme cranio-cérébral', 'https://drive.google.com/file/d/1g9dn2gDQxdxBSqG4EixOBIYmtQF-fSO7/preview')">Lire le PDF</button>
-                            <button class="btn-modal video-btn" onclick="openModal('tcc-playlist', 'Participation sociale — Vidéos', '')">Vidéos</button>
+                            <button class="btn-modal" onclick="logAndOpenModal('pdf', 'Participation sociale à la suite d\'un traumatisme cranio-cérébral', 'https://drive.google.com/file/d/1g9dn2gDQxdxBSqG4EixOBIYmtQF-fSO7/preview')">Lire le PDF</button>
+                            <button class="btn-modal video-btn" onclick="logAndOpenModal('tcc-playlist', 'Participation sociale — Vidéos', '')">Vidéos</button>
                         </div>
                     </div>
                 </article>
@@ -759,7 +821,7 @@
                         <h3 class="article-title">Réalités des personnes en situation de handicap : poser un regard de droits humains</h3>
                         <p class="article-summary">Transition paradigmatique du modèle médical vers l'approche fondée sur les droits fondamentaux et la citoyenneté intégrale.</p>
                         <div class="article-actions">
-                            <button class="btn-modal" onclick="openModal('pdf', 'Regard de droits humains', 'https://drive.google.com/file/d/1AU4ijxBnChp6Mn6Ha2OxJ6JthKymrwip/preview')">Lire le PDF</button>
+                            <button class="btn-modal" onclick="logAndOpenModal('pdf', 'Regard de droits humains', 'https://drive.google.com/file/d/1AU4ijxBnChp6Mn6Ha2OxJ6JthKymrwip/preview')">Lire le PDF</button>
                         </div>
                     </div>
                 </article>
@@ -773,8 +835,8 @@
                         <h3 class="article-title">OPHQ : plans d'action municipaux pour les personnes handicapées</h3>
                         <p class="article-summary">Évaluation critique de la mise en œuvre des plans d'action municipaux exigés par l'Office des personnes handicapées du Québec.</p>
                         <div class="article-actions">
-                            <button class="btn-modal" onclick="openModal('pdf', 'OPHQ plans d\'action', 'https://drive.google.com/file/d/1zROQKSU6cOnrIBvJ2NPraj9S28ieO9Ty/preview')">Lire le PDF</button>
-                            <button class="btn-modal video-btn" onclick="openModal('ophq-playlist', 'OPHQ — Vidéos', '')">Vidéos</button>
+                            <button class="btn-modal" onclick="logAndOpenModal('pdf', 'OPHQ plans d\'action', 'https://drive.google.com/file/d/1zROQKSU6cOnrIBvJ2NPraj9S28ieO9Ty/preview')">Lire le PDF</button>
+                            <button class="btn-modal video-btn" onclick="logAndOpenModal('ophq-playlist', 'OPHQ — Vidéos', '')">Vidéos</button>
                         </div>
                     </div>
                 </article>
@@ -788,8 +850,8 @@
                         <h3 class="article-title">« C'est comme si on n'était pas les bienvenus… »</h3>
                         <p class="article-summary">Analyse qualitative des micro-agressions et du sentiment d'exclusion symbolique éprouvé dans les espaces publics et marchands.</p>
                         <div class="article-actions">
-                            <button class="btn-modal" onclick="openModal('pdf', 'Pas les bienvenus', 'https://drive.google.com/file/d/1OKJ4vibw7AlKtMC4b4EKLyDlI7ORIjUg/preview')">Lire le PDF</button>
-                            <button class="btn-modal video-btn" onclick="openModal('pas-les-bienvenus-playlist', '« C\'est comme si on n\'était pas les bienvenus » — Vidéos', '')">Vidéos</button>
+                            <button class="btn-modal" onclick="logAndOpenModal('pdf', 'Pas les bienvenus', 'https://drive.google.com/file/d/1OKJ4vibw7AlKtMC4b4EKLyDlI7ORIjUg/preview')">Lire le PDF</button>
+                            <button class="btn-modal video-btn" onclick="logAndOpenModal('pas-les-bienvenus-playlist', '« C\'est comme si on n\'était pas les bienvenus » — Vidéos', '')">Vidéos</button>
                         </div>
                     </div>
                 </article>
@@ -803,8 +865,8 @@
                         <h3 class="article-title">Les préjugés face à la différence</h3>
                         <p class="article-summary">Déconstruction des stéréotypes culturels et des mécanismes psychologiques sous-tendant la stigmatisation du handicap.</p>
                         <div class="article-actions">
-                            <button class="btn-modal" onclick="openModal('pdf', 'Les préjugés face à la différence', 'https://drive.google.com/file/d/1DqgfwCjR97BWza7wvRCmw895tdeo7rbD/preview')">Lire le PDF</button>
-                            <button class="btn-modal video-btn" onclick="openModal('video', 'Préjugés - Capsule', 'https://drive.google.com/file/d/1inINRs-6BNiVLe2HwkH3Pp8kIRPEzYkL/preview?autoplay=1')">Vidéo</button>
+                            <button class="btn-modal" onclick="logAndOpenModal('pdf', 'Les préjugés face à la différence', 'https://drive.google.com/file/d/1DqgfwCjR97BWza7wvRCmw895tdeo7rbD/preview')">Lire le PDF</button>
+                            <button class="btn-modal video-btn" onclick="logAndOpenModal('video', 'Préjugés - Capsule', 'https://drive.google.com/file/d/1inINRs-6BNiVLe2HwkH3Pp8kIRPEzYkL/preview?autoplay=1')">Vidéo</button>
                         </div>
                     </div>
                 </article>
@@ -818,7 +880,7 @@
                         <h3 class="article-title">Plaidoyer pour une recherche militante</h3>
                         <p class="article-summary">Réflexion épistémologique sur l'engagement du chercheur en sciences sociales aux côtés des mouvements pour les droits des personnes handicapées.</p>
                         <div class="article-actions">
-                            <button class="btn-modal" onclick="openModal('pdf', 'Plaidoyer pour une recherche militante', 'https://drive.google.com/file/d/1hp6_mfVIUqGEU0MuqzlA_iXaUy3XWPo1/preview')">Lire le PDF</button>
+                            <button class="btn-modal" onclick="logAndOpenModal('pdf', 'Plaidoyer pour une recherche militante', 'https://drive.google.com/file/d/1hp6_mfVIUqGEU0MuqzlA_iXaUy3XWPo1/preview')">Lire le PDF</button>
                         </div>
                     </div>
                 </article>
@@ -828,9 +890,10 @@
 
     <footer>
         <p>&copy; 2026 PHOTO|SOCIÉTÉ — Tous droits réservés. Plateforme de recherche et de documentation sociologique.</p>
+        <button class="btn-logs" onclick="openLogsModal()">Afficher / Télécharger le fichier Log</button>
     </footer>
 
-    <!-- Fenêtre Modale -->
+    <!-- Fenêtre Modale Principale -->
     <div id="mediaModal" class="modal-overlay" onclick="closeModalOnOutside(event)">
         <div class="modal-container">
             <div class="modal-header">
@@ -841,7 +904,121 @@
         </div>
     </div>
 
+    <!-- Fenêtre Modale dédiée aux Logs -->
+    <div id="logsModal" class="modal-overlay" onclick="closeLogsModalOnOutside(event)">
+        <div class="modal-container">
+            <div class="modal-header">
+                <span class="modal-title">Fichier Log (Journal d'activité incrémentiel)</span>
+                <button class="modal-close" onclick="closeLogsModal()">&times;</button>
+            </div>
+            <div class="modal-body logs-body">
+                <div class="logs-actions">
+                    <button class="logs-btn" onclick="downloadLogFile()">Télécharger le fichier (.txt)</button>
+                    <button class="logs-btn" onclick="clearLogs()">Effacer l'historique</button>
+                </div>
+                <pre class="logs-content" id="logsContentDisplay"></pre>
+            </div>
+        </div>
+    </div>
+
     <script>
+        /* --- SYSTÈME DE JOURNALISATION AUTOMATIQUE (LOGS) --- */
+        const LOG_STORAGE_KEY = 'site_activity_logs_v1';
+
+        function getLogs() {
+            const data = localStorage.getItem(LOG_STORAGE_KEY);
+            return data ? JSON.parse(data) : [];
+        }
+
+        function appendLog(actionType, detail) {
+            const logs = getLogs();
+            const now = new Date();
+            const timestamp = now.toISOString().replace('T', ' ').substring(0, 19);
+            
+            const newEntry = {
+                timestamp: timestamp,
+                type: actionType,
+                detail: detail,
+                visitorId: getVisitorId()
+            };
+
+            logs.push(newEntry);
+            localStorage.setItem(LOG_STORAGE_KEY, JSON.stringify(logs));
+        }
+
+        function getVisitorId() {
+            let vid = localStorage.getItem('visitor_session_id');
+            if (!vid) {
+                vid = 'user_' + Math.random().toString(36).substring(2, 9);
+                localStorage.setItem('visitor_session_id', vid);
+            }
+            return vid;
+        }
+
+        // Enregistre automatiquement l'ouverture de la page au chargement
+        window.addEventListener('DOMContentLoaded', () => {
+            appendLog('PAGE_OPEN', 'Ouverture de la page Web principale');
+        });
+
+        function openLogsModal() {
+            const logs = getLogs();
+            const display = document.getElementById('logsContentDisplay');
+            
+            if (logs.length === 0) {
+                display.textContent = "Aucun événement enregistré pour l'instant.";
+            } else {
+                let text = "=== FICHIER LOG : STATISTIQUES D'OUVERTURE ET DE CLICS ===\n";
+                text += `Total d'événements enregistrés : ${logs.length}\n`;
+                text += "---------------------------------------------------------\n\n";
+                
+                logs.forEach((log, index) => {
+                    text += `[${index + 1}] Date/Heure : ${log.timestamp}\n`;
+                    text += `    Action   : ${log.type}\n`;
+                    text += `    Cible    : ${log.detail}\n`;
+                    text += `    Session  : ${log.visitorId}\n`;
+                    text += "---------------------------------------------------------\n";
+                });
+                display.textContent = text;
+            }
+            document.getElementById('logsModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLogsModal() {
+            document.getElementById('logsModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeLogsModalOnOutside(event) {
+            if (event.target === document.getElementById('logsModal')) closeLogsModal();
+        }
+
+        function clearLogs() {
+            if (confirm("Voulez-vous vraiment réinitialiser les logs ?")) {
+                localStorage.removeItem(LOG_STORAGE_KEY);
+                openLogsModal();
+            }
+        }
+
+        function downloadLogFile() {
+            const logs = getLogs();
+            let text = "=== RAPPORT DE LOGS - REVUE SOCIOLOGIE VISUELLE ===\n\n";
+            logs.forEach((log, index) => {
+                text += `[${log.timestamp}] ${log.type} -> ${log.detail} (Session: ${log.visitorId})\n`;
+            });
+
+            const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'site_activity.log';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        /* --- FONCTIONS INTERACTIVES DE MODALE --- */
         const modal = document.getElementById('mediaModal');
         const modalTitle = document.getElementById('modalTitle');
         const modalBodyContent = document.getElementById('modalBodyContent');
@@ -954,6 +1131,12 @@
             { title: "Les défis de l'accompagnement", url: "https://drive.google.com/file/d/1titNtVt1xzjxNSgQlC8ht7dTTlmDmbN4/preview?autoplay=1" }
         ];
 
+        // Fonction intermédiaire qui journalise l'action de clic sur un article avant d'ouvrir la modale
+        function logAndOpenModal(type, title, url) {
+            appendLog('ARTICLE_CLICK', title);
+            openModal(type, title, url);
+        }
+
         function openModal(type, title, url) {
             modalTitle.textContent = title;
             modalBodyContent.innerHTML = '';
@@ -1002,7 +1185,7 @@
                     link.textContent = vid.title;
                     link.onclick = function(e) {
                         e.preventDefault();
-                        document.querySelectorAll('.playlist-item').forEach(el => el.classList.remove('active'));
+                        document.querySelectorAll('.playlist-item').forEach(el => el.classList.remove('action-active'));
                         link.classList.add('active');
                         playerIframe.src = vid.url;
                         modalTitle.textContent = vid.title;
@@ -1036,7 +1219,10 @@
         }
 
         window.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') closeModal();
+            if (event.key === 'Escape') {
+                closeModal();
+                closeLogsModal();
+            }
         });
     </script>
 </body>
