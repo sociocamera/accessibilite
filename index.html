@@ -353,6 +353,29 @@
             color: var(--accent-color);
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .footer-stats-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.2s, transform 0.2s;
+        }
+
+        .footer-stats-btn:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .footer-stats-btn img {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
         }
 
         .modal-overlay {
@@ -400,6 +423,65 @@
             background-color: #1a202c;
             display: flex;
             overflow: hidden;
+        }
+
+        .stats-modal-container {
+            max-width: 800px;
+            height: 80vh;
+        }
+
+        .stats-body {
+            background-color: #f8f9fa;
+            color: var(--text-color);
+            padding: 2rem;
+            overflow-y: auto;
+            display: block;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .stats-summary {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: #edf2f7;
+            border-radius: 6px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .stats-section-title {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3rem;
+        }
+
+        .stats-list {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .stats-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0.75rem;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 0.95rem;
+        }
+
+        .stats-list li:nth-child(odd) {
+            background-color: #ffffff;
+        }
+
+        .stats-count {
+            font-weight: bold;
+            color: #3182ce;
+            background: #ebf8ff;
+            padding: 0.1rem 0.5rem;
+            border-radius: 4px;
         }
 
         .pdf-frame, .video-frame {
@@ -531,7 +613,6 @@
     </header>
 
     <main>
-        <!-- THÈME 1 : Espace urbain, transports et architecture -->
         <section class="theme-section">
             <h2 class="theme-title">1. Espace urbain, transports et architecture</h2>
             <div class="grid-container">
@@ -580,7 +661,6 @@
             </div>
         </section>
 
-        <!-- THÈME 2 : Éducation, langues et institutions scolaires -->
         <section class="theme-section">
             <h2 class="theme-title">2. Éducation, langues et institutions scolaires</h2>
             <div class="grid-container">
@@ -644,7 +724,6 @@
             </div>
         </section>
 
-        <!-- THÈME 3 : Travail, autonomie résidentielle et loisirs -->
         <section class="theme-section">
             <h2 class="theme-title">3. Travail, autonomie résidentielle et loisirs</h2>
             <div class="grid-container">
@@ -724,7 +803,6 @@
             </div>
         </section>
 
-        <!-- THÈME 4 : Expérience vécue, stigmates et politiques publiques -->
         <section class="theme-section">
             <h2 class="theme-title">4. Expérience vécue, stigmates et politiques publiques</h2>
             <div class="grid-container">
@@ -833,6 +911,18 @@
         </div>
     </div>
 
+    <div id="statsModal" class="modal-overlay" onclick="closeStatsModalOnOutside(event)">
+        <div class="modal-container stats-modal-container">
+            <div class="modal-header">
+                <span class="modal-title">Tableau de bord des statistiques</span>
+                <button class="modal-close" onclick="closeStatsModal()">&times;</button>
+            </div>
+            <div class="modal-body stats-body" id="statsModalBody">
+                <p>Chargement des statistiques en cours...</p>
+            </div>
+        </div>
+    </div>
+
     <script>
         const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwsWWx6rfNttj2ydWQ_qx5UJfjoQZ3PXKbGN2m4gdJV9oBbBX4-cO19FJEV8bc7ZZY/exec";
 
@@ -851,6 +941,74 @@
         window.addEventListener('DOMContentLoaded', function() {
             sendLog("Ouverture de page", "Accueil du site");
         });
+
+        const statsModal = document.getElementById('statsModal');
+        const statsModalBody = document.getElementById('statsModalBody');
+
+        function openStatsModal() {
+            statsModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            statsModalBody.innerHTML = '<p style="text-align:center; padding: 2rem;">Interrogation de Google Sheets en cours...</p>';
+
+            fetch(GOOGLE_SCRIPT_URL)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Erreur réseau HTTP");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.error) {
+                        statsModalBody.innerHTML = '<p style="color:red;">Erreur lors du chargement des statistiques : ' + data.error + '</p>';
+                        return;
+                    }
+
+                    let html = `<div class="stats-summary">Nombre total d'ouvertures de page : <span class="stats-count">${data.totalPageOpens}</span></div>`;
+
+                    html += `<h3 class="stats-section-title">Articles (PDF) ouverts</h3>`;
+                    const pdfKeys = Object.keys(data.pdfCounts);
+                    if (pdfKeys.length === 0) {
+                        html += `<p style="font-style:italic; color:#718096; margin-bottom:1rem;">Aucun PDF ouvert pour le moment.</p>`;
+                    } else {
+                        html += `<ul class="stats-list">`;
+                        pdfKeys.forEach(title => {
+                            html += `<li><span>${title}</span> <span class="stats-count">${data.pdfCounts[title]}</span></li>`;
+                        });
+                        html += `</ul>`;
+                    }
+
+                    html += `<h3 class="stats-section-title">Vidéos ouvertes</h3>`;
+                    const videoKeys = Object.keys(data.videoCounts);
+                    if (videoKeys.length === 0) {
+                        html += `<p style="font-style:italic; color:#718096; margin-bottom:1rem;">Aucune vidéo ouverte pour le moment.</p>`;
+                    } else {
+                        html += `<ul class="stats-list">`;
+                        videoKeys.forEach(title => {
+                            html += `<li><span>${title}</span> <span class="stats-count">${data.videoCounts[title]}</span></li>`;
+                        });
+                        html += `</ul>`;
+                    }
+
+                    statsModalBody.innerHTML = html;
+                })
+                .catch(error => {
+                    console.error("Erreur de récupération :", error);
+                    statsModalBody.innerHTML = `
+                        <p style="color:#c0392b; font-weight:bold; margin-bottom: 1rem;">Impossible de joindre le serveur de statistiques en lecture directe (Sécurité CORS du navigateur).</p>
+                        <p style="margin-bottom: 1rem;">Pour consulter vos statistiques en temps réel, vous pouvez ouvrir directement votre Google Sheet associé :</p>
+                        <p style="text-align: center;"><a href="https://docs.google.com/spreadsheets/d/1NfE64rkU8xLpKguNMM5rm7wgXHNWNxm2PXkOY4yXVwk/edit" target="_blank" style="color: #3182ce; font-weight: bold; text-decoration: underline;">Ouvrir le Google Sheet des statistiques</a></p>
+                    `;
+                });
+        }
+
+        function closeStatsModal() {
+            statsModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeStatsModalOnOutside(event) {
+            if (event.target === statsModal) closeStatsModal();
+        }
 
         const modal = document.getElementById('mediaModal');
         const modalTitle = document.getElementById('modalTitle');
@@ -968,9 +1126,8 @@
             modalTitle.textContent = title;
             modalBodyContent.innerHTML = '';
 
-            // Enregistrement des logs selon le type d'action
             if (type === 'pdf') {
-                sendLog("Clic Article", title);
+                sendLog("Clic PDF", title);
             } else if (type.includes('playlist') || type === 'video') {
                 sendLog("Clic Vidéo", title);
             }
@@ -1054,7 +1211,10 @@
         }
 
         window.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') closeModal();
+            if (event.key === 'Escape') {
+                closeModal();
+                closeStatsModal();
+            }
         });
     </script>
 </body>
