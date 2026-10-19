@@ -935,7 +935,7 @@
                     </div>
                     <div class="form-group">
                         <label for="propType">Type de proposition</label>
-                        <input type="text" id="propType" required placeholder="Ex: Article scientifique, projet de recherche...">
+                        <input type="text" id="propType" required placeholder="Ex: Article scientifique, projet de recherche, capsule...">
                     </div>
                     <div class="form-group">
                         <label for="propTitle">Titre de la proposition</label>
@@ -945,7 +945,7 @@
                         <label for="propDesc">Description / Résumé</label>
                         <textarea id="propDesc" required placeholder="Décrivez votre projet ou votre article en quelques lignes..."></textarea>
                     </div>
-                    <button type="submit" id="submitBtn" class="form-submit-btn">Envoyer la proposition</button>
+                    <button type="submit" class="form-submit-btn">Envoyer la proposition</button>
                 </form>
             </div>
         </div>
@@ -989,36 +989,17 @@
 
         function submitProposal(event) {
             event.preventDefault();
-            const submitBtn = document.getElementById('submitBtn');
-            submitBtn.textContent = "Envoi en cours...";
-            submitBtn.disabled = true;
+            const name = document.getElementById('propName').value;
+            const email = document.getElementById('propEmail').value;
+            const type = document.getElementById('propType').value;
+            const title = document.getElementById('propTitle').value;
+            const desc = document.getElementById('propDesc').value;
 
-            const payload = {
-                type: "Proposition",
-                name: document.getElementById('propName').value,
-                email: document.getElementById('propEmail').value,
-                proposalType: document.getElementById('propType').value,
-                title: document.getElementById('propTitle').value,
-                desc: document.getElementById('propDesc').value
-            };
+            const subject = encodeURIComponent(`Proposition de projet/article : ${title} (${type})`);
+            const body = encodeURIComponent(`Nom : ${name}\nCourriel : ${email}\nType : ${type}\nTitre : ${title}\n\nDescription :\n${desc}`);
 
-            fetch(GOOGLE_SCRIPT_URL, {
-                method: "POST",
-                mode: "no-cors",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(payload)
-            }).then(() => {
-                alert("Votre proposition a été envoyée avec succès.");
-                document.getElementById('proposalForm').reset();
-                submitBtn.textContent = "Envoyer la proposition";
-                submitBtn.disabled = false;
-                closeProposalModal();
-            }).catch(error => {
-                console.error("Erreur :", error);
-                alert("Une erreur est survenue lors de l'envoi. Veuillez réessayer.");
-                submitBtn.textContent = "Envoyer la proposition";
-                submitBtn.disabled = false;
-            });
+            window.location.href = `mailto:sociocamera@gmail.com?subject=${subject}&body=${body}`;
+            closeProposalModal();
         }
 
         const modal = document.getElementById('mediaModal');
