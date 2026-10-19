@@ -127,8 +127,29 @@
             color: var(--primary-color);
             font-weight: 600;
             letter-spacing: 0.02em;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             overflow-wrap: break-word;
+        }
+
+        .btn-proposal {
+            display: inline-block;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #fff;
+            background-color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-bottom: 2rem;
+            transition: background-color 0.2s;
+            width: fit-content;
+        }
+
+        .btn-proposal:hover {
+            background-color: #2d3748;
         }
 
         .coeditors-logos {
@@ -359,25 +380,6 @@
             gap: 1rem;
         }
 
-        .footer-stats-btn {
-            background: none;
-            border: none;
-            cursor: pointer;
-            opacity: 0.7;
-            transition: opacity 0.2s, transform 0.2s;
-        }
-
-        .footer-stats-btn:hover {
-            opacity: 1;
-            transform: scale(1.1);
-        }
-
-        .footer-stats-btn img {
-            width: 28px;
-            height: 28px;
-            object-fit: contain;
-        }
-
         .modal-overlay {
             display: none;
             position: fixed;
@@ -425,12 +427,13 @@
             overflow: hidden;
         }
 
-        .stats-modal-container {
-            max-width: 800px;
-            height: 80vh;
+        .proposal-modal-container {
+            max-width: 700px;
+            height: auto;
+            max-height: 90vh;
         }
 
-        .stats-body {
+        .proposal-body {
             background-color: #f8f9fa;
             color: var(--text-color);
             padding: 2rem;
@@ -439,49 +442,49 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
-        .stats-summary {
-            font-size: 1.1rem;
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group label {
+            display: block;
             font-weight: 600;
-            margin-bottom: 2rem;
-            padding: 1rem;
-            background: #edf2f7;
-            border-radius: 6px;
-            border-left: 4px solid var(--primary-color);
-        }
-
-        .stats-section-title {
-            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
             color: var(--primary-color);
-            margin-top: 1.5rem;
-            margin-bottom: 0.75rem;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 0.3rem;
         }
 
-        .stats-list {
-            list-style-type: none;
-            padding: 0;
-            margin-bottom: 1.5rem;
-        }
-
-        .stats-list li {
-            display: flex;
-            justify-content: space-between;
-            padding: 0.5rem 0.75rem;
-            border-bottom: 1px solid #e2e8f0;
-            font-size: 0.95rem;
-        }
-
-        .stats-list li:nth-child(odd) {
-            background-color: #ffffff;
-        }
-
-        .stats-count {
-            font-weight: bold;
-            color: #3182ce;
-            background: #ebf8ff;
-            padding: 0.1rem 0.5rem;
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
             border-radius: 4px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            background-color: #fff;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .form-submit-btn {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s;
+        }
+
+        .form-submit-btn:hover {
+            background-color: #2d3748;
         }
 
         .pdf-frame, .video-frame {
@@ -603,6 +606,7 @@
                     <div class="header-right-codirection">
                         Éditeurs : François Routhier et Pierre Fraser<br>Coéditeurs : Olivier Bernard et Véronique Leclerc
                     </div>
+                    <button class="btn-proposal" onclick="openProposalModal()">Proposer un projet ou un article</button>
                 </div>
                 <div class="coeditors-logos">
                     <a href="https://cirris.ulaval.ca/" target="_blank" rel="noopener noreferrer"><img src="https://lh3.googleusercontent.com/d/1lBdhyn1RoasbVr4r5sH2_6GJnwe7idaN" alt="Logo du CIRRIS"></a>
@@ -901,6 +905,7 @@
         <p>&copy; 2026 PHOTO|SOCIÉTÉ — Tous droits réservés. Plateforme de recherche et de documentation sociologique.</p>
     </footer>
 
+    <!-- Fenêtre modale Média / PDF / Vidéo -->
     <div id="mediaModal" class="modal-overlay" onclick="closeModalOnOutside(event)">
         <div class="modal-container">
             <div class="modal-header">
@@ -911,14 +916,37 @@
         </div>
     </div>
 
-    <div id="statsModal" class="modal-overlay" onclick="closeStatsModalOnOutside(event)">
-        <div class="modal-container stats-modal-container">
+    <!-- Fenêtre modale Proposition de projet ou d'article -->
+    <div id="proposalModal" class="modal-overlay" onclick="closeProposalModalOnOutside(event)">
+        <div class="modal-container proposal-modal-container">
             <div class="modal-header">
-                <span class="modal-title">Tableau de bord des statistiques</span>
-                <button class="modal-close" onclick="closeStatsModal()">&times;</button>
+                <span class="modal-title">Proposer un projet ou un article</span>
+                <button class="modal-close" onclick="closeProposalModal()">&times;</button>
             </div>
-            <div class="modal-body stats-body" id="statsModalBody">
-                <p>Chargement des statistiques en cours...</p>
+            <div class="modal-body proposal-body">
+                <form id="proposalForm" onsubmit="submitProposal(event)">
+                    <div class="form-group">
+                        <label for="propName">Votre nom complet</label>
+                        <input type="text" id="propName" required placeholder="Ex: Jean Dupont">
+                    </div>
+                    <div class="form-group">
+                        <label for="propEmail">Votre adresse courriel</label>
+                        <input type="email" id="propEmail" required placeholder="Ex: jean.dupont@exemple.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="propType">Type de proposition</label>
+                        <input type="text" id="propType" required placeholder="Ex: Article scientifique, projet de recherche...">
+                    </div>
+                    <div class="form-group">
+                        <label for="propTitle">Titre de la proposition</label>
+                        <input type="text" id="propTitle" required placeholder="Titre de votre projet ou article">
+                    </div>
+                    <div class="form-group">
+                        <label for="propDesc">Description / Résumé</label>
+                        <textarea id="propDesc" required placeholder="Décrivez votre projet ou votre article en quelques lignes..."></textarea>
+                    </div>
+                    <button type="submit" id="submitBtn" class="form-submit-btn">Envoyer la proposition</button>
+                </form>
             </div>
         </div>
     </div>
@@ -942,72 +970,55 @@
             sendLog("Ouverture de page", "Accueil du site");
         });
 
-        const statsModal = document.getElementById('statsModal');
-        const statsModalBody = document.getElementById('statsModalBody');
+        // Gestion de la modale de proposition
+        const proposalModal = document.getElementById('proposalModal');
 
-        function openStatsModal() {
-            statsModal.style.display = 'flex';
+        function openProposalModal() {
+            proposalModal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
-            statsModalBody.innerHTML = '<p style="text-align:center; padding: 2rem;">Interrogation de Google Sheets en cours...</p>';
-
-            fetch(GOOGLE_SCRIPT_URL)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error("Erreur réseau HTTP");
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    if (data.error) {
-                        statsModalBody.innerHTML = '<p style="color:red;">Erreur lors du chargement des statistiques : ' + data.error + '</p>';
-                        return;
-                    }
-
-                    let html = `<div class="stats-summary">Nombre total d'ouvertures de page : <span class="stats-count">${data.totalPageOpens}</span></div>`;
-
-                    html += `<h3 class="stats-section-title">Articles (PDF) ouverts</h3>`;
-                    const pdfKeys = Object.keys(data.pdfCounts);
-                    if (pdfKeys.length === 0) {
-                        html += `<p style="font-style:italic; color:#718096; margin-bottom:1rem;">Aucun PDF ouvert pour le moment.</p>`;
-                    } else {
-                        html += `<ul class="stats-list">`;
-                        pdfKeys.forEach(title => {
-                            html += `<li><span>${title}</span> <span class="stats-count">${data.pdfCounts[title]}</span></li>`;
-                        });
-                        html += `</ul>`;
-                    }
-
-                    html += `<h3 class="stats-section-title">Vidéos ouvertes</h3>`;
-                    const videoKeys = Object.keys(data.videoCounts);
-                    if (videoKeys.length === 0) {
-                        html += `<p style="font-style:italic; color:#718096; margin-bottom:1rem;">Aucune vidéo ouverte pour le moment.</p>`;
-                    } else {
-                        html += `<ul class="stats-list">`;
-                        videoKeys.forEach(title => {
-                            html += `<li><span>${title}</span> <span class="stats-count">${data.videoCounts[title]}</span></li>`;
-                        });
-                        html += `</ul>`;
-                    }
-
-                    statsModalBody.innerHTML = html;
-                })
-                .catch(error => {
-                    console.error("Erreur de récupération :", error);
-                    statsModalBody.innerHTML = `
-                        <p style="color:#c0392b; font-weight:bold; margin-bottom: 1rem;">Impossible de joindre le serveur de statistiques en lecture directe (Sécurité CORS du navigateur).</p>
-                        <p style="margin-bottom: 1rem;">Pour consulter vos statistiques en temps réel, vous pouvez ouvrir directement votre Google Sheet associé :</p>
-                        <p style="text-align: center;"><a href="https://docs.google.com/spreadsheets/d/1NfE64rkU8xLpKguNMM5rm7wgXHNWNxm2PXkOY4yXVwk/edit" target="_blank" style="color: #3182ce; font-weight: bold; text-decoration: underline;">Ouvrir le Google Sheet des statistiques</a></p>
-                    `;
-                });
         }
 
-        function closeStatsModal() {
-            statsModal.style.display = 'none';
+        function closeProposalModal() {
+            proposalModal.style.display = 'none';
             document.body.style.overflow = 'auto';
         }
 
-        function closeStatsModalOnOutside(event) {
-            if (event.target === statsModal) closeStatsModal();
+        function closeProposalModalOnOutside(event) {
+            if (event.target === proposalModal) closeProposalModal();
+        }
+
+        function submitProposal(event) {
+            event.preventDefault();
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.textContent = "Envoi en cours...";
+            submitBtn.disabled = true;
+
+            const payload = {
+                type: "Proposition",
+                name: document.getElementById('propName').value,
+                email: document.getElementById('propEmail').value,
+                proposalType: document.getElementById('propType').value,
+                title: document.getElementById('propTitle').value,
+                desc: document.getElementById('propDesc').value
+            };
+
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+            }).then(() => {
+                alert("Votre proposition a été envoyée avec succès.");
+                document.getElementById('proposalForm').reset();
+                submitBtn.textContent = "Envoyer la proposition";
+                submitBtn.disabled = false;
+                closeProposalModal();
+            }).catch(error => {
+                console.error("Erreur :", error);
+                alert("Une erreur est survenue lors de l'envoi. Veuillez réessayer.");
+                submitBtn.textContent = "Envoyer la proposition";
+                submitBtn.disabled = false;
+            });
         }
 
         const modal = document.getElementById('mediaModal');
@@ -1213,7 +1224,7 @@
         window.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
                 closeModal();
-                closeStatsModal();
+                closeProposalModal();
             }
         });
     </script>
