@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+    <meta charset="UTF-8">
+    <title>La dimension sociologique des préjugés face à la différence</title>
+    <style>
+        :root {
+            --bg-color: #faf6ef;
+            --card-bg: #f5f0e6; /* Couleur un peu plus pâle que #faf6ef */
+            --whitish-bg: #f5f0e6;
+            --border-color: #e3ded5;
+            --text-color: #2c2c2c;
+            --primary-color: #2f5496;
+            --accent-color: #954f72; /* Teinte rougeâtre demandée pour les sous-chapitres */
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: "Times New Roman", Times, serif, "Calibri Light", sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .paper-container {
+            background-color: var(--bg-color);
+            max-width: 900px;
+            width: 100%;
+            padding: 2rem 3rem;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            text-align: right;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .top-meta-container {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .citation-box, .affiliations-box {
+            flex: 1;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 1.2rem;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .affiliations-box h2 {
+            font-size: 1.1rem;
+            margin: 0 0 0.5rem 0;
+            color: #000;
+            text-align: right;
+        }
+
+        .affiliations-box p {
+            margin: 0.2rem 0;
+            font-size: 0.95rem;
+            text-indent: 0;
+            text-align: right;
+            background-color: transparent;
+        }
+
+        .citation-box p {
+            margin: 0 0 0.4rem 0;
+            text-indent: 0;
+            text-align: justify;
+            font-size: 0.9rem;
+            background-color: transparent;
+        }
+
+        .resume-box {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 4px;
+        }
+
+        .resume-box p {
+            margin: 0;
+            text-align: justify;
+            font-size: 1.05rem;
+            text-indent: 0;
+            background-color: transparent;
+        }
+
+        .keywords {
+            margin-top: 1rem;
+            font-style: italic;
+            font-size: 0.95rem;
+        }
+
+        /* Couleur rougeâtre pour les titres de sous-chapitres */
+        h2.section-title {
+            color: var(--accent-color);
+            font-size: 1.3rem;
+            margin-top: 2.5rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.3rem;
+        }
+
+        p {
+            text-align: justify;
+            margin-bottom: 1.2rem;
+            text-indent: 1.5rem;
+            background-color: var(--bg-color);
+        }
+
+        ul {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            text-align: justify;
+        }
+
+        a:link { color: var(--primary-color); text-decoration: underline; }
+        a:visited { color: var(--accent-color); text-decoration: underline; }
+
+        .infographic-container {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            margin: 2.5rem 0;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .infographic-container h3 {
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .interactive-node {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .interactive-node:hover {
+            filter: brightness(0.97);
+            transform: scale(1.01);
+        }
+
+        .footnotes-section, .references-section {
+            margin-top: 3rem;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .references-section p {
+            text-indent: -1.5rem;
+            margin-left: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="paper-container">
+
+    <h1>La dimension sociologique des préjugés face à la différence</h1>
+
+    <div class="top-meta-container">
+        <div class="citation-box">
+            <p style="font-weight: bold; margin-bottom: 0.3rem;">Citer cet article</p>
+            <p>Bernard, O. (2023), « Les préjugés ou les mécanismes de résistance à l’accessibilité », <em>Sociologie Visuelle</em>, n° 4, François Routhier et Pierre Fraser (éds.), Québec : Photo|Société, pp. 13-22.</p>
+        </div>
+        <div class="affiliations-box">
+            <h2>Olivier BERNARD<sup>1-2</sup></h2>
+            <p style="font-weight: bold; margin-bottom: 0.2rem;">Affiliations</p>
+            <p>1. Université Laval. 2. Presses de l’Université Laval (PUL), directeur de la collection <em>L’univers social des arts martiaux</em>.</p>
+        </div>
+    </div>
+
+    <div class="resume-box">
+        <p><strong>Résumé. —</strong> Lorsque nous pensons à l’inclusion et à l’acceptation sociale, nous avons tendance à penser en premier lieu aux handicaps physiques ou mentaux. Cependant, la réalité est beaucoup plus complexe que cela. D’un point de vue anthropo-sociologique, la différence est comprise à travers le concept de culture, qui englobe tout ce qui est mutuellement appris, produit, créé et partagé par les membres d’une société. La culture guide les comportements individuels et permet aux gens d’interpréter leurs expériences quotidiennes. Pour chaque individu, cela se manifeste par une certaine aisance à partager ses réflexions avec les personnes de son entourage, en anticipant que ces dernières possèdent des expériences de vie et des idées similaires ou communes. Ainsi, l’idée de rencontrer des personnes différentes peut susciter une certaine appréhension quant à la possibilité de ne plus se sentir à l’aise dans cette zone de confort qu’est la culture commune, également appelée « lieu commun » par Fernand Dumont<a class="sdfootnoteanc" name="sdfootnote1anc" href="#sdfootnote1sym"><sup>1</sup></a>.</p>
+        <p class="keywords"><strong>Mots-clés. —</strong> Acceptation sociale ; exclusion ; inclusion ; préjugés.</p>
+    </div>
+
+    <p style="text-indent: 0;"><span style="float: left; font-size: 300%; line-height: 0.8; padding-right: 5px;">L</span>a surdité, la cécité, la paraplégie, et la maladie mentale ne sont que des exemples de conditions qui représentent des défis de vie pour ceux qui en sont atteints. Cela va de soi. Cependant, ce qui est commun à tous est le fait de devoir faire face à des groupes de personnes qui les jugent comme différentes. De bien des manières, les adultes conservent leur tendance craintive héritée de l’enfance lorsqu’ils se trouvent en présence de personnes différentes, car les comportements blessants et belliqueux sont souvent utilisés par les enfants comme mécanisme de défense. Une fois adultes, ces sentiments de crainte sont toujours présents, mais s’expriment différemment selon les milieux socio-économiques et professionnels. Bien entendu, l’éthique, la morale, la bienséance et le politiquement correct commandent aujourd’hui aux citoyens d’être accueillants et inclusifs envers ceux qui présentent des différences. Néanmoins, ce n’est pas parce qu’une norme sociale formelle dicte un comportement à adopter, que le désir individuel de chacun est constamment en accord avec cette norme en toutes circonstances. En effet, peu importe les formations, les préparations psychologiques ou les protocoles mis en place, un individu n’est jamais totalement préparé à affronter ses propres préjugés. C’est pourquoi il est important de continuer à éduquer les individus sur l’importance de l’inclusion et de la diversité, tout en reconnaissant que cela peut prendre du temps et de l’effort pour changer les mentalités.</p>
+
+    <p>Qui peut vraiment affirmer n’avoir aucun préjugé envers une différence qu’il n’a jamais rencontrée<a class="sdfootnoteanc" name="sdfootnote2anc" href="#sdfootnote2sym"><sup>2</sup></a> ? Tous ceux qui ont fait l’expérience de se retrouver face à un itinérant ou à une personne en situation de handicap pour la première fois, savent qu’il y a un certain niveau de stress à gérer et que, à ce moment précis, leur comportement ne correspond pas exactement à ce qu’ils avaient imaginé. Souvent, leur comportement est moins empathique qu’ils ne l’auraient souhaité. Cela signifie que même les meilleures intentions peuvent être éclipsées par la réalité de la différence. Ce stress, ressenti comme un inconfort, peut être déclenché par une variété de comportements culturels<a class="sdfootnoteanc" name="sdfootnote3anc" href="#sdfootnote3sym"><sup>3</sup></a> : la manière d’aborder les gens, de les saluer, de respecter la hiérarchie et l’autorité, d’anticiper les tabous, d’utiliser l’humour, de structurer la famille et les relations amoureuses, d’organiser l’espace de vie et de travail, de considérer les personnes âgées, les relations hommes-femmes, adultes-enfants, homosexuelles, de valoriser les cadeaux et les pourboires, de donner une signification à la nourriture, de tolérer la propreté et les odeurs, de considérer la distance sociale, de percevoir le temps et la ponctualité, de respecter ou de tolérer les croyances (religieuses ou non), de concevoir le concept de sécurité, de prévention ou de santé, de communiquer dans le verbal et le non-verbal, et ainsi de suite.</p>
+
+    <p>Ce rapport à la différence est présent dans toutes les sociétés, même si ce lieu commun qu’est la culture varie d’une société à l’autre, elle demeure tout de même un rempart contre les différences. Ainsi, tous les groupes d’individus sont susceptibles d’être réfractaires aux caractéristiques qui semblent détonner avec leurs propres habitudes culturelles. Cette résistance peut devenir un frein à l’accessibilité, car elle engendre des mécanismes d’exclusion sociale qui rendent certains groupes antipathiques à la différence dans nos sociétés.</p>
+
+    <!-- Carte conceptuelle 1 -->
+    <div class="infographic-container">
+        <h3>Représentation infographique : La dynamique de la culture commune et du stress d'inconfort</h3>
+        <svg viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg">
+            <rect x="20" y="40" width="180" height="120" rx="6" fill="#f5f0e6" stroke="#2f5496" stroke-width="2"/>
+            <text x="110" y="70" font-family="sans-serif" font-size="13" font-weight="bold" fill="#2f5496" text-anchor="middle">Culture Commune</text>
+            <text x="110" y="95" font-family="sans-serif" font-size="11" fill="#444" text-anchor="middle">« Lieu commun »</text>
+            <text x="110" y="115" font-family="sans-serif" font-size="11" fill="#444" text-anchor="middle">Zone de confort</text>
+            <text x="110" y="135" font-family="sans-serif" font-size="10" fill="#777" text-anchor="middle">Idées partagées</text>
+
+            <line x1="210" y1="100" x2="270" y2="100" stroke="#954f72" stroke-width="2" marker-end="url(#arrow)"/>
+            <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#954f72"/>
+                </marker>
+            </defs>
+
+            <rect x="280" y="40" width="160" height="120" rx="6" fill="#f5f0e6" stroke="#954f72" stroke-width="2"/>
+            <text x="360" y="70" font-family="sans-serif" font-size="13" font-weight="bold" fill="#954f72" text-anchor="middle">Rencontre de</text>
+            <text x="360" y="90" font-family="sans-serif" font-size="13" font-weight="bold" fill="#954f72" text-anchor="middle">la Différence</text>
+            <text x="360" y="115" font-family="sans-serif" font-size="11" fill="#444" text-anchor="middle">Facteur de stress</text>
+            <text x="360" y="135" font-family="sans-serif" font-size="10" fill="#777" text-anchor="middle">Comportements culturels</text>
+
+            <line x1="450" y1="100" x2="510" y2="100" stroke="#2f5496" stroke-width="2" marker-end="url(#arrow2)"/>
+            <defs>
+                <marker id="arrow2" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#2f5496"/>
+                </marker>
+            </defs>
+
+            <rect x="520" y="40" width="160" height="120" rx="6" fill="#f5f0e6" stroke="#2f5496" stroke-width="2"/>
+            <text x="600" y="70" font-family="sans-serif" font-size="13" font-weight="bold" fill="#2f5496" text-anchor="middle">Mécanismes</text>
+            <text x="600" y="90" font-family="sans-serif" font-size="13" font-weight="bold" fill="#2f5496" text-anchor="middle">de Défense</text>
+            <text x="600" y="115" font-family="sans-serif" font-size="11" fill="#444" text-anchor="middle">Résistance / Exclusions</text>
+            <text x="600" y="135" font-family="sans-serif" font-size="10" fill="#777" text-anchor="middle">Frontières sociales</text>
+        </svg>
+    </div>
+
+    <h2 class="section-title">1. Les résistances à l’accessibilité : les mécanismes d’exclusion sociale</h2>
+    
+    <p>Notons que le concept d’exclusion sociale est très large, parce qu’il englobe une multitude de situations et de réalités. Par exemple, il devient possible d’y « décliner toutes les variétés de la misère du monde<a class="sdfootnoteanc" name="sdfootnote4anc" href="#sdfootnote4sym"><sup>4</sup></a> ». En tant que concept, il est largement critiqué et souvent imparfait. Toutefois, notre intention n’est pas de faire de ce concept un prétexte dénonçant « tout ce qui n’a pas d’allure » dans nos sociétés. Pour éviter cela, nous limiterons l’exclusion sociale à deux réalités : tantôt conceptuelle pour expliquer des mécanismes (systémiques), tantôt une notion pour qualifier et décrire des situations (indignations).</p>
+
+    <p>L’exclusion se veut donc le résultat d’un ensemble de processus qui mène à un statut, un état d’« exclu ». Comme nous l’avons décrit plus haut, les mécanismes qui engendrent l’exclusion sociale peuvent être très nombreux et touchent différentes sphères de la vie des individus parce qu’ils englobent la culture d’un individu. Il devient donc impossible de limiter le concept d’exclusion à un seul aspect. Il ne suffit donc pas de considérer que le statut socio-économique d’une personne pour comprendre l’exclusion sociale qu’elle peut vivre. D’autres facteurs doivent également être pris en compte, tels que la situation géographique de son lieu de résidence, son état de santé, son niveau d’éducation, la qualité de ses réseaux sociaux, son appartenance ethnique, etc. Il est donc crucial de souligner la diversité des acteurs sociaux impliqués dans les différentes dynamiques d’exclusion, afin de comprendre la complexité de ces mécanismes.</p>
+
+    <p>Les difficultés d’accessibilité peuvent donc être compromises par des enjeux qui échappent tant à l’État qu’à la bonne volonté de personnes tentant de réussir leur processus d’inclusion sociale. En effet, la responsabilité de l’exclusion ne repose pas uniquement sur les épaules de l’individu « exclu », mais elle est aussi le résultat de rapports de pouvoir liés à la nature systémique de la culture, c’est-à-dire que les membres d’un groupe ont davantage tendance à accepter et intégrer des personnes dont les caractéristiques culturelles sont similaires ou fortement semblables, évitant ainsi de sortir de leur « zone de confort de la culture commune ». Même si plusieurs gouvernements refusent de reconnaître les conséquences des mécanismes systémiques de la culture (parce que cela créerait un précédent, la mise en place de mesure coûteuses et probablement des dédommagements substantiels), « l’exclusion n’existerait pas sans une perspective de pouvoir et de domination<a class="sdfootnoteanc" name="sdfootnote5anc" href="#sdfootnote5sym"><sup>5</sup></a> ». Au quotidien, une personne côtoie des groupes qui exercent des pressions et des influences pour maintenir des normes, ce qui crée des frontières favorisant une séparation entre le « nous » et le « eux ». Un phénomène multidimensionnel, pluriel et complexe qui touche directement les conditions d’existence des personnes présentant une différence, et dans le cas qui nous intéresse et dans le cadre de ce numéro de la revue <em>Sociologie Visuelle</em>, les personnes en situation de handicap.</p>
+
+    <p>En somme, l’exclusion sociale est le résultat d’un ensemble de processus économiques, politiques, institutionnels et culturels qui souvent s’entrecroisent et se renforcent mutuellement, créant des barrières qui mettent des personnes ou des groupes en marge de la société. Souvent associée à la pauvreté, l’exclusion sociale peut être un facteur de déstabilisation sociale et économique pour les individus et leur communauté. Les conséquences de l’exclusion sociale peuvent être multiples. Elle peut limiter les possibilités d’indépendance économique pour les individus, affectant leur santé, leur éducation, leur accès au marché du travail et à des réseaux sociaux et familiaux. Ces conséquences peuvent à leur tour entraver la sortie de la pauvreté et la capacité des personnes à se réintégrer dans la société.</p>
+
+    <h2 class="section-title">2. Les représentations sociales de la différence : les préjugées</h2>
+
+    <p>Dans la réalité concrète des personnes en voie d’inclusion sociale et d’accessibilité, les mécanismes d’exclusion peuvent prendre différentes formes : préjugés, stéréotypes, discrimination, ethnocentrisme, ségrégation, racisme, xénophobie. Précisons toutefois que tous les mécanismes d’exclusion ont en commun d’être construit sur un préjugé, notamment parce que le préjugé a pour fonction, au risque de nous répéter, de mettre des frontières qui identifient les critères potentiels d’acceptabilité et d’inclusion des membres du groupe au sein d’une culture donnée. Notre compréhension du phénomène rejoint, en ce sens, celle du Centre d’étude sur la pauvreté et l’exclusion sociale : « Les préjugés sont une forme de représentations sociales foncièrement méprisante, basée sur des généralisations à outrance, dépeignant un groupe de manière péjorative, et qui contribuent systématiquement à des mécanismes d’exclusion et à une violence symbolique et endémique contre ceux qui en font l’objet<a class="sdfootnoteanc" name="sdfootnote6anc" href="#sdfootnote6sym"><sup>6</sup></a> ».</p>
+
+    <p>Précisons aussi que les représentations sociales sont « une forme de connaissance, socialement élaborée et partagée, ayant une visée pratique, et concourant à la construction d’une réalité commune à un ensemble social<a class="sdfootnoteanc" name="sdfootnote7anc" href="#sdfootnote7sym"><sup>7</sup></a> ». Les représentations sociales sont généralement reconnues comme des systèmes d’interprétation qui orientent et organisent les communications sociales, la diffusion et l’assimilation des connaissances<a class="sdfootnoteanc" name="sdfootnote8anc" href="#sdfootnote8sym"><sup>8</sup></a>. En tant que représentations sociales, les préjugés permettent de véhiculer tout un imaginaire concernant les personnes qui présentent des différences physiques et culturelles. Il existe cinq grands préjugés, ou représentations sociales, qui entretiennent la résistance à l’accessibilité et l’inclusion<a class="sdfootnoteanc" name="sdfootnote9anc" href="#sdfootnote9sym"><sup>9</sup></a>. Par souci de vulgarisation, nous reprendrons les mots qui sont habituellement utilisés par les acteurs sociaux lorsqu’ils sont en mode « préjugés ». Il est aussi à noter que la somme de ces représentations sociales n’est jamais présente en totalité pour décrire une personne victime de préjugés. Il s’agit d’un répertoire de thèmes qui a été construit pour montrer un ensemble idéal typique :</p>
+
+    <ul>
+        <li>l’irresponsabilité : « Ils ne sont pas capables de se prendre en main », « Ils ont une mauvaise éthique de travail », « Ils n’assument pas leurs responsabilités » ;</li>
+        <li>l’incompétence : « Ils sont incompétents », « Ils travaillent mal », « Ils sont stupides » ;</li>
+        <li>l’oisiveté : « Ils sont paresseux », « Ils sont trop confortables sur l’aide sociale. Ils se la coulent douce », « C’est de leur faute s’ils sont pauvres, ils ne veulent pas travailler » ;</li>
+        <li>l’immoralité : « On ne peut pas leur faire confiance... ils sont des crosseurs », « Ils font des enfants pour pouvoir retirer du bien-être », « Ils aiment trop la boisson, les cigarettes et les drogues » ;</li>
+        <li>l’impureté : « Ils sont sales », « Ils sont laids », « Ils sont dégueulasses ».</li>
+    </ul>
+
+    <!-- Carte conceptuelle 2 -->
+    <div class="infographic-container">
+        <h3>Diagramme SVG stylisé : Les cinq grands préjugés ou représentations sociales</h3>
+        <svg viewBox="0 0 650 160" xmlns="http://www.w3.org/2000/svg">
+            <g class="interactive-node">
+                <rect x="10" y="20" width="115" height="110" rx="5" fill="#f5f0e6" stroke="#2f5496" stroke-width="1.5"/>
+                <circle cx="67" cy="55" r="20" fill="#ebe4d8"/>
+                <text x="67" y="60" font-family="sans-serif" font-size="12" font-weight="bold" fill="#2f5496" text-anchor="middle">01</text>
+                <text x="67" y="95" font-family="sans-serif" font-size="11" font-weight="bold" fill="#333" text-anchor="middle">Irresponsabilité</text>
+            </g>
+            <g class="interactive-node">
+                <rect x="135" y="20" width="115" height="110" rx="5" fill="#f5f0e6" stroke="#2f5496" stroke-width="1.5"/>
+                <circle cx="192" cy="55" r="20" fill="#ebe4d8"/>
+                <text x="192" y="60" font-family="sans-serif" font-size="12" font-weight="bold" fill="#2f5496" text-anchor="middle">02</text>
+                <text x="192" y="95" font-family="sans-serif" font-size="11" font-weight="bold" fill="#333" text-anchor="middle">Incompétence</text>
+            </g>
+            <g class="interactive-node">
+                <rect x="260" y="20" width="115" height="110" rx="5" fill="#f5f0e6" stroke="#2f5496" stroke-width="1.5"/>
+                <circle cx="317" cy="55" r="20" fill="#ebe4d8"/>
+                <text x="317" y="60" font-family="sans-serif" font-size="12" font-weight="bold" fill="#2f5496" text-anchor="middle">03</text>
+                <text x="317" y="95" font-family="sans-serif" font-size="11" font-weight="bold" fill="#333" text-anchor="middle">Oisiveté</text>
+            </g>
+            <g class="interactive-node">
+                <rect x="385" y="20" width="115" height="110" rx="5" fill="#f5f0e6" stroke="#954f72" stroke-width="1.5"/>
+                <circle cx="442" cy="55" r="20" fill="#ebe4d8"/>
+                <text x="442" y="60" font-family="sans-serif" font-size="12" font-weight="bold" fill="#954f72" text-anchor="middle">04</text>
+                <text x="442" y="95" font-family="sans-serif" font-size="11" font-weight="bold" fill="#333" text-anchor="middle">Immoralité</text>
+            </g>
+            <g class="interactive-node">
+                <rect x="510" y="20" width="125" height="110" rx="5" fill="#f5f0e6" stroke="#954f72" stroke-width="1.5"/>
+                <circle cx="572" cy="55" r="20" fill="#ebe4d8"/>
+                <text x="572" y="60" font-family="sans-serif" font-size="12" font-weight="bold" fill="#954f72" text-anchor="middle">05</text>
+                <text x="572" y="95" font-family="sans-serif" font-size="11" font-weight="bold" fill="#333" text-anchor="middle">Impureté</text>
+            </g>
+        </svg>
+    </div>
+
+    <p>Les discours insultants et discriminatoires sont rarement exprimés directement aux personnes visées. En réalité, les préjugés ne sont que la partie émergée de l’iceberg. En effet, il existe de nombreuses autres formes de transmission de ces préjugés. Par exemple, des regards méprisants peuvent être jetés, des expressions faciales accusatrices peuvent être adoptées, un ton de voix accusateur peut être utilisé, des rires moqueurs peuvent être émis, une personne peut être sciemment ignorée, traitée avec impatience, ou dénoncée de manière répétée et abusive auprès de sa hiérarchie (<em>call check</em>). Des informations diffamatoires peuvent également être ajoutées au dossier officiel d’une personne (dossier médical, formulaire). Il est important de noter que ces comportements peuvent être subtils et implicites, mais ils entraînent des conséquences néfastes pour les personnes visées, contribuant ainsi à leur exclusion sociale.</p>
+
+    <!-- Carte conceptuelle 3 -->
+    <div class="infographic-container">
+        <h3>Diagramme conceptuel : L'iceberg de la transmission des préjugés</h3>
+        <svg viewBox="0 0 650 180" xmlns="http://www.w3.org/2000/svg">
+            <rect x="50" y="20" width="550" height="50" rx="6" fill="#f5f0e6" stroke="#2f5496" stroke-width="2"/>
+            <text x="325" y="40" font-family="sans-serif" font-size="12" font-weight="bold" fill="#2f5496" text-anchor="middle">Partie émergée : Discours explicites et insultants</text>
+            <text x="325" y="58" font-family="sans-serif" font-size="10" fill="#555" text-anchor="middle">Mots directs, propos discriminatoires affichés</text>
+
+            <line x1="30" y1="80" x2="620" y2="80" stroke="#954f72" stroke-width="2" stroke-dasharray="5,5"/>
+            <text x="325" y="77" font-family="sans-serif" font-size="9" fill="#954f72" text-anchor="middle">Ligne de transmission implicite</text>
+
+            <rect x="50" y="95" width="550" height="65" rx="6" fill="#f5f0e6" stroke="#954f72" stroke-width="2"/>
+            <text x="325" y="118" font-family="sans-serif" font-size="12" font-weight="bold" fill="#954f72" text-anchor="middle">Partie immergée : Formes subtiles et transmises</text>
+            <text x="325" y="138" font-family="sans-serif" font-size="10" fill="#555" text-anchor="middle">Regards méprisants, rires moqueurs, call check, dossiers diffamatoires</text>
+            <text x="325" y="152" font-family="sans-serif" font-size="10" fill="#555" text-anchor="middle">Intériorisation par la victime (perte d'agentivité)</text>
+        </svg>
+    </div>
+
+    <p>Évidemment, les conséquences de l’exclusion sont multiples, mais elles ne sont pas toujours celles auxquelles on pourrait s’attendre. En effet, une personne peut ressentir les effets néfastes des préjugés avant même d’en être la cible directe. Ainsi, certaines personnes évitent délibérément les rencontres avec des professionnels, tels que des agents de soutien financier, des médecins ou des psychologues, pour éviter d’être exposées aux préjugés. La violence symbolique des préjugés est telle que certaines personnes sont prêtes à renoncer à des avantages matériels importants pendant une longue période pour les éviter. De plus, les effets des préjugés peuvent perdurer longtemps après leur manifestation. Les personnes qui subissent régulièrement des préjugés finissent par les anticiper et adopter des comportements visant à les éviter. Par conséquent, même si elles ne sont pas directement confrontées à des attitudes discriminatoires, elles peuvent continuer à ressentir les effets négatifs de ces préjugés. Cependant, la conséquence la plus préoccupante des préjugés en tant que mécanisme d’exclusion est lorsque les individus les intègrent à leur propre vision d’eux-mêmes, au point de perdre de vue leur propre pouvoir d’action et de s’exclure eux-mêmes de la société. En d’autres termes, ils finissent par intérioriser les préjugés et à les considérer comme des vérités incontestables, ce qui peut entraîner une perte de confiance en soi et une réduction de l’agentivité, c’est-à-dire de la capacité d’agir sur leur environnement et de réaliser leurs objectifs. Autrement, lorsque des personnes entrent dans un processus officiel d’accessibilité et d’inclusion sociale, des agents sont assignés, mandatés et mobilisés pour les aider à cheminer. Cependant, il y a des circonstances qui peuvent aussi mener ces agents à user de préjugés pouvant nuire aux personnes qu’ils tentent justement d’accompagner. Dans la majorité des cas, ce ne sont pas des actes de mauvaise foi, car ils savent d’expérience professionnelle que l’exclusion a plusieurs visages. Chez les agents accompagnateurs, les préjugés peuvent apparaître sous plusieurs formes :</p>
+
+    <ul>
+        <li>Dissonance cognitive : certains professionnels peuvent devenir, malgré eux, les représentants des préjugés de la population, la plupart du temps sans rapport avec leurs valeurs personnelles. À ce moment, des acteurs comme les intervenants sociaux, les ambulanciers, les policiers peuvent se sentir entre l’arbre et l’écorce lorsqu’ils font leur devoir. Ils reçoivent de la pression à la fois explicite et implicite pour intervenir auprès de personnes vivant des différences. Un professionnel sans préjugé peut donc ressentir une pression sous forme de dilemme moral en effectuant simplement son travail. Par extension, cette pression peut facilement être mal interprétée comme un « droit » pour certains professionnels de prendre action à partir de préjugés personnels.</li>
+        <li>Indignation : il existe une ambivalence dans la manière de percevoir les personnes ayant des différences, à savoir s’ils méritent leur sort ou s’en sont la victime. Évidemment, il s’agit d’un jugement qui relève de la perception du professionnel, un jugement qui n’a pas sa place dans tout type de relation d’aide. Toutefois, la vision des « mauvaises personnes qui méritent leur malheur » persiste habituellement à cause de réalités qui heurtent trop fortement les valeurs personnelles des professionnels. Par exemple, un professionnel pourrait ressentir une forte indignation face à une mère qui prostitue sa propre fille.</li>
+        <li>Frustrations : travailler auprès d’une population défavorisée est un défi qui aiguise (et parfois épuise) la patience, l’empathie et la contenance de soi. Les interventions souvent répétées par les professionnels ne changent pas forcément les comportements visés et n’améliorent pas nécessairement la condition de vie des gens, ce qui apporte son lot de frustrations. Quand le refoulement de frustration est trop élevé, le risque d’usage des préjugés augmente (soupape de pression), tel un mécanisme exutoire.</li>
+        <li>Usure de compassion : la plupart du temps, les professionnels font montre d’empathie, de compréhension et de jugements moraux constructifs relatif à leur mandat. Cependant, il arrive que les professionnels ressentent l’usure de la compassion. Cette usure se comprend comme une démoralisation généralisée à force d’intervenir dans les pires situations et d’observer les difficultés que les gens éprouvent à sortir de leur situation. Par exemple, cette usure peut mener à des réflexions de découragement : « mon intervention ne sert à rien, ils retournent toujours dans leur situation difficile ! ».</li>
+        <li>Rituels de clan : comme pour tous êtres humains, les professionnels sont des animaux sociaux. Dans la majorité des milieux professionnels, il existe des discours de connivence, soit des pensées disgracieuses empreintes de préjugés, qui servent de discours exutoire en dehors des contextes formels de travail. Il s’agit souvent d’un humour noir qui peut banaliser des conditions de vie difficile rencontrées lors d’intervention. Cela a pour fonction de dédramatiser la nature difficile des interventions, une sorte de rituel de clan, voire de thérapie, pour reconnaître que chacun fait face à l’adversité. Le fait que ces pensées et commentaires peuvent exister, de manière circonstancielle, n’empêche pas les professionnels de faire leur devoir. Néanmoins, il demeure inconvenant de faire allusion à ce répertoire d’humour, qui est de plus en plus relégué à l’index.</li>
+    </ul>
+
+    <p>Il ne faut pas omettre que les personnes vivant des différences peuvent également nourrir des préjugés contre les professionnels et aussi tenir des propos insultants et injurieux. Par exemple, des policiers peuvent être qualifiés de paresseux et corrompus ou des médecins accusés d’être hautains avec leurs patients. Dans ces situations, le défi des professionnels consiste à ne pas sombrer dans la vengeance du talion, c’est-à-dire répondre par d’autres préjugés. Concrètement, les préjugés sont basés sur un jugement inconsidéré, rapide et irrationnel d’une personne en fonction de son appartenance à un groupe<a class="sdfootnoteanc" name="sdfootnote10anc" href="#sdfootnote10sym"><sup>10</sup></a>. Ils sont généralement utilisés pour juger une personne avant même de la connaître, en imposant des idées préconçues sur sa personnalité, son comportement, ses opinions et ses expériences. Les préjugés, comme toutes les représentations sociales, sont liés à des schémas de pensée et de valeurs qui défendent une vision du monde et un mode de comportement. Et l’un des indices les plus couramment utilisés pour porter des jugements est sans aucun doute l’apparence.</p>
+
+    <p>En revanche, les préjugés ne sont pas fondés sur la réalité, mais sur des stéréotypes et des généralisations inexactes. Ils peuvent entraîner des conséquences néfastes pour les individus qui en sont victimes, les empêchant de réaliser leur plein potentiel et de contribuer pleinement à la société. Les préjugés peuvent également contribuer à perpétuer des inégalités sociales en discriminant certains groupes de personnes sur la base de caractéristiques telles que leur origine ethnique, leur genre ou leur orientation sexuelle.</p>
+
+    <h2 class="section-title">Conclusion<br><span style="font-size: 1.1rem; font-weight: normal; color: #555;">La représentation sociale idéale est un frein à l’inclusion</span></h2>
+
+    <p>Avant de réitérer les effets des préjugés sur autrui, il est bon de rappeler que les jugements que nous portons sur notre propre apparence sont la plupart du temps très sévères. De plus, à l’ère des sociétés contemporaines, la personne est souvent réduite à ce qu’elle produit comme image d’elle-même<a class="sdfootnoteanc" name="sdfootnote11anc" href="#sdfootnote11sym"><sup>11</sup></a>. Bien entendu, l’entité humaine n’est pas qu’une image, mais cette dernière est maintenant considérée comme une donnée essentielle dans le jugement d’autrui, en grande partie en raison de la rapidité de nos interactions sociales dans la gestion des nombreux liens à entretenir face à une multitude de réseaux sociaux et au développement des technologies de l’information<a class="sdfootnoteanc" name="sdfootnote12anc" href="#sdfootnote12sym"><sup>12</sup></a>. Cela ne signifie pas que l’image n’était pas importante antérieurement pour juger autrui, mais la place qu’elle occupe est plus prépondérante aujourd’hui. Dans ses interactions, l’individu est donc souvent réduit à l’image d’un corps, en l’occurrence le sien, faute de temps. L’image de soi devient le raccourci par lequel l’individu existe et se reconstruit aux yeux des autres.</p>
+
+    <p>Par exemple, l’image qu’une personne a d’elle-même est en réalité une combinaison interactive entre une référence idéelle, le jugement de son reflet dans le miroir et ce qu’elle interprète du regard des autres sur cette même apparence. Cette combinaison a des effets déterminants sur l’attitude d’un individu<a class="sdfootnoteanc" name="sdfootnote13anc" href="#sdfootnote13sym"><sup>13</sup></a>. Il le ressent jusque dans son corps. En fait, la représentation de la posture à laquelle une personne s’identifie possède une grande importance. L’attitude engendrée par l’image de référence conditionne plusieurs muscles qui organisent le tonus du corps<a class="sdfootnoteanc" name="sdfootnote14anc" href="#sdfootnote14sym"><sup>14</sup></a>, et invariablement associée à un modèle, cette image de référence constitue la quintessence d’une motivation qui est celle à laquelle la personne souhaite ressembler. Lorsqu’une personne a une bonne estime d’elle-même, cela peut être le signe qu’elle s’est rapprochée de son idéal de soi, qui est souvent influencé par les médias et les normes culturelles. En l’occurrence, les technologies de l’information et de la communication peuvent être considérées comme des extensions de notre corps, nous permettant de voir, d’entendre, de sentir et de penser de manière plus efficace et interactive, ce qui peut nous donner l’impression de participer activement à notre environnement.</p>
+
+    <p>L’expression corporelle est en effet influencée par la culture et la génération d’une personne. L’attitude, la façon dont une personne se meut, et les vêtements portés peuvent être interprétés différemment en fonction du contexte culturel et social dans lequel ils sont affichés. De plus, les perceptions et les jugements sur l’apparence physique d’une personne sont souvent influencés par les normes et les idéaux de beauté de la société à laquelle elle appartient. En outre, la valorisation ou le dénigrement d’une apparence physique peut être lié à des aspects identitaires tels que les valeurs, le groupe d’appartenance et les souvenirs significatifs. Les individus peuvent ainsi projeter leurs propres sentiments et expériences sur l’apparence physique des autres, ce qui peut parfois conduire à des jugements injustes ou à des préjugés.</p>
+
+    <p>Autrement dit, les personnes qui affichent une différence physique et/ou culturelle vivent nécessairement des difficultés d’intégration, notamment parce qu’ils sont conscients qu’ils ne s’approchent que difficilement du modèle idéal partagé par la majorité des groupes qu’ils tentent d’intégrer, mais aussi parce que ces derniers activent des mécanismes culturels de défense en rapport avec la conservation de l’identité du groupe. Le jugement hâtif des apparences peut être le résultat d’un apprentissage, d’une éducation ou d’une socialisation, mais il existe essentiellement pour maintenir la peur du danger face à l’inconnu. On peut apprendre à craindre des symboles ou des signes distinctifs, mais c’est l’anticipation des risques liés aux signes qui motive le jugement. Prise dans un paradoxe tautologique, la crainte de l’inconnu se trouve plus dans la reproduction des préjugés, des clichés et des stéréotypes et moins dans les actions de ceux qui sont considérés comme différents. Ceux qui côtoient les personnes qui affichent des différences constatent finalement que ces dernières sont comme eux, avec des sentiments et des appréhensions similaires.</p>
+
+    <p>L’utilisation des préjugés est souvent un raccourci qui permet de catégoriser et de classer rapidement un individu en fonction de ses caractéristiques sociales, afin de prendre une décision et d’adopter une attitude dans un contexte précis. Les préjugés sont donc des mécanismes de défense qui visent à protéger les valeurs socialement admises et à rappeler aux autres les peurs qui constituent les contours ou les frontières de ce qui est à protéger. En d’autres termes, les individus perpétuent et socialisent les peurs qu’ils ont intégrées pour éviter les regards accusateurs de leurs semblables. Ce mécanisme de protection fait partie intégrante de la culture de toute société, car ce qui se situe à l’extérieur des normes sociales informellement admises (ce qui n’est pas dit en public, mais idéologiquement partagé par les groupes dominants à différents niveaux) est considéré comme marginal, déviant, différent et, de facto, exclu. Comme nous l’avons mentionné précédemment, il est possible de considérer ce mécanisme en termes de rapport de force entre les groupes. Sans entrer dans les méandres théoriques de Michel Foucault, il est important de rappeler que ce rapport culturel à la différence est inhérent à l’espèce humaine et que peu importe les groupes en contact, il y aura constamment, et de manière itérative, des enjeux de déconstruction des préjugés.</p>
+
+    <!-- Références bibliographiques -->
+    <div class="references-section">
+        <h3>RÉFÉRENCES BIBLIOGRAPHIQUES</h3>
+        <p>Allport, G.W., Clark, K., Pettigrew, T. (1954), <em>The nature of prejudice</em>, Reading - MA : Addison-Wesley.</p>
+        <p>Bernard, O. (2021), <em>Quand l’image du corps est une prérogative sociale. Une exploration sociologique de l’apparence.</em> Québec : Presses de l’Université Laval, 172 pages.</p>
+        <p>Bernard, O., Lizotte, M., Marois, A. (2020), <em>Les préjugés à l’égard des personnes en situation de pauvreté et leurs impacts sur l’exclusion sociale au Québec</em>, Département de sociologie de l’Université Laval, École d’études sociologiques et anthropologique de l’Université d’Ottawa et Centre d’étude sur la pauvreté et l’exclusion sociale (CEPE), 137 pages.</p>
+        <p>Castells, M. (2001), <em>La société en réseaux</em>, Paris : Fayard, 670 pages.</p>
+        <p>CEPE – Centre d’étude sur la pauvreté et l’exclusion (2014), <em>L’exclusion sociale : construire avec celles et ceux qui la vivent. Vers des pistes d’indicateurs d’exclusion sociale à partir de l’expérience de personnes en situation de pauvreté</em>, Ministère de l’Emploi et de la Solidarité sociale, Canada (Québec), URL : <a href="https://tinyurl.com/2p85sjfm">https://tinyurl.com/2p85sjfm</a>.</p>
+        <p>Dumont, F. (2008 [1968]), « <em>Le lieu de l’homme</em> », dans Œuvres complètes de Fernand Dumont ; <em>Philosophie et sciences de la culture</em>, tome 1, Québec : Presses de l’Université Laval (PUL), pp. 1-160.</p>
+        <p>Harvey, J.-F. (2013), <em>Courir mieux</em>, Québec : Éditions de l’Homme, 312 pages.</p>
+        <p>Jodelet D. (1994), « <em>Représentations sociales : un domaine en expansion</em> », dans Jodelet Denise, <em>Les représentations sociales</em>, Paris : Presses Universitaire de France (PUF), pp. 31-61.</p>
+        <p>Rosa, H. (2010), <em>Accélération. Une critique sociale du temps</em>, Paris : La Découverte, 480 pages.</p>
+        <p>Vallerand, R. J., Losier, G. F. (1994), « Le soi en psychologie sociale : perspectives classiques et contemporaines », dans Robert J. Vallerand (dir.), <em>Les fondements de la psychologie sociale</em>, Boucherville : Gaëtan Morin, pp. 121-192.</p>
+    </div>
+
+    <!-- Notes de bas de page -->
+    <div class="footnotes-section">
+        <h3>NOTES</h3>
+        <div id="sdfootnote1"><p><a class="sdfootnotesym" name="sdfootnote1sym" href="#sdfootnote1anc">1</a> Dumont, F. (2008 [1968]), « <em>Le lieu de l’homme</em> », dans Œuvres complètes de Fernand Dumont, <em>Philosophie et sciences de la culture</em>, tome 1, Québec : Presses de l’Université Laval (PUL), 160 p.</p></div>
+        <div id="sdfootnote2"><p><a class="sdfootnotesym" name="sdfootnote2sym" href="#sdfootnote2anc">2</a> <a href="https://youtu.be/f4-uWAq9wOE">https://youtu.be/f4-uWAq9wOE</a>.</p></div>
+        <div id="sdfootnote3"><p><a class="sdfootnotesym" name="sdfootnote3sym" href="#sdfootnote3anc">3</a> Ces comportements culturels peuvent varier considérablement d’une personne à l’autre, en fonction de facteurs tels que l’éducation, la religion, la géographie, la classe sociale et l’histoire personnelle.</p></div>
+        <div id="sdfootnote4"><p><a class="sdfootnotesym" name="sdfootnote4sym" href="#sdfootnote4anc">4</a> Castells, M. (2001), <em>La société en réseaux</em>, Paris : Fayard, 670 pages.</p></div>
+        <div id="sdfootnote5"><p><a class="sdfootnotesym" name="sdfootnote5sym" href="#sdfootnote5anc">5</a> CEPE – Centre d’étude sur la pauvreté et l’exclusion (2014), <em>L’exclusion sociale : construire avec celles et ceux qui la vivent...</em>, Ministère de l’Emploi et de la Solidarité sociale, Canada (Québec), p. 10, URL : <a href="https://tinyurl.com/2p85sjfm">https://tinyurl.com/2p85sjfm</a>.</p></div>
+        <div id="sdfootnote6"><p><a class="sdfootnotesym" name="sdfootnote6sym" href="#sdfootnote6anc">6</a> Bernard, O., Lizotte, M., Marois, A. (2020), <em>Les préjugés à l’égard des personnes en situation de pauvreté et leurs impacts sur l’exclusion sociale au Québec</em>, Département de sociologie de l’Université Laval...</p></div>
+        <div id="sdfootnote7"><p><a class="sdfootnotesym" name="sdfootnote7sym" href="#sdfootnote7anc">7</a> <em>Idem</em>.</p></div>
+        <div id="sdfootnote8"><p><a class="sdfootnotesym" name="sdfootnote8sym" href="#sdfootnote8anc">8</a> Jodelet D. (1994), « <em>Représentations sociales : un domaine en expansion</em> », dans Jodelet Denise, <em>Les représentations sociales</em>, Paris : Presses Universitaire de France (PUF), pp. 31-61.</p></div>
+        <div id="sdfootnote9"><p><a class="sdfootnotesym" name="sdfootnote9sym" href="#sdfootnote9anc">9</a> Bernard, O., Lizotte, M., Marois, A. (2020), <em>op. cit</em>.</p></div>
+        <div id="sdfootnote10"><p><a class="sdfootnotesym" name="sdfootnote10sym" href="#sdfootnote10anc">10</a> Allport, G. W., Clark, K., Pettigrew, T. (1954), <em>The nature of prejudice</em>, Reading – MA : Addison-Wesley.</p></div>
+        <div id="sdfootnote11"><p><a class="sdfootnotesym" name="sdfootnote11sym" href="#sdfootnote11anc">11</a> Bernard, O. (2021). <em>Quand l’image du corps est une prérogative sociale. Une exploration sociologique de l’apparence.</em> Québec (Canada) : Presses de l’Université Laval, 172 pages.</p></div>
+        <div id="sdfootnote12"><p><a class="sdfootnotesym" name="sdfootnote12sym" href="#sdfootnote12anc">12</a> Rosa, H. (2010), <em>Accélération. Une critique sociale du temps</em>, Paris : La Découverte, 480 pages.</p></div>
+        <div id="sdfootnote13"><p><a class="sdfootnotesym" name="sdfootnote13sym" href="#sdfootnote13anc">13</a> Vallerand, R. J., Losier, G. F. (1994), « Le soi en psychologie sociale : perspectives classiques et contemporaines », dans Robert J. Vallerand (dir.), <em>Les fondements de la psychologie sociale</em>, Boucherville : Gaëtan Morin, p. 121-192.</p></div>
+        <div id="sdfootnote14"><p><a class="sdfootnotesym" name="sdfootnote14anc" href="#sdfootnote14anc">14</a> Harvey, J.-F. (2013), <em>Courir mieux</em>, Québec : Éditions de l’Homme, 312 pages.</p></div>
+    </div>
+
+</div>
+
+</body>
+</html>
