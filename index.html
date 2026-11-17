@@ -392,7 +392,8 @@
         }
 
         .modal-container {
-            background-color: #fff;
+            background-color: #f2ede4;
+            color: #7b2d2d;
             width: 95%;
             max-width: 1400px;
             height: 90vh;
@@ -405,24 +406,25 @@
 
         .modal-header {
             padding: 1.25rem 2rem;
-            background-color: var(--primary-color);
-            color: #fff;
+            background-color: #7b2d2d;
+            color: #f2ede4;
             display: flex;
             justify-content: space-between;
             align-items: center;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
-        .modal-title { font-size: 1.1rem; font-weight: 500; }
+        .modal-title { font-size: 1.1rem; font-weight: 500; color: #f2ede4; }
 
         .modal-close {
-            background: none; border: none; color: #fff;
+            background: none; border: none; color: #f2ede4;
             font-size: 1.75rem; cursor: pointer; line-height: 1;
         }
 
         .modal-body {
             flex: 1;
-            background-color: #1a202c;
+            background-color: #f2ede4;
+            color: #7b2d2d;
             display: flex;
             overflow: hidden;
         }
@@ -434,8 +436,8 @@
         }
 
         .proposal-body {
-            background-color: #FAF6EF;
-            color: var(--text-color);
+            background-color: #f2ede4;
+            color: #7b2d2d;
             padding: 2rem;
             overflow-y: auto;
             display: block;
@@ -451,18 +453,19 @@
             font-weight: 600;
             margin-bottom: 0.5rem;
             font-size: 0.9rem;
-            color: var(--primary-color);
+            color: #7b2d2d;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
             padding: 0.75rem;
-            border: 1px solid var(--border-color);
+            border: 1px solid #d4c5b9;
             border-radius: 4px;
             font-family: inherit;
             font-size: 0.95rem;
             background-color: #fff;
+            color: #7b2d2d;
         }
 
         .form-group textarea {
@@ -471,8 +474,8 @@
         }
 
         .form-submit-btn {
-            background-color: var(--primary-color);
-            color: #fff;
+            background-color: #7b2d2d;
+            color: #f2ede4;
             border: none;
             padding: 0.75rem 1.5rem;
             font-size: 1rem;
@@ -484,7 +487,7 @@
         }
 
         .form-submit-btn:hover {
-            background-color: #2d3748;
+            background-color: #5e2222;
         }
 
         .pdf-frame, .video-frame {
@@ -517,8 +520,8 @@
 
         .playlist-sidebar {
             flex: 1;
-            background-color: #1a202c;
-            border-left: 1px solid #2d3748;
+            background-color: #f2ede4;
+            border-left: 1px solid #d4c5b9;
             padding: 1.5rem;
             overflow-y: auto;
             display: flex;
@@ -528,7 +531,7 @@
         }
 
         .playlist-sidebar h3 {
-            color: #e2e8f0;
+            color: #7b2d2d;
             font-size: 1rem;
             margin-bottom: 0.5rem;
             font-weight: 600;
@@ -537,8 +540,8 @@
         }
 
         .playlist-item {
-            background-color: #2d3748;
-            color: #cbd5e0;
+            background-color: #e6ded3;
+            color: #7b2d2d;
             padding: 0.75rem 1rem;
             border-radius: 4px;
             text-decoration: none;
@@ -549,21 +552,21 @@
         }
 
         .playlist-item:hover {
-            background-color: #4a5568;
-            color: #ffffff;
+            background-color: #d8cbbd;
+            color: #5e2222;
         }
 
         .playlist-item.active {
-            background-color: #3182ce;
-            color: #ffffff;
-            border-color: #63b3ed;
+            background-color: #7b2d2d;
+            color: #f2ede4;
+            border-color: #9c3a3a;
             font-weight: 500;
         }
 
         @media (max-width: 1200px) {
             .grid-container { grid-template-columns: repeat(2, 1fr); }
             .playlist-layout { flex-direction: column; }
-            .playlist-sidebar { height: 250px; border-left: none; border-top: 1px solid #2d3748; }
+            .playlist-sidebar { height: 250px; border-left: none; border-top: 1px solid #d4c5b9; }
             .header-container { grid-template-columns: 1fr; gap: 2rem; }
             .header-right { border-left: none; border-top: 1px solid var(--border-color); padding-left: 0; padding-top: 2rem; }
         }
