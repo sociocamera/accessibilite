@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; frame-src https://drive.google.com; connect-src https://script.google.com; object-src 'none';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; frame-src https://drive.google.com; connect-src https://script.google.com https://api.web3forms.com; object-src 'none';">
     <title>Inclusion sociale et accessibilité | Revue de Sociologie Visuelle</title>
     <meta name="description" content="Numéro spécial de la Revue de Sociologie Visuelle consacré à l'inclusion sociale et à l'accessibilité. Contributions empiriques et théoriques dirigées par François Routhier et Pierre Fraser.">
     <meta name="keywords" content="inclusion sociale, accessibilité, sociologie visuelle, handicap, transport urbain, éducation inclusive, CIRRIS, PSVI">
@@ -51,6 +51,8 @@
             --card-bg: #FAF6EF;
             --hover-border: #cbd5e0;
             --max-width: 1400px;
+            --sidebar-width: 320px;
+            --topbar-height: 60px;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -61,8 +63,266 @@
             color: var(--text-color);
             line-height: 1.7;
             display: flex;
-            flex-direction: column;
             min-height: 100vh;
+        }
+
+        /* Barre horizontale permanente supérieure : toute la largeur de la page */
+        .top-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--topbar-height);
+            background-color: var(--bg-color);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2.5rem;
+            z-index: 1100;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .top-navbar-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            letter-spacing: 0.02em;
+        }
+
+        .top-navbar-random-article {
+            font-size: 0.88rem;
+            font-weight: normal;
+            color: var(--primary-color);
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 50%;
+            padding: 0 1rem;
+        }
+
+        .top-navbar-random-article a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: normal;
+            transition: color 0.2s;
+        }
+
+        .top-navbar-random-article a:hover {
+            color: #7a2222;
+            text-decoration: underline;
+        }
+
+        .top-navbar-location {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            background-color: #f2ede4;
+            padding: 0.3rem 0.75rem;
+            border-radius: 4px;
+        }
+
+        /* Colonne latérale gauche permanente sous la barre fixe du haut */
+        aside.sidebar {
+            position: fixed;
+            top: var(--topbar-height);
+            left: 0;
+            width: var(--sidebar-width);
+            height: calc(100vh - var(--topbar-height));
+            background-color: #f5f0e6;
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            z-index: 1000;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            overflow-y: auto;
+        }
+
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .btn-home {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            background-color: #7a2222;
+            color: #fff;
+            border: none;
+            padding: 0.85rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        .btn-home svg {
+            position: absolute;
+            left: 1rem;
+        }
+
+        .btn-home:hover {
+            background-color: #5e1a1a;
+        }
+
+        /* Styles pour les blocs d'information et éditeurs dans la sidebar */
+        .sidebar-info-section {
+            padding: 1rem 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .sidebar-card {
+            background-color: #FAF6EF;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 0.85rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            text-align: justify;
+        }
+
+        .sidebar-card.editor-card {
+            flex-direction: row;
+            align-items: center;
+            gap: 0.75rem;
+            text-align: left;
+        }
+
+        .sidebar-card img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid var(--border-color);
+            flex-shrink: 0;
+        }
+
+        .editor-info h4 {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            margin-bottom: 0.15rem;
+        }
+
+        .editor-info p {
+            font-size: 0.78rem;
+            color: var(--accent-color);
+            line-height: 1.4;
+        }
+
+        /* Style pour les deux boutons côte à côte sous les éditeurs (Aligné sur le style de .nav-btn) */
+        .sidebar-proposal-buttons {
+            display: flex;
+            gap: 0.5rem;
+            padding: 0 1.25rem 1rem 1.25rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .btn-sidebar-half {
+            flex: 1;
+            background: transparent;
+            color: var(--primary-color);
+            border: 1px solid var(--border-color);
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .btn-sidebar-half:hover {
+            background-color: #eae3d5;
+            border-color: var(--hover-border);
+        }
+
+        .sidebar-nav {
+            padding: 1.25rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            flex: 1;
+        }
+
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--primary-color);
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-align: left;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            background-color: #eae3d5;
+            border-color: var(--hover-border);
+        }
+
+        .nav-btn.active {
+            background-color: var(--primary-color);
+            color: #fff;
+            border-color: var(--primary-color);
+        }
+
+        /* Sous-menu déployable pour Penser l'accessibilité et Bilans */
+        .submenu {
+            display: none;
+            flex-direction: column;
+            gap: 0.4rem;
+            padding-left: 1rem;
+            margin-top: -0.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .submenu.open {
+            display: flex;
+        }
+
+        .submenu-item {
+            font-size: 0.82rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            padding: 0.4rem 0.75rem;
+            border-radius: 4px;
+            transition: background-color 0.15s, color 0.15s;
+            border-left: 2px solid #d4c5b9;
+        }
+
+        .submenu-item:hover {
+            background-color: #eae3d5;
+            color: var(--primary-color);
+            border-left-color: var(--primary-color);
+        }
+
+        /* Contenu principal décalé pour laisser place à la sidebar et topbar */
+        .main-wrapper {
+            margin-left: var(--sidebar-width);
+            margin-top: var(--topbar-height);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            width: calc(100% - var(--sidebar-width));
         }
 
         header {
@@ -244,7 +504,10 @@
             padding: 4rem 2rem;
         }
 
-        .theme-section { margin-bottom: 5rem; }
+        .theme-section { 
+            margin-bottom: 5rem; 
+            scroll-margin-top: calc(var(--topbar-height) + 2rem); 
+        }
 
         .theme-title {
             font-size: 1.75rem;
@@ -385,7 +648,7 @@
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             background-color: rgba(0, 0, 0, 0.75);
-            z-index: 1000;
+            z-index: 2000;
             justify-content: center;
             align-items: center;
             padding: 1.5rem;
@@ -564,6 +827,11 @@
         }
 
         @media (max-width: 1200px) {
+            :root { --sidebar-width: 0px; }
+            .top-navbar { left: 0; padding: 0 1.5rem; }
+            aside.sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
+            aside.sidebar.mobile-open { transform: translateX(0); }
+            .main-wrapper { margin-left: 0; width: 100%; }
             .grid-container { grid-template-columns: repeat(2, 1fr); }
             .playlist-layout { flex-direction: column; }
             .playlist-sidebar { height: 250px; border-left: none; border-top: 1px solid #d4c5b9; }
@@ -583,330 +851,401 @@
 </head>
 <body>
 
-    <header>
-        <div class="header-container">
-            <div class="header-left">
-                <span class="header-badge">Recherche académique</span>
-                <h1>Inclusion sociale | Accessibilité</h1>
-                <p class="header-description">
-                    L'accessibilité ne saurait se réduire à une simple mise aux normes technique ou architecturale ; elle constitue le révélateur profond des structures politiques, symboliques et relationnelles qui régissent l'espace public et l'autonomie des sujets. À travers cette collection de contributions empiriques et théoriques, chaque article consigne une facette de cette mise en tension entre les prescriptions normatives de la cité et la réalité des parcours individuels.
-                </p>
-                <div class="header-meta">
-                    DOI : <a href="https://doi.org/10.13140/RG.2.2.35504.53768" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">10.13140/RG.2.2.35504.53768</a>
-                </div>
-                <div class="header-actions">
-                    <button class="btn-header" onclick="openModal('video', 'Présentation introductive — Vidéo', 'https://drive.google.com/file/d/10Va3etjn9wZIqrVnByyNXDVM-XPKOHkK/preview?autoplay=1')">Visionner la vidéo de présentation</button>
-                    <button class="btn-header secondary" onclick="openModal('pdf', 'Télécharger le numéro complet', 'https://drive.google.com/file/d/1d3ZUnnEwYomQ1VRQ1lF8XNei88HelQvy/preview')">Télécharger le numéro</button>
-                </div>
-            </div>
+    <!-- Barre horizontale permanente supérieure : toute la largeur -->
+    <div class="top-navbar">
+        <div class="top-navbar-title">Revue Sociologie Visuelle</div>
+        <div class="top-navbar-random-article" id="randomArticleContainer"></div>
+        <div class="top-navbar-location" id="locationIndicator">Accueil</div>
+    </div>
 
-            <div class="header-right">
-                <div class="header-right-content">
-                <span class="header-badge"><a href="https://www.amazon.ca/-/fr/dp/B08RSQGRZ2?binding=paperback&ref=dbs_dp_rwt_sb_pc_tpbk" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">Revue Sociologie visuelle</a></span>
-                    <p class="header-right-text">
-                        Plus de 18 équipes de recherche mobilisées afin de saisir comment le milieu façonne et articule l'accès aux services et à l'inclusion sociale.
-                    </p>
-                    <div class="header-right-codirection">
-                        Éditeurs : François Routhier et Pierre Fraser<br>Coéditeurs : Olivier Bernard et Véronique Leclerc
-                    </div>
-                    <button class="btn-proposal" onclick="openProposalModal()">Proposer un projet ou un article</button>
-                </div>
-                <div class="coeditors-logos">
-                    <a href="https://cirris.ulaval.ca/" target="_blank" rel="noopener noreferrer"><img src="https://lh3.googleusercontent.com/d/1lBdhyn1RoasbVr4r5sH2_6GJnwe7idaN" alt="Logo du CIRRIS"></a>
-                    <a href="https://villesinclusives.org/" target="_blank" rel="noopener noreferrer"><img src="https://lh3.googleusercontent.com/d/1GqDiMMMP4O_pO7HgCDOECAdPbuHRUCHP" alt="Logo du PSVI"></a>
+    <!-- Colonne latérale gauche permanente sous la barre fixe -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="#" class="btn-home" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                INCLUSION SOCIALE
+            </a>
+        </div>
+
+        <!-- 4 cases demandées sous le bouton -->
+        <div class="sidebar-info-section">
+
+<div style="font-size: 0.72rem; color: #718096; text-align: left; margin-bottom: 0.05rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+    DOI : <a href="https://doi.org/10.13140/RG.2.2.35504.53768" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; opacity: 0.85;">10.13140/RG.2.2.35504.53768</a>
+</div>
+
+            <!-- Deuxième case : Premier éditeur (François Routhier) -->
+            <div class="sidebar-card editor-card">
+                <div class="editor-info">
+                    <h4>Éditeurs</h4>
+                    <p><b>François Routhier & Pierre Fraser</b></p>
+                    <p>Plus de 18 équipes de recherche mobilisées afin de saisir comment le milieu façonne et articule l'accès aux services et à l'inclusion sociale.</p>
                 </div>
             </div>
         </div>
-    </header>
 
-    <main>
-        <section class="theme-section">
-            <h2 class="theme-title">1. Espace urbain, transports et architecture</h2>
-            <div class="grid-container">
-                <article class="article-card" id="article-tramway-quebec">
-                    <div class="article-media">
-                        <img src="https://lh3.googleusercontent.com/d/1l40ElVyZ0EqKojM3e8ZS9VSpK8tUw8I1" alt="Illustration du tramway de Québec et de l'aménagement urbain">
-                    </div>
-                    <div class="article-content">
-                        <div class="article-doi">Mobilité urbaine</div>
-                        <h3 class="article-title">Le tramway de Québec : transformer la ville pour la rendre plus inclusive</h3>
-                        <p class="article-summary">Analyse des enjeux sociopolitiques, territoriaux et urbanistiques liés à l'implantation d'un système de transport structurant pour repenser l'accessibilité globale dans la capitale.</p>
-                        <div class="article-actions">
-                            <button class="btn-modal" onclick="openModal('pdf', 'Le tramway de Québec : transformer la ville pour la rendre plus inclusive', 'https://drive.google.com/file/d/14oLWBk3XNfmzeI_kQznXgmsFdWUeqXMR/preview')">Lire le PDF</button>
-                        </div>
-                    </div>
-                </article>
+        <!-- Deux boutons côte à côte sous la case des éditeurs -->
+        <div class="sidebar-proposal-buttons">
+            <button class="btn-sidebar-half" onclick="openProposalModal('captation')">Proposer une captation ou un article</button>
+        </div>
 
-                <article class="article-card" id="article-handicaps-transports">
-                    <div class="article-media">
-                        <img src="https://lh3.googleusercontent.com/d/1rYflEw0cdSTVhyj6ya-K-zXeTZbIDV7b?auto=format&fit=crop&w=600&q=80" alt="Réseaux de transports urbains et accessibilité">
-                    </div>
-                    <div class="article-content">
-                        <div class="article-doi">Mobilité et territoire</div>
-                        <h3 class="article-title">Handicaps et transports urbains</h3>
-                        <p class="article-summary">Examen des barrières systémiques dans les réseaux de transport en commun et pistes d'amélioration pour la mobilité autonome.</p>
-                        <div class="article-actions">
-                            <button class="btn-modal" onclick="openModal('pdf', 'Handicaps et transports urbains', 'https://drive.google.com/file/d/1GNAMRMocC2ixLvWrsfwkHr9yHh-No2K8/preview')">Lire le PDF</button>
-                            <button class="btn-modal video-btn" onclick="openModal('playlist-transport', 'Handicaps et transports urbains — Vidéos', '')">Vidéos</button>
-                        </div> 
-                    </div>
-                </article>
+        <div class="sidebar-nav">
 
-                <article class="article-card" id="article-monuments-capacitisme">
-                    <div class="article-media">
-                        <img src="https://lh3.googleusercontent.com/d/1hfB8ne3eTSmA9MiTkBZ2K-zv8GBf5GNH?auto=format&fit=crop&w=600&q=80" alt="Architecture et monuments publics">
-                    </div>
-                    <div class="article-content">
-                        <div class="article-doi">Analyse critique</div>
-                        <h3 class="article-title">Monuments au capacitisme</h3>
-                        <p class="article-summary">Réflexion critique sur l'architecture monumentale et les symboles urbains qui perpétuent l'exclusion physique et sociale.</p>
-                        <div class="article-actions">
-                            <button class="btn-modal" onclick="openModal('pdf', 'Monuments au capacitisme', 'https://drive.google.com/file/d/1WRPL5qCCaF1_ObT4Um2ZFVXpj2uG6Kih/preview')">Lire le PDF</button>
-                        </div>
-                    </div>
-                </article>
+            <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: #7a2222; letter-spacing: 0.05em; margin-bottom: 0.5rem; padding-left: 0.25rem;">NAVIGATION SUR LE SITE</div>
+
+            <div>
+                <button class="nav-btn" onclick="toggleSubmenu(event)">
+                    <span>Penser l'accessibilité</span>
+                    <svg id="submenuArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu" id="accessibilitySubmenu">
+                    <a href="#theme-1" class="submenu-item">1. Espace urbain & transports</a>
+                    <a href="#theme-2" class="submenu-item">2. Éducation & institutions</a>
+                    <a href="#theme-3" class="submenu-item">3. Travail, autonomie & loisirs</a>
+                    <a href="#theme-4" class="submenu-item">4. Expérience vécue & stigmates</a>
+                </div>
             </div>
-        </section>
 
-        <section class="theme-section">
-            <h2 class="theme-title">2. Éducation, langues et institutions scolaires</h2>
-            <div class="grid-container">
-                <article class="article-card" id="article-kelly-anne">
-                    <div class="article-media">
-                        <img src="https://lh3.googleusercontent.com/d/1HXLLg-FeMBjRSwApTmGB08YiwSY2Z2fc?auto=format&fit=crop&w=600&q=80" alt="Élève pratiquant la langue des signes en classe">
-                    </div>
-                    <div class="article-content">
-                        <div class="article-doi">Linguistique et éducation</div>
-                        <h3 class="article-title">Dans la classe de Kelly-Anne, élève sourde signeure</h3>
-                        <p class="article-summary">Immersion sociolinguistique dans le quotidien d'une élève pratiquant la Langue des Signes Québécoise au sein d'un établissement régulier.</p>
-                        <div class="article-actions">
-                            <button class="btn-modal" onclick="openModal('pdf', 'Dans la classe de Kelly-Anne', 'https://drive.google.com/file/d/1uYfS2OkLDLDnIKvXWSkyvnizs1R4qvqB/preview')">Lire le PDF</button>
-                            <button class="btn-modal video-btn" onclick="openModal('kelly-anne-playlist', 'Dans la classe de Kelly-Anne — Vidéos', '')">Vidéos</button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="article-card" id="article-implants-cochleaires">
-                    <div class="article-media">
-                        <img src="https://lh3.googleusercontent.com/d/1DpRYkpL3qLNlDKeWZDaTbvyBIGHxswpZ?auto=format&fit=crop&w=600&q=80" alt="Technologie d'implants cochléaires en milieu scolaire">
-                    </div>
-                    <div class="article-content">
-                        <div class="article-doi">Technologie et audition</div>
-                        <h3 class="article-title">Implants cochléaires : enjeux et défis en milieu scolaire</h3>
-                        <p class="article-summary">Évaluation des dynamiques d'intégration auditive et des adaptations acoustiques requises pour les enfants appareillés.</p>
-                        <div class="article-actions">
-                            <button class="btn-modal" onclick="openModal('pdf', 'Implants cochléaires', 'https://drive.google.com/file/d/1RVsDkIeJkqyH6S9TKLMDPVRQxJfG5MU-/preview')">Lire le PDF</button>
-                            <button class="btn-modal video-btn" onclick="openModal('implants-playlist', 'Implants cochléaires — Vidéos', '')">Vidéos</button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="article-card" id="article-biblio-inclusive">
-                    <div class="article-media">
-                        <img src="https://lh3.googleusercontent.com/d/1B00FQSRh0u5UBEkv8ng7AJJ5J8khc9xc?auto=format&fit=crop&w=600&q=80" alt="Bibliothèque scolaire inclusive">
-                    </div>
-                    <div class="article-content">
-                        <div class="article-doi">Étude institutionnelle</div>
-                        <h3 class="article-title">Co-conception d'une bibliothèque scolaire inclusive</h3>
-                        <p class="article-summary">Réflexion méthodologique sur l'aménagement participatif des espaces documentaires scolaires ouverts à la diversité fonctionnelle.</p>
-                        <div class="article-actions">
-                            <button class="btn-modal" onclick="openModal('pdf', 'Co-conception d\'une bibliothèque scolaire inclusive', 'https://drive.google.com/file/d/1RlqcLdIKPu0c4wLh5n-dCSVUAtn33631/preview')">Lire le PDF</button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="article-card" id="article-classe-inclusive">
-                    <div class="article-media">
-                        <img src="https://lh3.googleusercontent.com/d/1KKDYo2TOaYdY9tFAkhOHc7jbjUhXyCSP?auto=format&fit=crop&w=600&q=80" alt="Aménagement d'une salle de classe inclusive">
-                    </div>
-                    <div class="article-content">
-                        <div class="article-doi">Pédagogie et espace</div>
-                        <h3 class="article-title">Co-conception d'une salle de classe inclusive</h3>
-                        <p class="article-summary">Examen des critères architecturaux et pédagogiques nécessaires pour repenser l'ergonomie des espaces d'apprentissage ordinaires.</p>
-                        <div class="article-actions">
-                            <button class="btn-modal" onclick="openModal('pdf', 'Co-conception d\'une salle de classe inclusive', 'https://drive.google.com/file/d/1q82k5X5VObZLB5XmxRfx1OKRfSErCqSE/preview')">Lire le PDF</button>
-                        </div>
-                    </div>
-                </article>
+            <!-- Bouton Bilans avec sous-menu déployable -->
+            <div>
+                <button class="nav-btn" onclick="toggleBilansSubmenu(event)">
+                    <span>Bilans</span>
+                    <svg id="bilansSubmenuArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu" id="bilansSubmenu">
+                    <a href="https://inclusionsociale.com/mentorat-actif-bilan.html" class="submenu-item">Mentorat actif, un plus tard</a>
+                </div>
             </div>
-        </section>
+        </div>
+    </aside>
 
-        <section class="theme-section">
-            <h2 class="theme-title">3. Travail, autonomie résidentielle et loisirs</h2>
-            <div class="grid-container">
-                <article class="article-card" id="article-jai-mon-appart">
-                    <div class="article-media">
-                        <img src="https://lh3.googleusercontent.com/d/1R-6VqA6SZ8t1dall1uf0mj_ehOcj7jNW?auto=format&fit=crop&w=600&q=80" alt="Autonomie résidentielle et logement supervisé">
+    <!-- Contenu principal -->
+    <div class="main-wrapper">
+        <header>
+            <div class="header-container">
+                <div class="header-left">
+                    <span class="header-badge">Recherche académique</span>
+                    <h1>Inclusion sociale | Accessibilité</h1>
+                    <p class="header-description">
+                        L'accessibilité ne saurait se réduire à une simple mise aux normes technique ou architecturale ; elle constitue le révélateur profond des structures politiques, symboliques et relationnelles qui régissent l'espace public et l'autonomie des sujets. À travers cette collection de contributions empiriques et théoriques, chaque article consigne une facette de cette mise en tension entre les prescriptions normatives de la cité et la réalité des parcours individuels.
+                    </p>
+                    <div class="header-meta">
+                        DOI : <a href="https://doi.org/10.13140/RG.2.2.35504.53768" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">10.13140/RG.2.2.35504.53768</a>
                     </div>
-                    <div class="article-content">
-                        <div class="article-doi">Autonomie résidentielle</div>
-                        <h3 class="article-title">« J'ai mon appart' ! » pour adultes DI et autistes</h3>
-                        <p class="article-summary">Présentation du projet concernant l'accès à l'autonomie résidentielle pour les adultes présentant une déficience intellectuelle ou un autisme.</p>
-                        <div class="article-actions">
-                            <button class="btn-modal" onclick="openModal('pdf', 'J\'ai mon appart\' !', 'https://drive.google.com/file/d/1N3_gEKxZ_d_RYRRr-FJmV7Zl9ZLYGMZJ/preview')">Lire le PDF</button>
-                            <button class="btn-modal video-btn" onclick="openModal('jai-mon-appart-playlist', '« J\'ai mon appart\' » — Vidéos', '')">Vidéos</button>
-                        </div>
+                    <div class="header-actions">
+                        <button class="btn-header" onclick="openModal('video', 'Présentation introductive — Vidéo', 'https://drive.google.com/file/d/10Va3etjn9wZIqrVnByyNXDVM-XPKOHkK/preview?autoplay=1')">Visionner la vidéo de présentation</button>
+                        <button class="btn-header secondary" onclick="openModal('pdf', 'Télécharger le numéro complet', 'https://drive.google.com/file/d/1d3ZUnnEwYomQ1VRQ1lF8XNei88HelQvy/preview')">Télécharger le numéro</button>
                     </div>
-                </article>
+                </div>
 
-                <article class="article-card" id="article-travail-autistes">
-                    <div class="article-media">
-                        <img src="https://lh3.googleusercontent.com/d/1YqwmIclmP2AlY9EY0AszBGQjCVrvEOo6?auto=format&fit=crop&w=600&q=80" alt="Intégration professionnelle en milieu ordinaire">
-                    </div>
-                    <div class="article-content">
-                        <div class="article-doi">Sociologie du travail</div>
-                        <h3 class="article-title">Le travail des personnes autistes en épicerie</h3>
-                        <p class="article-summary">Étude empirique sur l'intégration professionnelle ordinaire, l'organisation des tâches et les aménagements relationnels en milieu commercial.</p>
-                        <div class="article-actions">
-                            <button class="btn-modal" onclick="openModal('pdf', 'Le travail des personnes autistes', 'https://drive.google.com/file/d/1EJRCxqyOenQST9vzDzR_B2O_GLSwtgRJ/preview')">Lire le PDF</button>
-                            <button class="btn-modal video-btn" onclick="openModal('epicerie-playlist', 'Travail en épicerie — Vidéos', '')">Vidéos</button>
+                <div class="header-right">
+                    <div class="header-right-content">
+                    <span class="header-badge"><a href="https://www.amazon.ca/-/fr/dp/B08RSQGRZ2?binding=paperback&ref=dbs_dp_rwt_sb_pc_tpbk" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">Revue Sociologie visuelle</a></span>
+                        <p class="header-right-text">
+                            Plus de 18 équipes de recherche mobilisées afin de saisir comment le milieu façonne et articule l'accès aux services et à l'inclusion sociale.
+                        </p>
+                        <div class="header-right-codirection">
+                            Éditeurs : François Routhier et Pierre Fraser<br>Coéditeurs : Olivier Bernard et Véronique Leclerc
                         </div>
+                        <button class="btn-proposal" onclick="openProposalModal('article')">Proposer un projet ou un article</button>
                     </div>
-                </article>
-
-                <article class="article-card" id="article-loisir-inclusif">
-                    <div class="article-media">
-                        <img src="https://lh3.googleusercontent.com/d/1CeSN1mUWaUpyuhL9gtbqxVdT-1cagRsH?auto=format&fit=crop&w=600&q=80" alt="Activité récréative et loisir inclusif">
+                    <div class="coeditors-logos">
+                        <a href="https://cirris.ulaval.ca/" target="_blank" rel="noopener noreferrer"><img src="https://lh3.googleusercontent.com/d/1lBdhyn1RoasbVr4r5sH2_6GJnwe7idaN" alt="Logo du CIRRIS"></a>
+                        <a href="https://villesinclusives.org/" target="_blank" rel="noopener noreferrer"><img src="https://lh3.googleusercontent.com/d/1GqDiMMMP4O_pO7HgCDOECAdPbuHRUCHP" alt="Logo du PSVI"></a>
                     </div>
-                    <div class="article-content">
-                        <div class="article-doi">Sociologie des loisirs</div>
-                        <h3 class="article-title">L'expérience inclusive de loisir : au-delà de l'accessibilité</h3>
-                        <p class="article-summary">Comment repenser l'activité récréative non pas sous l'angle de la simple adaptation, mais à travers l'expérience partagée et l'appartenance.</p>
-                        <div class="article-actions">
-                            <button class="btn-modal" onclick="openModal('pdf', 'L\'expérience inclusive de loisir', 'https://drive.google.com/file/d/1mzF0vJWcddYdPQWSVdt42Dz3xVR6stS-/preview')">Lire le PDF</button>
-                            <button class="btn-modal video-btn" onclick="openModal('loisir-inclusif-playlist', 'L\'expérience inclusive de loisir — Vidéos', '')">Vidéos</button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="article-card" id="article-unir-forces">
-                    <div class="article-media">
-                        <img src="https://lh3.googleusercontent.com/d/1RiKg_1ZlYRLQWS5Dq1ODMoyXMVfTVneJ?auto=format&fit=crop&w=600&q=80" alt="Action communautaire et loisir">
-                    </div>
-                    <div class="article-content">
-                        <div class="article-doi">Action communautaire</div>
-                        <h3 class="article-title">Unir nos forces pour la réussite du loisir des personnes ayant des besoins particuliers</h3>
-                        <p class="article-summary">Coordination des acteurs municipaux et communautaires pour soutenir l'inclusion active dans les programmes de loisirs.</p>
-                        <div class="article-actions">
-                            <button class="btn-modal" onclick="openModal('pdf', 'Unir nos forces pour le loisir', 'https://drive.google.com/file/d/18cDjwSI7xwIjIP7eZZfyESqFtWzCvfy3/preview')">Lire le PDF</button>
-                            <button class="btn-modal video-btn" onclick="openModal('video', 'Unir nos forces - Capsule', 'https://drive.google.com/file/d/1Ess1PR7ToDzT5D55Y2QkiNWyTK-xzUON/preview?autoplay=1')">Vidéo</button>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="article-card" id="article-musees-inclusifs">
-                    <div class="article-media">
-                        <img src="https://lh3.googleusercontent.com/d/1JRmS6brg_yaM4sbH_rOxPffvk-wEpof_?auto=format&fit=crop&w=600&q=80" alt="Médiation culturelle muséale">
-                    </div>
-                    <div class="article-content">
-                        <div class="article-doi">Muséologie sociale</div>
-                        <h3 class="article-title">Les musées inclusifs : le cas du MNBAQ</h3>
-                        <p class="article-summary">Analyse des pratiques de médiation culturelle et d'accessibilité muséale au Musée national des beaux-arts du Québec.</p>
-                        <div class="article-actions">
-                            <button class="btn-modal" onclick="openModal('pdf', 'Les musées inclusifs', 'https://drive.google.com/file/d/1UyefEXpLpIaxrdGEdIP3Kf8Otbvmharc/preview')">Lire le PDF</button>
-                        </div>
-                    </div>
-                </article>
+                </div>
             </div>
-        </section>
+        </header>
 
-        <section class="theme-section">
-            <h2 class="theme-title">4. Expérience vécue, stigmates et politiques publiques</h2>
-            <div class="grid-container">
-                <article class="article-card" id="article-participation-sociale">
-                    <div class="article-media">
-                        <img src="https://lh3.googleusercontent.com/d/1rIvJ3kxbYzyQ0-wQNdJF-cQLN0pm9sDD" alt="Trajectoire de réinsertion sociale">
-                    </div>
-                    <div class="article-content">
-                        <div class="article-doi">Défis liés à l'inclusion sociale</div>
-                        <h3 class="article-title">Participation sociale à la suite d'un traumatisme cranio-cérébral</h3>
-                        <p class="article-summary">Analyse des trajectoires de réinsertion sociale et des obstacles rencontrés par les individus après un traumatisme cranio-cérébral sévère.</p>
-                        <div class="article-actions">
-                            <button class="btn-modal" onclick="openModal('pdf', 'Participation sociale à la suite d\'un traumatisme cranio-cérébral', 'https://drive.google.com/file/d/1g9dn2gDQxdxBSqG4EixOBIYmtQF-fSO7/preview')">Lire le PDF</button>
-                            <button class="btn-modal video-btn" onclick="openModal('tcc-playlist', 'Participation sociale — Vidéos', '')">Vidéos</button>
+        <main>
+            <section class="theme-section" id="theme-1" data-title="1. Espace urbain, transports et architecture">
+                <h2 class="theme-title">1. Espace urbain, transports et architecture</h2>
+                <div class="grid-container">
+                    <article class="article-card" id="article-tramway-quebec">
+                        <div class="article-media">
+                            <img src="https://lh3.googleusercontent.com/d/1l40ElVyZ0EqKojM3e8ZS9VSpK8tUw8I1" alt="Illustration du tramway de Québec et de l'aménagement urbain">
                         </div>
-                    </div>
-                </article>
-
-                <article class="article-card" id="article-droits-humains">
-                    <div class="article-media">
-                        <img src="https://lh3.googleusercontent.com/d/1YlSGnbSWixHKl6wOCIy-KwDjdL5ZwnYI" alt="Approche fondée sur les droits humains">
-                    </div>
-                    <div class="article-content">
-                        <div class="article-doi">Cadre juridique et social</div>
-                        <h3 class="article-title">Réalités des personnes en situation de handicap : poser un regard de droits humains</h3>
-                        <p class="article-summary">Transition paradigmatique du modèle médical vers l'approche fondée sur les droits fondamentaux et la citoyenneté intégrale.</p>
-                        <div class="article-actions">
-                            <button class="btn-modal" onclick="openModal('pdf', 'Regard de droits humains', 'https://drive.google.com/file/d/1AU4ijxBnChp6Mn6Ha2OxJ6JthKymrwip/preview')">Lire le PDF</button>
+                        <div class="article-content">
+                            <div class="article-doi">Mobilité urbaine</div>
+                            <h3 class="article-title">Le tramway de Québec : transformer la ville pour la rendre plus inclusive</h3>
+                            <p class="article-summary">Analyse des enjeux sociopolitiques, territoriaux et urbanistiques liés à l'implantation d'un système de transport structurant pour repenser l'accessibilité globale dans la capitale.</p>
+                            <div class="article-actions">
+                                <button class="btn-modal" onclick="openModal('pdf', 'Le tramway de Québec : transformer la ville pour la rendre plus inclusive', 'https://drive.google.com/file/d/14oLWBk3XNfmzeI_kQznXgmsFdWUeqXMR/preview')">Article</button>
+                            </div>
                         </div>
-                    </div>
-                </article>
+                    </article>
 
-                <article class="article-card" id="article-ophq-plans">
-                    <div class="article-media">
-                        <img src="https://lh3.googleusercontent.com/d/1JVKdl6ck9CojFa_BOFUGkCUlBeWEw9m9?auto=format&fit=crop&w=600&q=80" alt="Plans d'action municipaux OPHQ">
-                    </div>
-                    <div class="article-content">
-                        <div class="article-doi">Politiques publiques</div>
-                        <h3 class="article-title">OPHQ : plans d'action municipaux pour les personnes handicapées</h3>
-                        <p class="article-summary">Évaluation critique de la mise en œuvre des plans d'action municipaux exigés par l'Office des personnes handicapées du Québec.</p>
-                        <div class="article-actions">
-                            <button class="btn-modal" onclick="openModal('pdf', 'OPHQ plans d\'action', 'https://drive.google.com/file/d/1zROQKSU6cOnrIBvJ2NPraj9S28ieO9Ty/preview')">Lire le PDF</button>
-                            <button class="btn-modal video-btn" onclick="openModal('ophq-playlist', 'OPHQ — Vidéos', '')">Vidéos</button>
+                    <article class="article-card" id="article-handicaps-transports">
+                        <div class="article-media">
+                            <img src="https://lh3.googleusercontent.com/d/1rYflEw0cdSTVhyj6ya-K-zXeTZbIDV7b?auto=format&fit=crop&w=600&q=80" alt="Réseaux de transports urbains et accessibilité">
                         </div>
-                    </div>
-                </article>
-
-                <article class="article-card" id="article-pas-les-bienvenus">
-                    <div class="article-media">
-                        <img src="https://lh3.googleusercontent.com/d/18mwMiKZQJwfGTibjkhka1NGc3_oYkJZe?auto=format&fit=crop&w=600&q=80" alt="Analyse de l'exclusion symbolique">
-                    </div>
-                    <div class="article-content">
-                        <div class="article-doi">Sociologie relationnelle</div>
-                        <h3 class="article-title">« C'est comme si on n'était pas les bienvenus… »</h3>
-                        <p class="article-summary">Analyse qualitative des micro-agressions et du sentiment d'exclusion symbolique éprouvé dans les espaces publics et marchands.</p>
-                        <div class="article-actions">
-                            <button class="btn-modal" onclick="openModal('pdf', 'Pas les bienvenus', 'https://drive.google.com/file/d/1OKJ4vibw7AlKtMC4b4EKLyDlI7ORIjUg/preview')">Lire le PDF</button>
-                            <button class="btn-modal video-btn" onclick="openModal('pas-les-bienvenus-playlist', '« C\'est comme si on n\'était pas les bienvenus » — Vidéos', '')">Vidéos</button>
+                        <div class="article-content">
+                            <div class="article-doi">Mobilité et territoire</div>
+                            <h3 class="article-title">Handicaps et transports urbains</h3>
+                            <p class="article-summary">Examen des barrières systémiques dans les réseaux de transport en commun et pistes d'amélioration pour la mobilité autonome.</p>
+                            <div class="article-actions">
+                                <button class="btn-modal" onclick="openModal('pdf', 'Handicaps et transports urbains', 'https://drive.google.com/file/d/1GNAMRMocC2ixLvWrsfwkHr9yHh-No2K8/preview')">Article</button>
+                                <button class="btn-modal video-btn" onclick="openModal('playlist-transport', 'Handicaps et transports urbains — Vidéos', '')">Vidéos</button>
+                            </div> 
                         </div>
-                    </div>
-                </article>
+                    </article>
 
-                <article class="article-card" id="article-prejuges-difference">
-                    <div class="article-media">
-                        <img src="https://lh3.googleusercontent.com/d/11_QgsVfKeYez7LiPb-CSgk_yC6_fiIUz?auto=format&fit=crop&w=600&q=80" alt="Représentations sociales et stéréotypes">
-                    </div>
-                    <div class="article-content">
-                        <div class="article-doi">Représentations sociales</div>
-                        <h3 class="article-title">Les préjugés face à la différence</h3>
-                        <p class="article-summary">Déconstruction des stéréotypes culturels et des mécanismes psychologiques sous-tendant la stigmatisation du handicap.</p>
-                        <div class="article-actions">
-                            <button class="btn-modal" onclick="openModal('pdf', 'Les préjugés face à la différence', 'https://drive.google.com/file/d/1DqgfwCjR97BWza7wvRCmw895tdeo7rbD/preview')">Lire le PDF</button>
-                            <button class="btn-modal video-btn" onclick="openModal('video', 'Préjugés - Capsule', 'https://drive.google.com/file/d/1inINRs-6BNiVLe2HwkH3Pp8kIRPEzYkL/preview?autoplay=1')">Vidéo</button>
+                    <article class="article-card" id="article-monuments-capacitisme">
+                        <div class="article-media">
+                            <img src="https://lh3.googleusercontent.com/d/1hfB8ne3eTSmA9MiTkBZ2K-zv8GBf5GNH?auto=format&fit=crop&w=600&q=80" alt="Architecture et monuments publics">
                         </div>
-                    </div>
-                </article>
-
-                <article class="article-card" id="article-recherche-militante">
-                    <div class="article-media">
-                        <img src="https://lh3.googleusercontent.com/d/1IlxyK9AH3LRviTH2WaHdi_AcE_Zt_bR7?auto=format&fit=crop&w=600&q=80" alt="Engagement épistémologique et recherche militante">
-                    </div>
-                    <div class="article-content">
-                        <div class="article-doi">Épistémologie</div>
-                        <h3 class="article-title">Plaidoyer pour une recherche militante</h3>
-                        <p class="article-summary">Réflexion épistémologique sur l'engagement du chercheur en sciences sociales aux côtés des mouvements pour les droits des personnes handicapées.</p>
-                        <div class="article-actions">
-                            <button class="btn-modal" onclick="openModal('pdf', 'Plaidoyer pour une recherche militante', 'https://drive.google.com/file/d/1hp6_mfVIUqGEU0MuqzlA_iXaUy3XWPo1/preview')">Lire le PDF</button>
+                        <div class="article-content">
+                            <div class="article-doi">Analyse critique</div>
+                            <h3 class="article-title">Monuments au capacitisme</h3>
+                            <p class="article-summary">Réflexion critique sur l'architecture monumentale et les symboles urbains qui perpétuent l'exclusion physique et sociale.</p>
+                            <div class="article-actions">
+                                <button class="btn-modal" onclick="openModal('pdf', 'Monuments au capacitisme', 'https://drive.google.com/file/d/1WRPL5qCCaF1_ObT4Um2ZFVXpj2uG6Kih/preview')">Article</button>
+                            </div>
                         </div>
-                    </div>
-                </article>
-            </div>
-        </section>
-    </main>
+                    </article>
+                </div>
+            </section>
 
-    <footer>
-        <p>&copy; 2026 PHOTO|SOCIÉTÉ — Tous droits réservés. Plateforme de recherche et de documentation sociologique.</p>
-    </footer>
+            <section class="theme-section" id="theme-2" data-title="2. Éducation, langues et institutions scolaires">
+                <h2 class="theme-title">2. Éducation, langues et institutions scolaires</h2>
+                <div class="grid-container">
+                    <article class="article-card" id="article-kelly-anne">
+                        <div class="article-media">
+                            <img src="https://lh3.googleusercontent.com/d/1HXLLg-FeMBjRSwApTmGB08YiwSY2Z2fc?auto=format&fit=crop&w=600&q=80" alt="Élève pratiquant la langue des signes en classe">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-doi">Linguistique et éducation</div>
+                            <h3 class="article-title">Dans la classe de Kelly-Anne, élève sourde signeure</h3>
+                            <p class="article-summary">Immersion sociolinguistique dans le quotidien d'une élève pratiquant la Langue des Signes Québécoise au sein d'un établissement régulier.</p>
+                            <div class="article-actions">
+                                <button class="btn-modal" onclick="openModal('pdf', 'Dans la classe de Kelly-Anne', 'https://drive.google.com/file/d/1uYfS2OkLDLDnIKvXWSkyvnizs1R4qvqB/preview')">Article</button>
+                                <button class="btn-modal video-btn" onclick="openModal('kelly-anne-playlist', 'Dans la classe de Kelly-Anne — Vidéos', '')">Vidéos</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="article-card" id="article-implants-cochleaires">
+                        <div class="article-media">
+                            <img src="https://lh3.googleusercontent.com/d/1DpRYkpL3qLNlDKeWZDaTbvyBIGHxswpZ?auto=format&fit=crop&w=600&q=80" alt="Technologie d'implants cochléaires en milieu scolaire">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-doi">Technologie et audition</div>
+                            <h3 class="article-title">Implants cochléaires : enjeux et défis en milieu scolaire</h3>
+                            <p class="article-summary">Évaluation des dynamiques d'intégration auditive et des adaptations acoustiques requises pour les enfants appareillés.</p>
+                            <div class="article-actions">
+                                <button class="btn-modal" onclick="openModal('pdf', 'Implants cochléaires', 'https://drive.google.com/file/d/1RVsDkIeJkqyH6S9TKLMDPVRQxJfG5MU-/preview')">Article</button>
+                                <button class="btn-modal video-btn" onclick="openModal('implants-playlist', 'Implants cochléaires — Vidéos', '')">Vidéos</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="article-card" id="article-biblio-inclusive">
+                        <div class="article-media">
+                            <img src="https://lh3.googleusercontent.com/d/1B00FQSRh0u5UBEkv8ng7AJJ5J8khc9xc?auto=format&fit=crop&w=600&q=80" alt="Bibliothèque scolaire inclusive">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-doi">Étude institutionnelle</div>
+                            <h3 class="article-title">Co-conception d'une bibliothèque scolaire inclusive</h3>
+                            <p class="article-summary">Réflexion méthodologique sur l'aménagement participatif des espaces documentaires scolaires ouverts à la diversité fonctionnelle.</p>
+                            <div class="article-actions">
+                                <button class="btn-modal" onclick="openModal('pdf', 'Co-conception d\'une bibliothèque scolaire inclusive', 'https://drive.google.com/file/d/1RlqcLdIKPu0c4wLh5n-dCSVUAtn33631/preview')">Article</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="article-card" id="article-classe-inclusive">
+                        <div class="article-media">
+                            <img src="https://lh3.googleusercontent.com/d/1KKDYo2TOaYdY9tFAkhOHc7jbjUhXyCSP?auto=format&fit=crop&w=600&q=80" alt="Aménagement d'une salle de classe inclusive">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-doi">Pédagogie et espace</div>
+                            <h3 class="article-title">Co-conception d'une salle de classe inclusive</h3>
+                            <p class="article-summary">Examen des critères architecturaux et pédagogiques nécessaires pour repenser l'ergonomie des espaces d'apprentissage ordinaires.</p>
+                            <div class="article-actions">
+                                <button class="btn-modal" onclick="openModal('pdf', 'Co-conception d\'une salle de classe inclusive', 'https://drive.google.com/file/d/1q82k5X5VObZLB5XmxRfx1OKRfSErCqSE/preview')">Article</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="theme-section" id="theme-3" data-title="3. Travail, autonomie résidentielle et loisirs">
+                <h2 class="theme-title">3. Travail, autonomie résidentielle et loisirs</h2>
+                <div class="grid-container">
+                    <article class="article-card" id="article-jai-mon-appart">
+                        <div class="article-media">
+                            <img src="https://lh3.googleusercontent.com/d/1R-6VqA6SZ8t1dall1uf0mj_ehOcj7jNW?auto=format&fit=crop&w=600&q=80" alt="Autonomie résidentielle et logement supervisé">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-doi">Autonomie résidentielle</div>
+                            <h3 class="article-title">« J'ai mon appart' ! » pour adultes DI et autistes</h3>
+                            <p class="article-summary">Présentation du projet concernant l'accès à l'autonomie résidentielle pour les adultes présentant une déficience intellectuelle ou un autisme.</p>
+                            <div class="article-actions">
+                                <button class="btn-modal" onclick="openModal('pdf', 'J\'ai mon appart\' !', 'https://drive.google.com/file/d/1N3_gEKxZ_d_RYRRr-FJmV7Zl9ZLYGMZJ/preview')">Article</button>
+                                <button class="btn-modal video-btn" onclick="openModal('jai-mon-appart-playlist', '« J\'ai mon appart\' » — Vidéos', '')">Vidéos</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="article-card" id="article-travail-autistes">
+                        <div class="article-media">
+                            <img src="https://lh3.googleusercontent.com/d/1YqwmIclmP2AlY9EY0AszBGQjCVrvEOo6?auto=format&fit=crop&w=600&q=80" alt="Intégration professionnelle en milieu ordinaire">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-doi">Sociologie du travail</div>
+                            <h3 class="article-title">Le travail des personnes autistes en épicerie</h3>
+                            <p class="article-summary">Étude empirique sur l'intégration professionnelle ordinaire, l'organisation des tâches et les aménagements relationnels en milieu commercial.</p>
+                            <div class="article-actions">
+                                <button class="btn-modal" onclick="openModal('pdf', 'Le travail des personnes autistes', 'https://drive.google.com/file/d/1EJRCxqyOenQST9vzDzR_B2O_GLSwtgRJ/preview')">Article</button>
+                                <button class="btn-modal video-btn" onclick="openModal('epicerie-playlist', 'Travail en épicerie — Vidéos', '')">Vidéos</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="article-card" id="article-loisir-inclusif">
+                        <div class="article-media">
+                            <img src="https://lh3.googleusercontent.com/d/1CeSN1mUWaUpyuhL9gtbqxVdT-1cagRsH?auto=format&fit=crop&w=600&q=80" alt="Activité récréative et loisir inclusif">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-doi">Sociologie des loisirs</div>
+                            <h3 class="article-title">L'expérience inclusive de loisir : au-delà de l'accessibilité</h3>
+                            <p class="article-summary">Comment repenser l'activité récréative non pas sous l'angle de la simple adaptation, mais à travers l'expérience partagée et l'appartenance.</p>
+                            <div class="article-actions">
+                                <button class="btn-modal" onclick="openModal('pdf', 'L\'expérience inclusive de loisir', 'https://drive.google.com/file/d/1mzF0vJWcddYdPQWSVdt42Dz3xVR6stS-/preview')">Article</button>
+                                <button class="btn-modal video-btn" onclick="openModal('loisir-inclusif-playlist', 'L\'expérience inclusive de loisir — Vidéos', '')">Vidéos</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="article-card" id="article-unir-forces">
+                        <div class="article-media">
+                            <img src="https://lh3.googleusercontent.com/d/1RiKg_1ZlYRLQWS5Dq1ODMoyXMVfTVneJ?auto=format&fit=crop&w=600&q=80" alt="Action communautaire et loisir">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-doi">Action communautaire</div>
+                            <h3 class="article-title">Unir nos forces pour la réussite du loisir des personnes ayant des besoins particuliers</h3>
+                            <p class="article-summary">Coordination des acteurs municipaux et communautaires pour soutenir l'inclusion active dans les programmes de loisirs.</p>
+                            <div class="article-actions">
+                                <button class="btn-modal" onclick="openModal('pdf', 'Unir nos forces pour le loisir', 'https://drive.google.com/file/d/18cDjwSI7xwIjIP7eZZfyESqFtWzCvfy3/preview')">Article</button>
+                                <button class="btn-modal video-btn" onclick="openModal('video', 'Unir nos forces - Capsule', 'https://drive.google.com/file/d/1Ess1PR7ToDzT5D55Y2QkiNWyTK-xzUON/preview?autoplay=1')">Vidéo</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="article-card" id="article-musees-inclusifs">
+                        <div class="article-media">
+                            <img src="https://lh3.googleusercontent.com/d/1JRmS6brg_yaM4sbH_rOxPffvk-wEpof_?auto=format&fit=crop&w=600&q=80" alt="Médiation culturelle muséale">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-doi">Muséologie sociale</div>
+                            <h3 class="article-title">Les musées inclusifs : le cas du MNBAQ</h3>
+                            <p class="article-summary">Analyse des pratiques de médiation culturelle et d'accessibilité muséale au Musée national des beaux-arts du Québec.</p>
+                            <div class="article-actions">
+                                <button class="btn-modal" onclick="openModal('pdf', 'Les musées inclusifs', 'https://drive.google.com/file/d/1UyefEXpLpIaxrdGEdIP3Kf8Otbvmharc/preview')">Article</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="theme-section" id="theme-4" data-title="4. Expérience vécue, stigmates et politiques publiques">
+                <h2 class="theme-title">4. Expérience vécue, stigmates et politiques publiques</h2>
+                <div class="grid-container">
+                    <article class="article-card" id="article-participation-sociale">
+                        <div class="article-media">
+                            <img src="https://lh3.googleusercontent.com/d/1rIvJ3kxbYzyQ0-wQNdJF-cQLN0pm9sDD" alt="Trajectoire de réinsertion sociale">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-doi">Défis liés à l'inclusion sociale</div>
+                            <h3 class="article-title">Participation sociale à la suite d'un traumatisme cranio-cérébral</h3>
+                            <p class="article-summary">Analyse des trajectoires de réinsertion sociale et des obstacles rencontrés par les individus après un traumatisme cranio-cérébral sévère.</p>
+                            <div class="article-actions">
+                                <button class="btn-modal" onclick="openModal('pdf', 'Participation sociale à la suite d\'un traumatisme cranio-cérébral', 'https://drive.google.com/file/d/1g9dn2gDQxdxBSqG4EixOBIYmtQF-fSO7/preview')">Article</button>
+                                <button class="btn-modal video-btn" onclick="openModal('tcc-playlist', 'Participation sociale — Vidéos', '')">Vidéos</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="article-card" id="article-droits-humains">
+                        <div class="article-media">
+                            <img src="https://lh3.googleusercontent.com/d/1YlSGnbSWixHKl6wOCIy-KwDjdL5ZwnYI" alt="Approche fondée sur les droits humains">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-doi">Cadre juridique et social</div>
+                            <h3 class="article-title">Réalités des personnes en situation de handicap : poser un regard de droits humains</h3>
+                            <p class="article-summary">Transition paradigmatique du modèle médical vers l'approche fondée sur les droits fondamentaux et la citoyenneté intégrale.</p>
+                            <div class="article-actions">
+                                <button class="btn-modal" onclick="openModal('pdf', 'Regard de droits humains', 'https://drive.google.com/file/d/1AU4ijxBnChp6Mn6Ha2OxJ6JthKymrwip/preview')">Article</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="article-card" id="article-ophq-plans">
+                        <div class="article-media">
+                            <img src="https://lh3.googleusercontent.com/d/1JVKdl6ck9CojFa_BOFUGkCUlBeWEw9m9?auto=format&fit=crop&w=600&q=80" alt="Plans d'action municipaux OPHQ">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-doi">Politiques publiques</div>
+                            <h3 class="article-title">OPHQ : plans d'action municipaux pour les personnes handicapées</h3>
+                            <p class="article-summary">Évaluation critique de la mise en œuvre des plans d'action municipaux exigés par l'Office des personnes handicapées du Québec.</p>
+                            <div class="article-actions">
+                                <button class="btn-modal" onclick="openModal('pdf', 'OPHQ plans d\'action', 'https://drive.google.com/file/d/1zROQKSU6cOnrIBvJ2NPraj9S28ieO9Ty/preview')">Article</button>
+                                <button class="btn-modal video-btn" onclick="openModal('ophq-playlist', 'OPHQ — Vidéos', '')">Vidéos</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="article-card" id="article-pas-les-bienvenus">
+                        <div class="article-media">
+                            <img src="https://lh3.googleusercontent.com/d/18mwMiKZQJwfGTibjkhka1NGc3_oYkJZe?auto=format&fit=crop&w=600&q=80" alt="Analyse de l'exclusion symbolique">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-doi">Sociologie relationnelle</div>
+                            <h3 class="article-title">« C'est comme si on n'était pas les bienvenus… »</h3>
+                            <p class="article-summary">Analyse qualitative des micro-agressions et du sentiment d'exclusion symbolique éprouvé dans les espaces publics et marchands.</p>
+                            <div class="article-actions">
+                                <button class="btn-modal" onclick="openModal('pdf', 'Pas les bienvenus', 'https://drive.google.com/file/d/1OKJ4vibw7AlKtMC4b4EKLyDlI7ORIjUg/preview')">Article</button>
+                                <button class="btn-modal video-btn" onclick="openModal('pas-les-bienvenus-playlist', '« C\'est comme si on n\'était pas les bienvenus » — Vidéos', '')">Vidéos</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="article-card" id="article-prejuges-difference">
+                        <div class="article-media">
+                            <img src="https://lh3.googleusercontent.com/d/11_QgsVfKeYez7LiPb-CSgk_yC6_fiIUz?auto=format&fit=crop&w=600&q=80" alt="Représentations sociales et stéréotypes">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-doi">Représentations sociales</div>
+                            <h3 class="article-title">Les préjugés face à la différence</h3>
+                            <p class="article-summary">Déconstruction des stéréotypes culturels et des mécanismes psychologiques sous-tendant la stigmatisation du handicap.</p>
+                            <div class="article-actions">
+                                <button class="btn-modal" onclick="openModal('pdf', 'Les préjugés face à la différence', 'https://drive.google.com/file/d/1DqgfwCjR97BWza7wvRCmw895tdeo7rbD/preview')">Article</button>
+                                <button class="btn-modal video-btn" onclick="openModal('video', 'Préjugés - Capsule', 'https://drive.google.com/file/d/1inINRs-6BNiVLe2HwkH3Pp8kIRPEzYkL/preview?autoplay=1')">Vidéo</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="article-card" id="article-recherche-militante">
+                        <div class="article-media">
+                            <img src="https://lh3.googleusercontent.com/d/1IlxyK9AH3LRviTH2WaHdi_AcE_Zt_bR7?auto=format&fit=crop&w=600&q=80" alt="Engagement épistémologique et recherche militante">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-doi">Épistémologie</div>
+                            <h3 class="article-title">Plaidoyer pour une recherche militante</h3>
+                            <p class="article-summary">Réflexion épistémologique sur l'engagement du chercheur en sciences sociales aux côtés des mouvements pour les droits des personnes handicapées.</p>
+                            <div class="article-actions">
+                                <button class="btn-modal" onclick="openModal('pdf', 'Plaidoyer pour une recherche militante', 'https://drive.google.com/file/d/1hp6_mfVIUqGEU0MuqzlA_iXaUy3XWPo1/preview')">Article</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 PHOTO|SOCIÉTÉ — Tous droits réservés. Plateforme de recherche et de documentation sociologique.</p>
+        </footer>
+    </div>
 
     <!-- Fenêtre modale Média / PDF / Vidéo -->
     <div id="mediaModal" class="modal-overlay" onclick="closeModalOnOutside(event)">
@@ -919,15 +1258,16 @@
         </div>
     </div>
 
-    <!-- Fenêtre modale Proposition de projet ou d'article -->
+    <!-- Fenêtre modale Proposition de captation ou d'article -->
     <div id="proposalModal" class="modal-overlay" onclick="closeProposalModalOnOutside(event)">
         <div class="modal-container proposal-modal-container">
             <div class="modal-header">
-                <span class="modal-title">Proposer un projet ou un article</span>
+                <span class="modal-title" id="proposalModalTitle">Proposer un contenu</span>
                 <button class="modal-close" onclick="closeProposalModal()">&times;</button>
             </div>
             <div class="modal-body proposal-body">
                 <form id="proposalForm" onsubmit="submitProposal(event)">
+                    <input type="hidden" id="propCategory" value="">
                     <div class="form-group">
                         <label for="propName">Votre nom complet</label>
                         <input type="text" id="propName" required placeholder="Ex: Jean Dupont">
@@ -937,18 +1277,14 @@
                         <input type="email" id="propEmail" required placeholder="Ex: jean.dupont@exemple.com">
                     </div>
                     <div class="form-group">
-                        <label for="propType">Type de proposition</label>
-                        <input type="text" id="propType" required placeholder="Ex: Article scientifique, projet de recherche, capsule...">
-                    </div>
-                    <div class="form-group">
-                        <label for="propTitle">Titre de la proposition</label>
-                        <input type="text" id="propTitle" required placeholder="Titre de votre projet ou article">
+                        <label for="propTitle" id="propTitleLabel">Titre</label>
+                        <input type="text" id="propTitle" required placeholder="Titre de votre proposition">
                     </div>
                     <div class="form-group">
                         <label for="propDesc">Description / Résumé</label>
-                        <textarea id="propDesc" required placeholder="Décrivez votre projet ou votre article en quelques lignes..."></textarea>
+                        <textarea id="propDesc" required placeholder="Décrivez votre proposition en quelques lignes..."></textarea>
                     </div>
-                    <button type="submit" class="form-submit-btn">Envoyer la proposition</button>
+                    <button type="submit" class="form-submit-btn" id="propSubmitBtn">Envoyer la proposition</button>
                 </form>
             </div>
         </div>
@@ -971,12 +1307,86 @@
 
         window.addEventListener('DOMContentLoaded', function() {
             sendLog("Ouverture de page", "Accueil du site");
+
+            // Sélection aléatoire d'un article disponible sur la page
+            const articles = document.querySelectorAll('.article-card');
+            if (articles.length > 0) {
+                const randomIndex = Math.floor(Math.random() * articles.length);
+                const randomArticle = articles[randomIndex];
+                const titleElement = randomArticle.querySelector('.article-title');
+                
+                if (titleElement) {
+                    const articleTitleText = titleElement.textContent;
+                    let articleId = randomArticle.id;
+                    if (!articleId) {
+                        articleId = 'random-article-' + randomIndex;
+                        randomArticle.id = articleId;
+                    }
+
+                    const container = document.getElementById('randomArticleContainer');
+                    const link = document.createElement('a');
+                    link.href = '#' + articleId;
+                    link.textContent = articleTitleText;
+                    link.title = articleTitleText;
+                    container.appendChild(link);
+                }
+            }
         });
 
-        // Gestion de la modale de proposition
+        // Gestion du sous-menu de navigation "Penser l'accessibilité"
+        function toggleSubmenu(event) {
+            event.stopPropagation();
+            const submenu = document.getElementById('accessibilitySubmenu');
+            const arrow = document.getElementById('submenuArrow');
+            submenu.classList.toggle('open');
+            arrow.style.transform = submenu.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
+
+        // Gestion du sous-menu de navigation "Bilans"
+        function toggleBilansSubmenu(event) {
+            event.stopPropagation();
+            const submenu = document.getElementById('bilansSubmenu');
+            const arrow = document.getElementById('bilansSubmenuArrow');
+            submenu.classList.toggle('open');
+            arrow.style.transform = submenu.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
+
+        // Indicateur de position dynamique dans la barre horizontale supérieure
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.theme-section');
+            const indicator = document.getElementById('locationIndicator');
+            let currentPosition = "Accueil / Introduction";
+
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= 150 && rect.bottom >= 150) {
+                    currentPosition = section.getAttribute('data-title');
+                }
+            });
+            indicator.textContent = currentPosition;
+        });
+
+        // Gestion de la modale de proposition (Captation ou Article)
         const proposalModal = document.getElementById('proposalModal');
 
-        function openProposalModal() {
+        function openProposalModal(type) {
+            const titleEl = document.getElementById('proposalModalTitle');
+            const categoryEl = document.getElementById('propCategory');
+            const titleLabelEl = document.getElementById('propTitleLabel');
+            const titleInputEl = document.getElementById('propTitle');
+
+            categoryEl.value = type;
+
+            if (type === 'captation') {
+                titleEl.textContent = "Proposer une captation ou un article";
+                titleLabelEl.textContent = "Titre de la captation ou du projet vidéo";
+                titleInputEl.placeholder = "Ex: Capsule sur le transport adapté...";
+            } else {
+                titleEl.textContent = "Proposer un article";
+                titleLabelEl.textContent = "Titre de l'article";
+                titleInputEl.placeholder = "Ex: Analyse de l'accessibilité urbaine...";
+            }
+
             proposalModal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
         }
@@ -990,19 +1400,58 @@
             if (event.target === proposalModal) closeProposalModal();
         }
 
+        // Soumission du formulaire via Web3Forms (vers sociocamera@hotmail.com)
         function submitProposal(event) {
             event.preventDefault();
             const name = document.getElementById('propName').value;
             const email = document.getElementById('propEmail').value;
-            const type = document.getElementById('propType').value;
+            const category = document.getElementById('propCategory').value;
             const title = document.getElementById('propTitle').value;
             const desc = document.getElementById('propDesc').value;
+            const submitBtn = document.getElementById('propSubmitBtn');
 
-            const subject = encodeURIComponent(`Proposition de projet/article : ${title} (${type})`);
-            const body = encodeURIComponent(`Nom : ${name}\nCourriel : ${email}\nType : ${type}\nTitre : ${title}\n\nDescription :\n${desc}`);
+            submitBtn.textContent = "Envoi en cours...";
+            submitBtn.disabled = true;
 
-            window.location.href = `mailto:sociocamera@gmail.com?subject=${subject}&body=${body}`;
-            closeProposalModal();
+            const typeLabel = category === 'captation' ? 'Proposition de captation' : "Proposition d'article";
+
+            const formData = {
+                access_key: "4268cc24-c156-4c0a-8938-959685bf0f3d",
+                subject: `${typeLabel} : ${title}`,
+                name: name,
+                email: email,
+                category: typeLabel,
+                title: title,
+                message: desc
+            };
+
+            fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(async (response) => {
+                let json = await response.json();
+                if (response.status == 200) {
+                    alert("Votre proposition a été transmise avec succès !");
+                    document.getElementById('proposalForm').reset();
+                    closeProposalModal();
+                } else {
+                    console.error(json);
+                    alert("Une erreur est survenue : " + (json.message || "Veuillez réessayer."));
+                }
+            })
+            .catch(error => {
+                console.error("Erreur lors de l'envoi :", error);
+                alert("Une erreur est survenue lors de l'envoi. Veuillez réessayer.");
+            })
+            .finally(() => {
+                submitBtn.textContent = "Envoyer la proposition";
+                submitBtn.disabled = false;
+            });
         }
 
         const modal = document.getElementById('mediaModal');
