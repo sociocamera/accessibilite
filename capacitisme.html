@@ -1,0 +1,1558 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; frame-src https://drive.google.com; connect-src https://script.google.com; object-src 'none';">
+    <title>Inclusion sociale et accessibilité | Revue de Sociologie Visuelle</title>
+    <meta name="description" content="Numéro spécial de la Revue de Sociologie Visuelle consacré à l'inclusion sociale et à l'accessibilité. Contributions empiriques et théoriques dirigées par François Routhier et Pierre Fraser.">
+    <meta name="keywords" content="inclusion sociale, accessibilité, sociologie visuelle, handicap, transport urbain, éducation inclusive, CIRRIS, PSVI">
+    <link rel="canonical" href="https://doi.org/10.13140/RG.2.2.35504.53768">
+
+    <style>
+        :root {
+            --bg-color: #FAF6EF;
+            --text-color: #2b2b2b;
+            --primary-color: #1a202c;
+            --accent-color: #4a5568;
+            --border-color: #e2e8f0;
+            --card-bg: #FAF6EF;
+            --hover-border: #cbd5e0;
+            --max-width: 1400px;
+            --sidebar-width: 320px;
+            --topbar-height: 60px;
+            --modal-header-bg: #7a2222; /* Bordeaux de référence */
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: "Georgia", "Cambria", "Times New Roman", serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Barre horizontale permanente supérieure : toute la largeur de la page */
+        .top-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--topbar-height);
+            background-color: var(--bg-color);
+            border-bottom: 1px solid var(--border-color);
+            display: grid;
+            grid-template-columns: var(--sidebar-width) 1fr auto;
+            align-items: center;
+            padding: 0;
+            z-index: 1100;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .top-navbar-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            letter-spacing: 0.02em;
+            padding-left: 1.5rem;
+            border-right: 1px solid var(--border-color);
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .top-navbar-location {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            background-color: #f2ede4;
+            padding: 0.3rem 0.75rem;
+            border-radius: 4px;
+            margin-right: 2.5rem;
+        }
+
+        /* Colonne latérale gauche permanente sous la barre fixe du haut */
+        aside.sidebar {
+            position: fixed;
+            top: var(--topbar-height);
+            left: 0;
+            width: var(--sidebar-width);
+            height: calc(100vh - var(--topbar-height));
+            background-color: #f5f0e6;
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            z-index: 1000;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            overflow-y: auto;
+        }
+
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .btn-home {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            background-color: #7a2222;
+            color: #fff;
+            border: none;
+            padding: 0.85rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        .btn-home svg {
+            position: absolute;
+            left: 1rem;
+        }
+
+        .btn-home:hover {
+            background-color: #5e1a1a;
+        }
+
+        .sidebar-info-section {
+            padding: 1rem 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .sidebar-card {
+            background-color: #FAF6EF;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 0.85rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            text-align: justify;
+        }
+
+        .sidebar-card.editor-card {
+            flex-direction: row;
+            align-items: center;
+            gap: 0.75rem;
+            text-align: left;
+        }
+
+        .editor-info h4 {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            margin-bottom: 0.15rem;
+        }
+
+        .editor-info p {
+            font-size: 0.78rem;
+            color: var(--accent-color);
+            line-height: 1.4;
+        }
+
+        .sidebar-nav {
+            padding: 1.25rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            flex: 1;
+        }
+
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--primary-color);
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-align: left;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            background-color: #eae3d5;
+            border-color: var(--hover-border);
+        }
+
+        .submenu {
+            display: none;
+            flex-direction: column;
+            gap: 0.4rem;
+            padding-left: 1rem;
+            margin-top: -0.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .submenu.open {
+            display: flex;
+        }
+
+        .submenu-item {
+            font-size: 0.82rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            padding: 0.4rem 0.75rem;
+            border-radius: 4px;
+            transition: background-color 0.15s, color 0.15s;
+            border-left: 2px solid #d4c5b9;
+        }
+
+        .submenu-item:hover {
+            background-color: #eae3d5;
+            color: var(--primary-color);
+            border-left-color: var(--primary-color);
+        }
+
+        /* Conteneur principal à droite, décalé pour laisser place à la sidebar et topbar */
+        .main-wrapper {
+            margin-left: var(--sidebar-width);
+            margin-top: var(--topbar-height);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            width: calc(100% - var(--sidebar-width));
+            padding: 2rem;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            padding-left: 2rem;
+        }
+
+        .btn-header {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: 1px solid var(--primary-color);
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: background-color 0.2s;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-header.secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border-color: var(--border-color);
+        }
+
+        .btn-header.secondary:hover {
+            background-color: #f2ede4;
+            border-color: var(--hover-border);
+        }
+
+        /* Styles harmonisés des fenêtres modales selon l'image de référence */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+        }
+
+        .modal-container {
+            background: var(--bg-color);
+            width: 100%;
+            max-width: 900px;
+            height: 85vh;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            border: 1px solid #d4c5b9;
+        }
+
+        .modal-header {
+            padding: 1.25rem 1.5rem;
+            background: var(--modal-header-bg);
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .modal-header h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .modal-close {
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #fff;
+            opacity: 0.85;
+            transition: opacity 0.2s;
+        }
+
+        .modal-close:hover {
+            opacity: 1;
+        }
+
+        .modal-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            background-color: var(--bg-color);
+        }
+
+        .pdf-frame, .video-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        @media (max-width: 1200px) {
+            :root { --sidebar-width: 0px; }
+            .top-navbar { left: 0; padding: 0 1rem; grid-template-columns: 1fr auto; }
+            .top-navbar-title { display: none; }
+            aside.sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
+            aside.sidebar.mobile-open { transform: translateX(0); }
+            .main-wrapper { margin-left: 0; width: 100%; }
+        }
+
+        /* Styles spécifiques à l'article intégré dans la zone dynamique */
+        .article-container {
+            max-width: 1120px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 1.5rem 2rem 4rem 2rem;
+            color: var(--text-color);
+        }
+
+        .article-header {
+            border-bottom: 1px solid #d4c5b9;
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .article-title {
+            font-size: 2.35rem;
+            font-weight: 700;
+            color: #1a202c;
+            line-height: 1.25;
+            margin-bottom: 1rem;
+        }
+
+        .citation-box {
+            background-color: #f3ede2;
+            border-left: 3px solid #7a2222;
+            padding: 0.85rem 1.15rem;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.9rem;
+            color: #3d3d3d;
+            margin-bottom: 1.25rem;
+            line-height: 1.55;
+        }
+
+        .citation-label {
+            font-weight: 700;
+            color: #7a2222;
+            display: block;
+            margin-bottom: 0.25rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .author-block {
+            margin-top: 1rem;
+        }
+
+        .author-name {
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #1a202c;
+        }
+
+        .author-affiliation {
+            font-size: 0.92rem;
+            color: #4a5568;
+            margin-top: 0.2rem;
+        }
+
+        .abstract-block {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.25rem;
+        }
+
+        .abstract-box {
+            background-color: #fcfbf8;
+            border: 1px solid #e5e0d8;
+            border-radius: 8px;
+            padding: 1.25rem 1.4rem;
+            text-align: justify;
+            font-size: 0.9rem;
+            line-height: 1.65;
+        }
+
+        .abstract-box p {
+            margin-bottom: 0.7rem;
+        }
+
+        .abstract-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 820px) {
+            .abstract-block {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .article-body p {
+            text-align: justify;
+            font-size: 1.08rem;
+            line-height: 1.8;
+            margin-bottom: 1.25rem;
+        }
+
+        .dropcap::first-letter {
+            float: left;
+            font-size: 3.4rem;
+            line-height: 0.85;
+            padding-right: 0.55rem;
+            padding-top: 0.15rem;
+            color: #7a2222;
+            font-weight: 700;
+        }
+
+        /* Titres des sous-chapitres en rouge bordeaux */
+        .subchapter-title {
+            color: #7a2222;
+            font-size: 1.55rem;
+            font-weight: 700;
+            margin-top: 2.75rem;
+            margin-bottom: 1.15rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 1px solid #dfd3c3;
+            scroll-margin-top: calc(var(--topbar-height) + 28px);
+        }
+
+        .section-title-small {
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: #1a202c;
+            margin-top: 1.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        /* Galeries d'images de l'article */
+        .figure-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 1.75rem 0 2.25rem 0;
+            background-color: #f4eee4;
+            border: 1px solid #e2d8c8;
+            border-radius: 8px;
+            padding: 1.25rem;
+        }
+
+        .figure-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .figure-item-title {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: #1a202c;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .figure-item img {
+            width: 100%;
+            max-height: 360px;
+            object-fit: cover;
+            border-radius: 4px;
+            border: 1px solid #d4c5b9;
+            background-color: #eae3d5;
+        }
+
+        .figure-caption {
+            font-size: 0.84rem;
+            line-height: 1.5;
+            color: #4a5568;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .figure-caption strong {
+            color: #2b2b2b;
+        }
+
+        /* Cartes conceptuelles interactives — fond un peu plus pâle que #FAF6EF (#FDFBF7) */
+        .concept-map-card {
+            background-color: #FDFBF7;
+            border: 1px solid #dfd3c3;
+            border-top: 4px solid #7a2222;
+            border-radius: 10px;
+            padding: 1.5rem 1.75rem;
+            margin: 2.25rem 0;
+            box-shadow: 0 4px 14px rgba(43, 43, 43, 0.04);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .concept-map-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 0.5rem;
+            margin-bottom: 0.85rem;
+            border-bottom: 1px solid #ece3d5;
+            padding-bottom: 0.65rem;
+        }
+
+        .concept-map-badge {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #7a2222;
+            background-color: #f5ebe8;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+        }
+
+        .concept-map-title {
+            font-size: 1.12rem;
+            font-weight: 700;
+            color: #1a202c;
+            font-family: "Georgia", "Cambria", "Times New Roman", serif;
+        }
+
+        .concept-map-instruction {
+            font-size: 0.82rem;
+            color: #5a6577;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .concept-svg-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            background-color: #FEFCF9;
+            border: 1px solid #ebe2d4;
+            border-radius: 8px;
+            padding: 0.75rem;
+        }
+
+        .concept-svg-wrapper svg {
+            width: 100%;
+            height: auto;
+            display: block;
+            min-width: 640px;
+        }
+
+        .svg-node {
+            cursor: pointer;
+            transition: transform 0.18s ease, filter 0.18s ease;
+        }
+
+        .svg-node:hover {
+            filter: drop-shadow(0 3px 6px rgba(122, 34, 34, 0.2));
+        }
+
+        .svg-node.active rect,
+        .svg-node.active circle,
+        .svg-node.active polygon {
+            stroke: #7a2222 !important;
+            stroke-width: 2.8px !important;
+        }
+
+        .concept-detail-panel {
+            margin-top: 1rem;
+            background-color: #FAF6EF;
+            border-left: 3px solid #7a2222;
+            border-radius: 0 6px 6px 0;
+            padding: 0.95rem 1.15rem;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #2b2b2b;
+            transition: all 0.2s ease;
+        }
+
+        .concept-detail-panel h5 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #7a2222;
+            margin-bottom: 0.3rem;
+        }
+
+        /* Liens de notes de bas de page */
+        a.sdfootnoteanc {
+            color: #7a2222;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0 1px;
+        }
+
+        a.sdfootnoteanc:hover {
+            text-decoration: underline;
+        }
+
+        /* Bibliographie et notes de bas de page */
+        .bibliography-section {
+            margin-top: 3rem;
+            padding-top: 1.75rem;
+            border-top: 2px solid #d4c5b9;
+        }
+
+        .bibliography-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .bibliography-list li {
+            padding-left: 1.5rem;
+            text-indent: -1.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.96rem;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        .bibliography-list a, .footnotes-section a {
+            color: #7a2222;
+            word-break: break-all;
+        }
+
+        .footnotes-section {
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #d4c5b9;
+            font-size: 0.88rem;
+            line-height: 1.6;
+            color: #3d3d3d;
+        }
+
+        .footnote-item {
+            margin-bottom: 0.65rem;
+            padding-left: 1.6rem;
+            text-indent: -1.6rem;
+            scroll-margin-top: calc(var(--topbar-height) + 28px);
+        }
+
+        .sdfootnotesym {
+            color: #7a2222;
+            font-weight: 700;
+            text-decoration: none;
+            margin-right: 0.35rem;
+        }
+
+        /* Bouton cliquable NAVIGATION DANS LA PAGE dans la barre latérale */
+        .page-nav-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background: transparent;
+            border: none;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #7a2222;
+            letter-spacing: 0.05em;
+            margin-top: 0.75rem;
+            margin-bottom: 0.25rem;
+            padding: 0.45rem 0.25rem;
+            cursor: pointer;
+            text-align: left;
+            transition: opacity 0.2s;
+        }
+
+        .page-nav-toggle:hover {
+            opacity: 0.8;
+        }
+
+.author-citation-row {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.25rem;
+            margin-top: 1rem;
+        }
+
+        .meta-box {
+            background-color: #fcfbf8;
+            border: 1px solid #e5e0d8;
+            border-radius: 8px;
+            padding: 1rem 1.2rem;
+            font-size: 0.84rem;
+            line-height: 1.55;
+            color: #3d3d3d;
+        }
+
+        .author-box-content {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar-circle {
+            width: 76px;
+            height: 76px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 2px solid #d4c5b9;
+            background-color: #f3ede2;
+        }
+
+        .author-box-content .author-block {
+            margin-top: 0;
+        }
+
+        .author-box-content .author-name {
+            font-size: 1.05rem;
+        }
+
+        .author-box-content .author-affiliation {
+            font-size: 0.82rem;
+        }
+
+        .meta-box .citation-box {
+            background-color: transparent;
+            border-left: none;
+            padding: 0;
+            margin-bottom: 0;
+            border-radius: 0;
+            font-size: 0.84rem;
+        }
+
+        @media (max-width: 820px) {
+            .author-citation-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Barre horizontale permanente supérieure -->
+    <header class="top-navbar">
+        <div class="top-navbar-title">Revue Sociologie Visuelle</div>
+        <div class="header-actions">
+            <button class="btn-header secondary" onclick="openModal('video', 'Présentation introductive — Vidéo', 'https://drive.google.com/file/d/10Va3etjn9wZIqrVnByyNXDVM-XPKOHkK/preview?autoplay=1')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                Visionner la vidéo de présentation
+            </button>
+            <button class="btn-header secondary" onclick="openProposalModal('article')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                Proposer un projet de captation ou un article
+            </button>
+            <button class="btn-header secondary" onclick="openModal('pdf', 'Télécharger le numéro complet', 'https://drive.google.com/file/d/1d3ZUnnEwYomQ1VRQ1lF8XNei88HelQvy/preview')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Télécharger le numéro
+            </button>
+        </div>
+        <div class="top-navbar-location" id="locationIndicator">Accueil</div>
+    </header>
+
+    <!-- Colonne latérale gauche permanente -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="https://inclusionsociale.com" class="btn-home">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                INCLUSION SOCIALE
+            </a>
+        </div>
+
+        <div class="sidebar-info-section">
+            <div style="font-size: 0.72rem; color: #718096; text-align: left; margin-bottom: 0.05rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                DOI : <a href="https://doi.org/10.13140/RG.2.2.35504.53768" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; opacity: 0.85;">10.13140/RG.2.2.35504.53768</a>
+            </div>
+
+            <div class="sidebar-card editor-card">
+                <div class="editor-info">
+                    <h4>Éditeurs</h4>
+                    <p><b>François Routhier & Pierre Fraser</b></p>
+                    <p>Plus de 18 équipes de recherche mobilisées afin de saisir comment le milieu façonne et articule l'accès aux services et à l'inclusion sociale.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-nav">
+            <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: #7a2222; letter-spacing: 0.05em; margin-bottom: 0.5rem; padding-left: 0.25rem;">NAVIGATION SUR LE SITE</div>
+
+            <div>
+                <button class="nav-btn" onclick="toggleSubmenu(event, 'accessibilitySubmenu', 'submenuArrow')">
+                    <span>Penser l'accessibilité</span>
+                    <svg id="submenuArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu" id="accessibilitySubmenu">
+                    <a href="https://inclusionsociale.com/#theme-1" class="submenu-item">1. Espace urbain & transports</a>
+                    <a href="https://inclusionsociale.com/#theme-2" class="submenu-item">2. Éducation & institutions</a>
+                    <a href="https://inclusionsociale.com/#theme-3" class="submenu-item">3. Travail, autonomie & loisirs</a>
+                    <a href="https://inclusionsociale.com/#theme-4" class="submenu-item">4. Expérience vécue & stigmates</a>
+                </div>
+            </div>
+
+            <div>
+                <button class="nav-btn" onclick="toggleSubmenu(event, 'bilansSubmenu', 'bilansSubmenuArrow')">
+                    <span>Bilans</span>
+                    <svg id="bilansSubmenuArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu" id="bilansSubmenu">
+                    <a href="https://inclusionsociale.com/mentorat-actif-bilan.html" class="submenu-item">Mentorat actif, un plus tard</a>
+                </div>
+            </div>
+            <!-- Bouton Tournages en cours non gras -->
+            <div>
+                <a href="https://inclusionsociale.com/tournages.html" class="nav-btn" style="font-weight: normal;">
+                    <span>Tournages en cours</span>
+                </a>
+            </div>
+
+            <!-- Navigation dans la page -->
+            <div style="margin-top: 0.75rem; border-top: 1px solid var(--border-color); padding-top: 0.85rem;">
+                <button type="button" class="page-nav-toggle" onclick="toggleSubmenu(event, 'pageSubmenu', 'pageSubmenuArrow')" aria-expanded="false" aria-controls="pageSubmenu">
+                    <span>NAVIGATION DANS LA PAGE</span>
+                    <svg id="pageSubmenuArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" style="transition: transform 0.2s;"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu" id="pageSubmenu" style="margin-top: 0.35rem;">
+                    <a href="#top" class="submenu-item" onclick="scrollToPageTop(event)">Présentation</a>
+                    <a href="#sous-chapitre-0" class="submenu-item" onclick="scrollToSubchapter(event, 'sous-chapitre-0')">Introduction</a>
+                    <a href="#sous-chapitre-1" class="submenu-item" onclick="scrollToSubchapter(event, 'sous-chapitre-1')">Une loi discriminatoire</a>
+                    <a href="#sous-chapitre-2" class="submenu-item" onclick="scrollToSubchapter(event, 'sous-chapitre-2')">Encore des escaliers</a>
+                    <a href="#sous-chapitre-3" class="submenu-item" onclick="scrollToSubchapter(event, 'sous-chapitre-3')">Ségrégation institutionnalisée</a>
+                    <a href="#sous-chapitre-4" class="submenu-item" onclick="scrollToSubchapter(event, 'sous-chapitre-4')">Et maintenant ?</a>
+                    <a href="#sous-chapitre-5" class="submenu-item" onclick="scrollToSubchapter(event, 'sous-chapitre-5')">Conclusion</a>
+                    <a href="#references-bibliographiques" class="submenu-item" onclick="scrollToSubchapter(event, 'references-bibliographiques')">Références bibliographiques</a>
+                </div>
+            </div>
+
+
+        </div>
+    </aside>
+
+    <!-- Zone de contenu dynamique à droite (Frame de base) -->
+    <div class="main-wrapper">
+        <main>
+            <article class="article-container" id="presentation">
+                <header class="article-header">
+                    <h1 class="article-title">Monuments au capacitisme</h1>
+<div class="author-citation-row">
+                    <div class="meta-box">
+                        <div class="author-box-content">
+                            <img src="https://github.com/sociocamera/accessibilite/blob/images/Saunier%20Jerome.png?raw=true" alt="Jérôme Saunier" class="author-avatar-circle" />
+                            <div class="author-block">
+                                <div class="author-name">Jérôme Saunier</div>
+                                <div class="author-affiliation"><strong>Affiliation</strong><br>Militant pour les droits des personnes en situation de handicap.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="meta-box">
+                        <div class="citation-box">
+                            <span class="citation-label">Citer cet article :</span>
+                            Saunier, J. (2023), «&nbsp;Monuments au capacitisme&nbsp;», <em>Sociologie Visuelle</em>, n° 4, François Routhier et Pierre Fraser (éds.), Québec&nbsp;: Photo|Société, pp. 111-120.
+                        </div>
+                    </div>
+                </div>
+
+
+                </header>
+
+                <section class="abstract-block" aria-label="Résumés en français et en anglais">
+                    <div class="abstract-box" lang="fr" aria-label="Résumé en français">
+                        <p><strong>Résumé. —</strong> Qu’est-ce que le capacitisme&nbsp;? Selon le collectif handi-féministe <em>Les Dévalideuses</em>, «&nbsp;c’est l’ensemble des préjugés et comportements discriminatoires à l’encontre des personnes porteuses d’un handicap, visible ou invisible. Le [capacitisme], à l’échelle de la société, repose sur l’idée qu’une personne handicapée est moins capable qu’une personne valide, que sa vie même a moins de valeur<a class="sdfootnoteanc" id="sdfootnote1anc" href="#sdfootnote1sym"><sup>1</sup></a>&nbsp;». Il établit une hiérarchie entre les corps et les esprits selon leurs capacités supposées. La norme corporelle et mentale qu’il instaure dévalorise les personnes qui ont des incapacités. À l’instar du racisme ou du sexisme, auxquels il est lié, c’est une forme d’oppression systémique séculaire dont la portée reste considérable dans la société québécoise. Dans ce texte, nous verrons concrètement comment les préjugés et le maintien ou la création d’obstacles contribuent à la discrimination, la stigmatisation et l’exclusion sociale des personnes handicapées.</p>
+                        <p><strong>Mots-clés. —</strong> Capacitisme&nbsp;; discrimination&nbsp;; exclusion&nbsp;; handicap&nbsp;; norme corporelle&nbsp;; préjugés&nbsp;; stigmatisation.</p>
+                    </div>
+                    <div class="abstract-box" lang="en" aria-label="Abstract in English">
+                        <p><strong>Abstract. —</strong> What is ableism? According to the disabled feminist collective <em>Les Dévalideuses</em>, “it is the set of prejudices and discriminatory behaviours against people with a visible or invisible disability. [Ableism], on a societal scale, is based on the idea that a disabled person is less capable than an able-bodied person, that their very life has less value.” It establishes a hierarchy between bodies and minds according to their supposed abilities. The bodily and mental norm it sets up devalues people with disabilities. Like racism or sexism, to which it is linked, it is a centuries-old form of systemic oppression whose impact remains considerable in Quebec society. In this text, we will see concretely how prejudices and the maintenance or creation of barriers contribute to the discrimination, stigmatization, and social exclusion of disabled people.</p>
+                        <p><strong>Keywords. —</strong> Ableism; bodily norm; discrimination; exclusion; disability; prejudices; stigmatization.</p>
+                    </div>
+                </section>
+
+                <div class="article-body">
+                    <h2 class="subchapter-title" id="sous-chapitre-0">Introduction</h2>
+
+                    <p class="dropcap">Selon la Société de transport de Montréal (STM), la station de métro De l’Église, dans l’arrondissement de Verdun, ne deviendra pas accessible en fauteuil roulant avant 2028<a class="sdfootnoteanc" id="sdfootnote2anc" href="#sdfootnote2sym"><sup>2</sup></a>. Mise en service en 1978 avec le prolongement de la ligne verte jusqu’au terminus Angrignon, elle aura alors cinquante ans. Par une singulière coïncidence, c’est en 1978 que l’Assemblée nationale a modifié la Charte des droits et libertés de la personne pour interdire la discrimination fondée sur le handicap<a class="sdfootnoteanc" id="sdfootnote3anc" href="#sdfootnote3sym"><sup>3</sup></a>. La même année, il a été accordé aux personnes handicapées un nouveau «&nbsp;droit à la reconnaissance et à l’exercice, en pleine égalité, des droits et libertés de la personne<a class="sdfootnoteanc" id="sdfootnote4anc" href="#sdfootnote4sym"><sup>4</sup></a>&nbsp;» et ouvert simultanément des stations qui maintenaient la discrimination introduite à l’inauguration du métro, en 1966. Il aura fallu un demi-siècle pour que la station De l’Église soit enfin conforme à la charte.</p>
+
+                    <div class="section-title-small">Station De l’Église</div>
+
+                    <div class="figure-grid">
+                        <figure class="figure-item">
+                            <img src="https://raw.githubusercontent.com/sociocamera/accessibilite/capacitisme/capacitisme_03.jpg" alt="Vue de l’intérieur de la station de l’Église"/>
+                            <figcaption class="figure-caption">
+                                <strong>© Jérôme Saunier — Description d’image :</strong><br/>
+                                Vue de l’intérieur de la station de l’Église&nbsp;: vue plongeante de l’escalier, marquage jaune au sol à chaque palier, murs de béton avec striures caractéristiques, étroites fenêtres horizontales, étroite fenêtre verticale.
+                            </figcaption>
+                        </figure>
+                        <figure class="figure-item">
+                            <img src="https://raw.githubusercontent.com/sociocamera/accessibilite/capacitisme/capacitisme_02.jpg" alt="Vue de l’extérieur de la station de l’Église"/>
+                            <figcaption class="figure-caption">
+                                <strong>© Jérôme Saunier — Description d’image :</strong><br/>
+                                Vue de l’extérieur de la station de l’Église&nbsp;: des personnes pénètrent dans le bâtiment sous les arches de béton. On voit le symbole du métro en haut à gauche : flèche blanche sur fond bleu pointant vers le bas au-dessus du mot métro en blanc sur fond noir. Nuages gris.
+                            </figcaption>
+                        </figure>
+                    </div>
+
+                    <p>Ce bâtiment emblématique de Verdun est un véritable monument à ce qui, à l’époque, ne portait pas encore le nom de capacitisme. Il en va de même pour les autres stations construites sans ascenseurs, et notamment de celles qui ont vu le jour dans les années 1980 sur les lignes orange et bleue. Théoriquement, les vingt-cinq stations aménagées après l’entrée en vigueur des modifications de la charte (au cours de la décennie suivant le prolongement de la ligne verte) auraient dû être conçues selon les principes de l’accessibilité universelle. Elles représentaient tout de même 38,4&nbsp;% du réseau de soixante-cinq stations existant en 1988. Or ce n’est qu’en 2007, lors du prolongement de la ligne orange à Laval, que les trois premières stations accessibles ont ouvert leurs portes. Au moment d’écrire ces lignes (avril 2023), vingt-trois autres stations avaient été rendues accessibles, ce qui ne représentait toujours que 38,2&nbsp;% du réseau&nbsp;; et il en restait quarante-deux à adapter.</p>
+
+                    <!-- CARTE CONCEPTUELLE INTERACTIVE 1 -->
+                    <aside class="concept-map-card" aria-label="Carte conceptuelle interactive : Chronologie et mécanique juridique de l'inaccessibilité">
+                        <div class="concept-map-header">
+                            <span class="concept-map-badge">Carte conceptuelle interactive 1</span>
+                            <h4 class="concept-map-title">Trajectoire juridique et architecturale de l’exclusion (1966–2028)</h4>
+                        </div>
+                        <p class="concept-map-instruction">Cliquez sur une étape de la frise ou sur un bloc d’analyse pour explorer les contradictions entre les droits proclamés et les dérogations légales.</p>
+                        <div class="concept-svg-wrapper">
+                            <svg viewBox="0 0 880 310" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagramme chronologique et juridique de l'inaccessibilité du métro et des bâtiments au Québec">
+                                <defs>
+                                    <marker id="arrowBordeaux" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                        <path d="M 0 1 L 10 5 L 0 9 z" fill="#7a2222"/>
+                                    </marker>
+                                    <marker id="arrowSlate" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                        <path d="M 0 1 L 10 5 L 0 9 z" fill="#4a5568"/>
+                                    </marker>
+                                </defs>
+
+                                <!-- Bandeau supérieur : Proclamations de droits -->
+                                <rect x="20" y="16" width="840" height="42" rx="6" fill="#f3ede2" stroke="#dfd3c3"/>
+                                <text x="36" y="42" font-size="12" font-weight="700" fill="#7a2222" letter-spacing="0.5">SPHÈRE DES DROITS PROCLAMÉS &amp; NORMES</text>
+                                <text x="844" y="42" font-size="11" fill="#5a6577" text-anchor="end">Charte &amp; Code de construction</text>
+
+                                <!-- Axe central chronologique -->
+                                <line x1="55" y1="150" x2="825" y2="150" stroke="#7a2222" stroke-width="3" marker-end="url(#arrowBordeaux)"/>
+
+                                <!-- Étape 1 : 1966 -->
+                                <g class="svg-node active" onclick="selectConceptNode('map1', 0, this)">
+                                    <rect x="25" y="74" width="128" height="56" rx="7" fill="#FAF6EF" stroke="#7a2222" stroke-width="2.5"/>
+                                    <text x="89" y="96" font-size="13" font-weight="700" fill="#7a2222" text-anchor="middle">1966</text>
+                                    <text x="89" y="114" font-size="10.5" fill="#2b2b2b" text-anchor="middle">Inauguration</text>
+                                    <text x="89" y="126" font-size="10.5" fill="#2b2b2b" text-anchor="middle">du métro</text>
+                                    <circle cx="89" cy="150" r="7" fill="#7a2222"/>
+                                </g>
+
+                                <!-- Étape 2 : 1976-1978 -->
+                                <g class="svg-node" onclick="selectConceptNode('map1', 1, this)">
+                                    <rect x="175" y="74" width="154" height="56" rx="7" fill="#FAF6EF" stroke="#cbd5e0" stroke-width="1.5"/>
+                                    <text x="252" y="96" font-size="13" font-weight="700" fill="#1a202c" text-anchor="middle">1976 – 1978</text>
+                                    <text x="252" y="114" font-size="10.5" fill="#2b2b2b" text-anchor="middle">Charte modifiée &amp;</text>
+                                    <text x="252" y="126" font-size="10.5" fill="#2b2b2b" text-anchor="middle">Station De l’Église</text>
+                                    <circle cx="252" cy="150" r="7" fill="#4a5568"/>
+                                </g>
+
+                                <!-- Étape 3 : 1980-1988 -->
+                                <g class="svg-node" onclick="selectConceptNode('map1', 2, this)">
+                                    <rect x="352" y="74" width="154" height="56" rx="7" fill="#FAF6EF" stroke="#cbd5e0" stroke-width="1.5"/>
+                                    <text x="429" y="96" font-size="13" font-weight="700" fill="#1a202c" text-anchor="middle">1980 – 1988</text>
+                                    <text x="429" y="114" font-size="10.5" fill="#2b2b2b" text-anchor="middle">25 stations bâties</text>
+                                    <text x="429" y="126" font-size="10.5" fill="#2b2b2b" text-anchor="middle">sans ascenseurs</text>
+                                    <circle cx="429" cy="150" r="7" fill="#4a5568"/>
+                                </g>
+
+                                <!-- Étape 4 : 2004-2007 -->
+                                <g class="svg-node" onclick="selectConceptNode('map1', 3, this)">
+                                    <rect x="529" y="74" width="154" height="56" rx="7" fill="#FAF6EF" stroke="#cbd5e0" stroke-width="1.5"/>
+                                    <text x="606" y="96" font-size="13" font-weight="700" fill="#1a202c" text-anchor="middle">2004 – 2007</text>
+                                    <text x="606" y="114" font-size="10.5" fill="#2b2b2b" text-anchor="middle">Abrogation tardive &amp;</text>
+                                    <text x="606" y="126" font-size="10.5" fill="#2b2b2b" text-anchor="middle">3 stations à Laval</text>
+                                    <circle cx="606" cy="150" r="7" fill="#4a5568"/>
+                                </g>
+
+                                <!-- Étape 5 : 2023-2028 -->
+                                <g class="svg-node" onclick="selectConceptNode('map1', 4, this)">
+                                    <rect x="706" y="74" width="154" height="56" rx="7" fill="#FAF6EF" stroke="#cbd5e0" stroke-width="1.5"/>
+                                    <text x="783" y="96" font-size="13" font-weight="700" fill="#1a202c" text-anchor="middle">2023 – 2028</text>
+                                    <text x="783" y="114" font-size="10.5" fill="#2b2b2b" text-anchor="middle">38,2 % accessible ;</text>
+                                    <text x="783" y="126" font-size="10.5" fill="#2b2b2b" text-anchor="middle">50 ans d’attente</text>
+                                    <circle cx="783" cy="150" r="7" fill="#4a5568"/>
+                                </g>
+
+                                <!-- Mécanismes inférieurs (Freins légaux et économiques) -->
+                                <line x1="252" y1="157" x2="252" y2="188" stroke="#4a5568" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrowSlate)"/>
+                                <line x1="429" y1="157" x2="429" y2="188" stroke="#4a5568" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrowSlate)"/>
+                                <line x1="606" y1="157" x2="606" y2="188" stroke="#4a5568" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrowSlate)"/>
+
+                                <g class="svg-node" onclick="selectConceptNode('map1', 5, this)">
+                                    <rect x="145" y="192" width="235" height="96" rx="8" fill="#f7f1e7" stroke="#d4c5b9" stroke-width="1.5"/>
+                                    <text x="262" y="214" font-size="11.5" font-weight="700" fill="#7a2222" text-anchor="middle">Les « bémols » de la loi de 1978</text>
+                                    <text x="262" y="233" font-size="10.5" fill="#2b2b2b" text-anchor="middle">• Art. 70 : exemption pour coût « injustifiable »</text>
+                                    <text x="262" y="250" font-size="10.5" fill="#2b2b2b" text-anchor="middle">• Art. 71–72 : immunité des immeubles</text>
+                                    <text x="262" y="265" font-size="10.5" fill="#2b2b2b" text-anchor="middle">avant 1976 et du transport collectif</text>
+                                </g>
+
+                                <g class="svg-node" onclick="selectConceptNode('map1', 6, this)">
+                                    <rect x="425" y="192" width="315" height="96" rx="8" fill="#f7f1e7" stroke="#d4c5b9" stroke-width="1.5"/>
+                                    <text x="582" y="214" font-size="11.5" font-weight="700" fill="#7a2222" text-anchor="middle">Inertie réglementaire post-2004</text>
+                                    <text x="582" y="233" font-size="10.5" fill="#2b2b2b" text-anchor="middle">• Art. 69 : règlement sur les bâtiments pré-1976</text>
+                                    <text x="582" y="248" font-size="10.5" fill="#2b2b2b" text-anchor="middle">jamais adopté par le gouvernement</text>
+                                    <text x="582" y="265" font-size="10.5" fill="#2b2b2b" text-anchor="middle">• 42 stations sur 68 toujours inaccessibles en 2023</text>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="concept-detail-panel" id="map1-detail">
+                            <h5>1966 — L’exclusion inscrite dans le béton dès l’origine</h5>
+                            <p>Lors de l’inauguration du métro de Montréal en 1966, l’ensemble du réseau est conçu exclusivement autour d’escaliers fixes et mécaniques. L’absence totale d’ascenseurs érige d’emblée une frontière physique entre usagers valides et personnes à mobilité réduite.</p>
+                        </div>
+                    </aside>
+
+                    <h2 class="subchapter-title" id="sous-chapitre-1">Une loi discriminatoire</h2>
+
+                    <p>Que s’est-il passé&nbsp;? La loi de 1978 prévoyait des dérogations à la charte qui interdisaient aux personnes handicapées d’alléguer discrimination pour inaccessibilité des bâtiments construits avant 1976 (donc non assujettis au Code de construction du Québec adopté cette année-là) et des moyens de transport collectif<a class="sdfootnoteanc" id="sdfootnote5anc" href="#sdfootnote5sym"><sup>5</sup></a>. Ces dérogations n’ont été abrogées qu’en 2004, soit un quart de siècle après l’entrée en vigueur de la loi de 1978<a class="sdfootnoteanc" id="sdfootnote6anc" href="#sdfootnote6sym"><sup>6</sup></a>. Pendant ce temps, les transports en commun et les bâtiments ont pu demeurer légalement inaccessibles aux personnes handicapées.</p>
+
+                    <p>En octroyant le droit à la pleine égalité aux personnes handicapées, la loi de 1978 garantissait l’égalité d’accès, mais elle donnait en même temps au gouvernement le pouvoir de passer outre à ce droit, notamment s’il estimait que le coût des modifications ne justifiait pas d’assurer l’accessibilité d’un immeuble à ces personnes<a class="sdfootnoteanc" id="sdfootnote7anc" href="#sdfootnote7sym"><sup>7</sup></a>. En 1978, l’Assemblée nationale a donc apporté un «&nbsp;bémol&nbsp;» [sic] au nouveau droit des personnes handicapées. Cette «&nbsp;restriction des possibilités de recours en vertu de la Charte des droits et libertés&nbsp;» aurait été le fruit d’un compromis «&nbsp;avec les différents milieux&nbsp;», «&nbsp;en corollaire de l’obligation des propriétaires d’immeubles&nbsp;». On en déduit que le lobby des propriétaires a été entendu même si l’article 70 a «&nbsp;été vivement critiqué par certains […] à l’époque<a class="sdfootnoteanc" id="sdfootnote8anc" href="#sdfootnote8sym"><sup>8</sup></a>&nbsp;». Le bémol apporté aux obligations des organismes de transport en commun est tout aussi révoltant<a class="sdfootnoteanc" id="sdfootnote9anc" href="#sdfootnote9sym"><sup>9</sup></a>. En 2004, le gouvernement a fini par reconnaître «&nbsp;qu’on ne peut justifier de maintenir ces articles-là&nbsp;» (c’est-à-dire les dérogations)<a class="sdfootnoteanc" id="sdfootnote10anc" href="#sdfootnote10sym"><sup>10</sup></a>. Toutes ces restrictions des droits ont perpétué jusqu’à aujourd’hui des pratiques et une mentalité ségrégationnistes. Si toutes les stations de métro des années 1980 ont pu être mises en service légalement malgré la charte, il n’est pas étonnant que d’autres structures discriminatoires aient continué d’apparaître dans le paysage. Comme nous le verrons, il se pratique encore une architecture inaccessible malgré le fait que l’interdiction de la discrimination soit encore pleinement en vigueur.</p>
+
+                    <h2 class="subchapter-title" id="sous-chapitre-2">Encore des escaliers</h2>
+
+                    <p>Parmi les monuments remarquables qui ont été récemment érigés à la gloire du capacitisme, il convient de mentionner le belvédère du parc de l’Île-Bizard (2020), le Biodôme (2020) et le grand escalier de la Place Ville-Marie (2022). Le belvédère n’est qu’un assemblage totalement inaccessible de plateformes et d’escaliers<a class="sdfootnoteanc" id="sdfootnote11anc" href="#sdfootnote11sym"><sup>11</sup></a>.</p>
+
+                    <div class="figure-grid">
+                        <figure class="figure-item">
+                            <div class="figure-item-title">Grand escalier de la Place Ville-Marie</div>
+                            <img src="https://raw.githubusercontent.com/sociocamera/accessibilite/capacitisme/capacitisme_04.jpg
+" alt="Grand escalier de la Place Ville-Marie"/>
+                            <figcaption class="figure-caption"><strong>© Marie-Eve Veilleux</strong></figcaption>
+                        </figure>
+                        <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+                            <figure class="figure-item">
+                                <div class="figure-item-title">Belvédère du parc-nature du Bois-de-l’Île-Bizard</div>
+                                <img src="https://raw.githubusercontent.com/sociocamera/accessibilite/capacitisme/capacitisme.jpg
+" alt="Belvédère du parc-nature du Bois-de-l’Île-Bizard" style="max-height: 170px;"/>
+                                <figcaption class="figure-caption"><strong>© Ville de Montréal</strong></figcaption>
+                            </figure>
+                            <figure class="figure-item">
+                                <div class="figure-item-title">Biodôme de Montréal</div>
+                                <img src="https://raw.githubusercontent.com/sociocamera/accessibilite/capacitisme/capacitisme_01.jpg
+" alt="Biodôme de Montréal" style="max-height: 170px;"/>
+                                <figcaption class="figure-caption"><strong>© Biodôme de Montréal</strong></figcaption>
+                            </figure>
+                        </div>
+                    </div>
+
+                    <p>Aux personnes qui visitent le Biodôme, entièrement rénové, on propose un parcours partiellement accessible&nbsp;: tandis que les personnes handicapées doivent se contenter d’un ascenseur clos pour accéder à la mezzanine, les personnes non handicapées peuvent s’y rendre en empruntant une jolie passerelle surélevée qui traverse la cime des arbres sous la verrière<a class="sdfootnoteanc" id="sdfootnote12anc" href="#sdfootnote12sym"><sup>12</sup></a>. Le grand escalier de la Place Ville-Marie, quant à lui, est bien muni d’une rampe conçue pour être empruntée en fauteuil roulant, mais elle est tout sauf sécuritaire.</p>
+
+                    <p>Il faut aussi mentionner un projet à venir de la Ville de Montréal qui, s’il est réalisé conformément aux esquisses publiées, deviendra un énième monument au capacitisme montréalais. Il s’agit d’Espace Rivière, bâtiment faisant office de bibliothèque municipale et de centre communautaire qui verra le jour dans l’arrondissement Rivière-des-Prairies-Pointe-aux-Tremble d’ici quelques années. Comme le Biodôme, Espace Rivière serait traversé par une passerelle interne réservée aux personnes qui n’éprouvent aucune difficulté à gravir des escaliers et inaccessible pour les personnes à mobilité réduite<a class="sdfootnoteanc" id="sdfootnote13anc" href="#sdfootnote13sym"><sup>13</sup></a>. Ailleurs au Québec, l’escalier du sentier des Grands-Domaines sur le promontoire de Sillery est digne de mention<a class="sdfootnoteanc" id="sdfootnote14anc" href="#sdfootnote14sym"><sup>14</sup></a><sup>-</sup><a class="sdfootnoteanc" id="sdfootnote15anc" href="#sdfootnote15sym"><sup>15</sup></a>.</p>
+
+                    <p>Compte tenu de l’énorme retard accumulé en matière d’accessibilité du réseau ordinaire, la vie de très nombreuses personnes à mobilité réduite reste soumise aux aléas et aux rigidités du transport adapté de la STM. L’accès au métro, encore en grande partie interdit parce que l’État en a décidé ainsi en 1978, aurait donné aux personnes capables de se déplacer seules l’autonomie dont elles ont le droit de jouir à titre de citoyennes. Or, les autorités ont sciemment maintenu la nature d’espace ségrégationniste du métro. C’est dans ce contexte qu’il faut comprendre la création, au début des années 1980, du service ségrégué de transport adapté. Celui-ci répond évidemment à des besoins que le métro ne saurait combler, mais il dénote également le refus implicite de faire du métro un espace inclusif<a class="sdfootnoteanc" id="sdfootnote16anc" href="#sdfootnote16sym"><sup>16</sup></a>.</p>
+
+                    <p>La pente à remonter pour rendre accessibles les espaces commerciaux situés dans le cadre bâti antérieur (et même postérieur) à 1976 est, pour sa part, plus vertigineuse que jamais. Les quartiers à échelle humaine que l’on vante tant n’offrent pas la même qualité de vie selon qu’on est ou non en mesure d’entrer dans les commerces et restaurants qui bordent leurs artères et d’y recevoir les mêmes services que le reste de la population (conformément à la charte). En effet, outre la discrimination instaurée par la loi de 1978, le Code de construction prévoit des exceptions pour les bâtiments de petit gabarit, en vertu desquelles les exigences d’accessibilité ne s’appliquent pas aux innombrables bâtisses qui longent les rues commerciales, ce qui compromet la mise en accessibilité d’une part considérable de nos villes. Cette réglementation-là relève des municipalités, qui traînent les pieds depuis longtemps.</p>
+
+                    <!-- CARTE CONCEPTUELLE INTERACTIVE 2 -->
+                    <aside class="concept-map-card" aria-label="Carte conceptuelle interactive : Typologie des monuments au capacitisme">
+                        <div class="concept-map-header">
+                            <span class="concept-map-badge">Carte conceptuelle interactive 2</span>
+                            <h4 class="concept-map-title">Cartographie des « monuments au capacitisme » dans l’espace urbain</h4>
+                        </div>
+                        <p class="concept-map-instruction">Sélectionnez un pôle architectural ou urbain dans le schéma ci-dessous pour comparer la conception dominante avec ses effets d’exclusion.</p>
+                        <div class="concept-svg-wrapper">
+                            <svg viewBox="0 0 880 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagramme radial des quatre formes de monuments au capacitisme">
+                                <!-- Lignes de liaison depuis le noyau central -->
+                                <line x1="440" y1="170" x2="185" y2="75" stroke="#7a2222" stroke-width="2" stroke-dasharray="5 3"/>
+                                <line x1="440" y1="170" x2="695" y2="75" stroke="#7a2222" stroke-width="2" stroke-dasharray="5 3"/>
+                                <line x1="440" y1="170" x2="185" y2="265" stroke="#7a2222" stroke-width="2" stroke-dasharray="5 3"/>
+                                <line x1="440" y1="170" x2="695" y2="265" stroke="#7a2222" stroke-width="2" stroke-dasharray="5 3"/>
+
+                                <!-- Noyau Central -->
+                                <g class="svg-node active" onclick="selectConceptNode('map2', 0, this)">
+                                    <rect x="315" y="122" width="250" height="96" rx="48" fill="#7a2222" stroke="#5e1a1a" stroke-width="2.5"/>
+                                    <text x="440" y="156" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">HÉGÉMONIE DE L’ESCALIER</text>
+                                    <text x="440" y="175" font-size="11" fill="#f5ebe8" text-anchor="middle">&amp; Norme du corps valide</text>
+                                    <text x="440" y="193" font-size="10" fill="#e2d8c8" text-anchor="middle">(Architecture contemporaine et héritée)</text>
+                                </g>
+
+                                <!-- Pôle 1 : Haut Gauche -->
+                                <g class="svg-node" onclick="selectConceptNode('map2', 1, this)">
+                                    <rect x="25" y="24" width="265" height="98" rx="8" fill="#FAF6EF" stroke="#cbd5e0" stroke-width="1.5"/>
+                                    <text x="42" y="48" font-size="12" font-weight="700" fill="#7a2222">1. Équipements culturels récents</text>
+                                    <text x="42" y="68" font-size="10.5" fill="#2b2b2b">• Biodôme (2020) : passerelle vs ascenseur clos</text>
+                                    <text x="42" y="84" font-size="10.5" fill="#2b2b2b">• Belvédère Île-Bizard (2020) : 100 % escaliers</text>
+                                    <text x="42" y="100" font-size="10.5" fill="#2b2b2b">• Projet Espace Rivière : passerelle réservée</text>
+                                </g>
+
+                                <!-- Pôle 2 : Haut Droit -->
+                                <g class="svg-node" onclick="selectConceptNode('map2', 2, this)">
+                                    <rect x="590" y="24" width="265" height="98" rx="8" fill="#FAF6EF" stroke="#cbd5e0" stroke-width="1.5"/>
+                                    <text x="607" y="48" font-size="12" font-weight="700" fill="#7a2222">2. Espaces civiques &amp; belvédères</text>
+                                    <text x="607" y="68" font-size="10.5" fill="#2b2b2b">• Place Ville-Marie (2022) : rampe non sécuritaire</text>
+                                    <text x="607" y="84" font-size="10.5" fill="#2b2b2b">• Promontoire de Sillery : escalier monumental</text>
+                                    <text x="607" y="100" font-size="10.5" fill="#2b2b2b">• Esthétisme architectural primant sur la sécurité</text>
+                                </g>
+
+                                <!-- Pôle 3 : Bas Gauche -->
+                                <g class="svg-node" onclick="selectConceptNode('map2', 3, this)">
+                                    <rect x="25" y="216" width="265" height="98" rx="8" fill="#FAF6EF" stroke="#cbd5e0" stroke-width="1.5"/>
+                                    <text x="42" y="240" font-size="12" font-weight="700" fill="#7a2222">3. Mobilité &amp; transport ségrégué</text>
+                                    <text x="42" y="260" font-size="10.5" fill="#2b2b2b">• Réseau ordinaire du métro largement fermé</text>
+                                    <text x="42" y="276" font-size="10.5" fill="#2b2b2b">• Transport adapté (années 1980) : service</text>
+                                    <text x="42" y="290" font-size="10.5" fill="#2b2b2b">parallèle rigide limitant la spontanéité</text>
+                                </g>
+
+                                <!-- Pôle 4 : Bas Droit -->
+                                <g class="svg-node" onclick="selectConceptNode('map2', 4, this)">
+                                    <rect x="590" y="216" width="265" height="98" rx="8" fill="#FAF6EF" stroke="#cbd5e0" stroke-width="1.5"/>
+                                    <text x="607" y="240" font-size="12" font-weight="700" fill="#7a2222">4. Artères commerciales de quartier</text>
+                                    <text x="607" y="260" font-size="10.5" fill="#2b2b2b">• Exceptions du Code pour petits gabarits</text>
+                                    <text x="607" y="276" font-size="10.5" fill="#2b2b2b">• Commerces et restaurants inaccessibles</text>
+                                    <text x="607" y="290" font-size="10.5" fill="#2b2b2b">• Inaction réglementaire des municipalités</text>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="concept-detail-panel" id="map2-detail">
+                            <h5>Noyau conceptuel — L’hégémonie de l’escalier comme norme spatiale</h5>
+                            <p>Comme le souligne Laurence Parent (2010), l’omniprésence de l’escalier dans l’architecture publique n’est pas un simple choix esthétique : elle matérialise une conception capacitiste de l’espace où le corps valide constitue l’unique étalon de mesure.</p>
+                        </div>
+                    </aside>
+
+                    <h2 class="subchapter-title" id="sous-chapitre-3">Ségrégation institutionnalisée</h2>
+
+                    <p>La loi de 1978 et le Code de construction sont à l’origine de cette discrimination qu’on peut qualifier à juste titre de systémique, puisque, en l’occurrence, elle a été instaurée et maintenue par l’État. C’est la preuve, s’il en fallait, du rôle prééminent que joue la politique dans la construction du handicap, c’est-à-dire dans presque tous les cas de figure, le handicap est un choix politique&nbsp;: le choix de la majorité non handicapée (plus petite qu’on ne le croit) d’ignorer les besoins légitimes de la minorité handicapée sur la base de préjugés qui la dévalorisent, et de prendre soin de ses seuls intérêts en brandissant la norme sociale du corps non handicapé. C’est en choisissant de créer des obstacles handicapants ou de ne pas les supprimer qu’on met les corps et les esprits «&nbsp;non conformes&nbsp;» en situation de handicap, qu’on les relègue à un statut de seconde zone, celui de personne handicapée. Ce processus de construction est d’autant plus difficile à saisir et semble d’autant plus éloigné du sens commun que le capacitisme l’invisibilise en naturalisant le handicap sur la base des différences fonctionnelles, qui en seraient la véritable cause, abstraction faite de l’environnement physique et sociopolitique.</p>
+
+                    <p>Par ailleurs, la dérogation prévue par la loi de 1978 pour coût des modifications «&nbsp;injustifiable&nbsp;» est révélatrice des fondements capitalistes du capacitisme, notre système économique accordant davantage d’importance aux profits à l’argent qu’aux personnes. Cette mentalité règne aussi bien dans le secteur privé qu’au sein des administrations publiques. Dans ce contexte, tous les moyens sont bons pour maintenir les privilèges, même les moyens franchement incompatibles avec la décence humaine. Entre, dans cette catégorie, la décision de déclarer en quelque sorte nulle et non avenue, pour tout un pan de la société, une disposition essentielle de la loi suprême du Québec. La force d’inertie que produit le capacitisme est telle que la nouvelle obligation de non-discrimination n’a pas pesé très lourd dans la balance&nbsp;: malgré cette mesure progressiste, le statu quo a immédiatement repris ses droits.</p>
+
+                    <p>Les conséquences catastrophiques de la loi de 1978 et du Code de construction se font encore sentir. Le gouvernement ayant malencontreusement montré le mauvais exemple, on ne s’étonne plus de la réticence quasi générale à appliquer les principes de l’accessibilité universelle ni de la méconnaissance des dispositions en vigueur. Pire, en adoptant des dérogations et une réglementation discriminatoires, il a repoussé de plusieurs décennies la mise en accessibilité des infrastructures publiques et privées au Québec. Au lieu d’assurer l’exercice des droits des personnes handicapées, il en a garanti le non-respect. Ou plutôt, il a confirmé l’absence de droit, pour ces personnes, de vivre en pleine égalité. Il a normalisé la ségrégation en codifiant le «&nbsp;droit&nbsp;» coutumier de les discriminer, comme si la discrimination était dans l’ordre naturel des choses. Il a accrédité l’idée que la mise en accessibilité est un fardeau financier déraisonnable. Il a cimenté le statut de citoyennes de seconde zone des personnes handicapées. Les monuments au capacitisme sont là pour en témoigner.</p>
+
+                    <h2 class="subchapter-title" id="sous-chapitre-4">Et maintenant&nbsp;?</h2>
+
+                    <p>Pour transformer le Québec en société inclusive qui fait de l’équité une valeur cardinale, il n’est pas réaliste de s’en remettre à une supposée amélioration «&nbsp;naturelle&nbsp;» de l’accessibilité qui serait dictée par les lois du marché<a class="sdfootnoteanc" id="sdfootnote17anc" href="#sdfootnote17sym"><sup>17</sup></a>. Cette position attentiste ne profite jamais qu’aux intérêts des lobbys en reportant le respect des droits aux calendes grecques. Attendre que chaque entreprise privée fournisse des efforts de manière volontaire est la recette de l’échec. Il serait tout aussi futile de compter sur les modifications épisodiques du Code de construction, qui se produisent beaucoup trop lentement, elles aussi<a class="sdfootnoteanc" id="sdfootnote18anc" href="#sdfootnote18sym"><sup>18</sup></a>.</p>
+
+                    <p>Sur le terrain, on constate que beaucoup d’individus sont ouverts au changement, voire déterminés à améliorer le quotidien des personnes handicapées. Mais leur bonne volonté se heurte souvent aux obstacles systémiques que nous avons évoqués. Que faire&nbsp;? Il faut garantir dès maintenant les droits fondamentaux au moyen d’une loi sur l’accessibilité universelle assortie de cibles contraignantes et de pénalités dissuasives ainsi que d’un cadre réglementaire efficace et de solides mécanismes de mise en œuvre, comme il en existe dans d’autres provinces et pays, dont l’Ontario, le Manitoba, le Canada au palier fédéral et les États-Unis. Sans quoi, on pourra difficilement lutter contre la discrimination. Or aucune loi n’est actuellement sur la table à Québec. Le règlement sur les catégories d’immeubles construits avant 1976 à rendre accessibles et les normes d’accessibilité à respecter, dont l’adoption était prévue par la Loi assurant l’exercice des droits des personnes handicapées en vue de leur intégration scolaire, professionnelle et sociale, n’a jamais vu le jour<a class="sdfootnoteanc" id="sdfootnote19anc" href="#sdfootnote19sym"><sup>19</sup></a>. Les autorités semblent surtout miser sur des solutions ponctuelles qui prennent la forme d’aides financières pour améliorer l’accessibilité des bâtiments. Ces programmes bureaucratiques sont sous-financés et peu performants<a class="sdfootnoteanc" id="sdfootnote20anc" href="#sdfootnote20sym"><sup>20</sup></a>. Le respect des droits des gens demeure donc tributaire du bon vouloir des propriétaires et des locataires, qui ont toute latitude pour maintenir la ségrégation interdite. Les interminables procédures de traitement des plaintes déposées devant la Commission des droits de la personne et des droits de la jeunesse n’aboutissent jamais qu’à des règlements au cas par cas, alors qu’il est nécessaire d’opérer des changements systémiques radicaux<a class="sdfootnoteanc" id="sdfootnote21anc" href="#sdfootnote21sym"><sup>21</sup></a>. L’émancipation de tout un groupe social marginalisé depuis longtemps exige davantage que quelques accommodements occasionnels.</p>
+
+                    <!-- CARTE CONCEPTUELLE INTERACTIVE 3 -->
+                    <aside class="concept-map-card" aria-label="Carte conceptuelle interactive : Du statu quo ségrégationniste à la transition anticapacitiste">
+                        <div class="concept-map-header">
+                            <span class="concept-map-badge">Carte conceptuelle interactive 3</span>
+                            <h4 class="concept-map-title">De la ségrégation institutionnalisée à la transition anticapacitiste</h4>
+                        </div>
+                        <p class="concept-map-instruction">Cliquez sur les composantes des deux paradigmes (à gauche : blocages actuels ; à droite : leviers de transformation) pour examiner les mécanismes en jeu.</p>
+                        <div class="concept-svg-wrapper">
+                            <svg viewBox="0 0 880 345" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Comparaison interactive entre le système capacitaire actuel et la société anticapacitiste">
+                                <!-- Colonne Gauche : Système capacitaire -->
+                                <rect x="20" y="14" width="390" height="315" rx="10" fill="#f7f1e7" stroke="#d4c5b9" stroke-width="1.5"/>
+                                <text x="215" y="40" font-size="12.5" font-weight="700" fill="#7a2222" text-anchor="middle">PARADIGME SÉGRÉGATIONNISTE (STATU QUO)</text>
+
+                                <g class="svg-node active" onclick="selectConceptNode('map3', 0, this)">
+                                    <rect x="42" y="58" width="346" height="52" rx="6" fill="#FAF6EF" stroke="#7a2222" stroke-width="2.5"/>
+                                    <text x="215" y="80" font-size="11.5" font-weight="700" fill="#1a202c" text-anchor="middle">1. Naturalisation du handicap &amp; logique marchande</text>
+                                    <text x="215" y="97" font-size="10.2" fill="#4a5568" text-anchor="middle">Le handicap attribué au corps ; l’accessibilité vue comme un coût</text>
+                                </g>
+
+                                <line x1="215" y1="110" x2="215" y2="128" stroke="#7a2222" stroke-width="1.8" marker-end="url(#arrowBordeaux)"/>
+
+                                <g class="svg-node" onclick="selectConceptNode('map3', 1, this)">
+                                    <rect x="42" y="132" width="346" height="52" rx="6" fill="#FAF6EF" stroke="#cbd5e0" stroke-width="1.5"/>
+                                    <text x="215" y="154" font-size="11.5" font-weight="700" fill="#1a202c" text-anchor="middle">2. Volontarisme &amp; subventions sous-utilisées</text>
+                                    <text x="215" y="171" font-size="10.2" fill="#4a5568" text-anchor="middle">PAAC (7 demandes/an 1) ; bon vouloir des propriétaires</text>
+                                </g>
+
+                                <line x1="215" y1="184" x2="215" y2="202" stroke="#7a2222" stroke-width="1.8" marker-end="url(#arrowBordeaux)"/>
+
+                                <g class="svg-node" onclick="selectConceptNode('map3', 2, this)">
+                                    <rect x="42" y="206" width="346" height="52" rx="6" fill="#FAF6EF" stroke="#cbd5e0" stroke-width="1.5"/>
+                                    <text x="215" y="228" font-size="11.5" font-weight="700" fill="#1a202c" text-anchor="middle">3. Judiciarisation individuelle (CDPDJ)</text>
+                                    <text x="215" y="245" font-size="10.2" fill="#4a5568" text-anchor="middle">38 % des dossiers liés au handicap ; règlements au cas par cas</text>
+                                </g>
+
+                                <text x="215" y="292" font-size="11" font-weight="700" fill="#7a2222" text-anchor="middle">→ Résultat : Citoyenneté de seconde zone</text>
+
+                                <!-- Flèche centrale de basculement -->
+                                <line x1="416" y1="172" x2="462" y2="172" stroke="#7a2222" stroke-width="3" marker-end="url(#arrowBordeaux)"/>
+
+                                <!-- Colonne Droite : Transition anticapacitiste -->
+                                <rect x="470" y="14" width="390" height="315" rx="10" fill="#f2f5f2" stroke="#c6d4c6" stroke-width="1.5"/>
+                                <text x="665" y="40" font-size="12.5" font-weight="700" fill="#22543d" text-anchor="middle">TRANSITION ANTICAPACITISTE (SOLUTIONS)</text>
+
+                                <g class="svg-node" onclick="selectConceptNode('map3', 3, this)">
+                                    <rect x="492" y="58" width="346" height="52" rx="6" fill="#ffffff" stroke="#cbd5e0" stroke-width="1.5"/>
+                                    <text x="665" y="80" font-size="11.5" font-weight="700" fill="#1a202c" text-anchor="middle">1. Loi contraignante sur l’accessibilité universelle</text>
+                                    <text x="665" y="97" font-size="10.2" fill="#4a5568" text-anchor="middle">Cibles obligatoires, pénalités dissuasives (modèles ON, MB, CAN)</text>
+                                </g>
+
+                                <line x1="665" y1="110" x2="665" y2="128" stroke="#22543d" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
+
+                                <g class="svg-node" onclick="selectConceptNode('map3', 4, this)">
+                                    <rect x="492" y="132" width="346" height="52" rx="6" fill="#ffffff" stroke="#cbd5e0" stroke-width="1.5"/>
+                                    <text x="665" y="154" font-size="11.5" font-weight="700" fill="#1a202c" text-anchor="middle">2. Resserrement réglementaire municipal</text>
+                                    <text x="665" y="171" font-size="10.2" fill="#4a5568" text-anchor="middle">Révision du règlement 11-018 et Charte montréalaise (2021)</text>
+                                </g>
+
+                                <line x1="665" y1="184" x2="665" y2="202" stroke="#22543d" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
+
+                                <g class="svg-node" onclick="selectConceptNode('map3', 5, this)">
+                                    <rect x="492" y="206" width="346" height="52" rx="6" fill="#ffffff" stroke="#cbd5e0" stroke-width="1.5"/>
+                                    <text x="665" y="228" font-size="11.5" font-weight="700" fill="#1a202c" text-anchor="middle">3. Financement adéquat &amp; volonté politique</text>
+                                    <text x="665" y="245" font-size="10.2" fill="#4a5568" text-anchor="middle">Accélération STM, respect de la Convention ONU et de la Charte</text>
+                                </g>
+
+                                <text x="665" y="292" font-size="11" font-weight="700" fill="#22543d" text-anchor="middle">→ Résultat : Pleine égalité, liberté et autonomie</text>
+                            </svg>
+                        </div>
+                        <div class="concept-detail-panel" id="map3-detail">
+                            <h5>Naturalisation du handicap et logique capitaliste</h5>
+                            <p>Le capacitisme masque sa dimension politique en attribuant l’exclusion aux incapacités individuelles plutôt qu’à l’aménagement de l’environnement. En subordonnant les droits fondamentaux à la rentabilité financière, l’État et le marché pérennisent l’exclusion.</p>
+                        </div>
+                    </aside>
+
+                    <p>Heureusement, ce tableau immobiliste n’est pas complètement sombre. On a vu ci-dessus que la STM augmente graduellement le nombre de stations de métro accessibles (avec les maigres subsides que lui consentent les gouvernements)&nbsp;; il faut accélérer la cadence. Par ailleurs, la Ville de Montréal a entrepris la révision de son propre règlement de construction<a class="sdfootnoteanc" id="sdfootnote22anc" href="#sdfootnote22sym"><sup>22</sup></a>. Il s’agit d’une initiative à saluer et à suivre de près pour s’assurer qu’elle se traduira par un resserrement important des obligations d’accessibilité. Les municipalités n’ont pas à s’en tenir au strict minimum prévu par un Code de construction timide et désuet. Bien qu’il soit peu probable que les pouvoirs publics mettent à nouveau un odieux bémol aux droits fondamentaux des personnes handicapées, la vigilance sera de mise lors des consultations, mais l’accessibilité architecturale n’est qu’une partie de l’équation.</p>
+
+                    <p>À cet égard, rappelons qu’en 2021, la Ville de Montréal a ajouté dans la Charte montréalaise des droits et responsabilités l’engagement à lutter contre le capacitisme. Les groupes de défense des droits des personnes handicapées vont-ils se sentir moins seuls dans leur combat acharné pour la dignité&nbsp;? Il ne reste plus à la Ville qu’à passer de la parole aux actes. Cependant, selon un récent diagnostic organisationnel, elle n’en est qu’au niveau de la «&nbsp;prise de conscience&nbsp;» pour ce qui est de l’intégration de l’accessibilité universelle dans ses façons de faire.</p>
+
+                    <p>Le gouvernement du Québec doit lui aussi faire passer les droits humains des personnes handicapées au premier plan afin qu’elles jouissent enfin de la pleine égalité. Pour cela, il doit dépasser les politiques qui s’en tiennent à des généralités<a class="sdfootnoteanc" id="sdfootnote23anc" href="#sdfootnote23sym"><sup>23</sup></a>. Il doit cesser de nous ignorer, prendre au sérieux la Convention relative aux droits des personnes handicapées, faire respecter la Charte des droits et libertés de la personne et légiférer en conséquence. Il est possible de garantir la participation sociale, économique et politique du plus grand nombre en tournant le dos une fois pour toutes aux pratiques oppressives qui favorisent le handicap et l’exclusion.</p>
+
+                    <h2 class="subchapter-title" id="sous-chapitre-5">Conclusion</h2>
+
+                    <p>L’État québécois a été et continue d’être un des principaux acteurs de la vaste entreprise de construction du handicap entamée il y a plusieurs décennies au Québec. La loi de 1978 était une arme à double tranchant qui a laissé de profondes séquelles systémiques. L’exemple venait de haut, et les villes ainsi que le secteur privé ne sont pas en reste en matière de promotion de l’exclusion. Des monuments au capacitisme continuent de se matérialiser ou menacent de sortir de terre. Le Québec a commencé à se constituer il y a bien longtemps une grosse collection de ces monuments qu’il est contreproductif de persister à enrichir.</p>
+
+                    <p>L’urgence réside dans la lutte concertée contre l’oppression que constitue le handicap, afin de donner à toutes et à tous davantage de liberté, d’autonomie et de contrôle sur leur existence. Nous avons vu qu’il existe des solutions pour garantir le droit à l’accessibilité qui découle de la Charte. Il faut maintenant légiférer et financer adéquatement la transition vers l’inclusion. Il est temps de faire des choix politiques en faveur des droits de la personne et du bien commun. Il est plus que temps de changer de direction et de s’atteler résolument à la construction d’une société équitable, inclusive et, surtout, anticapacitiste.</p>
+                </div>
+
+                <!-- RÉFÉRENCES BIBLIOGRAPHIQUES -->
+                <section class="bibliography-section" aria-labelledby="references-bibliographiques">
+                    <h2 class="subchapter-title" id="references-bibliographiques" style="margin-top: 0;">Références bibliographiques</h2>
+                    <ul class="bibliography-list">
+                        <li>Commission des droits de la personne et des droits de la jeunesse (2020-2021), <em>Rapport d’activités et de gestion</em>.</li>
+                        <li>Design Montréal (2022, 8 décembre), <em>Conception d’Espace Rivière dans le quartier de Rivière-des-Prairies</em>, Concours d’architecture pluridisciplinaire, URL&nbsp;: <a href="https://bit.ly/42ZpItn" target="_blank" rel="noopener noreferrer">https://bit.ly/42ZpItn</a>.</li>
+                        <li>Lachaussée, Catherine (2022, 21 octobre), <em>Le sentier des Grands-Domaines-de-Sillery accessible avant son ouverture officielle</em>, Radio-Canada, URL&nbsp;: <a href="https://tinyurl.com/yvmvjxj8" target="_blank" rel="noopener noreferrer">https://tinyurl.com/yvmvjxj8</a>.</li>
+                        <li>Les Dévalideuses (2020, janvier), <em>Bonne résolution n°1&nbsp;: Je découvre le validisme&nbsp;! (ou capacitisme)</em>, URL&nbsp;: <a href="https://tinyurl.com/kt4pc46p" target="_blank" rel="noopener noreferrer">https://tinyurl.com/kt4pc46p</a>.</li>
+                        <li><em>Liste des stations du métro de Montréal</em>, Wikipedia, URL&nbsp;: <a href="https://tinyurl.com/y5mc6nes" target="_blank" rel="noopener noreferrer">https://tinyurl.com/y5mc6nes</a>.</li>
+                        <li>Parent, L. (2010), <em>Je me souviens: The Hegemony of Stairs in the Montréal Metro</em>, mémoire de maîtrise, York University&nbsp;: Toronto.</li>
+                        <li>Québec, Assemblée nationale (1978, 1<sup>er</sup>&nbsp;juin), <em>Journal des débats</em>, <em>troisième session — 31<sup>e</sup> législature</em>, vol. 20, n<sup>o</sup>&nbsp;42.</li>
+                        <li>Québec, Assemblée nationale (2004, 2 décembre), «&nbsp;Journal des débats de la Commission permanente des affaires sociales&nbsp;», vol. 38, n° 88, <em>Étude détaillée du projet de loi n° 56 — Loi modifiant la Loi assurant l’exercice des droits des personnes handicapées et d’autres dispositions législatives (3)</em>.</li>
+                        <li>Québec (1978), <em>Loi assurant l’exercice des droits des personnes handicapées</em>, c. 7.</li>
+                        <li>Québec (2004), <em>Loi assurant l’exercice des droits des personnes handicapées en vue de leur intégration scolaire, professionnelle et sociale</em>, c. 31, a. 1.</li>
+                        <li>Québec (2004), <em>Loi modifiant la Loi assurant l’exercice des droits des personnes handicapées et d’autres dispositions législatives</em>, c. 31.</li>
+                        <li>Régie du bâtiment du Québec (2022, 12 janvier), <em>Entrée en vigueur du nouveau chapitre Bâtiment du Code de construction</em>, URL&nbsp;: <a href="https://tinyurl.com/5fstu4dk" target="_blank" rel="noopener noreferrer">https://tinyurl.com/5fstu4dk</a>.</li>
+                        <li>Régie du bâtiment du Québec (2006), <em>Pour une meilleure accessibilité. Rapport du ministre du travail sur l’accessibilité aux personnes handicapées de bâtiments à caractère public construits avant décembre 1976</em>.</li>
+                        <li>Renaud, P. (2022, 6 juin), <em>Le sentier de la charcotte de Sillery bientôt prêt</em>, Le Devoir, URL&nbsp;: <a href="https://tinyurl.com/mw9ms3ff" target="_blank" rel="noopener noreferrer">https://tinyurl.com/mw9ms3ff</a>.</li>
+                        <li>Société de transport de Montréal (2022, 7 septembre), <em>Séance du conseil d’administration du 7 septembre 2022</em>, URL&nbsp;: <a href="https://tinyurl.com/3yxw6m6v" target="_blank" rel="noopener noreferrer">https://tinyurl.com/3yxw6m6v</a>.</li>
+                        <li>Société d’habitation du Québec (2020, août), <em>Demandes de renseignements particuliers de l’opposition officielle</em>, <em>Commission de l’aménagement du territoire, étude des crédits 2020-2021</em>.</li>
+                        <li>Ville de Montréal, cabinet de la mairesse et du comité exécutif (2022, 13 juin), <em>Modifications du règlement 11-018 pour l’accessibilité universelle</em>, Message électronique envoyé à Jérôme Saunier.</li>
+                        <li>Ville de Montréal (2021, 23 novembre), <em>Commission sur les finances et l’administration</em>, URL&nbsp;: <a href="https://tinyurl.com/bp8mhbye" target="_blank" rel="noopener noreferrer">https://tinyurl.com/bp8mhbye</a>.</li>
+                        <li>Ville de Montréal (2021, 24 novembre), <em>Commission sur les finances et l’administration</em>, URL&nbsp;: <a href="https://tinyurl.com/3wkvrpzu" target="_blank" rel="noopener noreferrer">https://tinyurl.com/3wkvrpzu</a>.</li>
+                    </ul>
+                </section>
+
+                <!-- NOTES DE BAS DE PAGE -->
+                <section class="footnotes-section" aria-label="Notes de bas de page">
+                    <div class="section-title-small" style="color: #7a2222; margin-top: 0;">Notes</div>
+                    <div class="footnote-item" id="sdfootnote1"><a class="sdfootnotesym" id="sdfootnote1sym" href="#sdfootnote1anc">1</a> Les Dévalideuses (2020), <em>Bonne résolution n°1&nbsp;: Je découvre le validisme&nbsp;! (ou capacitisme)</em>, URL&nbsp;: <a href="https://bit.ly/3ZrghB4" target="_blank" rel="noopener noreferrer">https://bit.ly/3ZrghB4</a>.</div>
+                    <div class="footnote-item" id="sdfootnote2"><a class="sdfootnotesym" id="sdfootnote2sym" href="#sdfootnote2anc">2</a> Séance du conseil d’administration du 7 septembre 2022 (1&nbsp;:37&nbsp;:45), URL&nbsp;: <a href="https://bit.ly/3ERuhw9" target="_blank" rel="noopener noreferrer">https://bit.ly/3ERuhw9</a>.</div>
+                    <div class="footnote-item" id="sdfootnote3"><a class="sdfootnotesym" id="sdfootnote3sym" href="#sdfootnote3anc">3</a> Loi assurant l’exercice des droits des personnes handicapées (1978), c. 7, art. 112 (ci-après, la «&nbsp;loi de 1978&nbsp;»).</div>
+                    <div class="footnote-item" id="sdfootnote4"><a class="sdfootnotesym" id="sdfootnote4sym" href="#sdfootnote4anc">4</a> <em>Liste des stations du métro de Montréal</em>, Wikipedia, URL&nbsp;: <a href="https://bit.ly/3MUaVbJ" target="_blank" rel="noopener noreferrer">https://bit.ly/3MUaVbJ</a>.</div>
+                    <div class="footnote-item" id="sdfootnote5"><a class="sdfootnotesym" id="sdfootnote5sym" href="#sdfootnote5anc">5</a> Loi de 1978, art. 71 et 72.</div>
+                    <div class="footnote-item" id="sdfootnote6"><a class="sdfootnotesym" id="sdfootnote6sym" href="#sdfootnote6anc">6</a> Loi modifiant la Loi assurant l’exercice des droits des personnes handicapées et d’autres dispositions législatives (2004), c. 31, art. 49.</div>
+                    <div class="footnote-item" id="sdfootnote7"><a class="sdfootnotesym" id="sdfootnote7sym" href="#sdfootnote7anc">7</a> Loi de 1978, art. 70.</div>
+                    <div class="footnote-item" id="sdfootnote8"><a class="sdfootnotesym" id="sdfootnote8sym" href="#sdfootnote8anc">8</a> Assemblée nationale (2004, 2 décembre), <em>Journal des débats de la Commission permanente des affaires sociales</em>, vol. 38, n° 88, Étude détaillée du projet de loi n° 56 — Loi modifiant la Loi assurant l’exercice des droits des personnes handicapées et d’autres dispositions législatives (3).</div>
+                    <div class="footnote-item" id="sdfootnote9"><a class="sdfootnotesym" id="sdfootnote9sym" href="#sdfootnote9anc">9</a> Paradoxalement, le ministre responsable avait déclaré ceci en déposant son projet de loi, en 1978&nbsp;: «&nbsp;Dorénavant, avec l’adoption d’un tel projet de loi, le transport des personnes handicapées sera assumé par les mécanismes normaux utilisés pour le transport de toute la population.&nbsp;» Assemblée nationale (1978, 1er&nbsp;juin), <em>Journal des débats</em>, troisième session — 31<sup>e</sup>&nbsp;législature, vol. 20, n<sup>o</sup>&nbsp;42.</div>
+                    <div class="footnote-item" id="sdfootnote10"><a class="sdfootnotesym" id="sdfootnote10sym" href="#sdfootnote10anc">10</a> Assemblée nationale (2004, 2 décembre), <em>op. cit.</em></div>
+                    <div class="footnote-item" id="sdfootnote11"><a class="sdfootnotesym" id="sdfootnote11sym" href="#sdfootnote11anc">11</a> Voir les explications peu convaincantes (44&nbsp;:55) et les plates excuses fournies par les responsables devant la Commission des finances et de l’administration de la Ville de Montréal le 23 novembre 2020, URL&nbsp;: <a href="https://www.youtube.com/live/Li8ZY5upvgg?t=44:53" target="_blank" rel="noopener noreferrer">https://www.youtube.com/live/Li8ZY5upvgg?t=44:53</a>.</div>
+                    <div class="footnote-item" id="sdfootnote12"><a class="sdfootnotesym" id="sdfootnote12sym" href="#sdfootnote12anc">12</a> Davantage d’explications vaseuses (01&nbsp;:41&nbsp;:55) sont fournies par les responsables, sans aucune excuse, devant la même commission le 24 novembre 2020, URL&nbsp;: <a href="https://tinyurl.com/5n83kvkz" target="_blank" rel="noopener noreferrer">https://tinyurl.com/5n83kvkz</a>.</div>
+                    <div class="footnote-item" id="sdfootnote13"><a class="sdfootnotesym" id="sdfootnote13sym" href="#sdfootnote13anc">13</a> Design Montréal (2022, 8 décembre), <em>Conception d’Espace Rivière dans le quartier de Rivière-des-Prairies</em>, Concours d’architecture pluridisciplinaire, URL&nbsp;: <a href="https://bit.ly/3CFZhgO" target="_blank" rel="noopener noreferrer">https://bit.ly/3CFZhgO</a>.</div>
+                    <div class="footnote-item" id="sdfootnote14"><a class="sdfootnotesym" id="sdfootnote14sym" href="#sdfootnote14anc">14</a> Renaud, Philippe (2022, 6 juin), <em>En photos | Le sentier de la charcotte de Sillery bientôt prêt</em>, Le Devoir, URL&nbsp;: <a href="https://bit.ly/3Wdi6i7" target="_blank" rel="noopener noreferrer">https://bit.ly/3Wdi6i7</a>.</div>
+                    <div class="footnote-item" id="sdfootnote15"><a class="sdfootnotesym" id="sdfootnote15sym" href="#sdfootnote15anc">15</a> Lachaussée, Catherine (2022, 21 octobre), <em>Le sentier des Grands-Domaines-de-Sillery accessible avant son ouverture officielle</em>, Radio-Canada, URL&nbsp;: <a href="https://tinyurl.com/yvmvjxj8" target="_blank" rel="noopener noreferrer">https://tinyurl.com/yvmvjxj8</a>.</div>
+                    <div class="footnote-item" id="sdfootnote16"><a class="sdfootnotesym" id="sdfootnote16sym" href="#sdfootnote16anc">16</a> Parent, Laurence (2010), <em>Je me souviens&nbsp;: The Hegemony of Stairs in the Montréal Metro</em>, mémoire de maîtrise, York University, Toronto.</div>
+                    <div class="footnote-item" id="sdfootnote17"><a class="sdfootnotesym" id="sdfootnote17sym" href="#sdfootnote17anc">17</a> Régie du bâtiment du Québec (2006), <em>Pour une meilleure accessibilité. Rapport du ministre du travail sur l’accessibilité aux personnes handicapées de bâtiments à caractère public construits avant décembre 1976</em>.</div>
+                    <div class="footnote-item" id="sdfootnote18"><a class="sdfootnotesym" id="sdfootnote18sym" href="#sdfootnote18anc">18</a> Régie du bâtiment du Québec (2022, 12 janvier), <em>Entrée en vigueur du nouveau chapitre Bâtiment du Code de construction</em>, URL&nbsp;: <a href="https://bit.ly/3UDeCoF" target="_blank" rel="noopener noreferrer">https://bit.ly/3UDeCoF</a>.</div>
+                    <div class="footnote-item" id="sdfootnote19"><a class="sdfootnotesym" id="sdfootnote19sym" href="#sdfootnote19anc">19</a> Loi assurant l’exercice des droits des personnes handicapées en vue de leur intégration scolaire, professionnelle et sociale (2004), c. 31, a. 1, art. 69.</div>
+                    <div class="footnote-item" id="sdfootnote20"><a class="sdfootnotesym" id="sdfootnote20sym" href="#sdfootnote20anc">20</a> Ainsi, le Programme d’aide à l’accessibilité des commerces (PAAC) de Montréal n’a reçu, au cours de sa première année, que onze demandes de subventions, dont sept ont été accueillies, pour un total de 50&nbsp;586,75&nbsp;$ (Ville de Montréal, <em>Bilan de l’an 1 du Programme d’aide à l’accessibilité des commerces (PAAC)</em>, période d’avril 2017 à avril 2018). Ce programme avait un budget initial de 1,6 million. En novembre 2022, le solde était de 700&nbsp;000&nbsp;$ malgré la hausse de la subvention de 10&nbsp;000&nbsp;$ à 15&nbsp;000&nbsp;$. La Ville a confirmé qu’il n’y a pas de demande pour cette subvention (communication privée). Le programme équivalent dans le reste de la province, Petits établissements accessibles, disposait de 300&nbsp;000&nbsp;$ en 2019-2020 (Société d’habitation du Québec, <em>Demandes de renseignements particuliers de l’opposition officielle</em>, Commission de l’aménagement du territoire, étude des crédits 2020-2021, août 2020).</div>
+                    <div class="footnote-item" id="sdfootnote21"><a class="sdfootnotesym" id="sdfootnote21sym" href="#sdfootnote21anc">21</a> Il est révélateur que la plupart des dossiers concernent le motif de discrimination interdit «&nbsp;handicap&nbsp;» (38&nbsp;%). Commission des droits de la personne et des droits de la jeunesse, <em>Rapport d’activités et de gestion 2020-2021</em>.</div>
+                    <div class="footnote-item" id="sdfootnote22"><a class="sdfootnotesym" id="sdfootnote22sym" href="#sdfootnote22anc">22</a> Cabinet de la mairesse et du comité exécutif, Ville de Montréal (2022, 13 juin), <em>Modifications du règlement 11-018 pour l’accessibilité universelle</em>, [Message électronique à Jérôme Saunier].</div>
+                    <div class="footnote-item" id="sdfootnote23"><a class="sdfootnotesym" id="sdfootnote23sym" href="#sdfootnote23anc">23</a> Office des personnes handicapées du Québec (2009), «&nbsp;À part entière&nbsp;: pour un véritable exercice du droit à l’égalité&nbsp;», <em>Politique gouvernementale pour accroître la participation sociale des personnes handicapées</em>.</div>
+                </section>
+            </article>
+        </main>
+    </div>
+
+    <!-- Modal Universel (PDF / Vidéo) -->
+    <div class="modal-overlay" id="mediaModal" onclick="closeModalOnOutside(event)">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 id="modalTitle">Titre de la fenêtre</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBodyContent"></div>
+        </div>
+    </div>
+
+    <!-- Modal de Proposition d'Article / Projet -->
+    <div class="modal-overlay" id="proposalModal" onclick="closeProposalModalOnOutside(event)">
+        <div class="modal-container" style="max-width: 800px; height: auto;">
+            <div class="modal-header">
+                <h3 id="proposalModalTitle">Proposer une captation ou un article / Nous faire part d'un commentaire</h3>
+                <button class="modal-close" onclick="closeProposalModal()">&times;</button>
+            </div>
+            <div class="modal-body" style="padding: 1.5rem; overflow-y: auto;">
+                <form id="proposalForm" onsubmit="submitProposal(event)" style="display: flex; flex-direction: column; gap: 1rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                    <input type="hidden" id="propCategory" value="article">
+                    <div>
+                        <label for="propName" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Votre nom</label>
+                        <input type="text" id="propName" required style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propEmail" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Votre courriel</label>
+                        <input type="email" id="propEmail" required style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propTitle" id="propTitleLabel" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Que désirez-vous nous communiquer ?</label>
+                        <input type="text" id="propTitle" required placeholder="Ex: Analyse de l'accessibilité urbaine..." style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propDesc" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Description ou résumé</label>
+                        <textarea id="propDesc" rows="4" required placeholder="Décrivez votre proposition en quelques lignes..." style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff; resize: vertical;"></textarea>
+                    </div>
+                    <button type="submit" style="background-color: #7a2222; color: #fff; border: none; padding: 0.75rem; border-radius: 4px; font-weight: 600; cursor: pointer; margin-top: 0.5rem; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#5e1a1a'" onmouseout="this.style.backgroundColor='#7a2222'">Envoyer la proposition</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSubmenu(event, submenuId, arrowId) {
+            event.stopPropagation();
+            const submenu = document.getElementById(submenuId);
+            const arrow = document.getElementById(arrowId);
+            submenu.classList.toggle('open');
+            arrow.style.transform = submenu.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
+
+        function openModal(type, title, url) {
+            const modal = document.getElementById('mediaModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalBodyContent = document.getElementById('modalBodyContent');
+
+            modalTitle.textContent = title;
+            modalBodyContent.innerHTML = '';
+
+            if (type === 'pdf') {
+                const iframe = document.createElement('iframe');
+                iframe.className = 'pdf-frame';
+                iframe.src = url;
+                modalBodyContent.appendChild(iframe);
+            } else if (type === 'video') {
+                const iframe = document.createElement('iframe');
+                iframe.className = 'video-frame';
+                iframe.src = url;
+                iframe.setAttribute('allow', 'autoplay; fullscreen');
+                modalBodyContent.appendChild(iframe);
+            }
+
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('mediaModal');
+            modal.style.display = 'none';
+            document.getElementById('modalBodyContent').innerHTML = '';
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeModalOnOutside(event) {
+            const modal = document.getElementById('mediaModal');
+            if (event.target === modal) closeModal();
+        }
+
+        function openProposalModal(type) {
+            const proposalModal = document.getElementById('proposalModal');
+            const titleEl = document.getElementById('proposalModalTitle');
+            const categoryEl = document.getElementById('propCategory');
+            const titleLabelEl = document.getElementById('propTitleLabel');
+            const titleInputEl = document.getElementById('propTitle');
+
+            categoryEl.value = type;
+
+            if (type === 'captation') {
+                titleEl.textContent = "Nous faire part d'un commentaire ou d'une proposition (captation ou article)";
+                titleLabelEl.textContent = "Que voulez-vous nous communiquer ?";
+                titleInputEl.placeholder = "Ex: projet de captation, soumettre un article, faire un commentaire...";
+            } else {
+                titleEl.textContent = "Nous faire part d'un commentaire ou d'une proposition (captation ou article)";
+                titleLabelEl.textContent = "Que voulez-vous nous communiquer ?";
+                titleInputEl.placeholder = "Ex: projet de captation, soumettre un article, faire un commentaire...";
+            }
+
+            proposalModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProposalModal() {
+            const proposalModal = document.getElementById('proposalModal');
+            proposalModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeProposalModalOnOutside(event) {
+            const proposalModal = document.getElementById('proposalModal');
+            if (event.target === proposalModal) closeProposalModal();
+        }
+
+        function submitProposal(event) {
+            event.preventDefault();
+            const name = document.getElementById('propName').value;
+            const email = document.getElementById('propEmail').value;
+            const category = document.getElementById('propCategory').value;
+            const title = document.getElementById('propTitle').value;
+            const desc = document.getElementById('propDesc').value;
+
+            const typeLabel = category === 'captation' ? 'Proposition de captation' : "Proposition d'article";
+            const subject = encodeURIComponent(`${typeLabel} : ${title}`);
+            const body = encodeURIComponent(`Nom : ${name}\nCourriel : ${email}\nType : ${typeLabel}\nTitre : ${title}\n\nDescription :\n${desc}`);
+
+            window.location.href = `mailto:sociocamera@gmail.com?subject=${subject}&body=${body}`;
+            closeProposalModal();
+        }
+
+        window.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+                closeProposalModal();
+            }
+        });
+
+        const conceptMapsData = {
+            map1: [
+                {
+                    title: "1966 — L’exclusion inscrite dans le béton dès l’origine",
+                    text: "Lors de l’inauguration du métro de Montréal en 1966, l’ensemble du réseau est conçu exclusivement autour d’escaliers fixes et mécaniques. L’absence totale d’ascenseurs érige d’emblée une frontière physique entre usagers valides et personnes à mobilité réduite."
+                },
+                {
+                    title: "1976 – 1978 — Le paradoxe de la Charte et de la station De l’Église",
+                    text: "Alors que le Code de construction voit le jour en 1976 et que la Charte des droits et libertés de la personne interdit en 1978 la discrimination fondée sur le handicap, la station De l’Église ouvre la même année sans ascenseur, protégée par des dérogations législatives."
+                },
+                {
+                    title: "1980 – 1988 — 25 nouvelles stations inaccessibles en toute légalité",
+                    text: "Au cours de la décennie suivant le prolongement de la ligne verte, vingt-cinq stations sont aménagées sur les lignes orange et bleue sans accès universel, représentant 38,4 % des 65 stations existant en 1988."
+                },
+                {
+                    title: "2004 – 2007 — Fin des dérogations mais démarrage tardif",
+                    text: "Il faut attendre 2004 (un quart de siècle plus tard) pour que l’Assemblée nationale abroge les dérogations de 1978, et 2007 pour l’ouverture des trois premières stations accessibles lors du prolongement vers Laval."
+                },
+                {
+                    title: "2023 – 2028 — Un demi-siècle d’attente pour la conformité",
+                    text: "En avril 2023, seules 26 stations sur 68 (38,2 % du réseau) sont accessibles, laissant 42 stations à adapter. La station De l’Église ne sera accessible en fauteuil roulant qu’en 2028, cinquante ans après son inauguration."
+                },
+                {
+                    title: "Les « bémols » de la loi de 1978 (Articles 70, 71 et 72)",
+                    text: "Sous l’influence du lobby des propriétaires immobiliers, la loi de 1978 interdit tout recours pour inaccessibilité des immeubles bâtis avant 1976 et du transport collectif, tout en permettant au gouvernement d’écarter le droit à l’égalité si le coût est jugé « injustifiable »."
+                },
+                {
+                    title: "L’inertie réglementaire post-2004 (Article 69 non adopté)",
+                    text: "Même après l’abrogation des dérogations en 2004, le règlement prévu à l’article 69 pour imposer des normes d’accessibilité aux immeubles construits avant 1976 n’a jamais été adopté par le gouvernement du Québec."
+                }
+            ],
+            map2: [
+                {
+                    title: "Noyau conceptuel — L’hégémonie de l’escalier comme norme spatiale",
+                    text: "Comme le souligne Laurence Parent (2010), l’omniprésence de l’escalier dans l’architecture publique n’est pas un simple choix esthétique : elle matérialise une conception capacitiste de l’espace où le corps valide constitue l’unique étalon de mesure."
+                },
+                {
+                    title: "1. Équipements culturels récents : accès différencié ou exclusion totale",
+                    text: "Au Biodôme rénové (2020), les personnes handicapées sont reléguées à un ascenseur clos tandis que les personnes valides profitent d’une passerelle panoramique dans la cime des arbres — un modèle reproduit dans les esquisses d’Espace Rivière. Le belvédère de l’Île-Bizard (2020) n’est quant à lui qu’un assemblage d’escaliers."
+                },
+                {
+                    title: "2. Espaces civiques et belvédères : l’accessibilité sacrifiée",
+                    text: "Le grand escalier de la Place Ville-Marie (2022) comporte une rampe jugée non sécuritaire pour les fauteuils roulants, tandis qu’à Québec, l’escalier du sentier des Grands-Domaines sur le promontoire de Sillery illustre la persistance de cette architecture excluante."
+                },
+                {
+                    title: "3. Mobilité urbaine et transport adapté ségrégué",
+                    text: "Le maintien de l’inaccessibilité du métro a justifié la création au début des années 1980 d’un service parallèle de transport adapté. Bien qu’utile, ce dispositif palliatif consacre la ségrégation spatiale et prive les citoyennes et citoyens d’une mobilité spontanée."
+                },
+                {
+                    title: "4. Artères commerciales de quartier et petits gabarits",
+                    text: "Outre les immeubles antérieurs à 1976, le Code de construction exempte les bâtiments de petit gabarit des exigences d’accessibilité. En l’absence d’action réglementaire des municipalités, la majorité des commerces et restaurants de quartier demeurent fermés aux personnes handicapées."
+                }
+            ],
+            map3: [
+                {
+                    title: "Naturalisation du handicap et logique capitaliste",
+                    text: "Le capacitisme masque sa dimension politique en attribuant l’exclusion aux incapacités individuelles plutôt qu’à l’aménagement de l’environnement. En subordonnant les droits fondamentaux à la rentabilité financière, l’État et le marché pérennisent l’exclusion."
+                },
+                {
+                    title: "L’échec du volontarisme et des programmes sous-financés",
+                    text: "S’en remettre aux lois du marché ou à des subventions ponctuelles est inefficace : à Montréal, le Programme d’aide à l’accessibilité des commerces (PAAC) n’a accueilli que 7 demandes lors de sa première année (50 586,75 $ versés sur un budget de 1,6 M$)."
+                },
+                {
+                    title: "Les limites des recours individuels devant la CDPDJ",
+                    text: "Bien que le motif « handicap » représente 38 % des dossiers de la Commission des droits de la personne et des droits de la jeunesse (2020-2021), les plaintes n’aboutissent qu’à des règlements longs et au cas par cas, sans transformation systémique."
+                },
+                {
+                    title: "Adopter une loi contraignante sur l’accessibilité universelle",
+                    text: "À l’instar de l’Ontario, du Manitoba, du palier fédéral canadien et des États-Unis, le Québec doit légiférer en imposant des cibles obligatoires, des échéanciers fermes, des mécanismes de mise en œuvre rigoureux et des pénalités dissuasives."
+                },
+                {
+                    title: "Resserrement réglementaire municipal et passage aux actes",
+                    text: "Les municipalités peuvent dépasser le strict minimum du Code de construction provincial. Montréal a amorcé la révision de son règlement 11-018 et inscrit la lutte contre le capacitisme dans sa Charte en 2021 : elle doit désormais dépasser le stade de la simple « prise de conscience »."
+                },
+                {
+                    title: "Financement adéquat et primauté des droits humains",
+                    text: "Garantir la pleine égalité exige de financer adéquatement l’adaptation du réseau de la STM et du cadre bâti, tout en respectant pleinement la Charte québécoise et la Convention de l’ONU relative aux droits des personnes handicapées."
+                }
+            ]
+        };
+
+        function selectConceptNode(mapId, index, element) {
+            const card = element.closest('.concept-map-card');
+            if (!card) return;
+            card.querySelectorAll('.svg-node').forEach(node => node.classList.remove('active'));
+            element.classList.add('active');
+
+            const data = conceptMapsData[mapId] && conceptMapsData[mapId][index];
+            const panel = document.getElementById(mapId + '-detail');
+            if (data && panel) {
+                panel.innerHTML = '<h5>' + data.title + '</h5><p>' + data.text + '</p>';
+            }
+        }
+
+        function scrollToPageTop(event) {
+            event.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function scrollToSubchapter(event, targetId) {
+            event.preventDefault();
+            const target = document.getElementById(targetId);
+            if (!target) return;
+            const topbarHeight = 60;
+            const extraMargin = 26;
+            const y = target.getBoundingClientRect().top + window.pageYOffset - topbarHeight - extraMargin;
+            window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+        }
+
+    </script>
+</body>
+</html>
