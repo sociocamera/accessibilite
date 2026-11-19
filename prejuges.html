@@ -22,9 +22,16 @@
             --sidebar-width: 320px;
             --topbar-height: 60px;
             --modal-header-bg: #7a2222; /* Bordeaux de référence */
+            --bordeaux: #7a2222;
+            --bordeaux-dark: #5e1a1a;
+            --concept-bg: #FDFBF7; /* Légèrement plus pâle que #FAF6EF */
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
             font-family: "Georgia", "Cambria", "Times New Roman", serif;
@@ -192,6 +199,31 @@
             border-color: var(--hover-border);
         }
 
+        .page-nav-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background: transparent;
+            border: 1px solid #e2d5c8;
+            color: var(--bordeaux);
+            padding: 0.75rem 0.9rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.2s ease;
+            margin-top: 0.25rem;
+        }
+
+        .page-nav-toggle:hover {
+            background-color: #eae3d5;
+            border-color: var(--bordeaux);
+        }
+
         .submenu {
             display: none;
             flex-direction: column;
@@ -221,6 +253,22 @@
             border-left-color: var(--primary-color);
         }
 
+        .page-nav-item {
+            font-size: 0.82rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            padding: 0.45rem 0.75rem;
+            border-radius: 4px;
+            transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+            border-left: 2px solid var(--bordeaux);
+            line-height: 1.35;
+        }
+
+        .page-nav-item:hover {
+            background-color: #eae3d5;
+            color: var(--bordeaux-dark);
+        }
+
         /* Conteneur principal à droite, décalé pour laisser place à la sidebar et topbar */
         .main-wrapper {
             margin-left: var(--sidebar-width);
@@ -229,7 +277,392 @@
             display: flex;
             flex-direction: column;
             width: calc(100% - var(--sidebar-width));
-            padding: 2rem;
+            padding: 2rem 2.5rem;
+        }
+
+        /* Présentation large de la zone dynamique pour une lisibilité maximale */
+        .dynamic-zone {
+            width: 100%;
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+
+        .article-container {
+            width: 100%;
+            background-color: transparent;
+            padding: 0.5rem 0 3rem 0;
+        }
+
+        .article-header-meta {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.75rem;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #ded4c5;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.88rem;
+            color: var(--accent-color);
+        }
+
+        .article-header-meta a {
+            color: var(--bordeaux);
+            text-decoration: underline;
+            font-weight: 500;
+        }
+
+        .article-hero {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 2.25rem;
+            align-items: start;
+            margin-bottom: 2rem;
+            padding-bottom: 1.75rem;
+            border-bottom: 1px solid #ded4c5;
+        }
+
+        .article-cover-box img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+            display: block;
+        }
+
+        .article-title-block h1 {
+            font-size: 2.15rem;
+            line-height: 1.2;
+            color: #192930;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .article-author-line {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--bordeaux);
+            letter-spacing: 0.03em;
+        }
+
+        /* Deux cases côte à côte sous le titre */
+        .title-info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.25rem;
+        }
+
+        .author-info-box,
+        .cite-info-box {
+            background-color: #FDFBF7;
+            border: 1px solid #e3dacb;
+            border-radius: 6px;
+            padding: 1.1rem 1.25rem;
+            font-size: 0.88rem;
+            line-height: 1.55;
+            color: var(--text-color);
+        }
+
+        .author-info-box {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .author-round-avatar {
+            width: 78px;
+            height: 78px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--bordeaux);
+            flex-shrink: 0;
+        }
+
+        .author-details-name {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--primary-color);
+            margin-bottom: 0.3rem;
+        }
+
+        .author-details-affiliations {
+            font-size: 0.82rem;
+            line-height: 1.45;
+            color: var(--accent-color);
+        }
+
+        .cite-box-title {
+            font-weight: 700;
+            font-size: 0.92rem;
+            color: var(--bordeaux);
+            margin-bottom: 0.45rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .cite-box-text {
+            font-size: 0.84rem;
+            line-height: 1.55;
+            color: var(--text-color);
+        }
+
+        .abstract-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .abstract-box {
+            background-color: #FDFBF7;
+            border: 1px solid #e3dacb;
+            border-left: 4px solid var(--bordeaux);
+            border-radius: 6px;
+            padding: 1.25rem 1.4rem;
+            text-align: justify;
+            font-size: 0.84rem;
+            line-height: 1.6;
+        }
+
+        .abstract-box p {
+            font-size: 0.84rem;
+            line-height: 1.6;
+        }
+
+        .article-body p {
+            text-align: justify;
+            font-size: 1.08rem;
+            line-height: 1.75;
+            margin-bottom: 1.15rem;
+        }
+
+        .lead-with-portrait {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .lead-portrait {
+            width: 128px;
+            height: 128px;
+            object-fit: cover;
+            border-radius: 6px;
+            flex-shrink: 0;
+            border: 1px solid #ded4c5;
+        }
+
+        .video-feature-card {
+            display: grid;
+            grid-template-columns: minmax(280px, 420px) 1fr;
+            gap: 1.75rem;
+            align-items: center;
+            background-color: #FDFBF7;
+            border: 1px solid #e3dacb;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.75rem 0;
+        }
+
+        .video-feature-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+            display: block;
+        }
+
+        .video-embed-box {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border-radius: 6px;
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        .video-embed-box iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-feature-text p {
+            font-family: "Georgia", "Cambria", "Times New Roman", serif;
+            font-size: 1.02rem;
+            line-height: 1.7;
+            text-align: justify;
+            color: var(--text-color);
+            margin-bottom: 0;
+        }
+
+        .video-feature-meta {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.95rem;
+            line-height: 1.65;
+            color: var(--primary-color);
+        }
+
+        .video-feature-meta a {
+            color: var(--bordeaux);
+            font-weight: 600;
+            text-decoration: underline;
+        }
+
+        /* Titres de sous-chapitres en rouge bordeaux + marge d'ancrage pour lisibilité optimale */
+        h2.subchapter-title {
+            color: var(--bordeaux) !important;
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-top: 2.5rem;
+            margin-bottom: 1.15rem;
+            padding-bottom: 0.45rem;
+            border-bottom: 1px solid #decbc7;
+            scroll-margin-top: calc(var(--topbar-height) + 48px);
+        }
+
+        .article-list {
+            margin: 1rem 0 1.65rem 1.75rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
+        }
+
+        .article-list li {
+            text-align: justify;
+            font-size: 1.04rem;
+            line-height: 1.65;
+            padding-left: 0.35rem;
+        }
+
+        /* Cartes conceptuelles élaborées (fond un peu plus pâle que #FAF6EF) */
+        .concept-map-card {
+            background-color: var(--concept-bg);
+            border: 1px solid #dfd5c5;
+            border-radius: 10px;
+            padding: 1.25rem 1.4rem;
+            margin: 2rem 0;
+            box-shadow: 0 3px 12px rgba(26, 32, 44, 0.04);
+        }
+
+        .concept-map-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.9rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .concept-map-badge {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--bordeaux);
+            background-color: #f5ece9;
+            padding: 0.25rem 0.65rem;
+            border-radius: 999px;
+            border: 1px solid #e2c6c2;
+        }
+
+        .concept-map-hint {
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            font-style: italic;
+        }
+
+        .concept-svg-wrapper {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        .concept-svg {
+            width: 100%;
+            height: auto;
+            display: block;
+            background-color: var(--concept-bg);
+            border-radius: 6px;
+        }
+
+        .svg-interactive-node {
+            cursor: pointer;
+            transition: filter 0.2s ease, transform 0.2s ease;
+        }
+
+        .svg-interactive-node:hover {
+            filter: brightness(0.97);
+        }
+
+        .concept-detail-bar {
+            margin-top: 0.85rem;
+            padding: 0.75rem 1rem;
+            background-color: #FAF6EF;
+            border-left: 3px solid var(--bordeaux);
+            border-radius: 4px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.88rem;
+            color: var(--primary-color);
+            line-height: 1.5;
+        }
+
+        .author-bio-box {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            background-color: #FDFBF7;
+            border: 1px solid #e3dacb;
+            border-radius: 8px;
+            padding: 1.15rem 1.4rem;
+            margin: 2.25rem 0 1.75rem 0;
+        }
+
+        .author-bio-box img {
+            width: 96px;
+            height: 96px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid var(--bordeaux);
+            flex-shrink: 0;
+        }
+
+        .references-section {
+            margin-top: 2rem;
+            padding-top: 1.25rem;
+            border-top: 2px solid #ded4c5;
+        }
+
+        .references-section h3 {
+            color: var(--bordeaux);
+            font-size: 1.15rem;
+            letter-spacing: 0.04em;
+            margin-bottom: 1rem;
+        }
+
+        .references-section p {
+            font-size: 0.96rem !important;
+            line-height: 1.6 !important;
+            margin-bottom: 0.75rem !important;
+            padding-left: 1.5rem;
+            text-indent: -1.5rem;
+        }
+
+        .footnotes-section {
+            margin-top: 2.25rem;
+            padding-top: 1.25rem;
+            border-top: 1px dashed #d4c5b9;
+            font-size: 0.88rem;
+            color: var(--accent-color);
+        }
+
+        .footnotes-section p {
+            font-size: 0.88rem !important;
+            line-height: 1.55 !important;
+            margin-bottom: 0.5rem !important;
         }
 
         .header-actions {
@@ -265,65 +698,6 @@
         .btn-header.secondary:hover {
             background-color: #f2ede4;
             border-color: var(--hover-border);
-        }
-
-        /* Styles spécifiques pour la zone d'affichage dynamique (Grille à 2 cases par ligne) */
-        .dynamic-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .tournage-card {
-            background: #fff;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1.5rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-
-        .tournage-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #7a2222;
-        }
-
-        .tournage-meta {
-            font-size: 0.85rem;
-            color: var(--accent-color);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            display: flex;
-            flex-direction: column;
-            gap: 0.25rem;
-        }
-
-        .tournage-synopsis {
-            font-size: 0.9rem;
-            color: var(--text-color);
-            margin: 0.25rem 0;
-        }
-
-        .tournage-checkboxes {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 0.5rem;
-            padding-top: 0.75rem;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.8rem;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            color: var(--accent-color);
-        }
-
-        .tournage-checkboxes label {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-            cursor: pointer;
         }
 
         /* Styles harmonisés des fenêtres modales selon l'image de référence */
@@ -398,14 +772,43 @@
             border: none;
         }
 
+        .article-hero {
+            grid-template-columns: 1fr;
+        }
+
+        .article-hero .title-info-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .article-hero .title-info-grid .author-info-box {
+            grid-column: auto;
+            width: auto;
+        }
+
         @media (max-width: 1200px) {
             :root { --sidebar-width: 0px; }
             .top-navbar { left: 0; padding: 0 1rem; grid-template-columns: 1fr auto; }
             .top-navbar-title { display: none; }
             aside.sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
             aside.sidebar.mobile-open { transform: translateX(0); }
-            .main-wrapper { margin-left: 0; width: 100%; }
-            .dynamic-grid { grid-template-columns: 1fr; }
+            .main-wrapper { margin-left: 0; width: 100%; padding: 1.5rem 1rem; }
+            .article-hero { grid-template-columns: 1fr; }
+            .article-cover-box { max-width: 220px; }
+            .title-info-grid,
+            .article-hero .title-info-grid { grid-template-columns: 1fr; }
+            .abstract-grid { grid-template-columns: 1fr; }
+            .video-feature-card { grid-template-columns: 1fr; }
+        }
+
+        .article-body p.lettrine::first-letter {
+            float: left;
+            font-size: 3.6rem;
+            line-height: 0.88;
+            font-weight: 700;
+            color: var(--bordeaux);
+            margin-right: 0.55rem;
+            margin-top: 0.12rem;
+            padding-right: 0.1rem;
         }
     </style>
 </head>
@@ -421,20 +824,20 @@
             </button>
             <button class="btn-header secondary" onclick="openProposalModal('article')">
                 <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
-                Proposer un projet ou un article
+                Proposer un projet de captation ou un article
             </button>
             <button class="btn-header secondary" onclick="openModal('pdf', 'Télécharger le numéro complet', 'https://drive.google.com/file/d/1d3ZUnnEwYomQ1VRQ1lF8XNei88HelQvy/preview')">
                 <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                 Télécharger le numéro
             </button>
         </div>
-        <div class="top-navbar-location" id="locationIndicator">Tournages, montage, post-production</div>
+        <div class="top-navbar-location" id="locationIndicator">Accueil</div>
     </header>
 
     <!-- Colonne latérale gauche permanente -->
     <aside class="sidebar">
         <div class="sidebar-header">
-            <a href="https://inclusionsociale.com/" class="btn-home">
+            <a href="https://inclusionsociale.com/#article-prejuges-difference" class="btn-home">
                 <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
                 INCLUSION SOCIALE
             </a>
@@ -467,7 +870,6 @@
                     <a href="https://inclusionsociale.com/#theme-2" class="submenu-item">2. Éducation & institutions</a>
                     <a href="https://inclusionsociale.com/#theme-3" class="submenu-item">3. Travail, autonomie & loisirs</a>
                     <a href="https://inclusionsociale.com/#theme-4" class="submenu-item">4. Expérience vécue & stigmates</a>
-                    <a href="https://inclusionsociale.com/#theme-5" class="submenu-item">5. Parrainage et mentorat</a>
                 </div>
             </div>
 
@@ -480,131 +882,398 @@
                     <a href="https://inclusionsociale.com/mentorat-actif-bilan.html" class="submenu-item">Mentorat actif, un plus tard</a>
                 </div>
             </div>
-
             <!-- Bouton Tournages en cours non gras -->
             <div>
                 <a href="https://inclusionsociale.com/tournages.html" class="nav-btn" style="font-weight: normal;">
                     <span>Tournages en cours</span>
                 </a>
             </div>
-        </div>
+
+            <!-- Mention cliquable NAVIGATION DANS LA PAGE en rouge bordeaux sous Tournages en cours -->
+            <div>
+                <button type="button" class="page-nav-toggle" onclick="toggleSubmenu(event, 'pageNavigationSubmenu', 'pageNavArrow')" aria-expanded="false" aria-controls="pageNavigationSubmenu">
+                    <span>NAVIGATION DANS LA PAGE</span>
+                    <svg id="pageNavArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+<div class="submenu" id="pageNavigationSubmenu">
+                    <a href="#top" class="page-nav-item" onclick="scrollToTop(event)">Présentation</a>
+                    <a href="#introduction" class="page-nav-item" onclick="scrollToSubchapter(event, 'introduction')">Introduction</a>
+                    <a href="#sec-resistances-exclusion" class="page-nav-item" onclick="scrollToSubchapter(event, 'sec-resistances-exclusion')">Les résistances à l’accessibilité : les mécanismes d’exclusion sociale</a>
+                    <a href="#sec-representations-prejuges" class="page-nav-item" onclick="scrollToSubchapter(event, 'sec-representations-prejuges')">Les représentations sociales de la différence : les préjugées</a>
+                    <a href="#sec-conclusion-representation" class="page-nav-item" onclick="scrollToSubchapter(event, 'sec-conclusion-representation')">Conclusion : La représentation sociale idéale est un frein à l’inclusion</a>
+                </div>
+            </div>
 
         </div>
     </aside>
 
-    <!-- Zone de contenu dynamique à droite -->
+    <!-- Zone de contenu dynamique à droite (Frame de base) -->
     <div class="main-wrapper">
-        <main>
-            <section>
-                <h2>Suivi et programmation des tournages documentaires </h2>
-                <div class="dynamic-grid">
-                    <!-- Tournage 1 -->
-                    <div class="tournage-card">
-                        <div class="tournage-title">Les préjugés face à la différence</div>
-                        <div class="tournage-meta">
-                            <span><b>Date :</b> 21 novembre 2026</span>
-                            <span><b>Lieu :</b> Studio de tournage Photo|Société, Québec</span>
-                            <span><b>Intervenant :</b> Olivier Bernard</span>
-                        </div>
-                        <div class="tournage-synopsis">
-                            L'entrevue explorera la peur de la différence face aux personnes en situation de handicap comme défense organique, la souffrance institutionnelle des intervenants, les figures types du préjugé symbolique, l'accélération numérique liée à l'apparence corporelle ou à des incapacités non visibles et les limites des approches juridiques face aux rapports de pouvoir.
-                        </div>
-                        <div class="tournage-checkboxes">
-                            <label><input type="checkbox" checked> À faire</label>
-                            <label><input type="checkbox"> En cours</label>
-                            <label><input type="checkbox"> Effectué</label>
-                            <label><input type="checkbox"> En montage</label>
-                            <label><input type="checkbox"> En post-production</label>
-                            <label><input type="checkbox" data-href="#" onclick="if(this.checked && this.dataset.href && this.dataset.href !== '#') window.location.href=this.dataset.href;"> Actif</label>
+        <main class="dynamic-zone">
+            <section id="zone-dynamique">
+                <article class="article-container">
+                    <div class="article-header-meta">
+                        <span>Penser l’accessibilité</span>
+                        <span>Revue <em>Sociologie Visuelle</em></span>
+                    </div>
+
+                    <div class="article-hero">
+                        <div class="article-title-block">
+                            <h1>Les préjugés ou les mécanismes de résistance à l’accessibilité</h1>
+                            <div class="title-info-grid">
+                                <div class="author-info-box">
+                                    <img src="https://github.com/sociocamera/accessibilite/blob/images/Bernard%20Olivier.png?raw=true" alt="Olivier BERNARD" class="author-round-avatar">
+                                    <div>
+                                        <div class="author-details-name">Olivier BERNARD</div>
+                                        <div class="author-details-affiliations">
+                                            <strong>Affiliation</strong><br>
+                                            Presses de l’Université Laval (PUL), directeur de la collection <em>L’univers social des arts martiaux</em>.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="cite-info-box">
+                                    <div class="cite-box-title">Citer cet article</div>
+                                    <div class="cite-box-text">
+                                        Bernard, O. (2023), « Les préjugés ou les mécanismes de résistance à l’accessibilité », <em>Sociologie Visuelle</em>, n° 4, François Routhier et Pierre Fraser (éds.), Québec : Photo|Société, pp. 13-22.
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Tournage 2 -->
-                    <div class="tournage-card">
-                        <div class="tournage-title">Bilan de la mise en place de solutions de mentorat actif</div>
-                        <div class="tournage-meta">
-                            <span><b>Date :</b> 7 décembre 2026, 09:00h</span>
-                            <span><b>Lieu :</b> Centre de Parrainage Civique de Québec, 245 Rue Soumande, Québec</span>
-                            <span><b>Intervenantes :</b> Monique Maltais & Allyson Madore</span>
+                    <div class="abstract-grid">
+                        <div class="abstract-box">
+                            <p><strong>Résumé. —</strong> Lorsque nous pensons à l'inclusion et à l'acceptation sociale, nous avons tendance à penser en premier lieu aux handicaps physiques ou mentaux. Cependant, la réalité est beaucoup plus complexe que cela. D'un point de vue anthropo-sociologique, la différence est comprise à travers le concept de culture, qui englobe tout ce qui est mutuellement appris, produit, créé et partagé par les membres d'une société. La culture guide les comportements individuels et permet aux gens d'interpréter leurs expériences quotidiennes. Pour chaque individu, cela se manifeste par une certaine aisance à partager ses réflexions avec les personnes de son entourage, en anticipant que ces dernières possèdent des expériences de vie et des idées similaires ou communes. Ainsi, l'idée de rencontrer des personnes différentes peut susciter une certaine appréhension quant à la possibilité de ne plus se sentir à l'aise dans cette zone de confort qu'est la culture commune, également appelée « lieu commun » par Fernand Dumont<a class="sdfootnoteanc" name="sdfootnote1anc" href="#sdfootnote1sym"><sup>1</sup></a>.</p>
                         </div>
-                        <div class="tournage-synopsis">
-                           Un an plus tard, dans quelle mesure le Mentorat Actif a-t-il permis de poser des bases solides pour faire évoluer les pratiques des organismes de parrainage civique du Québec. Les constats actuels montrent qu’il ne s’agit pas simplement d’une nouvelle formule de jumelage, mais bien d’une approche qui amène les organismes à réfléchir autrement aux conditions qui favorisent la participation et l’inclusion sociales.
-                        </div>
-                        <div class="tournage-checkboxes">
-                            <label><input type="checkbox"> À faire</label>
-                            <label><input type="checkbox" checked> En cours</label>
-                            <label><input type="checkbox"> Effectué</label>
-                            <label><input type="checkbox"> En montage</label>
-                            <label><input type="checkbox"> En post-production</label>
-                            <label><input type="checkbox" data-href="#" onclick="if(this.checked && this.dataset.href && this.dataset.href !== '#') window.location.href=this.dataset.href;"> Actif</label>
+                        <div class="abstract-box" lang="en-CA">
+                            <p><strong>Abstract. —</strong> When we think of inclusion and social acceptance, we tend to think first of physical or mental disabilities. However, the reality is much more complex than that. From an anthropo-sociological perspective, difference is understood through the concept of culture, which encompasses everything that is mutually learned, produced, created and shared by members of a society. Culture guides individual behavior and allows people to interpret their daily experiences. For each individual, this manifests itself in a comfort level in sharing thoughts with those around them, anticipating that they have similar or common life experiences and ideas. Thus, the idea of meeting different people can create a certain apprehension about the possibility of no longer feeling comfortable in this comfort zone of common culture, also called "common place" by Fernand Dumont<sup>1</sup>.</p>
                         </div>
                     </div>
+                        <h2 id="introduction" class="subchapter-title">Introduction</h2>
 
-                    <!-- Tournage 3 -->
-                    <div class="tournage-card">
-                        <div class="tournage-title">L'expérience inclusive de loisir : au-delà de l'accessibilité</div>
-                        <div class="tournage-meta">
-                            <span><b>Date :</b> 15 décembre 2026</span>
-                            <span><b>Lieu :</b> UQTR, Trois-Rivières</span>
-                            <span><b>Intervenante :</b> Hélène Carbonneau</span>
+                    <div class="article-body">
+                            <p class="lettrine">La surdité, la cécité, la paraplégie, et la maladie mentale ne sont que des exemples de conditions qui représentent des défis de vie pour ceux qui en sont atteints. Cela va de soi. Cependant, ce qui est commun à tous est le fait de devoir faire face à des groupes de personnes qui les jugent comme différentes. À bien des égards, les adultes n'ont pas perdu leur tendance craintive issue de l'enfance lorsqu'ils se retrouvent en présence de personnes différentes. Pour les enfants, les comportements blessants et belliqueux sont un mécanisme de défense. Une fois adultes, ces sentiments de crainte sont toujours présents, mais ils s'expriment différemment selon les milieux socio-économiques et professionnels. Bien entendu, l'éthique, la morale, la bienséance et le politiquement correct commandent aujourd'hui aux citoyens d'être accueillants et inclusifs envers ceux qui présentent des différences. Néanmoins, ce n'est pas parce qu'une norme sociale formelle dicte un comportement à adopter, que le désir individuel de chacun est constamment en accord avec cette norme en toutes circonstances. En effet, peu importe les formations, les préparations psychologiques ou les protocoles mis en place, un individu n'est jamais totalement préparé à affronter ses propres préjugés. C'est pourquoi il est important de continuer à éduquer les individus sur l'importance de l'inclusion et de la diversité, tout en reconnaissant que cela peut prendre du temps et de l'effort pour changer les mentalités.</p>
+
+                        <!-- Case vidéo avec lecteur intégré et texte d'accompagnement à droite -->
+<div class="video-feature-card" style="grid-template-columns: minmax(360px, 560px) 1fr;">
+                            <div class="video-embed-box" style="position: relative; cursor: pointer;" onclick="this.innerHTML='<iframe src=\'https://drive.google.com/file/d/1inINRs-6BNiVLe2HwkH3Pp8kIRPEzYkL/preview?autoplay=1\' title=\'Captation vidéo sur l\'architecture sociale et l\'inclusion\' allow=\'autoplay; fullscreen\' allowfullscreen></iframe>';">
+                                <img src="https://drive.google.com/thumbnail?id=11_QgsVfKeYez7LiPb-CSgk_yC6_fiIUz&sz=w1200" alt="Captation vidéo sur l'architecture sociale et l'inclusion" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                                <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.25);">
+                                    <span style="width: 64px; height: 64px; border-radius: 50%; background: rgba(122, 34, 34, 0.92); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 4px 14px rgba(0,0,0,0.35);">&#9654;</span>
+                                </div>
+                            </div>
+                            <div class="video-feature-text">
+                                <p>Tenter d’inclure le plus de gens possible dans le fonctionnement de nos sociétés passe inévitablement par le fait de penser une architecture physiquement et socialement accessible. Il s’agit donc de favoriser concrètement l’accès à des lieux physiques où se déroulent des activités, mais surtout de trouver un moyen de favoriser une dynamique sociale viable. Et là se situe l’enjeu majeur, car créer une « architecture sociale » permettant l’inclusion de tous et chacun nécessite de dépasser l’habituel modus operandi des protocoles gouvernementaux ou, encore, des guides de « bonnes pratiques », si chers aux organisations contemporaines.</p>
+                            </div>
                         </div>
-                        <div class="tournage-synopsis">
-                            Dans quelle mesure est-il possible de repenser l'activité récréative non pas sous l'angle de la simple adaptation, mais à travers l'expérience partagée et l'appartenance ? Hélène Carbonneau revient sur l'expérience de loisirs inclusifs et des enjeux que celà implique de repenser les façons de faire.
+
+
+                        <p>Qui peut vraiment affirmer n'avoir aucun préjugé envers une différence qu'il n'a jamais rencontrée ? Tous ceux qui ont fait l'expérience de se retrouver face à un itinérant ou à une personne en situation de handicap pour la première fois savent qu'il y a un certain niveau de stress à gérer et que, à ce moment précis, leur comportement ne correspond pas exactement à ce qu'ils avaient imaginé. Souvent, leur comportement est moins empathique qu'ils ne l'auraient souhaité. Cela signifie que même les meilleures intentions peuvent être éclipsées par la réalité de la différence. Ce stress, ressenti comme un inconfort, peut être déclenché par une variété de comportements culturels<a class="sdfootnoteanc" name="sdfootnote2anc" href="#sdfootnote2sym"><sup>2</sup></a> : la manière d'aborder les gens, de les saluer, de respecter la hiérarchie et l'autorité, d'anticiper les tabous, d'utiliser l'humour, de structurer la famille et les relations amoureuses, d'organiser l'espace de vie et de travail, de considérer les personnes âgées, les relations hommes-femmes, adultes-enfants, homosexuelles, de valoriser les cadeaux et les pourboires, de donner une signification à la nourriture, de tolérer la propreté et les odeurs, de considérer la distance sociale, de percevoir le temps et la ponctualité, de respecter ou de tolérer les croyances (religieuses ou non), de concevoir le concept de sécurité, de prévention ou de santé, de communiquer dans le verbal et le non-verbal, et ainsi de suite.</p>
+
+                        <p>Ce rapport à la différence est présent dans toutes les sociétés, même si ce lieu commun qu’est la culture varie d'une société à l'autre, elle demeure tout de même un rempart contre les différences. Ainsi, tous les groupes d'individus sont susceptibles d'être réfractaires aux caractéristiques qui semblent détonner avec leurs propres habitudes culturelles. Cette résistance peut devenir un frein à l'accessibilité, car elle engendre des mécanismes d'exclusion sociale qui rendent certains groupes antipathiques à la différence dans nos sociétés.</p>
+
+                        <!-- Carte conceptuelle 1 : Culture commune, inconfort et résistance -->
+                        <div class="concept-map-card" aria-label="Carte conceptuelle sur le lieu commun culturel et la résistance à la différence">
+                            <div class="concept-map-header">
+                                <span class="concept-map-badge">Carte conceptuelle • Zone de confort culturelle</span>
+                                <span class="concept-map-hint">Cliquez sur un nœud du diagramme pour explorer le concept</span>
+                            </div>
+                            <div class="concept-svg-wrapper">
+                                <svg class="concept-svg" viewBox="0 0 920 270" role="img" aria-label="Diagramme interactif : Lieu commun culturel, rencontre de la différence et résistance">
+                                    <defs>
+                                        <marker id="arrowBordeaux" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                            <path d="M 0 1 L 10 5 L 0 9 z" fill="#7a2222"/>
+                                        </marker>
+                                        <marker id="arrowSlate" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                            <path d="M 0 1 L 10 5 L 0 9 z" fill="#4a5568"/>
+                                        </marker>
+                                    </defs>
+
+                                    <!-- Connexions -->
+                                    <line x1="215" y1="95" x2="345" y2="95" stroke="#4a5568" stroke-width="2.2" marker-end="url(#arrowSlate)"/>
+                                    <line x1="555" y1="95" x2="685" y2="95" stroke="#7a2222" stroke-width="2.2" marker-end="url(#arrowBordeaux)"/>
+                                    <path d="M 795 135 Q 795 215 450 215 Q 115 215 115 138" fill="none" stroke="#7a2222" stroke-width="1.8" stroke-dasharray="5,5" marker-end="url(#arrowBordeaux)"/>
+                                    <text x="455" y="205" text-anchor="middle" font-family="sans-serif" font-size="11.5" fill="#7a2222" font-weight="600">Replis défensifs et maintien des frontières (« nous » / « eux »)</text>
+
+                                    <!-- Nœud 1 -->
+                                    <g class="svg-interactive-node" onclick="selectConceptDetail('cmap1', 'Lieu commun culturel (Fernand Dumont) : Ensemble partagé de repères, codes et habitudes qui procure une aisance relationnelle et l’anticipation d’expériences communes.')">
+                                        <rect x="20" y="45" width="195" height="95" rx="10" fill="#f3ece1" stroke="#4a5568" stroke-width="1.8"/>
+                                        <text x="117" y="76" text-anchor="middle" font-family="sans-serif" font-size="12.5" font-weight="700" fill="#1a202c">Lieu commun culturel</text>
+                                        <text x="117" y="98" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#4a5568">Zone de confort partagée</text>
+                                        <text x="117" y="118" text-anchor="middle" font-family="sans-serif" font-size="10.5" fill="#7a2222">(Fernand Dumont)</text>
+                                    </g>
+
+                                    <!-- Nœud 2 -->
+                                    <g class="svg-interactive-node" onclick="selectConceptDetail('cmap1', 'Rencontre de la différence : La confrontation à des codes, corps ou réalités perçus comme extérieurs peut générer du stress et éclipser les bonnes intentions initiales.')">
+                                        <rect x="350" y="45" width="205" height="95" rx="10" fill="#fff8f6" stroke="#7a2222" stroke-width="1.8"/>
+                                        <text x="452" y="76" text-anchor="middle" font-family="sans-serif" font-size="12.5" font-weight="700" fill="#7a2222">Rencontre de la différence</text>
+                                        <text x="452" y="98" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#2b2b2b">Stress, appréhension et</text>
+                                        <text x="452" y="118" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#2b2b2b">décalage comportemental</text>
+                                    </g>
+
+                                    <!-- Nœud 3 -->
+                                    <g class="svg-interactive-node" onclick="selectConceptDetail('cmap1', 'Résistance à l’accessibilité : Mécanismes de défense individuels et collectifs qui freinent l’inclusion et alimentent l’exclusion sociale.')">
+                                        <rect x="690" y="45" width="210" height="95" rx="10" fill="#7a2222" stroke="#5e1a1a" stroke-width="1.8"/>
+                                        <text x="795" y="76" text-anchor="middle" font-family="sans-serif" font-size="12.5" font-weight="700" fill="#ffffff">Résistance et exclusion</text>
+                                        <text x="795" y="98" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#f7e6e6">Frein à l’accessibilité et</text>
+                                        <text x="795" y="118" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#f7e6e6">mise à l’écart des différences</text>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="concept-detail-bar" id="cmap1-detail">
+                                <strong>Aperçu :</strong> La culture commune agit comme un repère familier ; face à une différence inconnue ou peu familière, l’inconfort peut activer des réflexes de protection limitant l’accessibilité.
+                            </div>
                         </div>
-                        <div class="tournage-checkboxes">
-                            <label><input type="checkbox" checked> À faire</label>
-                            <label><input type="checkbox"> En cours</label>
-                            <label><input type="checkbox"> Effectué</label>
-                            <label><input type="checkbox"> En montage</label>
-                            <label><input type="checkbox"> En post-production</label>
-                            <label><input type="checkbox" data-href="#" onclick="if(this.checked && this.dataset.href && this.dataset.href !== '#') window.location.href=this.dataset.href;"> Actif</label>
+
+                        <h2 id="sec-resistances-exclusion" class="subchapter-title">Les résistances à l’accessibilité : les mécanismes d’exclusion sociale</h2>
+
+                        <p>Notons que le concept d’exclusion sociale est très large parce qu’il englobe une multitude de situations et de réalités. Par exemple, il devient possible d’y « décliner toutes les variétés de la misère du monde<a class="sdfootnoteanc" name="sdfootnote3anc" href="#sdfootnote3sym"><sup>3</sup></a> ». En tant que concept, il est largement critiqué et souvent imparfait. Toutefois, notre intention n’est pas de faire de ce concept un prétexte dénonçant « tout ce qui n’a pas d’allure » dans nos sociétés. Pour éviter cela, nous limiterons l’exclusion sociale à deux réalités : tantôt conceptuelle pour expliquer des mécanismes (systémiques), tantôt une notion pour qualifier et décrire des situations (indignations).</p>
+
+                        <p>L’exclusion se veut donc le résultat d’un ensemble de processus qui mène à un statut, un état d’« exclu ». Comme nous l’avons décrit plus haut, les mécanismes qui engendrent l’exclusion sociale peuvent être très nombreux et touchent différentes sphères de la vie des individus parce qu’ils englobent la culture d’un individu. Il devient donc impossible de limiter le concept d’exclusion à un seul aspect. Il ne suffit donc pas de considérer que le statut socio-économique d'une personne pour comprendre l'exclusion sociale qu'elle peut vivre. D'autres facteurs doivent également être pris en compte, tels que la situation géographique de son lieu de résidence, son état de santé, son niveau d'éducation, la qualité de ses réseaux sociaux, son appartenance ethnique, etc. Il est donc crucial de souligner la diversité des acteurs sociaux impliqués dans les différentes dynamiques d'exclusion, afin de comprendre la complexité de ces mécanismes.</p>
+
+                        <p>Les difficultés d’accessibilité peuvent donc être compromises par des enjeux qui échappent tant à l’État qu’à la bonne volonté des personnes tentant de réussir leur processus d’inclusion sociale. En effet, la responsabilité de l’exclusion ne repose pas uniquement sur les épaules de l’individu « exclu », mais elle est aussi le résultat de rapports de pouvoir liés à la nature systémique de la culture — c’est-à-dire que les membres d’un groupe ont davantage tendance à accepter et intégrer des personnes dont les caractéristiques culturelles sont similaires ou fortement semblables, évitant ainsi de sortir de leur « zone de confort de la culture commune ». Même si plusieurs gouvernements refusent de reconnaître les conséquences des mécanismes systémiques de la culture (parce que cela créerait un précédent, la mise en place de mesure coûteuses et probablement des dédommagements substantiels), « l’exclusion n’existerait pas sans une perspective de pouvoir et de domination<a class="sdfootnoteanc" name="sdfootnote4anc" href="#sdfootnote4sym"><sup>4</sup></a> ». Au quotidien, une personne côtoie des groupes qui exercent des pressions et des influences pour maintenir des normes, ce qui crée des frontières favorisant une séparation entre le « nous » et le « eux ». Un phénomène multidimensionnel, pluriel et complexe qui touche directement les conditions d’existence des personnes présentant une différence, et dans le cas qui nous intéresse dans le cadre de ce numéro de la revue <em>Sociologie Visuelle</em>, les personnes en situation de handicap.</p>
+
+                        <p>En somme, l'exclusion sociale est le résultat d'un ensemble de processus économiques, politiques, institutionnels et culturels qui souvent s'entrecroisent et se renforcent mutuellement, créant des barrières qui mettent des personnes ou des groupes en marge de la société. Souvent associée à la pauvreté, l'exclusion sociale peut être un facteur de déstabilisation sociale et économique pour les individus et leur communauté. Les conséquences de l'exclusion sociale peuvent être multiples. Elle peut limiter les possibilités d'indépendance économique pour les individus, affectant leur santé, leur éducation, leur accès au marché du travail et à des réseaux sociaux et familiaux. Ces conséquences peuvent à leur tour entraver la sortie de la pauvreté et la capacité des personnes à se réintégrer dans la société.</p>
+
+                        <!-- Carte conceptuelle 2 : Architecture multidimensionnelle de l'exclusion sociale -->
+                        <div class="concept-map-card" aria-label="Carte conceptuelle sur les dimensions et conséquences de l'exclusion sociale">
+                            <div class="concept-map-header">
+                                <span class="concept-map-badge">Carte conceptuelle • Dynamique multidimensionnelle de l’exclusion</span>
+                                <span class="concept-map-hint">Cliquez sur un pilier ou une conséquence pour afficher les détails</span>
+                            </div>
+                            <div class="concept-svg-wrapper">
+                                <svg class="concept-svg" viewBox="0 0 920 310" role="img" aria-label="Diagramme interactif des dimensions systémiques et conséquences de l'exclusion sociale">
+                                    <!-- Axe central -->
+                                    <line x1="230" y1="150" x2="365" y2="150" stroke="#7a2222" stroke-width="2.2"/>
+                                    <line x1="555" y1="150" x2="685" y2="150" stroke="#7a2222" stroke-width="2.2"/>
+
+                                    <!-- 4 sphères à gauche -->
+                                    <g class="svg-interactive-node" onclick="selectConceptDetail('cmap2', 'Dimension économique : Précarité, pauvreté, difficultés d’accès à l’emploi et freins à l’indépendance économique.')">
+                                        <rect x="20" y="22" width="205" height="52" rx="8" fill="#f3ece1" stroke="#4a5568" stroke-width="1.5"/>
+                                        <text x="122" y="53" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#1a202c">Processus économiques</text>
+                                    </g>
+                                    <g class="svg-interactive-node" onclick="selectConceptDetail('cmap2', 'Dimension politique : Politiques publiques, reconnaissance institutionnelle et limites des mesures d’accessibilité.')">
+                                        <rect x="20" y="86" width="205" height="52" rx="8" fill="#f3ece1" stroke="#4a5568" stroke-width="1.5"/>
+                                        <text x="122" y="117" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#1a202c">Processus politiques</text>
+                                    </g>
+                                    <g class="svg-interactive-node" onclick="selectConceptDetail('cmap2', 'Dimension institutionnelle : Normes, procédures et barrières d’accès dans les services, l’éducation ou la santé.')">
+                                        <rect x="20" y="150" width="205" height="52" rx="8" fill="#f3ece1" stroke="#4a5568" stroke-width="1.5"/>
+                                        <text x="122" y="181" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#1a202c">Processus institutionnels</text>
+                                    </g>
+                                    <g class="svg-interactive-node" onclick="selectConceptDetail('cmap2', 'Dimension culturelle : Rapports de pouvoir, normes dominantes, frontières « nous / eux » et défense du lieu commun.')">
+                                        <rect x="20" y="214" width="205" height="52" rx="8" fill="#fff8f6" stroke="#7a2222" stroke-width="1.6"/>
+                                        <text x="122" y="245" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#7a2222">Processus culturels</text>
+                                    </g>
+
+                                    <!-- Nœud central -->
+                                    <g class="svg-interactive-node" onclick="selectConceptDetail('cmap2', 'Double lecture de l’exclusion : Mécanisme systémique explicatif des rapports de pouvoir et notion descriptive des situations d’indignation et de marginalisation.')">
+                                        <rect x="365" y="95" width="190" height="110" rx="12" fill="#7a2222" stroke="#5e1a1a" stroke-width="2"/>
+                                        <text x="460" y="132" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="700" fill="#ffffff">Exclusion sociale</text>
+                                        <text x="460" y="154" text-anchor="middle" font-family="sans-serif" font-size="10.8" fill="#f7e6e6">Mécanismes systémiques</text>
+                                        <text x="460" y="172" text-anchor="middle" font-family="sans-serif" font-size="10.8" fill="#f7e6e6">&amp; situations d’indignation</text>
+                                    </g>
+
+                                    <!-- Conséquences à droite -->
+                                    <g class="svg-interactive-node" onclick="selectConceptDetail('cmap2', 'Effets en chaîne : Limitation de l’autonomie économique, impacts sur la santé, l’éducation, l’emploi et les liens sociaux/familiaux.')">
+                                        <rect x="685" y="75" width="215" height="70" rx="8" fill="#fff8f6" stroke="#7a2222" stroke-width="1.6"/>
+                                        <text x="792" y="106" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#7a2222">Marginalisaton &amp; freins</text>
+                                        <text x="792" y="125" text-anchor="middle" font-family="sans-serif" font-size="10.8" fill="#2b2b2b">Santé, éducation, travail, liens</text>
+                                    </g>
+                                    <g class="svg-interactive-node" onclick="selectConceptDetail('cmap2', 'Boucle de rétroaction : L’accumulation des barrières entretient la pauvreté et complique la réintégration sociale.')">
+                                        <rect x="685" y="165" width="215" height="70" rx="8" fill="#f3ece1" stroke="#4a5568" stroke-width="1.5"/>
+                                        <text x="792" y="196" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#1a202c">Entrave à la réintégration</text>
+                                        <text x="792" y="215" text-anchor="middle" font-family="sans-serif" font-size="10.8" fill="#4a5568">Renforcement mutuel des obstacles</text>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="concept-detail-bar" id="cmap2-detail">
+                                <strong>Aperçu :</strong> L’exclusion sociale ne se réduit pas au seul revenu : elle résulte de facteurs croisés (géographie, santé, éducation, réseaux, appartenance ethnique, handicap) et de rapports de pouvoir.
+                            </div>
+                        </div>
+
+                        <h2 id="sec-representations-prejuges" class="subchapter-title">Les représentations sociales de la différence : les préjugées</h2>
+
+                        <p>Dans la réalité concrète des personnes en voie d’inclusion sociale et d’accessibilité, les mécanismes d’exclusion peuvent prendre différentes formes : préjugés, stéréotypes, discrimination, ethnocentrisme, ségrégation, racisme, xénophobie. Précisons toutefois que tous les mécanismes d’exclusion ont en commun d’être construit sur un préjugé, notamment parce que le préjugé a pour fonction, au risque de nous répéter, de mettre des frontières qui identifient les critères potentiels d’acceptabilité et d’inclusion des membres du groupe au sein d’une culture donnée. Notre compréhension du phénomène rejoint celle du Centre d’étude sur la pauvreté et l’exclusion sociale : « Les préjugés sont une forme de représentations sociales foncièrement méprisante, basée sur des généralisations à outrance, dépeignant un groupe de manière péjorative, et qui contribuent systématiquement à des mécanismes d’exclusion et à une violence symbolique et endémique contre ceux qui en font l’objet<a class="sdfootnoteanc" name="sdfootnote5anc" href="#sdfootnote5sym"><sup>5</sup></a> ».</p>
+
+                        <p>Précisions aussi que les représentations sociales sont « une forme de connaissance, socialement élaborée et partagée, ayant une visée pratique, et concourant à la construction d’une réalité commune à un ensemble social<a class="sdfootnoteanc" name="sdfootnote6anc" href="#sdfootnote6sym"><sup>6</sup></a> ». Les représentations sociales sont généralement reconnues comme des systèmes d’interprétation qui orientent et organisent les communications sociales, la diffusion et l’assimilation des connaissances<a class="sdfootnoteanc" name="sdfootnote7anc" href="#sdfootnote7sym"><sup>7</sup></a>. En tant que représentations sociales, les préjugés permettent de véhiculer tout un imaginaire concernant les personnes qui présentent des différences physiques et culturelles. Il existe cinq grands préjugés, ou représentations sociales, qui entretiennent la résistance à l’accessibilité et l’inclusion<a class="sdfootnoteanc" name="sdfootnote8anc" href="#sdfootnote8sym"><sup>8</sup></a>. Par souci de vulgarisation, nous reprendrons les mots qui sont habituellement utilisés par les acteurs sociaux lorsqu’ils sont en mode « préjugés ». Il est aussi à noter que la somme de ces représentations sociales n’est jamais présente en totalité pour décrire une personne victime de préjugés. Il s’agit d’un répertoire de thèmes qui a été construit pour montrer un ensemble idéal typique. Les voici en rafale :</p>
+
+                        <ul class="article-list">
+                            <li>l’irresponsabilité : « Ils ne sont pas capables de se prendre en main », « Ils ont une mauvaise éthique de travail », « Ils n’assument pas leurs responsabilités » ;</li>
+                            <li>l’incompétence : « Ils sont incompétents », « Ils travaillent mal », « Ils sont stupides » ;</li>
+                            <li>l’oisiveté : « Ils sont paresseux », « Ils sont trop confortables sur l’aide sociale. Ils se la coulent douce », « C’est de leur faute s’ils sont pauvres, ils ne veulent pas travailler » ;</li>
+                            <li>l’immoralité : « On ne peut pas leur faire confiance... ils sont des crosseurs », « Ils font des enfants pour pouvoir retirer du bien-être », « Ils aiment trop la boisson, les cigarettes et les drogues » ;</li>
+                            <li>l’impureté : « Ils sont sales », « Ils sont laids », « Ils sont dégueulasses ».</li>
+                        </ul>
+
+                        <p>Les discours insultants et discriminatoires sont rarement exprimés directement aux personnes visées. En réalité, les préjugés ne sont que la partie émergée de l'iceberg. En effet, il existe de nombreuses autres formes de transmission de ces préjugés. Par exemple, des regards méprisants peuvent être jetés, des expressions faciales accusatrices peuvent être adoptées, un ton de voix accusateur peut être utilisé, des rires moqueurs peuvent être émis, une personne peut être sciemment ignorée, traitée avec impatience, ou dénoncée de manière répétée et abusive auprès de sa hiérarchie (<i>call check</i>). Des informations diffamatoires peuvent également être ajoutées au dossier officiel d'une personne (dossier médical, formulaire). Il est important de noter que ces comportements peuvent être subtils et implicites, mais ils entraînent des conséquences néfastes pour les personnes visées, contribuant ainsi à leur exclusion sociale.</p>
+
+                        <p>Évidemment, les conséquences de l'exclusion sont multiples, mais elles ne sont pas toujours celles auxquelles on pourrait s'attendre. En effet, une personne peut ressentir les effets néfastes des préjugés avant même d'en être la cible directe. Ainsi, certaines personnes évitent délibérément les rencontres avec des professionnels, tels que des agents de soutien financier, des médecins ou des psychologues, pour éviter d'être exposées aux préjugés. La violence symbolique des préjugés est telle que certaines personnes sont prêtes à renoncer à des avantages matériels importants pendant une longue période pour les éviter. De plus, les effets des préjugés peuvent perdurer longtemps après leur manifestation. Les personnes qui subissent régulièrement des préjugés finissent par les anticiper et adopter des comportements visant à les éviter. Par conséquent, même si elles ne sont pas directement confrontées à des attitudes discriminatoires, elles peuvent continuer à ressentir les effets négatifs de ces préjugés. Cependant, la conséquence la plus préoccupante des préjugés en tant que mécanisme d'exclusion est lorsque les individus les intègrent à leur propre vision d'eux-mêmes, au point de perdre de vue leur propre pouvoir d'action et de s'exclure eux-mêmes de la société. En d'autres termes, ils finissent par intérioriser les préjugés et à les considérer comme des vérités incontestables, ce qui peut entraîner une perte de confiance en soi et une réduction de l'agentivité, c'est-à-dire de la capacité d'agir sur leur environnement et de réaliser leurs objectifs. Autrement, lorsque des personnes entrent dans un processus officiel d’accessibilité et d’inclusion sociale, des agents sont assignés, mandatés et mobilisés pour les aider à cheminer. Cependant, il y a des circonstances qui peuvent aussi mener ces agents à user de préjugés pouvant nuire aux personnes qu’ils tentent justement d’accompagner. Dans la majorité des cas, ce ne sont pas des actes de mauvaise foi, car ils savent d’expérience professionnelle que l’exclusion a plusieurs visages. Chez les agents accompagnateurs, les préjugés peuvent apparaître sous plusieurs formes :</p>
+
+                        <ul class="article-list">
+                            <li>Dissonance cognitive : certains professionnels peuvent devenir, malgré eux, les représentants des préjugés de la population, la plupart du temps sans rapport avec leurs valeurs personnelles. À ce moment, des acteurs comme les intervenants sociaux, les ambulanciers, les policiers peuvent se sentir entre l’arbre et l’écorce lorsqu’ils font leur devoir. Ils reçoivent de la pression à la fois explicite et implicite pour intervenir auprès de personnes vivant des différences. Un professionnel sans préjugé peut donc ressentir une pression sous forme de dilemme moral en effectuant simplement son travail. Par extension, cette pression peut facilement être mal interprétée comme un « droit » pour certains professionnels de prendre action à partir de préjugés personnels ;</li>
+                            <li>L’indignation : il existe une ambivalence dans la manière de percevoir les personnes ayant des différences, à savoir s’ils méritent leur sort ou s’ils en sont la victime. Évidemment, il s’agit d’un jugement qui relève de la perception du professionnel, un jugement qui n'a pas sa place dans tout type de relation d’aide. Toutefois, la vision des « mauvaises personnes qui méritent leur malheur » persiste habituellement à cause de réalités qui heurtent trop fortement les valeurs personnelles des professionnels. Par exemple, un professionnel pourrait ressentir une forte indignation face à une mère qui prostitue sa propre fille ;</li>
+                            <li>Les frustrations : travailler auprès d’une population défavorisée est un défi qui aiguise (et parfois épuise) la patience, l’empathie et la contenance de soi. Les interventions souvent répétées par les professionnels ne changent pas forcément les comportements visés et n’améliorent pas nécessairement la condition de vie des gens, ce qui apporte son lot de frustrations. Quand le refoulement de frustration est trop élevé, le risque d’usage des préjugés augmente (soupape de pression), tel un mécanisme exutoire ;</li>
+                            <li>L’usure de compassion : la plupart du temps, les professionnels font montre d’empathie, de compréhension et de jugements moraux constructifs relatif à leur mandat. Cependant, il arrive que les professionnels ressentent l’usure de la compassion. Cette usure se comprend comme une démoralisation généralisée à force d’intervenir dans les pires situations et d’observer les difficultés que les gens éprouvent à sortir de leur situation. Par exemple, cette usure peut mener à des réflexions de découragement : « mon intervention ne sert à rien, ils retournent toujours dans leur situation difficile ! » ;</li>
+                            <li>Les rituels de clan : comme pour tous êtres humains, les professionnels sont des animaux sociaux. Dans la majorité des milieux professionnels, il existe des discours de connivence, soit des pensées disgracieuses empreintes de préjugés, qui servent de discours exutoire en dehors des contextes formels de travail. Il s’agit souvent d’un humour noir qui peut banaliser des conditions de vie difficile rencontrées lors d’intervention. Cela a pour fonction de dédramatiser la nature difficile des interventions, une sorte de rituel de clan, voire de thérapie, pour reconnaître que chacun fait face à l’adversité. Le fait que ces pensées et commentaires peuvent exister, de manière circonstancielle, n’empêche pas les professionnels de faire leur devoir. Néanmoins, il demeure inconvenant de faire allusion à ce répertoire d’humour, qui est de plus en plus relégué à l’index.</li>
+                        </ul>
+
+                        <!-- Carte conceptuelle 3 : Répertoire des préjugés et tensions en contexte d'accompagnement -->
+                        <div class="concept-map-card" aria-label="Carte conceptuelle sur les cinq préjugés et les tensions professionnelles">
+                            <div class="concept-map-header">
+                                <span class="concept-map-badge">Carte conceptuelle • Répertoire des préjugés &amp; tensions d’accompagnement</span>
+                                <span class="concept-map-hint">Cliquez sur un thème ou un facteur d’accompagnement pour plus de précisions</span>
+                            </div>
+                            <div class="concept-svg-wrapper">
+                                <svg class="concept-svg" viewBox="0 0 920 285" role="img" aria-label="Diagramme des cinq grands préjugés idéaux-typiques et des cinq tensions chez les intervenants">
+                                    <!-- Colonne gauche : 5 préjugés -->
+                                    <text x="215" y="28" text-anchor="middle" font-family="sans-serif" font-size="12.5" font-weight="700" fill="#7a2222">5 grands préjugés (idéal-type)</text>
+                                    <g class="svg-interactive-node" onclick="selectConceptDetail('cmap3', 'Irresponsabilité : Doute sur la capacité à se prendre en main, l’éthique de travail ou l’assomption des responsabilités.')">
+                                        <rect x="45" y="42" width="340" height="34" rx="6" fill="#fff8f6" stroke="#7a2222" stroke-width="1.3"/>
+                                        <text x="215" y="64" text-anchor="middle" font-family="sans-serif" font-size="11.5" font-weight="600" fill="#2b2b2b">1. Irresponsabilité</text>
+                                    </g>
+                                    <g class="svg-interactive-node" onclick="selectConceptDetail('cmap3', 'Incompétence : Dévalorisation des capacités, de la qualité du travail ou de l’intelligence.')">
+                                        <rect x="45" y="83" width="340" height="34" rx="6" fill="#fff8f6" stroke="#7a2222" stroke-width="1.3"/>
+                                        <text x="215" y="105" text-anchor="middle" font-family="sans-serif" font-size="11.5" font-weight="600" fill="#2b2b2b">2. Incompétence</text>
+                                    </g>
+                                    <g class="svg-interactive-node" onclick="selectConceptDetail('cmap3', 'Oisiveté : Attribution individuelle de la pauvreté ou du recours à l’aide sociale à un manque de volonté.')">
+                                        <rect x="45" y="124" width="340" height="34" rx="6" fill="#fff8f6" stroke="#7a2222" stroke-width="1.3"/>
+                                        <text x="215" y="146" text-anchor="middle" font-family="sans-serif" font-size="11.5" font-weight="600" fill="#2b2b2b">3. Oisiveté</text>
+                                    </g>
+                                    <g class="svg-interactive-node" onclick="selectConceptDetail('cmap3', 'Immoralité : Soupçon de malhonnêteté, d’abus de prestations ou de comportements jugés déviants.')">
+                                        <rect x="45" y="165" width="340" height="34" rx="6" fill="#fff8f6" stroke="#7a2222" stroke-width="1.3"/>
+                                        <text x="215" y="187" text-anchor="middle" font-family="sans-serif" font-size="11.5" font-weight="600" fill="#2b2b2b">4. Immortalité</text>
+                                    </g>
+                                    <g class="svg-interactive-node" onclick="selectConceptDetail('cmap3', 'Impureté : Jugements corporels ou hygiéniques péjoratifs renforçant la mise à distance.')">
+                                        <rect x="45" y="206" width="340" height="34" rx="6" fill="#fff8f6" stroke="#7a2222" stroke-width="1.3"/>
+                                        <text x="215" y="228" text-anchor="middle" font-family="sans-serif" font-size="11.5" font-weight="600" fill="#2b2b2b">5. Impureté</text>
+                                    </g>
+
+                                    <!-- Séparateur -->
+                                    <line x1="460" y1="22" x2="460" y2="255" stroke="#dfd5c5" stroke-width="1.5" stroke-dasharray="4,4"/>
+
+                                    <!-- Colonne droite : Manifestations chez les agents -->
+                                    <text x="695" y="28" text-anchor="middle" font-family="sans-serif" font-size="12.5" font-weight="700" fill="#1a202c">Formes chez les agents accompagnateurs</text>
+                                    <g class="svg-interactive-node" onclick="selectConceptDetail('cmap3', 'Dissonance cognitive : Tensions entre le mandat professionnel, les pressions sociales et les valeurs personnelles.')">
+                                        <rect x="525" y="42" width="340" height="34" rx="6" fill="#f3ece1" stroke="#4a5568" stroke-width="1.3"/>
+                                        <text x="695" y="64" text-anchor="middle" font-family="sans-serif" font-size="11.5" font-weight="600" fill="#1a202c">Dissonance cognitive</text>
+                                    </g>
+                                    <g class="svg-interactive-node" onclick="selectConceptDetail('cmap3', 'Indignation : Réaction morale vive face à des situations heurtant profondément les valeurs de l’intervenant.')">
+                                        <rect x="525" y="83" width="340" height="34" rx="6" fill="#f3ece1" stroke="#4a5568" stroke-width="1.3"/>
+                                        <text x="695" y="105" text-anchor="middle" font-family="sans-serif" font-size="11.5" font-weight="600" fill="#1a202c">Indignation</text>
+                                    </g>
+                                    <g class="svg-interactive-node" onclick="selectConceptDetail('cmap3', 'Frustrations : Accumulation de tensions face à la répétition d’interventions sans changement rapide.')">
+                                        <rect x="525" y="124" width="340" height="34" rx="6" fill="#f3ece1" stroke="#4a5568" stroke-width="1.3"/>
+                                        <text x="695" y="146" text-anchor="middle" font-family="sans-serif" font-size="11.5" font-weight="600" fill="#1a202c">Frustrations (soupape de pression)</text>
+                                    </g>
+                                    <g class="svg-interactive-node" onclick="selectConceptDetail('cmap3', 'Usure de compassion : Démoralisation et sentiment d’impuissance face à des détresses récurrentes.')">
+                                        <rect x="525" y="165" width="340" height="34" rx="6" fill="#f3ece1" stroke="#4a5568" stroke-width="1.3"/>
+                                        <text x="695" y="187" text-anchor="middle" font-family="sans-serif" font-size="11.5" font-weight="600" fill="#1a202c">Usure de compassion</text>
+                                    </g>
+                                    <g class="svg-interactive-node" onclick="selectConceptDetail('cmap3', 'Rituels de clan : Humour noir ou propos de connivence hors contexte formel servant d’exutoire.')">
+                                        <rect x="525" y="206" width="340" height="34" rx="6" fill="#f3ece1" stroke="#4a5568" stroke-width="1.3"/>
+                                        <text x="695" y="228" text-anchor="middle" font-family="sans-serif" font-size="11.5" font-weight="600" fill="#1a202c">Rituels de clan</text>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="concept-detail-bar" id="cmap3-detail">
+                                <strong>Aperçu :</strong> Les préjugés opèrent souvent de manière implicite (regards, dossiers, évitement, intériorisation) et peuvent aussi émerger chez des accompagnateurs soumis à des tensions réelles.
+                            </div>
+                        </div>
+
+                        <p>Il ne faut pas omettre que les personnes vivant des différences peuvent également nourrir des préjugés contre les professionnels et aussi tenir des propos insultants et injurieux. Par exemple, des policiers peuvent être qualifiés de paresseux et corrompus ou des médecins accusés d’être hautains avec leurs patients. Dans ces situations, le défi des professionnels consiste à ne pas sombrer dans la vengeance du talion, c’est-à-dire répondre par d’autres préjugés.</p>
+
+                        <p>Concrètement, les préjugés sont basés sur un jugement inconsidéré, rapide et irrationnel d'une personne en fonction de son appartenance à un groupe<a class="sdfootnoteanc" name="sdfootnote9anc" href="#sdfootnote9sym"><sup>9</sup></a>. Ils sont généralement utilisés pour juger une personne avant même de la connaître, en imposant des idées préconçues sur sa personnalité, son comportement, ses opinions et ses expériences. Les préjugés, comme toutes les représentations sociales, sont liés à des schémas de pensée et de valeurs qui défendent une vision du monde et un mode de comportement. Et l'un des indices les plus couramment utilisés pour porter des jugements est sans aucun doute l'apparence.</p>
+
+                        <p>Cependant, les préjugés ne sont pas fondés sur la réalité, mais sur des stéréotypes et des généralisations inexactes. Ils peuvent entraîner des conséquences néfastes pour les individus qui en sont victimes, les empêchant de réaliser leur plein potentiel et de contribuer pleinement à la société. Les préjugés peuvent également contribuer à perpétuer des inégalités sociales en discriminant certains groupes de personnes sur la base de caractéristiques telles que leur origine ethnique, leur genre ou leur orientation sexuelle.</p>
+
+                        <h2 id="sec-conclusion-representation" class="subchapter-title">Conclusion<br>La représentation sociale idéale est un frein à l’inclusion</h2>
+
+                        <p>Avant de réitérer les effets des préjugés sur autrui, il est bon de rappeler que les jugements que nous portons sur notre propre apparence sont la plupart du temps très sévères. De plus, à l’ère des sociétés contemporaines, la personne est souvent réduite à ce qu’elle produit comme image d’elle-même<a class="sdfootnoteanc" name="sdfootnote10anc" href="#sdfootnote10sym"><sup>10</sup></a>. Bien entendu, l’entité humaine n’est pas qu’une image, mais cette dernière est maintenant considérée comme une donnée essentielle dans le jugement d’autrui, en grande partie en raison de la rapidité de nos interactions sociales dans la gestion des nombreux liens à entretenir face à une multitude de réseaux sociaux et au développement des technologies de l’information<a class="sdfootnoteanc" name="sdfootnote11anc" href="#sdfootnote11sym"><sup>11</sup></a>. Cela ne signifie pas que l’image n’était pas importante antérieurement pour juger autrui, mais la place qu’elle occupe est plus prépondérante aujourd’hui. Dans ses interactions, l’individu est donc souvent réduit à l’image d’un corps, en l’occurrence le sien, faute de temps. L’image de soi devient le raccourci par lequel l’individu existe et se reconstruit aux yeux des autres.</p>
+
+                        <p>Par exemple, l’image qu’une personne a d’elle-même est en réalité une combinaison interactive entre une référence idéelle, le jugement de son reflet dans le miroir et ce qu’elle interprète du regard des autres sur cette même apparence. Cette combinaison a des effets déterminants sur l’attitude d’un individu<a class="sdfootnoteanc" name="sdfootnote12anc" href="#sdfootnote12sym"><sup>12</sup></a>. Il le ressent jusque dans son corps. En fait, la représentation de la posture à laquelle une personne s’identifie possède une grande importance. L’attitude engendrée par l’image de référence conditionne plusieurs muscles qui organisent le tonus du corps<a class="sdfootnoteanc" name="sdfootnote13anc" href="#sdfootnote13sym"><sup>13</sup></a>, et invariablement associée à un modèle, cette image de référence constitue la quintessence d’une motivation qui est celle à laquelle la personne souhaite ressembler. Lorsqu'une personne a une bonne estime d'elle-même, cela peut être le signe qu'elle s'est rapprochée de son idéal de soi, qui est souvent influencé par les médias et les normes culturelles. En l’occurrence, les technologies de l'information et de la communication peuvent être considérées comme des extensions de notre corps, nous permettant de voir, d'entendre, de sentir et de penser de manière plus efficace et interactive, ce qui peut nous donner l'impression de participer activement à notre environnement.</p>
+
+                        <p>L’expression corporelle est en effet influencée par la culture et la génération d’une personne. L’attitude, la façon dont une personne se mut, et les vêtements portés peuvent être interprétés différemment en fonction du contexte culturel et social dans lequel ils sont présentés. De plus, les perceptions et les jugements sur l'apparence physique d'une personne sont souvent influencés par les normes et les idéaux de beauté de la société à laquelle elle appartient. En outre, la valorisation ou le dénigrement d'une apparence physique peut être lié à des aspects identitaires tels que les valeurs, le groupe d'appartenance et les souvenirs significatifs. Les individus peuvent ainsi projeter leurs propres sentiments et expériences sur l'apparence physique des autres, ce qui peut parfois conduire à des jugements injustes ou à des préjugés.</p>
+
+                        <p>Autrement dit, les personnes qui affichent une différence physique et/ou culturelle vivent nécessairement des difficultés d’intégrations, notamment parce qu’ils sont conscients qu’ils ne s’approchent que difficilement du modèle idéal partagé par la majorité des groupes qu’ils tentent d’intégrer, mais aussi parce que ces derniers activent des mécanismes culturels de défense en rapport avec la conservation de l’identité du groupe. Le jugement hâtif des apparences peut être le résultat d’un apprentissage, d’une éducation ou d’une socialisation, mais il existe essentiellement pour maintenir la peur du danger face à l’inconnu. On peut apprendre à craindre des symboles ou des signes distinctifs, mais c’est l’anticipation des risques liés aux signes qui motive le jugement. Prise dans un paradoxe tautologique, la crainte de l’inconnu se trouve plus dans la reproduction des préjugés, des clichés et des stéréotypes et moins dans les actions de ceux qui sont considérés comme différents. Ceux qui côtoient les personnes qui affichent des différences constatent finalement que ces dernières sont comme eux, avec des sentiments et des appréhensions similaires.</p>
+
+                        <p>L'utilisation des préjugés est souvent un raccourci qui permet de catégoriser et de classer rapidement un individu en fonction de ses caractéristiques sociales, afin de prendre une décision et d'adopter une attitude dans un contexte précis. Les préjugés sont donc des mécanismes de défense qui visent à protéger les valeurs socialement admises et à rappeler aux autres les peurs qui constituent les contours ou les frontières de ce qui est à protéger. En d'autres termes, les individus perpétuent et socialisent les peurs qu'ils ont intégrées pour éviter les regards accusateurs de leurs semblables. Ce mécanisme de protection fait partie intégrante de la culture de toute société, car ce qui se situe à l'extérieur des normes sociales informellement admises (ce qui n'est pas dit en public, mais idéologiquement partagé par les groupes dominants à différents niveaux) est considéré comme marginal, déviant, différent et, de facto, exclu. Comme nous l'avons mentionné précédemment, il est possible de considérer ce mécanisme en termes de rapport de force entre les groupes. Sans entrer dans les méandres théoriques de Michel Foucault, il est important de rappeler que ce rapport culturel à la différence est inhérent à l'espèce humaine et que peu importe les groupes en contact, il y aura constamment, et de manière itérative, des enjeux de déconstruction des préjugés.</p>
+
+                        <!-- Carte conceptuelle 4 : Image corporelle, norme idéale et déconstruction des préjugés -->
+                        <div class="concept-map-card" aria-label="Carte conceptuelle sur l'image de soi, la norme idéale et la déconstruction">
+                            <div class="concept-map-header">
+                                <span class="concept-map-badge">Carte conceptuelle • Image de soi, norme idéale &amp; déconstruction</span>
+                                <span class="concept-map-hint">Cliquez sur une étape pour explorer la dynamique</span>
+                            </div>
+                            <div class="concept-svg-wrapper">
+                                <svg class="concept-svg" viewBox="0 0 920 230" role="img" aria-label="Diagramme de l'image corporelle, des normes idéales et du travail itératif de déconstruction">
+                                    <line x1="210" y1="95" x2="345" y2="95" stroke="#4a5568" stroke-width="2" marker-end="url(#arrowSlate)"/>
+                                    <line x1="565" y1="95" x2="700" y2="95" stroke="#7a2222" stroke-width="2" marker-end="url(#arrowBordeaux)"/>
+
+                                    <g class="svg-interactive-node" onclick="selectConceptDetail('cmap4', 'Construction de l’image de soi : Interaction entre référence idéelle, reflet dans le miroir, regard d’autrui, accélération sociale et TIC.')">
+                                        <rect x="20" y="42" width="190" height="106" rx="10" fill="#f3ece1" stroke="#4a5568" stroke-width="1.6"/>
+                                        <text x="115" y="72" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#1a202c">Image de soi &amp; corps</text>
+                                        <text x="115" y="94" text-anchor="middle" font-family="sans-serif" font-size="10.5" fill="#4a5568">Référence idéelle, reflet,</text>
+                                        <text x="115" y="112" text-anchor="middle" font-family="sans-serif" font-size="10.5" fill="#4a5568">regard d’autrui &amp; posture</text>
+                                        <text x="115" y="130" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#7a2222">Accélération &amp; TIC</text>
+                                    </g>
+
+                                    <g class="svg-interactive-node" onclick="selectConceptDetail('cmap4', 'Paradoxe tautologique de la peur : L’écart au modèle idéal et la crainte anticipée des signes nourrissent des clichés qui s’auto-entretiennent.')">
+                                        <rect x="350" y="42" width="215" height="106" rx="10" fill="#fff8f6" stroke="#7a2222" stroke-width="1.6"/>
+                                        <text x="457" y="72" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#7a2222">Norme idéale &amp; paradoxe</text>
+                                        <text x="457" y="94" text-anchor="middle" font-family="sans-serif" font-size="10.5" fill="#2b2b2b">Écart au modèle dominant</text>
+                                        <text x="457" y="112" text-anchor="middle" font-family="sans-serif" font-size="10.5" fill="#2b2b2b">et reproduction tautologique</text>
+                                        <text x="457" y="130" text-anchor="middle" font-family="sans-serif" font-size="10.5" fill="#2b2b2b">de la crainte de l’inconnu</text>
+                                    </g>
+
+                                    <g class="svg-interactive-node" onclick="selectConceptDetail('cmap4', 'Déconstruction continue : Le contact réel révèle des sentiments partagés et impose un travail constant et itératif de déconstruction des préjugés.')">
+                                        <rect x="705" y="42" width="195" height="106" rx="10" fill="#7a2222" stroke="#5e1a1a" stroke-width="1.8"/>
+                                        <text x="802" y="72" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="700" fill="#ffffff">Déconstruction itérative</text>
+                                        <text x="802" y="94" text-anchor="middle" font-family="sans-serif" font-size="10.5" fill="#f7e6e6">Proximité, reconnaissance</text>
+                                        <text x="802" y="112" text-anchor="middle" font-family="sans-serif" font-size="10.5" fill="#f7e6e6">mutuelle et remise en</text>
+                                        <text x="802" y="130" text-anchor="middle" font-family="sans-serif" font-size="10.5" fill="#f7e6e6">question des stéréotypes</text>
+                                    </g>
+
+                                    <text x="460" y="192" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#4a5568">La rencontre directe permet souvent de constater que l’autre partage des émotions et appréhensions comparables aux nôtres.</text>
+                                </svg>
+                            </div>
+                            <div class="concept-detail-bar" id="cmap4-detail">
+                                <strong>Aperçu :</strong> Parce que les préjugés protègent des normes et des peurs collectives, l’inclusion exige un effort constant et itératif de déconstruction.
+                            </div>
+                        </div>
+
+
+                        <div class="references-section">
+                            <h3 lang="en-CA">RÉFÉRENCES BIBLIOGRAPHIQUES</h3>
+                            <p lang="en-CA">Allport, G.W., Clark, K., Pettigrew, T. (1954), <em>The nature of prejudice</em>, Reading, MA : Addison-Wesley.</p>
+                            <p>Bernard, O. (2021). <em>Quand l’image du corps est une prérogative sociale. Une exploration sociologique de l’apparence.</em> Québec (Canada) : Presses de l’Université Laval, 172 pages.</p>
+                            <p>Bernard, O., Lizotte, M., Marois, A. (2020). <em>Les préjugés à l’égard des personnes en situation de pauvreté et leurs impacts sur l’exclusion sociale au Québec.</em> Département de sociologie à l’Université Laval, École d’études sociologiques et anthropologique à l’Université d’Ottawa et Centre d’étude sur la pauvreté et l’exclusion sociale (CEPE), (Québec) Canada. 137 pages.</p>
+                            <p>Castells, M. (2001), <em>La société en réseaux</em>, Paris : Fayard, 670 pages.</p>
+                            <p>CEPE – Centre d’étude sur la pauvreté et l’exclusion (2014), <a href="https://www.mtess.gouv.qc.ca/publications/pdf/CEPE_Lexclusion_sociale.pdf" target="_blank" rel="noopener noreferrer"><em>L’exclusion sociale : construire avec celles et ceux qui la vivent. Vers des pistes d’indicateurs d’exclusion sociale à partir de l’expérience de personnes en situation de pauvreté</em></a>, Ministère de l’Emploi et de la Solidarité sociale, Canada (Québec).</p>
+                            <p>Dumont, F. (2008), « <span style="font-style: normal">Le lieu de l’homme</span> », dans <em>Œuvres complètes de Fernand Dumont</em> ; Philosophie et sciences de la culture, Tome 1, Québec : Les Presses de l’Université Laval (PUL), p. 1-160. Édition originale de 1968.</p>
+                            <p>Harvey, J.-F. (2013), <em>Courir mieux</em>, Québec : Éditions de l’Homme, 312 pages.</p>
+                            <p>Jodelet D. (1994), <em>Représentations sociales : un domaine en expansion,</em> dans Jodelet Denise, <em>Les représentations sociales</em> (p. 31-61), Paris : Presses Universitaire de France (PUF).</p>
+                            <p>Rosa, H. (2010), <em>Accélération. Une critique sociale du temps</em>, Paris : La Découverte, 480 pages.</p>
+                            <p>Vallerand, R. J., Losier, G. F. (1994), « Le soi en psychologie sociale : perspectives classiques et contemporaines », dans Robert J. Vallerand (dir.), <em>Les fondements de la psychologie sociale</em>, Boucherville : Gaëtan Morin, p. 121-192.</p>
+                        </div>
+
+                        <div class="footnotes-section">
+                            <div id="sdfootnote1"><p><a class="sdfootnotesym" name="sdfootnote1sym" href="#sdfootnote1anc">1</a> Dumont, F. (2008), « <span style="font-style: normal">Le lieu de l’homme</span> », dans <em>Œuvres complètes de Fernand Dumont</em> ; Philosophie et sciences de la culture, Tome 1, Québec : Les Presses de l’Université Laval (PUL), p. 1-160. Édition originale de 1968.</p></div>
+                            <div id="sdfootnote2"><p><a class="sdfootnotesym" name="sdfootnote2sym" href="#sdfootnote2anc">2</a> Ces comportements culturels peuvent varier considérablement d'une personne à l'autre, en fonction de facteurs tels que l'éducation, la religion, la géographie, la classe sociale et l'histoire personnelle.</p></div>
+                            <div id="sdfootnote3"><p><a class="sdfootnotesym" name="sdfootnote3sym" href="#sdfootnote3anc">3</a> Castells, M. (2001), <em>La société en réseaux</em>, Paris : Fayard, 670 pages.</p></div>
+                            <div id="sdfootnote4"><p><a class="sdfootnotesym" name="sdfootnote4sym" href="#sdfootnote4anc">4</a> CEPE – Centre d’étude sur la pauvreté et l’exclusion (2014), <a href="https://www.mtess.gouv.qc.ca/publications/pdf/CEPE_Lexclusion_sociale.pdf" target="_blank" rel="noopener noreferrer"><em>L’exclusion sociale : construire avec celles et ceux qui la vivent. Vers des pistes d’indicateurs d’exclusion sociale à partir de l’expérience de personnes en situation de pauvreté</em></a>, Ministère de l’Emploi et de la Solidarité sociale, Canada (Québec), p. 10.</p></div>
+                            <div id="sdfootnote5"><p><a class="sdfootnotesym" name="sdfootnote5sym" href="#sdfootnote5anc">5</a> Bernard, O., Lizotte, M., Marois, A. (2020). <em>Les préjugés à l’égard des personnes en situation de pauvreté et leurs impacts sur l’exclusion sociale au Québec.</em> Département de sociologie à l’Université Laval, École d’études sociologiques et anthropologique à l’Université d’Ottawa et Centre d’étude sur la pauvreté et l’exclusion sociale (CEPE), (Québec) Canada. 137 pages.</p></div>
+                            <div id="sdfootnote6"><p><a class="sdfootnotesym" name="sdfootnote6sym" href="#sdfootnote6anc">6</a> <em>Idem</em>.</p></div>
+                            <div id="sdfootnote7"><p><a class="sdfootnotesym" name="sdfootnote7sym" href="#sdfootnote7anc">7</a> Jodelet D. (1994), <em>Représentations sociales : un domaine en expansion,</em> dans Jodelet Denise, <em>Les représentations sociales</em> (p. 31-61), Paris : Presses Universitaire de France (PUF).</p></div>
+                            <div id="sdfootnote8"><p><a class="sdfootnotesym" name="sdfootnote8sym" href="#sdfootnote8anc">8</a> Bernard, O., Lizotte, M., Marois, A. (2020). <span lang="en-CA"><em>Op. cit</em></span>.</p></div>
+                            <div id="sdfootnote9"><p><a class="sdfootnotesym" name="sdfootnote9sym" href="#sdfootnote9anc">9</a> <span lang="en-CA">Allport, G.W., Clark, K., Pettigrew, T. (1954), <em>The nature of prejudice</em>, Reading, MA : Addison-Wesley.</span></p></div>
+                            <div id="sdfootnote10"><p><a class="sdfootnotesym" name="sdfootnote10sym" href="#sdfootnote10anc">10</a> Bernard, O. (2021). <em>Quand l’image du corps est une prérogative sociale. Une exploration sociologique de l’apparence.</em> Québec (Canada) : Presses de l’Université Laval, 172 pages.</p></div>
+                            <div id="sdfootnote11"><p><a class="sdfootnotesym" name="sdfootnote11sym" href="#sdfootnote11anc">11</a> Rosa, H. (2010), <em>Accélération. Une critique sociale du temps</em>, Paris : La Découverte, 480 pages.</p></div>
+                            <div id="sdfootnote12"><p><a class="sdfootnotesym" name="sdfootnote12sym" href="#sdfootnote12anc">12</a> Vallerand, R. J., Losier, G. F. (1994), « Le soi en psychologie sociale : perspectives classiques et contemporaines », dans Robert J. Vallerand (dir.), <em>Les fondements de la psychologie sociale</em>, Boucherville : Gaëtan Morin, p. 121-192.</p></div>
+                            <div id="sdfootnote13"><p><a class="sdfootnotesym" name="sdfootnote13sym" href="#sdfootnote13anc">13</a> Harvey, J.-F. (2013), <em>Courir mieux</em>, Québec : Éditions de l’Homme, 312 pages.</p></div>
                         </div>
                     </div>
-
-                    <!-- Tournage 4 -->
-                    <div class="tournage-card">
-                        <div class="tournage-title">Implants cochléaires : enjeux et défis en milieu scolaire</div>
-                        <div class="tournage-meta">
-                            <span><b>Date :</b> 6 janvier 2027</span>
-                            <span><b>Lieu :</b> Cirris, Québec</span>
-                            <span><b>Intervenant.e.s :</b> Normand Boucher & Louise Duchesne</span>
-                        </div>
-                        <div class="tournage-synopsis">
-                            Lorsque des conditions environnementales gagnantes sont mises en place, plusieurs enfants porteurs d’implants peuvent déve-
-lopper une communication efficace, participer à la vie scolaire et réussir au même titre que les enfants entendants. À ce titre, une connaissance de la situation de surdité et une meilleure compréhension des limites de l’implant cochléaire sont cependant préalables.
-                        </div>
-                        <div class="tournage-checkboxes">
-                            <label><input type="checkbox" checked> À faire</label>
-                            <label><input type="checkbox"> En cours</label>
-                            <label><input type="checkbox"> Effectué</label>
-                            <label><input type="checkbox"> En montage</label>
-                            <label><input type="checkbox"> En post-production</label>
-                            <label><input type="checkbox" data-href="#" onclick="if(this.checked && this.dataset.href && this.dataset.href !== '#') window.location.href=this.dataset.href;"> Actif</label>
-                        </div>
-                    </div>
-
-                    <!-- Tournage 5 -->
-                    <div class="tournage-card">
-                        <div class="tournage-title">Appartements supervisés pour personnes ayant une déficience intellectuelle ou autistes</div>
-                        <div class="tournage-meta">
-                            <span><b>Date :</b> 15 janvier 2027</span>
-                            <span><b>Lieu :</b> UQTR, Québec</span>
-                            <span><b>Intervenant.e.s :</b> Martin Caouette & Michèle Lafontaine</span>
-                        </div>
-                        <div class="tournage-synopsis">
-                            Pour que des habitats supervisés s’implantent au sein d’une communauté, un important travail de concertation et de co-construction entre différents acteurs sociaux, communautaires et institutionnels est indispensable. Trois ans plus tard, quelles sont les retombées concrètes au quotidien du projet et comment les locataires vivent-ils leur intégation sociale ?
-                        </div>
-                        <div class="tournage-checkboxes">
-                            <label><input type="checkbox" checked> À faire</label>
-                            <label><input type="checkbox"> En cours</label>
-                            <label><input type="checkbox"> Effectué</label>
-                            <label><input type="checkbox"> En montage</label>
-                            <label><input type="checkbox"> En post-production</label>
-                            <label><input type="checkbox" data-href="#" onclick="if(this.checked && this.dataset.href && this.dataset.href !== '#') window.location.href=this.dataset.href;"> Actif</label>
-                        </div>
-                    </div>
-
-                </div>
+                </article>
             </section>
         </main>
     </div>
@@ -622,9 +1291,9 @@ lopper une communication efficace, participer à la vie scolaire et réussir au 
 
     <!-- Modal de Proposition d'Article / Projet -->
     <div class="modal-overlay" id="proposalModal" onclick="closeProposalModalOnOutside(event)">
-        <div class="modal-container" style="max-width: 600px; height: auto;">
+        <div class="modal-container" style="max-width: 800px; height: auto;">
             <div class="modal-header">
-                <h3 id="proposalModalTitle">Proposer un article</h3>
+                <h3 id="proposalModalTitle">Proposer une captation ou un article / Nous faire part d'un commentaire</h3>
                 <button class="modal-close" onclick="closeProposalModal()">&times;</button>
             </div>
             <div class="modal-body" style="padding: 1.5rem; overflow-y: auto;">
@@ -639,7 +1308,7 @@ lopper une communication efficace, participer à la vie scolaire et réussir au 
                         <input type="email" id="propEmail" required style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
                     </div>
                     <div>
-                        <label for="propTitle" id="propTitleLabel" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Titre de l'article</label>
+                        <label for="propTitle" id="propTitleLabel" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Que désirez-vous nous communiquer ?</label>
                         <input type="text" id="propTitle" required placeholder="Ex: Analyse de l'accessibilité urbaine..." style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
                     </div>
                     <div>
@@ -658,7 +1327,31 @@ lopper une communication efficace, participer à la vie scolaire et réussir au 
             const submenu = document.getElementById(submenuId);
             const arrow = document.getElementById(arrowId);
             submenu.classList.toggle('open');
-            arrow.style.transform = submenu.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+            const isOpen = submenu.classList.contains('open');
+            arrow.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+            if (event.currentTarget && event.currentTarget.hasAttribute('aria-expanded')) {
+                event.currentTarget.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            }
+        }
+
+        function scrollToSubchapter(event, targetId) {
+            event.preventDefault();
+            const target = document.getElementById(targetId);
+            if (!target) return;
+            const topbarHeight = 60;
+            const extraComfortOffset = 48; // Pointe juste un peu au-dessus du titre pour une lisibilité maximale
+            const targetY = target.getBoundingClientRect().top + window.pageYOffset - topbarHeight - extraComfortOffset;
+            window.scrollTo({
+                top: Math.max(0, targetY),
+                behavior: 'smooth'
+            });
+        }
+
+        function selectConceptDetail(mapId, message) {
+            const detailBox = document.getElementById(mapId + '-detail');
+            if (detailBox) {
+                detailBox.innerHTML = '<strong>Détail :</strong> ' + message;
+            }
         }
 
         function openModal(type, title, url) {
@@ -708,13 +1401,13 @@ lopper une communication efficace, participer à la vie scolaire et réussir au 
             categoryEl.value = type;
 
             if (type === 'captation') {
-                titleEl.textContent = "Proposer une captation ou un article";
-                titleLabelEl.textContent = "Titre de la captation ou du projet vidéo";
-                titleInputEl.placeholder = "Ex: Capsule sur le transport adapté...";
+                titleEl.textContent = "Nous faire part d'un commentaire ou d'une proposition (captation ou article)";
+                titleLabelEl.textContent = "Que voulez-vous nous communiquer ?";
+                titleInputEl.placeholder = "Ex: projet de captation, soumettre un article, faire un commentaire...";
             } else {
-                titleEl.textContent = "Proposer un article";
-                titleLabelEl.textContent = "Titre de l'article";
-                titleInputEl.placeholder = "Ex: Analyse de l'accessibilité urbaine...";
+                titleEl.textContent = "Nous faire part d'un commentaire ou d'une proposition (captation ou article)";
+                titleLabelEl.textContent = "Que voulez-vous nous communiquer ?";
+                titleInputEl.placeholder = "Ex: projet de captation, soumettre un article, faire un commentaire...";
             }
 
             proposalModal.style.display = 'flex';
