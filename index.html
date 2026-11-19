@@ -930,6 +930,7 @@
                     <a href="#theme-2" class="submenu-item">2. Éducation & institutions</a>
                     <a href="#theme-3" class="submenu-item">3. Travail, autonomie & loisirs</a>
                     <a href="#theme-4" class="submenu-item">4. Expérience vécue & stigmates</a>
+                    <a href="#theme-5" class="submenu-item">5. Parrainage et mentorat</a>
                 </div>
             </div>
 
@@ -1269,6 +1270,31 @@
                     </article>
                 </div>
             </section>
+
+            <section class="theme-section" id="theme-5" data-title="5. Parrainage et mentorat">
+                <h2 class="theme-title">5.  Parrainage et mentorat</h2>
+                <div class="grid-container">
+                    <article class="article-card" id="mentorat">
+                        <div class="article-media">
+                            <img src="https://lh3.googleusercontent.com/d/1UnZJ8bxyxuy32BKO0KkB3XcnsiecrE0w" alt="Trajectoire de réinsertion sociale">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-doi">Mentorat actif</div>
+                            <h3 class="article-title">Le Mentorat actif, une autre approche de l'accompagnement</h3>
+                            <p class="article-summary">De l'approche « une personne qui accompagne une autre personne » à une approche « un groupe qui accompagne une autre personne ».</p>
+                            <div class="article-actions">
+<button class="btn-modal" onclick="window.location.href='https://inclusionsociale.com/mentorat-actif-bilan.html'">Bilan</button>                                <button class="btn-modal video-btn" onclick="openModal('mentorat-actif-playlist', 'Mentorat actif — Vidéos', '')">Vidéos</button>
+                            </div>
+                        </div>
+                    </article>
+
+
+                </div>
+            </section>
+
+
+
+
         </main>
 
         <footer>
@@ -1533,6 +1559,17 @@
             { title: "Les défis de l'accompagnement", url: "https://drive.google.com/file/d/1titNtVt1xzjxNSgQlC8ht7dTTlmDmbN4/preview?autoplay=1" }
         ];
 
+        const mentoratActif = [
+            { title: "Qu'est-ce que le mentorat actif ?", url: "https://drive.google.com/file/d/1bjwJGxwIVKcnB1E_lSWH0cmTyfzPC7pA/preview?autoplay=1" },
+            { title: "Le rôle de la coordonnatrice", url: "https://drive.google.com/file/d/1DZm6Du56pN6zILXznUtc3JH4G1J4xKYX/preview?autoplay=1" },
+            { title: "La recherche d'activités", url: "https://drive.google.com/file/d/1mn5K39yxyoyb35oHKGiOiaPa9_LRRA0j/preview?autoplay=1" },
+            { title: "La recrutement de personnes", url: "https://drive.google.com/file/d/1X9v-50MEsb8lwwI_IGt9Jah3oJPVh-5r/preview?autoplay=1" },
+            { title: "La démarche préparatoire", url: "https://drive.google.com/file/d/12tmGmyCFS5Iw9EUzdHno5uMJjXLOw65d/preview?autoplay=1" },
+            { title: "L'accompagnement gradué", url: "https://drive.google.com/file/d/1a331BNpssg5VTEhBzAPAiAk9_8O2kKk3/preview?autoplay=1" },
+            { title: "Les retombées sociales", url: "https://drive.google.com/file/d/1oA1zzu4IusmEESfudH3u4S8nHrj-ryPG/preview?autoplay=1" },
+            { title: "Études de cas, présentation", url: "https://drive.google.com/file/d/1SzcJctMkbGRS2j116sQ2KCSG0V9Ik1QN/preview?autoplay=1" }
+        ];
+
         function openModal(type, title, url) {
             modalTitle.textContent = title;
             modalBodyContent.innerHTML = '';
@@ -1560,6 +1597,7 @@
                 else if (type === 'loisir-inclusif-playlist') { currentList = loisirInclusifVideos; sidebarHeading = 'Loisir inclusif'; }
                 else if (type === 'ophq-playlist') { currentList = ophqPlaylistVideos; sidebarHeading = 'Plans d\'action OPHQ'; }
                 else if (type === 'pas-les-bienvenus-playlist') { currentList = pasLesBienvenusVideos; sidebarHeading = 'Pas les bienvenus'; }
+                else if (type === 'mentorat-actif-playlist') { currentList = mentoratActif; sidebarHeading = 'Mentorat actif'; }
 
                 const layout = document.createElement('div');
                 layout.className = 'playlist-layout';
