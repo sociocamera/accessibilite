@@ -65,6 +65,10 @@
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
+        section[id], h3[id] {
+            scroll-margin-top: calc(var(--topbar-height) + 24px);
+        }
+
         body {
             font-family: "Georgia", "Cambria", "Times New Roman", serif;
             background-color: var(--bg-color);
@@ -489,19 +493,25 @@
                 </a>
             </div>
 
-            <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: #7a2222; letter-spacing: 0.05em; margin-top: 0.75rem; margin-bottom: 0.25rem; padding-left: 0.25rem;">NAVIGATION DANS LA PAGE</div>
-            <nav class="page-nav-list" aria-label="Navigation dans la page">
-                <a href="#introduction" class="submenu-item">Introduction</a>
-                <a href="#section-1" class="submenu-item">1. L’appropriation de cette nouvelle forme de jumelage</a>
-                <a href="#section-2" class="submenu-item">2. De nouveaux outils par et pour les organismes</a>
-                <a href="#section-3" class="submenu-item">3. L'importance de l’accompagnement pour les organismes</a>
-                <a href="#rencontres-collectives" class="submenu-item page-nav-subitem">Rencontres collectives de suivi</a>
-                <a href="#accompagnement-individualise" class="submenu-item page-nav-subitem">Accompagnement individualisé offert par le Regroupement</a>
-                <a href="#section-4" class="submenu-item">4. Maintenir le lien de confiance</a>
-                <a href="#section-5" class="submenu-item">5. Une évolution des pratiques</a>
-                <a href="#section-6" class="submenu-item">6. Une nouvelle vision de l’inclusion</a>
-                <a href="#conclusion" class="submenu-item">Conclusion</a>
-            </nav>
+            <div>
+                <button class="nav-btn" onclick="toggleSubmenu(event, 'pageNavSubmenu', 'pageNavArrow')" style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: #7a2222; letter-spacing: 0.05em; margin-top: 0.75rem; margin-bottom: 0.25rem;">
+                    <span>NAVIGATION DANS LA PAGE</span>
+                    <svg id="pageNavArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <nav class="submenu" id="pageNavSubmenu" aria-label="Navigation dans la page">
+                    <a href="#top" onclick="scrollToTop(event)" class="submenu-item">Présentation</a>
+                    <a href="#introduction" class="submenu-item">Introduction</a>
+                    <a href="#section-1" class="submenu-item">1. L’appropriation de cette nouvelle forme de jumelage</a>
+                    <a href="#section-2" class="submenu-item">2. De nouveaux outils par et pour les organismes</a>
+                    <a href="#section-3" class="submenu-item">3. L'importance de l’accompagnement pour les organismes</a>
+                    <a href="#rencontres-collectives" class="submenu-item page-nav-subitem">Rencontres collectives de suivi</a>
+                    <a href="#accompagnement-individualise" class="submenu-item page-nav-subitem">Accompagnement individualisé offert par le Regroupement</a>
+                    <a href="#section-4" class="submenu-item">4. Maintenir le lien de confiance</a>
+                    <a href="#section-5" class="submenu-item">5. Une évolution des pratiques</a>
+                    <a href="#section-6" class="submenu-item">6. Une nouvelle vision de l’inclusion</a>
+                    <a href="#conclusion" class="submenu-item">Conclusion</a>
+                </nav>
+            </div>
         </div>
     </aside>
 
@@ -1388,6 +1398,11 @@
     </div>
 
     <script>
+        function scrollToTop(event) {
+            if (event) event.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
         function scrollSlider(sliderId, direction) {
             const slider = document.getElementById(sliderId);
             const scrollAmount = 320;
