@@ -1,0 +1,1544 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; frame-src https://drive.google.com; connect-src https://script.google.com; object-src 'none';">
+    <title>Handicap et transports urbains</title>
+    <meta name="description" content="Numéro spécial de la Revue de Sociologie Visuelle consacré à l'inclusion sociale et à l'accessibilité. Contributions empiriques et théoriques dirigées par François Routhier et Pierre Fraser.">
+    <meta name="keywords" content="inclusion sociale, accessibilité, sociologie visuelle, handicap, transport urbain, éducation inclusive, CIRRIS, PSVI">
+    <link rel="canonical" href="https://doi.org/10.13140/RG.2.2.35504.53768">
+
+<!-- Open Graph (Facebook, LinkedIn, WhatsApp, etc.) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Revue Sociologie Visuelle">
+<meta property="og:title" content="Inclusion sociale et accessibilité | Revue de Sociologie Visuelle">
+<meta property="og:description" content="Numéro spécial de la Revue de Sociologie Visuelle consacré à l'inclusion sociale et à l'accessibilité. Contributions empiriques et théoriques dirigées par François Routhier et Pierre Fraser.">
+<meta property="og:url" content="https://inclusionsociale.com/">
+<meta property="og:image" content="https://lh3.googleusercontent.com/d/1R-6VqA6SZ8t1dall1uf0mj_ehOcj7jNW">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="fr_CA">
+
+<!-- Twitter / X Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Inclusion sociale et accessibilité | Revue de Sociologie Visuelle">
+<meta name="twitter:description" content="Numéro spécial de la Revue de Sociologie Visuelle consacré à l'inclusion sociale et à l'accessibilité.">
+<meta name="twitter:image" content="https://inclusionsociale.com/images/vignette-inclusion-sociale.jpg">
+
+
+    <style>
+        :root {
+            --bg-color: #FAF6EF;
+            --text-color: #2b2b2b;
+            --primary-color: #1a202c;
+            --accent-color: #4a5568;
+            --border-color: #e2e8f0;
+            --card-bg: #FAF6EF;
+            --hover-border: #cbd5e0;
+            --max-width: 1400px;
+            --sidebar-width: 320px;
+            --topbar-height: 60px;
+            --modal-header-bg: #7a2222; /* Bordeaux de référence */
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Georgia", "Cambria", "Times New Roman", serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Barre horizontale permanente supérieure : toute la largeur de la page */
+        .top-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--topbar-height);
+            background-color: var(--bg-color);
+            border-bottom: 1px solid var(--border-color);
+            display: grid;
+            grid-template-columns: var(--sidebar-width) 1fr auto;
+            align-items: center;
+            padding: 0;
+            z-index: 1100;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .top-navbar-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            letter-spacing: 0.02em;
+            padding-left: 1.5rem;
+            border-right: 1px solid var(--border-color);
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .top-navbar-location {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            background-color: #f2ede4;
+            padding: 0.3rem 0.75rem;
+            border-radius: 4px;
+            margin-right: 2.5rem;
+        }
+
+        /* Colonne latérale gauche permanente sous la barre fixe du haut */
+        aside.sidebar {
+            position: fixed;
+            top: var(--topbar-height);
+            left: 0;
+            width: var(--sidebar-width);
+            height: calc(100vh - var(--topbar-height));
+            background-color: #f5f0e6;
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            z-index: 1000;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            overflow-y: auto;
+        }
+
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .btn-home {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            background-color: #7a2222;
+            color: #fff;
+            border: none;
+            padding: 0.85rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        .btn-home svg {
+            position: absolute;
+            left: 1rem;
+        }
+
+        .btn-home:hover {
+            background-color: #5e1a1a;
+        }
+
+        .sidebar-info-section {
+            padding: 1rem 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .sidebar-card {
+            background-color: #FAF6EF;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 0.85rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            text-align: justify;
+        }
+
+        .sidebar-card.editor-card {
+            flex-direction: row;
+            align-items: center;
+            gap: 0.75rem;
+            text-align: left;
+        }
+
+        .editor-info h4 {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            margin-bottom: 0.15rem;
+        }
+
+        .editor-info p {
+            font-size: 0.78rem;
+            color: var(--accent-color);
+            line-height: 1.4;
+        }
+
+        .sidebar-nav {
+            padding: 1.25rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            flex: 1;
+        }
+
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--primary-color);
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-align: left;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            background-color: #eae3d5;
+            border-color: var(--hover-border);
+        }
+
+        .submenu {
+            display: none;
+            flex-direction: column;
+            gap: 0.4rem;
+            padding-left: 1rem;
+            margin-top: -0.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .submenu.open {
+            display: flex;
+        }
+
+        .submenu-item {
+            font-size: 0.82rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            padding: 0.4rem 0.75rem;
+            border-radius: 4px;
+            transition: background-color 0.15s, color 0.15s;
+            border-left: 2px solid #d4c5b9;
+        }
+
+        .submenu-item:hover {
+            background-color: #eae3d5;
+            color: var(--primary-color);
+            border-left-color: var(--primary-color);
+        }
+
+        /* Conteneur principal à droite, décalé pour laisser place à la sidebar et topbar */
+        .main-wrapper {
+            margin-left: var(--sidebar-width);
+            margin-top: var(--topbar-height);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            width: calc(100% - var(--sidebar-width));
+            padding: 2.5rem 2rem;
+            align-items: center;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            padding-left: 2rem;
+        }
+
+        .btn-header {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: 1px solid var(--primary-color);
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: background-color 0.2s;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-header.secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border-color: var(--border-color);
+        }
+
+        .btn-header.secondary:hover {
+            background-color: #f2ede4;
+            border-color: var(--hover-border);
+        }
+
+        /* Styles harmonisés des fenêtres modales selon l'image de référence */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+        }
+
+        .modal-container {
+            background: var(--bg-color);
+            width: 100%;
+            max-width: 900px;
+            height: 85vh;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            border: 1px solid #d4c5b9;
+        }
+
+        .modal-header {
+            padding: 1.25rem 1.5rem;
+            background: var(--modal-header-bg);
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .modal-header h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .modal-close {
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #fff;
+            opacity: 0.85;
+            transition: opacity 0.2s;
+        }
+
+        .modal-close:hover {
+            opacity: 1;
+        }
+
+        .modal-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            background-color: var(--bg-color);
+        }
+
+        .pdf-frame, .video-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* --- Styles spécifiques à l'article intégré dans la zone dynamique --- */
+        .article-container {
+            width: 100%;
+            max-width: 1060px;
+            margin: 0 auto;
+        }
+
+        .article-title {
+            font-size: 2.05rem;
+            line-height: 1.3;
+            color: #1a202c;
+            font-weight: 700;
+            margin-bottom: 1.75rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 1px solid #dfd7c8;
+            text-align: left;
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .whitish-box {
+            background-color: #FCF9F4;
+            border: 1px solid #e5ddd0;
+            border-radius: 8px;
+            padding: 1.25rem 1.5rem;
+            font-size: 0.88rem;
+            line-height: 1.55;
+            color: #3a3a3a;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .authors-row {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            gap: 1.25rem;
+            text-align: center;
+        }
+
+        .author-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+        }
+
+        .author-photo {
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #7a2222;
+            margin-bottom: 0.65rem;
+            background-color: #eae3d5;
+        }
+
+        .author-name {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: #1a202c;
+            margin-bottom: 0.2rem;
+        }
+
+        .author-affiliation {
+            font-size: 0.8rem;
+            color: #5a6270;
+            font-style: italic;
+        }
+
+        .citation-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .citation-label {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #7a2222;
+            margin-bottom: 0.5rem;
+        }
+
+        .abstract-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .abstract-title {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #7a2222;
+            margin-bottom: 0.6rem;
+        }
+
+        .abstract-text {
+            text-align: justify;
+            margin-bottom: 0.75rem;
+        }
+
+        .abstract-keywords {
+            font-size: 0.82rem;
+            color: #555;
+            border-top: 1px dashed #dfd7c8;
+            padding-top: 0.5rem;
+        }
+
+        .article-body {
+            font-size: 1.06rem;
+            line-height: 1.8;
+            color: #2b2b2b;
+        }
+
+        .article-body p {
+            margin-bottom: 1.25rem;
+            text-align: justify;
+        }
+
+        .chapter-title {
+            color: #7a2222;
+            font-size: 1.45rem;
+            font-weight: 700;
+            margin-top: 2.75rem;
+            margin-bottom: 1.1rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 1px solid #e6dec8;
+            scroll-margin-top: 85px;
+        }
+
+        .subchapter-title {
+            color: #7a2222;
+            font-size: 1.18rem;
+            font-weight: 700;
+            font-style: italic;
+            margin-top: 1.85rem;
+            margin-bottom: 0.85rem;
+            scroll-margin-top: 85px;
+        }
+
+        .ndlr-box {
+            background-color: #F4EFE6;
+            border-left: 3px solid #7a2222;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #3d3d3d;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .dropcap-paragraph::first-letter {
+            float: left;
+            font-size: 3.6rem;
+            line-height: 0.82;
+            padding-top: 0.15rem;
+            padding-right: 0.65rem;
+            padding-bottom: 0.1rem;
+            color: #7a2222;
+            font-weight: 700;
+            font-family: "Georgia", serif;
+        }
+
+        .article-quote {
+            margin: 1.35rem 2rem;
+            padding: 0.85rem 1.25rem;
+            border-left: 3px solid #a85555;
+            background-color: #FCF9F4;
+            font-style: italic;
+            color: #333;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .protagonists-list {
+            margin: 1.25rem 0 1.75rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+        }
+
+        .protagonists-list li {
+            text-align: justify;
+            padding-left: 0.35rem;
+        }
+
+        .figures-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+            background-color: #FCF9F4;
+            border: 1px solid #e5ddd0;
+            border-radius: 8px;
+            padding: 1.25rem;
+            text-align: center;
+        }
+
+        .figure-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            border: 1px solid #dfd7c8;
+            margin-top: 0.5rem;
+        }
+
+        .figure-caption {
+            font-weight: 600;
+            font-size: 0.92rem;
+            color: #4a5568;
+        }
+
+        /* Cartes conceptuelles interactives (fond plus pâle que #FAF6EF -> #FDFBF7) */
+        .concept-map-card {
+            background-color: #FDFBF7;
+            border: 1px solid #e2d9c8;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2.25rem 0;
+            box-shadow: 0 4px 12px rgba(122, 34, 34, 0.04);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .concept-map-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #ece4d5;
+            padding-bottom: 0.65rem;
+        }
+
+        .concept-map-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #7a2222;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .concept-map-hint {
+            font-size: 0.78rem;
+            color: #718096;
+            font-style: italic;
+        }
+
+        .concept-svg-wrapper {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        .concept-svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .svg-node {
+            cursor: pointer;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .svg-node:hover rect, .svg-node:hover circle {
+            stroke: #7a2222;
+            stroke-width: 2.5;
+        }
+
+        .svg-node.active rect, .svg-node.active circle {
+            fill: #7a2222;
+        }
+
+        .svg-node.active text {
+            fill: #ffffff;
+        }
+
+        .concept-detail-panel {
+            margin-top: 1rem;
+            padding: 0.9rem 1.15rem;
+            background-color: #FAF6EF;
+            border-left: 3px solid #7a2222;
+            border-radius: 4px;
+            font-size: 0.88rem;
+            line-height: 1.55;
+            color: #2b2b2b;
+            font-family: "Georgia", serif;
+        }
+
+        /* Bibliographie et notes */
+        .references-section {
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #dfd7c8;
+        }
+
+        .references-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .references-list li {
+            padding-left: 1.75rem;
+            text-indent: -1.75rem;
+        }
+
+        .footnotes-section {
+            margin-top: 2.25rem;
+            padding-top: 1.25rem;
+            border-top: 1px dashed #d4c5b9;
+            font-size: 0.85rem;
+            line-height: 1.55;
+            color: #4a5568;
+        }
+
+        .footnotes-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+        }
+
+        .footnote-ref {
+            color: #7a2222;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.78rem;
+            vertical-align: super;
+            margin-left: 1px;
+        }
+
+        .footnote-ref:hover {
+            text-decoration: underline;
+        }
+
+        /* Menu navigation dans la page (sidebar) */
+        .page-nav-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background: transparent;
+            border: none;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #7a2222;
+            letter-spacing: 0.05em;
+            margin-top: 0.5rem;
+            margin-bottom: 0.25rem;
+            padding: 0.4rem 0.25rem;
+            cursor: pointer;
+            text-align: left;
+        }
+
+        .page-nav-toggle:hover {
+            opacity: 0.8;
+        }
+
+        @media (max-width: 900px) {
+            .meta-grid, .abstract-grid, .figures-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            :root { --sidebar-width: 0px; }
+            .top-navbar { left: 0; padding: 0 1rem; grid-template-columns: 1fr auto; }
+            .top-navbar-title { display: none; }
+            aside.sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
+            aside.sidebar.mobile-open { transform: translateX(0); }
+            .main-wrapper { margin-left: 0; width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barre horizontale permanente supérieure -->
+    <header class="top-navbar">
+        <div class="top-navbar-title">Revue Sociologie Visuelle</div>
+        <div class="header-actions">
+            <button class="btn-header secondary" onclick="openModal('video', 'Présentation introductive — Vidéo', 'https://drive.google.com/file/d/10Va3etjn9wZIqrVnByyNXDVM-XPKOHkK/preview?autoplay=1')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                Visionner la vidéo de présentation
+            </button>
+            <button class="btn-header secondary" onclick="openProposalModal('article')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                Proposer un projet de captation ou un article
+            </button>
+            <button class="btn-header secondary" onclick="openModal('pdf', 'Télécharger le numéro complet', 'https://drive.google.com/file/d/1d3ZUnnEwYomQ1VRQ1lF8XNei88HelQvy/preview')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Télécharger le numéro
+            </button>
+        </div>
+        <div class="top-navbar-location" id="locationIndicator">Handicap et transports urbains</div>
+    </header>
+
+    <!-- Colonne latérale gauche permanente -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="https://inclusionsociale.com/#theme-1" class="btn-home">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                INCLUSION SOCIALE
+            </a>
+        </div>
+
+        <div class="sidebar-info-section">
+            <div style="font-size: 0.72rem; color: #718096; text-align: left; margin-bottom: 0.05rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                DOI : <a href="https://doi.org/10.13140/RG.2.2.35504.53768" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; opacity: 0.85;">10.13140/RG.2.2.35504.53768</a>
+            </div>
+
+            <div class="sidebar-card editor-card">
+                <div class="editor-info">
+                    <h4>Éditeurs</h4>
+                    <p><b>François Routhier & Pierre Fraser</b></p>
+                    <p>Plus de 18 équipes de recherche mobilisées afin de saisir comment le milieu façonne et articule l'accès aux services et à l'inclusion sociale.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-nav">
+            <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: #7a2222; letter-spacing: 0.05em; margin-bottom: 0.5rem; padding-left: 0.25rem;">NAVIGATION SUR LE SITE</div>
+
+            <div>
+                <button class="nav-btn" onclick="toggleSubmenu(event, 'accessibilitySubmenu', 'submenuArrow')">
+                    <span>Penser l'accessibilité</span>
+                    <svg id="submenuArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu" id="accessibilitySubmenu">
+                    <a href="https://inclusionsociale.com/#theme-1" class="submenu-item">1. Espace urbain & transports</a>
+                    <a href="https://inclusionsociale.com/#theme-2" class="submenu-item">2. Éducation & institutions</a>
+                    <a href="https://inclusionsociale.com/#theme-3" class="submenu-item">3. Travail, autonomie & loisirs</a>
+                    <a href="https://inclusionsociale.com/#theme-4" class="submenu-item">4. Expérience vécue & stigmates</a>
+                </div>
+            </div>
+
+            <div>
+                <button class="nav-btn" onclick="toggleSubmenu(event, 'bilansSubmenu', 'bilansSubmenuArrow')">
+                    <span>Bilans</span>
+                    <svg id="bilansSubmenuArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu" id="bilansSubmenu">
+                    <a href="https://inclusionsociale.com/mentorat-actif-bilan.html" class="submenu-item">Mentorat actif, un plus tard</a>
+                </div>
+            </div>
+            <!-- Bouton Tournages en cours non gras -->
+            <div>
+                <a href="https://inclusionsociale.com/tournages.html" class="nav-btn" style="font-weight: normal;">
+                    <span>Tournages en cours</span>
+                </a>
+            </div>
+
+            <!-- Mention cliquable NAVIGATION DANS LA PAGE -->
+            <div>
+                <button class="page-nav-toggle" onclick="toggleSubmenu(event, 'pageNavSubmenu', 'pageNavArrow')">
+                    <span>NAVIGATION DANS LA PAGE</span>
+                    <svg id="pageNavArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="transition: transform 0.2s;"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu" id="pageNavSubmenu">
+                    <a href="#top-presentation" class="submenu-item" onclick="scrollToSection(event, 'top-presentation')">Présentation</a>
+                    <a href="#sec-introduction" class="submenu-item" onclick="scrollToSection(event, 'sec-introduction')">Introduction</a>
+                    <a href="#sec-1" class="submenu-item" onclick="scrollToSection(event, 'sec-1')">1. La mobilité, un droit fondamental</a>
+                    <a href="#sec-2" class="submenu-item" onclick="scrollToSection(event, 'sec-2')">2. L’aménagement du territoire</a>
+                    <a href="#sec-3" class="submenu-item" onclick="scrollToSection(event, 'sec-3')">3. Un transport collectif peu accessible</a>
+                    <a href="#sec-4" class="submenu-item" onclick="scrollToSection(event, 'sec-4')">4. Les obstacles aux transports actifs</a>
+                    <a href="#sec-5" class="submenu-item" onclick="scrollToSection(event, 'sec-5')">5. Les inégalités de genre</a>
+                    <a href="#sec-conclusion" class="submenu-item" onclick="scrollToSection(event, 'sec-conclusion')">Conclusion</a>
+                    <a href="#sec-references" class="submenu-item" onclick="scrollToSection(event, 'sec-references')">Références bibliographiques</a>
+                </div>
+            </div>
+
+        </div>
+    </aside>
+
+    <!-- Zone de contenu dynamique à droite (Frame de base) -->
+    <div class="main-wrapper" id="top-presentation">
+        <main class="article-container">
+            <article>
+                <h1 class="article-title">Réflexions sur les inégalités vécues par les personnes en situation de handicap dans les transports urbains dans une perspective intersectionnelle</h1>
+
+                <!-- Section directement sous le titre : 2 cases sur fond blanchâtre -->
+                <div class="meta-grid">
+                    <!-- Case 1 : Deux photos des auteurs côte à côte, noms et affiliations dessous -->
+                    <div class="whitish-box">
+                        <div class="authors-row">
+                            <div class="author-card">
+                                <img src="https://lh3.googleusercontent.com/d/1jJTTeJC8wl8Gs8BrSkfWpqmeiyDcdSrh" alt="Morgane Bouësseau" class="author-photo">
+                                <div class="author-name">Morgane Bouësseau<sup>1</sup></div>
+                                <div class="author-affiliation"><sup>1</sup> Accès transports viables</div>
+                            </div>
+                            <div class="author-card">
+                                <img src="https://lh3.googleusercontent.com/d/1Nlg-aST_yXyw5q9c6CvQXOQXYmEsAraJ" alt="Maëva Lucas" class="author-photo">
+                                <div class="author-name">Maëva Lucas<sup>1</sup></div>
+                                <div class="author-affiliation"><sup>1</sup> Accès transports viables</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Case 2 : Citation de l'article -->
+                    <div class="whitish-box citation-box">
+                        <div class="citation-label">Citer cet article</div>
+                        <p>Bouësseau, M., Lucas, M. (2023), «&nbsp;Réflexions sur les inégalités vécues par les personnes en situation de handicap dans les transports urbains dans une perspective intersectionnelle&nbsp;», <i>Sociologie Visuelle</i>, n° 4, François Routhier et Pierre Fraser (éds.), Québec&nbsp;: Photo|Société, pp. 247-261.</p>
+                    </div>
+                </div>
+
+                <!-- Section Résumé : 2 cases sur fond blanchâtre (Français / Anglais) -->
+                <div class="abstract-grid">
+                    <div class="whitish-box">
+                        <div class="abstract-title">Résumé</div>
+                        <p class="abstract-text">La mobilité est un droit fondamental dont dépend l’exercice d’autres droits fondamentaux. Pourtant, l’accessibilité aux transports urbains est marquée par de profondes inégalités, situées au croisement de facteurs environnementaux et de facteurs identitaires. Empruntant une perspective intersectionnelle, cet article s’attache à décortiquer les différentes oppressions pouvant être simultanément vécues et leurs impacts sur l’exercice du droit à la mobilité. Ainsi, l’article propose une plongée dans le quotidien de personnes en situation de handicap résidant dans la région de Québec, en témoignant de la complexité que peuvent revêtir leurs déplacements. Difficultés d’accès aux autobus du transport adapté, déplacements complexes sur des trottoirs en travaux, enjeux de déneigement en hiver, à travers les réalités d’Arielle, Maxime, Richard et Élise, quatre personnes en situation de handicap, cet article conjugue le savoir théorique au savoir expérientiel. À travers leurs regards, se pose une question inévitable&nbsp;: n’est-il pas nécessaire de renverser le paradigme actuel de la mobilité qui fait entièrement peser la charge de l’accessibilité sur les personnes en situation de handicap&nbsp;?</p>
+                        <div class="abstract-keywords"><strong>Mots-clés :</strong> Accessibilité ; handicap ; mobilité ; transport adapté ; transport collectif.</div>
+                    </div>
+
+                    <div class="whitish-box">
+                        <div class="abstract-title">Abstract</div>
+                        <p class="abstract-text">Mobility is a fundamental right upon which the exercise of other fundamental rights depends. Yet accessibility to urban transportation is marked by deep inequalities situated at the intersection of environmental and identity-based factors. Adopting an intersectional perspective, this article examines the multiple oppressions that can be experienced simultaneously and their impacts on the right to mobility. Through an immersion into the daily lives of people with disabilities living in the Québec City region, it bears witness to the complexity of their journeys. From difficulties boarding paratransit buses to navigating construction-obstructed sidewalks and winter snow removal challenges, the lived realities of Arielle, Maxime, Richard, and Élise bridge theoretical knowledge and experiential insight. Through their perspectives emerges an unavoidable question: is it not time to overturn the current mobility paradigm that places the entire burden of accessibility on people with disabilities?</p>
+                        <div class="abstract-keywords"><strong>Keywords:</strong> Accessibility; disability; mobility; paratransit; public transit.</div>
+                    </div>
+                </div>
+
+                <!-- Corps de l'article -->
+                <div class="article-body">
+                    <div class="ndlr-box">
+                        <strong>NDLR —</strong> Le concept d’intersectionnalité est une approche théorique et analytique développée principalement par la chercheuse Kimberlé Crenshaw au cours des années 1980. L’intersectionnalité suggère qu’il n’est pas possible de discuter de privilège et d’oppression sans tenir compte de tous les aspects qui constituent l’identité d’une personne (classe, genre, handicap, âge, origine ethnique, orientation sexuelle, etc.). Par exemple, une femme en situation de handicap pourrait faire face à des formes de discrimination fondées sur sa condition physique, son genre et sa race qui se combinent pour former des expériences spécifiques de marginalisation qui ne peuvent être comprises pleinement en examinant ces facteurs séparément.
+                    </div>
+
+                    <h2 id="sec-introduction" class="chapter-title">Introduction</h2>
+
+
+                    <p class="dropcap-paragraph">L’accessibilité aux transports urbains est loin d’être le fruit d’un hasard quelconque. D’une part, cette accessibilité résulte d’un choix sociétal, qui suggère les standards jugés acceptables dans l’espace public et génère des normes incapacitantes. D’autre part, elle est conditionnée par des facteurs identitaires propres à chaque individu. Certains sont plus manifestes, tels que l’âge ou les conditions capacitaires, et constituent à eux seuls des déterminants considérables dans les options de transport envisageables. D’autres critères, comme le genre, les conditions cognitives et linguistiques, l’origine et la culture des individus sont plus subtils, et/ou invisibles, mais amènent également leurs lots de conséquences sur la mobilité urbaine et sur son accessibilité, qu’elle soit physique, financière, numérique, littéraire ou culturelle. Il est donc important de prendre en compte la diversité des besoins et des identités des personnes usagères des transports en commun afin de rendre ces derniers accessibles à toutes et tous, sans discrimination.</p>
+
+                    <p>Certains facteurs identitaires exacerbent à différents niveaux des inégalités d’accès aux transports urbains de manière isolée, mais également parfois de manière simultanée. C’est cette multiplication des facteurs identitaires des individus, mais aussi les facteurs environnementaux qui seront peu abordés, qui les positionne à la croisée de plusieurs oppressions, entraînant ainsi des freins multiples à leur mobilité urbaine, tout en modelant leurs habitudes de transports.</p>
+
+                    <p>Cet article adopte une approche intersectionnelle pour aborder l’accessibilité aux transports urbains. Cette approche consiste à reconnaître et considérer que certaines personnes peuvent vivre plusieurs oppressions simultanément, que ces oppressions ne sont pas dissociables les unes des autres, et qu’elles ne peuvent être hiérarchisées. Ces oppressions peuvent être liées à de multiples facteurs sociaux tels que le genre/sexe, l’âge, le fait de vivre avec un handicap, l’orientation sexuelle, la classe sociale, la langue, la religion, l’origine ethnique, etc. Nos réactions face à ces oppressions peuvent être influencées par nos préjugés et nos biais inconscients. Cette perspective intersectionnelle permet ainsi d’appréhender le croisement de plusieurs formes de stratification, de domination et de discrimination sociales, afin de mieux cerner leurs impacts sur les habitudes, mais surtout les possibilités des individus en matière de mobilité urbaine.</p>
+
+                    <!-- Carte conceptuelle interactive 1 : Perspective intersectionnelle -->
+                    <div class="concept-map-card" id="map-intersectionality">
+                        <div class="concept-map-header">
+                            <span class="concept-map-title">Carte conceptuelle 1 — Croisement intersectionnel des freins à la mobilité</span>
+                            <span class="concept-map-hint">Cliquez sur un nœud pour explorer ses impacts</span>
+                        </div>
+                        <div class="concept-svg-wrapper">
+                            <svg class="concept-svg" viewBox="0 0 820 310" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <marker id="arrow-bordeaux" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                        <path d="M 0 1 L 10 5 L 0 9 z" fill="#7a2222"/>
+                                    </marker>
+                                </defs>
+                                <!-- Lignes de liaison -->
+                                <line x1="210" y1="70" x2="345" y2="145" stroke="#cbbba8" stroke-width="2" marker-end="url(#arrow-bordeaux)"/>
+                                <line x1="210" y1="155" x2="340" y2="155" stroke="#cbbba8" stroke-width="2" marker-end="url(#arrow-bordeaux)"/>
+                                <line x1="210" y1="240" x2="345" y2="165" stroke="#cbbba8" stroke-width="2" marker-end="url(#arrow-bordeaux)"/>
+                                <line x1="610" y1="70" x2="475" y2="145" stroke="#cbbba8" stroke-width="2" marker-end="url(#arrow-bordeaux)"/>
+                                <line x1="610" y1="155" x2="480" y2="155" stroke="#cbbba8" stroke-width="2" marker-end="url(#arrow-bordeaux)"/>
+                                <line x1="610" y1="240" x2="475" y2="165" stroke="#cbbba8" stroke-width="2" marker-end="url(#arrow-bordeaux)"/>
+
+                                <!-- Colonne gauche : Facteurs identitaires -->
+                                <g class="svg-node active" onclick="selectConcept('map1', 'capacitaire', this)">
+                                    <rect x="20" y="42" width="190" height="54" rx="8" fill="#FAF6EF" stroke="#7a2222" stroke-width="1.5"/>
+                                    <text x="115" y="66" text-anchor="middle" font-size="12" font-weight="700" fill="#1a202c">Conditions capacitaires</text>
+                                    <text x="115" y="83" text-anchor="middle" font-size="10.5" fill="#4a5568">Motrices, cognitives, sensorielles</text>
+                                </g>
+                                <g class="svg-node" onclick="selectConcept('map1', 'genre', this)">
+                                    <rect x="20" y="128" width="190" height="54" rx="8" fill="#FAF6EF" stroke="#a89882" stroke-width="1.5"/>
+                                    <text x="115" y="152" text-anchor="middle" font-size="12" font-weight="700" fill="#1a202c">Genre et parentalité</text>
+                                    <text x="115" y="169" text-anchor="middle" font-size="10.5" fill="#4a5568">Charge mentale, sécurité, soins</text>
+                                </g>
+                                <g class="svg-node" onclick="selectConcept('map1', 'socio', this)">
+                                    <rect x="20" y="214" width="190" height="54" rx="8" fill="#FAF6EF" stroke="#a89882" stroke-width="1.5"/>
+                                    <text x="115" y="238" text-anchor="middle" font-size="12" font-weight="700" fill="#1a202c">Âge, classe et langue</text>
+                                    <text x="115" y="255" text-anchor="middle" font-size="10.5" fill="#4a5568">Revenus, accès numérique</text>
+                                </g>
+
+                                <!-- Centre : Expérience intersectionnelle -->
+                                <g class="svg-node" onclick="selectConcept('map1', 'centre', this)">
+                                    <circle cx="410" cy="155" r="68" fill="#FAF6EF" stroke="#7a2222" stroke-width="2.5"/>
+                                    <text x="410" y="146" text-anchor="middle" font-size="12.5" font-weight="700" fill="#7a2222">MOBILITÉ</text>
+                                    <text x="410" y="163" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a202c">Intersectionnelle</text>
+                                    <text x="410" y="180" text-anchor="middle" font-size="10" fill="#4a5568">Cumul des oppressions</text>
+                                </g>
+
+                                <!-- Colonne droite : Facteurs environnementaux -->
+                                <g class="svg-node" onclick="selectConcept('map1', 'urbain', this)">
+                                    <rect x="610" y="42" width="190" height="54" rx="8" fill="#FAF6EF" stroke="#a89882" stroke-width="1.5"/>
+                                    <text x="705" y="66" text-anchor="middle" font-size="12" font-weight="700" fill="#1a202c">Normes urbaines</text>
+                                    <text x="705" y="83" text-anchor="middle" font-size="10.5" fill="#4a5568">Trottoirs, chantiers, pentes</text>
+                                </g>
+                                <g class="svg-node" onclick="selectConcept('map1', 'reseau', this)">
+                                    <rect x="610" y="128" width="190" height="54" rx="8" fill="#FAF6EF" stroke="#a89882" stroke-width="1.5"/>
+                                    <text x="705" y="152" text-anchor="middle" font-size="12" font-weight="700" fill="#1a202c">Réseaux de transport</text>
+                                    <text x="705" y="169" text-anchor="middle" font-size="10.5" fill="#4a5568">RTC partiel, rigidité du STAC</text>
+                                </g>
+                                <g class="svg-node" onclick="selectConcept('map1', 'climat', this)">
+                                    <rect x="610" y="214" width="190" height="54" rx="8" fill="#FAF6EF" stroke="#a89882" stroke-width="1.5"/>
+                                    <text x="705" y="238" text-anchor="middle" font-size="12" font-weight="700" fill="#1a202c">Saisonnalité hivernale</text>
+                                    <text x="705" y="255" text-anchor="middle" font-size="10.5" fill="#4a5568">Déneigement, isolement accru</text>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="concept-detail-panel" id="map1-detail">
+                            <strong>Conditions capacitaires :</strong> L’usage d’un fauteuil roulant, d’une aide à la mobilité motorisée (AMM) ou la présence d’une déficience intellectuelle ou sensorielle détermine directement les possibilités d’accès aux infrastructures pensées pour des corps jugés « standards ».
+                        </div>
+                    </div>
+
+                    <p>Cette approche nous permet dès lors de saisir en profondeur les intersections entre ces différentes formes d’oppression, afin d’identifier les barrières qui peuvent entraver les déplacements de certains groupes et les rendre invisibles aux yeux de la société. En considérant l’intersectionnalité, il devient possible de proposer des solutions plus efficaces pour améliorer l’accessibilité aux transports urbains et favoriser une mobilité inclusive pour tous les individus, indépendamment de leurs identités multiples et de leurs conditions.</p>
+
+                    <p>Cet article propose donc d’explorer cette mécanique en allant à la rencontre de quatre individus vivant avec une incapacité, dont les profils incarnent parfois concrètement, parfois subtilement, l’enchevêtrement des causes et des conséquences de ces inégalités d’accès aux transports urbains. L’approche ici retenue consiste à conjuguer le savoir théorique au savoir expérientiel. Ainsi, à travers différents témoignages ancrés sur le territoire de la ville de Québec, cet article permettra de découvrir que l’expérience des inégalités en matière de mobilité est réelle et ses conséquences tangibles, que la théorie peut devenir concrète et que les réflexions qui en émergent peuvent offrir des prémisses de solutions. Nous sommes donc allées à la rencontre d’Arielle, Maxime, Élise et Richard pour tenter de comprendre leur rapport à la mobilité. Ils et elles ont accepté de nous ouvrir une fenêtre sur leur monde et de nous laisser entrevoir des réalités trop souvent ignorées. Tout au long de l’article, les propos de nos protagonistes sont rapportés sous la forme de témoignages, venant appuyer le contenu théorique exposé&nbsp;:</p>
+
+                    <ul class="protagonists-list">
+                        <li>«&nbsp;Le nom de mon handicap, c’est arthrogrypose et c’est dans la famille de la dystrophie musculaire, donc ça veut dire que j’ai pas de muscles dans mes jambes. J’ai certaines atrophies et malformations. C’est vraiment un enjeu fondamental pour moi la mobilité&nbsp;» (Arielle, 40 ans, se déplace en fauteuil roulant<a class="footnote-ref" id="fnref1" href="#fn1">1</a>).</li>
+                        <li>«&nbsp;C’est un accident de la route que j’ai eu. Dans le fond, je suis paraplégique. Et puis j’étais chanceux, j’ai gardé l’usage de mes bras. Donc ça c’est correct dans mes déplacements et ça m’aide pour pratiquer différents sports adaptés. Je me déplace en fauteuil roulant parce que je peux pas marcher, mais souvent je me déplace avec des petits fauteuils roulants style sport&nbsp;» (Maxime, 47 ans, se déplace en fauteuil roulant<a class="footnote-ref" id="fnref2" href="#fn2">2</a>).</li>
+                        <li>«&nbsp;Je suis normale, mais avec quelques problèmes, par exemple des difficultés à respirer. J’ai aussi un handicap intellectuel. Je ne sens pas qu’il me limite beaucoup&nbsp;» (Élise, 37 ans, vit avec une déficience intellectuelle<a class="footnote-ref" id="fnref3" href="#fn3">3</a>).</li>
+                        <li>«&nbsp;J’ai certaines difficultés comme de me lever, de comprendre certaines choses, d’entendre quand on me parle. Je suis une personne autonome et capable de se débrouiller seule&nbsp;» (Richard, 64 ans, vit avec une déficience intellectuelle et se déplace en fauteuil roulant<a class="footnote-ref" id="fnref4" href="#fn4">4</a>).</li>
+                    </ul>
+
+                    <h2 id="sec-1" class="chapter-title">1. La mobilité, un droit pourtant fondamental</h2>
+
+                    <p>Il convient de rappeler d’emblée que la mobilité est un droit fondamental dont dépend l’exercice d’autres droits fondamentaux, tels que le droit au travail, le droit au logement, le droit à la santé, le droit à l’éducation, le droit à la libre association, et bien d’autres encore. Le transport est un aspect structurant de la vie, et donc un vecteur important d’autonomisation économique, d’inclusion sociale et de participation citoyenne des personnes. Plusieurs facteurs, tels que la situation socio-économique, le genre ou les capacités physiques, cognitives et linguistiques des individus, influent sur leur capacité à se déplacer.</p>
+
+                    <p>Toutes les personnes ne sont donc pas égales par rapport à ce droit essentiel. Qu’en est-il alors pour les personnes vivant avec une incapacité&nbsp;? Quels rapports à la mobilité entretiennent-elles&nbsp;? Quels défis et obstacles doivent-elles surmonter dans leur mobilité quotidienne&nbsp;? Quelle place choisit-on collectivement de laisser dans la ville pour les personnes en situation de handicap&nbsp;?</p>
+
+                    <blockquote class="article-quote">
+                        «&nbsp;Je suis toujours ambivalente à savoir où est ma place dans la rue. Les vélos c’est dans le chemin, c’est pas sur le trottoir. Les fauteuils roulants, en règle générale, c’est sur le trottoir. Pis là, quand je mets ma roue motorisée, je vais où&nbsp;? […] Les piétons c’est sur le trottoir, le vélo c’est dans la rue. Je suis comme un mixe des deux, je fais quoi, je vais où&nbsp;?&nbsp;» (Arielle<a class="footnote-ref" id="fnref5" href="#fn5">5</a>).
+                    </blockquote>
+
+                    <p>La réglementation dans le code de la sécurité routière pour les personnes se déplaçant en fauteuil roulant n’est entrée en vigueur que très tardivement et est encore méconnue tant par la population en général que par les personnes utilisant des fauteuils roulants ou des aides à la mobilité motorisées (AMM)<a class="footnote-ref" id="fnref6" href="#fn6">6</a>. Alors, comment s’approprier l’espace urbain et exercer son droit à la mobilité quand on ne sait pas où est sa place&nbsp;? Ces différents impensés du code de la sécurité routière, et plus largement de la planification urbaine, constituent une problématique déterminante pour la mobilité des personnes vivant avec des incapacités, puisque la place qui leur est accordée dans l’espace urbain conditionne directement leur mobilité.</p>
+
+                    <p>La ville est à la fois un espace physiquement et socialement construit qui reflète les perspectives et les choix des acteurs qui la produisent. Malheureusement, elle est souvent planifiée pour des corps jugés «&nbsp;standards&nbsp;», ce qui exclut de facto une partie importante de la population, en particulier les personnes vivant avec des incapacités. Dans la ville, nos corps doivent s’adapter à la norme ou être condamnés à l’exclusion. Pourtant, rien que sur le territoire de la Capitale-Nationale, le pourcentage de personnes de 15 ans et plus vivant avec une incapacité était de 10,2&nbsp;% en 2012, soit environ 63&nbsp;000 personnes<a class="footnote-ref" id="fnref7" href="#fn7">7</a>. Il est donc crucial de reconnaître que l’accessibilité universelle est un enjeu majeur pour notre société, et qu’elle concerne tous les domaines de la vie, y compris la mobilité urbaine. En effet, les personnes vivant avec des incapacités rencontrent souvent des obstacles pour se déplacer dans la ville, ce qui peut entraîner des conséquences importantes sur leur participation sociale, économique et culturelle.</p>
+
+                    <h2 id="sec-2" class="chapter-title">2. L’aménagement du territoire comme générateur de situations de handicap</h2>
+
+                    <p>Selon le Modèle de développement humain et du Processus de production du handicap, la situation de handicap est générée par une interaction entre les caractéristiques individuelles d’une personne et le contexte dans lequel elle évolue<a class="footnote-ref" id="fnref8" href="#fn8">8</a>. En ce sens, la situation de handicap ne résulte pas d’une incapacité au sens biomédical du terme, mais bien du croisement entre des facteurs personnels et des facteurs environnementaux. En d’autres termes, «&nbsp;ce n’est plus la personne handicapée qui est inadaptée au milieu environnant, mais ce dernier qui crée ou amplifie le handicap et génère l’obstacle social<a class="footnote-ref" id="fnref9" href="#fn9">9</a>&nbsp;». C’est donc la société qui produit le handicap. Ainsi, l’aménagement du territoire participe à créer la situation de handicap et vient entraver les capacités de déplacement des personnes vivant avec une incapacité<a class="footnote-ref" id="fnref10" href="#fn10">10</a>.</p>
+
+                    <!-- Carte conceptuelle interactive 2 : Modèle MDH-PPH -->
+                    <div class="concept-map-card" id="map-pph">
+                        <div class="concept-map-header">
+                            <span class="concept-map-title">Carte conceptuelle 2 — Processus de production du handicap (MDH-PPH)</span>
+                            <span class="concept-map-hint">Sélectionnez une composante pour afficher l'analyse</span>
+                        </div>
+                        <div class="concept-svg-wrapper">
+                            <svg class="concept-svg" viewBox="0 0 820 230" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Facteurs personnels -->
+                                <g class="svg-node active" onclick="selectConcept('map2', 'perso', this)">
+                                    <rect x="20" y="35" width="215" height="145" rx="10" fill="#FAF6EF" stroke="#7a2222" stroke-width="1.5"/>
+                                    <text x="127" y="65" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">Facteurs personnels</text>
+                                    <text x="127" y="92" text-anchor="middle" font-size="11" fill="#4a5568">• Systèmes organiques</text>
+                                    <text x="127" y="114" text-anchor="middle" font-size="11" fill="#4a5568">• Aptitudes physiques/cognitives</text>
+                                    <text x="127" y="136" text-anchor="middle" font-size="11" fill="#4a5568">• Facteurs identitaires</text>
+                                    <text x="127" y="158" text-anchor="middle" font-size="10.5" font-style="italic" fill="#7a2222">(Ex. : Arielle, Maxime, Élise, Richard)</text>
+                                </g>
+
+                                <!-- Symbole Interaction -->
+                                <text x="268" y="115" text-anchor="middle" font-size="24" font-weight="700" fill="#7a2222">⇄</text>
+
+                                <!-- Facteurs environnementaux -->
+                                <g class="svg-node" onclick="selectConcept('map2', 'enviro', this)">
+                                    <rect x="300" y="35" width="225" height="145" rx="10" fill="#FAF6EF" stroke="#a89882" stroke-width="1.5"/>
+                                    <text x="412" y="65" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">Facteurs environnementaux</text>
+                                    <text x="412" y="92" text-anchor="middle" font-size="11" fill="#4a5568">• Facilitateurs (rampes, déneigement)</text>
+                                    <text x="412" y="114" text-anchor="middle" font-size="11" fill="#4a5568">• Obstacles (chantiers, arrêts non adaptés)</text>
+                                    <text x="412" y="136" text-anchor="middle" font-size="11" fill="#4a5568">• Organisation sociale & horaires</text>
+                                    <text x="412" y="158" text-anchor="middle" font-size="10.5" font-style="italic" fill="#7a2222">(Aménagement du territoire)</text>
+                                </g>
+
+                                <!-- Flèche résultat -->
+                                <line x1="535" y1="108" x2="575" y2="108" stroke="#7a2222" stroke-width="2.5" marker-end="url(#arrow-bordeaux)"/>
+
+                                <!-- Habitudes de vie -->
+                                <g class="svg-node" onclick="selectConcept('map2', 'habitudes', this)">
+                                    <rect x="585" y="35" width="215" height="145" rx="10" fill="#FAF6EF" stroke="#a89882" stroke-width="1.5"/>
+                                    <text x="692" y="65" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">Habitudes de vie</text>
+                                    <text x="692" y="92" text-anchor="middle" font-size="11" fill="#4a5568">Participation sociale vs</text>
+                                    <text x="692" y="112" text-anchor="middle" font-size="11" font-weight="700" fill="#7a2222">Situation de handicap</text>
+                                    <text x="692" y="138" text-anchor="middle" font-size="10.5" fill="#4a5568">Travail, loisirs, vie citoyenne,</text>
+                                    <text x="692" y="154" text-anchor="middle" font-size="10.5" fill="#4a5568">spontanéité des déplacements</text>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="concept-detail-panel" id="map2-detail">
+                            <strong>Facteurs personnels :</strong> Ils renvoient aux caractéristiques intrinsèques de la personne (incapacités motrices, déficience intellectuelle, âge, genre). Selon le MDH-PPH, ces caractéristiques ne constituent pas à elles seules un handicap tant qu'elles ne se heurtent pas à un environnement inadapté.
+                        </div>
+                    </div>
+
+                    <p>«&nbsp;Le monde est fait à l’envers&nbsp;!&nbsp;». Arielle mentionne très justement le «&nbsp;monde à l’envers&nbsp;», car c’est sur elle que repose la charge de s’adapter à un environnement qui ne semble pas conçu pour l’accueillir. Sa situation de handicap est provoquée par l’état de dégradation des trottoirs, par l’absence de déneigement, par le manque d’arrêts d’autobus accessibles, par les déficiences du transport adapté, et par tous les autres enjeux urbains décrits par nos protagonistes dans cet article.</p>
+
+                    <h2 id="sec-3" class="chapter-title">3. Un transport collectif peu accessible</h2>
+
+                    <p>À quoi ressemblent les déplacements quotidiens d’une personne en situation de handicap à Québec&nbsp;? Quels sont les défis et les obstacles qu’une personne en situation de handicap résidant à Québec peut rencontrer&nbsp;? Quelles stratégies doit-elle mettre en place pour les surmonter&nbsp;? Ce sont quelques questions que nous avons soumises à Maxime, Arielle, Élise et Richard.</p>
+
+                    <p>«&nbsp;J’aime l’univers de l’autobus&nbsp;», nous confie Arielle lors de son entrevue. Pourtant, elle ne l’emprunte qu’une fois par mois. Habitant dans un secteur périurbain de Québec, l’utilisation du transport collectif n’est pas chose aisée&nbsp;: «&nbsp;Les circuits sont tellement pas simples, c’est tellement rough à Québec, ça n’a pas de bon sens&nbsp;».</p>
+
+                    <p>Maxime, quant à lui, pourrait prendre l’autobus en face de chez lui, mais l’arrêt n’est pas adapté pour les personnes à mobilité réduite. Ce faisant, il doit parcourir plusieurs centaines de mètres, à la force de ses bras, pendant une trentaine de minutes, pour se rendre à l’arrêt d’autobus accessible le plus proche&nbsp;: «&nbsp;Ça fait mon cardio!&nbsp;» nous dit-il en souriant. En hiver, ce déplacement devient très difficile, voire impossible.</p>
+
+                    <blockquote class="article-quote">
+                        «&nbsp;En face de chez moi, la bus je peux pas prendre cette bus-là. L’arrêt est pas desservi pour les personnes en fauteuil faque je roule jusqu’au terminus, je fais comme un exercice jusqu’au terminus de Charlesbourg et après j’ai accès au 800. Je suis quand même assez habitué des transports en commun, ça se passe bien. Et j’aime beaucoup le plein air. Je suis assez sportif&nbsp;» (Maxime).
+                    </blockquote>
+
+                    <p>Maxime jongle avec les autobus. Il connait d’ailleurs très bien le réseau du RTC qu’il emprunte chaque jour&nbsp;: «&nbsp;Mon premier choix c’est le RTC parce que je trouve ça plus facile au niveau de la spontanéité&nbsp;[…] Ça me donne plus de liberté que le transport adapté&nbsp;», affirme-t-il. Pourtant, moins de la moitié des autobus du RTC sont équipés de rampes d’accès et encore trop peu d’arrêts d’autobus sont accessibles. «&nbsp;C’est sûr que dans un monde idéal […] on aurait la majorité des arrêts de bus accessibles…&nbsp;», admet-il. Car, pour Maxime, le transport collectif est essentiel&nbsp;: «&nbsp;en ayant accès à un service de transport qui nous permet de se rendre à beaucoup d’endroits, je trouve que ça aide à contribuer à ma santé physique et mentale&nbsp;», nous confie-t-il.</p>
+
+                    <h2 id="sec-4" class="chapter-title">4. Les obstacles aux transports actifs</h2>
+
+                    <p>Les transports actifs occupent une place essentielle dans les schémas de déplacement d’Arielle et de Maxime. Dès qu’elle se rend dans le centre-ville de Québec, Arielle abandonne son automobile dans un stationnement et parcourt la ville avec son fauteuil roulant.</p>
+
+                    <blockquote class="article-quote">
+                        «&nbsp;Une fois en ville, je vais majoritairement me déplacer avec mon fauteuil roulant, car c’est déjà tellement d’énergie pour moi, entrer et sortir de mon auto, que si je peux trouver un autre moyen une fois que je suis sortie, pour pas avoir à redéplacer mon char, à tout renégocier ça, je vais me déplacer avec mon fauteuil roulant. Pis là, dépendant des distances que j’ai à faire, ou bien je vais décider que je l’assume à bras, ou bien, je vais aller mettre une roue que j’ai depuis récemment, qui a changé ma vie pour vrai dans la mobilité, qui est une roue électrique que je viens attacher à mon fauteuil roulant&nbsp;».
+                    </blockquote>
+
+                    <p>Arielle analyse et anticipe tout. Dès qu’elle sort de son auto, c’est toute une planification stratégique qui s’opère pour réaliser ses déplacements. Sur son chemin, elle se heurte toutefois à de nombreux obstacles, notamment les trottoirs en mauvais état ou obstrués, mais aussi la présence de ce qu’Arielle nomme les «&nbsp;pièges à éclopés&nbsp;»&nbsp;:</p>
+
+                    <blockquote class="article-quote">
+                        «&nbsp;Les pièges à éclopés, c’est les travaux. Quand je vois les travaux, je suis obligée d’analyser, de faire&nbsp;: quand je vais revenir faut que je repasse par-là, j’ai tu vraiment de la place pour passer, ou faut que je change complètement de rue, à bras, pour arriver à ma destination&nbsp;? Faque ça c’est rough. Ça, ça me fait vivre beaucoup de frustration, les pièges à éclopés. Pour moi, la solution est simple, c’est comme de le prévoir. On fait des travaux, on prévoit comment une personne, qui se déplace plus difficilement, peut ne pas être prise dans le piège&nbsp;» (Arielle<a class="footnote-ref" id="fnref11" href="#fn11">11</a>).
+                    </blockquote>
+
+                    <p>Maxime reconnaît également que l’état des trottoirs constitue un défi lorsqu’il se déplace&nbsp;: «&nbsp;Des fois, je trouve que certaines parties des trottoirs sont assez endommagées&nbsp;», affirme-t-il. Il a toutefois développé des stratégies pour pallier ce déficit dans les infrastructures urbaines&nbsp;: «&nbsp;Des fois, je les contourne carrément, j’ai l’habileté de le faire. Je peux même franchir des obstacles entre 4 à 6 pouces avec mon fauteuil&nbsp;», assure-t-il. Maxime préfère même utiliser la voie réservée aux automobiles, «&nbsp;parce que je peux accélérer ma cadence encore plus vite parce que le trottoir soit qu’il est en pente un peu ou il y a des genres d’obstacles, ou le trottoir est magané&nbsp;», explique-t-il.</p>
+
+                    <p>Arielle nous confie que, parfois, la fatigue se fait sentir. Il faut dire que la topographie de la ville de Québec constitue un véritable défi physique pour une personne se déplaçant en fauteuil roulant. «&nbsp;Des fois, je demanderais tellement à quelqu’un de me pousser&nbsp;», nous confie Arielle. Elle avoue toutefois qu’«&nbsp;il y a une gêne qui embarque&nbsp;». Cette gêne, elle réside principalement dans l’atteinte à sa «&nbsp;fierté d’être handicapée&nbsp;»&nbsp;: «&nbsp;Mon fauteuil, c’est mon autonomie. C’est la partie où je suis capable de faire les choses. Et c’est comme si d’avouer que là même cette autonomie-là, je suis plus capable. Ça vient jouer, moi, dans ma fierté d’être handicapée. Pis dans le préjugé de l’autre de dire&nbsp;: elle est vraiment limitée là, si elle me demande de la pousser. Ça me gêne beaucoup cette partie-là, moi.&nbsp;»</p>
+
+                    <h3 class="subchapter-title">L’enjeu de l’hiver</h3>
+
+                    <p>Quand l’hiver arrive, c’est un tout autre niveau de complexité qui entre en jeu&nbsp;: «&nbsp;Je multiplie par 50 mon handicap en hiver&nbsp;», affirme Arielle. L’absence de déneigement des trottoirs est l’obstacle le plus cité par Arielle et Maxime. Cela constitue une véritable entrave à leur liberté de déplacement et vient diminuer fortement leur autonomie&nbsp;: «&nbsp;La grosse barrière, c’est les trottoirs. Par exemple dans Charlesbourg, ils sont pas déneigés beaucoup&nbsp;» constate Maxime&nbsp;: «&nbsp;Si je sors en hiver, je m’assure d’avoir un accompagnateur. Donc, c’est sûr mon autonomie est coupée là énormément. Faque, l’hiver, je suis beaucoup moins sorteuse. Par contre, ça ne me fait pas détester l’hiver pour autant, ça me fait l’aimer quand même parce que j’aime l’hiver, j’aime la neige, j’aime jouer dehors. Mais ça va faire en sorte que je m’enferme plus en hiver, parce qu’il y a tellement de frustrations, tellement de handicaps&nbsp;» (Arielle).</p>
+
+                    <h3 class="subchapter-title">Un transport adapté inadapté</h3>
+
+                    <p>Quand les infrastructures du transport collectif régulier n’offrent pas une accessibilité suffisante, le transport adapté devient rapidement la seule option de déplacement pour de nombreuses personnes en situation de handicap.</p>
+
+                    <p>Le quotidien d’Élise et Richard se vit au rythme du transport adapté, opéré par le Service de transport adapté de la Capitale (STAC). C’est leur seul moyen de se déplacer pour aller au travail, au centre de jour, ou encore à des activités de loisirs. Lorsque nous les avons rencontrés, elle et ils avaient beaucoup à nous raconter sur le sujet, car le transport adapté fait partie intégrante de leur quotidien. Élise et Richard apprécient les possibilités qu’il offre pour se rendre à leurs destinations, mais pointent du doigt un service qu’elle et ils trouvent souvent déshumanisant. Toutefois, l’organisme communautaire l’Arche a mis en place quelques solutions en matière de transport adapté<a class="footnote-ref" id="fnref12" href="#fn12">12</a>.</p>
+
+                    <p>L’enjeu du temps est une des thématiques centrales dont nous avons discuté. Élise et Richard se voient imposer un rythme qui ne correspond pas à leur capacité. «&nbsp;Ils disent qu’on va pas assez vite&nbsp;», explique Richard&nbsp;: «&nbsp;Ce que j’ai pas aimé, c’est me faire bousculer, ça je déteste ça. La chauffeuse, elle, était pressée, elle disait&nbsp;: j’ai d’autres clients à aller chercher moi&nbsp;! Elle m’a dit&nbsp;: dépêche-toi, je suis en retard !&nbsp;». Une fois à bord, le trajet est long et fatigant. Ce sont des boucles interminables qui sont réalisées, pour aller chercher les autres passagers et passagères. Élise nous explique que son déplacement peut parfois prendre plus de deux heures. C’est une source de stress, car elle sait qu’elle va arriver en retard pour ses différents engagements<a class="footnote-ref" id="fnref13" href="#fn13">13</a>. Pour sa part, Maxime y voit aussi quelques avantages<a class="footnote-ref" id="fnref14" href="#fn14">14</a>.</p>
+
+                    <p>Le comportement du personnel du transport adapté contribue à faire de ces déplacements quotidiens une expérience déplaisante&nbsp;: «&nbsp;Des fois, le STAC ils chialent après nous. J’ai fait une plainte une fois, parce qu’ils criaient après nous parce qu’on est en retard&nbsp;», nous confie Élise. Richard et Élise se sentent brusqués-es et malmenés-es. Ils reçoivent peu d’aide du personnel, qui n’est pas formé pour répondre à leurs besoins spécifiques. Tout cela crée pour eux une atmosphère insécurisante. Dans un monde idéal, Élise et Richard imaginent «&nbsp;des chauffeurs gentils et souriants&nbsp;».</p>
+
+                    <p>Arielle et Maxime partagent cette frustration envers le transport adapté&nbsp;: «&nbsp;Le transport adapté, il y a pas beaucoup de souplesse, puis il y en n’a pas de spontanéité&nbsp;» souligne Maxime, car «&nbsp;Moi je suis un gars spontané, à la dernière minute des amis-es qui m’invitent, je me dis ouais c’est l’fun ça m’intéresse&nbsp;». Le transport adapté doit en effet être réservé la veille du déplacement avant 18h, ce qui laisse peu de place à l’improvisation et à la spontanéité. Selon Arielle, le fonctionnement du transport adapté priorise surtout les déplacements vers le travail, l’école ou l’hôpital. Dans ce contexte, entretenir une vie sociale épanouie devient difficile&nbsp;:</p>
+
+                    <blockquote class="article-quote">
+                        «&nbsp;J’ai toujours vécu tellement de frustrations par le transport adapté. C’est une histoire de haine, là… Dans ma vie, tu sais, une vie que j’ai toujours voulu assez spontanée, assez active, le transport adapté m’empêchait cette vie spontanée, cette vie active… Si ma chum de fille a besoin qu’on aille prendre un café pour jaser, je peux pas y aller… J’y repense, pis j’ai le goût de pleurer, tellement je trouve ça frustrant, en fait…&nbsp;» (Arielle<a class="footnote-ref" id="fnref15" href="#fn15">15</a>).
+                    </blockquote>
+
+                    <!-- Carte conceptuelle interactive 3 : Écosystème des modes de transport -->
+                    <div class="concept-map-card" id="map-modes">
+                        <div class="concept-map-header">
+                            <span class="concept-map-title">Carte conceptuelle 3 — Arbitrages et impasses des modes de déplacement à Québec</span>
+                            <span class="concept-map-hint">Cliquez sur un mode de transport pour voir ses limites</span>
+                        </div>
+                        <div class="concept-svg-wrapper">
+                            <svg class="concept-svg" viewBox="0 0 820 215" xmlns="http://www.w3.org/2000/svg">
+                                <g class="svg-node active" onclick="selectConcept('map3', 'rtc', this)">
+                                    <rect x="15" y="30" width="185" height="145" rx="8" fill="#FAF6EF" stroke="#7a2222" stroke-width="1.5"/>
+                                    <text x="107" y="58" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a202c">Transport collectif</text>
+                                    <text x="107" y="75" text-anchor="middle" font-size="11" fill="#7a2222" font-weight="600">(RTC)</text>
+                                    <text x="107" y="102" text-anchor="middle" font-size="10.5" fill="#4a5568">+ Spontanéité et liberté</text>
+                                    <text x="107" y="122" text-anchor="middle" font-size="10.5" fill="#4a5568">- Moins de 50 % avec rampes</text>
+                                    <text x="107" y="142" text-anchor="middle" font-size="10.5" fill="#4a5568">- Arrêts non accessibles</text>
+                                </g>
+                                <g class="svg-node" onclick="selectConcept('map3', 'actif', this)">
+                                    <rect x="216" y="30" width="185" height="145" rx="8" fill="#FAF6EF" stroke="#a89882" stroke-width="1.5"/>
+                                    <text x="308" y="58" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a202c">Transports actifs</text>
+                                    <text x="308" y="75" text-anchor="middle" font-size="11" fill="#7a2222" font-weight="600">(Fauteuil / AMM)</text>
+                                    <text x="308" y="102" text-anchor="middle" font-size="10.5" fill="#4a5568">+ Autonomie et santé</text>
+                                    <text x="308" y="122" text-anchor="middle" font-size="10.5" fill="#4a5568">- « Pièges à éclopés » (travaux)</text>
+                                    <text x="308" y="142" text-anchor="middle" font-size="10.5" fill="#4a5568">- Neige et flou réglementaire</text>
+                                </g>
+                                <g class="svg-node" onclick="selectConcept('map3', 'stac', this)">
+                                    <rect x="417" y="30" width="185" height="145" rx="8" fill="#FAF6EF" stroke="#a89882" stroke-width="1.5"/>
+                                    <text x="509" y="58" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a202c">Transport adapté</text>
+                                    <text x="509" y="75" text-anchor="middle" font-size="11" fill="#7a2222" font-weight="600">(STAC)</text>
+                                    <text x="509" y="102" text-anchor="middle" font-size="10.5" fill="#4a5568">- Réservation veille avant 18h</text>
+                                    <text x="509" y="122" text-anchor="middle" font-size="10.5" fill="#4a5568">- Trajets en boucles (> 2h)</text>
+                                    <text x="509" y="142" text-anchor="middle" font-size="10.5" fill="#4a5568">- Banalisation des violences</text>
+                                </g>
+                                <g class="svg-node" onclick="selectConcept('map3', 'auto', this)">
+                                    <rect x="618" y="30" width="185" height="145" rx="8" fill="#FAF6EF" stroke="#a89882" stroke-width="1.5"/>
+                                    <text x="710" y="58" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a202c">Automobile adaptée</text>
+                                    <text x="710" y="75" text-anchor="middle" font-size="11" fill="#7a2222" font-weight="600">(Captivité modale)</text>
+                                    <text x="710" y="102" text-anchor="middle" font-size="10.5" fill="#4a5568">+ Liberté de déplacement</text>
+                                    <text x="710" y="122" text-anchor="middle" font-size="10.5" fill="#4a5568">- Coût énergétique et financier</text>
+                                    <text x="710" y="142" text-anchor="middle" font-size="10.5" fill="#4a5568">- Pénurie de stationnements</text>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="concept-detail-panel" id="map3-detail">
+                            <strong>Transport collectif régulier (RTC) :</strong> Privilégié pour la liberté et la spontanéité qu’il offre (ex. : parcours Métrobus 800), il demeure entravé par une flotte incomplètement équipée de rampes et par des arrêts non aménagés qui imposent des efforts physiques considérables pour y accéder.
+                        </div>
+                    </div>
+
+                    <h3 class="subchapter-title">La dépendance à l’automobile</h3>
+
+                    <p>Les défaillances du transport collectif régulier et adapté, ainsi que les manquements en termes d’infrastructures de mobilité active alimentent une dépendance à l’automobile chez les personnes en situation de handicap. Faute d’alternatives, elles deviennent captives de ce moyen de transport.</p>
+
+                    <p>Maxime et Arielle possèdent chacun et chacune un véhicule adapté. Il et elle entretiennent des rapports ambivalents envers leur automobile. D’un côté, celle-ci leur permet une plus grande liberté dans leurs déplacements, de l’autre son utilisation génère des situations frustrantes&nbsp;:</p>
+
+                    <blockquote class="article-quote">
+                        «&nbsp;Je vis beaucoup de frustrations à l’idée qu’il y a beaucoup de monde qui ont une auto, qui n’en ont pas tant besoin que ça. Ce qui va faire en sorte qu’il y a énormément de places de stationnement de prises. Des fois, je frustre. Il y a du monde qui ont beaucoup plus d’alternatives que moi à la mobilité. Pourquoi ils ne la prennent pas cette alternative-là&nbsp;? Et ça, c’est une frustration chez moi. Parce que ça fait en sorte que mon déplacement à moi, qui a un peu plus besoin de commodités, bin du monde qui n’en ont pas vraiment besoin prennent la commodité dont moi j’aurais besoin pour avoir une vie épanouie&nbsp;» (Arielle).
+                    </blockquote>
+
+                    <p>Ce rapide portrait des déplacements d’Arielle, Maxime, Élise et Richard montre la multiplicité des enjeux quotidiens qu’une personne en situation de handicap peut vivre en ce qui a trait à la mobilité. Surtout, ces différents témoignages révèlent que la charge de l’accessibilité repose toujours sur les personnes vivant avec des incapacités, au lieu d’être prise en charge collectivement. Arielle, Maxime, Élise et Richard doivent sans cesse imaginer des stratégies pour s’adapter à un environnement inadapté.</p>
+
+                    <h2 id="sec-5" class="chapter-title">5. Les inégalités de genre en matière de mobilité, un phénomène qui n’épargne pas les personnes en situation de handicap</h2>
+
+                    <h3 class="subchapter-title">La mobilité au féminin</h3>
+
+                    <p>Les recherches en urbanisme montrent qu’il existe, en ville, des différences entre les femmes et les hommes dans leur vie quotidienne. Toutefois, le domaine des transports et de l’aménagement est traditionnellement et encore aujourd’hui majoritairement masculin, ce qui a pour conséquence que les projets dans ce domaine sont souvent pensés et réalisés par des hommes. Ces derniers ont tendance à oublier certaines réalités spécifiques vécues par les femmes, que ce soit involontairement ou inconsciemment, lorsqu’ils conçoivent les projets et les priorités d’action en transport et en aménagement urbain. Par conséquent, les lieux publics et les systèmes de transports se retrouvent à l’image des réalités de ces hommes, alors que les besoins spécifiques des femmes en matière de mobilité sont peu ou mal pris en compte.</p>
+
+                    <p>Les hommes et les femmes ont généralement des schémas de mobilité distincts. Les types de déplacements effectués et la complexité de ceux-ci sont aussi différents. La mobilité des femmes est intrinsèquement liée à «&nbsp;la conciliation famille-travail-études&nbsp;», car elles subissent généralement une plus grande part du poids de la logistique du quotidien. Ainsi, elles se déplacent davantage en dehors des heures de pointe et effectuent des déplacements plus courts, mais plus fréquents. Les femmes sont aussi plus nombreuses que les hommes dans le transport en commun et y passent généralement plus de temps. Enfin, le sentiment d’insécurité est plus présent chez les femmes qui se déplacent<a class="footnote-ref" id="fnref16" href="#fn16">16</a>.</p>
+
+                    <h3 class="subchapter-title">La mobilité au féminin chez les personnes en situation de handicap</h3>
+
+                    <p>Si la ville est construite par et pour des hommes, elle est aussi avant tout conçue pour des hommes vivant sans incapacités. Le fait d’être une femme vivant avec une incapacité constitue une double oppression qui entraîne des répercussions concrètes sur les perspectives de mobilité. La mobilité des femmes en situation de handicap diffère de celle des hommes en situation de handicap. Elles sont plus nombreuses à utiliser le transport collectif régulier et adapté, et à déclarer éprouver des difficultés pour se déplacer, quel que soit le mode de transport utilisé. Parallèlement, elles sont généralement plus nombreuses à déclarer avoir besoin d’accompagnement lorsqu’elles se déplacent<a class="footnote-ref" id="fnref17" href="#fn17">17</a>. Leur autonomie de déplacement est entravée par les déficiences de l’offre de transport collectif régulier et adapté. Ainsi, les femmes vivant avec des incapacités subissent davantage d’exclusion sociale à cause du déficit de mobilité qu’elles connaissent. Ce phénomène se reflète, par exemple, dans le taux de participation au marché du travail des femmes handicapées, qui est plus faible que pour les hommes handicapés<a class="footnote-ref" id="fnref18" href="#fn18">18</a>. Elles sont donc plus susceptibles de vivre dans la pauvreté.</p>
+
+                    <h3 class="subchapter-title">Une réalité qui se traduit dans les expériences de mobilité de Maxime et Arielle</h3>
+
+                    <p>Interrogée sur son rapport aux transports actifs, Arielle mentionne spontanément la vulnérabilité et la fragilité qu’elle ressent lorsqu’elle réalise ces types de déplacement. Cette vulnérabilité s’exprime notamment par le fait d’être poussée lorsqu’elle se déplace en fauteuil roulant dans le centre-ville de Québec. Quand la fatigue se fait ressentir, elle cherche parmi la foule quelqu’un de confiance pour l’aider&nbsp;:</p>
+
+                    <blockquote class="article-quote">
+                        «&nbsp;Je vais essayer de chercher le regard et d’aller spotter quelqu’un que je sais que je sens que je vais avoir confiance&nbsp;», nous confie-t-elle. «&nbsp;Parce que je tombe dans cette vulnérabilité-là. Parce que je suis dans une grande faiblesse chez moi que je voudrais pas avoir. Faque je vais chercher le regard et des fois, je vais espérer que le regard de l’autre croise le mien pis qu’il voit ma détresse et mon envie&nbsp;». […] «&nbsp;On est tellement vulnérable aussi quand c’est l’autre qui nous aide. Il y a une grande vulnérabilité. C’est ton corps, que tu mets dans les mains de l’autre. Et c’est bin difficile de faire pleinement confiance, mais on n’a pas le choix des fois. […] Parce que souvent ma liberté c’est les autres, mon autonomie passe par les autres, ma mobilité passe par les autres. Faque, ça fait en sorte que je deviens vulnérable aux autres&nbsp;» (Arielle<a class="footnote-ref" id="fnref19" href="#fn19">19</a>).
+                    </blockquote>
+
+                    <p>Ce décalage entre les femmes et les hommes en situation de handicap transparaît très clairement dans les échanges que nous avons eus avec Arielle et Maxime. Les différences dans le discours, dans les perceptions et dans les enjeux mentionnés par les deux sont indéniables. La dépendance à autrui et le sentiment de vulnérabilité sont des aspects centraux de la mobilité d’Arielle. Maxime, quant à lui, entretient un tout autre rapport à la mobilité active. Pour lui, c’est l’occasion de «&nbsp;faire son cardio&nbsp;», même s’il reconnaît craindre parfois les chutes. Cette vulnérabilité face aux autres, telle que décrite par Arielle, ne semble pas faire partie du quotidien de Maxime lorsqu’il se déplace.</p>
+
+                    <div class="figures-grid">
+                        <div class="figure-item">
+                            <div class="figure-caption">Figure 1 – Arielle</div>
+                            <img src="https://lh3.googleusercontent.com/d/1SRktwgZi5V4rEzKhcHp4JJWKiKF-CKtr" alt="Figure 1 – Arielle">
+                        </div>
+                        <div class="figure-item">
+                            <div class="figure-caption">Figure 2 – Maxime</div>
+                            <img src="https://lh3.googleusercontent.com/d/1g0Wjphj7wikZIZLw3QYqZeZo8faZw8PY" alt="Figure 2 – Maxime">
+                        </div>
+                    </div>
+
+                    <p>Arielle est aussi mère de deux jeunes enfants&nbsp;: «&nbsp;C’est un enjeu de déplacement&nbsp;», nous explique-t-elle. Le choix des différents modes de transport se réduit drastiquement pour une femme en situation de handicap accompagnée de jeunes enfants. Dans le transport collectif régulier, l’absence de places pour les accompagnateurs et accompagnatrices dans les zones réservées aux personnes à mobilité réduite empêche Arielle d’utiliser l’autobus. Dans le transport adapté, une seule personne accompagnatrice est autorisée à bord, incluant les enfants. Comment Arielle peut-elle alors se déplacer accompagnée de ses deux enfants&nbsp;? Cette situation vient alimenter le déficit de mobilité que peuvent connaître les femmes en situation de handicap. D’autant plus que la charge des enfants, et du soin apporté à autrui en général, repose encore aujourd’hui majoritairement sur les épaules des femmes.</p>
+
+                    <p>En ce qui concerne le transport adapté, les différences dans les témoignages rapportés par Arielle et Maxime sont criantes. Arielle témoigne de situations de maltraitance, de violence, et d’agressions sexuelles. Selon son expérience, «&nbsp;la majorité des femmes qui ont pris du transport adapté dans leur vie ont vécu des agressions ou des commentaires à connotation sexuelle non désirée&nbsp;». Elle confie&nbsp;:</p>
+
+                    <blockquote class="article-quote">
+                        «&nbsp;Si le chauffeur de transport adapté tu le feel pas … Tu peux pas attendre l’autobus d’après&nbsp;», nous explique-t-elle. «&nbsp;Faque, là, pour moi, ça tombe souvent dans l’univers de la maltraitance. Je suis obligée de vivre quelque chose que je veux pas vivre, parce que je dois me rendre à un autre endroit. Le texte parlait d’agression<a class="footnote-ref" id="fnref20" href="#fn20">20</a>, il y en a beaucoup dans le transport adapté. Énormément.&nbsp;»
+                    </blockquote>
+
+                    <blockquote class="article-quote">
+                        «&nbsp;J’ai pas assez de mes doigts pour témoigner du nombre de fois où j’ai eu des commentaires à caractère sexuel, j’étais seul dans le taxi avec le gars. Il y a eu des attouchements. […] Là il y a un gars qui me caresse la cuisse, pis je peux pas me sauver, parce que mon fauteuil est dans le coffre, je peux pas sortir à la prochaine lumière rouge, je peux pas faire ça. Et quand j’arrive chez nous, j’ai besoin de lui encore. Faque mon agresseur devient celui dont j’ai besoin pour arriver à destination. Donc, c’est ça la question de la vulnérabilité qui est hyper fondamentale. Oui, ils font des efforts dans le transport adapté pour que ça arrive plus ça, mais il y en a eu énormément et je sais qu’il y en a encore&nbsp;» (Arielle).
+                    </blockquote>
+
+                    <p>Maxime, de son côté, considère que le transport adapté est «&nbsp;sécurisant&nbsp;», et que les chauffeurs sont «&nbsp;sympathiques et ouverts d’esprit&nbsp;». Ce décalage entre les deux expériences relatées révèle à quel point les perspectives de mobilité diffèrent selon notre genre. En somme, pour une femme en situation de handicap, se déplacer de manière sécuritaire pose des enjeux tout à fait concrets. Cette situation contribue à reléguer les femmes vivant avec une incapacité à la sphère privée et à les empêcher de mener une vie sociale et familiale épanouie.</p>
+
+                    <h2 id="sec-conclusion" class="chapter-title">Conclusion — Vers une mobilité plus inclusive</h2>
+
+                    <p>Les situations de handicap sont provoquées entre autres par les déficiences du transport collectif et adapté, par l’état des infrastructures de mobilité active, et enfin et surtout par une prise en considération lacunaire des besoins de toutes et tous dans la planification urbaine en général. Afin de permettre une inclusion pleine et entière dans la société, il est donc crucial de remédier à ces situations de handicap.</p>
+
+                    <p>Des solutions concrètes, il en existe. Elles passent d’abord et avant tout par une amélioration des infrastructures urbaines. Des trottoirs larges, entretenus et déneigés permettraient de faciliter les déplacements actifs des personnes en situation de handicap&nbsp;: «&nbsp;L’hiver j’aimerais que les trottoirs soient mieux déneigés un peu partout. Je trouve, en tout cas à Charlesbourg c’est un peu médiocre. Probablement beaucoup de piétons se plaignent aussi&nbsp;», explique Maxime. «&nbsp;L’hiver, il faudrait faire plus d’endroits de stations de chaleur&nbsp;», propose Arielle, car «&nbsp;Ça serait pas juste utile pour les personnes à mobilité réduite, ça serait utile pour tout le monde&nbsp;!&nbsp;». Ce type d’infrastructures permettrait de faciliter les déplacements hivernaux des personnes vivant avec des incapacités, et ainsi de briser l’isolement qu’elles subissent à cette période de l’année.</p>
+
+                    <p>Pour rendre la ville plus inclusive et favoriser la mobilité des personnes vivant avec des incapacités, il est aussi nécessaire de prendre en compte leurs besoins spécifiques afin que la charge de l’accessibilité ne repose pas que sur les personnes en situation de handicap&nbsp;: «&nbsp;Une ville, c’est que la charge mentale est pas à la personne qui vit le handicap, elle est partagée&nbsp;», explique très justement Arielle, car «&nbsp;Ça veut dire que si quelqu’un fait des travaux, il y pense, c’est dans sa liste de trucs à cocher. Juste une liste qui dit&nbsp;: est-ce que quelqu’un en fauteuil roulant peut s’en sortir&nbsp;? Oui ou non&nbsp;? Non&nbsp;? Alors qu’est-ce qu’on fait pour&nbsp;?&nbsp;». Il est essentiel que pour chaque projet, chaque aménagement urbain temporaire ou permanent, la question de l’accessibilité soit posée de manière systématique.</p>
+
+                    <p>Cette charge mentale subie par les personnes en situation de handicap pourrait être allégée si elle était davantage partagée&nbsp;: «&nbsp;Je rêverais d’un numéro d’urgence accessibilité&nbsp;», évoque Arielle […], «&nbsp;Une équipe volante de bénévoles dans Québec, pour les personnes à mobilité réduite. Du monde qui sont un peu formés sur ces vulnérabilités-là. J’appelle le numéro d’urgence, pis ils viennent juste m’aider. Enfin, on le fait en équipe&nbsp;».</p>
+
+                    <!-- Carte conceptuelle interactive 4 : Renversement de paradigme -->
+                    <div class="concept-map-card" id="map-paradigm">
+                        <div class="concept-map-header">
+                            <span class="concept-map-title">Carte conceptuelle 4 — Renverser le paradigme de l'accessibilité</span>
+                            <span class="concept-map-hint">Cliquez sur chaque levier de transformation</span>
+                        </div>
+                        <div class="concept-svg-wrapper">
+                            <svg class="concept-svg" viewBox="0 0 820 220" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Paradigme actuel -->
+                                <g class="svg-node active" onclick="selectConcept('map4', 'actuel', this)">
+                                    <rect x="20" y="35" width="210" height="145" rx="8" fill="#FAF6EF" stroke="#7a2222" stroke-width="1.5"/>
+                                    <text x="125" y="65" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a202c">Paradigme actuel</text>
+                                    <text x="125" y="85" text-anchor="middle" font-size="10.5" fill="#7a2222" font-weight="600">Charge individuelle</text>
+                                    <text x="125" y="112" text-anchor="middle" font-size="10.5" fill="#4a5568">• Anticipation constante</text>
+                                    <text x="125" y="132" text-anchor="middle" font-size="10.5" fill="#4a5568">• Contournement des obstacles</text>
+                                    <text x="125" y="152" text-anchor="middle" font-size="10.5" fill="#4a5568">• Isolement et vulnérabilité</text>
+                                </g>
+
+                                <!-- Leviers -->
+                                <g class="svg-node" onclick="selectConcept('map4', 'infra', this)">
+                                    <rect x="260" y="25" width="290" height="50" rx="6" fill="#FAF6EF" stroke="#a89882" stroke-width="1.5"/>
+                                    <text x="405" y="48" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a202c">1. Infrastructures & hiver</text>
+                                    <text x="405" y="64" text-anchor="middle" font-size="10" fill="#4a5568">Déneigement systématique, stations de chaleur, chantiers</text>
+                                </g>
+
+                                <g class="svg-node" onclick="selectConcept('map4', 'planif', this)">
+                                    <rect x="260" y="85" width="290" height="50" rx="6" fill="#FAF6EF" stroke="#a89882" stroke-width="1.5"/>
+                                    <text x="405" y="108" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a202c">2. Planification et gouvernance</text>
+                                    <text x="405" y="124" text-anchor="middle" font-size="10" fill="#4a5568">Grille d'accessibilité obligatoire, savoirs expérientiels</text>
+                                </g>
+
+                                <g class="svg-node" onclick="selectConcept('map4', 'solidarite', this)">
+                                    <rect x="260" y="145" width="290" height="50" rx="6" fill="#FAF6EF" stroke="#a89882" stroke-width="1.5"/>
+                                    <text x="405" y="168" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a202c">3. Entraide et sécurité</text>
+                                    <text x="405" y="184" text-anchor="middle" font-size="10" fill="#4a5568">Numéro d'urgence accessibilité, formation du personnel</text>
+                                </g>
+
+                                <!-- Paradigme visé -->
+                                <g class="svg-node" onclick="selectConcept('map4', 'cible', this)">
+                                    <rect x="580" y="35" width="220" height="145" rx="8" fill="#FAF6EF" stroke="#a89882" stroke-width="1.5"/>
+                                    <text x="690" y="65" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a202c">Paradigme inclusif</text>
+                                    <text x="690" y="85" text-anchor="middle" font-size="10.5" fill="#7a2222" font-weight="600">Responsabilité collective</text>
+                                    <text x="690" y="112" text-anchor="middle" font-size="10.5" fill="#4a5568">• Charge mentale partagée</text>
+                                    <text x="690" y="132" text-anchor="middle" font-size="10.5" fill="#4a5568">• Conception universelle</text>
+                                    <text x="690" y="152" text-anchor="middle" font-size="10.5" fill="#4a5568">• Droit effectif à la ville</text>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="concept-detail-panel" id="map4-detail">
+                            <strong>Paradigme actuel :</strong> L’environnement urbain est conçu pour un corps normatif unique. Les personnes en situation de handicap assument seules le coût physique, mental et temporel des défaillances des réseaux de transport et de voirie.
+                        </div>
+                    </div>
+
+                    <p>Il existe de nombreuses solutions qui émanent directement des personnes en situation de handicap. Ainsi, pour rendre la mobilité plus inclusive, il est primordial de tenir une grande conversation collective sur l’exclusion sociale dans le domaine des transports. Cette conversation doit impliquer les personnes concernées par ces enjeux, et les solutions doivent émaner de leurs expériences.</p>
+
+                    <p>Actuellement, les personnes vivant avec des incapacités sont celles qui doivent assumer la charge de l’accessibilité, s’adaptant à un environnement urbain peu accueillant. Il est maintenant nécessaire de renverser ce paradigme et d’assurer une prise en charge sociétale collective de ces enjeux, en assumant collectivement la responsabilité de l’accessibilité.</p>
+
+                    <!-- Références bibliographiques -->
+                    <section id="sec-references" class="references-section">
+                        <h2 class="chapter-title" style="margin-top: 0;">Références bibliographiques</h2>
+                        <ul class="references-list">
+                            <li>Boucher, N., Dumont, I., Fougeyrollas, P., Beauregard, L., et als (2019), «&nbsp;De manière singulière et d’usage inclusif. Représentations sociales, Transport collectif et interrelations entre handicap, territoire et environnement&nbsp;», <i>Recherches sociographiques</i>, vol. 60, n° 1, DOI&nbsp;: <a href="https://doi.org/10.7202/1066157ar" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">doi.org/10.7202/1066157ar</a>, pp. 139&#8209;168.</li>
+                            <li>Dejoux, V. (2015), «&nbsp;Les difficultés d’accès à l’environnement&nbsp;: Un frein lors de la transition vers l’âge adulte des jeunes reconnus ‘handicapés’&nbsp;», <i>Agora débats/jeunesses</i>, vol. 71, n° 3, DOI&nbsp;: <a href="https://doi.org/10.3917/agora.071.0069" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">doi.org/10.3917/agora.071.0069</a>, pp. 69&#8209;82.</li>
+                            <li>Fougeyrollas, P. (2010), <i>La funambule, le fil et la toile&nbsp;: transformations réciproques du sens du handicap</i>, Québec&nbsp;: PUL, DOI&nbsp;: <a href="https://doi.org/10.7202/1017398a" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">doi.org/10.7202/1017398a</a>.</li>
+                            <li>Le Regroupement des groupes de femmes de la région de la Capitale-Nationale [RGF-CN] (2019), <i>Les besoins des femmes en matière de pauvreté et de transport. État des lieux dans la Capitale-Nationale</i>, p. 20.</li>
+                            <li>Ministère des Transports et de la Mobilité durable (2020), <i>Aides à la mobilité motorisées (fauteuils roulants électriques, triporteurs, quadriporteurs)</i>, URL&nbsp;: <a href="https://tinyurl.com/3ycxfkyv" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">https://tinyurl.com/3ycxfkyv</a>.</li>
+                            <li>Office des personnes handicapées du Québec (2018), <i>Estimations de population avec incapacité en 2012&nbsp;: Région administrative de la Capitale-Nationale</i>, Direction de l’évaluation et du soutien à la mise en œuvre de la loi, p. 82.</li>
+                            <li>Rousseau, M., Desaulniers, A., Marcoux, M.-J. et als (2011), <i>Des nouvelles d’elles&nbsp;: Les femmes handicapées du Québec</i>, Conseil du statut de la femme, Direction des communications.</li>
+                            <li>Vandersmissen, M. H. (2007), «&nbsp;Évolution récente de la mobilité à Québec: Qu’en est-il des différences selon le genre&nbsp;?&nbsp;», <i>La mobilité généralisée: formes et valeurs de la mobilité quotidienne</i>, Éditions Académia-Bruylant, pp. 47-63.</li>
+                            <li>Vargo, F. (2014), <i>Incapacité</i>, L’Encyclopédie Canadienne, URL&nbsp;: <a href="https://tinyurl.com/6kh4aptm" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">https://tinyurl.com/6kh4aptm</a>.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Notes de bas de page -->
+                    <section class="footnotes-section">
+                        <ul class="footnotes-list">
+                            <li id="fn1"><sup>1</sup> <a href="https://youtu.be/6SL-sBPrhx8" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">https://youtu.be/6SL-sBPrhx8</a>.</li>
+                            <li id="fn2"><sup>2</sup> <a href="https://youtu.be/GsmR9meMCCQ" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">https://youtu.be/GsmR9meMCCQ</a>.</li>
+                            <li id="fn3"><sup>3</sup> <a href="https://youtu.be/mXfLeS2YPN0" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">https://youtu.be/mXfLeS2YPN0</a>.</li>
+                            <li id="fn4"><sup>4</sup> <a href="https://youtu.be/B6FoTrheysM" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">https://youtu.be/B6FoTrheysM</a>.</li>
+                            <li id="fn5"><sup>5</sup> <a href="https://youtu.be/cc9i1A1rHvU" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">https://youtu.be/cc9i1A1rHvU</a>.</li>
+                            <li id="fn6"><sup>6</sup> Ministère des Transports et de la Mobilité durable (2020), <i>Aides à la mobilité motorisées (fauteuils roulants électriques, triporteurs, quadriporteurs)</i>, URL&nbsp;: <a href="https://tinyurl.com/3ycxfkyv" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">https://tinyurl.com/3ycxfkyv</a>. Cette réglementation est entrée en vigueur en 2020.</li>
+                            <li id="fn7"><sup>7</sup> Office des personnes handicapées du Québec (2018), <i>Estimations de population avec incapacité en 2012&nbsp;: Région administrative de la Capitale-Nationale</i>, Direction de l’évaluation et du soutien à la mise en œuvre de la loi, p. 82.</li>
+                            <li id="fn8"><sup>8</sup> Fougeyrollas, P. (2010), <i>La funambule, le fil et la toile&nbsp;: transformations réciproques du sens du handicap</i>, Québec&nbsp;: PUL, DOI&nbsp;: <a href="https://doi.org/10.7202/1017398a" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">doi.org/10.7202/1017398a</a>. [Cité dans&nbsp;: Boucher, N., Dumont, I., Fougeyrollas, P., Beauregard, L., et als (2019), «&nbsp;De manière singulière et d’usage inclusif. Représentations sociales, Transport collectif et interrelations entre handicap, territoire et environnement&nbsp;», <i>Recherches sociographiques</i>, vol. 60, n° 1, pp. 139&#8209;168, DOI&nbsp;: <a href="https://doi.org/10.7202/1066157ar" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">doi.org/10.7202/1066157ar</a>].</li>
+                            <li id="fn9"><sup>9</sup> Dejoux, V. (2015), «&nbsp;Les difficultés d’accès à l’environnement&nbsp;: Un frein lors de la transition vers l’âge adulte des jeunes reconnus ‘handicapés’&nbsp;», <i>Agora débats/jeunesses</i>, vol. 71, n° 3, pp. 69&#8209;82 [70], DOI&nbsp;: <a href="https://doi.org/10.3917/agora.071.0069" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">doi.org/10.3917/agora.071.0069</a>.</li>
+                            <li id="fn10"><sup>10</sup> <a href="https://youtu.be/8DFOKzu6Hak" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">https://youtu.be/8DFOKzu6Hak</a>.</li>
+                            <li id="fn11"><sup>11</sup> <a href="https://youtu.be/L_2Ezl94rWM" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">https://youtu.be/L_2Ezl94rWM</a>.</li>
+                            <li id="fn12"><sup>12</sup> <a href="https://youtu.be/f9b4sKktU5A" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">https://youtu.be/f9b4sKktU5A</a>.</li>
+                            <li id="fn13"><sup>13</sup> <a href="https://youtu.be/_7-x3vWwg1Q" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">https://youtu.be/_7-x3vWwg1Q</a>.</li>
+                            <li id="fn14"><sup>14</sup> <a href="https://youtu.be/f9CQOvYx52I" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">https://youtu.be/f9CQOvYx52I</a>.</li>
+                            <li id="fn15"><sup>15</sup> <a href="https://youtu.be/5SCkPYL4lYQ" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">https://youtu.be/5SCkPYL4lYQ</a>.</li>
+                            <li id="fn16"><sup>16</sup> Regroupement des groupes de femmes de la région de la Capitale-Nationale [RGF-CN] (2019), <i>Les besoins des femmes en matière de pauvreté et de transport. État des lieux dans la Capitale-Nationale</i>, p. 20. [Cité dans&nbsp;: Vandersmissen, M. H. (2007), <i>Évolution récente de la mobilité à Québec: Qu’en est-il des différences selon le genre&nbsp;?, La mobilité généralisée&nbsp;: formes et valeurs de la mobilité quotidienne</i>, Editions Académia-Bruylant, pp. 47-63].</li>
+                            <li id="fn17"><sup>17</sup> Office des personnes handicapées du Québec (2018), <i>op. cit</i>.</li>
+                            <li id="fn18"><sup>18</sup> Rousseau, M., Desaulniers, A., Marcoux, M.-J. et als (2011), <i>Des nouvelles d’elles&nbsp;: Les femmes handicapées du Québec</i>. Conseil du statut de la femme, Direction des communications.</li>
+                            <li id="fn19"><sup>19</sup> <a href="https://youtu.be/L_2Ezl94rWM" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">https://youtu.be/L_2Ezl94rWM</a>.</li>
+                            <li id="fn20"><sup>20</sup> Arielle fait ici référence à un texte lu lors du micro-ouvert de l’évènement «&nbsp;St-Sauveuroises dans la rue&nbsp;» et publié dans le fanzine du même nom.</li>
+                        </ul>
+                    </section>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <!-- Modal Universel (PDF / Vidéo) -->
+    <div class="modal-overlay" id="mediaModal" onclick="closeModalOnOutside(event)">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 id="modalTitle">Titre de la fenêtre</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBodyContent"></div>
+        </div>
+    </div>
+
+    <!-- Modal de Proposition d'Article / Projet -->
+    <div class="modal-overlay" id="proposalModal" onclick="closeProposalModalOnOutside(event)">
+        <div class="modal-container" style="max-width: 800px; height: auto;">
+            <div class="modal-header">
+                <h3 id="proposalModalTitle">Proposer une captation ou un article / Nous faire part d'un commentaire</h3>
+                <button class="modal-close" onclick="closeProposalModal()">&times;</button>
+            </div>
+            <div class="modal-body" style="padding: 1.5rem; overflow-y: auto;">
+                <form id="proposalForm" onsubmit="submitProposal(event)" style="display: flex; flex-direction: column; gap: 1rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                    <input type="hidden" id="propCategory" value="article">
+                    <div>
+                        <label for="propName" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Votre nom</label>
+                        <input type="text" id="propName" required style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propEmail" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Votre courriel</label>
+                        <input type="email" id="propEmail" required style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propTitle" id="propTitleLabel" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Que désirez-vous nous communiquer ?</label>
+                        <input type="text" id="propTitle" required placeholder="Ex: Analyse de l'accessibilité urbaine..." style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propDesc" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Description ou résumé</label>
+                        <textarea id="propDesc" rows="4" required placeholder="Décrivez votre proposition en quelques lignes..." style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff; resize: vertical;"></textarea>
+                    </div>
+                    <button type="submit" style="background-color: #7a2222; color: #fff; border: none; padding: 0.75rem; border-radius: 4px; font-weight: 600; cursor: pointer; margin-top: 0.5rem; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#5e1a1a'" onmouseout="this.style.backgroundColor='#7a2222'">Envoyer la proposition</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSubmenu(event, submenuId, arrowId) {
+            event.stopPropagation();
+            const submenu = document.getElementById(submenuId);
+            const arrow = document.getElementById(arrowId);
+            submenu.classList.toggle('open');
+            arrow.style.transform = submenu.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
+
+        function scrollToSection(event, targetId) {
+            event.preventDefault();
+            if (targetId === 'top-presentation') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                return;
+            }
+            const target = document.getElementById(targetId);
+            if (target) {
+                const topbarOffset = 82; // 60px topbar + 22px de dégagement au-dessus du titre
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - topbarOffset;
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        const conceptDescriptions = {
+            map1: {
+                capacitaire: "<strong>Conditions capacitaires :</strong> L’usage d’un fauteuil roulant, d’une aide à la mobilité motorisée (AMM) ou la présence d’une déficience intellectuelle ou sensorielle détermine directement les possibilités d’accès aux infrastructures pensées pour des corps jugés « standards ».",
+                genre: "<strong>Genre et parentalité :</strong> Être une femme en situation de handicap et mère de jeunes enfants génère une double oppression : restriction d'accompagnateurs en transport adapté, charge logistique quotidienne et exposition accrue aux violences et au harcèlement.",
+                socio: "<strong>Âge, classe et langue :</strong> Le taux d'emploi plus faible et le risque accru de pauvreté limitent l'accès à un véhicule privé adapté, tandis que les barrières linguistiques et numériques compliquent la réservation et l'orientation dans les réseaux.",
+                centre: "<strong>Mobilité intersectionnelle :</strong> Les oppressions ne s'additionnent pas simplement : elles s'entrecroisent et se renforcent mutuellement, rendant invisibles les besoins spécifiques des personnes situées au carrefour de plusieurs facteurs de marginalisation.",
+                urbain: "<strong>Normes urbaines :</strong> Trottoirs endommagés, pentes abruptes, travaux non sécurisés (« pièges à éclopés ») et flou juridique sur la circulation des roues motorisées transforment chaque trajet en parcours d'obstacles.",
+                reseau: "<strong>Réseaux de transport :</strong> Le cloisonnement entre un réseau régulier (RTC) partiellement équipé et un transport adapté (STAC) rigide (réservation la veille avant 18h) prive les usagers de spontanéité.",
+                climat: "<strong>Saisonnalité hivernale :</strong> À Québec, l'absence de déneigement adéquat des trottoirs et des arrêts d'autobus multiplie l'effet incapacitant de l'environnement et contraint à l'isolement domestique."
+            },
+            map2: {
+                perso: "<strong>Facteurs personnels :</strong> Ils renvoient aux caractéristiques intrinsèques de la personne (incapacités motrices, déficience intellectuelle, âge, genre). Selon le MDH-PPH, ces caractéristiques ne constituent pas à elles seules un handicap tant qu'elles ne se heurtent pas à un environnement inadapté.",
+                enviro: "<strong>Facteurs environnementaux :</strong> Ils regroupent les dimensions physiques (voirie, rampes, neige) et sociales (attitudes du personnel, règlements). Un environnement défaillant agit comme un obstacle qui produit directement la situation de handicap.",
+                habitudes: "<strong>Habitudes de vie :</strong> Résultante de l'interaction entre la personne et son milieu. Lorsque l'environnement est inclusif, la participation sociale est pleine ; lorsqu'il est défaillant, il y a restriction d'accès au travail, aux loisirs et à la vie citoyenne."
+            },
+            map3: {
+                rtc: "<strong>Transport collectif régulier (RTC) :</strong> Privilégié pour la liberté et la spontanéité qu’il offre (ex. : parcours Métrobus 800), il demeure entravé par une flotte incomplètement équipée de rampes et par des arrêts non aménagés qui imposent des efforts physiques considérables pour y accéder.",
+                actif: "<strong>Transports actifs (Fauteuil / AMM) :</strong> Essentiels à l'autonomie au centre-ville, mais compromis par l'état des trottoirs, la topographie de Québec, les chantiers sans contournement (« pièges à éclopés ») et l'incertitude réglementaire entre rue et trottoir.",
+                stac: "<strong>Transport adapté (STAC) :</strong> Indispensable lorsque le réseau régulier est inaccessible, mais marqué par la rigidité des réservations, des détours prolongés, un manque de formation du personnel et un sentiment d'insécurité rapporté par les femmes.",
+                auto: "<strong>Automobile adaptée :</strong> Solution de repli face aux lacunes des transports collectifs, créant une captivité modale coûteuse et confrontée à la raréfaction des espaces de stationnement adaptés en milieu urbain."
+            },
+            map4: {
+                actuel: "<strong>Paradigme actuel :</strong> L’environnement urbain est conçu pour un corps normatif unique. Les personnes en situation de handicap assument seules le coût physique, mental et temporel des défaillances des réseaux de transport et de voirie.",
+                infra: "<strong>Infrastructures et hiver :</strong> Assurer un déneigement prioritaire des trottoirs et des accès aux arrêts, aménager des stations de chaleur hivernales et sécuriser systématiquement les zones de travaux urbains.",
+                planif: "<strong>Planification et gouvernance :</strong> Intégrer une liste de vérification d'accessibilité universelle obligatoire dans tout projet municipal et co-construire les politiques de mobilité avec les personnes directement concernées.",
+                solidarite: "<strong>Entraide et sécurité :</strong> Déployer une équipe volante d'assistance (« numéro d'urgence accessibilité ») et renforcer la formation du personnel de transport sur l'accueil, la patience et la prévention des violences.",
+                cible: "<strong>Paradigme inclusif :</strong> La responsabilité de l'accessibilité est assumée collectivement par la société et les aménageurs, garantissant à chaque citoyenne et citoyen un accès libre, spontané et sécuritaire à la ville."
+            }
+        };
+
+        function selectConcept(mapId, key, element) {
+            const container = element.closest('.concept-map-card');
+            container.querySelectorAll('.svg-node').forEach(node => {
+                node.classList.remove('active');
+                const shape = node.querySelector('rect, circle');
+                if (shape && !shape.hasAttribute('data-orig-stroke')) {
+                    shape.setAttribute('stroke', '#a89882');
+                }
+            });
+            element.classList.add('active');
+            const detailPanel = document.getElementById(mapId + '-detail');
+            if (detailPanel && conceptDescriptions[mapId] && conceptDescriptions[mapId][key]) {
+                detailPanel.innerHTML = conceptDescriptions[mapId][key];
+            }
+        }
+
+        function openModal(type, title, url) {
+            const modal = document.getElementById('mediaModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalBodyContent = document.getElementById('modalBodyContent');
+
+            modalTitle.textContent = title;
+            modalBodyContent.innerHTML = '';
+
+            if (type === 'pdf') {
+                const iframe = document.createElement('iframe');
+                iframe.className = 'pdf-frame';
+                iframe.src = url;
+                modalBodyContent.appendChild(iframe);
+            } else if (type === 'video') {
+                const iframe = document.createElement('iframe');
+                iframe.className = 'video-frame';
+                iframe.src = url;
+                iframe.setAttribute('allow', 'autoplay; fullscreen');
+                modalBodyContent.appendChild(iframe);
+            }
+
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('mediaModal');
+            modal.style.display = 'none';
+            document.getElementById('modalBodyContent').innerHTML = '';
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeModalOnOutside(event) {
+            const modal = document.getElementById('mediaModal');
+            if (event.target === modal) closeModal();
+        }
+
+        function openProposalModal(type) {
+            const proposalModal = document.getElementById('proposalModal');
+            const titleEl = document.getElementById('proposalModalTitle');
+            const categoryEl = document.getElementById('propCategory');
+            const titleLabelEl = document.getElementById('propTitleLabel');
+            const titleInputEl = document.getElementById('propTitle');
+
+            categoryEl.value = type;
+
+            if (type === 'captation') {
+                titleEl.textContent = "Nous faire part d'un commentaire ou d'une proposition (captation ou article)";
+                titleLabelEl.textContent = "Que voulez-vous nous communiquer ?";
+                titleInputEl.placeholder = "Ex: projet de captation, soumettre un article, faire un commentaire...";
+            } else {
+                titleEl.textContent = "Nous faire part d'un commentaire ou d'une proposition (captation ou article)";
+                titleLabelEl.textContent = "Que voulez-vous nous communiquer ?";
+                titleInputEl.placeholder = "Ex: projet de captation, soumettre un article, faire un commentaire...";
+            }
+
+            proposalModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProposalModal() {
+            const proposalModal = document.getElementById('proposalModal');
+            proposalModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeProposalModalOnOutside(event) {
+            const proposalModal = document.getElementById('proposalModal');
+            if (event.target === proposalModal) closeProposalModal();
+        }
+
+        function submitProposal(event) {
+            event.preventDefault();
+            const name = document.getElementById('propName').value;
+            const email = document.getElementById('propEmail').value;
+            const category = document.getElementById('propCategory').value;
+            const title = document.getElementById('propTitle').value;
+            const desc = document.getElementById('propDesc').value;
+
+            const typeLabel = category === 'captation' ? 'Proposition de captation' : "Proposition d'article";
+            const subject = encodeURIComponent(`${typeLabel} : ${title}`);
+            const body = encodeURIComponent(`Nom : ${name}\nCourriel : ${email}\nType : ${typeLabel}\nTitre : ${title}\n\nDescription :\n${desc}`);
+
+            window.location.href = `mailto:sociocamera@gmail.com?subject=${subject}&body=${body}`;
+            closeProposalModal();
+        }
+
+        window.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+                closeProposalModal();
+            }
+        });
+    </script>
+</body>
+</html>
