@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; frame-src https://drive.google.com; connect-src https://script.google.com; object-src 'none';">
+    <title>Poser un regard de droits humains</title>
+    <meta name="description" content="Numéro spécial de la Revue de Sociologie Visuelle consacré à l'inclusion sociale et à l'accessibilité. Contributions empiriques et théoriques dirigées par François Routhier et Pierre Fraser.">
+    <meta name="keywords" content="inclusion sociale, accessibilité, sociologie visuelle, handicap, transport urbain, éducation inclusive, CIRRIS, PSVI">
+    <link rel="canonical" href="https://doi.org/10.13140/RG.2.2.35504.53768">
+
+    <style>
+        :root {
+            --bg-color: #FAF6EF;
+            --text-color: #2b2b2b;
+            --primary-color: #1a202c;
+            --accent-color: #4a5568;
+            --border-color: #e2e8f0;
+            --card-bg: #FAF6EF;
+            --hover-border: #cbd5e0;
+            --max-width: 1400px;
+            --content-max-width: 970px;
+            --sidebar-width: 320px;
+            --topbar-height: 60px;
+            --modal-header-bg: #7a2222; /* Bordeaux de référence */
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Georgia", "Cambria", "Times New Roman", serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Barre horizontale permanente supérieure : toute la largeur de la page */
+        .top-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--topbar-height);
+            background-color: var(--bg-color);
+            border-bottom: 1px solid var(--border-color);
+            display: grid;
+            grid-template-columns: var(--sidebar-width) 1fr auto;
+            align-items: center;
+            padding: 0;
+            z-index: 1100;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .top-navbar-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            letter-spacing: 0.02em;
+            padding-left: 1.5rem;
+            border-right: 1px solid var(--border-color);
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .top-navbar-location {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            background-color: #f2ede4;
+            padding: 0.3rem 0.75rem;
+            border-radius: 4px;
+            margin-right: 2.5rem;
+        }
+
+        /* Colonne latérale gauche permanente sous la barre fixe du haut */
+        aside.sidebar {
+            position: fixed;
+            top: var(--topbar-height);
+            left: 0;
+            width: var(--sidebar-width);
+            height: calc(100vh - var(--topbar-height));
+            background-color: #f5f0e6;
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            z-index: 1000;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            overflow-y: auto;
+        }
+
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .btn-home {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            background-color: #7a2222;
+            color: #fff;
+            border: none;
+            padding: 0.85rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        .btn-home svg {
+            position: absolute;
+            left: 1rem;
+        }
+
+        .btn-home:hover {
+            background-color: #5e1a1a;
+        }
+
+        .sidebar-info-section {
+            padding: 1rem 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .sidebar-card {
+            background-color: #FAF6EF;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 0.85rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            text-align: justify;
+        }
+
+        .sidebar-card.editor-card {
+            flex-direction: row;
+            align-items: center;
+            gap: 0.75rem;
+            text-align: left;
+        }
+
+        .editor-info h4 {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            margin-bottom: 0.15rem;
+        }
+
+        .editor-info p {
+            font-size: 0.78rem;
+            color: var(--accent-color);
+            line-height: 1.4;
+        }
+
+        .sidebar-nav {
+            padding: 1.25rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            flex: 1;
+        }
+
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--primary-color);
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-align: left;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            background-color: #eae3d5;
+            border-color: var(--hover-border);
+        }
+
+        .page-nav-trigger {
+            background: transparent;
+            border: none;
+            color: #7a2222;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 0.5rem;
+            margin-bottom: 0.25rem;
+            padding: 0.45rem 0.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            cursor: pointer;
+            text-align: left;
+            border-bottom: 1px solid #dfd5c5;
+            transition: opacity 0.2s ease;
+        }
+
+        .page-nav-trigger:hover {
+            opacity: 0.8;
+        }
+
+        .submenu {
+            display: none;
+            flex-direction: column;
+            gap: 0.4rem;
+            padding-left: 1rem;
+            margin-top: -0.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .submenu.open {
+            display: flex;
+        }
+
+        .submenu-item {
+            font-size: 0.82rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            padding: 0.4rem 0.75rem;
+            border-radius: 4px;
+            transition: background-color 0.15s, color 0.15s;
+            border-left: 2px solid #d4c5b9;
+            cursor: pointer;
+        }
+
+        .submenu-item:hover {
+            background-color: #eae3d5;
+            color: var(--primary-color);
+            border-left-color: #7a2222;
+        }
+
+        /* Conteneur principal à droite, décalé pour laisser place à la sidebar et topbar */
+        .main-wrapper {
+            margin-left: var(--sidebar-width);
+            margin-top: var(--topbar-height);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            width: calc(100% - var(--sidebar-width));
+            padding: 2.25rem 3rem;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            padding-left: 2rem;
+        }
+
+        .btn-header {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: 1px solid var(--primary-color);
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: background-color 0.2s;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-header.secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border-color: var(--border-color);
+        }
+
+        .btn-header.secondary:hover {
+            background-color: #f2ede4;
+            border-color: var(--hover-border);
+        }
+
+        /* Styles harmonisés des fenêtres modales selon l'image de référence */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+        }
+
+        .modal-container {
+            background: var(--bg-color);
+            width: 100%;
+            max-width: 900px;
+            height: 85vh;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            border: 1px solid #d4c5b9;
+        }
+
+        .modal-header {
+            padding: 1.25rem 1.5rem;
+            background: var(--modal-header-bg);
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .modal-header h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .modal-close {
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #fff;
+            opacity: 0.85;
+            transition: opacity 0.2s;
+        }
+
+        .modal-close:hover {
+            opacity: 1;
+        }
+
+        .modal-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            background-color: var(--bg-color);
+        }
+
+        .pdf-frame, .video-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Zone dynamique : largeur maîtrisée et centrée pour une lecture confortable */
+        .dynamic-zone {
+            width: 100%;
+            max-width: var(--content-max-width);
+            margin: 0 auto; 
+        }
+
+        .article-main-title {
+            font-size: 2rem;
+            line-height: 1.25;
+            color: var(--primary-color);
+            font-weight: 700;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #dfd6c7;
+        }
+
+        .meta-two-boxes {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        .whitish-box {
+            background-color: #fdfbf7;
+            border: 1px solid #e5ddd0;
+            border-radius: 8px;
+            padding: 1.15rem 1.35rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+        }
+
+        .author-box-content {
+            display: flex;
+            align-items: center;
+            gap: 1.1rem;
+        }
+
+        .author-avatar-circle {
+            width: 78px;
+            height: 78px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #7a2222;
+            flex-shrink: 0;
+            background-color: #eae3d5;
+        }
+
+        .author-meta-details strong {
+            display: block;
+            font-size: 0.92rem;
+            color: var(--primary-color);
+            margin-bottom: 0.25rem;
+        }
+
+        .author-meta-details p {
+            margin-bottom: 0.2rem;
+            color: var(--accent-color);
+        }
+
+        .citation-box-label {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: #7a2222;
+            margin-bottom: 0.45rem;
+        }
+
+        .resume-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+            margin-bottom: 1.25rem;
+            font-size: 0.86rem;
+            line-height: 1.55;
+        }
+
+        .resume-box-title {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: #7a2222;
+            margin-bottom: 0.5rem;
+        }
+
+        .keywords-line {
+            font-size: 0.88rem;
+            color: var(--accent-color);
+            margin-bottom: 2.25rem;
+            padding: 0.65rem 1rem;
+            background-color: #f4efe6;
+            border-left: 3px solid #7a2222;
+            border-radius: 4px;
+        }
+
+        .chapter-heading {
+            color: #7a2222;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-top: 2.25rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.35rem;
+            border-bottom: 1px solid #e6ddd0;
+            scroll-margin-top: 88px;
+        }
+
+        .article-body-p {
+            font-size: 1.04rem;
+            line-height: 1.75;
+            margin-bottom: 1.15rem;
+            text-align: justify;
+        }
+
+        .lettrine-bordeaux {
+            float: left;
+            color: #7a2222;
+            font-weight: 700;
+            font-size: 3.35rem;
+            line-height: 0.9;
+            padding-top: 0.15rem;
+            padding-right: 0.55rem;
+            padding-bottom: 0.05rem;
+            font-family: "Georgia", "Times New Roman", serif;
+        }
+
+        /* Cartes conceptuelles interactives SVG sur fond un peu plus pâle que #FAF6EF */
+        .concept-map-card {
+            background-color: #fcfaf6;
+            border: 1px solid #dfd5c5;
+            border-radius: 10px;
+            padding: 1.25rem 1.4rem;
+            margin: 1.75rem 0 2rem 0;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .concept-map-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.85rem;
+        }
+
+        .concept-map-title {
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: #7a2222;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .concept-map-hint {
+            font-size: 0.78rem;
+            color: var(--accent-color);
+            font-style: italic;
+        }
+
+        .concept-svg-wrapper {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        .concept-svg {
+            width: 100%;
+            height: auto;
+            min-height: 250px;
+            display: block;
+        }
+
+        .svg-node {
+            cursor: pointer;
+            transition: transform 0.2s ease, filter 0.2s ease;
+        }
+
+        .svg-node:hover {
+            filter: brightness(0.96);
+        }
+
+        .svg-node rect, .svg-node ellipse {
+            transition: stroke-width 0.2s ease, stroke 0.2s ease;
+        }
+
+        .svg-node.active rect, .svg-node.active ellipse {
+            stroke: #7a2222;
+            stroke-width: 3;
+        }
+
+        .concept-detail-panel {
+            margin-top: 0.9rem;
+            padding: 0.85rem 1rem;
+            background-color: #f5f0e6;
+            border-left: 4px solid #7a2222;
+            border-radius: 6px;
+            font-size: 0.86rem;
+            line-height: 1.5;
+            color: var(--text-color);
+        }
+
+        .concept-detail-panel strong {
+            color: #7a2222;
+        }
+
+        .biblio-list {
+            margin-top: 0.75rem;
+            margin-bottom: 1.75rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .biblio-item {
+            padding-left: 2rem;
+            text-indent: -2rem;
+            margin-bottom: 0.75rem;
+            text-align: justify;
+        }
+
+        .footnotes-section {
+            margin-top: 2rem;
+            padding-top: 1.15rem;
+            border-top: 1px solid #dfd5c5;
+            font-size: 0.86rem;
+            line-height: 1.5;
+            color: var(--accent-color);
+        }
+
+        .footnote-entry {
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 920px) {
+            :root { --sidebar-width: 0px; }
+            .top-navbar { left: 0; padding: 0 1rem; grid-template-columns: 1fr auto; }
+            .top-navbar-title { display: none; }
+            aside.sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
+            aside.sidebar.mobile-open { transform: translateX(0); }
+            .main-wrapper { margin-left: 0; width: 100%; padding: 1.5rem 1.25rem; }
+        }
+
+        @media (max-width: 820px) {
+            .meta-two-boxes, .resume-grid {
+                grid-template-columns: 1fr;
+            }
+            .article-main-title {
+                font-size: 1.55rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barre horizontale permanente supérieure -->
+    <header class="top-navbar">
+        <div class="top-navbar-title">Revue Sociologie Visuelle</div>
+        <div class="header-actions">
+            <button class="btn-header secondary" onclick="openModal('video', 'Présentation introductive — Vidéo', 'https://drive.google.com/file/d/10Va3etjn9wZIqrVnByyNXDVM-XPKOHkK/preview?autoplay=1')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                Visionner la vidéo de présentation
+            </button>
+            <button class="btn-header secondary" onclick="openProposalModal('article')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                Proposer un projet de captation ou un article
+            </button>
+            <button class="btn-header secondary" onclick="openModal('pdf', 'Télécharger le numéro complet', 'https://drive.google.com/file/d/1d3ZUnnEwYomQ1VRQ1lF8XNei88HelQvy/preview')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Télécharger le numéro
+            </button>
+        </div>
+        <div class="top-navbar-location" id="locationIndicator">Poser un regard de droits humains</div>
+    </header>
+
+    <!-- Colonne latérale gauche permanente -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="https://inclusionsociale.com/#theme-1" class="btn-home">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                INCLUSION SOCIALE
+            </a>
+        </div>
+
+        <div class="sidebar-info-section">
+            <div style="font-size: 0.72rem; color: #718096; text-align: left; margin-bottom: 0.05rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                DOI : <a href="https://doi.org/10.13140/RG.2.2.35504.53768" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; opacity: 0.85;">10.13140/RG.2.2.35504.53768</a>
+            </div>
+
+            <div class="sidebar-card editor-card">
+                <div class="editor-info">
+                    <h4>Éditeurs</h4>
+                    <p><b>François Routhier & Pierre Fraser</b></p>
+                    <p>Plus de 18 équipes de recherche mobilisées afin de saisir comment le milieu façonne et articule l'accès aux services et à l'inclusion sociale.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-nav">
+            <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: #7a2222; letter-spacing: 0.05em; margin-bottom: 0.5rem; padding-left: 0.25rem;">NAVIGATION SUR LE SITE</div>
+
+            <div>
+                <button class="nav-btn" onclick="toggleSubmenu(event, 'accessibilitySubmenu', 'submenuArrow')">
+                    <span>Penser l'accessibilité</span>
+                    <svg id="submenuArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu" id="accessibilitySubmenu">
+                    <a href="https://inclusionsociale.com/#theme-1" class="submenu-item">1. Espace urbain & transports</a>
+                    <a href="https://inclusionsociale.com/#theme-2" class="submenu-item">2. Éducation & institutions</a>
+                    <a href="https://inclusionsociale.com/#theme-3" class="submenu-item">3. Travail, autonomie & loisirs</a>
+                    <a href="https://inclusionsociale.com/#theme-4" class="submenu-item">4. Expérience vécue & stigmates</a>
+                </div>
+            </div>
+
+            <div>
+                <button class="nav-btn" onclick="toggleSubmenu(event, 'bilansSubmenu', 'bilansSubmenuArrow')">
+                    <span>Bilans</span>
+                    <svg id="bilansSubmenuArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu" id="bilansSubmenu">
+                    <a href="https://inclusionsociale.com/mentorat-actif-bilan.html" class="submenu-item">Mentorat actif, un plus tard</a>
+                </div>
+            </div>
+
+            <!-- Bouton Tournages en cours non gras -->
+            <div>
+                <a href="https://inclusionsociale.com/tournages.html" class="nav-btn" style="font-weight: normal;">
+                    <span>Tournages en cours</span>
+                </a>
+            </div>
+
+            <!-- Mention cliquable NAVIGATION DANS LA PAGE sous Tournages en cours -->
+            <div>
+                <button type="button" class="page-nav-trigger" onclick="toggleSubmenu(event, 'pageChaptersSubmenu', 'pageNavArrow')" aria-expanded="false" aria-controls="pageChaptersSubmenu">
+                    <span>NAVIGATION DANS LA PAGE</span>
+                    <svg id="pageNavArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu" id="pageChaptersSubmenu">
+                    <a href="#top" class="submenu-item" onclick="scrollToPageSection(event, null)">Présentation</a>
+                    <a href="#sec-resume" class="submenu-item" onclick="scrollToPageSection(event, 'sec-resume')">Résumé et mots-clés</a>
+                    <a href="#sec-introduction" class="submenu-item" onclick="scrollToPageSection(event, 'sec-introduction')">Introduction</a>
+                    <a href="#sec-droit" class="submenu-item" onclick="scrollToPageSection(event, 'sec-droit')">1. Droit international et droit interne</a>
+                    <a href="#sec-interdependance" class="submenu-item" onclick="scrollToPageSection(event, 'sec-interdependance')">2. Interdépendance des droits humains</a>
+                    <a href="#sec-conclusion" class="submenu-item" onclick="scrollToPageSection(event, 'sec-conclusion')">Conclusion</a>
+                    <a href="#sec-bibliographie" class="submenu-item" onclick="scrollToPageSection(event, 'sec-bibliographie')">Références bibliographiques</a>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Zone de contenu dynamique à droite (Frame de base) -->
+    <div class="main-wrapper" id="top">
+        <main>
+            <section class="dynamic-zone">
+                <h1 class="article-main-title">Réalités des personnes en situation de<br>handicap : poser un regard de droits humains<a class="sdfootnoteanc" name="sdfootnote1anc" href="#sdfootnote1sym"><sup>*</sup></a></h1>
+
+                <!-- Deux cases côte à côte sur fond blanchâtre sous le titre -->
+                <div class="meta-two-boxes">
+                    <div class="whitish-box author-box-content">
+                        <div class="author-meta-details">
+                            <strong>Élisabeth Dupuis &amp; Laurence Guénette</strong>
+                            <p>Affiliation : Ligue des droits et libertés (LDL).</p>
+                        </div>
+                    </div>
+
+                    <div class="whitish-box">
+                        <div class="citation-box-label">Citer cet article</div>
+                        <p>Dupuis, É., Guénette, M. (2023), « Réalités des personnes en situation de handicap : poser un regard de droits humains », <i>Sociologie Visuelle</i>, n° 4, François Routhier et Pierre Fraser (éds.), Québec : Photo|Société, pp. 229-235.</p>
+                    </div>
+                </div>
+
+                <!-- Section Résumé : deux cases sur fond blanchâtre (FR / EN) en texte plus petit -->
+                <div id="sec-resume" class="resume-grid" style="scroll-margin-top: 88px;">
+                    <div class="whitish-box">
+                        <div class="resume-box-title">Résumé (Français)</div>
+                        <p>La <i>Ligue des droits et libertés</i> (LDL) propose ici d’observer les enjeux affectant les personnes en situations de handicap depuis la perspective des droits humains. Ce regard invite d’une part à s’intéresser aux instruments juridiques de protection des droits des personnes en situation de handicap, lesquels peuvent servir de leviers judiciaires et de base argumentaire. D’autre part, la perspective proposée par la LDL implique de tenir compte de l’interdépendance des droits humains, et de visibiliser les impacts qu’ont les violations d’un droit sur de multiples autres droits, une perspective très pertinente pour comprendre et agir sur les réalités des personnes en situation de handicap.</p>
+                    </div>
+
+                    <div class="whitish-box">
+                        <div class="resume-box-title">Abstract (English)</div>
+                        <p>The <i>Ligue des droits et libertés</i> (LDL) proposes examining issues affecting persons with disabilities from a human rights perspective. On one hand, this lens invites attention to legal instruments protecting the rights of persons with disabilities, which can serve as judicial levers and argumentative foundations. On the other hand, the LDL’s approach entails accounting for the interdependence of human rights and making visible how violations of one right affect multiple other rights, offering a vital framework to understand and act upon the lived realities of persons with disabilities.</p>
+                    </div>
+                </div>
+
+                <div class="keywords-line">
+                    <strong>Mots-clés.</strong> — Droits humains ; personne en situation de handicap ; lois.
+                </div>
+
+                <!-- Section Introduction avec lettrine rouge bordeaux en gras -->
+                <h2 id="sec-introduction" class="chapter-heading">Introduction</h2>
+                <p class="article-body-p">
+                    <span class="lettrine-bordeaux">L</span>a Ligue des droits et libertés (LDL) est une organisation indépendante, non partisane, et à but non lucratif, qui œuvre depuis maintenant 60 ans à la promotion et à la protection de tous les droits humains, civils, politiques, économiques, sociaux et culturels. Au printemps 2021, la LDL a publié un dossier spécial sur les droits des personnes en situation de handicap dans sa revue <i>Droits et Libertés</i>. Pour plusieurs militant.e.s de la LDL, ce fut une occasion extraordinaire d’approfondir cette question et d’alimenter leurs réflexions grâce aux excellentes contributions de plusieurs intervenant.e.s doté.e.s d’une expertise sur le sujet. Le texte que nous proposons ici est donc un apport offert en toute humilité et largement alimenté par les écrits parus dans la revue de 2021, par lequel nous souhaitons mettre en lumière la portée et les bénéfices d’un regard de droits humains sur la réalité des personnes en situation de handicap.
+                </p>
+
+                <!-- Sous-chapitre 1 -->
+                <h2 id="sec-droit" class="chapter-heading">1. En droit international et en droit interne : instruments imparfaits mais précieux</h2>
+                <p class="article-body-p">
+                    Poser un regard de droits humains permet de mobiliser les instruments développés en droit international ou interne qui, malgré certaines lacunes ou obstacles, constituent un puissant levier argumentaire. Le Québec et le Canada ont des devoirs et obligations inscrits dans des lois, des Chartes et des Conventions, qui devraient toujours guider les gouvernements dans l’élaboration de politiques ou de législations, même si ce n’est pas toujours le cas. Le rôle que peuvent jouer les instruments internationaux des droits humains est considérable pour faire respecter les droits humains. Il s’agit d’outils essentiels qui énoncent des principes incontournables et permettent de juger de la conformité des législations et de rappeler les gouvernements à l’ordre.
+                </p>
+                <p class="article-body-p">
+                    En ce sens, la <i>Convention relative aux droits des personnes handicapées</i> (CDPH) a été adoptée en 2008 par l’Assemblée générale des Nations Unies, regroupant les droits civils, politiques, économiques, sociaux et culturels dans un même texte, ainsi que des dispositions pratiques inédites en droit international des droits de la personne. Le Canada l’a ratifiée en 2010, suivie du <i>Protocole facultatif</i> à la CDPH, un système de plaintes auquel le Québec s’est déclaré lié<a class="sdfootnoteanc" name="sdfootnote2anc" href="#sdfootnote2sym"><sup>1</sup></a>. Des dispositions spécifiques pour favoriser l’exercice de leurs droits dans des conditions d’égalité avec les autres sont inscrites. Parmi elles figurent le droit de ne pas être soumis à l’exploitation, à la violence et à la maltraitance (article 16), la nécessité d’éliminer les obstacles à l’accessibilité aux bâtiments, aux transports, aux communications et aux services (article 9) et la participation à la vie politique, exigeant que les États veillent à ce que les procédures, équipements et matériels électoraux soient appropriés, accessibles et faciles à comprendre et à utiliser (article 29). La Convention affirme également le droit de « vivre dans la société avec la même liberté de choix que les autres personnes », ce qui engage les États à mettre en place des « <span style="letter-spacing: 0.2pt">mesures efficaces et appropriées pour faciliter aux personnes handicapées la pleine jouissance de ce droit ainsi que leur pleine intégration et participation à la société</span> » (article 19).
+                </p>
+                <p class="article-body-p">
+                    En vertu de la CDPH, le gouvernement est tenu d’adopter des politiques économique, budgétaire et fiscale qui permettent à chaque personne d’accéder « à un niveau de vie adéquat pour elles-mêmes et pour leur famille, notamment une alimentation, un habillement et un logement adéquats, et à une amélioration constante de leurs conditions de vie et prennent des mesures appropriées pour protéger et promouvoir l’exercice de ce droit sans discrimination fondée sur le handicap » (article 28).
+                </p>
+                <p class="article-body-p">
+                    Il existe un exercice de rapportage lié à l’adhésion du Canada à cette convention, impliquant que le Canada soumette des rapports au Comité des personnes handicapées, l’organe de suivi de la mise en œuvre de la CDPH. Le processus d’examen comprend la production d’un rapport critique alternatif, rédigé par des organisations de la société civile et communautaires par suite du rapport fourni par l’État. L’analyse des rapports du Canada par ces organisations amènera au cours des prochains mois et années un éclairage essentiel sur les problèmes vécus et proposera des pistes de solutions pour faire avancer les droits des personnes en situation de handicap.
+                </p>
+                <p class="article-body-p">
+                    Pour permettre aux personnes en situation de handicap d’exercer pleinement leurs droits, un énorme travail reste à faire pour renforcer le cadre législatif actuel en intégrant les dispositions de la CPDH dans nos lois au Québec et au Canada. Des critiques se font entendre sur les lacunes importantes de la <i>Loi assurant l’exercice des droits des personnes handicapées</i> adoptée en 1978 et amendée en 2004 : « aucun objectif ou échéancier pour l’élimination des obstacles, aucune pénalité en cas de non-conformité. Par conséquent, ses dispositions sont souvent bafouées et la mise en accessibilité progresse à pas de tortue<a class="sdfootnoteanc" name="sdfootnote3anc" href="#sdfootnote3sym"><sup>2</sup></a> ».
+                </p>
+                <p class="article-body-p">
+                    Et même lorsque de nouvelles lois sont mises en place, améliorant la protection des droits des personnes en situation de handicap, la prudence et le sens critique sont de mise. De nouvelles normes au Code de construction du Québec pour l’intérieur des logements ont été adoptées en 2018, et bien qu’elles soient dorénavant plus complètes, elles ne s’appliquent que sur une base volontaire : « Les seules normes d’accessibilité obligatoire pour les nouveaux bâtiments visent à permettre à une personne en fauteuil roulant de visiter le logement, mais pas d’y habiter<a class="sdfootnoteanc" name="sdfootnote4anc" href="#sdfootnote4sym"><sup>3</sup></a> », souligne Olivier Dupuis. Autre exemple : les bâtiments de moins de neuf logements ou de moins de trois étages sont exemptés de toute norme d’accessibilité, alors qu’un logement répondant aux besoins de ses locataires est à la base d’une vie autonome<a class="sdfootnoteanc" name="sdfootnote5anc" href="#sdfootnote5sym"><sup>4</sup></a>.
+                </p>
+                <p class="article-body-p">
+                    Cela étant dit, la perspective des droits humains va au-delà des textes disponibles sur les plans national ou international, faisant figure d’instruments contraignants ou simples énoncés de principe.
+                </p>
+
+                <!-- Carte conceptuelle interactive 1 (SVG) -->
+                <div class="concept-map-card" id="conceptMap1">
+                    <div class="concept-map-header">
+                        <span class="concept-map-title">Carte conceptuelle interactive 1 — Articulation des cadres juridiques et lacunes d'accessibilité</span>
+                        <span class="concept-map-hint">Cliquez sur un nœud pour consulter l'analyse</span>
+                    </div>
+                    <div class="concept-svg-wrapper">
+                        <svg viewBox="0 0 860 270" class="concept-svg" role="img" aria-label="Diagramme conceptuel sur la CDPH, le suivi civil et les limites législatives au Québec et au Canada">
+                            <defs>
+                                <marker id="arrowBordeaux" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#7a2222"/>
+                                </marker>
+                                <marker id="arrowSlate" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#4a5568"/>
+                                </marker>
+                            </defs>
+
+                            <!-- Connexions -->
+                            <line x1="210" y1="75" x2="325" y2="75" stroke="#7a2222" stroke-width="2" marker-end="url(#arrowBordeaux)"/>
+                            <line x1="210" y1="190" x2="325" y2="190" stroke="#4a5568" stroke-width="2" marker-end="url(#arrowSlate)"/>
+                            <line x1="515" y1="75" x2="625" y2="75" stroke="#7a2222" stroke-width="2" marker-end="url(#arrowBordeaux)"/>
+                            <line x1="515" y1="190" x2="625" y2="190" stroke="#4a5568" stroke-width="2" marker-end="url(#arrowSlate)"/>
+                            <line x1="420" y1="112" x2="420" y2="152" stroke="#7a2222" stroke-width="1.8" stroke-dasharray="4,3" marker-end="url(#arrowBordeaux)"/>
+
+                            <!-- Nœud 1 -->
+                            <g class="svg-node active" data-map="1" data-key="cdph" onclick="selectConceptNode(this, 'detailMap1')">
+                                <rect x="20" y="38" width="190" height="74" rx="10" fill="#ffffff" stroke="#1a202c" stroke-width="2"/>
+                                <text x="115" y="68" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">CDPH (ONU, 2008)</text>
+                                <text x="115" y="88" text-anchor="middle" font-size="11" fill="#4a5568">Ratifiée 2010 • Art. 9, 16, 19, 28, 29</text>
+                            </g>
+
+                            <!-- Nœud 2 -->
+                            <g class="svg-node" data-map="1" data-key="suivi" onclick="selectConceptNode(this, 'detailMap1')">
+                                <rect x="330" y="38" width="185" height="74" rx="10" fill="#ffffff" stroke="#1a202c" stroke-width="2"/>
+                                <text x="422" y="68" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">Suivi et contre-rapports</text>
+                                <text x="422" y="88" text-anchor="middle" font-size="11" fill="#4a5568">Comité ONU &amp; société civile</text>
+                            </g>
+
+                            <!-- Nœud 3 -->
+                            <g class="svg-node" data-map="1" data-key="levier" onclick="selectConceptNode(this, 'detailMap1')">
+                                <rect x="630" y="38" width="210" height="74" rx="10" fill="#ffffff" stroke="#1a202c" stroke-width="2"/>
+                                <text x="735" y="68" text-anchor="middle" font-size="13" font-weight="700" fill="#7a2222">Levier juridique &amp; politique</text>
+                                <text x="735" y="88" text-anchor="middle" font-size="11" fill="#4a5568">Conformité &amp; obligations d'État</text>
+                            </g>
+
+                            <!-- Nœud 4 -->
+                            <g class="svg-node" data-map="1" data-key="loi1978" onclick="selectConceptNode(this, 'detailMap1')">
+                                <rect x="20" y="153" width="190" height="78" rx="10" fill="#ffffff" stroke="#4a5568" stroke-width="1.8"/>
+                                <text x="115" y="182" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a202c">Loi de 1978 (amend. 2004)</text>
+                                <text x="115" y="201" text-anchor="middle" font-size="10.5" fill="#4a5568">Absence d'échéanciers contraignants</text>
+                                <text x="115" y="216" text-anchor="middle" font-size="10.5" fill="#4a5568">ni pénalités de non-conformité</text>
+                            </g>
+
+                            <!-- Nœud 5 -->
+                            <g class="svg-node" data-map="1" data-key="logement" onclick="selectConceptNode(this, 'detailMap1')">
+                                <rect x="330" y="153" width="185" height="78" rx="10" fill="#ffffff" stroke="#4a5568" stroke-width="1.8"/>
+                                <text x="422" y="182" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a202c">Code de construction</text>
+                                <text x="422" y="201" text-anchor="middle" font-size="10.5" fill="#4a5568">Mesures intérieures volontaires (2018)</text>
+                                <text x="422" y="216" text-anchor="middle" font-size="10.5" fill="#4a5568">Exemptions (&lt; 9 log. ou &lt; 3 étages)</text>
+                            </g>
+
+                            <!-- Nœud 6 -->
+                            <g class="svg-node" data-map="1" data-key="autonomie" onclick="selectConceptNode(this, 'detailMap1')">
+                                <rect x="630" y="153" width="210" height="78" rx="10" fill="#ffffff" stroke="#4a5568" stroke-width="1.8"/>
+                                <text x="735" y="182" text-anchor="middle" font-size="12.5" font-weight="700" fill="#7a2222">Vie autonome compromise</text>
+                                <text x="735" y="201" text-anchor="middle" font-size="10.5" fill="#4a5568">Visiter un logement ≠ y habiter</text>
+                                <text x="735" y="216" text-anchor="middle" font-size="10.5" fill="#4a5568">Exigence de réforme normative</text>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="concept-detail-panel" id="detailMap1">
+                        <strong>Convention relative aux droits des personnes handicapées (CDPH) :</strong> Adoptée en 2008 par l'ONU et ratifiée par le Canada en 2010 (avec un protocole facultatif de plainte auquel le Québec s'est lié), elle réunit droits civils, politiques, économiques, sociaux et culturels, incluant l'accessibilité (art. 9), la protection contre l'exploitation et la violence (art. 16), la vie autonome dans la communauté (art. 19), un niveau de vie adéquat (art. 28) et la participation politique (art. 29).
+                    </div>
+                </div>
+
+                <!-- Sous-chapitre 2 -->
+                <h2 id="sec-interdependance" class="chapter-heading">2. Une analyse puissante et porteuse : l’interdépendance des droits humains</h2>
+                <p class="article-body-p">
+                    La Ligue des droits et libertés n’a de cesse d’insister sur l’interdépendance des droits humains, notamment, une perspective qui invite à constater et agir en tenant compte que lorsqu’un droit est bafoué, cela entraine des conséquences sur plusieurs autres droits. Inversement, lorsqu’on parvient à réaliser pleinement un droit, cela peut améliorer le respect de plusieurs autres droits pour les communautés concernées.
+                </p>
+                <p class="article-body-p">
+                    Cette interdépendance des droits est visiblement au cœur de la réalité des personnes en situation de handicap : « Qu’il s’agisse de scolarisation, d’emploi et de revenu, de logement, bref, de l’ensemble des droits sociaux, ou encore des droits et libertés civiles, comme l’accès à l’espace public, les personnes en situation de handicap sont confrontées chaque jour à des difficultés voire à des dénis de leurs droits », explique Christian Nadeau, militant de la LDL, dans le dossier spécial de la revue <i>Droits et Libertés</i><a class="sdfootnoteanc" name="sdfootnote6anc" href="#sdfootnote6sym"><sup>5</sup></a>.
+                </p>
+                <p class="article-body-p">
+                    Certaines perspectives devenues incontournables dans les dernières années se juxtaposent de façon tout à fait cohérente avec une approche de droits humains et une reconnaissance de l’interdépendance des droits. Notamment, si les personnes en situation de handicap subissent autant de dénis de leurs droits humains, de façon répétée, systématique et interdépendante, c’est qu’elles évoluent au cœur d’un système <i>capacitiste</i>, qu’elles sont nombreuses à dénoncer et à combattre depuis des années. Le <i>capacitisme</i> est basé sur des croyances, des stéréotypes, des processus et des pratiques qui déterminent si une personne est <i>capable</i> de se conformer aux normes. Le capacitisme « façonne notre monde et crée le handicap<a class="sdfootnoteanc" name="sdfootnote7anc" href="#sdfootnote7sym"><sup>6</sup></a> ». Au même titre que d’autres rapports oppressifs, tels que le racisme ou le patriarcat, le capacitisme dévoile une terrible réalité tout en étant un concept précieux, car il permet de saisir le caractère systémique des discriminations, dénis de droits et processus d’exclusion et de marginalisation vécus par les personnes en situation de handicap. Il en va de même avec cette expression, <i>personne en situation de handicap</i>, qui invite à reconnaitre que l’obstacle à la réalisation des droits humains d’une personne se trouve non pas dans la personne elle-même, mais « dans le contexte social qui la prive des ressources auxquelles elle aurait droit pour réaliser ses choix et orienter sa vie comme bon lui semble<a class="sdfootnoteanc" name="sdfootnote8anc" href="#sdfootnote8sym"><sup>7</sup></a> ».
+                </p>
+                <p class="article-body-p">
+                    De rappeler ainsi le contexte systémique entrainant des violations de droits permet d’une part de rappeler aux États leurs responsabilités dans le respect, la protection et la mise en œuvre des droits humains. D’autre part, cela permet de contester la vision selon laquelle les mesures prises pour favoriser l’accessibilité universelles sont des gestes d’aide, d’altruisme ou de charité… alors qu’on parle de <i>droits humains</i> !
+                </p>
+                <p class="article-body-p">
+                    Au même titre que d’autres groupes marginalisés subissent de nombreux dénis de droits et évoluent au cœur d’un système d’oppression, les personnes en situation de handicap subissent les effets des grandes crises de façon exacerbée. La pandémie de COVID-19 a engendré des difficultés et un isolement accru pour celles-ci. Alors que des mesures drastiques étaient mise en place précipitamment pour affronter la crise qui sévissait, les personnes en situation de handicap ont été bien souvent laissées à elles-mêmes, certaines ressources essentielles comme les répits, les écoles ou les soins adaptés étant suspendues, comme si elles avaient été oubliées. Plusieurs de leurs droits ont été mis à mal, alors que « toute règle de droit, toute politique ou toute pratique d’une autorité gouvernementale ou autre qui aurait pour effet de donner un accès limité à l’exercice d’un droit en raison du statut de la personne ne peut trouver aucune justification du point de vue des droits humains<a class="sdfootnoteanc" name="sdfootnote9anc" href="#sdfootnote9sym"><sup>8</sup></a> ».
+                </p>
+                <p class="article-body-p">
+                    La crise climatique n’échappe pas à ce constat, contribuant aussi à exacerber les inégalités et dénis de droits humains déjà existants. Un rapport du Haut-commissariat des droits de l’homme des Nations Unies révélait en 2020 <span style="letter-spacing: 0.2pt">que « la pauvreté, la stigmatisation et la discrimination étaient les trois principaux éléments exposant les personnes handicapées aux impacts des changements climatiques<a class="sdfootnoteanc" name="sdfootnote10anc" href="#sdfootnote10sym"><sup>9</sup></a> ». À l’échelle de la planète, on constate déjà qu’elles subissent des impacts accrus sur leur droit à la santé, leur droit à l’alimentation, leur droit au logement et leur droit à un niveau de vie suffisant, notamment.</span>
+                </p>
+                <p class="article-body-p">
+                    La façon dont les grandes crises affectent les personnes en situation de handicap de manière disproportionnée rappellent une autre dimension incontournable depuis une perspective de droits humains : ces personnes doivent avoir la possibilité de participer pleinement aux prises de décisions. Si elles tendent à être <i>invisibilisées</i> par le capacitisme en tant que système et par les multiples obstacles à l’accessibilité universelle, cela ne justifie en rien que les autorités gouvernementales fassent l’économie de prendre en compte leurs opinions, leurs réalités et bien entendu, leurs droits, dans toute décision. La possibilité de participer aux décisions et à la vie politique au sens large concerne également plusieurs droits humains, et constitue une clé dans la recherche de solutions inclusives face aux grandes crises tout comme en tant « normal ».
+                </p>
+                <p class="article-body-p">
+                    D’ailleurs le rapport cité précédemment souligne que « parce qu’elles sont touchées de manière disproportionnée par les changements climatiques, les personnes handicapées doivent être incluses dans l’action climatique. Leur participation permettrait d’adapter l’action climatique de sorte qu’elle traite les préoccupations propres aux personnes handicapées en lien avec les effets néfastes des changements climatiques<a class="sdfootnoteanc" name="sdfootnote11anc" href="#sdfootnote11sym"><sup>10</sup></a> ». À titre d’exemple, les mesures d’urgences prises par suite de l’ouragan Sandy aux États-Unis en 2012, telles que les véhicules d’évacuation ou les abris proposés aux personnes sinistrées, bafouaient les droits des personnes en situation de handicap. Cela dit, leur participation est essentielle dans l’ensemble des décisions prises en lien avec les mesures d’atténuation et d’adaptation aux changements climatiques, en plus des mesures prises en situation de crise ponctuelle. Pourtant, à l’heure actuelle, le plan d’adaptation aux changements climatiques du Canada reconnait les défis des peuples autochtones et des femmes, mais demeure silencieux quant aux réalités des personnes en situation de handicap.
+                </p>
+
+                <!-- Carte conceptuelle interactive 2 (SVG) -->
+                <div class="concept-map-card" id="conceptMap2">
+                    <div class="concept-map-header">
+                        <span class="concept-map-title">Carte conceptuelle interactive 2 — Interdépendance des droits, capacitisme et crises</span>
+                        <span class="concept-map-hint">Cliquez sur un nœud pour consulter l'analyse</span>
+                    </div>
+                    <div class="concept-svg-wrapper">
+                        <svg viewBox="0 0 860 270" class="concept-svg" role="img" aria-label="Diagramme conceptuel reliant capacitisme, contexte social, interdépendance des droits, crises et participation">
+                            <defs>
+                                <marker id="arrowBordeaux2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#7a2222"/>
+                                </marker>
+                            </defs>
+
+                            <!-- Flèches -->
+                            <line x1="215" y1="75" x2="325" y2="75" stroke="#7a2222" stroke-width="2" marker-end="url(#arrowBordeaux2)"/>
+                            <line x1="535" y1="75" x2="640" y2="75" stroke="#7a2222" stroke-width="2" marker-end="url(#arrowBordeaux2)"/>
+                            <line x1="215" y1="190" x2="325" y2="190" stroke="#7a2222" stroke-width="2" marker-end="url(#arrowBordeaux2)"/>
+                            <line x1="535" y1="190" x2="640" y2="190" stroke="#7a2222" stroke-width="2" marker-end="url(#arrowBordeaux2)"/>
+                            <line x1="430" y1="112" x2="430" y2="152" stroke="#7a2222" stroke-width="2" marker-end="url(#arrowBordeaux2)"/>
+
+                            <!-- Nœud A -->
+                            <g class="svg-node active" data-map="2" data-key="capacitisme" onclick="selectConceptNode(this, 'detailMap2')">
+                                <rect x="20" y="38" width="195" height="74" rx="10" fill="#ffffff" stroke="#1a202c" stroke-width="2"/>
+                                <text x="117" y="68" text-anchor="middle" font-size="13" font-weight="700" fill="#7a2222">Système capacitisme</text>
+                                <text x="117" y="88" text-anchor="middle" font-size="11" fill="#4a5568">Normes, stéréotypes &amp; exclusion</text>
+                            </g>
+
+                            <!-- Nœud B -->
+                            <g class="svg-node" data-map="2" data-key="interdep" onclick="selectConceptNode(this, 'detailMap2')">
+                                <rect x="330" y="38" width="205" height="74" rx="10" fill="#ffffff" stroke="#1a202c" stroke-width="2"/>
+                                <text x="432" y="68" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">Interdépendance des droits</text>
+                                <text x="432" y="88" text-anchor="middle" font-size="11" fill="#4a5568">Logement, emploi, santé, espace public</text>
+                            </g>
+
+                            <!-- Nœud C -->
+                            <g class="svg-node" data-map="2" data-key="obligations" onclick="selectConceptNode(this, 'detailMap2')">
+                                <rect x="645" y="38" width="195" height="74" rx="10" fill="#ffffff" stroke="#1a202c" stroke-width="2"/>
+                                <text x="742" y="68" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">Droits ≠ Charité</text>
+                                <text x="742" y="88" text-anchor="middle" font-size="11" fill="#4a5568">Obligations étatiques &amp; accessibilité</text>
+                            </g>
+
+                            <!-- Nœud D -->
+                            <g class="svg-node" data-map="2" data-key="crises" onclick="selectConceptNode(this, 'detailMap2')">
+                                <rect x="20" y="153" width="195" height="78" rx="10" fill="#ffffff" stroke="#4a5568" stroke-width="1.8"/>
+                                <text x="117" y="182" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a202c">Crises exacerbées</text>
+                                <text x="117" y="201" text-anchor="middle" font-size="10.5" fill="#4a5568">COVID-19, changements climatiques</text>
+                                <text x="117" y="216" text-anchor="middle" font-size="10.5" fill="#4a5568">Pauvreté, stigmatisation, Sandy (2012)</text>
+                            </g>
+
+                            <!-- Nœud E -->
+                            <g class="svg-node" data-map="2" data-key="invisibilite" onclick="selectConceptNode(this, 'detailMap2')">
+                                <rect x="330" y="153" width="205" height="78" rx="10" fill="#ffffff" stroke="#4a5568" stroke-width="1.8"/>
+                                <text x="432" y="182" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a202c">Obstacle dans le contexte</text>
+                                <text x="432" y="201" text-anchor="middle" font-size="10.5" fill="#4a5568">« Personne en situation de handicap »</text>
+                                <text x="432" y="216" text-anchor="middle" font-size="10.5" fill="#4a5568">Privation de ressources et d'accès</text>
+                            </g>
+
+                            <!-- Nœud F -->
+                            <g class="svg-node" data-map="2" data-key="participation" onclick="selectConceptNode(this, 'detailMap2')">
+                                <rect x="645" y="153" width="195" height="78" rx="10" fill="#ffffff" stroke="#4a5568" stroke-width="1.8"/>
+                                <text x="742" y="182" text-anchor="middle" font-size="12.5" font-weight="700" fill="#7a2222">Participation décisionnelle</text>
+                                <text x="742" y="201" text-anchor="middle" font-size="10.5" fill="#4a5568">Inclusion dans les politiques publiques</text>
+                                <text x="742" y="216" text-anchor="middle" font-size="10.5" fill="#4a5568">et l'action climatique</text>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="concept-detail-panel" id="detailMap2">
+                        <strong>Système capacitisme :</strong> Fondé sur des croyances, stéréotypes et pratiques qui évaluent la capacité à se conformer aux normes dominantes, le capacitisme façonne nos environnements et produit des exclusions systémiques comparables à d'autres rapports d'oppression.
+                    </div>
+                </div>
+
+                <!-- Conclusion -->
+                <h2 id="sec-conclusion" class="chapter-heading">Conclusion</h2>
+                <p class="article-body-p">
+                    Les luttes pour le respect de tous les droits des personnes en situation de handicap, des enjeux d’accès au logement aux enjeux de pauvreté, en passant par les obstacles empêchant de participer pleinement à la société, gagnent ainsi à être analysées et abordées à la lumière des droits humains. Les États doivent veiller à respecter, protéger et mettre en œuvre les droits humains de tous et toutes pour vivre dans une société juste et inclusive. Cela signifie de prendre en considération ces droits à l’heure d’ébaucher toute politique ou législation susceptible de les affecter, tout en reconnaissant l’interdépendance des droits.
+                </p>
+                <p class="article-body-p">
+                    Comme le rappelle Christian Nadeau, cette interdépendance des droits appelle forcément à une interdépendance des luttes : « le respect des droits des personnes en situation de handicap n’est pas quelque chose qui est donné par la majorité à une minorité. C’est la société tout entière qui se doit cela à elle-même. […] Dans une société juste, combattre le capacitisme est en fin de compte lutter pour le respect de l’intégrité des droits dans leur ensemble<a class="sdfootnoteanc" name="sdfootnote12anc" href="#sdfootnote12sym"><sup>11</sup></a> ».
+                </p>
+                <p class="article-body-p">
+                    Pour la Ligue des droits et libertés, poser un regard de droits humains permet de mobiliser des instruments juridiques concrets, doublés d’un argumentaire puissant, en plus de rappeler aux États qu’elles ont leurs propres obligations en la matière. Car il s’agit bien d’obligations qui incombent aux États, et non de gestes charitables, pour permettre aux personnes en situation de handicap de participer pleinement à la société et d’exercer l’ensemble de leurs droits. L’interdépendance des droits humains offre aussi cette portée systémique capable de se saisir des systèmes d’oppression qui discriminent et marginalisent certains groupes de personnes, tel que le capacitisme. Comme le souligne la LDL, les droits humains sont une boussole nous indiquant la route à suivre pour cheminer vers une société juste et inclusive.
+                </p>
+
+                <!-- Références bibliographiques -->
+                <h2 id="sec-bibliographie" class="chapter-heading">Références bibliographiques</h2>
+                <div class="biblio-list">
+                    <p class="biblio-item">Bénard, M. (2021), « Le cadre législatif concernant les droits des personnes handicapées et l’accessibilité universelle », <i>Droits et Libertés</i>, vol. 40, n° 1.</p>
+                    <p class="biblio-item">Conseil des droits de l’Homme (2020), « Étude analytique sur la promotion et la protection des droits des personnes handicapées dans le contexte des changements climatiques », CDH 44<sup>ème</sup> session, URL : https://tinyurl.com/2p8kt4h8.</p>
+                    <p class="biblio-item">Dupuis, O. (2021), « La crise permanente du logement accessible », <i>Droits et Libertés</i>, vol. 40, n° 1.</p>
+                    <p class="biblio-item">Nadeau, C. (2021), « Droits et handicap : introduction au dossier », <i>Droits et Libertés</i>, vol. 40, n° 1.</p>
+                    <p class="biblio-item">Nicole, F. (2014, 7 octobre), <i>Allocution lors du lancement de la campagne « Travailleuses et travailleurs migrants : pas des marchandises ! »</i>.</p>
+                    <p class="biblio-item">Paré, M. (2021), « La CDPH : des efforts du Canada depuis près de 20 ans », <i>Droits et libertés</i>, vol. 40, n° 1.</p>
+                </div>
+
+                <!-- Notes de bas de page -->
+                <div class="footnotes-section">
+                    <div id="sdfootnote1" class="footnote-entry"><a name="sdfootnote1sym" href="#sdfootnote1anc"><sup>*</sup></a> Un article largement inspiré du texte de Christian Nadeau de la Ligue des droits et libertés.</div>
+                    <div id="sdfootnote2" class="footnote-entry"><a name="sdfootnote2sym" href="#sdfootnote2anc"><sup>1</sup></a> Paré, M. (2021), « La CDPH : des efforts du Canada depuis près de 20 ans », <i>Droits et libertés</i>, vol. 40, n° 1.</div>
+                    <div id="sdfootnote3" class="footnote-entry"><a name="sdfootnote3sym" href="#sdfootnote3anc"><sup>2</sup></a> Bénard, M. (2021), « Le cadre législatif concernant les droits des personnes handicapées et l’accessibilité universelle », <i>Droits et Libertés</i>, vol. 40, n° 1.</div>
+                    <div id="sdfootnote4" class="footnote-entry"><a name="sdfootnote4sym" href="#sdfootnote4anc"><sup>3</sup></a> Dupuis, O. (2021), « La crise permanente du logement accessible », <i>Droits et Libertés</i>, vol. 40, n° 1.</div>
+                    <div id="sdfootnote5" class="footnote-entry"><a name="sdfootnote5sym" href="#sdfootnote5anc"><sup>4</sup></a> <i>Idem</i>.</div>
+                    <div id="sdfootnote6" class="footnote-entry"><a name="sdfootnote6sym" href="#sdfootnote6anc"><sup>5</sup></a> Nadeau, C. (2021), « Droits et handicap : introduction au dossier », <i>Droits et Libertés</i>, vol. 40, n° 1.</div>
+                    <div id="sdfootnote7" class="footnote-entry"><a name="sdfootnote7sym" href="#sdfootnote7anc"><sup>6</sup></a> <i>Idem</i>.</div>
+                    <div id="sdfootnote8" class="footnote-entry"><a name="sdfootnote8sym" href="#sdfootnote8anc"><sup>7</sup></a> <i>Idem</i>.</div>
+                    <div id="sdfootnote9" class="footnote-entry"><a name="sdfootnote9sym" href="#sdfootnote9anc"><sup>8</sup></a> Nicole, F. (2014, 7 octobre), <i>Allocution lors du lancement de la campagne « Travailleuses et travailleurs migrants : pas des marchandises ! »</i>.</div>
+                    <div id="sdfootnote10" class="footnote-entry"><a name="sdfootnote10sym" href="#sdfootnote10anc"><sup>9</sup></a> Conseil des droits de l’Homme (2020), « Étude analytique sur la promotion et la protection des droits des personnes handicapées dans le contexte des changements climatiques », CDH 44<sup>ème</sup> session, URL : https://tinyurl.com/2p8kt4h8.</div>
+                    <div id="sdfootnote11" class="footnote-entry"><a name="sdfootnote11sym" href="#sdfootnote11anc"><sup>10</sup></a> Nadeau, C. (2021), <i>op. cit</i>.</div>
+                    <div id="sdfootnote12" class="footnote-entry"><a name="sdfootnote12sym" href="#sdfootnote12anc"><sup>11</sup></a> <i>Idem</i>.</div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal Universel (PDF / Vidéo) -->
+    <div class="modal-overlay" id="mediaModal" onclick="closeModalOnOutside(event)">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 id="modalTitle">Titre de la fenêtre</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBodyContent"></div>
+        </div>
+    </div>
+
+    <!-- Modal de Proposition d'Article / Projet -->
+    <div class="modal-overlay" id="proposalModal" onclick="closeProposalModalOnOutside(event)">
+        <div class="modal-container" style="max-width: 800px; height: auto;">
+            <div class="modal-header">
+                <h3 id="proposalModalTitle">Proposer une captation ou un article / Nous faire part d'un commentaire</h3>
+                <button class="modal-close" onclick="closeProposalModal()">&times;</button>
+            </div>
+            <div class="modal-body" style="padding: 1.5rem; overflow-y: auto;">
+                <form id="proposalForm" onsubmit="submitProposal(event)" style="display: flex; flex-direction: column; gap: 1rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                    <input type="hidden" id="propCategory" value="article">
+                    <div>
+                        <label for="propName" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Votre nom</label>
+                        <input type="text" id="propName" required style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propEmail" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Votre courriel</label>
+                        <input type="email" id="propEmail" required style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propTitle" id="propTitleLabel" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Que désirez-vous nous communiquer ?</label>
+                        <input type="text" id="propTitle" required placeholder="Ex: Analyse de l'accessibilité urbaine..." style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propDesc" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Description ou résumé</label>
+                        <textarea id="propDesc" rows="4" required placeholder="Décrivez votre proposition en quelques lignes..." style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff; resize: vertical;"></textarea>
+                    </div>
+                    <button type="submit" style="background-color: #7a2222; color: #fff; border: none; padding: 0.75rem; border-radius: 4px; font-weight: 600; cursor: pointer; margin-top: 0.5rem; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#5e1a1a'" onmouseout="this.style.backgroundColor='#7a2222'">Envoyer la proposition</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSubmenu(event, submenuId, arrowId) {
+            event.stopPropagation();
+            const submenu = document.getElementById(submenuId);
+            const arrow = document.getElementById(arrowId);
+            submenu.classList.toggle('open');
+            const isOpen = submenu.classList.contains('open');
+            if (event.currentTarget && event.currentTarget.hasAttribute('aria-expanded')) {
+                event.currentTarget.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            }
+            if (arrow) {
+                arrow.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+            }
+        }
+
+        function scrollToPageSection(event, targetId) {
+            event.preventDefault();
+            const indicator = document.getElementById('locationIndicator');
+            if (!targetId) {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                if (indicator) indicator.textContent = 'Présentation';
+                return;
+            }
+            const el = document.getElementById(targetId);
+            if (el) {
+                const topbarOffset = 88;
+                const y = el.getBoundingClientRect().top + window.pageYOffset - topbarOffset;
+                window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+                if (indicator) indicator.textContent = el.textContent.trim();
+            }
+        }
+
+        const conceptDetailsMap1 = {
+            cdph: '<strong>Convention relative aux droits des personnes handicapées (CDPH) :</strong> Adoptée en 2008 par l\'ONU et ratifiée par le Canada en 2010 (avec un protocole facultatif de plainte auquel le Québec s\'est lié), elle réunit droits civils, politiques, économiques, sociaux et culturels, incluant l\'accessibilité (art. 9), la protection contre l\'exploitation et la violence (art. 16), la vie autonome dans la communauté (art. 19), un niveau de vie adéquat (art. 28) et la participation politique (art. 29).',
+            suivi: '<strong>Suivi et contre-rapports :</strong> Le Canada soumet des rapports au Comité des personnes handicapées de l\'ONU, complétés par des rapports critiques alternatifs produits par la société civile et les organismes communautaires afin d\'éclairer les réalités vécues sur le terrain.',
+            levier: '<strong>Levier juridique et politique :</strong> Les normes internationales et internes fournissent un cadre de référence pour évaluer la conformité des lois et rappeler aux gouvernements leurs obligations juridiques.',
+            loi1978: '<strong>Loi assurant l\'exercice des droits des personnes handicapées (1978, amendée en 2004) :</strong> Critiquée pour l\'absence d\'objectifs ou d\'échéanciers contraignants d\'élimination des obstacles et l\'absence de pénalités en cas de non-conformité, ce qui ralentit la mise en accessibilité.',
+            logement: '<strong>Code de construction du Québec :</strong> Les nouvelles dispositions intérieures adoptées en 2018 demeurent largement volontaires, et les petits immeubles (moins de neuf logements ou moins de trois étages) sont exemptés de normes d\'accessibilité.',
+            autonomie: '<strong>Vie autonome compromise :</strong> Comme le souligne Olivier Dupuis, des normes centrées sur la simple visite d\'un logement plutôt que sur le fait d\'y habiter durablement limitent l\'autonomie résidentielle des personnes en situation de handicap.'
+        };
+
+        const conceptDetailsMap2 = {
+            capacitisme: '<strong>Système capacitisme :</strong> Fondé sur des croyances, stéréotypes et pratiques qui évaluent la capacité à se conformer aux normes dominantes, le capacitisme façonne nos environnements et produit des exclusions systémiques comparables à d\'autres rapports d\'oppression.',
+            interdep: '<strong>Interdépendance des droits humains :</strong> Lorsqu\'un droit est bafoué ou réalisé, cela rejaillit sur d\'autres droits (scolarisation, emploi, revenu, logement, accès à l\'espace public et participation civique).',
+            obligations: '<strong>Droits humains plutôt que charité :</strong> L\'accessibilité universelle et la protection des droits relèvent d\'obligations incombant aux États, et non de gestes d\'aide, d\'altruisme ou de charité.',
+            crises: '<strong>Crises exacerbées :</strong> La pandémie de COVID-19 (suspension de répits, écoles ou soins adaptés) et la crise climatique (pauvreté, stigmatisation, discrimination, lacunes lors de l\'ouragan Sandy en 2012) frappent durement les personnes en situation de handicap.',
+            invisibilite: '<strong>Obstacle dans le contexte social :</strong> L\'expression « personne en situation de handicap » met en évidence que l\'entrave réside dans un contexte social qui limite l\'accès aux ressources nécessaires pour orienter sa vie.',
+            participation: '<strong>Participation décisionnelle :</strong> L\'inclusion effective des personnes en situation de handicap dans les processus décisionnels et l\'action climatique (notamment face au silence du plan d\'adaptation canadien) est indispensable à des politiques justes.'
+        };
+
+        function selectConceptNode(nodeEl, panelId) {
+            const mapNum = nodeEl.getAttribute('data-map');
+            const key = nodeEl.getAttribute('data-key');
+            document.querySelectorAll(`.svg-node[data-map="${mapNum}"]`).forEach(el => el.classList.remove('active'));
+            nodeEl.classList.add('active');
+            const panel = document.getElementById(panelId);
+            if (panel) {
+                panel.innerHTML = mapNum === '1' ? (conceptDetailsMap1[key] || '') : (conceptDetailsMap2[key] || '');
+            }
+        }
+
+        function openModal(type, title, url) {
+            const modal = document.getElementById('mediaModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalBodyContent = document.getElementById('modalBodyContent');
+
+            modalTitle.textContent = title;
+            modalBodyContent.innerHTML = '';
+
+            if (type === 'pdf') {
+                const iframe = document.createElement('iframe');
+                iframe.className = 'pdf-frame';
+                iframe.src = url;
+                modalBodyContent.appendChild(iframe);
+            } else if (type === 'video') {
+                const iframe = document.createElement('iframe');
+                iframe.className = 'video-frame';
+                iframe.src = url;
+                iframe.setAttribute('allow', 'autoplay; fullscreen');
+                modalBodyContent.appendChild(iframe);
+            }
+
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('mediaModal');
+            modal.style.display = 'none';
+            document.getElementById('modalBodyContent').innerHTML = '';
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeModalOnOutside(event) {
+            const modal = document.getElementById('mediaModal');
+            if (event.target === modal) closeModal();
+        }
+
+        function openProposalModal(type) {
+            const proposalModal = document.getElementById('proposalModal');
+            const titleEl = document.getElementById('proposalModalTitle');
+            const categoryEl = document.getElementById('propCategory');
+            const titleLabelEl = document.getElementById('propTitleLabel');
+            const titleInputEl = document.getElementById('propTitle');
+
+            categoryEl.value = type;
+
+            if (type === 'captation') {
+                titleEl.textContent = "Nous faire part d'un commentaire ou d'une proposition (captation ou article)";
+                titleLabelEl.textContent = "Que voulez-vous nous communiquer ?";
+                titleInputEl.placeholder = "Ex: projet de captation, soumettre un article, faire un commentaire...";
+            } else {
+                titleEl.textContent = "Nous faire part d'un commentaire ou d'une proposition (captation ou article)";
+                titleLabelEl.textContent = "Que voulez-vous nous communiquer ?";
+                titleInputEl.placeholder = "Ex: projet de captation, soumettre un article, faire un commentaire...";
+            }
+
+            proposalModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProposalModal() {
+            const proposalModal = document.getElementById('proposalModal');
+            proposalModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeProposalModalOnOutside(event) {
+            const proposalModal = document.getElementById('proposalModal');
+            if (event.target === proposalModal) closeProposalModal();
+        }
+
+        function submitProposal(event) {
+            event.preventDefault();
+            const name = document.getElementById('propName').value;
+            const email = document.getElementById('propEmail').value;
+            const category = document.getElementById('propCategory').value;
+            const title = document.getElementById('propTitle').value;
+            const desc = document.getElementById('propDesc').value;
+
+            const typeLabel = category === 'captation' ? 'Proposition de captation' : "Proposition d'article";
+            const subject = encodeURIComponent(`${typeLabel} : ${title}`);
+            const body = encodeURIComponent(`Nom : ${name}\nCourriel : ${email}\nType : ${typeLabel}\nTitre : ${title}\n\nDescription :\n${desc}`);
+
+            window.location.href = `mailto:sociocamera@gmail.com?subject=${subject}&body=${body}`;
+            closeProposalModal();
+        }
+
+        window.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+                closeProposalModal();
+            }
+        });
+    </script>
+</body>
+</html>
