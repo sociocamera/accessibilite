@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; frame-src https://drive.google.com; connect-src https://script.google.com; object-src 'none';">
+    <title>Inclusion sociale et accessibilité | Revue de Sociologie Visuelle</title>
+    <meta name="description" content="Numéro spécial de la Revue de Sociologie Visuelle consacré à l'inclusion sociale et à l'accessibilité. Contributions empiriques et théoriques dirigées par François Routhier et Pierre Fraser.">
+    <meta name="keywords" content="inclusion sociale, accessibilité, sociologie visuelle, handicap, transport urbain, éducation inclusive, CIRRIS, PSVI">
+    <link rel="canonical" href="https://doi.org/10.13140/RG.2.2.35504.53768">
+
+    <style>
+        :root {
+            --bg-color: #FAF6EF;
+            --text-color: #2b2b2b;
+            --primary-color: #1a202c;
+            --accent-color: #4a5568;
+            --border-color: #e2e8f0;
+            --card-bg: #FAF6EF;
+            --hover-border: #cbd5e0;
+            --max-width: 1400px;
+            --sidebar-width: 320px;
+            --topbar-height: 60px;
+            --modal-header-bg: #7a2222; /* Bordeaux de référence */
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Georgia", "Cambria", "Times New Roman", serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Barre horizontale permanente supérieure : toute la largeur de la page */
+        .top-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--topbar-height);
+            background-color: var(--bg-color);
+            border-bottom: 1px solid var(--border-color);
+            display: grid;
+            grid-template-columns: var(--sidebar-width) 1fr auto;
+            align-items: center;
+            padding: 0;
+            z-index: 1100;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .top-navbar-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            letter-spacing: 0.02em;
+            padding-left: 1.5rem;
+            border-right: 1px solid var(--border-color);
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .top-navbar-location {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            background-color: #f2ede4;
+            padding: 0.3rem 0.75rem;
+            border-radius: 4px;
+            margin-right: 2.5rem;
+        }
+
+        /* Colonne latérale gauche permanente sous la barre fixe du haut */
+        aside.sidebar {
+            position: fixed;
+            top: var(--topbar-height);
+            left: 0;
+            width: var(--sidebar-width);
+            height: calc(100vh - var(--topbar-height));
+            background-color: #f5f0e6;
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            z-index: 1000;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            overflow-y: auto;
+        }
+
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .btn-home {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            background-color: #7a2222;
+            color: #fff;
+            border: none;
+            padding: 0.85rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        .btn-home svg {
+            position: absolute;
+            left: 1rem;
+        }
+
+        .btn-home:hover {
+            background-color: #5e1a1a;
+        }
+
+        .sidebar-info-section {
+            padding: 1rem 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .sidebar-card {
+            background-color: #FAF6EF;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 0.85rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            text-align: justify;
+        }
+
+        .sidebar-card.editor-card {
+            flex-direction: row;
+            align-items: center;
+            gap: 0.75rem;
+            text-align: left;
+        }
+
+        .editor-info h4 {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            margin-bottom: 0.15rem;
+        }
+
+        .editor-info p {
+            font-size: 0.78rem;
+            color: var(--accent-color);
+            line-height: 1.4;
+        }
+
+        .sidebar-nav {
+            padding: 1.25rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            flex: 1;
+        }
+
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--primary-color);
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-align: left;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            background-color: #eae3d5;
+            border-color: var(--hover-border);
+        }
+
+        .submenu {
+            display: none;
+            flex-direction: column;
+            gap: 0.4rem;
+            padding-left: 1rem;
+            margin-top: -0.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .submenu.open {
+            display: flex;
+        }
+
+        .submenu-item {
+            font-size: 0.82rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            padding: 0.4rem 0.75rem;
+            border-radius: 4px;
+            transition: background-color 0.15s, color 0.15s;
+            border-left: 2px solid #d4c5b9;
+        }
+
+        .submenu-item:hover {
+            background-color: #eae3d5;
+            color: var(--primary-color);
+            border-left-color: var(--primary-color);
+        }
+
+        /* Bouton cliquable NAVIGATION DANS LA PAGE */
+        .page-nav-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background: transparent;
+            border: none;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #7a2222;
+            letter-spacing: 0.05em;
+            margin-top: 0.5rem;
+            margin-bottom: 0.25rem;
+            padding: 0.45rem 0.25rem;
+            cursor: pointer;
+            text-align: left;
+            font-family: inherit;
+            transition: opacity 0.2s;
+        }
+
+        .page-nav-toggle:hover {
+            opacity: 0.8;
+        }
+
+        .page-nav-submenu {
+            display: none;
+            flex-direction: column;
+            gap: 0.35rem;
+            padding-left: 0.65rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .page-nav-submenu.open {
+            display: flex;
+        }
+
+        .page-nav-submenu .submenu-item {
+            border-left: 2px solid #7a2222;
+            line-height: 1.35;
+        }
+
+        .page-nav-submenu .submenu-item:hover {
+            color: #7a2222;
+            background-color: #eae3d5;
+        }
+
+        /* Conteneur principal à droite, décalé pour laisser place à la sidebar et topbar */
+        .main-wrapper {
+            margin-left: var(--sidebar-width);
+            margin-top: var(--topbar-height);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            width: calc(100% - var(--sidebar-width));
+            padding: 2.5rem 2rem 4rem 2rem;
+        }
+
+        /* Centrage du contenu principal avec largeur maximale de 1060px */
+        .article-container {
+            width: 100%;
+            max-width: 1060px;
+            margin: 0 auto;
+        }
+
+        /* Décalage d'ancrage pour pointer juste un peu au-dessus du titre */
+        .anchor-target {
+            scroll-margin-top: calc(var(--topbar-height) + 28px);
+        }
+
+        /* En-tête de l'article */
+        .article-header {
+            margin-bottom: 1.75rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 1px solid #e2d9c8;
+        }
+
+        .article-title {
+            font-size: 1.85rem;
+            line-height: 1.3;
+            color: var(--primary-color);
+            font-weight: 700;
+            text-align: left;
+        }
+
+        /* Grille à deux cases sous le titre (Auteurs & Citation) */
+        .meta-boxes-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .whitish-box {
+            background-color: #FDFBF7;
+            border: 1px solid #e6dfd3;
+            border-radius: 8px;
+            padding: 1.25rem 1.4rem;
+            font-size: 0.88rem;
+            line-height: 1.55;
+            color: #3a3a3a;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .author-box {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+        }
+
+        .author-avatar {
+            width: 82px;
+            height: 82px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #7a2222;
+            flex-shrink: 0;
+            background-color: #eee;
+        }
+
+        .author-details .author-names {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 0.95rem;
+            margin-bottom: 0.35rem;
+            line-height: 1.35;
+        }
+
+        .author-details .author-affiliations {
+            font-size: 0.82rem;
+            color: var(--accent-color);
+            line-height: 1.45;
+        }
+
+        .citation-box-label {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #7a2222;
+            margin-bottom: 0.45rem;
+        }
+
+        /* Grille à deux cases pour les résumés (Français & Anglais) */
+        .abstract-boxes-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .abstract-box {
+            text-align: justify;
+        }
+
+        .abstract-keywords {
+            margin-top: 0.75rem;
+            padding-top: 0.65rem;
+            border-top: 1px dashed #e2d9c8;
+            font-size: 0.83rem;
+            color: var(--accent-color);
+        }
+
+        /* Corps de l'article */
+        .article-body {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-color);
+        }
+
+        .article-body p {
+            margin-bottom: 1.15rem;
+            text-align: justify;
+        }
+
+        /* Lettrine rouge bordeaux en gras sur la première lettre de l'introduction */
+        .dropcap::first-letter {
+            float: left;
+            font-size: 3.6rem;
+            line-height: 0.82;
+            font-weight: 700;
+            color: #7a2222;
+            padding-right: 0.65rem;
+            padding-top: 0.15rem;
+            font-family: "Georgia", serif;
+        }
+
+        /* Titres des sous-chapitres de couleur rouge bordeaux */
+        .chapter-heading {
+            color: #7a2222;
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-top: 2.6rem;
+            margin-bottom: 1.1rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 1px solid #e6dfd3;
+            line-height: 1.35;
+        }
+
+        .actor-heading {
+            color: #7a2222;
+            font-size: 1.1rem;
+            font-weight: 700;
+            font-style: italic;
+            margin-top: 1.75rem;
+            margin-bottom: 0.55rem;
+        }
+
+        /* Citations intégrées dans le texte */
+        .article-quote {
+            margin: 1.35rem 2rem;
+            padding: 0.85rem 1.25rem;
+            border-left: 3px solid #7a2222;
+            background-color: #FDFBF7;
+            font-style: italic;
+            color: #2b2b2b;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .article-quote cite {
+            display: block;
+            margin-top: 0.35rem;
+            font-style: normal;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #7a2222;
+        }
+
+        /* Appels de notes de bas de page */
+        .footnote-ref {
+            color: #7a2222;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0 1px;
+        }
+
+        .footnote-ref:hover {
+            text-decoration: underline;
+        }
+
+        /* Cartes conceptuelles interactives sur fond plus pâle que la page (#FAF6EF -> #FFFDF9) */
+        .concept-map-card {
+            background-color: #FFFDF9;
+            border: 1px solid #e3dacb;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2.25rem 0;
+            box-shadow: 0 4px 14px rgba(122, 34, 34, 0.04);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .concept-map-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.65rem;
+            border-bottom: 1px solid #ede6d8;
+        }
+
+        .concept-map-title {
+            font-size: 0.98rem;
+            font-weight: 700;
+            color: #7a2222;
+            letter-spacing: 0.01em;
+        }
+
+        .concept-map-hint {
+            font-size: 0.78rem;
+            color: var(--accent-color);
+            font-style: italic;
+        }
+
+        .concept-svg-wrapper {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        .concept-svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .svg-node {
+            cursor: pointer;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .svg-node:hover .node-box {
+            stroke: #7a2222;
+            stroke-width: 2.5px;
+            filter: drop-shadow(0 3px 6px rgba(122, 34, 34, 0.15));
+        }
+
+        .svg-node.active .node-box {
+            fill: #7a2222 !important;
+            stroke: #5e1a1a !important;
+            stroke-width: 2.5px;
+        }
+
+        .svg-node.active text {
+            fill: #ffffff !important;
+        }
+
+        .concept-detail-panel {
+            margin-top: 1rem;
+            padding: 1rem 1.2rem;
+            background-color: #FAF6EF;
+            border-left: 4px solid #7a2222;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #2b2b2b;
+            font-family: "Georgia", serif;
+        }
+
+        .concept-detail-panel strong {
+            color: #7a2222;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            display: block;
+            margin-bottom: 0.25rem;
+            font-size: 0.92rem;
+        }
+
+        /* Bibliographie et notes */
+        .references-section, .footnotes-section {
+            margin-top: 2.75rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e2d9c8;
+        }
+
+        .biblio-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            font-size: 0.93rem;
+            line-height: 1.6;
+        }
+
+        .biblio-list li {
+            padding-left: 1.5rem;
+            text-indent: -1.5rem;
+        }
+
+        .biblio-list a, .footnotes-list a {
+            color: #7a2222;
+            word-break: break-all;
+        }
+
+        .footnotes-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.55rem;
+            font-size: 0.85rem;
+            line-height: 1.55;
+            color: var(--accent-color);
+        }
+
+        .footnotes-list li {
+            padding-left: 1.5rem;
+            text-indent: -1.5rem;
+            scroll-margin-top: calc(var(--topbar-height) + 25px);
+        }
+
+        .footnotes-list li:target {
+            background-color: #FDFBF7;
+            border-left: 3px solid #7a2222;
+            padding-left: 1.75rem;
+            border-radius: 4px;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            padding-left: 2rem;
+        }
+
+        .btn-header {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: 1px solid var(--primary-color);
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: background-color 0.2s;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-header.secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border-color: var(--border-color);
+        }
+
+        .btn-header.secondary:hover {
+            background-color: #f2ede4;
+            border-color: var(--hover-border);
+        }
+
+        /* Styles harmonisés des fenêtres modales selon l'image de référence */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+        }
+
+        .modal-container {
+            background: var(--bg-color);
+            width: 100%;
+            max-width: 900px;
+            height: 85vh;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            border: 1px solid #d4c5b9;
+        }
+
+        .modal-header {
+            padding: 1.25rem 1.5rem;
+            background: var(--modal-header-bg);
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .modal-header h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .modal-close {
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #fff;
+            opacity: 0.85;
+            transition: opacity 0.2s;
+        }
+
+        .modal-close:hover {
+            opacity: 1;
+        }
+
+        .modal-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            background-color: var(--bg-color);
+        }
+
+        .pdf-frame, .video-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        @media (max-width: 1200px) {
+            :root { --sidebar-width: 0px; }
+            .top-navbar { left: 0; padding: 0 1rem; grid-template-columns: 1fr auto; }
+            .top-navbar-title { display: none; }
+            aside.sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
+            aside.sidebar.mobile-open { transform: translateX(0); }
+            .main-wrapper { margin-left: 0; width: 100%; }
+        }
+
+        @media (max-width: 820px) {
+            .meta-boxes-grid, .abstract-boxes-grid {
+                grid-template-columns: 1fr;
+            }
+            .author-box {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+.author-details sup {
+    font-weight: normal;
+}
+    </style>
+</head>
+<body>
+
+    <!-- Barre horizontale permanente supérieure -->
+    <header class="top-navbar">
+        <div class="top-navbar-title">Revue Sociologie Visuelle</div>
+        <div class="header-actions">
+            <button class="btn-header secondary" onclick="openModal('video', 'Présentation introductive — Vidéo', 'https://drive.google.com/file/d/10Va3etjn9wZIqrVnByyNXDVM-XPKOHkK/preview?autoplay=1')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                Visionner la vidéo de présentation
+            </button>
+            <button class="btn-header secondary" onclick="openProposalModal('article')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                Proposer un projet de captation ou un article
+            </button>
+            <button class="btn-header secondary" onclick="openModal('pdf', 'Télécharger le numéro complet', 'https://drive.google.com/file/d/1d3ZUnnEwYomQ1VRQ1lF8XNei88HelQvy/preview')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Télécharger le numéro
+            </button>
+        </div>
+        <div class="top-navbar-location" id="locationIndicator">Accueil</div>
+    </header>
+
+    <!-- Colonne latérale gauche permanente -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="https://inclusionsociale.com" class="btn-home">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                INCLUSION SOCIALE
+            </a>
+        </div>
+
+        <div class="sidebar-info-section">
+            <div style="font-size: 0.72rem; color: #718096; text-align: left; margin-bottom: 0.05rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                DOI : <a href="https://doi.org/10.13140/RG.2.2.35504.53768" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; opacity: 0.85;">10.13140/RG.2.2.35504.53768</a>
+            </div>
+
+            <div class="sidebar-card editor-card">
+                <div class="editor-info">
+                    <h4>Éditeurs</h4>
+                    <p><b>François Routhier & Pierre Fraser</b></p>
+                    <p>Plus de 18 équipes de recherche mobilisées afin de saisir comment le milieu façonne et articule l'accès aux services et à l'inclusion sociale.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-nav">
+            <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: #7a2222; letter-spacing: 0.05em; margin-bottom: 0.5rem; padding-left: 0.25rem;">NAVIGATION SUR LE SITE</div>
+
+            <div>
+                <button class="nav-btn" onclick="toggleSubmenu(event, 'accessibilitySubmenu', 'submenuArrow')">
+                    <span>Penser l'accessibilité</span>
+                    <svg id="submenuArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu" id="accessibilitySubmenu">
+                    <a href="https://inclusionsociale.com/#theme-1" class="submenu-item">1. Espace urbain & transports</a>
+                    <a href="https://inclusionsociale.com/#theme-2" class="submenu-item">2. Éducation & institutions</a>
+                    <a href="https://inclusionsociale.com/#theme-3" class="submenu-item">3. Travail, autonomie & loisirs</a>
+                    <a href="https://inclusionsociale.com/#theme-4" class="submenu-item">4. Expérience vécue & stigmates</a>
+                </div>
+            </div>
+
+            <div>
+                <button class="nav-btn" onclick="toggleSubmenu(event, 'bilansSubmenu', 'bilansSubmenuArrow')">
+                    <span>Bilans</span>
+                    <svg id="bilansSubmenuArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu" id="bilansSubmenu">
+                    <a href="https://inclusionsociale.com/mentorat-actif-bilan.html" class="submenu-item">Mentorat actif, un plus tard</a>
+                </div>
+            </div>
+            <!-- Bouton Tournages en cours non gras -->
+            <div>
+                <a href="https://inclusionsociale.com/tournages.html" class="nav-btn" style="font-weight: normal;">
+                    <span>Tournages en cours</span>
+                </a>
+            </div>
+
+            <!-- Mention cliquable NAVIGATION DANS LA PAGE -->
+            <div>
+                <button class="page-nav-toggle" onclick="toggleSubmenu(event, 'pageNavSubmenu', 'pageNavArrow')" aria-expanded="false">
+                    <span>NAVIGATION DANS LA PAGE</span>
+                    <svg id="pageNavArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="transition: transform 0.2s;"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="page-nav-submenu" id="pageNavSubmenu">
+                    <a href="#top-presentation" class="submenu-item" onclick="scrollToSection(event, 'top-presentation')">Présentation</a>
+                    <a href="#section-intro" class="submenu-item" onclick="scrollToSection(event, 'section-0')">Introduction</a>
+                    <a href="#section-1" class="submenu-item" onclick="scrollToSection(event, 'section-1')">1. Historique de l'habitation</a>
+                    <a href="#section-2" class="submenu-item" onclick="scrollToSection(event, 'section-2')">2. Aspirations résidentielles</a>
+                    <a href="#section-3" class="submenu-item" onclick="scrollToSection(event, 'section-3')">3. Nouvelles formules et « J'ai mon appart' »</a>
+                    <a href="#section-4" class="submenu-item" onclick="scrollToSection(event, 'section-4')">4. Les acteurs impliqués</a>
+                    <a href="#section-5" class="submenu-item" onclick="scrollToSection(event, 'section-5')">5. Leçons tirées</a>
+                    <a href="#section-conclusion" class="submenu-item" onclick="scrollToSection(event, 'section-conclusion')">Conclusion</a>
+                    <a href="#section-references" class="submenu-item" onclick="scrollToSection(event, 'section-references')">Références bibliographiques</a>
+                </div>
+            </div>
+
+        </div>
+    </aside>
+
+    <!-- Zone de contenu dynamique à droite (Frame de base) -->
+    <div class="main-wrapper" id="top-presentation">
+        <main class="article-container">
+            <article>
+                <!-- Titre principal de l'article -->
+                <header class="article-header">
+                    <h1 class="article-title">Rôles et défis des acteurs impliqués dans le développement des appartements supervisés «&nbsp;J’ai mon appart’&nbsp;» pour des adultes ayant une déficience intellectuelle ou autistes</h1>
+                </header>
+
+                <!-- Deux cases côte à côte sous le titre : Auteurs/Affiliations & Citation -->
+                <section class="meta-boxes-grid" aria-label="Auteurs et citation">
+
+
+<div class="whitish-box author-box" style="flex-direction: column; align-items: flex-start; gap: 0.85rem;">
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <img src="https://lh3.googleusercontent.com/d/1RD0fMwl-l94c4k_j-ksONRvzAAMHxvdt" alt="Martin Caouette" class="author-avatar">
+                            <img src="https://lh3.googleusercontent.com/d/1x65kgvKRqRf-jjMPfbsTx63MsFKlaOCW" alt="Sarah Pellerin" class="author-avatar">
+                            <img src="https://lh3.googleusercontent.com/d/1vG7uOG-f2jFfI8ZYkIL4em_iYK_1sLmH" alt="Michèle Lafontaine" class="author-avatar">
+                        </div>
+                        <div class="author-details">
+                            <div class="author-names">
+                               Martin CAOUETTE<sup style="font-weight: normal;">2-3</sup> | Sarah PELLERIN<sup style="font-weight: normal;">2-3</sup> | Michèle LAFONTAINE<sup style="font-weight: normal;">1</sup>
+                            </div>
+                            <div class="author-affiliations">
+                                <strong>Affiliations :</strong><br>
+                                <sup>1</sup> «&nbsp;J’ai mon appart’&nbsp;», Conseil d’administration. UQTR.<br>
+                                <sup>2</sup> Chaire Autodétermination et Handicap.<br>
+                                <sup>3</sup> UQTR, Département de psychoéducation et travail social.
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="whitish-box">
+                        <div class="citation-box-label">Citer cet article</div>
+                        <p>Caouette, M., Pellerin, S., Lafontaine, M. (2023), «&nbsp;Rôles et défis des acteurs impliqués dans le développement des appartements supervisés <em>J’ai mon appart’</em> pour des adultes ayant une déficience intellectuelle ou autistes&nbsp;», <em>Sociologie Visuelle</em>, n° 4, François Routhier et Pierre Fraser (éds.), Québec&nbsp;: Photo|Société, pp. 121-137.</p>
+                    </div>
+                </section>
+
+                <!-- Section Résumé en deux cases (Français & Anglais) -->
+                <section class="abstract-boxes-grid" aria-label="Résumés en français et en anglais">
+                    <div class="whitish-box abstract-box">
+                        <div class="citation-box-label">Résumé</div>
+                        <p>Comme tous les citoyens, les personnes ayant une déficience intellectuelle (DI) ou autistes aspirent elles aussi à accéder à un habitat qui correspond à leurs préférences et à leurs aspirations<sup><a href="#sdfootnote1sym" class="footnote-ref">1</a>-<a href="#sdfootnote2sym" class="footnote-ref">2</a>-<a href="#sdfootnote3sym" class="footnote-ref">3</a></sup>. Pour y parvenir, de nouvelles modalités de soutien s’éloignant du modèle traditionnel de prise en charge en milieu institutionnel doivent être déployées. Les habitats supervisés constituent l’une de ces modalités qui permet désormais à des adultes autrefois contraints d’être hébergés dans un milieu substitut ou par un proche d’accéder à un véritable chez-soi. Or, pour que des habitats supervisés s’implantent au sein d’une communauté, un important travail de concertation et de co-construction entre différents acteurs sociaux, communautaires et institutionnels est indispensable. Cet article présente les rôles qu’ont joués différentes catégories d’acteurs dans la mise en place des appartements supervisés «&nbsp;J’ai mon appart’&nbsp;», à Shawinigan, au Québec. Après une brève mise en contexte de l’historique et des enjeux spécifiques liés à la mise en place de ce type d’habitat, nous présenterons les différentes catégories d’acteurs identifiés par l’équipe de recherche qui a accompagné le projet. Pour chaque groupe, nous illustrerons comment ce rôle a contribué à réaliser le projet et les différents défis qu’ils ont eu à surmonter. Enfin, nous proposerons certaines pistes pour faciliter la concertation entre les différents acteurs et soutenir le développement d’autres habitats supervisés.</p>
+                        <div class="abstract-keywords"><strong>Mots-clés :</strong> Autisme ; déficience intellectuelle ; habitats supervisés.</div>
+                    </div>
+
+                    <div class="whitish-box abstract-box" lang="en">
+                        <div class="citation-box-label">Abstract</div>
+                        <p>Like all citizens, people with intellectual disabilities (ID) or autism also aspire to access housing that matches their preferences and aspirations. To achieve this, new support modalities moving away from the traditional institutional care model must be deployed. Supervised housing is one such modality that now enables adults who were previously forced to live in a substitute setting or with a relative to access a true home of their own. However, for supervised housing to take root within a community, significant consultation and co-construction among various social, community, and institutional stakeholders are essential. This article presents the roles played by different categories of actors in establishing the “J’ai mon appart’” supervised apartments in Shawinigan, Quebec. Following a brief overview of the historical context and specific challenges associated with setting up this type of housing, we present the different categories of stakeholders identified by the research team that accompanied the project. For each group, we illustrate how their role contributed to the project's realization and the various challenges they had to overcome. Finally, we propose avenues to facilitate stakeholder collaboration and support the development of other supervised housing initiatives.</p>
+                        <div class="abstract-keywords"><strong>Keywords:</strong> Autism; intellectual disability; supervised housing.</div>
+                    </div>
+                </section>
+
+                <!-- Corps de l'article -->
+                <div class="article-body">
+                    <h2 id="section-0" class="chapter-heading anchor-target">Introduction</h2>
+                    <!-- Introduction avec lettrine bordeaux -->
+                    <div id="section-intro" class="anchor-target">
+                        <p class="dropcap">Qu’est-ce que la déficience intellectuelle et l’autisme&nbsp;? Apparaissant avant l’âge de 22 ans, la DI est caractérisée par différentes limitations du fonctionnement intellectuel et du comportement adaptatif qui entravent de façon significative le fonctionnement quotidien<a href="#sdfootnote4sym" class="footnote-ref"><sup>4</sup></a>. Environ 1&nbsp;% de la population présente une DI<a href="#sdfootnote5sym" class="footnote-ref"><sup>5</sup></a>. Pour sa part, l’autisme correspond à la présence de déficits persistants sur le plan de la communication et de l’interaction sociales et la présence de comportements, d’activités et d’intérêts restreints ou répétitifs<a href="#sdfootnote6sym" class="footnote-ref"><sup>6</sup></a>. Alors que l’on estime à 1% la prévalence de l’autisme, ce taux serait en augmentation<a href="#sdfootnote7sym" class="footnote-ref"><sup>7</sup></a>. De 26% à 68% des personnes autistes composent également avec une DI, bien qu’il n’y ait pas de consensus dans les écrits scientifiques<a href="#sdfootnote8sym" class="footnote-ref"><sup>8</sup></a>. Au Québec, ces deux groupes reçoivent fréquemment du soutien sur le plan de l’habitat au sein des mêmes structures en raison de l’historique de l’organisation des services du réseau de la santé et des services sociaux.</p>
+                    </div>
+
+                    <!-- Sous-chapitre 1 -->
+                    <h2 id="section-1" class="chapter-heading anchor-target">1. Historiquement, où habitaient les personnes ayant une DI ou autistes&nbsp;?</h2>
+
+                    <p>Jusqu’au début des années 1960, lorsqu’elles n’étaient pas en mesure de subvenir seules à leurs besoins, une majorité de personnes ayant une DI ou autistes vivait avec leur famille, des proches ou au sein d’instituts psychiatriques<a href="#sdfootnote9sym" class="footnote-ref"><sup>9</sup></a>. Les transformations qui ont affecté la société québécoise au cours des années 1960 et 1970 ont progressivement mené à un mouvement de désinstitutionalisation qui s’est opéré jusqu’au début des années 2000. Ce mouvement, qui faisait alors écho à une tendance internationale, s’inscrivait dans une volonté de «&nbsp;normaliser&nbsp;»<a href="#sdfootnote10sym" class="footnote-ref"><sup>10</sup></a> les conditions de vie des personnes en situation de handicap et de leur donner accès à des «&nbsp;rôles sociaux valorisants&nbsp;»<a href="#sdfootnote11sym" class="footnote-ref"><sup>11</sup></a>. C’est l’État qui a alors pris le relais des congrégations religieuses jusque-là responsable de ceux que l’on qualifiait de «&nbsp;nécessiteux&nbsp;». Le ministère des Affaires sociales, de 1970 jusqu’à 1985, puis celui de la Santé et des Services sociaux devient alors responsable de la prise en charge des personnes ayant une DI, auxquelles sont assimilées bon nombre de personnes autistes. Les solutions d’hébergement qui se développent alors s’inspirent essentiellement du modèle médico-social. Le handicap est alors perçu comme un problème de santé chronique qui appelle à une prise en charge de la personne. Un réseau de familles d’accueil est ainsi créé à partir des années 1970 et s’étend à travers le Québec<a href="#sdfootnote12sym" class="footnote-ref"><sup>12</sup></a>. Rapidement, ces ressources deviennent la première réponse au besoin d’hébergement des personnes ayant une DI. Ces lieux que l’on qualifiera plus tard de «&nbsp;ressources de type familial&nbsp;» (RTF)<a href="#sdfootnote13sym" class="footnote-ref"><sup>13</sup></a> visent à offrir aux personnes un environnement bienveillant dans lequel on demande aux responsables d’agir en «&nbsp;bons parents&nbsp;» pour la personne. Il s’agit en quelque sorte du prolongement de l’hébergement traditionnellement offert par la famille et les proches dans un esprit institutionnel.</p>
+
+                    <p>Si l’objectif de rapprocher les personnes des communautés est louable, l’approche en elle-même présente de nombreux défis. En effet, les personnes se retrouvent dans un rapport de subordination face à une famille qui accepte, contre rétribution, de les loger et de les nourrir. De plus, la formule de rémunération des RTF étant proportionnelle au niveau de soutien requis au quotidien, elle n’encourage pas le développement de l’autonomie des personnes, puisqu’un gain d’autonomie suppose une diminution des revenus des RTF<a href="#sdfootnote14sym" class="footnote-ref"><sup>14</sup></a>. Malgré les ajustements qui seront apportés à l’approche d’accompagnement et à la rémunération au fil des années, les personnes se retrouvent généralement hébergées à long terme au sein de RTF. Ainsi, elles développent peu leur autonomie et sont contraintes de déménager lorsque la RTF cesse ses activités.</p>
+
+                    <p>Pour les personnes dont les besoins sont trop importants pour être répondus en RTF, d’autres formules d’hébergement sont progressivement proposées, notamment des ressources intermédiaires (RI), des ressources à assistance continue (RAC) et des Centres hospitaliers de soins de longue durée (CHSLD). Si ces formules sont initiées par le réseau de la santé et des services sociaux, elles sont souvent opérées par des promoteurs privés qui développent ainsi de véritables réseaux d’hébergement. De ce fait, certaines ressources perdent peu à peu leur caractère «&nbsp;familial&nbsp;» et retrouvent une approche d’accompagnement plus institutionnelle centrée sur une réponse à des besoins de santé et de soutien au quotidien par des intervenants. En 2021, l’adoption par le ministère de la Santé et des Services sociaux de la Politique d’hébergement et de soins et services de longue durée<a href="#sdfootnote15sym" class="footnote-ref"><sup>15</sup></a> confirme la logique médico-sociale de l’approche préconisée. Malgré des intentions formulées de favoriser la participation sociale des personnes hébergées et de promouvoir leur autodétermination, les investissements de l’État sont surtout centrés sur le développement d’un réseau de «&nbsp;maisons alternatives&nbsp;», une formule inspirée des «&nbsp;maisons des aînés&nbsp;». Ce type d’hébergement se veut plus humain par la création d’un milieu de vie convivial qui s’éloigne de l’environnement hospitalier. Néanmoins, ces maisons s’inscrivent dans une logique d’hébergement qui peut difficilement être assimilée à un véritable chez-soi.</p>
+
+                    <!-- CARTE CONCEPTUELLE 1 : Évolution historique des modèles d'habitation au Québec -->
+                    <figure class="concept-map-card" aria-label="Carte conceptuelle interactive sur l'évolution des modèles d'habitation">
+                        <div class="concept-map-header">
+                            <span class="concept-map-title">Carte conceptuelle 1 — De l'hébergement institutionnel au « véritable chez-soi »</span>
+                            <span class="concept-map-hint">Cliquez sur une étape pour explorer son paradigme et ses limites</span>
+                        </div>
+                        <div class="concept-svg-wrapper">
+                            <svg class="concept-svg" viewBox="0 0 920 210" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <marker id="arrowBordeaux" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                        <path d="M 0 1 L 10 5 L 0 9 z" fill="#7a2222"/>
+                                    </marker>
+                                </defs>
+                                <!-- Lignes de connexion -->
+                                <line x1="210" y1="95" x2="238" y2="95" stroke="#7a2222" stroke-width="2" marker-end="url(#arrowBordeaux)"/>
+                                <line x1="435" y1="95" x2="463" y2="95" stroke="#7a2222" stroke-width="2" marker-end="url(#arrowBordeaux)"/>
+                                <line x1="660" y1="95" x2="688" y2="95" stroke="#7a2222" stroke-width="2" marker-end="url(#arrowBordeaux)"/>
+
+                                <!-- Étape 1 -->
+                                <g class="svg-node active" onclick="selectConceptNode('map1', 0, this)">
+                                    <rect class="node-box" x="15" y="30" width="190" height="130" rx="10" fill="#FAF6EF" stroke="#cbbba6" stroke-width="1.5"/>
+                                    <text x="110" y="60" text-anchor="middle" font-size="11" font-weight="700" fill="#7a2222">AVANT 1960</text>
+                                    <text x="110" y="84" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">Asiles &amp; Famille</text>
+                                    <text x="110" y="108" text-anchor="middle" font-size="11" fill="#4a5568">Instituts psychiatriques</text>
+                                    <text x="110" y="126" text-anchor="middle" font-size="11" fill="#4a5568">et congrégations</text>
+                                </g>
+
+                                <!-- Étape 2 -->
+                                <g class="svg-node" onclick="selectConceptNode('map1', 1, this)">
+                                    <rect class="node-box" x="242" y="30" width="190" height="130" rx="10" fill="#FAF6EF" stroke="#cbbba6" stroke-width="1.5"/>
+                                    <text x="337" y="60" text-anchor="middle" font-size="11" font-weight="700" fill="#7a2222">ANNÉES 1970-2000</text>
+                                    <text x="337" y="84" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">Désinstitutionalisation</text>
+                                    <text x="337" y="108" text-anchor="middle" font-size="11" fill="#4a5568">Familles d'accueil (RTF)</text>
+                                    <text x="337" y="126" text-anchor="middle" font-size="11" fill="#4a5568">Modèle médico-social</text>
+                                </g>
+
+                                <!-- Étape 3 -->
+                                <g class="svg-node" onclick="selectConceptNode('map1', 2, this)">
+                                    <rect class="node-box" x="467" y="30" width="190" height="130" rx="10" fill="#FAF6EF" stroke="#cbbba6" stroke-width="1.5"/>
+                                    <text x="562" y="60" text-anchor="middle" font-size="11" font-weight="700" fill="#7a2222">RI, RAC &amp; 2021</text>
+                                    <text x="562" y="84" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">Maisons alternatives</text>
+                                    <text x="562" y="108" text-anchor="middle" font-size="11" fill="#4a5568">Promoteurs privés / État</text>
+                                    <text x="562" y="126" text-anchor="middle" font-size="11" fill="#4a5568">Logique d'hébergement</text>
+                                </g>
+
+                                <!-- Étape 4 -->
+                                <g class="svg-node" onclick="selectConceptNode('map1', 3, this)">
+                                    <rect class="node-box" x="692" y="30" width="212" height="130" rx="10" fill="#FAF6EF" stroke="#cbbba6" stroke-width="1.5"/>
+                                    <text x="798" y="60" text-anchor="middle" font-size="11" font-weight="700" fill="#7a2222">NOUVEAU PARADIGME</text>
+                                    <text x="798" y="84" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">Appartements supervisés</text>
+                                    <text x="798" y="108" text-anchor="middle" font-size="11" fill="#4a5568">Statut de locataire (OBNL)</text>
+                                    <text x="798" y="126" text-anchor="middle" font-size="11" fill="#4a5568">Autodétermination &amp; Chez-soi</text>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="concept-detail-panel" id="map1-detail">
+                            <strong>Avant 1960 — Prise en charge familiale ou asilaire :</strong>
+                            Les personnes ayant une DI ou autistes incapables de subvenir seules à leurs besoins demeuraient auprès de leurs proches ou étaient placées dans de grands instituts psychiatriques gérés par des congrégations religieuses, en marge de la communauté.
+                        </div>
+                    </figure>
+
+                    <!-- Sous-chapitre 2 -->
+                    <h2 id="section-2" class="chapter-heading anchor-target">2. Quelles sont désormais les aspirations résidentielles des adultes ayant une DI ou autistes&nbsp;?</h2>
+
+                    <p>Les jeunes adultes qui ont une DI ou qui sont autistes ont aujourd’hui un parcours de vie différent de ceux qui atteignaient la majorité au siècle dernier. D’abord, plusieurs de ces jeunes adultes ont connu un parcours d’inclusion en service de garde et en milieu scolaire qui les a amenés à côtoyer une diversité de jeunes de leur communauté. Ainsi, leurs aspirations se rapprochent davantage de celles des autres jeunes de leur âge, c’est-à-dire qu’ils veulent accéder à un véritable chez-soi qui leur permet d’exercer du contrôle sur leur quotidien. Un locataire de «&nbsp;J’ai mon appart’&nbsp;» l’exprime ainsi&nbsp;:</p>
+
+                    <blockquote class="article-quote">
+                        «&nbsp;Pourquoi est-ce j’irais vivre dans une famille d’accueil&nbsp;? J’en ai déjà une famille&nbsp;!&nbsp;»
+                        <cite>— Francis<a href="#sdfootnote16sym" class="footnote-ref"><sup>16</sup></a></cite>
+                    </blockquote>
+
+                    <p>Ajoutons que les programmes éducatifs offerts aux adolescents ayant une DI en milieu scolaire, notamment le programme <em>Compétences axées sur la participation sociale</em> (CAPS), misent entre autres sur le développement d’habiletés sociorésidentielles et l’expression de l’autodétermination. De même, la planification de la transition de l’école vers la vie adulte (TEVA) implique également d’aborder, avec le soutien des acteurs des réseaux scolaires, de la santé et des services sociaux, les options résidentielles à l’âge adulte. De ce fait, de plus en plus de jeunes adultes et leur famille expriment le souhait d’explorer des alternatives aux solutions d’hébergement connues.</p>
+
+                    <p>Pour certains adultes qui ont vécu jusqu’à un âge avancé avec leurs parents vieillissants, les frères et sœurs agissent parfois en relais dans le soutien à apporter. D’ailleurs, ce rôle découle parfois d’un engagement pris auprès de leur parent, comme c’est le cas pour ce frère d’une locataire de «&nbsp;J’ai mon appart’&nbsp;»&nbsp;:</p>
+
+                    <blockquote class="article-quote">
+                        «&nbsp;Maman, ne vous cassez pas la tête avec ça. Je vais en prendre soin [de ma sœur].&nbsp;»
+                        <cite>— Louis-Philippe, frère de Marie-Claude</cite>
+                    </blockquote>
+
+                    <p>Si la possibilité d’accueillir chez soi son frère ou sa sœur est une alternative, l’accompagner vers son propre domicile est une avenue qui peut être intéressante pour préserver l’intimité de chacun tout en remplissant les promesses qui ont pu être faites. D’autres cas de figure sont évidemment possibles pour les adultes ayant une DI ou autistes. Certains ont connu des milieux de vie destinés à des personnes âgées&nbsp;; d’autres n’ont pas bénéficié du soutien requis à leur situation au sein de logements ne correspondant pas à leurs besoins, etc. Globalement, ces adultes souhaitent explorer des alternatives et ont néanmoins tous une aspiration similaire&nbsp;: vivre chez soi.</p>
+
+                    <!-- Sous-chapitre 3 -->
+                    <h2 id="section-3" class="chapter-heading anchor-target">3. Qu’en est-il des nouvelles formules d’habitation et de l’organisme «&nbsp;J’ai mon appart’&nbsp;»&nbsp;?</h2>
+
+                    <p>Les formules d’habitation, telles que les appartements supervisés, sont de plus en plus utilisées pour répondre aux aspirations des adultes atteints de déficience intellectuelle (DI) ou d’autisme qui souhaitent vivre de façon autonome. Ces lieux de vie permanents, régis par les lois en vigueur, offrent le soutien nécessaire à chaque personne selon sa situation. Ainsi, il ne s’agit pas d’un hébergement traditionnel, mais plutôt d’un système de location où les individus sont locataires de leur propre appartement. Bien que le réseau de la santé et des services sociaux joue un rôle dans ces lieux, il n’en est pas le promoteur. En d’autres termes, les locataires peuvent bénéficier des services offerts par le réseau de la santé et des services sociaux, tout comme n’importe quel citoyen, mais ce dernier n’a pas la responsabilité de gérer ces environnements de vie. L’appartement supervisé s’éloigne donc d’une logique de «&nbsp;placement&nbsp;» ou d’hébergement. Il s’agit plutôt d’un environnement de vie sécurisé qui permet à chaque locataire de maximiser son autonomie et de prendre des décisions en toute liberté.</p>
+
+                    <p>«&nbsp;J’ai mon appart’&nbsp;»<a href="#sdfootnote17sym" class="footnote-ref"><sup>17</sup></a> est un organisme sans but lucratif situé à Shawinigan, dans la région de la Mauricie, au Québec. Les appartements supervisés gérés par l’organisme sont des habitations à loyer modique (HLM), c’est-à-dire que les locataires payent un loyer correspondant à 25&nbsp;% de leur revenu. Ils ont été développés dans le cadre du programme «&nbsp;AccèsLogis&nbsp;» de la Société d’habitation du Québec (SHQ)<a href="#sdfootnote18sym" class="footnote-ref"><sup>18</sup></a>. Ce programme favorise «&nbsp;le regroupement des ressources publiques, communautaires et privées, afin de réaliser des logements communautaires et abordables pour des ménages à revenu faible ou modeste et pour des personnes ayant des besoins particuliers en habitation&nbsp;» (SHQ, 2022). Ainsi, le projet s’est réalisé grâce à une subvention de la SHQ, de la Société canadienne d’hypothèque et de logement (SCHL) et par une importante contribution en argent et en nature du milieu.</p>
+
+                    <p>Concrètement, il s’agit de 11 logements composés d’une chambre, d’un salon, d’une cuisine, d’une salle de bains et d’espaces de rangement. Un 12<sup>e</sup> logement dispose d’une chambre supplémentaire et est destiné à un «&nbsp;locataire-ressource&nbsp;» qui agit en soutien aux autres locataires. Un espace commun permet les regroupements dans une salle multifonctionnelle équipée d’une cuisine complète. Une buanderie, deux conciergeries et un local administratif à destination du personnel de l’organisme complètent l’immeuble. Tous les locataires ont une DI ou sont autistes et certains composent également avec des limitations motrices. Les principaux besoins d’accompagnement concernent la réalisation des activités de la vie quotidienne, l’horaire de vie et la gestion des relations interpersonnelles. Cet accompagnement est offert par des employés de l’organisme, sous la responsabilité d’une coordonnatrice. La plupart des locataires bénéficient également des services d’un ou plusieurs intervenants spécialisés en DI ou en autisme du réseau de la santé et des services sociaux pour le développement de certaines compétences spécifiques. Certains locataires occupent un emploi rémunéré, participent à des activités de travail ou fréquentent une école pour adultes.</p>
+
+                    <!-- CARTE CONCEPTUELLE 2 : Architecture fonctionnelle et modèle d'accompagnement de J'ai mon appart' -->
+                    <figure class="concept-map-card" aria-label="Carte conceptuelle interactive de l'architecture du milieu de vie J'ai mon appart'">
+                        <div class="concept-map-header">
+                            <span class="concept-map-title">Carte conceptuelle 2 — Architecture du milieu de vie « J'ai mon appart' » (Shawinigan)</span>
+                            <span class="concept-map-hint">Sélectionnez une composante pour voir son organisation concrète</span>
+                        </div>
+                        <div class="concept-svg-wrapper">
+                            <svg class="concept-svg" viewBox="0 0 920 235" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Lignes de liaison vers le noyau central -->
+                                <line x1="250" y1="62" x2="355" y2="105" stroke="#cbbba6" stroke-width="2" stroke-dasharray="4,3"/>
+                                <line x1="250" y1="175" x2="355" y2="135" stroke="#cbbba6" stroke-width="2" stroke-dasharray="4,3"/>
+                                <line x1="670" y1="62" x2="565" y2="105" stroke="#cbbba6" stroke-width="2" stroke-dasharray="4,3"/>
+                                <line x1="670" y1="175" x2="565" y2="135" stroke="#cbbba6" stroke-width="2" stroke-dasharray="4,3"/>
+
+                                <!-- Noyau Central -->
+                                <g class="svg-node active" onclick="selectConceptNode('map2', 0, this)">
+                                    <rect class="node-box" x="350" y="72" width="220" height="92" rx="14" fill="#FAF6EF" stroke="#7a2222" stroke-width="2"/>
+                                    <text x="460" y="106" text-anchor="middle" font-size="14" font-weight="700" fill="#1a202c">OBNL « J'ai mon appart' »</text>
+                                    <text x="460" y="126" text-anchor="middle" font-size="11" fill="#4a5568">Statut locataire HLM (25 % revenu)</text>
+                                    <text x="460" y="144" text-anchor="middle" font-size="11" fill="#4a5568">Autonomie &amp; Chez-soi permanent</text>
+                                </g>
+
+                                <!-- Satellite Haut-Gauche -->
+                                <g class="svg-node" onclick="selectConceptNode('map2', 1, this)">
+                                    <rect class="node-box" x="20" y="20" width="235" height="82" rx="10" fill="#FAF6EF" stroke="#cbbba6" stroke-width="1.5"/>
+                                    <text x="137" y="48" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a202c">11 Logements + 1 Ressource</text>
+                                    <text x="137" y="68" text-anchor="middle" font-size="11" fill="#4a5568">Appartements complets (3½)</text>
+                                    <text x="137" y="84" text-anchor="middle" font-size="11" fill="#4a5568">Locataire-ressource sur place</text>
+                                </g>
+
+                                <!-- Satellite Bas-Gauche -->
+                                <g class="svg-node" onclick="selectConceptNode('map2', 2, this)">
+                                    <rect class="node-box" x="20" y="135" width="235" height="82" rx="10" fill="#FAF6EF" stroke="#cbbba6" stroke-width="1.5"/>
+                                    <text x="137" y="163" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a202c">Espaces communautaires</text>
+                                    <text x="137" y="183" text-anchor="middle" font-size="11" fill="#4a5568">Salle multifonctionnelle, cuisine,</text>
+                                    <text x="137" y="199" text-anchor="middle" font-size="11" fill="#4a5568">buanderie et local administratif</text>
+                                </g>
+
+                                <!-- Satellite Haut-Droite -->
+                                <g class="svg-node" onclick="selectConceptNode('map2', 3, this)">
+                                    <rect class="node-box" x="665" y="20" width="235" height="82" rx="10" fill="#FAF6EF" stroke="#cbbba6" stroke-width="1.5"/>
+                                    <text x="782" y="48" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a202c">Soutien quotidien (OBNL)</text>
+                                    <text x="782" y="68" text-anchor="middle" font-size="11" fill="#4a5568">Employés &amp; coordonnatrice :</text>
+                                    <text x="782" y="84" text-anchor="middle" font-size="11" fill="#4a5568">vie quotidienne, horaire, relations</text>
+                                </g>
+
+                                <!-- Satellite Bas-Droite -->
+                                <g class="svg-node" onclick="selectConceptNode('map2', 4, this)">
+                                    <rect class="node-box" x="665" y="135" width="235" height="82" rx="10" fill="#FAF6EF" stroke="#cbbba6" stroke-width="1.5"/>
+                                    <text x="782" y="163" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a202c">Montage financier &amp; CISSS</text>
+                                    <text x="782" y="183" text-anchor="middle" font-size="11" fill="#4a5568">SHQ (AccèsLogis), SCHL, milieu</text>
+                                    <text x="782" y="199" text-anchor="middle" font-size="11" fill="#4a5568">&amp; intervenants spécialisés CISSS</text>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="concept-detail-panel" id="map2-detail">
+                            <strong>OBNL « J'ai mon appart' » — Dissociation entre logement et réseau de santé :</strong>
+                            Contrairement à l'hébergement traditionnel, le réseau de la santé n'est pas promoteur ni gestionnaire du bâtiment. Les résidents signent un bail citoyen (loyer fixé à 25 % de leurs revenus en formule HLM) et bénéficient d'un chez-soi permanent.
+                        </div>
+                    </figure>
+
+                    <!-- Sous-chapitre 4 -->
+                    <h2 id="section-4" class="chapter-heading anchor-target">4. Qui ont été les acteurs impliqués dans le développement de «&nbsp;J’ai mon appart’&nbsp;»&nbsp;?</h2>
+
+                    <p>Quatre années ont été nécessaires pour le développement du projet, de la première rencontre d’information en 2018 jusqu’à l’ouverture officielle en 2022<a href="#sdfootnote19sym" class="footnote-ref"><sup>19</sup></a>. Pendant cette période, différents acteurs ont eu un apport significatif dans le développement du projet. Nous présentons ces différentes catégories d’acteurs, le rôle qu’ils ont joué et les défis qu’ils ont eu à relever.</p>
+
+                    <!-- CARTE CONCEPTUELLE 3 : Écosystème des 15 catégories d'acteurs (2018-2022) -->
+                    <figure class="concept-map-card" aria-label="Carte conceptuelle interactive des 15 catégories d'acteurs impliqués">
+                        <div class="concept-map-header">
+                            <span class="concept-map-title">Carte conceptuelle 3 — Écosystème de co-construction des acteurs (2018–2022)</span>
+                            <span class="concept-map-hint">Cliquez sur un pôle d'acteurs pour comparer leurs rôles et leurs défis</span>
+                        </div>
+                        <div class="concept-svg-wrapper">
+                            <svg class="concept-svg" viewBox="0 0 920 265" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Rayons partant du centre (460, 132) -->
+                                <line x1="460" y1="132" x2="165" y2="55" stroke="#d4c5b9" stroke-width="2"/>
+                                <line x1="460" y1="132" x2="755" y2="55" stroke="#d4c5b9" stroke-width="2"/>
+                                <line x1="460" y1="132" x2="165" y2="210" stroke="#d4c5b9" stroke-width="2"/>
+                                <line x1="460" y1="132" x2="755" y2="210" stroke="#d4c5b9" stroke-width="2"/>
+
+                                <!-- Pôle 1 : Noyau familial et locataires -->
+                                <g class="svg-node" onclick="selectConceptNode('map3', 1, this)">
+                                    <rect class="node-box" x="20" y="15" width="280" height="82" rx="10" fill="#FAF6EF" stroke="#cbbba6" stroke-width="1.5"/>
+                                    <text x="160" y="42" text-anchor="middle" font-size="12" font-weight="700" fill="#1a202c">1. Locataires, Parents &amp; Proches</text>
+                                    <text x="160" y="61" text-anchor="middle" font-size="10.5" fill="#4a5568">Porte-parole incarnant le projet,</text>
+                                    <text x="160" y="77" text-anchor="middle" font-size="10.5" fill="#4a5568">collectes de fonds, transition familiale</text>
+                                </g>
+
+                                <!-- Pôle 2 : État, Municipalité & Habitation -->
+                                <g class="svg-node" onclick="selectConceptNode('map3', 2, this)">
+                                    <rect class="node-box" x="620" y="15" width="280" height="82" rx="10" fill="#FAF6EF" stroke="#cbbba6" stroke-width="1.5"/>
+                                    <text x="760" y="42" text-anchor="middle" font-size="12" font-weight="700" fill="#1a202c">2. Pouvoirs publics &amp; Expertise technique</text>
+                                    <text x="760" y="61" text-anchor="middle" font-size="10.5" fill="#4a5568">Ville de Shawinigan, députés, SHQ,</text>
+                                    <text x="760" y="77" text-anchor="middle" font-size="10.5" fill="#4a5568">SCHL, GRT (HPQ) &amp; constructeurs</text>
+                                </g>
+
+                                <!-- Pôle 3 : Réseau Santé & Communautaire -->
+                                <g class="svg-node" onclick="selectConceptNode('map3', 3, this)">
+                                    <rect class="node-box" x="20" y="168" width="280" height="82" rx="10" fill="#FAF6EF" stroke="#cbbba6" stroke-width="1.5"/>
+                                    <text x="160" y="195" text-anchor="middle" font-size="12" font-weight="700" fill="#1a202c">3. Réseau Santé, Pairs &amp; Recherche</text>
+                                    <text x="160" y="214" text-anchor="middle" font-size="10.5" fill="#4a5568">CISSS, organismes communautaires,</text>
+                                    <text x="160" y="230" text-anchor="middle" font-size="10.5" fill="#4a5568">OBNL d'autres régions, Chaire UQTR</text>
+                                </g>
+
+                                <!-- Pôle 4 : Communauté, Philanthropie & Médias -->
+                                <g class="svg-node" onclick="selectConceptNode('map3', 4, this)">
+                                    <rect class="node-box" x="620" y="168" width="280" height="82" rx="10" fill="#FAF6EF" stroke="#cbbba6" stroke-width="1.5"/>
+                                    <text x="760" y="195" text-anchor="middle" font-size="12" font-weight="700" fill="#1a202c">4. Société civile &amp; Désirabilité sociale</text>
+                                    <text x="760" y="214" text-anchor="middle" font-size="10.5" fill="#4a5568">Philanthropie, commerces locaux,</text>
+                                    <text x="760" y="230" text-anchor="middle" font-size="10.5" fill="#4a5568">médias, artistes et voisinage</text>
+                                </g>
+
+                                <!-- Pivot Central : Conseil d'administration -->
+                                <g class="svg-node active" onclick="selectConceptNode('map3', 0, this)">
+                                    <rect class="node-box" x="345" y="88" width="230" height="88" rx="44" fill="#FAF6EF" stroke="#7a2222" stroke-width="2"/>
+                                    <text x="460" y="123" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">Conseil d'administration</text>
+                                    <text x="460" y="142" text-anchor="middle" font-size="10.5" fill="#4a5568">Pivot de coordination (5 bénévoles)</text>
+                                    <text x="460" y="157" text-anchor="middle" font-size="10.5" fill="#4a5568">Arrimage des silos &amp; ~2 M$ levés</text>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="concept-detail-panel" id="map3-detail">
+                            <strong>Pivot central — Le Conseil d'administration (OBNL) :</strong>
+                            Composé de deux parents, d'un frère, d'une belle-sœur et d'un cadre retraité du réseau de la santé, le CA a assuré le leadership et la traduction administrative entre des institutions fonctionnant en silo, tout en mobilisant près de 2 000 000 $ auprès du milieu.
+                        </div>
+                    </figure>
+
+                    <h3 class="actor-heading">Le conseil d’administration</h3>
+                    <p>Les projets d’appartements supervisés, tels que ceux promus par le programme AccèsLogis, requièrent l’implication d’organismes à but non lucratif (OBNL) ou de coopératives d’habitation. Après avoir exploré la possibilité de s’associer à un OBNL déjà existant, les parents et les proches qui ont initié le projet ont plutôt opté pour en constituer un nouveau et sont ainsi devenus les administrateurs du conseil d’administration (CA). Le premier CA était composé de deux parents, d’un frère et d’une belle-sœur, auxquels s’est joint un cadre retraité du réseau de la santé et des services sociaux. Pendant la phase de développement du projet, la principale responsabilité de ce conseil d’administration a été de prendre le leadership et de coordonner les différents acteurs impliqués. Le CA a également été confronté à deux défis majeurs. Tout d’abord, il a dû accéder aux informations nécessaires pour concrétiser le projet. Par exemple, il a dû comprendre les tenants et aboutissants des différents programmes disponibles, ainsi que les intrications administratives qui y étaient associées. De plus, il a dû mobiliser une contribution financière et matérielle importante de la communauté. Pour le projet «&nbsp;J’ai mon appart’&nbsp;», cette contribution a atteint près de 2&nbsp;000&nbsp;000$. En fait, les membres du conseil d’administration ont fait preuve de détermination et d’engagement en créant un nouvel OBNL pour soutenir les projets d’appartements supervisés. Leur rôle clé dans le leadership et la coordination, ainsi que leur capacité à relever les défis financiers et administratifs, ont été essentiels à la concrétisation de ces initiatives.</p>
+
+                    <h3 class="actor-heading">Les parents</h3>
+                    <p>En parallèle à la création de l’OBNL et à la formation du premier conseil d’administration, les parents d’adultes atteints de déficience intellectuelle (DI) ou d’autisme, qui pourraient bénéficier d’un appartement supervisé, jouent un rôle essentiel. Dans le cadre du projet «&nbsp;J’ai mon appart’&nbsp;», une première réunion d’information, en 2018, a rassemblé certains d’entre eux, créant ainsi des liens de camaraderie entre les familles. Bien que tous n’aient pas occupé un rôle de premier plan dans le développement du projet, leur participation aux différentes activités de collecte de fonds a été remarquable. Il convient également de souligner que les parents ont été confrontés à un double défi. D’une part, ils ont dû soutenir leurs enfants dans la préparation à une éventuelle transition résidentielle, en veillant à ce qu’ils soient préparés et prêts à vivre de manière plus autonome. D’autre part, les parents eux-mêmes ont dû se préparer à ce changement, en s’adaptant à la nouvelle réalité de voir leur enfant vivre de manière indépendante. Ce processus a exigé des efforts considérables de la part des parents, tant sur le plan émotionnel que pratique. La rencontre d’information en 2018 a permis aux parents de partager leurs expériences, leurs préoccupations et leurs espoirs, renforçant ainsi les liens de solidarité entre eux. Leur participation active aux activités de financement témoigne de leur engagement et de leur dévouement envers le projet. Grâce à leur implication, ils ont contribué à faire avancer le projet «&nbsp;J’ai mon appart’&nbsp;» et à concrétiser le rêve d’une résidence autonome pour leurs enfants.</p>
+
+                    <h3 class="actor-heading">Les personnes ayant une DI ou autistes</h3>
+                    <p>Les premiers locataires potentiels de «&nbsp;J’ai mon appart’&nbsp;» ont été au cœur de la démarche. Bien que leur rôle ait été divers, certains en sont venus à être des «&nbsp;porte-parole&nbsp;» du projet en témoignant de leurs besoins et de leur histoire de vie. Ils ont donné un visage humain à ces futurs voisins. Par leur prise de parole, ils ont eu un rôle important à jouer pour favoriser l’acceptabilité sociale du projet dans le quartier. Leur principal défi a été de se préparer à la transition résidentielle qu’ils ont eu à vivre tout en faisant part de leurs besoins, de leurs préférences et de leurs souhaits dans le développement du projet.</p>
+
+                    <h3 class="actor-heading">Le groupe de ressources techniques</h3>
+                    <p>Dans le cadre du projet, «&nbsp;Les habitations populaires du Québec&nbsp;» (HPQ) est le Groupe de ressources techniques (GRT) qui a soutenu le conseil d’administration aux différentes étapes du développement. Un GRT est une entreprise d’économie sociale vouée au développement de l’habitation communautaire. Grâce à son expertise, HPQ a joué un rôle d’accompagnateur dans le développement du projet. À la suite de la constitution du CA, il s’agit de l’un des premiers acteurs qui a été mobilisé. Un défi important du GRT est d’offrir un accompagnement dans le développement du projet ajusté à la réalité et aux besoins des personnes ayant une DI ou autistes.</p>
+
+                    <h3 class="actor-heading">La SHQ et la SCHL</h3>
+                    <p>La SHQ a la responsabilité de la mise en œuvre des programmes et des services à la population en matière d’habitation. Elle a la mission, qui est lui est confiée par le gouvernement, de répondre aux besoins en habitation des citoyens du Québec par une approche intégrée et durable. Elle a notamment la responsabilité de la gestion du programme AccèsLogis. Pour sa part, la SCHL est l’organisme national responsable de l’habitation au Canada. Par ses actions et ses différents programmes, la SCHL cherche à rendre le logement abordable pour tous. Sa contribution financière à «&nbsp;J’ai mon appart’&nbsp;» s’est réalisée par le biais du Fonds national de co-investissement pour le logement dont elle a la responsabilité. Tant la SHQ que la SCHL ont ainsi joué un rôle important sur le plan du financement. Le principal défi de ces deux sociétés a été de rendre accessibles et compréhensibles leurs programmes aux acteurs concernés.</p>
+
+                    <h3 class="actor-heading">Les acteurs de la politique municipale</h3>
+                    <p>La ville de Shawinigan, notamment grâce à l’engagement du maire et des conseillers municipaux, a joué un rôle essentiel dans le développement du projet. En plus d’un don financier, le conseil municipal a apporté une contribution significative en offrant un terrain approprié pour la réalisation des appartements supervisés, tout en accordant un crédit de taxes municipales. Cette implication démontre l’engagement de la municipalité à soutenir des initiatives visant à répondre aux besoins de logement des personnes ayant une déficience intellectuelle (DI) ou des personnes autistes. Par la suite, le maire et certains conseillers ont activement participé à différentes annonces publiques, contribuant ainsi à promouvoir le projet auprès des citoyens. Leur présence et leur soutien ont permis de sensibiliser la population locale à l’importance d’offrir des solutions de logement adaptées et abordables pour tous les citoyens, y compris ceux ayant des besoins particuliers. Leur rôle dans la promotion du projet a été crucial pour susciter une plus grande acceptabilité sociale et pour créer un environnement inclusif au sein de la municipalité. Il convient également de souligner que le milieu politique municipal a dû relever un défi majeur&nbsp;: celui de reconnaître pleinement les personnes ayant une DI comme des citoyens à part entière, dotés des mêmes droits et des mêmes opportunités que tous les autres résidents de la ville. En soutenant activement le projet d’appartements supervisés, la municipalité a démontré son engagement en faveur de l’inclusion et de l’égalité des chances pour tous ses habitants. En veillant à ce que des réponses concrètes soient apportées aux besoins en logement abordable pour les personnes ayant une DI, la ville de Shawinigan a montré l’exemple en tant que collectivité accueillante et respectueuse de la diversité.</p>
+
+                    <h3 class="actor-heading">Les acteurs de la politique provinciale et fédérale</h3>
+                    <p>Les députés provinciaux et fédéraux de même que le personnel politique ont eu un rôle important à jouer pour dénouer les différentes impasses bureaucratiques susceptibles de perturber le développement du projet. Chacun, à son niveau, en participant à différentes annonces, a contribué à la promotion du projet tout en accélérant sa réalisation. Notamment, sur le plan provincial, ils ont fait évoluer les politiques en place pour faciliter le développement du projet. Leur rôle a également été significatif pour accéder au financement nécessaire. Le principal défi de ces acteurs politiques a été de contribuer à trouver des solutions aux besoins d’hébergement de leurs citoyens ayant une DI ou autistes qui soient répétables à l’ensemble du Québec, tout en tenant compte des contingences administratives et budgétaires du gouvernement.</p>
+
+                    <h3 class="actor-heading">Les organisations philanthropiques</h3>
+                    <p>La réalisation du projet «&nbsp;J’ai mon appart’&nbsp;» a nécessité une importante levée de fonds à laquelle ont contribué certaines organisations philanthropiques, telles que des fondations et des associations caritatives. Le rôle de ces organisations a été de mettre sur pied des activités de financement efficientes afin de permettre au conseil d’administration de «&nbsp;J’ai mon appart’&nbsp;» de recueillir les sommes nécessaires à la réalisation du projet. Au-delà des sommes amassées, les activités de financement ont offert une visibilité au projet et elles ont permis à des citoyens de la Mauricie d’y contribuer. Le défi de ces organisations a été de faire en sorte que les activités de financement permettent l’expression d’un élan de solidarité envers le projet.</p>
+
+                    <h3 class="actor-heading">Le Centre intégré de santé et de services sociaux</h3>
+                    <p>Historiquement, le réseau de la santé et des services sociaux a eu un rôle de promoteur dans l’offre d’hébergement aux personnes ayant une DI ou autistes. Or, les appartements supervisés tels que développés par «&nbsp;J’ai mon appart’&nbsp;» ne correspondent pas à son offre de services qui s’actualise par le biais des programmes en DI et en autisme des Centres intégrés de santé et de services sociaux (CISSS). Ainsi, le rôle du réseau de la santé et des services sociaux, comme partenaire, a été de mettre à profit sa connaissance des spécificités de la DI et de l’autisme à différentes étapes du développement du projet (sélection des locataires, soutien aux familles, préparation des transitions résidentielles, etc.) et de conclure une entente pour le financement récurrent des services offerts par l’organisme «&nbsp;J’ai mon appart’&nbsp;». Précisons que les mandats des CISSS sont définis par différentes politiques et directives découlant du ministère de la Santé et des Services sociaux. Dans le cadre du projet, le principal défi du CISSS de la région a été de contribuer au projet, étant donné ses responsabilités envers les personnes ayant une DI ou autistes, tout en respectant le cadre qui lui est imposé.</p>
+
+                    <h3 class="actor-heading">Les organismes communautaires de la région</h3>
+                    <p>Un projet d’habitation s’inscrit dans un tissu social où évoluent déjà différents organismes communautaires. Ces organismes peuvent avoir des missions variées, complémentaires à celles de «&nbsp;J’ai mon appart’&nbsp;», dans différentes sphères (défense des droits, sécurité alimentaire, emploi, etc.). Dans le développement du projet, certains organismes ont eu un apport pertinent, par exemple, en rendant disponibles des locaux pour des rencontres. De même, les liens avec différents organismes ont permis d’anticiper le rôle qu’ils pourraient avoir auprès des futurs locataires. Le principal défi pour ces organismes est d’établir des liens de collaboration avec «&nbsp;J’ai mon appart’&nbsp;», dans le périmètre de leur champ d’action et dans le respect de leurs ressources.</p>
+
+                    <h3 class="actor-heading">Les organismes d’habitation d’autres régions</h3>
+                    <p>D’autres projets d’appartements supervisés ont vu le jour au cours des dernières années. S’inspirer d’expériences similaires dans d’autres régions du Québec a été salutaire pour «&nbsp;J’ai mon appart’&nbsp;» qui a ainsi pu tisser des liens de solidarité avec ces organismes. Leur appui a été particulièrement pertinent pour aider à structurer certains processus (par exemple, la sélection des locataires) et soutenir l’organisation du milieu de vie (par exemple, les règlements de l’édifice). Ces collaborations contribuent ainsi à la naissance d’un réseau d’organismes porteurs d’une mission similaire. Encore une fois, pour ces organismes sollicités par «&nbsp;J’ai mon appart’&nbsp;», le principal défi est d’offrir un soutien dans le respect de leurs ressources financières.</p>
+
+                    <h3 class="actor-heading">Les entrepreneurs liés à la construction du bâtiment</h3>
+                    <p>La construction d’un bâtiment implique la participation de différents entrepreneurs qui possèdent une expertise technique liée à sa réalisation&nbsp;: architecte, ingénieur, entrepreneur en construction, paysagiste, etc. Au-delà du travail opérationnel à réaliser, ces différents entrepreneurs contribuent à un projet qui a une portée sociale, mais qui doit également répondre à différents standards inhérents à sa fonction. Leur rôle est donc de réaliser les différentes tâches dans leur champ d’expertise, dans le temps imparti, tout en relevant le défi de répondre aux besoins spécifiques de l’organisme qui porte le projet. Ainsi, leur expertise est mise en valeur à différents moments pour témoigner de l’avancement des travaux et ainsi préparer l’arrivée des futurs locataires dans le quartier. De plus, si leur rôle est essentiellement technique, ils ont aussi à relever le défi d’être suffisamment souple pour s’ajuster aux besoins spécifiques de l’organisme pendant la phase de développement.</p>
+
+                    <h3 class="actor-heading">Les commerces et entrepreneurs locaux</h3>
+                    <p>Sur le plan de l’acceptabilité sociale, le stade de la désirabilité sociale ou co-appropriation est celui où une situation n’est plus seulement tolérée, mais valorisée, voire souhaitée par différents groupes qui y voient une plus-value pour leurs propres activités<a href="#sdfootnote20sym" class="footnote-ref"><sup>20</sup></a>. Ainsi, des commerces de proximité de même que certaines entreprises ont souhaité s’associer à «&nbsp;J’ai mon appart’&nbsp;», que ce soit pour y contribuer financièrement ou en nature. Ces contributions ont permis à l’organisme d’atteindre ses objectifs financiers tout en offrant aux entreprises concernées une visibilité sur ses médias sociaux. Leur rôle a donc été significatif sur le plan financier. Par leurs actions, ils sont venus renforcer l’acceptabilité sociale du projet. Leur principal défi consistait à bien comprendre la nature et la portée du projet pour que leur contribution s’inscrive en cohérence avec les valeurs promues par l’organisme.</p>
+
+                    <h3 class="actor-heading">Les médias</h3>
+                    <p>Les médias que sont la presse, la télévision et la radio ont témoigné, tout au long du développement du projet, de ses avancées et de ses défis. Ils ont mis de l’avant la réalité des futurs locataires, de leurs parents, de même que les contributions de différents acteurs. Leur rôle a été d’agir comme relayeur de l’information et, indirectement, de sensibiliser la population aux besoins résidentiels des concitoyens ayant une DI ou autistes. En faisant connaître l’apport au projet de certains acteurs politiques et économiques, ils ont aussi contribué à y donner une valeur ajoutée et à leur permettre d’en tirer profit pour leur propre champ d’action. Par exemple, la diffusion de la contribution de certains politiciens au projet leur permet d’en tirer un avantage politique&nbsp;; la valorisation des dons de certains entrepreneurs sert aussi de publicité pour leurs produits, etc. Le défi des médias est toutefois de trouver des angles originaux pour informer la population des réalisations de l’organisme sans toutefois qu’il y ait un effet de saturation auprès de celle-ci.</p>
+
+                    <h3 class="actor-heading">Les artistes</h3>
+                    <p>Pour certains artistes, «&nbsp;J’ai mon appart’&nbsp;» porte une histoire qui peut être racontée, scénarisée, illustrée, etc. Ainsi, au cours du développement du projet, une peintre de la région a réalisé un projet en partenariat avec les futures locataires qui a mené à la réalisation de toiles qui se retrouvent chez les locataires et témoignent de leur attachement à un lieu particulier de la ville de Shawinigan. D’autres artistes ont également souhaité réaliser un documentaire pour raconter le développement du projet. Ces artistes contribuent, à leur façon, à traduire les émotions présentes dans le développement du projet. Celui-ci ne se limite pas à construction d’un bâtiment&nbsp;; ce sont des histoires de vie qui sont transformées par sa réalisation. Le rôle des artistes est donc de saisir cette émotion et de la transmettre par l’art. Leur défi est d’accéder aux ressources et au médium nécessaires pour y parvenir.</p>
+
+                    <h3 class="actor-heading">Les voisins et les citoyens de Shawinigan</h3>
+                    <p>Les citoyens de Shawinigan et plus particulièrement le voisinage immédiat de l’immeuble ne constituent évidemment pas un groupe homogène. Leur rôle n’en est pas pour le moins important, car ce sont eux qui accueillent les locataires dans leur quartier. Dès l’annonce du choix du lieu où l’immeuble a été construit, le voisinage a été sensibilisé et informé des particularités du projet. Tout ce travail a permis de limiter les appréhensions envers les futurs locataires et d’accroître l’acceptabilité sociale. À différents moments, notamment lors de l’inauguration officielle du bâtiment, ils ont été invités à participer aux activités. Le principal défi du voisinage est donc de s’ouvrir à la réalité de ces nouveaux voisins du quartier.</p>
+
+                    <h3 class="actor-heading">Le milieu de la recherche</h3>
+                    <p>Une équipe de recherche composée des deux premiers auteurs de cet article, de professionnels et d’assistants de recherche de la Chaire Autodétermination et Handicap ont accompagné le projet dès le départ. Leur rôle a été d’en soutenir le développement sur le plan scientifique, notamment pour identifier et partager les meilleures pratiques en matière résidentielle et faire de l’autodétermination un concept central du projet. De plus, l’équipe a documenté les différentes étapes du projet pour en tirer des connaissances susceptibles de soutenir le développement d’autres projets similaires. Elle n’a donc pas seulement un rôle d’observateur, mais bien une posture engagée pour influencer le développement du projet. Pour l’équipe de recherche, un défi important a été d’être suffisamment agile pour soutenir le développement du projet en temps opportun, en tenant compte des limites de ses ressources.</p>
+
+                    <!-- Sous-chapitre 5 -->
+                    <h2 id="section-5" class="chapter-heading anchor-target">5. Quelles leçons tirées des rôles et des défis de chacun des groupes d’acteurs&nbsp;?</h2>
+
+                    <p>L’actualisation d’un projet d’appartements supervisés repose sur une synergie qui doit s’installer entre de nombreux acteurs. Ce sont les membres du CA de l’organisme porteur qui en sont les artisans. Or, ce rôle est particulièrement exigeant, car il met à profit des compétences liées à la gestion, à la communication et au politique qui s’acquièrent dans l’action. Autrement dit, rien ne prépare à jouer un tel rôle. C’est l’expérience personnelle et professionnelle de chacun des membres du CA de même que la combinaison de leurs personnalités et de leurs qualités qui permet de relever ce défi. Dans le cas de «&nbsp;J’ai mon appart’&nbsp;», les cinq membres du CA possédaient des atouts différents, mais complémentaires pour nourrir la synergie nécessaire à la réalisation du projet. Par exemple, l’un des membres du CA était un ancien cadre du réseau de la santé&nbsp;; il a ainsi pu faciliter la création de liens sur ce plan. Un autre membre du CA était actif dans le milieu des affaires et philanthropique&nbsp;; il a ainsi pu faire bénéficier le projet de son réseau de contacts. Ajoutons également que chacun des membres du CA disposait d’une motivation personnelle à s’investir dans le projet. S’il ne s’agit pas de l’objet premier de cet article, ce thème mériterait d’être approfondi davantage pour comprendre comment des bénévoles en arrivent à un tel niveau d’engagement.</p>
+
+                    <p>Les membres du CA se retrouvent donc au cœur d’un système complexe où chaque composante est interdépendante, mais s’est constituée en silo. Par exemple, le réseau de la santé et des services sociaux n’est pas lié à celui de l’habitation, même s’ils dépendent tous deux du gouvernement. De ce fait, les membres du CA doivent réaliser un nombre impressionnant d’arrimages entre les différents acteurs de ce système. Dans le cas de «&nbsp;J’ai mon appart’&nbsp;», certains acteurs ont facilité le contact entre certaines composantes, particulièrement les acteurs politiques. Par exemple, certaines interventions politiques ont facilité l’arrimage entre «&nbsp;J’ai mon appart’&nbsp;» et le réseau de la santé et des services sociaux. Il en est de même entre les acteurs de la politique municipale et des membres de la communauté de Shawinigan. Les membres du CA ont également dû accéder à l’information détenue par chacune des composantes du système, se l’approprier, et souvent la traduire dans un langage accessible pour d’autres composantes. Par exemple, les membres du CA ont eu à comprendre le fonctionnement des programmes de la SHQ et de la SCHL pour être en mesure de les expliquer aux parents, par exemple.</p>
+
+                    <p>Ce travail, quoique laborieux, est rapidement apparu comme la seule voie possible pour créer une cohésion entre les acteurs et faire en sorte que l’énergie soit suffisante pour que le projet aboutisse. Le leadership s’est ainsi retrouvé à reposer sur quelques personnes, toutes bénévoles. Ajoutons également que la majorité de ces bénévoles sont aussi les membres de familles de personnes ayant une DI ou autistes. L’estimation de la valeur économique de ce travail bénévole n’a pas été réalisée. Néanmoins, il apparaît clair que le développement d’habitats ne peut reposer uniquement sur le bénévolat, sachant très bien la fragilité qui en découle. Dans la mesure où une stratégie structurée au niveau québécois de développement d’habitats en DI et en autisme se développe, éventuellement, elle devra tenir compte de cet important rôle de coordination. L’absence d’une telle structure condamne les groupes souhaitant développer de tels habitats à répéter les mêmes actions d’arrimage.</p>
+
+                    <p>Par ailleurs, l’analyse des rôles et des défis des différents acteurs permet de constater que l’accroissement de l’énergie entre eux découle, entre autres, du niveau d’acceptabilité et de désirabilité sociales du projet. Autrement dit, à chacune des étapes, plus des acteurs se joignent au projet, plus ils rendent le projet «&nbsp;désirable&nbsp;» et plus ils en tirent profit. Ce sont donc les différentes opérations de communications, notamment celles auxquelles participent les médias, qui permettent d’ajouter de la valeur au projet. Les membres du CA ont aussi joué un rôle important sur ce plan en communiquant efficacement par les réseaux sociaux. La visibilité ainsi offerte aux différents acteurs du système vient renforcer leur engagement qui n’est pas complètement désintéressé. Au-delà de la valeur sociale de leur action, ils y trouvent aussi un intérêt personnel (bénéfice politique, publicité, contribution à leur mission, etc.). Autrement dit, ce n’est pas un esprit «&nbsp;charitable&nbsp;» qui explique l’engagement de chacun, mais bien un profit partagé par tous les acteurs concernés.</p>
+
+                    <p>Si la synergie permettant le développement d’appartements supervisés repose sur la mise en relation de différents groupes d’acteurs, ceux-ci sont d’abord et avant tout des humains dotés d’une histoire personnelle qui traduit leur personnalité et leur valeur. L’analyse proposée par cet article ne saurait être complète si elle ne mettait pas de l’avant la nécessité d’un rapprochement «&nbsp;humain&nbsp;» entre les différents acteurs. Autrement dit, le propriétaire d’un commerce de la région peut être l’employeur d’un adulte autiste&nbsp;; une politicienne peut être la mère d’une personne ayant une DI&nbsp;; le président d’une fondation peut avoir un lien d’amitié privilégié avec un membre du CA, etc. Ces liens particuliers sont apparus déterminants dans le développement du projet. Ils ont constitué en quelque sorte le «&nbsp;terreau fertile&nbsp;» de ce qui a pu émerger ensuite.</p>
+
+                    <!-- CARTE CONCEPTUELLE 4 : Dynamique de synergie et leçons systémiques -->
+                    <figure class="concept-map-card" aria-label="Carte conceptuelle interactive des mécanismes de synergie et leçons tirées">
+                        <div class="concept-map-header">
+                            <span class="concept-map-title">Carte conceptuelle 4 — Les 4 leviers de réussite et la nécessité d'un cadre structuré</span>
+                            <span class="concept-map-hint">Cliquez sur un levier pour consulter l'analyse des auteurs</span>
+                        </div>
+                        <div class="concept-svg-wrapper">
+                            <svg class="concept-svg" viewBox="0 0 920 205" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Flèches de synergie circulaire/progressive -->
+                                <line x1="215" y1="92" x2="242" y2="92" stroke="#7a2222" stroke-width="2" marker-end="url(#arrowBordeaux)"/>
+                                <line x1="438" y1="92" x2="465" y2="92" stroke="#7a2222" stroke-width="2" marker-end="url(#arrowBordeaux)"/>
+                                <line x1="661" y1="92" x2="688" y2="92" stroke="#7a2222" stroke-width="2" marker-end="url(#arrowBordeaux)"/>
+
+                                <!-- Levier 1 -->
+                                <g class="svg-node active" onclick="selectConceptNode('map4', 0, this)">
+                                    <rect class="node-box" x="15" y="25" width="198" height="134" rx="10" fill="#FAF6EF" stroke="#cbbba6" stroke-width="1.5"/>
+                                    <text x="114" y="54" text-anchor="middle" font-size="11" font-weight="700" fill="#7a2222">LEVIER 1</text>
+                                    <text x="114" y="78" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a202c">Décloisonnement</text>
+                                    <text x="114" y="102" text-anchor="middle" font-size="11" fill="#4a5568">Arrimage des silos</text>
+                                    <text x="114" y="120" text-anchor="middle" font-size="11" fill="#4a5568">(Santé ↔ Habitation)</text>
+                                </g>
+
+                                <!-- Levier 2 -->
+                                <g class="svg-node" onclick="selectConceptNode('map4', 1, this)">
+                                    <rect class="node-box" x="245" y="25" width="192" height="134" rx="10" fill="#FAF6EF" stroke="#cbbba6" stroke-width="1.5"/>
+                                    <text x="341" y="54" text-anchor="middle" font-size="11" font-weight="700" fill="#7a2222">LEVIER 2</text>
+                                    <text x="341" y="78" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a202c">Désirabilité sociale</text>
+                                    <text x="341" y="102" text-anchor="middle" font-size="11" fill="#4a5568">Profit partagé &amp;</text>
+                                    <text x="341" y="120" text-anchor="middle" font-size="11" fill="#4a5568">visibilité médiatique</text>
+                                </g>
+
+                                <!-- Levier 3 -->
+                                <g class="svg-node" onclick="selectConceptNode('map4', 2, this)">
+                                    <rect class="node-box" x="468" y="25" width="192" height="134" rx="10" fill="#FAF6EF" stroke="#cbbba6" stroke-width="1.5"/>
+                                    <text x="564" y="54" text-anchor="middle" font-size="11" font-weight="700" fill="#7a2222">LEVIER 3</text>
+                                    <text x="564" y="78" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a202c">Terreau humain</text>
+                                    <text x="564" y="102" text-anchor="middle" font-size="11" fill="#4a5568">Liens personnels &amp;</text>
+                                    <text x="564" y="120" text-anchor="middle" font-size="11" fill="#4a5568">proximité vécue</text>
+                                </g>
+
+                                <!-- Levier 4 -->
+                                <g class="svg-node" onclick="selectConceptNode('map4', 3, this)">
+                                    <rect class="node-box" x="691" y="25" width="212" height="134" rx="10" fill="#FAF6EF" stroke="#cbbba6" stroke-width="1.5"/>
+                                    <text x="797" y="54" text-anchor="middle" font-size="11" font-weight="700" fill="#7a2222">ENJEU D'AVENIR</text>
+                                    <text x="797" y="78" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a202c">Stratégie structurée</text>
+                                    <text x="797" y="102" text-anchor="middle" font-size="11" fill="#4a5568">Dépasser la fragilité</text>
+                                    <text x="797" y="120" text-anchor="middle" font-size="11" fill="#4a5568">du seul bénévolat</text>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="concept-detail-panel" id="map4-detail">
+                            <strong>Levier 1 — Décloisonnement et traduction entre silos :</strong>
+                            Bien que relevant tous deux de l'État, le réseau de la santé (CISSS) et celui de l'habitation (SHQ/SCHL) fonctionnent en silos. Le CA a dû agir comme traducteur administratif pour arrimer leurs exigences respectives.
+                        </div>
+                    </figure>
+
+                    <!-- Conclusion -->
+                    <h2 id="section-conclusion" class="chapter-heading anchor-target">Conclusion</h2>
+
+                    <p>L’analyse initiale de la démarche de développement des appartements supervisés «&nbsp;J’ai mon appart’&nbsp;» a bien mis en évidence la complexité des rôles et des défis auxquels les différents acteurs ont dû faire face, tout en soulignant l’importance primordiale du conseil d’administration (CA) pour coordonner et animer cette synergie. Dans la perspective d’une expansion de projets similaires à travers le Québec, l’engagement de ces différents groupes d’acteurs apparaît indispensable pour assurer le succès et la durabilité de tels initiatives. On comprendra dès lors qu’il est essentiel de mettre en place un modèle structuré de développement pour ce type d’habitat, afin d’éviter qu’il ne se développe sans un cadre solide, uniquement porté par la volonté individuelle de quelques personnes. La proposition d’un tel modèle représente donc une voie à explorer. En ce sens, l’analyse approfondie de la démarche entreprise pour la réalisation des appartements supervisés «&nbsp;J’ai mon appart’&nbsp;» met donc en lumière la complexité inhérente à la coordination des différents acteurs impliqués. Les parents, les proches, les organismes à but non lucratif (OBNL), les coopératives d’habitation, le conseil municipal et les responsables politiques ont tous joué un rôle essentiel dans la concrétisation de ce projet novateur. Leur engagement, leur collaboration et leur dévouement ont été les clés de cette réussite. Faut-il également préciser que le développement de tels projets ne peut reposer uniquement sur la bonne volonté individuelle. Afin d’assurer une approche cohérente et harmonieuse, il est nécessaire de mettre en place un modèle structuré de développement d’habitats supervisés. Ce modèle pourrait fournir des directives claires sur les étapes à suivre, les ressources nécessaires, les partenariats à établir et les meilleures pratiques à adopter. En développant un tel cadre, il sera possible de garantir une mise en œuvre efficace et équitable de ces initiatives dans d’autres régions du Québec.</p>
+                </div>
+
+                <!-- Références bibliographiques -->
+                <section id="section-references" class="references-section anchor-target">
+                    <h2 class="chapter-heading" style="margin-top: 0;">RÉFÉRENCES BIBLIOGRAPHIQUES</h2>
+                    <ul class="biblio-list">
+                        <li>American Psychiatric Association (2022), <em>Diagnostic and statistical manual of mental disorders</em> (5th ed., text rev.), DOI&nbsp;: <a href="https://doi.org/10.1176/appi.books.9780890425787" target="_blank" rel="noopener noreferrer">https://doi.org/10.1176/appi.books.9780890425787</a>.</li>
+                        <li>Baba, S., Raufflet, E. (2015), «&nbsp;L’acceptabilité sociale&nbsp;: une notion en consolidation&nbsp;», <em>Management international / International Management / Gestiòn Internacional</em>, vol. 19, n°33, DOI&nbsp;: <a href="https://doi.org/10.7202/1043005ar" target="_blank" rel="noopener noreferrer">https://doi.org/10.7202/1043005ar</a>, pp. 98-114.</li>
+                        <li>Bellefeuille, E., Labbé, L. (2016), «&nbsp;Inclusion sociale et déficience intellectuelle&nbsp;: où en est le Québec&nbsp;», <em>Empan</em>, vol. 4, n° 104, DOI&nbsp;: <a href="https://doi.org/10.3971/empa.104.0097" target="_blank" rel="noopener noreferrer">https://doi.org/10.3971/empa.104.0097</a>, p. 97-105.</li>
+                        <li>Caouette, M., Pellerin, S. (2020), «&nbsp;L’autodétermination comme fondement au développement d’habitats inclusifs pour les personnes ayant une déficience intellectuelle ou un trouble du spectre de l’autisme&nbsp;», <em>Les Cahiers de l’Actif</em>, Novembre-Décembre (534-535), pp. 163-192.</li>
+                        <li>Caouette, M. (2014), <em>Étude descriptive des pratiques d’intervention en CRDITED favorisant l’autodétermination d’adultes présentant une déficience intellectuelle&nbsp;: la perspective des intervenants</em>, Thèse&nbsp;: Université du Québec à Trois-Rivières, 282 p.</li>
+                        <li>Diallo, F. B., Fombonne, É., Kisely, et als. (2018), «&nbsp;Prevalence and correlates of autism spectrum disorders in Quebec&nbsp;», <em>The Canadian Journal of Psychiatry / La Revue Canadienne de Psychiatrie</em>, vol. 63, n°4, DOI&nbsp;: <a href="https://doi-org.biblioproxy.uqtr.ca/10.1177/0706743717737031" target="_blank" rel="noopener noreferrer">https://doi-org.biblioproxy.uqtr.ca/10.1177/0706743717737031</a>, pp. 231-239.</li>
+                        <li>Fombonne, E. (2007), «&nbsp;Epidemiological surveys of pervasive developmental disorders&nbsp;», dans F. R. Volkmar (éd.), <em>Autism and pervasive developmental disorders</em>, 2nd ed., Cambridge University Press, DOI&nbsp;: <a href="https://doi-org.biblioproxy.uqtr.ca/10.1017/CBO9780511544446.003" target="_blank" rel="noopener noreferrer">https://doi-org.biblioproxy.uqtr.ca/10.1017/CBO9780511544446.003</a>, pp. 33-68.</li>
+                        <li>Gouvernement du Québec (1971), <em>Loi sur les services de santé et les services sociaux</em>, R.S. S-5.</li>
+                        <li>Gouvernement du Québec (1991), <em>Loi sur les services de santé et les services sociaux et modifiant diverses dispositions législatives</em> (projet de loi 120 devenu le chapitre 42 des Lois du Québec de 1991).</li>
+                        <li>Gouvernement du Québec (2021), <em>Politique d’hébergement et de soins et services de longue durée&nbsp;: des milieux de vie qui nous rassemble</em>, Publication n° 20-814-01W, URL&nbsp;: <a href="https://tinyurl.com/mr2dcemc" target="_blank" rel="noopener noreferrer">https://tinyurl.com/mr2dcemc</a>.</li>
+                        <li>Maulik, P. K., Mascarenhas, M. N., Mathers, C. D., et als. (2011), «&nbsp;Prevalence of intellectual disability: A meta-analysis of population-based studies&nbsp;», <em>Research in Developmental Disabilities</em>, vol. 32, n°2, DOI&nbsp;: <a href="https://doi-org.biblioproxy.uqtr.ca/10.1016/j.ridd.2010.12.018" target="_blank" rel="noopener noreferrer">https://doi-org.biblioproxy.uqtr.ca/10.1016/j.ridd.2010.12.018</a>, p. 419–436.</li>
+                        <li>Nirje, B. (1969), «&nbsp;The normalization principle and its human management implications&nbsp;», dans R. B. Kugel &amp; W. Wolfensberger (éds), <em>Changing patterns in residential services for the mentally retarded</em>, pp. 179-195, Washington DC: President’s Committee on Mental Retardation.</li>
+                        <li>Schalock, R. L., Luckasson, R., Tassé, M. J. (2021), «&nbsp;Intellectual disability: Definition, diagnosis, classification, and systems of supports&nbsp;», <em>American Association on Intellectual and Developmental Disabilities</em>, 12th Edition.</li>
+                        <li>Wehmeyer, M. L., Bolding, N. (2001), «&nbsp;Enhanced self-determination of adults with intellectual disability as an outcome of moving to community-based work of living environments&nbsp;», <em>Journal of Intellectual Disability Research</em>, vol. 45, n° 5, pp. 371-383.</li>
+                        <li>Wolfensberger, W. (1983), «&nbsp;Social role valorization: A proposed new term for the principle of normalization&nbsp;», <em>Mental Retardation</em>, vol. 21, n°6, pp. 234-239.</li>
+                        <li>Wolfensberger, W. (1991), <em>La valorisation des rôles sociaux. Introduction à un concept de référence pour l‘organisation des services</em>, Éditions des deux continents.</li>
+                        <li>Wong, P. K. S., Wong, D. F. K. (2008), «&nbsp;Enhancing staff attitudes, knowledge and skills in supporting the self-determination of adults with intellectual disability in residential settings in Hong Kong: A pretest-posttest comparison group design&nbsp;», <em>Journal of Intellectual Disability Research</em>, vol. 52, n°3, pp. 230-243.</li>
+                    </ul>
+                </section>
+
+                <!-- Notes de bas de page -->
+                <section class="footnotes-section" aria-label="Notes de bas de page">
+                    <h2 class="chapter-heading" style="margin-top: 0; font-size: 1.1rem;">Notes</h2>
+                    <ul class="footnotes-list">
+                        <li id="sdfootnote1sym"><strong>1.</strong> Caouette, M., Pellerin, S. (2020), «&nbsp;L’autodétermination comme fondement au développement d’habitats inclusifs pour les personnes ayant une déficience intellectuelle ou un trouble du spectre de l’autisme&nbsp;», <em>Les Cahiers de l’Actif</em>, <em>Novembre-Décembre</em> (534-535), pp. 163-192.</li>
+                        <li id="sdfootnote2sym"><strong>2.</strong> Wehmeyer, M. L., Bolding, N. (2001). Enhanced self-determination of adults with intellectual disability as an outcome of moving to community-based work of living environments. <em>Journal of Intellectual Disability Research</em>, <em>45</em>(5), pp. 371-383.</li>
+                        <li id="sdfootnote3sym"><strong>3.</strong> Wong, P. K. S., Wong, D. F. K. (2008), «&nbsp;Enhancing staff attitudes, knowledge and skills in supporting the self-determination of adults with intellectual disability in residential settings in Hong Kong: A pretest-posttest comparison group design&nbsp;», <em>Journal of Intellectual Disability Research</em>, vol. 52, n°3, pp. 230-243.</li>
+                        <li id="sdfootnote4sym"><strong>4.</strong> Schalock, R. L., Luckasson, R., Tassé, M. J. (2021), «&nbsp;Intellectual disability: Definition, diagnosis, classification, and systems of supports&nbsp;», 12th Edition, <em>American Association on Intellectual and Developmental Disabilities</em>.</li>
+                        <li id="sdfootnote5sym"><strong>5.</strong> Maulik, P. K., Mascarenhas, M. N., Mathers, C. D., et als. (2011), «&nbsp;Prevalence of intellectual disability: A meta-analysis of population-based studies&nbsp;», <em>Research in Developmental Disabilities</em>, vol. 32, n°2, DOI&nbsp;: <a href="https://doi-org.biblioproxy.uqtr.ca/10.1016/j.ridd.2010.12.018" target="_blank" rel="noopener noreferrer">https://doi-org.biblioproxy.uqtr.ca/10.1016/j.ridd.2010.12.018</a>, p. 419–436.</li>
+                        <li id="sdfootnote6sym"><strong>6.</strong> American Psychiatric Association (2022), <em>Diagnostic and statistical manual of mental disorders</em> (5th ed., text rev.), DOI&nbsp;: <a href="https://doi.org/10.1176/appi.books.9780890425787" target="_blank" rel="noopener noreferrer">https://doi.org/10.1176/appi.books.9780890425787</a>.</li>
+                        <li id="sdfootnote7sym"><strong>7.</strong> Diallo, F. B., Fombonne, É., Kisely, et als. (2018), «&nbsp;Prevalence and correlates of autism spectrum disorders in Quebec&nbsp;», <em>The Canadian Journal of Psychiatry / La Revue Canadienne de Psychiatrie</em>, vol. 63, n°4, DOI&nbsp;: <a href="https://doi-org.biblioproxy.uqtr.ca/10.1177/0706743717737031" target="_blank" rel="noopener noreferrer">https://doi-org.biblioproxy.uqtr.ca/10.1177/0706743717737031</a>, pp. 231-239.</li>
+                        <li id="sdfootnote8sym"><strong>8.</strong> Fombonne, E. (2007), «&nbsp;Epidemiological surveys of pervasive developmental disorders&nbsp;», dans F. R. Volkmar (éd.), <em>Autism and pervasive developmental disorders</em>, 2nd éd., Cambridge University Press, DOI&nbsp;: <a href="https://doi-org.biblioproxy.uqtr.ca/10.1017/CBO9780511544446.003" target="_blank" rel="noopener noreferrer">https://doi-org.biblioproxy.uqtr.ca/10.1017/CBO9780511544446.003</a>, pp. 33-68.</li>
+                        <li id="sdfootnote9sym"><strong>9.</strong> Bellefeuille, E., Labbé, L. (2016), «&nbsp;Inclusion sociale et déficience intellectuelle&nbsp;: où en est le Québec&nbsp;», <em>Empan</em>, vol. 4, n° 104, DOI&nbsp;: <a href="https://doi.org/10.3971/empa.104.0097" target="_blank" rel="noopener noreferrer">https://doi.org/10.3971/empa.104.0097</a>, p. 97-105.</li>
+                        <li id="sdfootnote10sym"><strong>10.</strong> Nirje, B. (1969), «&nbsp;The normalization principle and its human management implications&nbsp;», dans R. B. Kugel, &amp; W. Wolfensberger (éds), <em>Changing patterns in residential services for the mentally retarded</em>, pp. 179-195, Washington DC: President’s Committee on Mental Retardation.</li>
+                        <li id="sdfootnote11sym"><strong>11.</strong> Wolfensberger, W. (1983). Social role valorization: A proposed new term for the principle of normalization. <em>Mental Retardation</em>, vol. 21, n°6, pp. 234-239.</li>
+                        <li id="sdfootnote12sym"><strong>12.</strong> Gouvernement du Québec (1971), <em>Loi sur les services de santé et les services sociaux</em>, R.S. S-5.</li>
+                        <li id="sdfootnote13sym"><strong>13.</strong> Gouvernement du Québec (1991), <em>Loi sur les services de santé et les services sociaux et modifiant diverses dispositions législatives</em> (projet de loi 120 devenu le chapitre 42 des Lois du Québec de 1991).</li>
+                        <li id="sdfootnote14sym"><strong>14.</strong> Caouette, M. (2014), <em>Étude descriptive des pratiques d’intervention en CRDITED favorisant l’autodétermination d’adultes présentant une déficience intellectuelle : la perspective des intervenants</em>, Thèse&nbsp;: Université du Québec à Trois-Rivières, 282 p.</li>
+                        <li id="sdfootnote15sym"><strong>15.</strong> Gouvernement du Québec (2021), <em>Politique d’hébergement et de soins et services de longue durée&nbsp;: des milieux de vie qui nous rassemble</em>, Publication n° 20-814-01W, URL&nbsp;: <a href="https://tinyurl.com/mr2dcemc" target="_blank" rel="noopener noreferrer">https://tinyurl.com/mr2dcemc</a>.</li>
+                        <li id="sdfootnote16sym"><strong>16.</strong> Tous les prénoms utilisés dans cet article sont fictifs.</li>
+                        <li id="sdfootnote17sym"><strong>17.</strong> <a href="https://youtu.be/sNXiCPjO93w" target="_blank" rel="noopener noreferrer">https://youtu.be/sNXiCPjO93w</a>.</li>
+                        <li id="sdfootnote18sym"><strong>18.</strong> Au moment de la publication de cet article, le programme AccèsLogis est toujours actif, mais tend à être remplacé par le Programme d’habitation abordable Québec (PHAQ).</li>
+                        <li id="sdfootnote19sym"><strong>19.</strong> <a href="https://youtu.be/dJxfZqQptis" target="_blank" rel="noopener noreferrer">https://youtu.be/dJxfZqQptis</a>.</li>
+                        <li id="sdfootnote20sym"><strong>20.</strong> Baba, S., Raufflet, E. (2015), «&nbsp;L’acceptabilité sociale&nbsp;: une notion en consolidation&nbsp;», <em>Management international / International Management / Gestiòn Internacional</em>, vol. 19, n°33, pp. 98-114, DOI&nbsp;: <a href="https://doi.org/10.7202/1043005ar" target="_blank" rel="noopener noreferrer">https://doi.org/10.7202/1043005ar</a>.</li>
+                    </ul>
+                </section>
+            </article>
+        </main>
+    </div>
+
+    <!-- Modal Universel (PDF / Vidéo) -->
+    <div class="modal-overlay" id="mediaModal" onclick="closeModalOnOutside(event)">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 id="modalTitle">Titre de la fenêtre</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBodyContent"></div>
+        </div>
+    </div>
+
+    <!-- Modal de Proposition d'Article / Projet -->
+    <div class="modal-overlay" id="proposalModal" onclick="closeProposalModalOnOutside(event)">
+        <div class="modal-container" style="max-width: 800px; height: auto;">
+            <div class="modal-header">
+                <h3 id="proposalModalTitle">Proposer une captation ou un article / Nous faire part d'un commentaire</h3>
+                <button class="modal-close" onclick="closeProposalModal()">&times;</button>
+            </div>
+            <div class="modal-body" style="padding: 1.5rem; overflow-y: auto;">
+                <form id="proposalForm" onsubmit="submitProposal(event)" style="display: flex; flex-direction: column; gap: 1rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                    <input type="hidden" id="propCategory" value="article">
+                    <div>
+                        <label for="propName" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Votre nom</label>
+                        <input type="text" id="propName" required style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propEmail" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Votre courriel</label>
+                        <input type="email" id="propEmail" required style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propTitle" id="propTitleLabel" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Que désirez-vous nous communiquer ?</label>
+                        <input type="text" id="propTitle" required placeholder="Ex: Analyse de l'accessibilité urbaine..." style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propDesc" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Description ou résumé</label>
+                        <textarea id="propDesc" rows="4" required placeholder="Décrivez votre proposition en quelques lignes..." style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff; resize: vertical;"></textarea>
+                    </div>
+                    <button type="submit" style="background-color: #7a2222; color: #fff; border: none; padding: 0.75rem; border-radius: 4px; font-weight: 600; cursor: pointer; margin-top: 0.5rem; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#5e1a1a'" onmouseout="this.style.backgroundColor='#7a2222'">Envoyer la proposition</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSubmenu(event, submenuId, arrowId) {
+            event.stopPropagation();
+            const submenu = document.getElementById(submenuId);
+            const arrow = document.getElementById(arrowId);
+            submenu.classList.toggle('open');
+            arrow.style.transform = submenu.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
+
+        // Défilement fluide pointant directement en haut ou juste au-dessus du titre du sous-chapitre
+        function scrollToSection(event, targetId) {
+            event.preventDefault();
+            if (targetId === 'top-presentation') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                return;
+            }
+            const targetEl = document.getElementById(targetId);
+            if (targetEl) {
+                const topbarHeight = 60;
+                const extraOffset = 28;
+                const elementPosition = targetEl.getBoundingClientRect().top + window.scrollY;
+                window.scrollTo({
+                    top: elementPosition - topbarHeight - extraOffset,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Données interactives pour les cartes conceptuelles SVG
+        const conceptMapsData = {
+            map1: [
+                {
+                    title: "Avant 1960 — Prise en charge familiale ou asilaire :",
+                    text: "Les personnes ayant une DI ou autistes incapables de subvenir seules à leurs besoins demeuraient auprès de leurs proches ou étaient placées dans de grands instituts psychiatriques gérés par des congrégations religieuses, en marge de la communauté."
+                },
+                {
+                    title: "Années 1970-2000 — Désinstitutionalisation et Ressources de type familial (RTF) :",
+                    text: "Inspirées par la normalisation et la valorisation des rôles sociaux, les RTF rapprochent les personnes de la communauté. Toutefois, elles instaurent un rapport de subordination et une rémunération proportionnelle aux incapacités qui freine le gain d'autonomie."
+                },
+                {
+                    title: "RI, RAC et Politique de 2021 — Maisons alternatives :",
+                    text: "Malgré une architecture plus conviviale que le milieu hospitalier, les ressources intermédiaires (RI), RAC et « maisons alternatives » perpétuent une logique médico-sociale d'hébergement collectif plutôt qu'un véritable chez-soi."
+                },
+                {
+                    title: "Nouveau paradigme — Appartements supervisés :",
+                    text: "Portés par la communauté et les OBNL, les appartements supervisés confèrent un statut de locataire à part entière, maximisant le contrôle quotidien, l'intimité et l'autodétermination."
+                }
+            ],
+            map2: [
+                {
+                    title: "OBNL « J'ai mon appart' » — Dissociation entre logement et réseau de santé :",
+                    text: "Contrairement à l'hébergement traditionnel, le réseau de la santé n'est pas promoteur ni gestionnaire du bâtiment. Les résidents signent un bail citoyen (loyer fixé à 25 % de leurs revenus en formule HLM) et bénéficient d'un chez-soi permanent."
+                },
+                {
+                    title: "11 logements individuels + 1 logement de locataire-ressource :",
+                    text: "Chaque locataire dispose de son propre appartement (chambre, salon, cuisine, salle de bains). Un 12e logement accueille un locataire-ressource qui offre une présence rassurante et un soutien de proximité."
+                },
+                {
+                    title: "Espaces communs favorisant la vie collective :",
+                    text: "L'immeuble intègre une salle multifonctionnelle avec cuisine complète pour les activités de groupe, une buanderie, deux conciergeries et un local administratif."
+                },
+                {
+                    title: "Accompagnement personnalisé par l'équipe de l'OBNL :",
+                    text: "Sous la direction d'une coordonnatrice, le personnel de l'organisme soutient les locataires dans les activités de la vie quotidienne, la gestion de l'horaire et les relations interpersonnelles."
+                },
+                {
+                    title: "Montage financier tripartite et services spécialisés du CISSS :",
+                    text: "Réalisé via AccèsLogis (SHQ), la SCHL et près de 2 M$ du milieu. Le CISSS assure un financement récurrent des services de soutien et l'intervention spécialisée en DI et autisme."
+                }
+            ],
+            map3: [
+                {
+                    title: "Pivot central — Le Conseil d'administration (OBNL) :",
+                    text: "Composé de deux parents, d'un frère, d'une belle-sœur et d'un cadre retraité du réseau de la santé, le CA a assuré le leadership et la traduction administrative entre des institutions fonctionnant en silo, tout en mobilisant près de 2 000 000 $ auprès du milieu."
+                },
+                {
+                    title: "Pôle 1 — Locataires, Parents et Fratrie :",
+                    text: "Les futurs locataires ont agi comme porte-parole pour humaniser le projet. Les parents ont animé les collectes de fonds et relevé le double défi de préparer leur enfant à l'autonomie tout en s'adaptant eux-mêmes à cette transition."
+                },
+                {
+                    title: "Pôle 2 — Pouvoirs publics et Expertise technique :",
+                    text: "La Ville de Shawinigan (terrain, crédit de taxes, don), les députés (dénouement bureaucratique), la SHQ, la SCHL, le GRT (Habitations populaires du Québec) et les entrepreneurs en construction ont bâti l'infrastructure."
+                },
+                {
+                    title: "Pôle 3 — Réseau Santé, Organismes pairs et Recherche :",
+                    text: "Le CISSS (sélection des locataires, entente de financement), les organismes communautaires locaux, les OBNL d'autres régions et la Chaire Autodétermination et Handicap (UQTR) ont outillé l'intervention et documenté les pratiques."
+                },
+                {
+                    title: "Pôle 4 — Société civile et Désirabilité sociale :",
+                    text: "Les fondations philanthropiques, commerces locaux, médias, artistes (toiles peintes avec les locataires, documentaire) et voisins ont transformé la simple tolérance en fierté et co-appropriation communautaire."
+                }
+            ],
+            map4: [
+                {
+                    title: "Levier 1 — Décloisonnement et traduction entre silos :",
+                    text: "Bien que relevant tous deux de l'État, le réseau de la santé (CISSS) et celui de l'habitation (SHQ/SCHL) fonctionnent en silos. Le CA a dû agir comme traducteur administratif pour arrimer leurs exigences respectives."
+                },
+                {
+                    title: "Levier 2 — De l'acceptabilité à la désirabilité sociale :",
+                    text: "Grâce aux médias et aux réseaux sociaux, chaque partenaire retire un bénéfice mutuel (visibilité, accomplissement de mission, fierté citoyenne), créant un cercle vertueux d'engagement."
+                },
+                {
+                    title: "Levier 3 — Le terreau fertile des liens humains :",
+                    text: "Les affinités préexistantes (un commerçant employeur d'un adulte autiste, une élue mère d'une personne ayant une DI, des liens d'amitié) ont constitué le catalyseur décisif de la mobilisation."
+                },
+                {
+                    title: "Enjeu d'avenir — Une stratégie québécoise structurée :",
+                    text: "Le développement d'habitats inclusifs ne peut reposer indéfiniment sur la seule charge bénévole des familles. Un cadre structuré à l'échelle du Québec est indispensable pour éviter que chaque groupe n'ait à réinventer ces arrimages."
+                }
+            ]
+        };
+
+        function selectConceptNode(mapId, index, element) {
+            const card = element.closest('.concept-map-card');
+            card.querySelectorAll('.svg-node').forEach(node => node.classList.remove('active'));
+            element.classList.add('active');
+
+            const detailPanel = document.getElementById(mapId + '-detail');
+            const info = conceptMapsData[mapId][index];
+            if (detailPanel && info) {
+                detailPanel.innerHTML = `<strong>${info.title}</strong>${info.text}`;
+            }
+        }
+
+        function openModal(type, title, url) {
+            const modal = document.getElementById('mediaModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalBodyContent = document.getElementById('modalBodyContent');
+
+            modalTitle.textContent = title;
+            modalBodyContent.innerHTML = '';
+
+            if (type === 'pdf') {
+                const iframe = document.createElement('iframe');
+                iframe.className = 'pdf-frame';
+                iframe.src = url;
+                modalBodyContent.appendChild(iframe);
+            } else if (type === 'video') {
+                const iframe = document.createElement('iframe');
+                iframe.className = 'video-frame';
+                iframe.src = url;
+                iframe.setAttribute('allow', 'autoplay; fullscreen');
+                modalBodyContent.appendChild(iframe);
+            }
+
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('mediaModal');
+            modal.style.display = 'none';
+            document.getElementById('modalBodyContent').innerHTML = '';
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeModalOnOutside(event) {
+            const modal = document.getElementById('mediaModal');
+            if (event.target === modal) closeModal();
+        }
+
+        function openProposalModal(type) {
+            const proposalModal = document.getElementById('proposalModal');
+            const titleEl = document.getElementById('proposalModalTitle');
+            const categoryEl = document.getElementById('propCategory');
+            const titleLabelEl = document.getElementById('propTitleLabel');
+            const titleInputEl = document.getElementById('propTitle');
+
+            categoryEl.value = type;
+
+            if (type === 'captation') {
+                titleEl.textContent = "Nous faire part d'un commentaire ou d'une proposition (captation ou article)";
+                titleLabelEl.textContent = "Que voulez-vous nous communiquer ?";
+                titleInputEl.placeholder = "Ex: projet de captation, soumettre un article, faire un commentaire...";
+            } else {
+                titleEl.textContent = "Nous faire part d'un commentaire ou d'une proposition (captation ou article)";
+                titleLabelEl.textContent = "Que voulez-vous nous communiquer ?";
+                titleInputEl.placeholder = "Ex: projet de captation, soumettre un article, faire un commentaire...";
+            }
+
+            proposalModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProposalModal() {
+            const proposalModal = document.getElementById('proposalModal');
+            proposalModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeProposalModalOnOutside(event) {
+            const proposalModal = document.getElementById('proposalModal');
+            if (event.target === proposalModal) closeProposalModal();
+        }
+
+        function submitProposal(event) {
+            event.preventDefault();
+            const name = document.getElementById('propName').value;
+            const email = document.getElementById('propEmail').value;
+            const category = document.getElementById('propCategory').value;
+            const title = document.getElementById('propTitle').value;
+            const desc = document.getElementById('propDesc').value;
+
+            const typeLabel = category === 'captation' ? 'Proposition de captation' : "Proposition d'article";
+            const subject = encodeURIComponent(`${typeLabel} : ${title}`);
+            const body = encodeURIComponent(`Nom : ${name}\nCourriel : ${email}\nType : ${typeLabel}\nTitre : ${title}\n\nDescription :\n${desc}`);
+
+            window.location.href = `mailto:sociocamera@gmail.com?subject=${subject}&body=${body}`;
+            closeProposalModal();
+        }
+
+        window.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+                closeProposalModal();
+            }
+        });
+    </script>
+</body>
+</html>
