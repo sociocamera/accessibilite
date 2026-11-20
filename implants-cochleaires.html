@@ -1,0 +1,1661 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; frame-src https://drive.google.com; connect-src https://script.google.com; object-src 'none';">
+    <title>Implants cochléaires</title>
+    <meta name="description" content="Numéro spécial de la Revue de Sociologie Visuelle consacré à l'inclusion sociale et à l'accessibilité. Contributions empiriques et théoriques dirigées par François Routhier et Pierre Fraser.">
+    <meta name="keywords" content="inclusion sociale, accessibilité, sociologie visuelle, handicap, implant cochléaire, éducation inclusive, CIRRIS, AQEPA">
+    <link rel="canonical" href="https://doi.org/10.13140/RG.2.2.35504.53768">
+
+<!-- Open Graph (Facebook, LinkedIn, WhatsApp, etc.) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Revue Sociologie Visuelle">
+<meta property="og:title" content="Implants cochléaires">
+<meta property="og:description" content="Numéro spécial de la Revue de Sociologie Visuelle consacré à l'inclusion sociale et à l'accessibilité. Contributions empiriques et théoriques dirigées par François Routhier et Pierre Fraser.">
+<meta property="og:url" content="https://inclusionsociale.com/">
+<meta property="og:image" content="https://lh3.googleusercontent.com/d/1R-6VqA6SZ8t1dall1uf0mj_ehOcj7jNW">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="fr_CA">
+
+<!-- Twitter / X Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Inclusion sociale et accessibilité | Revue de Sociologie Visuelle">
+<meta name="twitter:description" content="Numéro spécial de la Revue de Sociologie Visuelle consacré à l'inclusion sociale et à l'accessibilité.">
+<meta name="twitter:image" content="https://inclusionsociale.com/images/vignette-inclusion-sociale.jpg">
+
+
+    <style>
+        :root {
+            --bg-color: #FAF6EF;
+            --text-color: #2b2b2b;
+            --primary-color: #1a202c;
+            --accent-color: #4a5568;
+            --border-color: #e2e8f0;
+            --card-bg: #FAF6EF;
+            --hover-border: #cbd5e0;
+            --max-width: 1400px;
+            --sidebar-width: 320px;
+            --topbar-height: 60px;
+            --modal-header-bg: #7a2222; /* Bordeaux de référence */
+            --pale-box-bg: #FDFBF7; /* Fond blanchâtre / plus pâle que #FAF6EF */
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Georgia", "Cambria", "Times New Roman", serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Barre horizontale permanente supérieure : toute la largeur de la page */
+        .top-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--topbar-height);
+            background-color: var(--bg-color);
+            border-bottom: 1px solid var(--border-color);
+            display: grid;
+            grid-template-columns: var(--sidebar-width) 1fr auto;
+            align-items: center;
+            padding: 0;
+            z-index: 1100;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .top-navbar-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            letter-spacing: 0.02em;
+            padding-left: 1.5rem;
+            border-right: 1px solid var(--border-color);
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .top-navbar-location {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            background-color: #f2ede4;
+            padding: 0.3rem 0.75rem;
+            border-radius: 4px;
+            margin-right: 2.5rem;
+        }
+
+        /* Colonne latérale gauche permanente sous la barre fixe du haut */
+        aside.sidebar {
+            position: fixed;
+            top: var(--topbar-height);
+            left: 0;
+            width: var(--sidebar-width);
+            height: calc(100vh - var(--topbar-height));
+            background-color: #f5f0e6;
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            z-index: 1000;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            overflow-y: auto;
+        }
+
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .btn-home {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            background-color: #7a2222;
+            color: #fff;
+            border: none;
+            padding: 0.85rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        .btn-home svg {
+            position: absolute;
+            left: 1rem;
+        }
+
+        .btn-home:hover {
+            background-color: #5e1a1a;
+        }
+
+        .sidebar-info-section {
+            padding: 1rem 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .sidebar-card {
+            background-color: #FAF6EF;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 0.85rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            text-align: justify;
+        }
+
+        .sidebar-card.editor-card {
+            flex-direction: row;
+            align-items: center;
+            gap: 0.75rem;
+            text-align: left;
+        }
+
+        .editor-info h4 {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            margin-bottom: 0.15rem;
+        }
+
+        .editor-info p {
+            font-size: 0.78rem;
+            color: var(--accent-color);
+            line-height: 1.4;
+        }
+
+        .sidebar-nav {
+            padding: 1.25rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            flex: 1;
+        }
+
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--primary-color);
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-align: left;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            background-color: #eae3d5;
+            border-color: var(--hover-border);
+        }
+
+        .submenu {
+            display: none;
+            flex-direction: column;
+            gap: 0.4rem;
+            padding-left: 1rem;
+            margin-top: -0.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .submenu.open {
+            display: flex;
+        }
+
+        .submenu-item {
+            font-size: 0.82rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            padding: 0.4rem 0.75rem;
+            border-radius: 4px;
+            transition: background-color 0.15s, color 0.15s;
+            border-left: 2px solid #d4c5b9;
+            line-height: 1.35;
+        }
+
+        .submenu-item:hover {
+            background-color: #eae3d5;
+            color: var(--primary-color);
+            border-left-color: #7a2222;
+        }
+
+        /* Mention cliquable NAVIGATION DANS LA PAGE */
+        .page-nav-trigger {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background: transparent;
+            border: none;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #7a2222;
+            letter-spacing: 0.05em;
+            margin-top: 0.5rem;
+            margin-bottom: 0.25rem;
+            padding: 0.4rem 0.25rem;
+            cursor: pointer;
+            text-align: left;
+            font-family: inherit;
+            transition: opacity 0.2s;
+        }
+
+        .page-nav-trigger:hover {
+            opacity: 0.8;
+        }
+
+        /* Conteneur principal à droite, décalé pour laisser place à la sidebar et topbar */
+        .main-wrapper {
+            margin-left: var(--sidebar-width);
+            margin-top: var(--topbar-height);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: calc(100% - var(--sidebar-width));
+            padding: 2.5rem 2rem 4rem 2rem;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            padding-left: 2rem;
+        }
+
+        .btn-header {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: 1px solid var(--primary-color);
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: background-color 0.2s;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-header.secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border-color: var(--border-color);
+        }
+
+        .btn-header.secondary:hover {
+            background-color: #f2ede4;
+            border-color: var(--hover-border);
+        }
+
+        /* Styles spécifiques de l'article intégré (max-width 1060px centré) */
+        .article-container {
+            width: 100%;
+            max-width: 1060px;
+            margin: 0 auto;
+        }
+
+        .article-header {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #d4c5b9;
+        }
+
+        .article-kicker {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #7a2222;
+            font-weight: 700;
+            margin-bottom: 0.65rem;
+        }
+
+        .article-title {
+            font-family: "Georgia", "Cambria", "Times New Roman", serif;
+            font-size: 1.95rem;
+            line-height: 1.3;
+            color: #1a202c;
+            font-weight: 700;
+        }
+
+        /* Grille à deux cases côte à côte : Auteurs & Citation */
+        .meta-two-boxes {
+            display: grid;
+            grid-template-columns: 1.45fr 1fr;
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .pale-info-box {
+            background-color: var(--pale-box-bg);
+            border: 1px solid #e5ddd0;
+            border-radius: 8px;
+            padding: 1.25rem 1.4rem;
+            font-size: 0.83rem;
+            line-height: 1.5;
+            color: #3d3d3d;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .authors-photos-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.9rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.9rem;
+            border-bottom: 1px solid #ebe4d8;
+        }
+
+        .author-photo-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .author-photo-card img,
+        .author-avatar-placeholder {
+            width: 74px;
+            height: 74px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d4c5b9;
+            margin-bottom: 0.45rem;
+            background-color: #efe9de;
+        }
+
+        .author-avatar-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: #7a2222;
+        }
+
+        .author-name-label {
+            font-weight: 700;
+            color: #1a202c;
+            font-size: 0.82rem;
+            line-height: 1.25;
+        }
+
+        .author-affil-sub {
+            font-size: 0.72rem;
+            color: #5a6270;
+            margin-top: 0.15rem;
+            line-height: 1.25;
+        }
+
+        .all-authors-list {
+            font-size: 0.8rem;
+            color: #2b2b2b;
+            margin-bottom: 0.45rem;
+        }
+
+        .affiliations-footnotes {
+            font-size: 0.74rem;
+            color: #555;
+            line-height: 1.4;
+        }
+
+        .box-label-title {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #7a2222;
+            margin-bottom: 0.55rem;
+            display: block;
+        }
+
+        /* Section Résumé FR / EN */
+        .abstract-two-boxes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .abstract-box {
+            background-color: var(--pale-box-bg);
+            border: 1px solid #e5ddd0;
+            border-radius: 8px;
+            padding: 1.35rem 1.5rem;
+            font-size: 0.88rem;
+            line-height: 1.6;
+            text-align: justify;
+            color: #333;
+        }
+
+        .keywords-line {
+            margin-top: 0.85rem;
+            padding-top: 0.65rem;
+            border-top: 1px dashed #dcd3c4;
+            font-size: 0.82rem;
+            color: #4a5568;
+            text-align: left;
+        }
+
+        /* Corps de l'article */
+        .article-body {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #262626;
+        }
+
+        .article-body p {
+            margin-bottom: 1.25rem;
+            text-align: justify;
+        }
+
+        /* Titres des sous-chapitres en rouge bordeaux avec décalage pour l'ancre */
+        .chapter-heading {
+            color: #7a2222;
+            font-family: "Georgia", "Cambria", "Times New Roman", serif;
+            font-size: 1.42rem;
+            font-weight: 700;
+            margin-top: 2.6rem;
+            margin-bottom: 1.1rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 1px solid #e3d9c8;
+            line-height: 1.35;
+            scroll-margin-top: calc(var(--topbar-height) + 28px);
+        }
+
+        .sub-theme-title {
+            color: #7a2222;
+            font-weight: 700;
+            font-style: italic;
+        }
+
+        /* Lettrine rouge bordeaux en caractère gras pour Introduction */
+        .dropcap-bordeaux {
+            float: left;
+            font-size: 3.6rem;
+            line-height: 0.82;
+            padding-top: 0.1rem;
+            padding-right: 0.65rem;
+            padding-bottom: 0.1rem;
+            color: #7a2222;
+            font-weight: 700;
+            font-family: "Georgia", serif;
+        }
+
+        /* Citations verbatims */
+        .verbatim-quote {
+            margin: 1.1rem 0 1.35rem 1.75rem;
+            padding: 0.75rem 1.25rem;
+            border-left: 3px solid #7a2222;
+            background-color: rgba(253, 251, 247, 0.75);
+            font-size: 0.98rem;
+            line-height: 1.7;
+            color: #2f2f2f;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .verbatim-source {
+            display: inline-block;
+            font-style: italic;
+            color: #5a6270;
+            font-size: 0.9rem;
+        }
+
+        /* Cartes conceptuelles interactives SVG */
+        .concept-map-card {
+            background-color: var(--pale-box-bg);
+            border: 1px solid #dfd6c7;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2.2rem 0;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .concept-map-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .concept-map-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #7a2222;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .concept-map-hint {
+            font-size: 0.78rem;
+            color: #64748b;
+            background: #f3ede2;
+            padding: 0.25rem 0.65rem;
+            border-radius: 12px;
+        }
+
+        .svg-wrapper {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        .interactive-node {
+            cursor: pointer;
+            transition: transform 0.2s ease, filter 0.2s ease;
+        }
+
+        .interactive-node:hover {
+            filter: drop-shadow(0 4px 6px rgba(122, 34, 34, 0.18));
+        }
+
+        .interactive-node.active-node rect,
+        .interactive-node.active-node circle {
+            stroke: #7a2222;
+            stroke-width: 2.5px;
+        }
+
+        .concept-detail-panel {
+            margin-top: 1rem;
+            padding: 0.9rem 1.15rem;
+            background-color: #f6f1e7;
+            border-left: 4px solid #7a2222;
+            border-radius: 4px;
+            font-size: 0.88rem;
+            line-height: 1.55;
+            color: #2b2b2b;
+        }
+
+        .concept-detail-panel strong {
+            color: #7a2222;
+        }
+
+        /* Références et Notes */
+        .references-section, .footnotes-section {
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #d4c5b9;
+            font-size: 0.92rem;
+            line-height: 1.65;
+        }
+
+        .reference-item {
+            padding-left: 1.5rem;
+            text-indent: -1.5rem;
+            margin-bottom: 0.85rem;
+            text-align: left;
+        }
+
+        .footnotes-section {
+            font-size: 0.84rem;
+            color: #4a5568;
+        }
+
+        .footnote-item {
+            margin-bottom: 0.55rem;
+        }
+
+        sup a {
+            color: #7a2222;
+            text-decoration: none;
+            font-weight: 700;
+            padding: 0 2px;
+        }
+
+        /* Styles harmonisés des fenêtres modales selon l'image de référence */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+        }
+
+        .modal-container {
+            background: var(--bg-color);
+            width: 100%;
+            max-width: 900px;
+            height: 85vh;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            border: 1px solid #d4c5b9;
+        }
+
+        .modal-header {
+            padding: 1.25rem 1.5rem;
+            background: var(--modal-header-bg);
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .modal-header h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .modal-close {
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #fff;
+            opacity: 0.85;
+            transition: opacity 0.2s;
+        }
+
+        .modal-close:hover {
+            opacity: 1;
+        }
+
+        .modal-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            background-color: var(--bg-color);
+        }
+
+        .pdf-frame, .video-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        @media (max-width: 1200px) {
+            :root { --sidebar-width: 0px; }
+            .top-navbar { left: 0; padding: 0 1rem; grid-template-columns: 1fr auto; }
+            .top-navbar-title { display: none; }
+            aside.sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
+            aside.sidebar.mobile-open { transform: translateX(0); }
+            .main-wrapper { margin-left: 0; width: 100%; }
+        }
+
+        @media (max-width: 860px) {
+            .meta-two-boxes,
+            .abstract-two-boxes {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body id="top-presentation">
+
+    <!-- Barre horizontale permanente supérieure -->
+    <header class="top-navbar">
+        <div class="top-navbar-title">Revue Sociologie Visuelle</div>
+        <div class="header-actions">
+            <button class="btn-header secondary" onclick="openModal('video', 'Présentation introductive — Vidéo', 'https://drive.google.com/file/d/10Va3etjn9wZIqrVnByyNXDVM-XPKOHkK/preview?autoplay=1')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                Visionner la vidéo de présentation
+            </button>
+            <button class="btn-header secondary" onclick="openProposalModal('article')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                Proposer un projet de captation ou un article
+            </button>
+            <button class="btn-header secondary" onclick="openModal('pdf', 'Télécharger le numéro complet', 'https://drive.google.com/file/d/1d3ZUnnEwYomQ1VRQ1lF8XNei88HelQvy/preview')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Télécharger le numéro
+            </button>
+        </div>
+        <div class="top-navbar-location" id="locationIndicator">Article — Implants cochléaires</div>
+    </header>
+
+    <!-- Colonne latérale gauche permanente -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="https://inclusionsociale.com/#theme-2" class="btn-home">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                INCLUSION SOCIALE
+            </a>
+        </div>
+
+        <div class="sidebar-info-section">
+            <div style="font-size: 0.72rem; color: #718096; text-align: left; margin-bottom: 0.05rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                DOI : <a href="https://doi.org/10.13140/RG.2.2.35504.53768" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; opacity: 0.85;">10.13140/RG.2.2.35504.53768</a>
+            </div>
+
+            <div class="sidebar-card editor-card">
+                <div class="editor-info">
+                    <h4>Éditeurs</h4>
+                    <p><b>François Routhier & Pierre Fraser</b></p>
+                    <p>Plus de 18 équipes de recherche mobilisées afin de saisir comment le milieu façonne et articule l'accès aux services et à l'inclusion sociale.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-nav">
+            <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: #7a2222; letter-spacing: 0.05em; margin-bottom: 0.5rem; padding-left: 0.25rem;">NAVIGATION SUR LE SITE</div>
+
+            <div>
+                <button class="nav-btn" onclick="toggleSubmenu(event, 'accessibilitySubmenu', 'submenuArrow')">
+                    <span>Penser l'accessibilité</span>
+                    <svg id="submenuArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu" id="accessibilitySubmenu">
+                    <a href="https://inclusionsociale.com/#theme-1" class="submenu-item">1. Espace urbain & transports</a>
+                    <a href="https://inclusionsociale.com/#theme-2" class="submenu-item">2. Éducation & institutions</a>
+                    <a href="https://inclusionsociale.com/#theme-3" class="submenu-item">3. Travail, autonomie & loisirs</a>
+                    <a href="https://inclusionsociale.com/#theme-4" class="submenu-item">4. Expérience vécue & stigmates</a>
+                </div>
+            </div>
+
+            <div>
+                <button class="nav-btn" onclick="toggleSubmenu(event, 'bilansSubmenu', 'bilansSubmenuArrow')">
+                    <span>Bilans</span>
+                    <svg id="bilansSubmenuArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu" id="bilansSubmenu">
+                    <a href="https://inclusionsociale.com/mentorat-actif-bilan.html" class="submenu-item">Mentorat actif, un plus tard</a>
+                </div>
+            </div>
+
+            <!-- Bouton Tournages en cours non gras -->
+            <div>
+                <a href="https://inclusionsociale.com/tournages.html" class="nav-btn" style="font-weight: normal;">
+                    <span>Tournages en cours</span>
+                </a>
+            </div>
+
+            <!-- Mention cliquable NAVIGATION DANS LA PAGE en rouge bordeaux -->
+            <div>
+                <button class="page-nav-trigger" onclick="toggleSubmenu(event, 'pageNavSubmenu', 'pageNavArrow')" aria-expanded="true">
+                    <span>NAVIGATION DANS LA PAGE</span>
+                    <svg id="pageNavArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" style="transform: rotate(180deg); transition: transform 0.2s;"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu open" id="pageNavSubmenu">
+                    <a href="#top-presentation" onclick="scrollToTopPresentation(event)" class="submenu-item">Présentation</a>
+                    <a href="#sec-introduction" class="submenu-item">Introduction</a>
+                    <a href="#sec-histoire" class="submenu-item">1. L’implant cochléaire en bref</a>
+                    <a href="#sec-benefices" class="submenu-item">2. Les bénéfices perçus par les parents</a>
+                    <a href="#sec-limites" class="submenu-item">3. Les limites perçues par les parents</a>
+                    <a href="#sec-mesures" class="submenu-item">4. Mesures, stratégies et outils techniques</a>
+                    <a href="#sec-conclusion" class="submenu-item">Conclusion</a>
+                    <a href="#sec-references" class="submenu-item">Références bibliographiques</a>
+                </div>
+            </div>
+
+        </div>
+    </aside>
+
+    <!-- Zone de contenu dynamique à droite -->
+    <div class="main-wrapper">
+        <main class="article-container">
+            <article>
+                <!-- En-tête de l'article -->
+                <header class="article-header">
+                    <div class="article-kicker">Revue Sociologie Visuelle • N° 4 • Éducation & Institutions</div>
+                    <h1 class="article-title">Pour une pleine réalisation des activités d’enseignement par les enfants porteurs d’implant cochléaire dans leur école de quartier&nbsp;: quelles sont les conditions gagnantes&nbsp;?</h1>
+                </header>
+
+                <!-- Deux cases côte à côte sous le titre : Auteurs/Affiliations + Citation -->
+                <section class="meta-two-boxes" aria-label="Informations sur les auteurs et citation">
+                    <!-- Case 1 : Trois photos côte à côte, noms et affiliations -->
+                    <div class="pale-info-box">
+                        <span class="box-label-title">Auteurs et affiliations</span>
+                        <div class="authors-photos-row">
+                            <div class="author-photo-card">
+                                <img src="https://lh3.googleusercontent.com/d/14aw6X5BO4LOwBjXJJlOpjgskoyk5DMLs" alt="Normand Boucher" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="author-avatar-placeholder" style="display:none;">MÈS</div>
+                                <div class="author-name-label">Normand Boucher<sup>2-3-6</sup></div>
+                            </div>
+                            <div class="author-photo-card">
+                                <img src="https://lh3.googleusercontent.com/d/1soUR_97-tBfnEX8U5PGYdhxGD-nNKkiw" alt="Marie-Ève Schmouth" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="author-avatar-placeholder" style="display:none;">MG</div>
+                                <div class="author-name-label">Marie-Ève Schmouth<sup>2-5</sup></div>
+                            </div>
+                            <div class="author-photo-card">
+                                <img src="https://lh3.googleusercontent.com/d/1IqhvMylczA7VSEzDLIQXBYOtfBzvgQ_L" alt="Maude Gagnon" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="author-avatar-placeholder" style="display:none;">CM</div>
+                                <div class="author-name-label">Maude Gagnon<sup>1</sup></div>
+                            </div>
+                        </div>
+                        <div class="all-authors-list">
+                            <strong>Équipe complète :</strong> Normand Boucher<sup>2-3-6</sup>, Marie-Ève Schmouth<sup>2-3</sup>, Maude Gagnon<sup>2-5</sup>, Claire Moussel<sup>1</sup>, Sylvain Letscher<sup>2-4</sup>, Louise Duchesne<sup>2-5</sup>
+                        </div>
+                        <div class="affiliations-footnotes"><strong>Affiliations :</strong> 
+                            <sup>1</sup> Association du Québec pour enfants avec problèmes auditifs (AQEPA).
+                            <sup>2</sup> Centre interdisciplinaire de recherche en réadaptation et intégration sociale (Cirris).
+                            <sup>3</sup> CIUSSS de la Capitale-Nationale.
+                            <sup>4</sup> Université du Québec à Rimouski.
+                            <sup>5</sup> Université du Québec à Trois-Rivières.
+                            <sup>6</sup> Université Laval.
+                        </div>
+                    </div>
+
+                    <!-- Case 2 : Citation de l'article -->
+                    <div class="pale-info-box" style="display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <span class="box-label-title">Citer cet article</span>
+                            <p style="text-align: justify;">
+                                Boucher, N., Schmouth, M.-È., Gagnon, E. et als. (2023), «&nbsp;Pour une pleine réalisation des activités d’enseignement par les enfants porteurs d’implant cochléaire dans leur école de quartier&nbsp;: quelles sont les conditions gagnantes&nbsp;?&nbsp;», <i>Sociologie Visuelle</i>, n° 4, François Routhier et Pierre Fraser (éds.), Québec&nbsp;: Photo|Société, pp. 83-96.
+                            </p>
+                        </div>
+                        <div style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px solid #ebe4d8; font-size: 0.76rem; color: #5a6270;">
+                            Partenariat de recherche : <strong>Cirris</strong> &amp; <strong>AQEPA</strong>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section Résumé : deux cases sur fond blanchâtre (FR et EN) -->
+                <section class="abstract-two-boxes" aria-label="Résumés en français et en anglais">
+                    <!-- Case 1 : Résumé en français -->
+                    <div class="abstract-box">
+                        <span class="box-label-title">Résumé</span>
+                        <p>
+                            L’implant cochléaire est un outil technologique qui permet à certains enfants ayant une surdité de développer des habiletés de communication (écoute-parole) pouvant se rapprocher de celles des enfants entendants. Cette capacité à communiquer oralement, que les parents associent à la réussite scolaire, permet d’envisager pour l’enfant une participation sociale (travail, vie autonome, etc.) pleine et entière au même titre que leurs pairs entendants. Toutefois, l’implant cochléaire ne redonne pas une audition «&nbsp;normale&nbsp;», et l’enfant demeure sourd ou malentendant – les parents utilisent l’un ou l’autre de ces termes. Le développement de la communication et la réussite scolaire ne vont donc pas de soi, surtout quand l’enfant fréquente l’école de son quartier, un milieu certes «&nbsp;normalisant&nbsp;» aux yeux des parents, mais pas toujours adapté aux besoins de l’élève avec une surdité. Des interventions en orthophonie et orthopédagogie sont souvent nécessaires et de grands efforts doivent être déployés par les enfants avec le soutien de leurs parents, notamment lors du cheminement scolaire au primaire, pour développer le langage et la lecture. Des mesures d’accommodement doivent aussi être mises en place par le milieu scolaire vis-à-vis des situations environnementales défavorables à la communication et au cheminement scolaire (ex. environnements scolaires bruyants ou réverbérants, manque de connaissances de la part des enseignantes au sujet des besoins de l’enfant sur le plan de la communication, stratégies d’enseignement peu adaptées, refus d’accorder des mesures d’accommodement). Sur la base d’extraits d’entrevues semi-dirigées menées auprès de parents d’enfants porteurs d’implants et fréquentant l’école primaire en classe ordinaire et d’entrevues menées auprès d’intervenantes en surdité en milieu scolaire, nous avons mis en lumière des éléments de l’environnement scolaire qui soutiennent la communication de l’enfant avec implant, sa participation aux activités d’enseignement, et par conséquent sa réussite scolaire&nbsp;: utilisation d’outils technologiques (ex. système MF), recours à de l’aide humaine (ex. interprète), méthodes d’enseignement adaptées et stratégies de communication reconnues (ex. favoriser la lecture sur les lèvres). Lorsque des conditions environnementales gagnantes sont mises en place, plusieurs enfants porteurs d’implants peuvent développer une communication efficace, participer à la vie scolaire et réussir au même titre que les enfants entendants. Une connaissance de la situation de surdité et une meilleure compréhension des limites de l’implant cochléaire y sont cependant préalables. Les éléments identifiés et codéveloppés avec notre partenaire, l’Association du Québec pour les enfants avec problèmes auditifs (AQEPA), sont illustrés par des extraits d’entrevues (verbatims) et des supports visuels (ex.&nbsp;: images, vidéos). La finalité de ce travail de recherche est de faire mieux comprendre la réalité de l’implant cochléaire chez les enfants et de proposer des solutions dans la mise en place d’environnements scolaire, physique et social qui sont plus inclusifs sur le plan de la communication.
+                        </p>
+                        <div class="keywords-line">
+                            <strong>Mots-clés :</strong> Adaptations en milieu scolaire ; communication enfants ; implant cochléaire ; inclusion surdité.
+                        </div>
+                    </div>
+
+                    <!-- Case 2 : Résumé en anglais -->
+                    <div class="abstract-box" lang="en">
+                        <span class="box-label-title">Abstract</span>
+                        <p>
+                            The cochlear implant is a technological device that enables certain deaf children to develop communication skills (listening and spoken language) that can approach those of hearing children. This ability to communicate orally, which parents associate with academic success, allows them to envision full and complete social participation (employment, independent living, etc.) for their child on an equal footing with their hearing peers. However, a cochlear implant does not restore “normal” hearing, and the child remains deaf or hard of hearing—parents use either term. Communication development and academic achievement cannot therefore be taken for granted, particularly when the child attends their neighborhood school, an environment viewed by parents as “normalizing” yet not always adapted to the needs of a student with hearing loss. Speech-language pathology and remedial education interventions are often required, and substantial efforts must be made by children with the support of their parents—especially throughout elementary school—to develop language and reading skills. Accommodation measures must also be implemented by the school environment to address conditions unfavorable to communication and learning (e.g., noisy or reverberant classrooms, teachers’ lack of knowledge regarding the child’s communication needs, poorly adapted teaching strategies, or reluctance to grant accommodations). Drawing on semi-structured interviews conducted with parents of children with cochlear implants attending regular elementary classrooms and with school-based deafness specialists, we highlight key elements of the school environment that support the implanted child’s communication, participation in classroom activities, and subsequent academic success: the use of assistive technologies (e.g., FM systems), human support (e.g., oral interpreters), adapted teaching methods, and recognized communication strategies (e.g., facilitating speechreading). When winning environmental conditions are established, many children with cochlear implants can develop effective communication, participate in school life, and succeed alongside their hearing peers. Nevertheless, awareness of the realities of deafness and a clearer understanding of the limitations of cochlear implants remain essential prerequisites. Co-developed with our partner, the Association du Québec pour les enfants avec problèmes auditifs (AQEPA), these findings are illustrated through interview excerpts and visual media, aiming to foster physical and social school environments that are more communication-inclusive.
+                        </p>
+                        <div class="keywords-line">
+                            <strong>Keywords:</strong> School accommodations; child communication; cochlear implant; deafness inclusion.
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Corps de l'article -->
+                <div class="article-body">
+
+                    <!-- INTRODUCTION -->
+                    <h2 id="sec-introduction" class="chapter-heading">Introduction</h2>
+
+                    <p>
+                        <span class="dropcap-bordeaux">L’</span>avènement de l’implantation cochléaire au Québec, en 1984, de même que l’adoption de la politique gouvernementale <i>À part entière&nbsp;: pour un véritable exercice du droit à l’égalité</i>, parue la même année, ont amené la société québécoise à progressivement changer les lieux et les manières de scolariser les enfants vivant avec une surdité sévère à profonde, notamment ceux dont les parents ont opté pour le développement d’une communication orale. Avant que la chirurgie d’implantation cochléaire ne s’instaure au Québec, les aides à l’audition étaient limitées aux prothèses auditives. Pour les personnes ayant une surdité sévère à profonde, ces appareils donnaient un accès à l’audition et à la communication orale beaucoup plus restreint qu’un implant cochléaire (lorsque celui-ci fonctionne de façon optimale). De son côté, la politique <i>À part entière&nbsp;: pour un véritable exercice du droit à l’égalité</i> adoptée par le gouvernement du Québec visait notamment à accroître la participation des personnes handicapées à la société québécoise dans l’optique de favoriser la pleine participation de tous et de toutes afin de construire une société plus inclusive, solidaire et plus équitable. Si, dans le passé, les enfants vivant un handicap, ce qui inclut les enfants avec une surdité sévère à profonde, fréquentaient surtout des écoles spécialisées, le système scolaire québécois a tenté, depuis 1984, d’inclure les élèves qui ont des besoins particuliers, dont les enfants ayant une surdité, dans les écoles de quartier, en classes ordinaires. Toutefois, ces milieux accueillent des enfants majoritairement entendants et ne sont pas toujours bien adaptés aux besoins des enfants porteurs d’implants cochléaires, sans compter que l’implant cochléaire est un outil technologique d’aide à l’audition qui présente ses propres limites, par exemple dans des environnements bruyants.
+                    </p>
+
+                    <p>
+                        Le but de cet article est donc de mettre en lumière la pertinence et l’importance de certains éléments de l’environnement scolaire ordinaire qui soutiennent la pleine participation des enfants porteurs d’implants cochléaires aux activités d’enseignement et sur lesquels il faut continuer à mettre des efforts. Des extraits d’entrevue provenant de différents projets de recherche menés avec des parents entendants et des intervenantes en milieu scolaire, de même que des capsules vidéo ont été utilisés pour illustrer ces éléments. Les extraits se présentent sous la forme d’un récit pour montrer la complémentarité et aussi la multitude des réalités.
+                    </p>
+
+                    <p>
+                        Nous tenons à souligner la contribution de M. Nicolas Rouleau, audiologiste au Centre d’expertise en implant cochléaire au CHU de Québec, de Jasmine et de sa mère, de Claire Moussel, la directrice générale de l’AQEPA provinciale, et de Geneviève St-Germain, la directrice de l’AQEPA Québec Métro, qui ont rendu possible la production des capsules vidéo par leur participation ou leurs efforts de sollicitation. Nous remercions tous ceux et celles qui ont accepté de nous livrer une partie de leur vécu.
+                    </p>
+
+                    <!-- Carte conceptuelle interactive 1 : Trajectoire d'inclusion -->
+                    <div class="concept-map-card" id="map1">
+                        <div class="concept-map-header">
+                            <span class="concept-map-title">Carte conceptuelle 1 — Du dispositif technologique à la participation sociale</span>
+                            <span class="concept-map-hint">Cliquez sur un nœud pour explorer l'articulation</span>
+                        </div>
+                        <div class="svg-wrapper">
+                            <svg viewBox="0 0 920 220" width="100%" height="auto" role="img" aria-label="Diagramme interactif de l'articulation entre implant cochléaire, école de quartier et participation sociale">
+                                <defs>
+                                    <marker id="arrow-bordeaux" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                        <path d="M 0 1 L 10 5 L 0 9 z" fill="#7a2222"/>
+                                    </marker>
+                                </defs>
+                                <!-- Lignes de liaison -->
+                                <line x1="205" y1="105" x2="255" y2="105" stroke="#7a2222" stroke-width="2" marker-end="url(#arrow-bordeaux)"/>
+                                <line x1="445" y1="105" x2="495" y2="105" stroke="#7a2222" stroke-width="2" marker-end="url(#arrow-bordeaux)"/>
+                                <line x1="685" y1="105" x2="735" y2="105" stroke="#7a2222" stroke-width="2" marker-end="url(#arrow-bordeaux)"/>
+
+                                <!-- Nœud 1 -->
+                                <g class="interactive-node active-node" onclick="updateMapDetail('map1', 0, this)">
+                                    <rect x="15" y="45" width="185" height="120" rx="10" fill="#FAF6EF" stroke="#7a2222" stroke-width="2"/>
+                                    <text x="107" y="78" text-anchor="middle" font-size="12" font-weight="700" fill="#7a2222">1. IMPLANT COCHLÉAIRE</text>
+                                    <text x="107" y="100" text-anchor="middle" font-size="11" fill="#2b2b2b">Stimulation électrique</text>
+                                    <text x="107" y="116" text-anchor="middle" font-size="11" fill="#2b2b2b">du nerf auditif</text>
+                                    <text x="107" y="142" text-anchor="middle" font-size="10" font-style="italic" fill="#5a6270">(Depuis 1984 au Québec)</text>
+                                </g>
+
+                                <!-- Nœud 2 -->
+                                <g class="interactive-node" onclick="updateMapDetail('map1', 1, this)">
+                                    <rect x="260" y="45" width="180" height="120" rx="10" fill="#FAF6EF" stroke="#cbbba8" stroke-width="1.5"/>
+                                    <text x="350" y="78" text-anchor="middle" font-size="12" font-weight="700" fill="#1a202c">2. ÉCOLE DE QUARTIER</text>
+                                    <text x="350" y="100" text-anchor="middle" font-size="11" fill="#2b2b2b">Classe ordinaire</text>
+                                    <text x="350" y="116" text-anchor="middle" font-size="11" fill="#2b2b2b">milieu « normalisant »</text>
+                                    <text x="350" y="142" text-anchor="middle" font-size="10" font-style="italic" fill="#5a6270">(Politique À part entière)</text>
+                                </g>
+
+                                <!-- Nœud 3 -->
+                                <g class="interactive-node" onclick="updateMapDetail('map1', 2, this)">
+                                    <rect x="500" y="45" width="180" height="120" rx="10" fill="#FAF6EF" stroke="#cbbba8" stroke-width="1.5"/>
+                                    <text x="590" y="78" text-anchor="middle" font-size="12" font-weight="700" fill="#1a202c">3. CONDITIONS GAGNANTES</text>
+                                    <text x="590" y="100" text-anchor="middle" font-size="11" fill="#2b2b2b">Aides techniques &amp; humaines,</text>
+                                    <text x="590" y="116" text-anchor="middle" font-size="11" fill="#2b2b2b">pédagogie adaptée</text>
+                                    <text x="590" y="142" text-anchor="middle" font-size="10" font-style="italic" fill="#5a6270">(Accommodements ciblés)</text>
+                                </g>
+
+                                <!-- Nœud 4 -->
+                                <g class="interactive-node" onclick="updateMapDetail('map1', 3, this)">
+                                    <rect x="740" y="45" width="165" height="120" rx="10" fill="#FAF6EF" stroke="#cbbba8" stroke-width="1.5"/>
+                                    <text x="822" y="78" text-anchor="middle" font-size="12" font-weight="700" fill="#1a202c">4. INCLUSION SOCIALE</text>
+                                    <text x="822" y="100" text-anchor="middle" font-size="11" fill="#2b2b2b">Réussite scolaire,</text>
+                                    <text x="822" y="116" text-anchor="middle" font-size="11" fill="#2b2b2b">autonomie &amp; vie citoyenne</text>
+                                    <text x="822" y="142" text-anchor="middle" font-size="10" font-style="italic" fill="#5a6270">(Pleine participation)</text>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="concept-detail-panel" id="map1-detail">
+                            <strong>1. Implant cochléaire :</strong> Outil technologique implanté chirurgicalement qui transforme les sons en impulsions électriques transmises au nerf auditif. Il offre un accès au langage oral supérieur aux prothèses classiques pour les surdités sévères à profondes, sans toutefois restaurer une audition « normale ».
+                        </div>
+                    </div>
+
+                    <!-- CHAPITRE 1 -->
+                    <h2 id="sec-histoire" class="chapter-heading">1. L’implant cochléaire en bref&nbsp;: son histoire au Québec et à Québec</h2>
+
+                    <p>
+                        L’implant cochléaire est un petit appareil électronique implanté dans l’oreille interne lors d’une chirurgie et qui envoie du courant électrique directement au nerf auditif. Ces sensations auditives sont ensuite traitées par le cerveau. Cet outil technologique aide certaines personnes, qui ont une surdité de degré sévère à profond, à avoir une certaine audition<sup><a name="sdfootnote1anc" href="#sdfootnote1sym">1</a></sup>. En mai 1984, le docteur Pierre Ferron (1936-2021), médecin oto-rhino-laryngologiste, a effectué la première chirurgie d’implantation cochléaire multi-électrodes au Canada sur une personne adulte. Cette chirurgie s’est déroulée à l’Hôtel-Dieu de Québec. Depuis, plusieurs centaines de personnes se sont déplacées à Québec pour recevoir un implant cochléaire dans l’espoir que cela change leur vie&nbsp;: «&nbsp;L’implant ça a vraiment été le jour et la nuit pour mon enfant. Et pour nous autres aussi. Ça a changé la vie de nous autres et aussi de mon enfant.&nbsp;» <span class="verbatim-source">(parent d’un enfant porteur d’implant cochléaire)</span>. À ce jour, près de 4000 personnes sont venues à Québec pour y recevoir un implant cochléaire. Depuis janvier 2023, on peut aussi se faire opérer à Montréal. En l’espace de 40 ans, un million de personnes dans le monde ont reçu des implants cochléaires<sup><a name="sdfootnote2anc" href="#sdfootnote2sym">2</a></sup>. Au fil du temps, avec l’évolution des connaissances et l’innovation technologique, les équipes médicales d’implantation cochléaire ont élargi les critères d’admissibilité à cette technologie. Ainsi, de nos jours, plusieurs enfants reçoivent non pas un mais deux implants cochléaires.
+                    </p>
+
+                    <!-- CHAPITRE 2 -->
+                    <h2 id="sec-benefices" class="chapter-heading">2. L’implant cochléaire&nbsp;: les bénéfices perçus par les parents</h2>
+
+                    <p>
+                        Chez les jeunes enfants qui présentent une surdité sévère à profonde et qui naissent dans des familles entendantes, un implant cochléaire reçu en bas âge aide à découvrir les bruits qui nous entourent mais aussi à développer la communication orale&nbsp;:
+                    </p>
+
+                    <blockquote class="verbatim-quote">
+                        «&nbsp;Bien ça lui a donné accès à la voix. Chose qu’elle n’avait pas avec les appareils auditifs, les prothèses. Tous les bruits de la nature ça été vraiment très très différent. Même au tout début de son implant, [...] elle levait la tête quand il y avait un avion ou un oiseau et puis jamais avant ça. Ce n’était pas facile avec les prothèses on ne trouvait pas un ajustement parfait, ça ne fonctionnait pas vraiment. On n’avait pas vraiment de gain, très peu.&nbsp;» <span class="verbatim-source">(parent d’une enfant porteuse d’implant).</span>
+                    </blockquote>
+
+                    <p>
+                        Beaucoup de parents trouvent que l’implant cochléaire aide aussi à développer une meilleure prononciation&nbsp;:
+                    </p>
+
+                    <blockquote class="verbatim-quote">
+                        «&nbsp;J’ai dit à l’orthophoniste, [...] elle parle comme mes autres filles.&nbsp;» <span class="verbatim-source">(parent d’une enfant porteuse d’implant).</span>
+                    </blockquote>
+
+                    <p>
+                        Si certains parents soulignent qu’«&nbsp;il y a des gens qui n’ont pas d’implant qui ne parlent pas bien comme certains enfants implantés&nbsp;» <span class="verbatim-source">(parent d’un enfant implanté)</span>, la prononciation reste néanmoins très variable selon les enfants&nbsp;:
+                    </p>
+
+                    <blockquote class="verbatim-quote">
+                        «&nbsp;Ce que j’aimerais améliorer dans la communication de mon enfant est…la prononciation, oui. Ça c’est sûr, mais, [...] je me réfère encore à René Simard, [...] ses enfants ont été implantés il y a longtemps, longtemps. Dernièrement, je l’ai vu à la télé et il disait, mon garçon, il a son accent. Son accent de malentendant.&nbsp;» <span class="verbatim-source">(parent d’un enfant porteur d’implant).</span>
+                    </blockquote>
+
+                    <p>
+                        Le développement du langage, qui inclut les mots de vocabulaire et les phrases, est très variable d’un enfant à l’autre. Alors que certains enfants atteignent un niveau de langage qui se rapproche du niveau des enfants qui n’ont pas de perte auditive, d’autres peuvent montrer un certain retard&nbsp;:
+                    </p>
+
+                    <blockquote class="verbatim-quote">
+                        «&nbsp;Si je compare ma première et ma deuxième filles implantées, ma première fille elle égale les entendants, alors que ma deuxième fille… c’est vraiment son vocabulaire qui a du retard là-dessus. C’est différent d’une personne à l’autre.&nbsp;» <span class="verbatim-source">(parent de deux enfants porteurs d’implant).</span>
+                    </blockquote>
+
+                    <p>
+                        La capacité à communiquer oralement et la capacité à répondre aux objectifs sociaux de scolarisation, en partie associés à l’implant cochléaire, permet d’envisager pour l’enfant une participation sociale (travail, vie autonome…) pleine et entière au même titre que leurs pairs entendants – ou presque&nbsp;:
+                    </p>
+
+                    <blockquote class="verbatim-quote">
+                        «&nbsp;C’est un énorme gain. C’est déjà mieux que ce que ça avait été si elle n’avait pas eu ses implants. [...] Je pense qu’elle est dans un parcours, elle va continuer de s’améliorer. Je ne pense pas qu’elle a atteint son maximum. Elle va continuer à progresser. Son vocabulaire, ses apprentissages. Elle va se développer. […] Mais, déjà, je pense, que ce qu’elle a là, c’est déjà beaucoup mieux, c’est déjà un beau gain. [...] Parce qu’au début, quand j’ai eu le diagnostic qu’elle était sourde complètement et que je ne savais même pas si elle allait être éligible à l’implant ou pas, je ne voyais pas comment on pourrait s’en sortir. Mais c’est déjà le jour et la nuit. Je trouve qu’elle fonctionne énormément bien.&nbsp;» <span class="verbatim-source">(parent d’une enfant porteuse d’implant).</span>
+                    </blockquote>
+
+                    <blockquote class="verbatim-quote">
+                        «&nbsp;Pour l’avenir, moi, c’est un petit garçon plein de potentiel. Il est très curieux, persévérant. Selon moi, il peut faire ce qu’il veut dans la vie, il a juste à choisir. Il n’a pas de retard de langage, il n’a pas de défaut de langage, donc je ne vois pas… Il n’est pas limité par quoi que ce soit.&nbsp;» <span class="verbatim-source">(parent d’un enfant porteur d’implant).</span>
+                    </blockquote>
+
+                    <!-- CHAPITRE 3 -->
+                    <h2 id="sec-limites" class="chapter-heading">3. L’implant cochléaire&nbsp;: les limites perçues par les parents</h2>
+
+                    <p>
+                        Il reste que l’implant cochléaire est un outil technologique imparfait qui ne redonne pas une audition «&nbsp;normale&nbsp;», et l’enfant demeure sourd, malentendant ou «&nbsp;handicapé&nbsp;» (c’est un terme souvent utilisé par les parents entendants)&nbsp;:
+                    </p>
+
+                    <blockquote class="verbatim-quote">
+                        «&nbsp;C’est sûr que c’est un appareil, ce n’est pas parfait.&nbsp;» <span class="verbatim-source">(parent d’une enfant porteuse d’implant).</span>
+                    </blockquote>
+
+                    <blockquote class="verbatim-quote">
+                        «&nbsp;C’est sûr que dans la période de devoirs, je m’aperçois qu’il ne faut pas que je parle trop vite parce que, des fois [...], il n’entend pas la bonne affaire.&nbsp;» <span class="verbatim-source">(parent d’un enfant porteur d’implant).</span>
+                    </blockquote>
+
+                    <blockquote class="verbatim-quote">
+                        «&nbsp;Ça ne pourra jamais être parfait. Mon enfant ne pourra jamais entendre à 100&nbsp;%. Et tout ce qui a rapport aux groupes, ça va être un défi pour toute sa vie puis ça va être un défi pour tous les implantés cochléaires ça.&nbsp;» <span class="verbatim-source">(parent d’un enfant porteur d’implant).</span>
+                    </blockquote>
+
+                    <blockquote class="verbatim-quote">
+                        «&nbsp;Même si elle a beaucoup de mots de vocabulaire, qu’elle est capable de faire des phrases, qu’elle est capable de s’exprimer, capable de se faire comprendre, tu sais des fois elle va se mêler plus souvent dans son féminin masculin, des fois elle va prononcer de la même façon, des fois la structure de phrases est encore un petit peu à corriger. Ça fait que, c’est sûr que si elle veut aller jouer avec plusieurs amis, c’est sûr que les problèmes de communication sont beaucoup plus fréquents.&nbsp;» <span class="verbatim-source">(parent d’une enfant porteuse d’implant).</span>
+                    </blockquote>
+
+                    <p>
+                        Il s’agit là de limites associées à l’implant cochléaire qui sont faciles à oublier ou à méconnaître en raison de la capacité de l’enfant à entendre les bruits environnants et à fonctionner au quotidien&nbsp;:
+                    </p>
+
+                    <blockquote class="verbatim-quote">
+                        «&nbsp;Avec le premier implant, j’ai eu tendance à oublier qu’elle était malentendante parce qu’elle m’entendait [...].&nbsp;» <span class="verbatim-source">(parent d’une enfant porteuse d’implant).</span>
+                    </blockquote>
+
+                    <blockquote class="verbatim-quote">
+                        «&nbsp;Surtout avec le deuxième, [...] dans la voiture je peux avoir des conversations facilement avec lui. Des fois, il faut répéter, mais la communication est pratiquement normale dans l’auto. Il est en haut, on est en bas, ‘Viens souper’, il n’y a pas de problème, il nous entend. Il n’y a pas de bris de communication [...]. Au niveau des situations difficiles, c’est sûr que, quand il y a du bruit, mais encore là, c’est surprenant comment il est capable&nbsp;» <span class="verbatim-source">(parent d’un enfant porteur d’implant).</span>
+                    </blockquote>
+
+                    <blockquote class="verbatim-quote">
+                        «&nbsp;Comme c’est vraiment au-delà de nos attentes pour notre enfant, c’est pour ça que, dans notre tête à nous autres, on le considère ‘normal’. C’est sûr qu’il n’est pas ‘normal’ [...]&nbsp;» <span class="verbatim-source">(parent d’un enfant porteur d’implant).</span>
+                    </blockquote>
+
+                    <p>
+                        Parfois, il faut expliquer ou rappeler ces limites auprès, par exemple, des enseignantes, et même à l’intérieur de la cellule familiale&nbsp;:
+                    </p>
+
+                    <blockquote class="verbatim-quote">
+                        «&nbsp;Les difficultés de communication avec le papa sont là. [...] Pour lui, il la voit comme une entendante. Je veux dire, il oublie qu’elle a un implant.&nbsp;» <span class="verbatim-source">(parent d’une enfant porteuse d’implant).</span>
+                    </blockquote>
+
+                    <blockquote class="verbatim-quote">
+                        Mais, «&nbsp;[...] je me rends compte [aussi] que les gens ne connaissent pas ça la surdité. Ils ont un implant, alors ils entendent&nbsp;!&nbsp;» <span class="verbatim-source">(parent d’un enfant porteur d’implant).</span>
+                    </blockquote>
+
+                    <blockquote class="verbatim-quote">
+                        Par exemple, les enseignants, «&nbsp;[...] des fois on dirait qu’ils ne réalisent pas l’ampleur. Oui, avec l’implant, elles entendent bien. [...] C’est supposé de marcher comme il faut, comme quelqu’un de normal.&nbsp;» <span class="verbatim-source">(parent d’une enfant porteuse d’implant).</span>
+                    </blockquote>
+
+                    <blockquote class="verbatim-quote">
+                        «&nbsp;Mais moi, je ne le savais pas non plus. C’est vraiment…c’est abstrait pour les gens. Même si on leur dit…&nbsp;» <span class="verbatim-source">(parent d’un enfant porteur d’implant).</span>
+                    </blockquote>
+
+                    <!-- Carte conceptuelle interactive 2 : Paradoxe de la normalisation -->
+                    <div class="concept-map-card" id="map2">
+                        <div class="concept-map-header">
+                            <span class="concept-map-title">Carte conceptuelle 2 — Le paradoxe de l'« audition appareillée » en classe</span>
+                            <span class="concept-map-hint">Sélectionnez un pôle pour comparer les perceptions</span>
+                        </div>
+                        <div class="svg-wrapper">
+                            <svg viewBox="0 0 920 230" width="100%" height="auto" role="img" aria-label="Diagramme comparatif des bénéfices et limites perçus autour de l'implant cochléaire">
+                                <!-- Colonne gauche : Gains -->
+                                <g class="interactive-node active-node" onclick="updateMapDetail('map2', 0, this)">
+                                    <rect x="20" y="25" width="265" height="175" rx="10" fill="#FAF6EF" stroke="#7a2222" stroke-width="2"/>
+                                    <text x="152" y="54" text-anchor="middle" font-size="12" font-weight="700" fill="#7a2222">GAINS PERÇUS (AU CALME)</text>
+                                    <text x="152" y="82" text-anchor="middle" font-size="11" fill="#2b2b2b">• Accès à la voix et aux sons</text>
+                                    <text x="152" y="104" text-anchor="middle" font-size="11" fill="#2b2b2b">• Développement de la parole</text>
+                                    <text x="152" y="126" text-anchor="middle" font-size="11" fill="#2b2b2b">• Interactions fluides en duo</text>
+                                    <text x="152" y="148" text-anchor="middle" font-size="11" fill="#2b2b2b">• Projection vers l'autonomie</text>
+                                    <text x="152" y="178" text-anchor="middle" font-size="10" font-style="italic" fill="#5a6270">Effet « jour et nuit »</text>
+                                </g>
+
+                                <!-- Centre : Zone de tension -->
+                                <g class="interactive-node" onclick="updateMapDetail('map2', 1, this)">
+                                    <circle cx="460" cy="112" r="76" fill="#f3ebe0" stroke="#7a2222" stroke-width="1.8" stroke-dasharray="4 3"/>
+                                    <text x="460" y="96" text-anchor="middle" font-size="11.5" font-weight="700" fill="#7a2222">ILLUSION DE</text>
+                                    <text x="460" y="113" text-anchor="middle" font-size="11.5" font-weight="700" fill="#7a2222">NORMALITÉ</text>
+                                    <text x="460" y="134" text-anchor="middle" font-size="10" fill="#333">Oubli de la surdité</text>
+                                    <text x="460" y="148" text-anchor="middle" font-size="10" fill="#333">par l'entourage</text>
+                                </g>
+
+                                <!-- Colonne droite : Limites -->
+                                <g class="interactive-node" onclick="updateMapDetail('map2', 2, this)">
+                                    <rect x="635" y="25" width="265" height="175" rx="10" fill="#FAF6EF" stroke="#cbbba8" stroke-width="1.5"/>
+                                    <text x="767" y="54" text-anchor="middle" font-size="12" font-weight="700" fill="#1a202c">LIMITES EN GROUPE &amp; BRUIT</text>
+                                    <text x="767" y="82" text-anchor="middle" font-size="11" fill="#2b2b2b">• Surcharge en classe bruyante</text>
+                                    <text x="767" y="104" text-anchor="middle" font-size="11" fill="#2b2b2b">• Débit rapide / voix de dos</text>
+                                    <text x="767" y="126" text-anchor="middle" font-size="11" fill="#2b2b2b">• Nuances lexicales &amp; genre</text>
+                                    <text x="767" y="148" text-anchor="middle" font-size="11" fill="#2b2b2b">• Fatigue cognitive accrue</text>
+                                    <text x="767" y="178" text-anchor="middle" font-size="10" font-style="italic" fill="#5a6270">L'enfant demeure sourd</text>
+                                </g>
+
+                                <!-- Flèches convergentes -->
+                                <line x1="290" y1="112" x2="378" y2="112" stroke="#7a2222" stroke-width="1.8" marker-end="url(#arrow-bordeaux)"/>
+                                <line x1="630" y1="112" x2="542" y2="112" stroke="#7a2222" stroke-width="1.8" marker-end="url(#arrow-bordeaux)"/>
+                            </svg>
+                        </div>
+                        <div class="concept-detail-panel" id="map2-detail">
+                            <strong>Gains perçus (au calme) :</strong> En environnement calme et en interaction individuelle, l'implant procure un accès remarquable aux sons de l'environnement et à la parole, permettant à de nombreux enfants de développer un vocabulaire riche et une prononciation intelligible.
+                        </div>
+                    </div>
+
+                    <p>
+                        Le développement de la communication orale et la réussite scolaire ne vont donc pas de soi, surtout quand l’enfant fréquente l’école de son quartier, un <b>milieu certes «&nbsp;normalisant&nbsp;» aux yeux des parents</b>, mais pas toujours bien adapté aux besoins de l’élève avec une surdité. Dans une étude récente, on indique que plusieurs élèves vivant avec une surdité, même avec implant cochléaire, risquent d’avoir de la difficulté à participer au sein de la classe, de communiquer et d’interagir avec les autres élèves et l’enseignante<sup><a name="sdfootnote3anc" href="#sdfootnote3sym">3</a></sup>.
+                    </p>
+
+                    <!-- CHAPITRE 4 -->
+                    <h2 id="sec-mesures" class="chapter-heading">4. Les enfants porteurs d’implants cochléaires&nbsp;: mesures, stratégies et outils techniques à utiliser pour favoriser l’audition et la communication orale en contexte d’enseignement et d’évaluation</h2>
+
+                    <p>
+                        Des mesures doivent être prises par le milieu scolaire vis-à-vis des <b>situations environnementales défavorables à la communication, à l’accès à l’information et à la pleine réalisation des activités d’enseignement</b> (ex. environnements scolaires bruyants, manque de connaissances de la part des enseignantes au sujet des besoins de l’enfant sur le plan de la communication, stratégies d’enseignement peu adaptées aux besoins des élèves). Certaines stratégies inclusives d’enseignement et d’apprentissage ont été documentées et incluent entre autres la collaboration de l’enseignante avec l’interprète, la sensibilisation des pairs, le soutien, les encouragements, les discussions de l’enseignante avec l’élève, l’aménagement des activités d’apprentissage, l’adaptation du matériel (p. ex., en langue des signes, etc.)<sup><a name="sdfootnote4anc" href="#sdfootnote4sym">4</a></sup>.
+                    </p>
+
+                    <!-- Carte conceptuelle interactive 3 : Les 6 piliers de l'environnement gagnant -->
+                    <div class="concept-map-card" id="map3">
+                        <div class="concept-map-header">
+                            <span class="concept-map-title">Carte conceptuelle 3 — Architecture des 6 conditions gagnantes en milieu scolaire</span>
+                            <span class="concept-map-hint">Cliquez sur chaque levier pour voir les pratiques concrètes</span>
+                        </div>
+                        <div class="svg-wrapper">
+                            <svg viewBox="0 0 920 270" width="100%" height="auto" role="img" aria-label="Architecture radiale des six conditions gagnantes pour l'inclusion scolaire">
+                                <!-- Rayons -->
+                                <line x1="460" y1="135" x2="165" y2="55" stroke="#cbbba8" stroke-width="2"/>
+                                <line x1="460" y1="135" x2="460" y2="42" stroke="#cbbba8" stroke-width="2"/>
+                                <line x1="460" y1="135" x2="755" y2="55" stroke="#cbbba8" stroke-width="2"/>
+                                <line x1="460" y1="135" x2="165" y2="215" stroke="#cbbba8" stroke-width="2"/>
+                                <line x1="460" y1="135" x2="460" y2="228" stroke="#cbbba8" stroke-width="2"/>
+                                <line x1="460" y1="135" x2="755" y2="215" stroke="#cbbba8" stroke-width="2"/>
+
+                                <!-- Noyau central -->
+                                <rect x="355" y="102" width="210" height="66" rx="33" fill="#7a2222"/>
+                                <text x="460" y="131" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">PLEINE RÉALISATION</text>
+                                <text x="460" y="148" text-anchor="middle" font-size="11" fill="#f7e8e8">DES ACTIVITÉS EN CLASSE</text>
+
+                                <!-- Pilier 1 -->
+                                <g class="interactive-node active-node" onclick="updateMapDetail('map3', 0, this)">
+                                    <rect x="30" y="20" width="260" height="58" rx="8" fill="#FAF6EF" stroke="#7a2222" stroke-width="2"/>
+                                    <text x="160" y="45" text-anchor="middle" font-size="11.5" font-weight="700" fill="#7a2222">A. Sensibiliser tout le personnel</text>
+                                    <text x="160" y="63" text-anchor="middle" font-size="10.5" fill="#333">Enseignants, pairs, surveillants</text>
+                                </g>
+
+                                <!-- Pilier 2 -->
+                                <g class="interactive-node" onclick="updateMapDetail('map3', 1, this)">
+                                    <rect x="330" y="12" width="260" height="58" rx="8" fill="#FAF6EF" stroke="#cbbba8" stroke-width="1.5"/>
+                                    <text x="460" y="37" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a202c">B. Gestion acoustique &amp; placement</text>
+                                    <text x="460" y="55" text-anchor="middle" font-size="10.5" fill="#333">1re rangée, côté implant, bruit réduit</text>
+                                </g>
+
+                                <!-- Pilier 3 -->
+                                <g class="interactive-node" onclick="updateMapDetail('map3', 2, this)">
+                                    <rect x="630" y="20" width="260" height="58" rx="8" fill="#FAF6EF" stroke="#cbbba8" stroke-width="1.5"/>
+                                    <text x="760" y="45" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a202c">C. Aide technique : Système MF</text>
+                                    <text x="760" y="63" text-anchor="middle" font-size="10.5" fill="#333">Voix directe sans réverbération</text>
+                                </g>
+
+                                <!-- Pilier 4 -->
+                                <g class="interactive-node" onclick="updateMapDetail('map3', 3, this)">
+                                    <rect x="30" y="192" width="260" height="58" rx="8" fill="#FAF6EF" stroke="#cbbba8" stroke-width="1.5"/>
+                                    <text x="160" y="217" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a202c">D. Aide humaine : Interprétation</text>
+                                    <text x="160" y="235" text-anchor="middle" font-size="10.5" fill="#333">Décortiquer le discours &amp; interactions</text>
+                                </g>
+
+                                <!-- Pilier 5 -->
+                                <g class="interactive-node" onclick="updateMapDetail('map3', 4, this)">
+                                    <rect x="330" y="200" width="260" height="58" rx="8" fill="#FAF6EF" stroke="#cbbba8" stroke-width="1.5"/>
+                                    <text x="460" y="225" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a202c">E. Pédagogie &amp; évaluations</text>
+                                    <text x="460" y="243" text-anchor="middle" font-size="10.5" fill="#333">Sous-titres, dictées, carton discret</text>
+                                </g>
+
+                                <!-- Pilier 6 -->
+                                <g class="interactive-node" onclick="updateMapDetail('map3', 5, this)">
+                                    <rect x="630" y="192" width="260" height="58" rx="8" fill="#FAF6EF" stroke="#cbbba8" stroke-width="1.5"/>
+                                    <text x="760" y="217" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a202c">F. Alliance École–Famille</text>
+                                    <text x="760" y="235" text-anchor="middle" font-size="10.5" fill="#333">Plan d'intervention &amp; suivi continu</text>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="concept-detail-panel" id="map3-detail">
+                            <strong>A. Sensibiliser tout le personnel :</strong> Informer dès le début d'année l'enseignante, la classe et les surveillants (cour d'école, service de garde) : parler de face, une personne à la fois, sans crier de dos, et comprendre que l'implant ne corrige pas totalement la surdité.
+                        </div>
+                    </div>
+
+                    <p>
+                        <span class="sub-theme-title">Informer sur la surdité, l’implant et ses limites.</span> Pour créer un environnement scolaire qui soit <b>favorable à la pleine réalisation des activités d’enseignement</b> par les enfants porteurs d’implants, il importe en premier lieu d’informer, de sensibiliser les acteurs du milieu scolaire à la surdité, à l’implant cochléaire ainsi qu’aux difficultés de communication et aux stratégies à utiliser pour y faire face&nbsp;:
+                    </p>
+
+                    <blockquote class="verbatim-quote">
+                        «&nbsp;En début d’année scolaire, il y a tout le temps le centre de réadaptation qui vient nous faire une petite présentation. C’est quoi l’implant et pourquoi mes deux enfants ont ça. À quoi ça sert.&nbsp;» <span class="verbatim-source">(parents de deux enfants porteurs d’implants).</span>
+                    </blockquote>
+
+                    <blockquote class="verbatim-quote">
+                        «&nbsp;La professeure aussi, elle était conscientisée de ça et elle conscientisait les élèves.&nbsp;» <span class="verbatim-source">(parent d’une enfant porteuse d’implant).</span>
+                    </blockquote>
+
+                    <blockquote class="verbatim-quote">
+                        «&nbsp;Ils vont aussi donner des trucs sur c’est quoi la surdité puis même si elle a un implant et elle entend, elle n’entend pas comme tout le monde et il faut parler en face, une personne à la fois, de façon claire, pas trop vite, tu sais, toute sorte de trucs comme ça.&nbsp;» <span class="verbatim-source">(parent d’une enfant porteuse d’implant).</span>
+                    </blockquote>
+
+                    <blockquote class="verbatim-quote">
+                        Également, «&nbsp;une audiologiste a fait une sensibilisation avec le prof avec le système MF. Ça c’est essentiel, je trouve que c’est super important. J’aurais aimé ça à la limite que toute l’école en bénéficie.&nbsp;» <span class="verbatim-source">(parent d’un enfant porteur d’implant).</span>
+                    </blockquote>
+
+                    <p>
+                        Si la sensibilisation actuelle s’adresse d’abord à l’enseignante principale et aux élèves de la classe, elle devrait être faite auprès de l’ensemble des intervenants scolaires&nbsp;:
+                    </p>
+
+                    <blockquote class="verbatim-quote">
+                        «&nbsp;C’est arrivé, je pense, à deux reprises, que mon enfant avait fait quelque chose de pas correct dans la cour puis il était de dos puis le professeur le hélait puis il lui disait&nbsp;: ‘Eh, viens ici toi, viens ici’. Puis il ne comprenait pas, il continuait. Puis ça déjà été considéré comme une effronterie jusqu’à ce qu’on dise au prof&nbsp;: ‘C’est qu’il ne t’entendait pas, il est sourd lui.’&nbsp;» <span class="verbatim-source">(parent d’un enfant porteur d’implant).</span>
+                    </blockquote>
+
+                    <p>
+                        <span class="sub-theme-title">Utiliser des stratégies générales en classe pour favoriser l’écoute et la communication.</span> Pour créer un environnement scolaire qui soit <b>favorable à la pleine réalisation des activités d’enseignement</b> par les enfants avec implant, il s’agit également pour les enseignantes, d’utiliser des <b>stratégies générales en classe</b> qui vont maximiser l’accès à la communication et à l’information pour l’enfant implanté, soit les stratégies de gestion du bruit en classe et le lieu où l’enfant sera situé dans la classe&nbsp;:
+                    </p>
+
+                    <blockquote class="verbatim-quote">
+                        «&nbsp;Les chaises c’est sûr qu’elles ont des balles de tennis sous les pattes alors ça va [...]&nbsp;» <span class="verbatim-source">(parent d’une enfant porteuse d’implant).</span>
+                    </blockquote>
+
+                    <blockquote class="verbatim-quote">
+                        «&nbsp;Mettons que c’est trop bruyant, j’entends souvent les professeurs dire ‘Là, notre amie porteuse d’implant elle n’entendra pas bien, pouvez-vous vous calmer&nbsp;?’&nbsp;» <span class="verbatim-source">(parent d’une enfant porteuse d’implant).</span>
+                    </blockquote>
+
+                    <blockquote class="verbatim-quote">
+                        «&nbsp;C’est sûr qu’au début, je lui dis tout le temps, qu’il faut qu’elle soit très près de vous, soit la première rangée, au pire la deuxième rangée. C’est sûr qu’il faut essayer de la mettre du côté gauche de son implant. Donc, il faut qu’elle soit face au professeur mais que c’est son côté gauche qui soit le plus près du professeur. J’essaie qu’ils respectent de la mettre le plus près possible en avant.&nbsp;» <span class="verbatim-source">(parent d’une enfant porteuse d’implant).</span>
+                    </blockquote>
+
+                    <p>
+                        <span class="sub-theme-title">Utiliser le système MF, une aide technique, avec les enfants qui en ont besoin.</span> Pour créer un environnement scolaire qui soit <b>favorable à la pleine réalisation des activités d’enseignement</b> par les enfants porteurs d’implants, le système MF, une aide technique qui maximise l’accès à la voix, doit être utilisé par les enseignants. Cet outil est souvent recommandé par les audiologistes pour certains élèves ayant une surdité et porteurs d’implants cochléaires. «&nbsp;La voix de l’enseignant, captée par le microphone est transmise directement dans les oreilles du jeune par son récepteur MF. Elle devient alors plus forte que le bruit présent dans la classe (ex.&nbsp;: déplacements, manipulation d’objet, commentaires des élèves). Elle est aussi de meilleure qualité (moins d’écho) et plus stable. En effet, elle ne varie pas en fonction des déplacements de l’enseignant dans la classe<sup><a name="sdfootnote5anc" href="#sdfootnote5sym">5</a></sup>.&nbsp;»
+                    </p>
+
+                    <p>
+                        Lors des séances de sensibilisation, une attention particulière devrait être accordée à l’utilisation du système MF puisqu’elle serait variable chez les enseignants&nbsp;:
+                    </p>
+
+                    <blockquote class="verbatim-quote">
+                        «&nbsp;Au niveau des systèmes MF, c’est sûr que ça reste quand même difficile. Il y a des professeurs qui sont moins enclins. Ça a l’air d’être tellement gros l’implant et mon dieu, c’est la fin du monde d’avoir un micro dans le cou.&nbsp;» <span class="verbatim-source">(parent de deux enfants implantées).</span>
+                    </blockquote>
+
+                    <blockquote class="verbatim-quote">
+                        «&nbsp;C’est sûr [aussi] que des fois il faut leur rappeler pour le système MF [...].&nbsp;» <span class="verbatim-source">(parent d’une enfant implantée).</span>
+                    </blockquote>
+
+                    <p>
+                        <span class="sub-theme-title">Miser aussi sur l’interprétation, une aide humaine.</span> Certains enfants porteurs d’implants cochléaires ont droit aux services d’interprétation orale. «&nbsp;Les interprètes font partie des professionnels qui contribuent à l’accessibilité et aux chances égales de réussite pour les personnes sourdes et malentendantes qui communiquent en mode oral<sup><a name="sdfootnote6anc" href="#sdfootnote6sym">6</a></sup>.&nbsp;» En ce sens, pour créer un environnement scolaire qui soit <b>favorable à la pleine réalisation des activités d’enseignement</b>, les enseignantes devraient s’adapter à la présence de l’interprète pour maximiser l’accès à la communication et à l’information pour l’enfant porteur d’implant&nbsp;:
+                    </p>
+
+                    <blockquote class="verbatim-quote">
+                        «&nbsp;Il a une interprète à temps plein avec lui. Je pense qu’elle l’aide à décortiquer ce qui s’est dit quand la professeure parle et qu’il y a du bruit. Je pense qu’il y aurait encore plus de notions qu’il n’aurait pas compris dans une journée s’il n’y avait pas eu d’interprète.&nbsp;» <span class="verbatim-source">(parent d’un enfant porteur d’implant).</span>
+                    </blockquote>
+
+                    <blockquote class="verbatim-quote">
+                        «&nbsp;Je pense aussi qu’elle va utiliser l’interprète plus à des périodes très spécifiques. [...] Moi, ce qu’elle m’a dit et ce que je me souviens dont on parlait, c’est beaucoup lorsqu’il y a des dictées. [...] Les fameuses dictées.&nbsp;» <span class="verbatim-source">(parent d’une enfant porteuse d’implant).</span>
+                    </blockquote>
+
+                    <blockquote class="verbatim-quote">
+                        «&nbsp;Les amis peuvent parler dans les classes aussi un peu partout, donc elle ne sait pas nécessairement quel ami a parlé et quand [quelqu’un parle] en arrière, elle demande&nbsp;: ‘Qu’est-ce qu’il a dit&nbsp;?’. Ça fait que là, l’interprète interprète tout. Elle y a accès tout en gardant la tête en avant.&nbsp;» <span class="verbatim-source">(parent d’une enfant porteuse d’implant).</span>
+                    </blockquote>
+
+                    <p>
+                        Selon Claude Galibois, interprète oral en milieu scolaire&nbsp;:
+                    </p>
+
+                    <blockquote class="verbatim-quote">
+                        «&nbsp;Le métier d’interprète oral en milieu scolaire est essentiel au développement et à l’épanouissement des enfants atteints de surdité. Les interprètes occupent une place centrale dans la vie de ces écoliers, puisque leur rôle est non seulement de leur permettre d’assimiler des connaissances, mais aussi de les aider à socialiser avec le monde extérieur afin d’améliorer leur bien-être et de briser l’isolement.&nbsp;»
+                    </blockquote>
+
+                    <blockquote class="verbatim-quote">
+                        «&nbsp;Mais encore une fois, il faut dire que, c’est beaucoup aussi, le type de professeur, la disponibilité du prof, sa compréhension, sa capacité de travailler avec une interprète à temps plein. C’est beaucoup beaucoup d’adaptation pour un enseignant aussi.&nbsp;» <span class="verbatim-source">(parent d’une enfant porteuse d’implant).</span>
+                    </blockquote>
+
+                    <p>
+                        Lors des séances de sensibilisation, une attention particulière devrait être accordée à l’importance de l’interprétation pour compléter les informations et éviter les incompréhensions chez les enfants porteurs d’implants.
+                    </p>
+
+                    <p>
+                        <span class="sub-theme-title">L’utilisation de stratégies d’enseignement pour maximiser l’accès au contenu enseigné.</span> Pour créer un environnement scolaire qui soit <b>favorable à la pleine réalisation des activités d’enseignement</b> par les enfants porteurs d’implants, il s’agit aussi d’utiliser des <b>stratégies d’enseignement</b> qui vont aider l’enfant à accéder, par d’autres moyens que l’audition seulement, au contenu des enseignements&nbsp;:
+                    </p>
+
+                    <blockquote class="verbatim-quote">
+                        «&nbsp;C’est en anglais, c’est une langue qu’elle ne connaît pas, à laquelle elle n’est pas habituée, phonétiquement qui ne sonne pas pareil. Déjà, c’est un défi de plus pour elle. En plus, si c’est des chansons, c’est pas évident non plus et le fait que ce soit tout le groupe qui chante. J’ai dit, peut-être que ça pourrait être bon s’ils étaient capables de la prendre un petit peu à part pour le faire one on one avec elle. Ou sinon, ce qu’on a fait aussi, c’est qu’ils nous ont donné les chansons et on le fait avec elle à la maison aussi. Ça, ça a aidé beaucoup.&nbsp;» <span class="verbatim-source">(parent d’une enfant porteuse d’implant).</span>
+                    </blockquote>
+
+                    <blockquote class="verbatim-quote">
+                        «&nbsp;Lorsqu’ils font la lecture dans la classe, [...] elle est toujours là (tourne la tête) et elle essaie de le voir. Elle dit&nbsp;: ‘j’essaie de voir ce qu’il dit, mais là, je regarde le livre et je suis perdue. Donc, je n’aime pas ça quand c’est les autres qui lisent.’&nbsp;» <span class="verbatim-source">(parent d’une enfant porteuse d’implant).</span>
+                    </blockquote>
+
+                    <blockquote class="verbatim-quote">
+                        «&nbsp;Lorsque du matériel est utilisé, il peut arriver que la vidéo n’a pas de sous-titres, le prof évidemment, il y a toujours une sensibilisation qui est faite aux enseignants, mais ça se peut qu’ils oublient, parce qu’il va dire&nbsp;: ‘c’est juste trois minutes. Ce n’est pas important.’&nbsp;» <span class="verbatim-source">(intervenante en milieu scolaire).</span>
+                    </blockquote>
+
+                    <p>
+                        <span class="sub-theme-title">L’utilisation d’accommodements pour mieux évaluer les connaissances et les compétences.</span> Dans le cadre <b>des évaluations</b>, des accommodements particuliers peuvent être proposés afin de permettre à l’enfant avec implant de démontrer ce qu’il est capable de faire.
+                    </p>
+
+                    <p>
+                        <b>Lors des examens de compréhension orale&nbsp;:</b>
+                    </p>
+
+                    <blockquote class="verbatim-quote">
+                        «&nbsp;C’est plus difficile […], c’est un professeur qui fait beaucoup de dictées sur l’ordinateur avec des casques d’écoute.&nbsp;» <span class="verbatim-source">(parent d’une enfant porteuse d’implant).</span>
+                    </blockquote>
+
+                    <blockquote class="verbatim-quote">
+                        «&nbsp;C’est l’éducatrice qui lui donne sa dictée dans le corridor, à part, au lieu de faire ça par ordinateur. C’est sûr que c’est mieux comme ça, mais d’un autre côté, c’est plate pour elle parce que les autres le font tous à l’ordinateur et elle aime vraiment ça l’ordinateur et toutes ces affaires-là. Mais, on voit que ça ne marche pas, donc on y va dans le corridor.&nbsp;» <span class="verbatim-source">(parent d’une enfant porteuse d’implant).</span>
+                    </blockquote>
+
+                    <blockquote class="verbatim-quote">
+                        Si la dictée a lieu en classe, «&nbsp;[...] on fait beaucoup de sensibilisation aussi, de permettre à notre enfant de demander de répéter. Parce que c’est arrivé, souvent avec les remplaçants. Un moment donné, il demande au remplaçant de répéter le mot de la dictée, mais elle dit ‘je répète juste deux fois’, parce que sa règle de la dictée, c’est de répéter juste deux fois. C’est correct pour ceux qui entendent, mais pour celui qui n’entend pas, ça ne marche pas.&nbsp;» <span class="verbatim-source">(parent d’un enfant porteur d’implant).</span>
+                    </blockquote>
+
+                    <p>
+                        <b>Lors des examens de compréhension écrite</b>, des accommodements simples peuvent être proposés par l’enseignante&nbsp;:
+                    </p>
+
+                    <blockquote class="verbatim-quote">
+                        «&nbsp;Elle lui a écrit une note&nbsp;: ‘Tu viens me voir si tu ne comprends pas ou si tu as mal entendu, tu as le droit. Même si j’ai dit à tout le monde que je ne réponds à aucune question, toi, tu as un privilège. [...] Tu as le droit de venir me le demander si tu n’as pas entendu.’ Donc, ça rassure la petite.&nbsp;» <span class="verbatim-source">(parent d’une enfant porteuse d’implant).</span>
+                    </blockquote>
+
+                    <blockquote class="verbatim-quote">
+                        «&nbsp;Au début, il y avait un code avec le professeur. Il mettait un petit carton rouge et c’était discret, pour pas qu’il soit obligé de le dire quand il n’avait pas compris les consignes d’examen.&nbsp;» <span class="verbatim-source">(parent d’un enfant porteur d’implant).</span>
+                    </blockquote>
+
+                    <p>
+                        Non seulement, les enseignantes doivent être sensibilisées à l’importance des <b>stratégies d’enseignement</b> qui vont maximiser l’accès à l’information pour l’enfant avec implant, mais elles doivent également être outillées et rassurées&nbsp;:
+                    </p>
+
+                    <blockquote class="verbatim-quote">
+                        «&nbsp;Il faut que les profs soient au fait de ce qu’ils peuvent faire, puis moi je suis confrontée à des profs qui ont peur de faire des adaptations, ils ont peur de faire ce qu’il ne faut pas faire. Il y a beaucoup de sensibilisation à faire de ce côté-là.&nbsp;» <span class="verbatim-source">(intervenante en milieu scolaire).</span>
+                    </blockquote>
+
+                    <p>
+                        Il y aurait par ailleurs de la sensibilisation, voire de la formation à faire auprès des enseignantes concernant les capacités de lecture et de compréhension du vocabulaire (qui peuvent être moindres que les enfants sans surdité). Il est important d’avoir en tête ces possibles lacunes lors des évaluations afin de permettre à l’enfant avec implant de démontrer ce qu’il est véritablement capable de faire&nbsp;:
+                    </p>
+
+                    <blockquote class="verbatim-quote">
+                        «&nbsp;Il y a beaucoup de sensibilisation à faire de ce côté-là. Ne serait-ce que de parler du thème de la lecture, de la compréhension en lecture qui s’en vient. On parlait de thèmes tantôt, on l’a vécu la semaine dernière avec un jeune, c’était le thème des pirates et l’enseignante me disait&nbsp;: ‘[...] il connait ça les pirates&nbsp;!’. Oui il peut connaître c’est quoi un pirate, mais il peut ne pas connaître l’univers du pirate avec tout le vocabulaire et tout ce que ça comporte. C’est ça les mots de vocabulaire et tout l’imaginaire qui vient avec ça là. Donc, au point de vue des évaluations, en fait c’est que je disais aux profs c’est qu’il faut que l’élève soit en mesure de vous démontrer ce qu’il sait.&nbsp;» <span class="verbatim-source">(intervenante en milieu scolaire).</span>
+                    </blockquote>
+
+                    <p>
+                        <span class="sub-theme-title">Assurer une collaboration entre l’école et les parents et établir un plan d’intervention pour l’enfant.</span> Un élément qui s’ajoute, jugé essentiel, pour créer un environnement scolaire qui soit <b>favorable à la pleine réalisation des activités d’enseignement</b> par les enfants porteurs d’implants est d’adopter une attitude d’ouverture et qu’il y ait une collaboration entre la direction d’école, les enseignantes et les parents&nbsp;:
+                    </p>
+
+                    <blockquote class="verbatim-quote">
+                        «&nbsp;La seule année où ça a été catastrophique, c’est la deuxième année. [...] L’école n’était pas prête, et je pense, c’est le professeur qui ne comprenait pas la situation, point. Elle ne s’impliquait pas. Tout au long de l’année, c’était comme difficile la collaboration. Je n’avais pas de soutien, je n’avais pas de mots dans l’agenda. Je ne sentais pas qu’elle travaillait avec moi et avec mon enfant. Je sentais que c’était juste&nbsp;: ‘Ah&nbsp;!, moi, je n’ai pas de temps à perdre avec elle.’ Elle ne lui a jamais offert de récupération [...] Tandis qu’à partir de la deuxième année [...] jusqu’à la fin de son primaire, les profs ont été géniaux, merveilleux, impliqués. Ils m’appelaient, des petits mots dans l’agenda. Ils vont à la récupération souvent. Ils l’ont inscrit à l’aide aux devoirs. [...] Ils lui donnent des exercices supplémentaires. Ils collaborent avec moi.&nbsp;» <span class="verbatim-source">(parent d’une enfant porteuse d’implant).</span>
+                    </blockquote>
+
+                    <blockquote class="verbatim-quote">
+                        «&nbsp;Pas mal tout au long des années, j’ai senti une bonne collaboration. C’est sûr que moi je m’implique. En début d’année, je rencontre les enseignants. Je parle de l’implant de [ma fille], je parle de sa surdité, je parle de l’importance aussi de mettre l’accent sur les services qu’elle a et d’utiliser les aides techniques. C’est sûr que pour eux, c’est clair en partant que le système MF, moi j’y tiens. Quand elle a ses services en orthophonie, ces choses-là, je leur dis que c’est important pour elle parce qu’il y a quand même des volets qui sont en lien avec la surdité et les limites de l’implant. Peut-être au niveau de la discrimination de certains sons, des choses comme ça. C’est important qu’elle ait ce soutien-là. [...] J’ai eu quand même une bonne collaboration avec les enseignants puis la direction aussi. Ça va bien.&nbsp;» <span class="verbatim-source">(parent d’une enfant porteuse d’implant).</span>
+                    </blockquote>
+
+                    <p>
+                        Le plan d’intervention permet d’identifier des éléments à améliorer dans la mise en place de conditions <b>favorables à la communication et à la pleine réalisation des activités d’enseignement</b>&nbsp;:
+                    </p>
+
+                    <blockquote class="verbatim-quote">
+                        «&nbsp;On a des plans d’intervention régulièrement. [...] Avec les profs, la direction, les spécialistes et tout ça. Pour ma première fille porteuse d’implant, je te dirais qu’une fois par année, c’est assez parce que ça va très bien. Pour ma seconde fille porteuse d’implant, c’est quasiment aux trois mois dans la période scolaire.&nbsp;» <span class="verbatim-source">(parent de deux enfants porteurs d’implant).</span>
+                    </blockquote>
+
+                    <!-- CONCLUSION -->
+                    <h2 id="sec-conclusion" class="chapter-heading">Conclusion</h2>
+
+                    <p>
+                        Dans cet article, nous avons voulu mieux faire comprendre la réalité des enfants ayant un implant cochléaire en mettant l’accent sur l’expérience de parents d’enfants porteurs d’implants cochléaires et nous avons voulu mettre en lumière des éléments de l’environnement scolaire qui soutiennent la communication des enfants avec implant cochléaire, leur participation aux activités d’enseignement, et par conséquent leur réussite scolaire. Les parents d’enfants porteurs d’implants cochléaires sont souvent des personnes entendantes, qui souhaitent que leur enfant développe le langage oral, fréquente l’école de quartier, et participe pleinement, au même titre que n’importe quels autres enfants sans surdité, à la société. Il faut toutefois rappeler que l’implant cochléaire n’élimine pas les effets d’une surdité&nbsp;: ainsi, il est faux de croire qu’un implant cochléaire est une «&nbsp;oreille bionique&nbsp;» qui permet d’entendre de la même manière qu’une oreille sans surdité. Depuis le début de l’utilisation de cette technologie, les résultats de recherche ont constamment montré une très grande variabilité dans les performances auditives et langagières des enfants qui naissent avec une surdité ou qui l’acquièrent en très bas âge. Ainsi, la plupart des enfants avec implant ont besoin de services en orthophonie pour prévenir ou traiter des difficultés de langage et plusieurs d’entre eux ont encore des besoins une fois à l’école, que ce soit en orthophonie et/ou en orthopédagogie. Ces élèves ont également besoin de soutien en classe. Dans cet article, nous avons présenté certaines mesures qui apparaissent importantes pour une réalisation pleine et entière des activités d’enseignement&nbsp;: utilisation de mesures d’accommodement technologiques (ex. système MF), recours à l’aide humaine (ex. interprète), méthodes d’enseignement adaptées et stratégies de communication reconnues (ex. favoriser la lecture sur les lèvres).
+                    </p>
+
+                    <p>
+                        Pour les enfants sourds, développer le langage et réaliser divers apprentissages avec un implant cochléaire ne sera pas nécessairement une tâche facile&nbsp;: tous les acteurs qui gravitent autour des enfants doivent travailler en collaboration et y mettre des efforts, autant les parents que les intervenants de la réadaptation et que du milieu scolaire. Pour permettre à ces enfants de réaliser leur plein potentiel, il reste primordial de bien connaître, et de mieux comprendre, les enjeux liés à la surdité et à l’implant cochléaire, et ainsi de miser sur une adaptation de leur environnement.
+                    </p>
+
+                    <!-- RÉFÉRENCES BIBLIOGRAPHIQUES -->
+                    <section class="references-section">
+                        <h2 id="sec-references" class="chapter-heading" style="margin-top: 0;">Références bibliographiques</h2>
+
+                        <div class="reference-item">
+                            Letscher, S., Parent, G., Deslandes, R. (2015), «&nbsp;Éthique et libération&nbsp;: Pratiques d’enseignants auprès des élèves sourds&nbsp;», dans L.-A. St-Vincent (dir.), <i>Le développement de l’agir éthique chez les professionnels en éducation</i>, Québec&nbsp;: Presses de l’Université du Québec, URL&nbsp;: <a href="https://tinyurl.com/ytfucv3m" target="_blank" rel="noopener noreferrer" style="color:#7a2222;">https://tinyurl.com/ytfucv3m</a>, pp. 113-138.
+                        </div>
+
+                        <div class="reference-item">
+                            Letscher, S., Dupont, A., Beauregard, F., Rachel, B. et als. (2020), «&nbsp;La question du droit à l’éducation pour l’élève sourd ou ayant une surdité&nbsp;: le cas du Québec&nbsp;», dans J.-F. Joye, C. Benelbaz et F. Faberon (dirs.), <i>Identité, dignité et handicap</i>, Clermont-Ferrand&nbsp;: Presses Universitaires de l’Université Clermont-Auvergne, URL&nbsp;: <a href="https://tinyurl.com/2zs9dvdw" target="_blank" rel="noopener noreferrer" style="color:#7a2222;">https://tinyurl.com/2zs9dvdw</a>, pp. 211-224.
+                        </div>
+
+                        <div class="reference-item" lang="en">
+                            Zeng, F. G. (2022), «&nbsp;Celebrating the one millionth cochlear implant&nbsp;», <i>JASA Express Letters</i>, vol. 2, n° 7, DOI&nbsp;: <a href="https://doi.org/10.1121/10.0012825" target="_blank" rel="noopener noreferrer" style="color:#7a2222;">https://doi.org/10.1121/10.0012825</a>.
+                        </div>
+                    </section>
+
+                    <!-- NOTES DE BAS DE PAGE -->
+                    <section class="footnotes-section" aria-label="Notes de bas de page">
+                        <div class="footnote-item" id="sdfootnote1">
+                            <a name="sdfootnote1sym" href="#sdfootnote1anc" style="color:#7a2222; font-weight:700;">1.</a> Zeng, F. G. (2022), «&nbsp;Celebrating the one millionth cochlear implant&nbsp;», <i>JASA Express Letters</i>, vol. 2, n° 7, DOI&nbsp;: <a href="https://doi.org/10.1121/10.0012825" target="_blank" rel="noopener noreferrer" style="color:#7a2222;">https://doi.org/10.1121/10.0012825</a>.
+                        </div>
+                        <div class="footnote-item" id="sdfootnote2">
+                            <a name="sdfootnote2sym" href="#sdfootnote2anc" style="color:#7a2222; font-weight:700;">2.</a> <i>Idem</i>.
+                        </div>
+                        <div class="footnote-item" id="sdfootnote3">
+                            <a name="sdfootnote3sym" href="#sdfootnote3anc" style="color:#7a2222; font-weight:700;">3.</a> Letscher, S., Dupont, A., Beauregard, F. et als. (2020), «&nbsp;La question du droit à l’éducation pour l’élève sourd ou ayant une surdité&nbsp;: le cas du Québec&nbsp;», dans J.-F. Joye, C. Benelbaz et F. Faberon (dir.), <i>Identité, dignité et handicap</i>, Clermont-Ferrand&nbsp;: Presses Universitaires de l’Université Clermont-Auvergne, URL&nbsp;: <a href="https://tinyurl.com/2zs9dvdw" target="_blank" rel="noopener noreferrer" style="color:#7a2222;">https://tinyurl.com/2zs9dvdw</a>, pp. 211-224.
+                        </div>
+                        <div class="footnote-item" id="sdfootnote4">
+                            <a name="sdfootnote4sym" href="#sdfootnote4anc" style="color:#7a2222; font-weight:700;">4.</a> Letscher, S., Parent, G., Deslandes, R. (2015), «&nbsp;Éthique et libération&nbsp;: Pratiques d’enseignants auprès des élèves sourds&nbsp;», dans L.-A. St-Vincent (dir.), <i>Le développement de l’agir éthique chez les professionnels en éducation</i>, Québec&nbsp;: Presses de l’Université du Québec, URL&nbsp;: <a href="https://tinyurl.com/ytfucv3m" target="_blank" rel="noopener noreferrer" style="color:#7a2222;">https://tinyurl.com/ytfucv3m</a>, pp. 113-138.
+                        </div>
+                        <div class="footnote-item" id="sdfootnote5">
+                            <a name="sdfootnote5sym" href="#sdfootnote5anc" style="color:#7a2222; font-weight:700;">5.</a> <a href="https://aqepa.org/lutilisation-dun-systeme-mf-benefices-et-limites-en-milieu-scolaire/" target="_blank" rel="noopener noreferrer" style="color:#7a2222;">https://aqepa.org/lutilisation-dun-systeme-mf-benefices-et-limites-en-milieu-scolaire/</a>.
+                        </div>
+                        <div class="footnote-item" id="sdfootnote6">
+                            <a name="sdfootnote6sym" href="#sdfootnote6anc" style="color:#7a2222; font-weight:700;">6.</a> <a href="https://www.visemesurdite.com/" target="_blank" rel="noopener noreferrer" style="color:#7a2222;">Visème interprétation orale (visemesurdite.com)</a>.
+                        </div>
+                    </section>
+
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <!-- Modal Universel (PDF / Vidéo) -->
+    <div class="modal-overlay" id="mediaModal" onclick="closeModalOnOutside(event)">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 id="modalTitle">Titre de la fenêtre</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBodyContent"></div>
+        </div>
+    </div>
+
+    <!-- Modal de Proposition d'Article / Projet -->
+    <div class="modal-overlay" id="proposalModal" onclick="closeProposalModalOnOutside(event)">
+        <div class="modal-container" style="max-width: 800px; height: auto;">
+            <div class="modal-header">
+                <h3 id="proposalModalTitle">Proposer une captation ou un article / Nous faire part d'un commentaire</h3>
+                <button class="modal-close" onclick="closeProposalModal()">&times;</button>
+            </div>
+            <div class="modal-body" style="padding: 1.5rem; overflow-y: auto;">
+                <form id="proposalForm" onsubmit="submitProposal(event)" style="display: flex; flex-direction: column; gap: 1rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                    <input type="hidden" id="propCategory" value="article">
+                    <div>
+                        <label for="propName" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Votre nom</label>
+                        <input type="text" id="propName" required style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propEmail" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Votre courriel</label>
+                        <input type="email" id="propEmail" required style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propTitle" id="propTitleLabel" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Que désirez-vous nous communiquer ?</label>
+                        <input type="text" id="propTitle" required placeholder="Ex: Analyse de l'accessibilité urbaine..." style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propDesc" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Description ou résumé</label>
+                        <textarea id="propDesc" rows="4" required placeholder="Décrivez votre proposition en quelques lignes..." style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff; resize: vertical;"></textarea>
+                    </div>
+                    <button type="submit" style="background-color: #7a2222; color: #fff; border: none; padding: 0.75rem; border-radius: 4px; font-weight: 600; cursor: pointer; margin-top: 0.5rem; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#5e1a1a'" onmouseout="this.style.backgroundColor='#7a2222'">Envoyer la proposition</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSubmenu(event, submenuId, arrowId) {
+            event.stopPropagation();
+            const submenu = document.getElementById(submenuId);
+            const arrow = document.getElementById(arrowId);
+            submenu.classList.toggle('open');
+            arrow.style.transform = submenu.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
+
+        function scrollToTopPresentation(event) {
+            event.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        const mapDescriptions = {
+            map1: [
+                "<strong>1. Implant cochléaire :</strong> Outil technologique implanté chirurgicalement qui transforme les sons en impulsions électriques transmises au nerf auditif. Il offre un accès au langage oral supérieur aux prothèses classiques pour les surdités sévères à profondes, sans toutefois restaurer une audition « normale ».",
+                "<strong>2. École de quartier :</strong> Depuis 1984 et la politique <em>À part entière</em>, la scolarisation en classe ordinaire est privilégiée comme milieu « normalisant » au sein de la communauté, mais cet environnement conçu pour des entendants exige des ajustements.",
+                "<strong>3. Conditions gagnantes :</strong> La réussite de l'inclusion repose sur un triptyque : aides techniques (système MF), soutien humain (interprète oral, orthophonie, orthopédagogie) et stratégies pédagogiques visuelles.",
+                "<strong>4. Inclusion sociale :</strong> Lorsque l'environnement scolaire s'adapte aux besoins communicationnels de l'enfant, celui-ci peut développer pleinement son potentiel, réussir ses études et s'insérer pleinement dans la société."
+            ],
+            map2: [
+                "<strong>Gains perçus (au calme) :</strong> En environnement calme et en interaction individuelle, l'implant procure un accès remarquable aux sons de l'environnement et à la parole, permettant à de nombreux enfants de développer un vocabulaire riche et une prononciation intelligible.",
+                "<strong>Illusion de normalité :</strong> Parce que l'enfant répond lorsqu'on l'appelle au calme, les enseignants et parfois même les proches ont tendance à oublier sa surdité et à présumer que l'implant fonctionne comme une oreille biologique.",
+                "<strong>Limites en groupe et dans le bruit :</strong> En classe ordinaire (bruit ambiant, réverbération, discussions simultanées, consignes données de dos ou vidéos non sous-titrées), la compréhension chute fortement et demande un effort cognitif intense."
+            ],
+            map3: [
+                "<strong>A. Sensibiliser tout le personnel :</strong> Informer dès le début d'année l'enseignante, la classe et les surveillants (cour d'école, service de garde) : parler de face, une personne à la fois, sans crier de dos, et comprendre que l'implant ne corrige pas totalement la surdité.",
+                "<strong>B. Gestion acoustique et placement :</strong> Réduire les bruits parasites (balles de tennis sous les pattes de chaises, gestion du volume de la classe) et placer l'élève en 1re ou 2e rangée, le côté implanté orienté vers l'enseignant.",
+                "<strong>C. Aide technique (Système MF) :</strong> Le microphone porté par l'enseignant transmet sa voix directement au récepteur de l'enfant, éliminant l'effet de distance et de réverbération dans la salle.",
+                "<strong>D. Aide humaine (Interprétation orale) :</strong> L'interprète permet de décortiquer les explications rapides, les dictées et les interventions des camarades situés derrière l'élève, brisant ainsi l'isolement.",
+                "<strong>E. Pédagogie et évaluations adaptées :</strong> Activer systématiquement les sous-titres des vidéos, préparer le vocabulaire thématique à l'avance (ex. lexique des pirates) et utiliser des accommodements discrets en examen (carton rouge, répétition des consignes).",
+                "<strong>F. Alliance École–Famille :</strong> Maintenir une communication régulière (agenda, rencontres de début d'année, récupérations) et ajuster la fréquence du plan d'intervention selon l'évolution des besoins de l'enfant."
+            ]
+        };
+
+        function updateMapDetail(mapId, index, nodeEl) {
+            const detailEl = document.getElementById(mapId + '-detail');
+            if (detailEl && mapDescriptions[mapId] && mapDescriptions[mapId][index]) {
+                detailEl.innerHTML = mapDescriptions[mapId][index];
+            }
+            const container = document.getElementById(mapId);
+            if (container) {
+                container.querySelectorAll('.interactive-node').forEach(n => {
+                    n.classList.remove('active-node');
+                    const shape = n.querySelector('rect, circle');
+                    if (shape && !shape.getAttribute('stroke-dasharray')) {
+                        shape.setAttribute('stroke', '#cbbba8');
+                        shape.setAttribute('stroke-width', '1.5');
+                    }
+                });
+                nodeEl.classList.add('active-node');
+                const activeShape = nodeEl.querySelector('rect, circle');
+                if (activeShape) {
+                    activeShape.setAttribute('stroke', '#7a2222');
+                    activeShape.setAttribute('stroke-width', '2.5');
+                }
+            }
+        }
+
+        function openModal(type, title, url) {
+            const modal = document.getElementById('mediaModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalBodyContent = document.getElementById('modalBodyContent');
+
+            modalTitle.textContent = title;
+            modalBodyContent.innerHTML = '';
+
+            if (type === 'pdf') {
+                const iframe = document.createElement('iframe');
+                iframe.className = 'pdf-frame';
+                iframe.src = url;
+                modalBodyContent.appendChild(iframe);
+            } else if (type === 'video') {
+                const iframe = document.createElement('iframe');
+                iframe.className = 'video-frame';
+                iframe.src = url;
+                iframe.setAttribute('allow', 'autoplay; fullscreen');
+                modalBodyContent.appendChild(iframe);
+            }
+
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('mediaModal');
+            modal.style.display = 'none';
+            document.getElementById('modalBodyContent').innerHTML = '';
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeModalOnOutside(event) {
+            const modal = document.getElementById('mediaModal');
+            if (event.target === modal) closeModal();
+        }
+
+        function openProposalModal(type) {
+            const proposalModal = document.getElementById('proposalModal');
+            const titleEl = document.getElementById('proposalModalTitle');
+            const categoryEl = document.getElementById('propCategory');
+            const titleLabelEl = document.getElementById('propTitleLabel');
+            const titleInputEl = document.getElementById('propTitle');
+
+            categoryEl.value = type;
+
+            if (type === 'captation') {
+                titleEl.textContent = "Nous faire part d'un commentaire ou d'une proposition (captation ou article)";
+                titleLabelEl.textContent = "Que voulez-vous nous communiquer ?";
+                titleInputEl.placeholder = "Ex: projet de captation, soumettre un article, faire un commentaire...";
+            } else {
+                titleEl.textContent = "Nous faire part d'un commentaire ou d'une proposition (captation ou article)";
+                titleLabelEl.textContent = "Que voulez-vous nous communiquer ?";
+                titleInputEl.placeholder = "Ex: projet de captation, soumettre un article, faire un commentaire...";
+            }
+
+            proposalModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProposalModal() {
+            const proposalModal = document.getElementById('proposalModal');
+            proposalModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeProposalModalOnOutside(event) {
+            const proposalModal = document.getElementById('proposalModal');
+            if (event.target === proposalModal) closeProposalModal();
+        }
+
+        function submitProposal(event) {
+            event.preventDefault();
+            const name = document.getElementById('propName').value;
+            const email = document.getElementById('propEmail').value;
+            const category = document.getElementById('propCategory').value;
+            const title = document.getElementById('propTitle').value;
+            const desc = document.getElementById('propDesc').value;
+
+            const typeLabel = category === 'captation' ? 'Proposition de captation' : "Proposition d'article";
+            const subject = encodeURIComponent(`${typeLabel} : ${title}`);
+            const body = encodeURIComponent(`Nom : ${name}\nCourriel : ${email}\nType : ${typeLabel}\nTitre : ${title}\n\nDescription :\n${desc}`);
+
+            window.location.href = `mailto:sociocamera@gmail.com?subject=${subject}&body=${body}`;
+            closeProposalModal();
+        }
+
+        window.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+                closeProposalModal();
+            }
+        });
+    </script>
+</body>
+</html>
