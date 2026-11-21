@@ -336,7 +336,7 @@
             width: 92px;
             height: 92px;
             object-fit: cover;
-            border-radius: 6px;
+            border-radius: 50%;
             border: 1px solid #dfd7c8;
             margin-bottom: 0.55rem;
             background-color: #f2ede4;
@@ -347,6 +347,17 @@
             font-size: 0.86rem;
             color: var(--primary-color);
             margin-bottom: 0.2rem;
+        }
+
+        .author-affiliations-heading {
+            font-weight: 700;
+            font-size: 0.76rem;
+            color: #7a2222;
+            margin-top: 0.35rem;
+            margin-bottom: 0.2rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
         }
 
         .author-affiliation {
@@ -404,6 +415,97 @@
             color: var(--accent-color);
         }
 
+        /* Barre de déploiement des versions traduites juste avant Introduction */
+        .english-version-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin: 1.75rem 0 1.25rem 0;
+            padding: 0.85rem 1.15rem;
+            background-color: #FCFBF9;
+            border: 1px solid #dfd7c8;
+            border-left: 4px solid #7a2222;
+            border-radius: 8px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .english-version-note {
+            font-size: 0.84rem;
+            color: var(--accent-color);
+        }
+
+        .language-buttons-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .btn-english-version {
+            background-color: #7a2222;
+            color: #ffffff;
+            border: 1px solid #7a2222;
+            padding: 0.55rem 1.1rem;
+            border-radius: 6px;
+            font-size: 0.86rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background-color 0.2s ease, transform 0.15s ease;
+        }
+
+        .btn-english-version:hover {
+            background-color: #5e1a1a;
+            border-color: #5e1a1a;
+        }
+
+        .btn-english-version[aria-expanded="true"] {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .english-version-panel {
+            display: none;
+            background-color: #FCFBF9;
+            border: 1px solid #dfd7c8;
+            border-radius: 10px;
+            padding: 1.5rem 1.75rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 14px rgba(26, 32, 44, 0.05);
+        }
+
+        .english-version-panel.open {
+            display: block;
+        }
+
+        .english-version-banner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            padding-bottom: 0.85rem;
+            margin-bottom: 1.25rem;
+            border-bottom: 1px solid #e6dfd3;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.82rem;
+            color: #7a2222;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .english-article-title {
+            font-size: 1.75rem;
+            line-height: 1.25;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
         /* Titres de sous-chapitres en rouge bordeaux */
         .subchapter-heading {
             color: #7a2222;
@@ -414,6 +516,10 @@
             padding-bottom: 0.35rem;
             border-bottom: 1px solid #e6dfd3;
             scroll-margin-top: 90px;
+        }
+
+        .english-version-panel .subchapter-heading:first-of-type {
+            margin-top: 1rem;
         }
 
         .article-paragraph {
@@ -678,33 +784,6 @@
                 font-size: 1.65rem;
             }
         }
-
-.author-photo {
-    width: 92px;
-    height: 92px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 1px solid #dfd7c8;
-    margin-bottom: 0.55rem;
-    background-color: #f2ede4;
-}
-
-.author-affiliations-heading {
-    font-weight: 700;
-    font-size: 0.76rem;
-    color: #7a2222;
-    margin-top: 0.35rem;
-    margin-bottom: 0.2rem;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-}
-
-.author-affiliation {
-    font-size: 0.78rem;
-    color: var(--accent-color);
-    line-height: 1.35;
-}
     </style>
 </head>
 <body>
@@ -813,20 +892,22 @@
 
                     <!-- Deux cases sous le titre : auteurs + citation -->
                     <div class="meta-boxes-grid">
-<div class="whitish-box">
-        <div class="authors-pair">
-            <div class="author-item">
-                <img src="https://lh3.googleusercontent.com/d/14ytJcnKXMu8CUGeaftZWhzwYBvJAuYi9" alt="Josée Bouchard" class="author-photo">
-                <div class="author-name">Josée Bouchard</div>
-                <div class="author-affiliation">Bureau de projet du tramway de Québec</div>
-            </div>
-            <div class="author-item">
-                <img src="https://lh3.googleusercontent.com/d/1KvUSuaAViDZcSzWggjaRuKFkYNaSsZ4g" alt="Valérie Martel" class="author-photo">
-                <div class="author-name">Valérie Martel</div>
-                <div class="author-affiliation">CIUSS-CN</div>
-            </div>
-        </div>
-    </div>
+                        <div class="whitish-box">
+                            <div class="authors-pair">
+                                <div class="author-item">
+                                    <img src="https://lh3.googleusercontent.com/d/14ytJcnKXMu8CUGeaftZWhzwYBvJAuYi9" alt="Josée Bouchard" class="author-photo">
+                                    <div class="author-name">Josée Bouchard</div>
+                                    <div class="author-affiliations-heading">Affiliations</div>
+                                    <div class="author-affiliation">Bureau de projet du tramway de Québec</div>
+                                </div>
+                                <div class="author-item">
+                                    <img src="https://lh3.googleusercontent.com/d/1KvUSuaAViDZcSzWggjaRuKFkYNaSsZ4g" alt="Valérie Martel" class="author-photo">
+                                    <div class="author-name">Valérie Martel</div>
+                                    <div class="author-affiliations-heading">Affiliations</div>
+                                    <div class="author-affiliation">CIUSS-CN</div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="whitish-box">
                             <div class="citation-box-title">Citer cet article</div>
                             <p class="citation-box-text">
@@ -856,6 +937,373 @@
                                 <strong>Keywords:</strong> Mobility, RTC, public transit, tramway.
                             </div>
                         </div>
+                    </div>
+
+                    <!-- Boutons de déploiement des versions en anglais et en espagnol juste avant Introduction -->
+                    <div class="english-version-bar">
+                        <span class="english-version-note">Read the complete article in English or Spanish (text, figures, and interactive concept maps):</span>
+                        <div class="language-buttons-group">
+                            <button type="button" class="btn-english-version" id="englishVersionBtn" aria-expanded="false" aria-controls="englishVersionPanel" onclick="toggleLanguageVersion('en')">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                                <span id="englishVersionBtnLabel">English Version</span>
+                            </button>
+                            <button type="button" class="btn-english-version" id="spanishVersionBtn" aria-expanded="false" aria-controls="spanishVersionPanel" onclick="toggleLanguageVersion('es')">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                                <span id="spanishVersionBtnLabel">Versión en español</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Panneau déployable de la version anglaise fidèle -->
+                    <div class="english-version-panel" id="englishVersionPanel" lang="en" aria-hidden="true">
+                        <div class="english-version-banner">
+                            <span>Full English Reproduction</span>
+                            <button type="button" class="concept-btn" onclick="toggleLanguageVersion('en')">Close English Version</button>
+                        </div>
+
+                        <h2 class="english-article-title">The Québec City Tramway: Transforming the City to Make It More Inclusive</h2>
+
+                        <!-- Subchapter 1: Introduction -->
+                        <h3 class="subchapter-heading" id="en-sec-introduction">Introduction</h3>
+
+                        <figure class="article-figure">
+                            <img src="https://lh3.googleusercontent.com/d/1iyYKC7JuDTVtvKckCOH30iFfUXQjkvNe" alt="Overview of the urban integration of the Québec City tramway">
+                            <figcaption>Integration of the tramway into the urban environment and pedestrian pathways.</figcaption>
+                        </figure>
+
+                        <p class="article-paragraph dropcap-intro">
+                            Did you know that the arrival of the tramway in Québec City will not only have positive impacts on travel options, but also on the inclusion of all citizens? Indeed, the tramway will be integrated into the urban environment in an exemplary way. Notably, sidewalks will be widened and curb ramps equipped with tactile walking surface indicators to make them easier for people with visual limitations to locate. In other words, whether or not you use the tramway, you will benefit from obstacle-free pedestrian pathways to get around the city easily.
+                        </p>
+
+                        <figure class="article-figure">
+                            <img src="https://lh3.googleusercontent.com/d/1_IadjwdjVE4-BOAvUNYnne0EWtXNNNT7" alt="Pedestrian layout and tactile walking surface indicators">
+                            <figcaption>Layout of surrounding areas and tactile cues for pedestrian orientation.</figcaption>
+                        </figure>
+
+                        <!-- Interactive Concept Map 1 (English) -->
+                        <div class="concept-card" id="enConceptCardInclusion">
+                            <div class="concept-card-header">
+                                <div class="concept-card-title">Concept Map — The Tramway as a Lever for Urban Inclusion</div>
+                                <div class="concept-controls">
+                                    <button type="button" class="concept-btn active" onclick="selectEnConceptNode('inclusion', 'axe', this)">Structuring Axis (19 km)</button>
+                                    <button type="button" class="concept-btn" onclick="selectEnConceptNode('inclusion', 'trottoirs', this)">Sidewalks &amp; Cues</button>
+                                    <button type="button" class="concept-btn" onclick="selectEnConceptNode('inclusion', 'citoyens', this)">Users &amp; Non-Users</button>
+                                </div>
+                            </div>
+                            <div class="concept-svg-wrapper">
+                                <svg class="concept-svg" viewBox="0 0 880 230" role="img" aria-label="Concept diagram of urban inclusion through the tramway">
+                                    <defs>
+                                        <marker id="enArrowBordeaux" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                            <path d="M 0 1 L 10 5 L 0 9 z" fill="#7a2222"/>
+                                        </marker>
+                                    </defs>
+                                    <line x1="250" y1="115" x2="335" y2="115" stroke="#7a2222" stroke-width="2.5" marker-end="url(#enArrowBordeaux)"/>
+                                    <line x1="545" y1="115" x2="625" y2="115" stroke="#7a2222" stroke-width="2.5" marker-end="url(#enArrowBordeaux)"/>
+
+                                    <g class="svg-node" onclick="selectEnConceptNode('inclusion', 'axe')">
+                                        <rect x="25" y="55" width="225" height="120" rx="10" fill="#f3ece2" stroke="#7a2222" stroke-width="2"/>
+                                        <text x="137" y="98" text-anchor="middle" font-size="14" font-weight="700" fill="#7a2222" font-family="sans-serif">Québec City Tramway</text>
+                                        <text x="137" y="122" text-anchor="middle" font-size="12" fill="#2b2b2b" font-family="sans-serif">Cap-Rouge to D’Estimauville</text>
+                                        <text x="137" y="142" text-anchor="middle" font-size="12" fill="#4a5568" font-family="sans-serif">Backbone (starting in 2029)</text>
+                                    </g>
+
+                                    <g class="svg-node" onclick="selectEnConceptNode('inclusion', 'trottoirs')">
+                                        <rect x="340" y="55" width="205" height="120" rx="10" fill="#f3ece2" stroke="#7a2222" stroke-width="2"/>
+                                        <text x="442" y="98" text-anchor="middle" font-size="14" font-weight="700" fill="#7a2222" font-family="sans-serif">Urban Environment</text>
+                                        <text x="442" y="122" text-anchor="middle" font-size="12" fill="#2b2b2b" font-family="sans-serif">Widened sidewalks</text>
+                                        <text x="442" y="142" text-anchor="middle" font-size="12" fill="#4a5568" font-family="sans-serif">Tactile tiles at curb ramps</text>
+                                    </g>
+
+                                    <g class="svg-node" onclick="selectEnConceptNode('inclusion', 'citoyens')">
+                                        <rect x="630" y="55" width="225" height="120" rx="10" fill="#f3ece2" stroke="#7a2222" stroke-width="2"/>
+                                        <text x="742" y="98" text-anchor="middle" font-size="14" font-weight="700" fill="#7a2222" font-family="sans-serif">Citizen Inclusion</text>
+                                        <text x="742" y="122" text-anchor="middle" font-size="12" fill="#2b2b2b" font-family="sans-serif">Obstacle-free pathways</text>
+                                        <text x="742" y="142" text-anchor="middle" font-size="12" fill="#4a5568" font-family="sans-serif">Benefit for all users</text>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="concept-detail-panel" id="enConceptDetailInclusion">
+                                <strong>Structuring Axis (19 km):</strong> Starting in 2029, the electric tramway will link Cap-Rouge to D’Estimauville as the backbone of a strengthened public transit network across the city.
+                            </div>
+                        </div>
+
+                        <!-- Subchapter 2: Universal Accessibility and Governance -->
+                        <h3 class="subchapter-heading" id="en-sec-accessibilite-universelle">Universal Accessibility and Governance</h3>
+
+                        <figure class="article-figure">
+                            <img src="https://lh3.googleusercontent.com/d/1NTSyLszKJDliX_VxlO4Llg0qs-u8zVwl" alt="Consultation and universal accessibility requirements">
+                            <figcaption>Universal accessibility approach grounded in standards and consultation.</figcaption>
+                        </figure>
+
+                        <p class="article-paragraph">
+                            To ensure the universal accessibility of the project, design is based on high requirements in this area. Current standards in the field and best practices have been studied to guide the choices made. In addition, the project team is supported by a Universal Accessibility Working Group (GTAU), which includes representatives from disability advocacy organizations as well as the rehabilitation healthcare network.
+                        </p>
+
+                        <!-- Subchapter 3: Multi-Stage Crossings and Audible Signals -->
+                        <h3 class="subchapter-heading" id="en-sec-traversee-et-signaux">Multi-Stage Crossings and Audible Signals</h3>
+
+                        <figure class="article-figure">
+                            <img src="https://lh3.googleusercontent.com/d/1uVkP0wgcTj63xMPXcrag1jd3l6AdNAcS" alt="Crossing configuration alongside a rail guideway">
+                            <figcaption>New configuration of crossings and pedestrian refuges near the guideway.</figcaption>
+                        </figure>
+
+                        <p class="article-paragraph">
+                            People with limitations will have to adapt to a new environment that is more accessible, yet also very different. Together with members of the GTAU, we are looking for solutions to ease their adaptation to change. For example, the presence of a rail guideway will change how people cross the roadway. As is already the case on boulevards equipped with central medians and pedestrian refuges, citizens will sometimes have to cross the tracks in two or even three stages. This requires an evolution of the regulatory framework, under the responsibility of the Ministère des Transports et de la Mobilité durable du Québec (MTMDQ).
+                        </p>
+
+                        <figure class="article-figure">
+                            <img src="https://lh3.googleusercontent.com/d/1m3R8eVxcvY7zQsYY0eDFy3p6D-TJHHYq" alt="Observation of movement and audible signals along the corridor">
+                            <figcaption>Study of audible signal perception in a multi-stage crossing context.</figcaption>
+                        </figure>
+
+                        <p class="article-paragraph">
+                            On this topic, we recently conducted field trials with blind participants. These trials reproduced a three-stage crossing situation. Their objective was to document blind participants’ perception in identifying an audible signal as their own when multiple audible signals are installed along the same corridor.
+                        </p>
+
+                        <!-- Interactive Concept Map 2 (English) -->
+                        <div class="concept-card" id="enConceptCardSignals">
+                            <div class="concept-card-header">
+                                <div class="concept-card-title">Concept Map — Trial Protocol and Audible Signals at Crossings</div>
+                                <div class="concept-controls">
+                                    <button type="button" class="concept-btn active" onclick="selectEnConceptNode('signals', 'protocole', this)">Protocol (9 pers. × 16)</button>
+                                    <button type="button" class="concept-btn" onclick="selectEnConceptNode('signals', 'signaux', this)">Audible Sequences</button>
+                                    <button type="button" class="concept-btn" onclick="selectEnConceptNode('signals', 'reglementation', this)">MTMDQ Framework</button>
+                                </div>
+                            </div>
+                            <div class="concept-svg-wrapper">
+                                <svg class="concept-svg" viewBox="0 0 880 230" role="img" aria-label="Diagram of variables studied during audible signal trials">
+                                    <line x1="255" y1="115" x2="330" y2="115" stroke="#7a2222" stroke-width="2.5" marker-end="url(#enArrowBordeaux)"/>
+                                    <line x1="550" y1="115" x2="625" y2="115" stroke="#7a2222" stroke-width="2.5" marker-end="url(#enArrowBordeaux)"/>
+
+                                    <g class="svg-node" onclick="selectEnConceptNode('signals', 'protocole')">
+                                        <rect x="25" y="55" width="230" height="120" rx="10" fill="#f3ece2" stroke="#7a2222" stroke-width="2"/>
+                                        <text x="140" y="96" text-anchor="middle" font-size="14" font-weight="700" fill="#7a2222" font-family="sans-serif">Field Trials</text>
+                                        <text x="140" y="120" text-anchor="middle" font-size="12" fill="#2b2b2b" font-family="sans-serif">9 functionally blind participants</text>
+                                        <text x="140" y="142" text-anchor="middle" font-size="12" fill="#4a5568" font-family="sans-serif">16 scenarios per participant</text>
+                                    </g>
+
+                                    <g class="svg-node" onclick="selectEnConceptNode('signals', 'signaux')">
+                                        <rect x="335" y="55" width="215" height="120" rx="10" fill="#f3ece2" stroke="#7a2222" stroke-width="2"/>
+                                        <text x="442" y="96" text-anchor="middle" font-size="14" font-weight="700" fill="#7a2222" font-family="sans-serif">Variables Tested</text>
+                                        <text x="442" y="120" text-anchor="middle" font-size="12" fill="#2b2b2b" font-family="sans-serif">Distinct or identical center signal</text>
+                                        <text x="442" y="142" text-anchor="middle" font-size="12" fill="#4a5568" font-family="sans-serif">Waiting vs. crossing &amp; activation spot</text>
+                                    </g>
+
+                                    <g class="svg-node" onclick="selectEnConceptNode('signals', 'reglementation')">
+                                        <rect x="630" y="55" width="225" height="120" rx="10" fill="#f3ece2" stroke="#7a2222" stroke-width="2"/>
+                                        <text x="742" y="96" text-anchor="middle" font-size="14" font-weight="700" fill="#7a2222" font-family="sans-serif">Regulatory Evolution</text>
+                                        <text x="742" y="120" text-anchor="middle" font-size="12" fill="#2b2b2b" font-family="sans-serif">Recommendation sent to MTMDQ</text>
+                                        <text x="742" y="142" text-anchor="middle" font-size="12" fill="#4a5568" font-family="sans-serif">Standardization table underway</text>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="concept-detail-panel" id="enConceptDetailSignals">
+                                <strong>Protocol (9 pers. × 16):</strong> Nine functionally blind people took part in 16 scenarios each to observe how a relevant audible signal is distinguished along the same corridor.
+                            </div>
+                        </div>
+
+                        <!-- Subchapter 4: Field Trials and Urban Perspectives -->
+                        <h3 class="subchapter-heading" id="en-sec-essais-terrain">Field Trials and Urban Perspectives</h3>
+
+                        <figure class="article-figure">
+                            <img src="https://lh3.googleusercontent.com/d/1hvMpkwkIm8_RVcGOP7p6OqPvf_Ih-aHz" alt="Scenario enactment during field trials">
+                            <figcaption>Crossing scenario enactment with functionally blind participants.</figcaption>
+                        </figure>
+
+                        <p class="article-paragraph">
+                            In total, nine functionally blind people took part in the trials. Each had to complete 16 scenarios. The limited number of participants in the trials does not allow us to make a statistical generalization. However, this process made it possible to observe the benefits of using a distinct audible signal for crossing the tramway guideway. This recommendation was also submitted to the MTMDQ, which continues working on regulatory amendments at its Standardization Table. The following variables were studied depending on the case:
+                        </p>
+
+                        <ul class="article-list">
+                            <li>identical audible signals, end-to-end, consecutively OR audible signals end-to-end, consecutively, with the middle one different from the other two;</li>
+                            <li>participant wishing to cross OR waiting;</li>
+                            <li>activation of the signal at the participant’s waiting spot OR in another section of the crossing.</li>
+                        </ul>
+
+                        <figure class="article-figure">
+                            <img src="https://lh3.googleusercontent.com/d/1OA-1jamit4HENd6KmFp26ooy_feBe-D7" alt="Prospects for increasing signalized crossings">
+                            <figcaption>Expansion of signalized crossings along the tramway route.</figcaption>
+                        </figure>
+
+                        <p class="article-paragraph">
+                            We will closely monitor developments on this file so that layouts are carried out in accordance with regulatory changes. Along the tramway route, the number of signalized crossings will increase by nearly 60% compared to the current situation. This improvement will certainly make active travel easier and safer for people of all abilities.
+                        </p>
+                    </div>
+
+                    <!-- Panneau déployable de la version espagnole fidèle -->
+                    <div class="english-version-panel" id="spanishVersionPanel" lang="es" aria-hidden="true">
+                        <div class="english-version-banner">
+                            <span>Reproducción íntegra en español</span>
+                            <button type="button" class="concept-btn" onclick="toggleLanguageVersion('es')">Cerrar versión en español</button>
+                        </div>
+
+                        <h2 class="english-article-title">El tranvía de Quebec: transformar la ciudad para hacerla más inclusiva</h2>
+
+                        <!-- Subcapítulo 1: Introducción -->
+                        <h3 class="subchapter-heading" id="es-sec-introduction">Introducción</h3>
+
+                        <figure class="article-figure">
+                            <img src="https://lh3.googleusercontent.com/d/1iyYKC7JuDTVtvKckCOH30iFfUXQjkvNe" alt="Vista general de la integración urbana del tranvía de Quebec">
+                            <figcaption>Integración del tranvía en el entorno urbano y los recorridos peatonales.</figcaption>
+                        </figure>
+
+                        <p class="article-paragraph dropcap-intro">
+                            ¿Sabía usted que la llegada del tranvía a la ciudad de Quebec no solo tendrá repercusiones positivas en las opciones de desplazamiento, sino también en la inclusión de todos los ciudadanos? En efecto, el tranvía se integrará en el entorno urbano de manera ejemplar. En particular, las aceras se ensancharán y los rebajes contarán con baldosas podotáctiles para facilitar su localización por parte de las personas con limitaciones visuales. En otras palabras, utilice o no el tranvía, usted se beneficiará de recorridos peatonales sin obstáculos para desplazarse fácilmente por la ciudad.
+                        </p>
+
+                        <figure class="article-figure">
+                            <img src="https://lh3.googleusercontent.com/d/1_IadjwdjVE4-BOAvUNYnne0EWtXNNNT7" alt="Acondicionamiento peatonal y baldosas podotáctiles">
+                            <figcaption>Acondicionamiento de los alrededores y referencias podotáctiles para la orientación peatonal.</figcaption>
+                        </figure>
+
+                        <!-- Mapa conceptual interactivo 1 (Español) -->
+                        <div class="concept-card" id="esConceptCardInclusion">
+                            <div class="concept-card-header">
+                                <div class="concept-card-title">Mapa conceptual — El tranvía como palanca de inclusión urbana</div>
+                                <div class="concept-controls">
+                                    <button type="button" class="concept-btn active" onclick="selectEsConceptNode('inclusion', 'axe', this)">Eje estructurante (19 km)</button>
+                                    <button type="button" class="concept-btn" onclick="selectEsConceptNode('inclusion', 'trottoirs', this)">Aceras y referencias</button>
+                                    <button type="button" class="concept-btn" onclick="selectEsConceptNode('inclusion', 'citoyens', this)">Usuarios y no usuarios</button>
+                                </div>
+                            </div>
+                            <div class="concept-svg-wrapper">
+                                <svg class="concept-svg" viewBox="0 0 880 230" role="img" aria-label="Diagrama conceptual de la inclusión urbana a través del tranvía">
+                                    <defs>
+                                        <marker id="esArrowBordeaux" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                            <path d="M 0 1 L 10 5 L 0 9 z" fill="#7a2222"/>
+                                        </marker>
+                                    </defs>
+                                    <line x1="250" y1="115" x2="335" y2="115" stroke="#7a2222" stroke-width="2.5" marker-end="url(#esArrowBordeaux)"/>
+                                    <line x1="545" y1="115" x2="625" y2="115" stroke="#7a2222" stroke-width="2.5" marker-end="url(#esArrowBordeaux)"/>
+
+                                    <g class="svg-node" onclick="selectEsConceptNode('inclusion', 'axe')">
+                                        <rect x="25" y="55" width="225" height="120" rx="10" fill="#f3ece2" stroke="#7a2222" stroke-width="2"/>
+                                        <text x="137" y="98" text-anchor="middle" font-size="14" font-weight="700" fill="#7a2222" font-family="sans-serif">Tranvía de Quebec</text>
+                                        <text x="137" y="122" text-anchor="middle" font-size="12" fill="#2b2b2b" font-family="sans-serif">Cap-Rouge a D’Estimauville</text>
+                                        <text x="137" y="142" text-anchor="middle" font-size="12" fill="#4a5568" font-family="sans-serif">Columna vertebral (desde 2029)</text>
+                                    </g>
+
+                                    <g class="svg-node" onclick="selectEsConceptNode('inclusion', 'trottoirs')">
+                                        <rect x="340" y="55" width="205" height="120" rx="10" fill="#f3ece2" stroke="#7a2222" stroke-width="2"/>
+                                        <text x="442" y="98" text-anchor="middle" font-size="14" font-weight="700" fill="#7a2222" font-family="sans-serif">Entorno urbano</text>
+                                        <text x="442" y="122" text-anchor="middle" font-size="12" fill="#2b2b2b" font-family="sans-serif">Aceras ensanchadas</text>
+                                        <text x="442" y="142" text-anchor="middle" font-size="12" fill="#4a5568" font-family="sans-serif">Baldosas podotáctiles en rebajes</text>
+                                    </g>
+
+                                    <g class="svg-node" onclick="selectEsConceptNode('inclusion', 'citoyens')">
+                                        <rect x="630" y="55" width="225" height="120" rx="10" fill="#f3ece2" stroke="#7a2222" stroke-width="2"/>
+                                        <text x="742" y="98" text-anchor="middle" font-size="14" font-weight="700" fill="#7a2222" font-family="sans-serif">Inclusión ciudadana</text>
+                                        <text x="742" y="122" text-anchor="middle" font-size="12" fill="#2b2b2b" font-family="sans-serif">Recorridos sin obstáculos</text>
+                                        <text x="742" y="142" text-anchor="middle" font-size="12" fill="#4a5568" font-family="sans-serif">Beneficio para todos los usuarios</text>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="concept-detail-panel" id="esConceptDetailInclusion">
+                                <strong>Eje estructurante (19 km):</strong> A partir de 2029, el tranvía eléctrico unirá Cap-Rouge con D’Estimauville como columna vertebral de una red de transporte colectivo reforzada a escala de toda la ciudad.
+                            </div>
+                        </div>
+
+                        <!-- Subcapítulo 2: Accesibilidad universal y gobernanza -->
+                        <h3 class="subchapter-heading" id="es-sec-accessibilite-universelle">Accesibilidad universal y gobernanza</h3>
+
+                        <figure class="article-figure">
+                            <img src="https://lh3.googleusercontent.com/d/1NTSyLszKJDliX_VxlO4Llg0qs-u8zVwl" alt="Concertación y exigencias de accesibilidad universal">
+                            <figcaption>Enfoque de accesibilidad universal respaldado en normas y concertación.</figcaption>
+                        </figure>
+
+                        <p class="article-paragraph">
+                            Para garantizar la accesibilidad universal del proyecto, el diseño se apoya en altos requisitos en la materia. Se estudiaron las normas vigentes en el ámbito y las mejores prácticas para orientar las decisiones adoptadas. Además, el equipo del proyecto cuenta con el apoyo de un Grupo de Trabajo en Accesibilidad Universal (GTAU), que reúne a representantes del movimiento asociativo de personas con discapacidad y de la red de salud en rehabilitación.
+                        </p>
+
+                        <!-- Subcapítulo 3: Cruce en varias etapas y señales sonoras -->
+                        <h3 class="subchapter-heading" id="es-sec-traversee-et-signaux">Cruce en varias etapas y señales sonoras</h3>
+
+                        <figure class="article-figure">
+                            <img src="https://lh3.googleusercontent.com/d/1uVkP0wgcTj63xMPXcrag1jd3l6AdNAcS" alt="Configuración de cruce en presencia de una plataforma ferroviaria">
+                            <figcaption>Nueva configuración de los cruces y refugios peatonales cerca de la plataforma.</figcaption>
+                        </figure>
+
+                        <p class="article-paragraph">
+                            Las personas con limitaciones deberán adaptarse a un nuevo entorno más accesible, pero también muy diferente. Junto con los miembros del GTAU, buscamos soluciones para facilitar su adaptación al cambio. Por ejemplo, la presencia de una plataforma ferroviaria modificará la forma de cruzar la calzada. Tal como ya ocurre en los bulevares equipados con camellones centrales y refugios para peatones, los ciudadanos deberán a veces cruzar las vías en dos o incluso tres etapas. Esto requiere una evolución del marco normativo, bajo la responsabilidad del Ministerio de Transportes y Movilidad Sostenible de Quebec (MTMDQ).
+                        </p>
+
+                        <figure class="article-figure">
+                            <img src="https://lh3.googleusercontent.com/d/1m3R8eVxcvY7zQsYY0eDFy3p6D-TJHHYq" alt="Observación de desplazamientos y señales sonoras en el eje">
+                            <figcaption>Estudio de la percepción de las señales sonoras en un contexto de cruce en varias etapas.</figcaption>
+                        </figure>
+
+                        <p class="article-paragraph">
+                            Al respecto, realizamos recientemente pruebas en terreno con personas ciegas. Estas pruebas reproducían una situación de cruce en tres etapas. Su objetivo era documentar la percepción de las personas no videntes para identificar una señal sonora como propia cuando se instalan varias señales sonoras en el mismo eje.
+                        </p>
+
+                        <!-- Mapa conceptual interactivo 2 (Español) -->
+                        <div class="concept-card" id="esConceptCardSignals">
+                            <div class="concept-card-header">
+                                <div class="concept-card-title">Mapa conceptual — Protocolo de pruebas y señales sonoras en el cruce</div>
+                                <div class="concept-controls">
+                                    <button type="button" class="concept-btn active" onclick="selectEsConceptNode('signals', 'protocole', this)">Protocolo (9 pers. × 16)</button>
+                                    <button type="button" class="concept-btn" onclick="selectEsConceptNode('signals', 'signaux', this)">Secuencias sonoras</button>
+                                    <button type="button" class="concept-btn" onclick="selectEsConceptNode('signals', 'reglementation', this)">Marco del MTMDQ</button>
+                                </div>
+                            </div>
+                            <div class="concept-svg-wrapper">
+                                <svg class="concept-svg" viewBox="0 0 880 230" role="img" aria-label="Diagrama de variables estudiadas durante las pruebas de señales sonoras">
+                                    <line x1="255" y1="115" x2="330" y2="115" stroke="#7a2222" stroke-width="2.5" marker-end="url(#esArrowBordeaux)"/>
+                                    <line x1="550" y1="115" x2="625" y2="115" stroke="#7a2222" stroke-width="2.5" marker-end="url(#esArrowBordeaux)"/>
+
+                                    <g class="svg-node" onclick="selectEsConceptNode('signals', 'protocole')">
+                                        <rect x="25" y="55" width="230" height="120" rx="10" fill="#f3ece2" stroke="#7a2222" stroke-width="2"/>
+                                        <text x="140" y="96" text-anchor="middle" font-size="14" font-weight="700" fill="#7a2222" font-family="sans-serif">Pruebas en terreno</text>
+                                        <text x="140" y="120" text-anchor="middle" font-size="12" fill="#2b2b2b" font-family="sans-serif">9 personas funcionalmente ciegas</text>
+                                        <text x="140" y="142" text-anchor="middle" font-size="12" fill="#4a5568" font-family="sans-serif">16 situaciones por participante</text>
+                                    </g>
+
+                                    <g class="svg-node" onclick="selectEsConceptNode('signals', 'signaux')">
+                                        <rect x="335" y="55" width="215" height="120" rx="10" fill="#f3ece2" stroke="#7a2222" stroke-width="2"/>
+                                        <text x="442" y="96" text-anchor="middle" font-size="14" font-weight="700" fill="#7a2222" font-family="sans-serif">Variables analizadas</text>
+                                        <text x="442" y="120" text-anchor="middle" font-size="12" fill="#2b2b2b" font-family="sans-serif">Señal central distinta o idéntica</text>
+                                        <text x="442" y="142" text-anchor="middle" font-size="12" fill="#4a5568" font-family="sans-serif">Espera vs. cruce y lugar de activación</text>
+                                    </g>
+
+                                    <g class="svg-node" onclick="selectEsConceptNode('signals', 'reglementation')">
+                                        <rect x="630" y="55" width="225" height="120" rx="10" fill="#f3ece2" stroke="#7a2222" stroke-width="2"/>
+                                        <text x="742" y="96" text-anchor="middle" font-size="14" font-weight="700" fill="#7a2222" font-family="sans-serif">Evolución normativa</text>
+                                        <text x="742" y="120" text-anchor="middle" font-size="12" fill="#2b2b2b" font-family="sans-serif">Recomendación enviada al MTMDQ</text>
+                                        <text x="742" y="142" text-anchor="middle" font-size="12" fill="#4a5568" font-family="sans-serif">Mesa de normalización en curso</text>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="concept-detail-panel" id="esConceptDetailSignals">
+                                <strong>Protocolo (9 pers. × 16):</strong> Nueve personas funcionalmente ciegas participaron en 16 situaciones cada una para observar la distinción de una señal sonora pertinente a lo largo de un mismo eje.
+                            </div>
+                        </div>
+
+                        <!-- Subcapítulo 4: Pruebas en terreno y perspectivas urbanas -->
+                        <h3 class="subchapter-heading" id="es-sec-essais-terrain">Pruebas en terreno y perspectivas urbanas</h3>
+
+                        <figure class="article-figure">
+                            <img src="https://lh3.googleusercontent.com/d/1hvMpkwkIm8_RVcGOP7p6OqPvf_Ih-aHz" alt="Puesta en situación durante las pruebas en terreno">
+                            <figcaption>Puesta en situación de cruce con personas funcionalmente ciegas.</figcaption>
+                        </figure>
+
+                        <p class="article-paragraph">
+                            En total, nueve personas funcionalmente ciegas participaron en las pruebas. Cada una debía someterse a 16 situaciones. El número limitado de participantes en las pruebas no nos permite realizar una generalización estadística. Sin embargo, este proceso permitió constatar las ventajas de utilizar una señal sonora distinta para cruzar la plataforma del tranvía. Esta recomendación fue además transmitida al MTMDQ, que continúa trabajando en la modificación reglamentaria en su Mesa de normalización. Las siguientes variables se estudiaron según el caso:
+                        </p>
+
+                        <ul class="article-list">
+                            <li>señales sonoras idénticas, extremo con extremo, de manera consecutiva O señales sonoras extremo con extremo, de manera consecutiva, siendo la del centro diferente de las otras dos;</li>
+                            <li>participante que desea cruzar O en espera;</li>
+                            <li>activación de la señal en el lugar de espera del participante O en otro tramo del cruce.</li>
+                        </ul>
+
+                        <figure class="article-figure">
+                            <img src="https://lh3.googleusercontent.com/d/1OA-1jamit4HENd6KmFp26ooy_feBe-D7" alt="Perspectivas de aumento de los cruces señalizados">
+                            <figcaption>Desarrollo de los cruces señalizados a lo largo del trazado del tranvía.</figcaption>
+                        </figure>
+
+                        <p class="article-paragraph">
+                            Seguiremos de cerca la evolución del expediente para que los acondicionamientos se realicen conforme a las modificaciones reglamentarias. A lo largo del trazado del tranvía, el número de cruces señalizados aumentará en casi un 60 % respecto a la situación actual. Esta mejora facilitará y hará sin duda más seguros los desplazamientos activos para las personas de toda condición.
+                        </p>
                     </div>
 
                     <!-- Sous-chapitre 1 : Introduction -->
@@ -1090,6 +1538,25 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
+        function toggleLanguageVersion(lang) {
+            const isEn = lang === 'en';
+            const panel = document.getElementById(isEn ? 'englishVersionPanel' : 'spanishVersionPanel');
+            const btn = document.getElementById(isEn ? 'englishVersionBtn' : 'spanishVersionBtn');
+            const label = document.getElementById(isEn ? 'englishVersionBtnLabel' : 'spanishVersionBtnLabel');
+            if (!panel) return;
+
+            const isOpen = panel.classList.toggle('open');
+            panel.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+            if (btn) {
+                btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            }
+            if (label) {
+                label.textContent = isEn
+                    ? (isOpen ? 'Hide English Version' : 'English Version')
+                    : (isOpen ? 'Ocultar la versión en español' : 'Versión en español');
+            }
+        }
+
         const conceptDescriptions = {
             inclusion: {
                 axe: '<strong>Axe structurant (19 km) :</strong> Le tramway électrique reliera Cap-Rouge à D’Estimauville dès 2029 comme colonne vertébrale d’un réseau de transport collectif renforcé à l’échelle de la ville.',
@@ -1100,6 +1567,32 @@
                 protocole: '<strong>Protocole (9 pers. × 16) :</strong> Neuf personnes fonctionnellement aveugles ont participé à 16 mises en situation chacune afin d’observer la distinction d’un signal sonore pertinent le long d’un même axe.',
                 signaux: '<strong>Séquences sonores :</strong> L’étude compare des signaux consécutifs identiques ou un signal central distinct, selon que la personne attend ou traverse et selon le lieu d’activation.',
                 reglementation: '<strong>Cadre MTMDQ :</strong> Les observations ont alimenté une recommandation transmise au ministère des Transports et de la Mobilité durable du Québec (MTMDQ) et à sa Table de normalisation.'
+            }
+        };
+
+        const enConceptDescriptions = {
+            inclusion: {
+                axe: '<strong>Structuring Axis (19 km):</strong> Starting in 2029, the electric tramway will link Cap-Rouge to D’Estimauville as the backbone of a strengthened public transit network across the city.',
+                trottoirs: '<strong>Sidewalks &amp; Cues:</strong> Widening sidewalks and installing tactile walking surface indicators at curb ramps make it easier for people with visual limitations to find their way.',
+                citoyens: '<strong>Users &amp; Non-Users:</strong> Obstacle-free pedestrian pathways benefit all citizens, whether or not they ride the tramway.'
+            },
+            signals: {
+                protocole: '<strong>Protocol (9 pers. × 16):</strong> Nine functionally blind people took part in 16 scenarios each to observe how a relevant audible signal is distinguished along the same corridor.',
+                signaux: '<strong>Audible Sequences:</strong> The study compares consecutive identical signals or a distinct center signal, depending on whether the person is waiting or crossing and on the activation location.',
+                reglementation: '<strong>MTMDQ Framework:</strong> Findings informed a recommendation submitted to the Ministère des Transports et de la Mobilité durable du Québec (MTMDQ) and its Standardization Table.'
+            }
+        };
+
+        const esConceptDescriptions = {
+            inclusion: {
+                axe: '<strong>Eje estructurante (19 km):</strong> A partir de 2029, el tranvía eléctrico unirá Cap-Rouge con D’Estimauville como columna vertebral de una red de transporte colectivo reforzada a escala de toda la ciudad.',
+                trottoirs: '<strong>Aceras y referencias:</strong> El ensanchamiento de las aceras y la instalación de baldosas podotáctiles en los rebajes facilitan la localización por parte de las personas con limitaciones visuales.',
+                citoyens: '<strong>Usuarios y no usuarios:</strong> Los recorridos peatonales sin obstáculos benefician a todos los ciudadanos, utilicen o no el tranvía.'
+            },
+            signals: {
+                protocole: '<strong>Protocolo (9 pers. × 16):</strong> Nueve personas funcionalmente ciegas participaron en 16 situaciones cada una para observar la distinción de una señal sonora pertinente a lo largo de un mismo eje.',
+                signaux: '<strong>Secuencias sonoras:</strong> El estudio compara señales consecutivas idénticas o una señal central distinta, según que la persona espere o cruce y según el lugar de activación.',
+                reglementation: '<strong>Marco del MTMDQ:</strong> Las observaciones alimentaron una recomendación transmitida al Ministerio de Transportes y Movilidad Sostenible de Quebec (MTMDQ) y a su Mesa de normalización.'
             }
         };
 
@@ -1117,6 +1610,40 @@
             }
             if (panel && conceptDescriptions[group] && conceptDescriptions[group][key]) {
                 panel.innerHTML = conceptDescriptions[group][key];
+            }
+        }
+
+        function selectEnConceptNode(group, key, btnEl) {
+            const cardId = group === 'inclusion' ? 'enConceptCardInclusion' : 'enConceptCardSignals';
+            const panelId = group === 'inclusion' ? 'enConceptDetailInclusion' : 'enConceptDetailSignals';
+            const card = document.getElementById(cardId);
+            const panel = document.getElementById(panelId);
+
+            if (card) {
+                card.querySelectorAll('.concept-btn').forEach(b => b.classList.remove('active'));
+                if (btnEl) {
+                    btnEl.classList.add('active');
+                }
+            }
+            if (panel && enConceptDescriptions[group] && enConceptDescriptions[group][key]) {
+                panel.innerHTML = enConceptDescriptions[group][key];
+            }
+        }
+
+        function selectEsConceptNode(group, key, btnEl) {
+            const cardId = group === 'inclusion' ? 'esConceptCardInclusion' : 'esConceptCardSignals';
+            const panelId = group === 'inclusion' ? 'esConceptDetailInclusion' : 'esConceptDetailSignals';
+            const card = document.getElementById(cardId);
+            const panel = document.getElementById(panelId);
+
+            if (card) {
+                card.querySelectorAll('.concept-btn').forEach(b => b.classList.remove('active'));
+                if (btnEl) {
+                    btnEl.classList.add('active');
+                }
+            }
+            if (panel && esConceptDescriptions[group] && esConceptDescriptions[group][key]) {
+                panel.innerHTML = esConceptDescriptions[group][key];
             }
         }
 
