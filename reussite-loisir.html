@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; frame-src https://drive.google.com; connect-src https://script.google.com; object-src 'none';">
+    <title>Unir nos forces pour la réussite du loisir des personnes ayant des besoins particuliers | Revue de Sociologie Visuelle</title>
+    <meta name="description" content="Contribution de Jacques Laberge (ARLPH de la Capitale-Nationale) sur l'inclusion sociale et l'accessibilité dans le domaine des loisirs adaptés. Revue de Sociologie Visuelle, n° 4.">
+    <meta name="keywords" content="inclusion sociale, accessibilité, sociologie visuelle, handicap, loisirs adaptés, ARLPH, Capitale-Nationale, Destination Loisirs">
+    <link rel="canonical" href="https://doi.org/10.13140/RG.2.2.35504.53768">
+
+    <!-- Open Graph (Facebook, LinkedIn, WhatsApp, etc.) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Revue Sociologie Visuelle">
+    <meta property="og:title" content="Unir nos forces pour la réussite du loisir des personnes ayant des besoins particuliers | Revue de Sociologie Visuelle">
+    <meta property="og:description" content="Contribution de Jacques Laberge sur les actions et partenariats permettant l'accessibilité et la réussite du loisir adapté au Québec.">
+    <meta property="og:url" content="https://inclusionsociale.com/">
+    <meta property="og:image" content="https://lh3.googleusercontent.com/d/1R-6VqA6SZ8t1dall1uf0mj_ehOcj7jNW">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="fr_CA">
+
+    <!-- Twitter / X Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Unir nos forces pour la réussite du loisir des personnes ayant des besoins particuliers">
+    <meta name="twitter:description" content="Article de Jacques Laberge (ARLPH) dans la Revue de Sociologie Visuelle, n° 4.">
+    <meta name="twitter:image" content="https://inclusionsociale.com/images/vignette-inclusion-sociale.jpg">
+
+    <style>
+        :root {
+            --bg-color: #FAF6EF;
+            --text-color: #2b2b2b;
+            --primary-color: #1a202c;
+            --accent-color: #4a5568;
+            --border-color: #e2e8f0;
+            --card-bg: #FAF6EF;
+            --whitish-bg: #FDFBF7;
+            --diagram-bg: #FFFDF9;
+            --hover-border: #cbd5e0;
+            --max-width: 1400px;
+            --sidebar-width: 320px;
+            --topbar-height: 60px;
+            --modal-header-bg: #7a2222; /* Bordeaux de référence */
+            --bordeaux: #7a2222;
+            --bordeaux-light: #f6ebeb;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Georgia", "Cambria", "Times New Roman", serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.75;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Barre horizontale permanente supérieure : toute la largeur de la page */
+        .top-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--topbar-height);
+            background-color: var(--bg-color);
+            border-bottom: 1px solid var(--border-color);
+            display: grid;
+            grid-template-columns: var(--sidebar-width) 1fr auto;
+            align-items: center;
+            padding: 0;
+            z-index: 1100;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .top-navbar-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            letter-spacing: 0.02em;
+            padding-left: 1.5rem;
+            border-right: 1px solid var(--border-color);
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .top-navbar-location {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            background-color: #f2ede4;
+            padding: 0.3rem 0.75rem;
+            border-radius: 4px;
+            margin-right: 2.5rem;
+        }
+
+        /* Colonne latérale gauche permanente sous la barre fixe du haut */
+        aside.sidebar {
+            position: fixed;
+            top: var(--topbar-height);
+            left: 0;
+            width: var(--sidebar-width);
+            height: calc(100vh - var(--topbar-height));
+            background-color: #f5f0e6;
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            z-index: 1000;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            overflow-y: auto;
+        }
+
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .btn-home {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            background-color: #7a2222;
+            color: #fff;
+            border: none;
+            padding: 0.85rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        .btn-home svg {
+            position: absolute;
+            left: 1rem;
+        }
+
+        .btn-home:hover {
+            background-color: #5e1a1a;
+        }
+
+        .sidebar-info-section {
+            padding: 1rem 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .sidebar-card {
+            background-color: #FAF6EF;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 0.85rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            text-align: justify;
+        }
+
+        .sidebar-card.editor-card {
+            flex-direction: row;
+            align-items: center;
+            gap: 0.75rem;
+            text-align: left;
+        }
+
+        .editor-info h4 {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            margin-bottom: 0.15rem;
+        }
+
+        .editor-info p {
+            font-size: 0.78rem;
+            color: var(--accent-color);
+            line-height: 1.4;
+        }
+
+        .sidebar-nav {
+            padding: 1.25rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            flex: 1;
+        }
+
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--primary-color);
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-align: left;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            background-color: #eae3d5;
+            border-color: var(--hover-border);
+        }
+
+        /* Mention cliquable NAVIGATION DANS LA PAGE */
+        .page-nav-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background: transparent;
+            border: none;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #7a2222;
+            letter-spacing: 0.05em;
+            margin-top: 0.5rem;
+            margin-bottom: 0.25rem;
+            padding: 0.4rem 0.25rem;
+            cursor: pointer;
+            text-align: left;
+            transition: opacity 0.2s;
+        }
+
+        .page-nav-toggle:hover {
+            opacity: 0.8;
+        }
+
+        .submenu {
+            display: none;
+            flex-direction: column;
+            gap: 0.35rem;
+            padding-left: 0.75rem;
+            margin-top: -0.15rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .submenu.open {
+            display: flex;
+        }
+
+        .submenu-item {
+            font-size: 0.82rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            padding: 0.4rem 0.75rem;
+            border-radius: 4px;
+            transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+            border-left: 2px solid #d4c5b9;
+            line-height: 1.35;
+        }
+
+        .submenu-item:hover,
+        .submenu-item.active {
+            background-color: #eae3d5;
+            color: #7a2222;
+            border-left-color: #7a2222;
+            font-weight: 600;
+        }
+
+        /* Conteneur principal à droite, décalé pour laisser place à la sidebar et topbar */
+        .main-wrapper {
+            margin-left: var(--sidebar-width);
+            margin-top: var(--topbar-height);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: calc(100% - var(--sidebar-width));
+            padding: 2.5rem 2rem 4rem 2rem;
+        }
+
+        /* Zone dynamique centrée avec une largeur maximale de 1060px */
+        .article-container {
+            width: 100%;
+            max-width: 1060px;
+            margin: 0 auto;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            padding-left: 2rem;
+        }
+
+        .btn-header {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: 1px solid var(--primary-color);
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: background-color 0.2s;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-header.secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border-color: var(--border-color);
+        }
+
+        .btn-header.secondary:hover {
+            background-color: #f2ede4;
+            border-color: var(--hover-border);
+        }
+
+        /* Styles spécifiques de l'article */
+        .article-header {
+            margin-bottom: 1.75rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 2px solid #e6dfd3;
+        }
+
+        .article-kicker {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--bordeaux);
+            margin-bottom: 0.6rem;
+        }
+
+        .article-title {
+            font-family: "Georgia", "Times New Roman", serif;
+            font-size: 2.15rem;
+            font-weight: 700;
+            line-height: 1.25;
+            color: #1a202c;
+            letter-spacing: -0.01em;
+        }
+
+        /* Grille à 2 cases côte à côte sous le titre (Auteur & Citation) */
+        .meta-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.35fr;
+            gap: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .whitish-box {
+            background-color: var(--whitish-bg);
+            border: 1px solid #e5dec9;
+            border-radius: 8px;
+            padding: 1.25rem 1.4rem;
+            box-shadow: 0 2px 6px rgba(43, 43, 43, 0.03);
+            font-size: 0.88rem;
+            line-height: 1.55;
+            color: #3a3a3a;
+        }
+
+        /* Première case : photo et informations de l'auteur côte à côte */
+        .author-box {
+            display: flex;
+            align-items: center;
+            gap: 1.15rem;
+        }
+
+        .author-photo-wrapper {
+            flex-shrink: 0;
+            width: 86px;
+            height: 86px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid #e5dec9;
+            background-color: #efe9dc;
+        }
+
+        .author-photo-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .author-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .author-name {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #1a202c;
+        }
+
+        .author-affiliation-label {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--bordeaux);
+            font-weight: 700;
+            margin-top: 0.15rem;
+        }
+
+        .author-affiliation {
+            font-size: 0.84rem;
+            color: #4a5568;
+            line-height: 1.4;
+        }
+
+        /* Seconde case : citation de l'article */
+        .citation-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .citation-label {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--bordeaux);
+            margin-bottom: 0.45rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .copy-citation-btn {
+            background: #f3ede2;
+            border: 1px solid #dfd6c5;
+            color: #4a5568;
+            font-size: 0.72rem;
+            padding: 0.2rem 0.55rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .copy-citation-btn:hover {
+            background: #7a2222;
+            color: #fff;
+            border-color: #7a2222;
+        }
+
+        .citation-text {
+            font-size: 0.85rem;
+            color: #2b2b2b;
+            text-align: justify;
+        }
+
+        /* Section Résumé à deux cases (Français / Anglais) */
+        .abstract-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .abstract-box-title {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--bordeaux);
+            margin-bottom: 0.6rem;
+            padding-bottom: 0.35rem;
+            border-bottom: 1px solid #ece5d5;
+        }
+
+        .abstract-content {
+            font-size: 0.86rem;
+            line-height: 1.62;
+            text-align: justify;
+            color: #333;
+        }
+
+        .abstract-keywords {
+            margin-top: 0.75rem;
+            padding-top: 0.6rem;
+            border-top: 1px dashed #e2d9c8;
+            font-size: 0.82rem;
+            color: #4a5568;
+        }
+
+        /* Corps de l'article */
+        .article-body {
+            font-size: 1.06rem;
+            line-height: 1.82;
+            color: #262626;
+        }
+
+        .article-section {
+            margin-bottom: 2.25rem;
+        }
+
+        /* Ancrage décalé pour que le clic pointe un peu au-dessus du titre */
+        .section-anchor {
+            display: block;
+            position: relative;
+            top: -92px;
+            visibility: hidden;
+        }
+
+        /* Titres des sous-chapitres en rouge bordeaux */
+        .subchapter-title {
+            font-family: "Georgia", "Times New Roman", serif;
+            font-size: 1.48rem;
+            font-weight: 700;
+            color: #7a2222;
+            margin-bottom: 1rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 1px solid #e6dfd3;
+            letter-spacing: -0.01em;
+        }
+
+        .article-body p {
+            margin-bottom: 1.15rem;
+            text-align: justify;
+        }
+
+        /* Lettrine rouge bordeaux en caractère gras pour la première lettre de l'Introduction */
+        .dropcap-intro::first-letter {
+            float: left;
+            font-family: "Georgia", "Times New Roman", serif;
+            font-size: 3.9rem;
+            line-height: 0.82;
+            font-weight: 700;
+            color: #7a2222;
+            padding-right: 0.65rem;
+            padding-top: 0.15rem;
+            padding-bottom: 0.1rem;
+        }
+
+        /* Notes de bas de page dans le texte */
+        .footnote-ref {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #7a2222;
+            text-decoration: none;
+            padding: 0 0.15rem;
+        }
+
+        .footnote-ref:hover {
+            text-decoration: underline;
+        }
+
+        .footnotes-section {
+            margin-top: 3rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid #dcd3c1;
+            font-size: 0.86rem;
+            color: #4a5568;
+        }
+
+        .footnotes-section h3 {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #7a2222;
+            margin-bottom: 0.75rem;
+        }
+
+        .footnote-item {
+            margin-bottom: 0.45rem;
+            line-height: 1.5;
+        }
+
+        .footnote-item a {
+            color: #7a2222;
+            word-break: break-all;
+        }
+
+        /* Cartes conceptuelles interactives (fond un peu plus pâle que #FAF6EF -> #FFFDF9) */
+        .concept-map-card {
+            background-color: var(--diagram-bg);
+            border: 1px solid #e4dccb;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 14px rgba(43, 43, 43, 0.04);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .concept-map-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid #efe8d8;
+        }
+
+        .concept-map-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #7a2222;
+            background-color: #f7ecec;
+            padding: 0.2rem 0.55rem;
+            border-radius: 4px;
+            margin-bottom: 0.3rem;
+        }
+
+        .concept-map-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #1a202c;
+        }
+
+        .concept-map-hint {
+            font-size: 0.78rem;
+            color: #718096;
+            font-style: italic;
+        }
+
+        .svg-wrapper {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        .interactive-svg {
+            width: 100%;
+            height: auto;
+            display: block;
+            min-width: 680px;
+        }
+
+        .svg-node {
+            cursor: pointer;
+            transition: transform 0.2s ease, filter 0.2s ease;
+        }
+
+        .svg-node:hover rect,
+        .svg-node:hover circle {
+            stroke: #7a2222;
+            stroke-width: 2.5px;
+            filter: drop-shadow(0 3px 6px rgba(122, 34, 34, 0.15));
+        }
+
+        .svg-node.active-node rect,
+        .svg-node.active-node circle {
+            stroke: #7a2222;
+            stroke-width: 2.5px;
+            fill: #fdf4f4;
+        }
+
+        .concept-detail-panel {
+            margin-top: 1rem;
+            padding: 0.95rem 1.15rem;
+            background-color: #FAF6EF;
+            border-left: 4px solid #7a2222;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.88rem;
+            line-height: 1.55;
+            color: #2b2b2b;
+            transition: all 0.2s ease;
+        }
+
+        .concept-detail-panel strong {
+            color: #7a2222;
+            display: block;
+            margin-bottom: 0.25rem;
+            font-size: 0.92rem;
+        }
+
+        /* Styles harmonisés des fenêtres modales */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+        }
+
+        .modal-container {
+            background: var(--bg-color);
+            width: 100%;
+            max-width: 900px;
+            height: 85vh;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            border: 1px solid #d4c5b9;
+        }
+
+        .modal-header {
+            padding: 1.25rem 1.5rem;
+            background: var(--modal-header-bg);
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .modal-header h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .modal-close {
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #fff;
+            opacity: 0.85;
+            transition: opacity 0.2s;
+        }
+
+        .modal-close:hover {
+            opacity: 1;
+        }
+
+        .modal-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            background-color: var(--bg-color);
+        }
+
+        .pdf-frame, .video-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        @media (max-width: 1200px) {
+            :root { --sidebar-width: 0px; }
+            .top-navbar { left: 0; padding: 0 1rem; grid-template-columns: 1fr auto; }
+            .top-navbar-title { display: none; }
+            aside.sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
+            aside.sidebar.mobile-open { transform: translateX(0); }
+            .main-wrapper { margin-left: 0; width: 100%; }
+        }
+
+        @media (max-width: 860px) {
+            .meta-grid, .abstract-grid {
+                grid-template-columns: 1fr;
+            }
+            .article-title {
+                font-size: 1.65rem;
+            }
+        }
+    </style>
+</head>
+<body id="top-of-page">
+
+    <!-- Barre horizontale permanente supérieure -->
+    <header class="top-navbar">
+        <div class="top-navbar-title">Revue Sociologie Visuelle</div>
+        <div class="header-actions">
+            <button class="btn-header secondary" onclick="openModal('video', 'Présentation introductive — Vidéo', 'https://drive.google.com/file/d/10Va3etjn9wZIqrVnByyNXDVM-XPKOHkK/preview?autoplay=1')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                Visionner la vidéo de présentation
+            </button>
+            <button class="btn-header secondary" onclick="openProposalModal('article')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                Proposer un projet de captation ou un article
+            </button>
+            <button class="btn-header secondary" onclick="openModal('pdf', 'Télécharger le numéro complet', 'https://drive.google.com/file/d/1d3ZUnnEwYomQ1VRQ1lF8XNei88HelQvy/preview')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Télécharger le numéro
+            </button>
+        </div>
+        <div class="top-navbar-location" id="locationIndicator">Loisirs adaptés</div>
+    </header>
+
+    <!-- Colonne latérale gauche permanente -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="https://inclusionsociale.com/#theme-3" class="btn-home">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                ACCUEIL
+            </a>
+        </div>
+
+        <div class="sidebar-info-section">
+            <div style="font-size: 0.72rem; color: #718096; text-align: left; margin-bottom: 0.05rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                DOI : <a href="https://doi.org/10.13140/RG.2.2.35504.53768" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; opacity: 0.85;">10.13140/RG.2.2.35504.53768</a>
+            </div>
+
+            <div class="sidebar-card editor-card">
+                <div class="editor-info">
+                    <h4>Éditeurs</h4>
+                    <p><b>François Routhier & Pierre Fraser</b></p>
+                    <p>Plus de 18 équipes de recherche mobilisées afin de saisir comment le milieu façonne et articule l'accès aux services et à l'inclusion sociale.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-nav">
+            <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: #7a2222; letter-spacing: 0.05em; margin-bottom: 0.5rem; padding-left: 0.25rem;">NAVIGATION SUR LE SITE</div>
+
+            <div>
+                <button class="nav-btn" onclick="toggleSubmenu(event, 'accessibilitySubmenu', 'submenuArrow')">
+                    <span>Penser l'accessibilité</span>
+                    <svg id="submenuArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu" id="accessibilitySubmenu">
+                    <a href="https://inclusionsociale.com/#theme-1" class="submenu-item">1. Espace urbain & transports</a>
+                    <a href="https://inclusionsociale.com/#theme-2" class="submenu-item">2. Éducation & institutions</a>
+                    <a href="https://inclusionsociale.com/#theme-3" class="submenu-item">3. Travail, autonomie & loisirs</a>
+                    <a href="https://inclusionsociale.com/#theme-4" class="submenu-item">4. Expérience vécue & stigmates</a>
+                </div>
+            </div>
+
+            <div>
+                <button class="nav-btn" onclick="toggleSubmenu(event, 'bilansSubmenu', 'bilansSubmenuArrow')">
+                    <span>Bilans</span>
+                    <svg id="bilansSubmenuArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu" id="bilansSubmenu">
+                    <a href="https://inclusionsociale.com/mentorat-actif-bilan.html" class="submenu-item">Mentorat actif, un plus tard</a>
+                </div>
+            </div>
+
+            <!-- Bouton Tournages en cours non gras -->
+            <div>
+                <a href="https://inclusionsociale.com/tournages.html" class="nav-btn" style="font-weight: normal;">
+                    <span>Tournages en cours</span>
+                </a>
+            </div>
+
+            <!-- Mention cliquable NAVIGATION DANS LA PAGE sous Tournages en cours -->
+            <div>
+                <button type="button" class="page-nav-toggle" onclick="toggleSubmenu(event, 'pageNavSubmenu', 'pageNavArrow')" aria-expanded="true">
+                    <span>NAVIGATION DANS LA PAGE</span>
+                    <svg id="pageNavArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="transform: rotate(180deg); transition: transform 0.2s;"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu open" id="pageNavSubmenu">
+                    <a href="#presentation" class="submenu-item" onclick="scrollToTopPresentation(event)">Présentation</a>
+                    <a href="#introduction" class="submenu-item" onclick="scrollToSection(event, 'introduction')">Introduction</a>
+                    <a href="#colloque-plein-air" class="submenu-item" onclick="scrollToSection(event, 'colloque-plein-air')">Le colloque plein air accessible</a>
+                    <a href="#plein-air-pouce" class="submenu-item" onclick="scrollToSection(event, 'plein-air-pouce')">Plein air sur le pouce</a>
+                    <a href="#pentathlon-neiges" class="submenu-item" onclick="scrollToSection(event, 'pentathlon-neiges')">Pentathlon des neiges Sun Life</a>
+                    <a href="#culture" class="submenu-item" onclick="scrollToSection(event, 'culture')">Culture</a>
+                    <a href="#conclusion" class="submenu-item" onclick="scrollToSection(event, 'conclusion')">Conclusion</a>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Zone de contenu dynamique à droite (Largeur max 1060px centrée) -->
+    <div class="main-wrapper" id="presentation">
+        <main class="article-container">
+            <article>
+                <!-- En-tête de l'article -->
+                <header class="article-header">
+                    <div class="article-kicker">Revue Sociologie Visuelle • N° 4 • Travail, autonomie & loisirs</div>
+                    <h1 class="article-title">Unir nos forces pour la réussite du loisir des personnes ayant des besoins particuliers</h1>
+                </header>
+
+                <!-- Section directement sous le titre : 2 cases côte à côte sur fond blanchâtre -->
+                <section class="meta-grid" aria-label="Auteur et référence bibliographique">
+                    <!-- Première case : photo et nom/affiliation côte à côte -->
+                    <div class="whitish-box author-box">
+                        <div class="author-photo-wrapper">
+                            <img src="https://lh3.googleusercontent.com/d/1-P9DWtfJlk5fYCPkCCjB6Zlsxjo0AUH6" alt="Portrait de Jacques Laberge"> 
+                        </div>
+                        <div class="author-details">
+                            <div class="author-name">Jacques LABERGE</div>
+                            <div class="author-affiliation-label">Affiliation</div>
+                            <div class="author-affiliation">1 ARLPH (03) — Association régionale de loisirs pour personnes handicapées de la Capitale-Nationale</div>
+                        </div>
+                    </div>
+
+                    <!-- Seconde case : citation de l'article -->
+                    <div class="whitish-box citation-box">
+                        <div class="citation-label">
+                            <span>Citer cet article</span>
+                            <button type="button" class="copy-citation-btn" onclick="copyCitation()">Copier la référence</button>
+                        </div>
+                        <p class="citation-text" id="citationText">
+                            Laberge, J. (2023), «&nbsp;Unir nos forces pour la réussite du loisir des personnes ayant des besoins particuliers&nbsp;», <i>Sociologie Visuelle</i>, n° 4, François Routhier et Pierre Fraser (éds.), Québec&nbsp;: Photo|Société, pp. 207-213.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Section Résumé : deux cases sur fond blanchâtre (Français et Anglais) -->
+                <section class="abstract-grid" aria-label="Résumés français et anglais">
+                    <div class="whitish-box">
+                        <h2 class="abstract-box-title">Résumé</h2>
+                        <p class="abstract-content">
+                            En général, les gestionnaires travaillant dans le domaine des loisirs savent que l’organisation d’une activité de loisirs est une tâche complexe qui nécessite une analyse minutieuse de plusieurs facteurs. En plus des tendances actuelles, il faut tenir compte de la date, du lieu et des coûts pour les participants. Cependant, la complexité de cette analyse est encore plus grande lorsqu’il s’agit d’activités destinées aux personnes handicapées. En effet, ces activités doivent être repensées pour garantir que tous les participants, y compris ceux qui ont besoin d’accompagnateurs, puissent y participer pleinement. Les contraintes horaires et l’accessibilité physique des lieux peuvent également limiter les possibilités d’activités, sans compter les coûts supplémentaires pour l’adaptation des activités ou du matériel, qui peuvent parfois atteindre jusqu’à cinq fois le coût d’une activité de loisirs ordinaire. En conséquence, les personnes handicapées ont souvent moins d’opportunités pour découvrir de nouveaux loisirs et sont souvent limitées aux activités disponibles pour leur condition. C’est pourquoi l’Association régionale de loisirs pour personnes handicapées de la Capitale-Nationale (ARLPH de la Capitale-Nationale) travaille à développer la diversité des opportunités pour les personnes handicapées. Bien que l’organisation d’activités de loisirs adaptées soit complexe et nécessite la prise en compte de nombreux éléments, cela est tout à fait possible. Les événements suivants mettront en lumière les différentes actions qui peuvent être mises en place pour adapter la programmation et la rendre plus inclusive pour les personnes en situation de handicap.
+                        </p>
+                        <p class="abstract-keywords">
+                            <strong>Mots-clés :</strong> Acceptation sociale ; exclusion ; inclusion ; loisirs ; préjugés.
+                        </p>
+                    </div>
+
+                    <div class="whitish-box">
+                        <h2 class="abstract-box-title">Abstract</h2>
+                        <p class="abstract-content">
+                            In general, managers working in the recreation sector recognize that organizing a leisure activity is a complex task requiring careful analysis of multiple factors. Beyond current trends, organizers must consider the date, venue, and costs for participants. However, this analytical complexity increases substantially when activities are designed for people with disabilities. Indeed, these programs must be reimagined to ensure that all participants, including those requiring attendants, can engage fully. Scheduling constraints and the physical accessibility of venues can further restrict available options, alongside additional expenses for adapting activities or equipment—costs that can sometimes reach up to five times those of standard leisure activities. Consequently, people with disabilities often have fewer opportunities to discover new pastimes and remain confined to activities tailored strictly to their condition. For this reason, the <i>Association régionale de loisirs pour personnes handicapées de la Capitale-Nationale</i> (ARLPH de la Capitale-Nationale) strives to broaden the diversity of leisure opportunities for individuals with disabilities. Although organizing adapted leisure activities is demanding and requires addressing numerous variables, it is entirely achievable. The initiatives presented in this article highlight concrete actions that can be implemented to adapt programming and foster greater inclusion for persons living with disabilities.
+                        </p>
+                        <p class="abstract-keywords">
+                            <strong>Keywords:</strong> Social acceptance; exclusion; inclusion; leisure; prejudice.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Corps de l'article -->
+                <div class="article-body">
+
+                    <!-- Sous-chapitre 1 : Introduction -->
+                    <section class="article-section">
+                        <span class="section-anchor" id="introduction"></span>
+                        <h2 class="subchapter-title">Introduction</h2>
+                        <p class="dropcap-intro">
+                            La tournée <i>Destination Loisirs</i> prenait autrefois la forme d’un événement provincial où se retrouvaient des personnes handicapées de partout au Québec pour profiter d’une fin de semaine de quatre jours à pratiquer différentes activités de loisirs. Une région hôte était choisie tous les deux ans pour accueillir cet événement. La nature sociale de celui-ci, en faisait également un événement très attendu aux deux ans. En effet, les opportunités de voyages organisés se font assez rares pour les personnes handicapées. Les rencontres occasionnées lors de l’événement est également un facteur de son succès auprès des participants. Cela leur permet de faire la connaissance d’autres personnes d’un peu partout dans la province qui vivent les mêmes réalités qu’eux.
+                        </p>
+                        <p>
+                            En raison de la pandémie de COVID-19, Destination Loisirs a dû être repensée pour l’année 2022 et s’est transformée en événements régionaux<a class="footnote-ref" href="#fn1" id="fnref1">[1]</a>. Les régions de la Capitale-Nationale et de la Chaudière-Appalaches ont uni leurs forces pour offrir une activité conjointe à la fin septembre, organisée au Centre vacances du Lac-Simon de Portneuf. Les activités proposées lors du week-end étaient principalement des activités de plein air, et le choix de l’emplacement a été soigneusement effectué pour assurer une accessibilité physique maximale pour tous les participants. Cela a notamment permis la participation de jeunes de l’organisation Laura Lémerveil, qui compte des membres plus lourdement handicapés nécessitant un ratio d’un (1) accompagnateur pour une (1) personne handicapée, parfois même deux (2) accompagnateurs.
+                        </p>
+                        <p>
+                            L’accompagnement est un facteur clé pour assurer le succès des activités adaptées. Il s’agit non seulement de l’accompagnement de la personne en situation de handicap pour l’aider à réaliser les actions et les mouvements liés à l’activité de loisir qu’elle pratique, mais également de l’accompagnement d’une personne expérimentée dans l’activité proposée. Comme les opportunités de loisirs diversifiées sont plus rares pour les personnes en situation de handicap, il est souvent nécessaire d’expliquer l’activité en détail, y compris les mouvements de base, aux participants avant de commencer l’activité. Dans le cadre des événements organisés par l’Association régionale de loisirs pour personnes handicapées de la Capitale-Nationale (ARLPH de la Capitale-Nationale), les associations membres étaient chargées de fournir des accompagnateurs pour les participants aux activités. L’ARLPH s’est quant à elle occupée de fournir des personnes expérimentées dans les activités proposées, telles que la planche à pagaie (paddleboard) et le vélo.
+                        </p>
+                        <p>
+                            L’accompagnement à lui seul ne suffit toutefois pas à répondre à l’ensemble des personnes handicapées. En effet, certaines d’entre elles sont très autonomes, mais nécessitent du matériel adapté pour pouvoir pratiquer leurs activités. Ce matériel est toutefois souvent très dispendieux et difficile pour une personne de se procurer. Si on prend l’exemple d’une planche à pagaie adaptée, elle coûte deux fois plus qu’une planche à pagaie régulière. Et contrairement aux personnes ne vivant pas avec un handicap, une personne handicapée n’a peu, voire pas du tout, de possibilité d’emprunter cet équipement dans une base de plein air où elle voudrait pratiquer cette activité. C’est pourquoi l’ARLPH de la Capitale-Nationale se procure ce matériel qui est mis à la disposition des participants lors des différentes activités organisées. Il est important de mentionner que ces acquisitions ne seraient pas possibles sans l’aide de subventions gouvernementales telles que Population active et la Centrale d’équipements, pour n’en nommer que quelques-unes.
+                        </p>
+
+                        <!-- Carte conceptuelle interactive 1 : Écosystème de réussite du loisir adapté -->
+                        <div class="concept-map-card" id="map1">
+                            <div class="concept-map-header">
+                                <div>
+                                    <span class="concept-map-badge">Carte conceptuelle interactive 1</span>
+                                    <h3 class="concept-map-title">Les quatre piliers opérationnels du loisir adapté (Modèle ARLPH)</h3>
+                                </div>
+                                <span class="concept-map-hint">Cliquez sur un nœud du diagramme pour explorer ses leviers concrets</span>
+                            </div>
+                            <div class="svg-wrapper">
+                                <svg class="interactive-svg" viewBox="0 0 860 295" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagramme des quatre piliers opérationnels du loisir adapté">
+                                    <defs>
+                                        <marker id="arrowBordeaux" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                            <path d="M 0 1 L 10 5 L 0 9 z" fill="#7a2222"/>
+                                        </marker>
+                                    </defs>
+
+                                    <!-- Lignes de connexion -->
+                                    <line x1="430" y1="88" x2="115" y2="155" stroke="#c8b9a6" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#arrowBordeaux)"/>
+                                    <line x1="430" y1="88" x2="325" y2="155" stroke="#c8b9a6" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#arrowBordeaux)"/>
+                                    <line x1="430" y1="88" x2="535" y2="155" stroke="#c8b9a6" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#arrowBordeaux)"/>
+                                    <line x1="430" y1="88" x2="745" y2="155" stroke="#c8b9a6" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#arrowBordeaux)"/>
+
+                                    <!-- Nœud Central Supérieur -->
+                                    <g class="svg-node active-node" onclick="selectConceptNode('map1', 'central', this)">
+                                        <rect x="265" y="18" width="330" height="68" rx="10" fill="#7a2222" stroke="#5e1a1a" stroke-width="2"/>
+                                        <text x="430" y="45" text-anchor="middle" fill="#00000" font-size="13.5" font-weight="700">RÉUSSITE DU LOISIR ADAPTÉ</text>
+                                        <text x="430" y="66" text-anchor="middle" fill="#000000" font-size="11">Synergie régionale &amp; inclusion durable (ARLPH 03)</text>
+                                    </g>
+
+                                    <!-- Pilier 1 -->
+                                    <g class="svg-node" onclick="selectConceptNode('map1', 'pilier1', this)">
+                                        <rect x="20" y="158" width="190" height="112" rx="8" fill="#FAF6EF" stroke="#d5c8b4" stroke-width="1.5"/>
+                                        <circle cx="115" cy="184" r="14" fill="#7a2222"/>
+                                        <text x="115" y="188" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">1</text>
+                                        <text x="115" y="213" text-anchor="middle" fill="#1a202c" font-size="12" font-weight="700">Double Accompagnement</text>
+                                        <text x="115" y="232" text-anchor="middle" fill="#4a5568" font-size="10.5">Ratio 1:1 à 2:1 &amp; encadrement</text>
+                                        <text x="115" y="248" text-anchor="middle" fill="#4a5568" font-size="10.5">technique spécialisé</text>
+                                    </g>
+
+                                    <!-- Pilier 2 -->
+                                    <g class="svg-node" onclick="selectConceptNode('map1', 'pilier2', this)">
+                                        <rect x="230" y="158" width="190" height="112" rx="8" fill="#FAF6EF" stroke="#d5c8b4" stroke-width="1.5"/>
+                                        <circle cx="325" cy="184" r="14" fill="#7a2222"/>
+                                        <text x="325" y="188" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">2</text>
+                                        <text x="325" y="213" text-anchor="middle" fill="#1a202c" font-size="12" font-weight="700">Matériel Adapté &amp; Prêt</text>
+                                        <text x="325" y="232" text-anchor="middle" fill="#4a5568" font-size="10.5">Coût 2× à 5× supérieur ;</text>
+                                        <text x="325" y="248" text-anchor="middle" fill="#4a5568" font-size="10.5">mutualisation par subventions</text>
+                                    </g>
+
+                                    <!-- Pilier 3 -->
+                                    <g class="svg-node" onclick="selectConceptNode('map1', 'pilier3', this)">
+                                        <rect x="440" y="158" width="190" height="112" rx="8" fill="#FAF6EF" stroke="#d5c8b4" stroke-width="1.5"/>
+                                        <circle cx="535" cy="184" r="14" fill="#7a2222"/>
+                                        <text x="535" y="188" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">3</text>
+                                        <text x="535" y="213" text-anchor="middle" fill="#1a202c" font-size="12" font-weight="700">Accessibilité des Lieux</text>
+                                        <text x="535" y="232" text-anchor="middle" fill="#4a5568" font-size="10.5">Sites sélectionnés &amp; respect</text>
+                                        <text x="535" y="248" text-anchor="middle" fill="#4a5568" font-size="10.5">de la conservation naturelle</text>
+                                    </g>
+
+                                    <!-- Pilier 4 -->
+                                    <g class="svg-node" onclick="selectConceptNode('map1', 'pilier4', this)">
+                                        <rect x="650" y="158" width="190" height="112" rx="8" fill="#FAF6EF" stroke="#d5c8b4" stroke-width="1.5"/>
+                                        <circle cx="745" cy="184" r="14" fill="#7a2222"/>
+                                        <text x="745" y="188" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">4</text>
+                                        <text x="745" y="213" text-anchor="middle" fill="#1a202c" font-size="12" font-weight="700">Alliance Interrégionale</text>
+                                        <text x="745" y="232" text-anchor="middle" fill="#4a5568" font-size="10.5">Coopération entre ARLPH,</text>
+                                        <text x="745" y="248" text-anchor="middle" fill="#4a5568" font-size="10.5">organismes locaux &amp; bailleurs</text>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="concept-detail-panel" id="map1-detail">
+                                <strong>Synergie régionale &amp; inclusion durable (ARLPH de la Capitale-Nationale)</strong>
+                                L’organisation d’activités de loisirs pour personnes en situation de handicap exige de dépasser la simple offre standard. En articulant accompagnement humain, équipements spécialisés et partenariats territoriaux, l’ARLPH transforme des contraintes logistiques et financières majeures en expériences sociales enrichissantes.
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Sous-chapitre 2 : Le colloque plein air accessible -->
+                    <section class="article-section">
+                        <span class="section-anchor" id="colloque-plein-air"></span>
+                        <h2 class="subchapter-title">Le colloque plein air accessible</h2>
+                        <p>
+                            Un autre élément fondamental dans la réussite du développement d’activités de loisirs adaptés est la sensibilisation des gestionnaires et acteurs offrant différentes activités. Étant donné l’essor généralisé de la population envers le plein air depuis quelques années, il a été convenu que le premier colloque du réseau des instances régionales de loisir pour personnes handicapées porterait sur ce sujet. À l’aide de conférences, de kiosques de fournisseurs de matériel adapté et d’expérimentation terrain au Canyon Sainte-Anne, les participants du colloque ont pu être exposés aux adaptations possibles pour rendre les sites de plein air accessibles. Ils ont alors pu voir des exemples concrets d’adaptation qui ne venaient pas au détriment de leur terrain de jeu naturel, la conservation de la nature étant parfois la priorité. En tout, c’est plus de 180 personnes qui ont participé à ce colloque.
+                        </p>
+                    </section>
+
+                    <!-- Sous-chapitre 3 : Plein air sur le pouce -->
+                    <section class="article-section">
+                        <span class="section-anchor" id="plein-air-pouce"></span>
+                        <h2 class="subchapter-title">Plein air sur le pouce</h2>
+                        <p>
+                            La première édition de cette activité a eu lieu en février 2020. Les membres de l’ARLPH de la Capitale-Nationale avaient alors été invités par l’ARLPH du Saguenay Lac-St-Jean à participer à une programmation d’activités hivernales adaptées. Le tout s’est tenu au Centre du Lac-Pouce à Laterrière, d’où le nom, <i>Plein air sur le pouce</i>.
+                        </p>
+                        <p>
+                            Le transport était un élément fondamental à prendre en compte pour assurer le succès de l’événement, étant donné qu’il avait lieu à environ deux heures de route de Québec. Les participants ont donc été hébergés pendant deux nuitées afin d’optimiser leurs déplacements. L’endroit a été choisi pour son accessibilité, la disponibilité du gestionnaire de l’établissement à s’adapter aux besoins des participants, ainsi que pour la qualité du service offert lors d’événements passés de l’ARLPH du Saguenay Lac-St-Jean.
+                        </p>
+                        <p>
+                            Lors de cette activité, les participants ont pu profiter de plusieurs activités pendant leur séjour, telles que la glissade, la raquette, une randonnée nocturne avec lampe frontale, du cardio plein-air, de la trottinette des neiges et une activité de loisir scientifique pour se réchauffer avant de retourner profiter de l’hiver. D’autres activités plus sociales, telles que la tire sur neige, un souper et une danse, étaient également proposées pour offrir une expérience complète et de qualité aux participants et aux accompagnateurs. Grâce à la météo clémente de cette fin de semaine, tout le monde garde un très bon souvenir de cet événement.
+                        </p>
+                    </section>
+
+                    <!-- Sous-chapitre 4 : Pentathlon des neiges Sun Life -->
+                    <section class="article-section">
+                        <span class="section-anchor" id="pentathlon-neiges"></span>
+                        <h2 class="subchapter-title">Pentathlon des neiges Sun Life</h2>
+                        <p>
+                            Avec son défi d’intégration, le Pentathlon des neiges Sun Life offre l’opportunité aux personnes handicapées de s’insérer dans une compétition ouverte au grand public. L’ARLPH de la Capitale-Nationale financent alors 10 équipes auprès de ces organisations membres. Les équipes doivent être composées de 5 participants avec un minimum de deux personnes ayant des besoins particuliers auprès de ses organisations membres. Comme il s’agit d’une compétition amicale, chaque participant peut également participer et se dépasser selon ses compétences et ses capacités. L’ARLPH a développé un programme d’activité régulière afin de permettre aux participants d’améliorer leur technique associée à l’une des disciplines du Pentathlon.
+                        </p>
+
+                        <!-- Carte conceptuelle interactive 2 : Du loisir adapté à l'inclusion sociale active -->
+                        <div class="concept-map-card" id="map2">
+                            <div class="concept-map-header">
+                                <div>
+                                    <span class="concept-map-badge">Carte conceptuelle interactive 2</span>
+                                    <h3 class="concept-map-title">Trajectoires d'inclusion : du loisir adapté spécialisé à la participation citoyenne</h3>
+                                </div>
+                                <span class="concept-map-hint">Sélectionnez une initiative pour afficher son mécanisme d'inclusion</span>
+                            </div>
+                            <div class="svg-wrapper">
+                                <svg class="interactive-svg" viewBox="0 0 860 270" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Trajectoires d'inclusion dans les initiatives de l'ARLPH">
+                                    <!-- Ligne de progression horizontale -->
+                                    <line x1="90" y1="125" x2="770" y2="125" stroke="#d6c8b4" stroke-width="4"/>
+
+                                    <!-- Étape 1 -->
+                                    <g class="svg-node active-node" onclick="selectConceptNode('map2', 'step1', this)">
+                                        <rect x="20" y="32" width="185" height="185" rx="10" fill="#FAF6EF" stroke="#7a2222" stroke-width="2"/>
+                                        <rect x="20" y="32" width="185" height="34" rx="8" fill="#7a2222"/>
+                                        <text x="112" y="54" text-anchor="middle" fill="#000000" font-size="11" font-weight="700">SENSIBILISATION</text>
+                                        <text x="112" y="92" text-anchor="middle" fill="#1a202c" font-size="12.5" font-weight="700">Colloque Plein Air</text>
+                                        <text x="112" y="112" text-anchor="middle" fill="#7a2222" font-size="11" font-weight="700">+180 gestionnaires</text>
+                                        <text x="112" y="138" text-anchor="middle" fill="#4a5568" font-size="10.5">Démonstration au</text>
+                                        <text x="112" y="153" text-anchor="middle" fill="#4a5568" font-size="10.5">Canyon Sainte-Anne</text>
+                                        <text x="112" y="178" text-anchor="middle" fill="#4a5568" font-size="10">Conciliation accès &amp;</text>
+                                        <text x="112" y="192" text-anchor="middle" fill="#4a5568" font-size="10">protection de la nature</text>
+                                    </g>
+
+                                    <!-- Étape 2 -->
+                                    <g class="svg-node" onclick="selectConceptNode('map2', 'step2', this)">
+                                        <rect x="232" y="32" width="185" height="185" rx="10" fill="#FAF6EF" stroke="#d5c8b4" stroke-width="1.5"/>
+                                        <rect x="232" y="32" width="185" height="34" rx="8" fill="#3a4454"/>
+                                        <text x="324" y="54" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">IMMERSION HIVERNALE</text>
+                                        <text x="324" y="92" text-anchor="middle" fill="#1a202c" font-size="12.5" font-weight="700">Plein air sur le pouce</text>
+                                        <text x="324" y="112" text-anchor="middle" fill="#7a2222" font-size="11" font-weight="700">Séjour 2 nuitées</text>
+                                        <text x="324" y="138" text-anchor="middle" fill="#4a5568" font-size="10.5">Transport optimisé vers</text>
+                                        <text x="324" y="153" text-anchor="middle" fill="#4a5568" font-size="10.5">Laterrière (Lac-Pouce)</text>
+                                        <text x="324" y="178" text-anchor="middle" fill="#4a5568" font-size="10">Sports d'hiver, science</text>
+                                        <text x="324" y="192" text-anchor="middle" fill="#4a5568" font-size="10">&amp; vie sociale collective</text>
+                                    </g>
+
+                                    <!-- Étape 3 -->
+                                    <g class="svg-node" onclick="selectConceptNode('map2', 'step3', this)">
+                                        <rect x="444" y="32" width="185" height="185" rx="10" fill="#FAF6EF" stroke="#d5c8b4" stroke-width="1.5"/>
+                                        <rect x="444" y="32" width="185" height="34" rx="8" fill="#7a2222"/>
+                                        <text x="536" y="54" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">INTÉGRATION PUBLIQUE</text>
+                                        <text x="536" y="92" text-anchor="middle" fill="#1a202c" font-size="12.5" font-weight="700">Pentathlon des neiges</text>
+                                        <text x="536" y="112" text-anchor="middle" fill="#7a2222" font-size="11" font-weight="700">10 équipes mixtes</text>
+                                        <text x="536" y="138" text-anchor="middle" fill="#4a5568" font-size="10.5">5 athlètes dont min. 2</text>
+                                        <text x="536" y="153" text-anchor="middle" fill="#4a5568" font-size="10.5">avec besoins particuliers</text>
+                                        <text x="536" y="178" text-anchor="middle" fill="#4a5568" font-size="10">Entraînement régulier &amp;</text>
+                                        <text x="536" y="192" text-anchor="middle" fill="#4a5568" font-size="10">compétition grand public</text>
+                                    </g>
+
+                                    <!-- Étape 4 -->
+                                    <g class="svg-node" onclick="selectConceptNode('map2', 'step4', this)">
+                                        <rect x="656" y="32" width="185" height="185" rx="10" fill="#FAF6EF" stroke="#d5c8b4" stroke-width="1.5"/>
+                                        <rect x="656" y="32" width="185" height="34" rx="8" fill="#3a4454"/>
+                                        <text x="748" y="54" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">CRÉATION ACTIVE</text>
+                                        <text x="748" y="92" text-anchor="middle" fill="#1a202c" font-size="12.5" font-weight="700">Volet Culturel</text>
+                                        <text x="748" y="112" text-anchor="middle" fill="#7a2222" font-size="11" font-weight="700">De spectateur à artiste</text>
+                                        <text x="748" y="138" text-anchor="middle" fill="#4a5568" font-size="10.5">Au-delà de la Carte</text>
+                                        <text x="748" y="153" text-anchor="middle" fill="#4a5568" font-size="10.5">d'accompagnement (CAL)</text>
+                                        <text x="748" y="178" text-anchor="middle" fill="#4a5568" font-size="10">« Un talent pas si</text>
+                                        <text x="748" y="192" text-anchor="middle" fill="#4a5568" font-size="10">différent » (scène/expo)</text>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="concept-detail-panel" id="map2-detail">
+                                <strong>Sensibilisation des gestionnaires — Colloque plein air accessible</strong>
+                                Réunissant plus de 180 acteurs du milieu au Canyon Sainte-Anne, ce premier colloque du réseau des instances régionales démontre sur le terrain qu’il est possible d’aménager des sites naturels sans compromettre la préservation environnementale.
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Sous-chapitre 5 : Culture -->
+                    <section class="article-section">
+                        <span class="section-anchor" id="culture"></span>
+                        <h2 class="subchapter-title">Culture</h2>
+                        <p>
+                            Pour ce qui est du volet culturel, des outils tels que la Carte d’accompagnement loisir (CAL) ont permis de travailler sur l’accessibilité au loisir culturel des personnes handicapées. Néanmoins, cet accès se limite surtout à du loisir passif où elles sont spectatrice d’art. Ces opportunités ne sont pas mal en soit, mais l’objectif de l’ARLPH de la Capitale-Nationale étant toujours d’augmenter les possibilités de pratique de loisir pour que les personnes handicapées, il y avait encore un peu de travail à faire. C’est pourquoi de nouveaux projets voient le jour afin qu’elles puissent également pratiquer des activités culturelles. En prenant exemple sur l’ARLPH du Saguenay Lac-St-Jean, l’ARLPH de la Capitale-Nationale a développé sa propre version de l’événement «&nbsp;Un talent pas si différent&nbsp;». Lors de cet événement, les participants seront appelés à montrer leurs talents artistiques sous forme d’exposition d’arts visuels ou lors d’un spectacle en pratiquant un art de la scène. Les participants ont également des occasions de pratiquer ces divers arts dans leurs organismes locaux afin de se préparer à leurs vernissages ou à leur numéro.
+                        </p>
+                    </section>
+
+                    <!-- Sous-chapitre 6 : Conclusion -->
+                    <section class="article-section">
+                        <span class="section-anchor" id="conclusion"></span>
+                        <h2 class="subchapter-title">Conclusion</h2>
+                        <p>
+                            En somme, le sujet du loisir adapté est complexe et nécessite une réflexion approfondie, afin d’offrir des activités et des services de qualité aux personnes handicapées. Cependant, il existe de nombreuses solutions et possibilités d’adaptation. Après tout, ces réflexions permettent une créativité renouvelée pour repenser le monde et la façon dont chaque être humain peut y trouver sa place pour se développer pleinement.
+                        </p>
+                        <p>
+                            Au cours des dernières années, plusieurs innovations matérielles ont vu le jour grâce à des fabricants et distributeurs québécois. Nous avons désormais accès à des fauteuils de plein air adaptés, et l’électrification des équipements se développe rapidement. Nous remercions des entreprises comme Kartus, Trackz, GoRampe et Évo-Concept pour leur contribution dans ce domaine.
+                        </p>
+                        <p>
+                            Vous ne savez pas par où commencer pour adapter vos activités de loisir&nbsp;? Contactez l’ARLPH de votre région administrative<a class="footnote-ref" href="#fn2" id="fnref2">[2]</a>.
+                        </p>
+                    </section>
+
+                    <!-- Notes de bas de page -->
+                    <footer class="footnotes-section" aria-label="Notes de bas de page">
+                        <h3>Notes et références</h3>
+                        <div class="footnote-item" id="fn1">
+                            <strong>1.</strong> <a href="https://youtu.be/4Ec8lTYKxEI" target="_blank" rel="noopener noreferrer">https://youtu.be/4Ec8lTYKxEI</a>
+                        </div>
+                        <div class="footnote-item" id="fn2">
+                            <strong>2.</strong> Réseau des instances régionales de loisir pour personnes handicapées (AQLPH) : <a href="https://www.aqlph.qc.ca/aqlph/notre-reseau/membres-affilies/" target="_blank" rel="noopener noreferrer">https://www.aqlph.qc.ca/aqlph/notre-reseau/membres-affilies/</a>
+                        </div>
+                    </footer>
+
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <!-- Modal Universel (PDF / Vidéo) -->
+    <div class="modal-overlay" id="mediaModal" onclick="closeModalOnOutside(event)">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 id="modalTitle">Titre de la fenêtre</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBodyContent"></div>
+        </div>
+    </div>
+
+    <!-- Modal de Proposition d'Article / Projet -->
+    <div class="modal-overlay" id="proposalModal" onclick="closeProposalModalOnOutside(event)">
+        <div class="modal-container" style="max-width: 800px; height: auto;">
+            <div class="modal-header">
+                <h3 id="proposalModalTitle">Proposer une captation ou un article / Nous faire part d'un commentaire</h3>
+                <button class="modal-close" onclick="closeProposalModal()">&times;</button>
+            </div>
+            <div class="modal-body" style="padding: 1.5rem; overflow-y: auto;">
+                <form id="proposalForm" onsubmit="submitProposal(event)" style="display: flex; flex-direction: column; gap: 1rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                    <input type="hidden" id="propCategory" value="article">
+                    <div>
+                        <label for="propName" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Votre nom</label>
+                        <input type="text" id="propName" required style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propEmail" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Votre courriel</label>
+                        <input type="email" id="propEmail" required style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propTitle" id="propTitleLabel" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Que désirez-vous nous communiquer ?</label>
+                        <input type="text" id="propTitle" required placeholder="Ex: Analyse de l'accessibilité urbaine..." style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propDesc" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Description ou résumé</label>
+                        <textarea id="propDesc" rows="4" required placeholder="Décrivez votre proposition en quelques lignes..." style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff; resize: vertical;"></textarea>
+                    </div>
+                    <button type="submit" style="background-color: #7a2222; color: #fff; border: none; padding: 0.75rem; border-radius: 4px; font-weight: 600; cursor: pointer; margin-top: 0.5rem; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#5e1a1a'" onmouseout="this.style.backgroundColor='#7a2222'">Envoyer la proposition</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSubmenu(event, submenuId, arrowId) {
+            event.stopPropagation();
+            const submenu = document.getElementById(submenuId);
+            const arrow = document.getElementById(arrowId);
+            submenu.classList.toggle('open');
+            arrow.style.transform = submenu.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
+
+        /* Navigation fluide vers le haut de la page (Présentation) */
+        function scrollToTopPresentation(event) {
+            event.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            updateActiveNavItem(event.currentTarget);
+        }
+
+        /* Navigation fluide pointant un peu au-dessus du titre du sous-chapitre */
+        function scrollToSection(event, targetId) {
+            event.preventDefault();
+            const anchor = document.getElementById(targetId);
+            if (anchor) {
+                const heading = anchor.nextElementSibling || anchor;
+                const yOffset = -88; // Laisse un espace confortable sous la barre fixe supérieure
+                const y = heading.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                window.scrollTo({
+                    top: y,
+                    behavior: 'smooth'
+                });
+            }
+            updateActiveNavItem(event.currentTarget);
+        }
+
+        function updateActiveNavItem(clickedEl) {
+            document.querySelectorAll('#pageNavSubmenu .submenu-item').forEach(el => {
+                el.classList.remove('active');
+            });
+            if (clickedEl) {
+                clickedEl.classList.add('active');
+            }
+        }
+
+        /* Copie rapide de la citation */
+        function copyCitation() {
+            const text = document.getElementById('citationText').innerText.trim();
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = document.querySelector('.copy-citation-btn');
+                const original = btn.textContent;
+                btn.textContent = 'Copié !';
+                setTimeout(() => { btn.textContent = original; }, 2000);
+            });
+        }
+
+        /* Données interactives pour les cartes conceptuelles SVG */
+        const conceptDetails = {
+            map1: {
+                central: {
+                    title: "Synergie régionale & inclusion durable (ARLPH de la Capitale-Nationale)",
+                    text: "L’organisation d’activités de loisirs pour personnes en situation de handicap exige de dépasser la simple offre standard. En articulant accompagnement humain, équipements spécialisés et partenariats territoriaux, l’ARLPH transforme des contraintes logistiques et financières majeures en expériences sociales enrichissantes."
+                },
+                pilier1: {
+                    title: "1. Double accompagnement : humain et technique",
+                    text: "Le succès repose sur deux niveaux d’appui : l’accompagnement individuel assuré par les associations membres (jusqu’à un ratio de 1 ou 2 accompagnateurs par participant pour les jeunes de Laura Lémerveil) et l’encadrement par des moniteurs expérimentés (planche à pagaie, vélo) pour enseigner les mouvements de base."
+                },
+                pilier2: {
+                    title: "2. Mutualisation du matériel adapté et subventions",
+                    text: "Une planche à pagaie adaptée coûte deux fois plus cher qu’un modèle régulier, et l’adaptation globale d’une activité peut atteindre jusqu’à cinq fois le coût ordinaire. Grâce aux programmes comme Population active et la Centrale d’équipements, l’ARLPH achète et prête gratuitement ce matériel aux participants."
+                },
+                pilier3: {
+                    title: "3. Sélection rigoureuse et accessibilité physique des lieux",
+                    text: "Le choix de sites comme le Centre vacances du Lac-Simon de Portneuf garantit une accessibilité physique maximale dès la conception du séjour, permettant aux personnes ayant des limitations fonctionnelles sévères de participer pleinement aux activités de plein air."
+                },
+                pilier4: {
+                    title: "4. Alliance interrégionale et maillage associatif",
+                    text: "Face à la pandémie de COVID-19 en 2022, l’événement provincial Destination Loisirs s’est réinventé grâce à l’union des forces entre les ARLPH de la Capitale-Nationale et de Chaudière-Appalaches, démontrant la résilience du réseau régional."
+                }
+            },
+            map2: {
+                step1: {
+                    title: "Sensibilisation des gestionnaires — Colloque plein air accessible",
+                    text: "Réunissant plus de 180 acteurs du milieu au Canyon Sainte-Anne, ce premier colloque du réseau des instances régionales démontre sur le terrain qu’il est possible d’aménager des sites naturels sans compromettre la préservation environnementale."
+                },
+                step2: {
+                    title: "Immersion hivernale — Plein air sur le pouce (Saguenay Lac-St-Jean)",
+                    text: "Organisé au Centre du Lac-Pouce à Laterrière avec hébergement de deux nuitées pour amortir les deux heures de route depuis Québec, ce séjour combine glissade, raquette, randonnée nocturne, trottinette des neiges, loisir scientifique et soirées festives."
+                },
+                step3: {
+                    title: "Intégration en compétition publique — Pentathlon des neiges Sun Life",
+                    text: "L’ARLPH finance 10 équipes mixtes de 5 participants (incluant au moins deux personnes ayant des besoins particuliers) et offre des entraînements réguliers afin de permettre à chacun de se dépasser dans un événement ouvert au grand public."
+                },
+                step4: {
+                    title: "De spectateur à créateur — Volet culturel et « Un talent pas si différent »",
+                    text: "Si la Carte d’accompagnement loisir (CAL) facilite l’accès aux spectacles, l’événement « Un talent pas si différent » franchit un cap en valorisant la pratique artistique active (expositions d’arts visuels et arts de la scène) préparée au sein des organismes locaux."
+                }
+            }
+        };
+
+        function selectConceptNode(mapId, nodeKey, element) {
+            const container = document.getElementById(mapId);
+            container.querySelectorAll('.svg-node').forEach(node => {
+                node.classList.remove('active-node');
+            });
+            element.classList.add('active-node');
+
+            const detailPanel = document.getElementById(mapId + '-detail');
+            const info = conceptDetails[mapId][nodeKey];
+            if (detailPanel && info) {
+                detailPanel.innerHTML = `<strong>${info.title}</strong>${info.text}`;
+            }
+        }
+
+        function openModal(type, title, url) {
+            const modal = document.getElementById('mediaModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalBodyContent = document.getElementById('modalBodyContent');
+
+            modalTitle.textContent = title;
+            modalBodyContent.innerHTML = '';
+
+            if (type === 'pdf') {
+                const iframe = document.createElement('iframe');
+                iframe.className = 'pdf-frame';
+                iframe.src = url;
+                modalBodyContent.appendChild(iframe);
+            } else if (type === 'video') {
+                const iframe = document.createElement('iframe');
+                iframe.className = 'video-frame';
+                iframe.src = url;
+                iframe.setAttribute('allow', 'autoplay; fullscreen');
+                modalBodyContent.appendChild(iframe);
+            }
+
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('mediaModal');
+            modal.style.display = 'none';
+            document.getElementById('modalBodyContent').innerHTML = '';
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeModalOnOutside(event) {
+            const modal = document.getElementById('mediaModal');
+            if (event.target === modal) closeModal();
+        }
+
+        function openProposalModal(type) {
+            const proposalModal = document.getElementById('proposalModal');
+            const titleEl = document.getElementById('proposalModalTitle');
+            const categoryEl = document.getElementById('propCategory');
+            const titleLabelEl = document.getElementById('propTitleLabel');
+            const titleInputEl = document.getElementById('propTitle');
+
+            categoryEl.value = type;
+            titleEl.textContent = "Nous faire part d'un commentaire ou d'une proposition (captation ou article)";
+            titleLabelEl.textContent = "Que voulez-vous nous communiquer ?";
+            titleInputEl.placeholder = "Ex: projet de captation, soumettre un article, faire un commentaire...";
+
+            proposalModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProposalModal() {
+            const proposalModal = document.getElementById('proposalModal');
+            proposalModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeProposalModalOnOutside(event) {
+            const proposalModal = document.getElementById('proposalModal');
+            if (event.target === proposalModal) closeProposalModal();
+        }
+
+        function submitProposal(event) {
+            event.preventDefault();
+            const name = document.getElementById('propName').value;
+            const email = document.getElementById('propEmail').value;
+            const category = document.getElementById('propCategory').value;
+            const title = document.getElementById('propTitle').value;
+            const desc = document.getElementById('propDesc').value;
+
+            const typeLabel = category === 'captation' ? 'Proposition de captation' : "Proposition d'article";
+            const subject = encodeURIComponent(`${typeLabel} : ${title}`);
+            const body = encodeURIComponent(`Nom : ${name}
+Courriel : ${email}
+Type : ${typeLabel}
+Titre : ${title}
+
+Description :
+${desc}`);
+
+            window.location.href = `mailto:sociocamera@gmail.com?subject=${subject}&body=${body}`;
+            closeProposalModal();
+        }
+
+        window.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+                closeProposalModal();
+            }
+        });
+    </script>
+</body>
+</html>
