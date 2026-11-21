@@ -1,0 +1,1509 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; frame-src https://drive.google.com https://www.youtube.com; connect-src https://script.google.com; object-src 'none';">
+    <title>Le travail des personnes autistes en épicerie | Revue de Sociologie Visuelle</title>
+    <meta name="description" content="Le travail des personnes autistes en épicerie : un exemple d’adaptation mutuelle favorisée par la recherche — Frédéric Dumont, Claude Vincent, Alexandra Marchand et als. (2023), Revue de Sociologie Visuelle, n° 4.">
+    <meta name="keywords" content="autiste, emploi, intégration socioprofessionnelle, adaptation, inclusion, vidéo pédagogique, validation, épicerie, CIRRIS, sociologie visuelle">
+    <link rel="canonical" href="https://inclusionsociale.com/epicerie-travail-autistes.html">
+
+    <!-- Open Graph (Facebook, LinkedIn, WhatsApp, etc.) -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Revue Sociologie Visuelle">
+    <meta property="og:title" content="Le travail des personnes autistes en épicerie : un exemple d’adaptation mutuelle favorisée par la recherche">
+    <meta property="og:description" content="Visite immersive d’une épicerie où l’on découvre le travail des personnes autistes et les adaptations mises en place grâce à 42 vidéos pédagogiques conçues par le Cirris.">
+    <meta property="og:url" content="https://inclusionsociale.com/epicerie-travail-autistes.html">
+    <meta property="og:image" content="https://lh3.googleusercontent.com/d/1R-6VqA6SZ8t1dall1uf0mj_ehOcj7jNW">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="fr_CA">
+
+    <!-- Twitter / X Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Le travail des personnes autistes en épicerie | Revue de Sociologie Visuelle">
+    <meta name="twitter:description" content="Un exemple d’adaptation mutuelle favorisée par la recherche — Frédéric Dumont, Claude Vincent, Alexandra Marchand et als.">
+    <meta name="twitter:image" content="https://inclusionsociale.com/images/vignette-inclusion-sociale.jpg">
+
+    <style>
+        :root {
+            --bg-color: #FAF6EF;
+            --text-color: #2b2b2b;
+            --primary-color: #1a202c;
+            --accent-color: #4a5568;
+            --border-color: #e2e8f0;
+            --card-bg: #FAF6EF;
+            --hover-border: #cbd5e0;
+            --max-width: 1400px;
+            --sidebar-width: 320px;
+            --topbar-height: 60px;
+            --modal-header-bg: #7a2222; /* Bordeaux de référence */
+            --bordeaux: #7a2222;
+            --bordeaux-dark: #5e1a1a;
+            --box-whitish: #fdfbf7;
+            --diagram-bg: #fcfaf5;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Georgia", "Cambria", "Times New Roman", serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.75;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Barre horizontale permanente supérieure : toute la largeur de la page */
+        .top-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--topbar-height);
+            background-color: var(--bg-color);
+            border-bottom: 1px solid var(--border-color);
+            display: grid;
+            grid-template-columns: var(--sidebar-width) 1fr auto;
+            align-items: center;
+            padding: 0;
+            z-index: 1100;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .top-navbar-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            letter-spacing: 0.02em;
+            padding-left: 1.5rem;
+            border-right: 1px solid var(--border-color);
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .top-navbar-location {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            background-color: #f2ede4;
+            padding: 0.3rem 0.75rem;
+            border-radius: 4px;
+            margin-right: 2.5rem;
+            max-width: 340px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Colonne latérale gauche permanente sous la barre fixe du haut */
+        aside.sidebar {
+            position: fixed;
+            top: var(--topbar-height);
+            left: 0;
+            width: var(--sidebar-width);
+            height: calc(100vh - var(--topbar-height));
+            background-color: #f5f0e6;
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            z-index: 1000;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            overflow-y: auto;
+        }
+
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .btn-home {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            background-color: var(--bordeaux);
+            color: #fff;
+            border: none;
+            padding: 0.85rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        .btn-home svg {
+            position: absolute;
+            left: 1rem;
+        }
+
+        .btn-home:hover {
+            background-color: var(--bordeaux-dark);
+        }
+
+        .sidebar-info-section {
+            padding: 1rem 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .sidebar-card {
+            background-color: #FAF6EF;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 0.85rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            text-align: justify;
+        }
+
+        .sidebar-card.editor-card {
+            flex-direction: row;
+            align-items: center;
+            gap: 0.75rem;
+            text-align: left;
+        }
+
+        .editor-info h4 {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            margin-bottom: 0.15rem;
+        }
+
+        .editor-info p {
+            font-size: 0.78rem;
+            color: var(--accent-color);
+            line-height: 1.4;
+        }
+
+        .sidebar-nav {
+            padding: 1.25rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            flex: 1;
+        }
+
+        .nav-section-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--bordeaux);
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+            padding-left: 0.25rem;
+        }
+
+        .nav-section-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background: transparent;
+            border: 1px solid transparent;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--bordeaux);
+            letter-spacing: 0.05em;
+            margin-top: 0.75rem;
+            margin-bottom: 0.15rem;
+            padding: 0.45rem 0.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: left;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+
+        .nav-section-toggle:hover {
+            background-color: #eae3d5;
+            border-color: #dcd3c4;
+        }
+
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--primary-color);
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-align: left;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            background-color: #eae3d5;
+            border-color: var(--hover-border);
+        }
+
+        .submenu {
+            display: none;
+            flex-direction: column;
+            gap: 0.4rem;
+            padding-left: 0.85rem;
+            margin-top: -0.15rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .submenu.open {
+            display: flex;
+        }
+
+        .submenu-item {
+            font-size: 0.82rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            padding: 0.4rem 0.75rem;
+            border-radius: 4px;
+            transition: background-color 0.15s, color 0.15s;
+            border-left: 2px solid #d4c5b9;
+            line-height: 1.35;
+        }
+
+        .submenu-item:hover, .submenu-item.active {
+            background-color: #eae3d5;
+            color: var(--bordeaux);
+            border-left-color: var(--bordeaux);
+            font-weight: 600;
+        }
+
+        /* Conteneur principal à droite, décalé pour laisser place à la sidebar et topbar */
+        .main-wrapper {
+            margin-left: var(--sidebar-width);
+            margin-top: var(--topbar-height);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: calc(100% - var(--sidebar-width));
+            padding: 2.5rem 2.5rem 4rem 2.5rem;
+        }
+
+        .article-container {
+            width: 100%;
+            max-width: 1060px;
+            margin: 0 auto;
+        }
+
+        /* En-tête de l'article */
+        .article-header {
+            border-bottom: 2px solid #e6dfd3;
+            padding-bottom: 1.4rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .article-kicker {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--bordeaux);
+            margin-bottom: 0.55rem;
+        }
+
+        .article-title {
+            font-family: "Georgia", "Times New Roman", serif;
+            font-size: 2.15rem;
+            font-weight: 700;
+            line-height: 1.25;
+            color: var(--primary-color);
+        }
+
+        /* Grille à deux colonnes : Auteurs + Citation */
+        .meta-grid {
+            display: grid;
+            grid-template-columns: 1.35fr 1fr;
+            gap: 1.25rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .meta-box {
+            background-color: var(--box-whitish);
+            border: 1px solid #e3dcd0;
+            border-radius: 8px;
+            padding: 1.25rem 1.35rem;
+            font-size: 0.84rem;
+            line-height: 1.5;
+            color: #3a3a3a;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .meta-box-label {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.74rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--bordeaux);
+            margin-bottom: 0.85rem;
+            border-bottom: 1px solid #ece5d8;
+            padding-bottom: 0.4rem;
+        }
+
+        /* Trois photos d'auteurs côte à côte */
+        .authors-photos-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.85rem;
+            margin-bottom: 0.9rem;
+            text-align: center;
+        }
+
+        .author-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .author-photo-frame {
+            width: 84px;
+            height: 84px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid #dcd3c4;
+            background-color: #f0ebe1;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.06);
+        }
+
+        .author-photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .author-name {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-weight: 700;
+            font-size: 0.82rem;
+            color: var(--primary-color);
+            line-height: 1.25;
+        }
+
+        .author-name sup {
+            color: var(--bordeaux);
+            font-weight: 700;
+        }
+
+        .author-short-affil {
+            font-size: 0.72rem;
+            color: var(--accent-color);
+            margin-top: 0.2rem;
+            line-height: 1.3;
+        }
+
+        .coauthors-block {
+            border-top: 1px dashed #e2dad0;
+            padding-top: 0.75rem;
+            margin-top: 0.5rem;
+            font-size: 0.79rem;
+            text-align: justify;
+        }
+
+        .coauthors-block strong {
+            color: var(--primary-color);
+        }
+
+        .affiliations-list {
+            margin-top: 0.65rem;
+            padding-top: 0.65rem;
+            border-top: 1px solid #ece5d8;
+            font-size: 0.74rem;
+            color: #555;
+            line-height: 1.45;
+            text-align: justify;
+        }
+
+        .affiliations-list sup {
+            color: var(--bordeaux);
+            font-weight: 700;
+        }
+
+        .citation-box-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: calc(100% - 2rem);
+        }
+
+        .citation-text {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #2f2f2f;
+            text-align: justify;
+        }
+
+        .btn-copy-citation {
+            align-self: flex-start;
+            margin-top: 1rem;
+            background-color: #f3ede2;
+            color: var(--bordeaux);
+            border: 1px solid #dcd2c2;
+            border-radius: 5px;
+            padding: 0.4rem 0.75rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.76rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .btn-copy-citation:hover {
+            background-color: var(--bordeaux);
+            color: #fff;
+            border-color: var(--bordeaux);
+        }
+
+        /* Section Résumé bilingue (FR / EN) */
+        .abstract-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            margin-bottom: 2.25rem;
+        }
+
+        .abstract-box {
+            background-color: var(--box-whitish);
+            border: 1px solid #e3dcd0;
+            border-radius: 8px;
+            padding: 1.25rem 1.35rem;
+            font-size: 0.88rem;
+            line-height: 1.62;
+            color: #333;
+            text-align: justify;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .abstract-box .meta-box-label {
+            text-align: left;
+        }
+
+        .keywords-line {
+            margin-top: 0.85rem;
+            padding-top: 0.65rem;
+            border-top: 1px dashed #e3dcd0;
+            font-size: 0.82rem;
+            color: #4a5568;
+            text-align: left;
+        }
+
+        .keywords-line strong {
+            color: var(--bordeaux);
+        }
+
+        /* Corps de l'article */
+        .article-body {
+            font-size: 1.06rem;
+            line-height: 1.82;
+            color: var(--text-color);
+        }
+
+        .article-body p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+        }
+
+        .article-body a {
+            color: var(--bordeaux);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .article-body a:hover {
+            color: var(--bordeaux-dark);
+        }
+
+        .article-body sup a.footnote-ref {
+            color: var(--bordeaux);
+            font-weight: 700;
+            text-decoration: none;
+            padding: 0 1px;
+        }
+
+        .article-body sup a.footnote-ref:hover {
+            text-decoration: underline;
+        }
+
+        /* Titres de sous-chapitres en rouge bordeaux */
+        .section-heading {
+            font-family: "Georgia", "Cambria", serif;
+            font-size: 1.48rem;
+            font-weight: 700;
+            color: var(--bordeaux);
+            margin-top: 2.4rem;
+            margin-bottom: 1.05rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 1px solid #e5ddd0;
+            scroll-margin-top: 84px; /* Décale l'ancre juste au-dessus du titre sous la barre fixe de 60px */
+        }
+
+        /* Lettrine rouge bordeaux en gras sur l'Introduction */
+        .dropcap-paragraph::first-letter {
+            float: left;
+            font-family: "Georgia", "Times New Roman", serif;
+            font-size: 3.75rem;
+            font-weight: 700;
+            line-height: 0.82;
+            color: var(--bordeaux);
+            padding-right: 0.65rem;
+            padding-top: 0.15rem;
+            padding-bottom: 0.05rem;
+        }
+
+        /* Cartes conceptuelles interactives SVG (fond un peu plus pâle que #FAF6EF) */
+        .concept-map-card {
+            background-color: var(--diagram-bg);
+            border: 1px solid #e2d9ca;
+            border-radius: 10px;
+            padding: 1.35rem 1.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 3px 12px rgba(122, 34, 34, 0.04);
+        }
+
+        .concept-map-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.85rem;
+            border-bottom: 1px solid #ebe3d5;
+            padding-bottom: 0.6rem;
+        }
+
+        .concept-map-title {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.96rem;
+            font-weight: 700;
+            color: var(--bordeaux);
+        }
+
+        .concept-map-hint {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.76rem;
+            color: var(--accent-color);
+            font-style: italic;
+        }
+
+        .concept-svg-wrapper {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        .concept-svg-wrapper svg {
+            width: 100%;
+            height: auto;
+            display: block;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .svg-node {
+            cursor: pointer;
+            transition: transform 0.18s ease, opacity 0.18s ease;
+        }
+
+        .svg-node:hover rect, .svg-node:hover circle {
+            stroke: var(--bordeaux);
+            stroke-width: 2.2px;
+        }
+
+        .svg-node.active rect, .svg-node.active circle {
+            stroke: var(--bordeaux);
+            stroke-width: 2.5px;
+            fill: #f9efe9;
+        }
+
+        .concept-detail-panel {
+            margin-top: 0.9rem;
+            background-color: #FAF6EF;
+            border-left: 3.5px solid var(--bordeaux);
+            border-radius: 0 6px 6px 0;
+            padding: 0.85rem 1.1rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.86rem;
+            line-height: 1.55;
+            color: #2b2b2b;
+        }
+
+        .concept-detail-panel strong {
+            color: var(--bordeaux);
+            display: block;
+            margin-bottom: 0.25rem;
+            font-size: 0.9rem;
+        }
+
+        /* Bibliographie et Notes de bas de page */
+        .biblio-list {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 0.75rem;
+        }
+
+        .biblio-list li {
+            padding-left: 1.75rem;
+            text-indent: -1.75rem;
+            margin-bottom: 0.85rem;
+            font-size: 0.94rem;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .footnotes-section {
+            margin-top: 2.5rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid #dfd7c8;
+            font-size: 0.84rem;
+            line-height: 1.55;
+            color: #4a4a4a;
+        }
+
+        .footnotes-list {
+            padding-left: 1.4rem;
+        }
+
+        .footnotes-list li {
+            margin-bottom: 0.45rem;
+            scroll-margin-top: 85px;
+        }
+
+        .footnotes-list li a {
+            word-break: break-all;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            padding-left: 2rem;
+        }
+
+        .btn-header {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: 1px solid var(--primary-color);
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: background-color 0.2s;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-header.secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border-color: var(--border-color);
+        }
+
+        .btn-header.secondary:hover {
+            background-color: #f2ede4;
+            border-color: var(--hover-border);
+        }
+
+        /* Styles harmonisés des fenêtres modales */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+        }
+
+        .modal-container {
+            background: var(--bg-color);
+            width: 100%;
+            max-width: 900px;
+            height: 85vh;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            border: 1px solid #d4c5b9;
+        }
+
+        .modal-header {
+            padding: 1.25rem 1.5rem;
+            background: var(--modal-header-bg);
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .modal-header h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .modal-close {
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #fff;
+            opacity: 0.85;
+            transition: opacity 0.2s;
+        }
+
+        .modal-close:hover {
+            opacity: 1;
+        }
+
+        .modal-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            background-color: var(--bg-color);
+        }
+
+        .pdf-frame, .video-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        @media (max-width: 1200px) {
+            :root { --sidebar-width: 0px; }
+            .top-navbar { left: 0; padding: 0 1rem; grid-template-columns: 1fr auto; }
+            .top-navbar-title { display: none; }
+            aside.sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
+            aside.sidebar.mobile-open { transform: translateX(0); }
+            .main-wrapper { margin-left: 0; width: 100%; padding: 1.5rem; }
+        }
+
+        @media (max-width: 860px) {
+            .meta-grid, .abstract-grid {
+                grid-template-columns: 1fr;
+            }
+            .article-title {
+                font-size: 1.65rem;
+            }
+        }
+    </style>
+</head>
+<body id="top-page">
+
+    <!-- Barre horizontale permanente supérieure -->
+    <header class="top-navbar">
+        <div class="top-navbar-title">Revue Sociologie Visuelle</div>
+        <div class="header-actions">
+            <button class="btn-header secondary" onclick="openModal('video', 'Présentation introductive — Vidéo', 'https://drive.google.com/file/d/10Va3etjn9wZIqrVnByyNXDVM-XPKOHkK/preview?autoplay=1')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                Visionner la vidéo de présentation
+            </button>
+            <button class="btn-header secondary" onclick="openProposalModal('article')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                Proposer un projet de captation ou un article
+            </button>
+            <button class="btn-header secondary" onclick="openModal('pdf', 'Télécharger le numéro complet', 'https://drive.google.com/file/d/1d3ZUnnEwYomQ1VRQ1lF8XNei88HelQvy/preview')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Télécharger le numéro
+            </button>
+        </div>
+        <div class="top-navbar-location" id="locationIndicator">Travail des personnes autistes en épicerie</div>
+    </header>
+
+    <!-- Colonne latérale gauche permanente -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="https://inclusionsociale.com/#theme-3" class="btn-home">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                ACCUEIL
+            </a>
+        </div>
+
+        <div class="sidebar-info-section">
+            <div style="font-size: 0.72rem; color: #718096; text-align: left; margin-bottom: 0.05rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                DOI : <a href="https://doi.org/10.13140/RG.2.2.35504.53768" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; opacity: 0.85;">10.13140/RG.2.2.35504.53768</a>
+            </div>
+
+            <div class="sidebar-card editor-card">
+                <div class="editor-info">
+                    <h4>Éditeurs</h4>
+                    <p><b>François Routhier &amp; Pierre Fraser</b></p>
+                    <p>Plus de 18 équipes de recherche mobilisées afin de saisir comment le milieu façonne et articule l'accès aux services et à l'inclusion sociale.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-nav">
+            <div class="nav-section-label">NAVIGATION SUR LE SITE</div>
+
+            <div>
+                <button class="nav-btn" onclick="toggleSubmenu(event, 'accessibilitySubmenu', 'submenuArrow')">
+                    <span>Penser l'accessibilité</span>
+                    <svg id="submenuArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu" id="accessibilitySubmenu">
+                    <a href="https://inclusionsociale.com/#theme-1" class="submenu-item">1. Espace urbain &amp; transports</a>
+                    <a href="https://inclusionsociale.com/#theme-2" class="submenu-item">2. Éducation &amp; institutions</a>
+                    <a href="https://inclusionsociale.com/#theme-3" class="submenu-item">3. Travail, autonomie &amp; loisirs</a>
+                    <a href="https://inclusionsociale.com/#theme-4" class="submenu-item">4. Expérience vécue &amp; stigmates</a>
+                </div>
+            </div>
+
+            <div>
+                <button class="nav-btn" onclick="toggleSubmenu(event, 'bilansSubmenu', 'bilansSubmenuArrow')">
+                    <span>Bilans</span>
+                    <svg id="bilansSubmenuArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu" id="bilansSubmenu">
+                    <a href="https://inclusionsociale.com/mentorat-actif-bilan.html" class="submenu-item">Mentorat actif, un plus tard</a>
+                </div>
+            </div>
+
+            <!-- Bouton Tournages en cours non gras -->
+            <div>
+                <a href="https://inclusionsociale.com/tournages.html" class="nav-btn" style="font-weight: normal;">
+                    <span>Tournages en cours</span>
+                </a>
+            </div>
+
+            <!-- Menu déployable NAVIGATION DANS LA PAGE -->
+            <div>
+                <button class="nav-section-toggle" onclick="toggleSubmenu(event, 'pageNavSubmenu', 'pageNavArrow')" aria-expanded="true">
+                    <span>NAVIGATION DANS LA PAGE</span>
+                    <svg id="pageNavArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" style="transform: rotate(180deg); transition: transform 0.2s;"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu open" id="pageNavSubmenu">
+                    <a href="#top-page" class="submenu-item" onclick="scrollToTopPage(event)">Présentation</a>
+                    <a href="#sec-introduction" class="submenu-item" onclick="scrollToSection(event, 'sec-introduction')">Introduction</a>
+                    <a href="#sec-projet" class="submenu-item" onclick="scrollToSection(event, 'sec-projet')">1. Présentation du projet</a>
+                    <a href="#sec-visite" class="submenu-item" onclick="scrollToSection(event, 'sec-visite')">2. Visite à l’épicerie à travers le regard d’une personne autiste</a>
+                    <a href="#sec-references" class="submenu-item" onclick="scrollToSection(event, 'sec-references')">Références bibliographiques</a>
+                    <a href="#sec-notes" class="submenu-item" onclick="scrollToSection(event, 'sec-notes')">Notes de bas de page</a>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Zone de contenu dynamique à droite -->
+    <div class="main-wrapper">
+        <main class="article-container">
+            <article>
+                <!-- En-tête de l'article -->
+                <header class="article-header">
+                    <div class="article-kicker">Revue Sociologie Visuelle · N° 4 · Penser l’accessibilité</div>
+                    <h1 class="article-title">Le travail des personnes autistes en épicerie&nbsp;: un exemple d’adaptation mutuelle favorisée par la recherche</h1>
+                </header>
+
+                <!-- Deux cases côte à côte sous le titre -->
+                <section class="meta-grid" aria-label="Auteurs et citation de l'article">
+                    <!-- Case 1 : Trois photos d'auteurs côte à côte, noms, affiliations et coauteurs -->
+                    <div class="meta-box">
+                        <div class="meta-box-label">Auteurs principaux &amp; affiliations</div>
+                        <div class="authors-photos-row">
+                            <div class="author-card">
+                                <div class="author-photo-frame">
+                                    <img src="https://lh3.googleusercontent.com/d/1pHnXD-nP6Wl6WqaK7km4VHogTGg4YBda" alt="Frédéric Dumont" onerror="this.src='https://drive.google.com/thumbnail?id=1pHnXD-nP6Wl6WqaK7km4VHogTGg4YBda&sz=w300'">
+                                </div>
+                                <div class="author-name">Frédéric DUMONT<sup>11</sup></div>
+                            </div>
+                            <div class="author-card">
+                                <div class="author-photo-frame">
+                                    <img src="https://lh3.googleusercontent.com/d/1H6Iv0ICnq7G3nwwWq6hagbTlpCzoH7Kz" alt="Claude Vincent" onerror="this.src='https://drive.google.com/thumbnail?id=1H6Iv0ICnq7G3nwwWq6hagbTlpCzoH7Kz&sz=w300'">
+                                </div>
+                                <div class="author-name">Claude VINCENT<sup>6</sup></div>
+                            </div>
+                            <div class="author-card">
+                                <div class="author-photo-frame">
+                                    <img src="https://lh3.googleusercontent.com/d/1DPPNdmfVSBDnErrboTYjvKNbjmSldMSF" alt="Alexandra Marchand" onerror="this.src='https://drive.google.com/thumbnail?id=1U-IJ3tNTWLfkTzGJ7A4jKScgQn9tZXR1&sz=w300'">
+                                </div>
+                                <div class="author-name">Alexandra MARCHAND<sup>1</sup></div>
+                            </div>
+                        </div>
+
+                        <div class="coauthors-block">
+                            <strong>Autres auteur.e.s associé.e.s à cet article&nbsp;:</strong>
+                            Juliette Bertrand-Ouellet<sup>10</sup>, Francine Julien-Gauthier<sup>5</sup>, Chantal Desmarais<sup>6</sup>, Valérie Poulin<sup>3</sup>, Alexandra Lecours<sup>3</sup>, Jocelyne Kiss<sup>7</sup>, Martin Caouette<sup>4</sup>, Sylvain Letscher<sup>2</sup>, Normand Boucher<sup>8</sup>, Tiffany Hu<sup>10</sup>, Laurence Blouin<sup>10</sup>.
+                        </div>
+
+                        <div class="affiliations-list">
+                            <strong>Affiliations&nbsp;:</strong>
+                            <sup>1</sup> Consultante et personne autiste ayant déjà travaillé en épicerie.
+                            <sup>2</sup> Université du Québec à Rimouski, département des sciences de l’éducation.
+                            <sup>3</sup> Université du Québec à Trois-Rivières, département d’ergothérapie.
+                            <sup>4</sup> Université du Québec à Trois-Rivières, département de psychoéducation et travail social.
+                            <sup>5</sup> Université Laval, département des fondements et pratiques en éducation.
+                            <sup>6</sup> Université Laval, Département de réadaptation.
+                            <sup>7</sup> Université Laval, École de design.
+                            <sup>8</sup> Université Laval, Faculté des sciences sociales.
+                            <sup>9</sup> Université Laval, maîtrise en ergothérapie.
+                            <sup>10</sup> Université Laval, maîtrise en psychoéducation.
+                            <sup>11</sup> Cirris.
+                        </div>
+                    </div>
+
+                    <!-- Case 2 : Citation de l'article -->
+                    <div class="meta-box">
+                        <div class="meta-box-label">Citer cet article</div>
+                        <div class="citation-box-content">
+                            <p class="citation-text" id="citationText">
+                                Dumont, F., Vincent, C., Marchand, A. et als. (2023), «&nbsp;Le travail des personnes autistes en épicerie&nbsp;: un exemple d’adaptation mutuelle favorisée par la recherche&nbsp;», <em>Sociologie Visuelle</em>, n°&nbsp;4, François Routhier et Pierre Fraser (éds.), Québec&nbsp;: Photo|Société, pp.&nbsp;99-108.
+                            </p>
+                            <button type="button" class="btn-copy-citation" onclick="copyCitation()" id="copyCitationBtn">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                                Copier la référence bibliographique
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Deux cases Résumé (Français et Anglais) -->
+                <section class="abstract-grid" aria-label="Résumés en français et en anglais">
+                    <div class="abstract-box">
+                        <div class="meta-box-label">Résumé (Français)</div>
+                        <p>
+                            Suivez-nous dans cette visite d’une épicerie où nous verrons, de l’intérieur, le travail des personnes autistes et les adaptations qui peuvent être mises en place rendant ce milieu de travail plus inclusif<sup><a href="#sdfootnote1" class="footnote-ref">1</a></sup>. Avec la contribution de plusieurs partenaires sur le territoire de la Ville de Québec, des chercheurs du <em>Centre interdisciplinaire de recherche en réadaptation et intégration sociale</em> (Cirris) ont conçu et validé des vidéos pédagogiques permettant à des personnes autistes de se familiariser avec plusieurs tâches en épicerie en vue d’une intégration socioprofessionnelle. Des vidéos ont également été conçues pour les mentors employés en épicerie les informant sur les caractéristiques de l’autisme et les manières de faciliter la réalisation de différentes tâches de travail concrètes par les personnes autistes. Pour ce faire, douze employés d’une épicerie IGA ont été filmés effectuant 21 tâches (préparation de pizza, placement des produits, etc.) dans 7 départements (fruits et légumes, prêt-à-manger, etc.). Ensuite, des vidéos pédagogiques ont été préparées avec iMovie. Ainsi du texte et la narration ont été superposés aux vidéos afin de préciser les actions des tâches présentées à l’écran. Chaque vidéo est suivie de quelques questions afin de vérifier la compréhension de la personne autiste et de l’amener à exprimer son intérêt et les irritants potentiels observés dans la vidéo. La validation des vidéos a été réalisée auprès de 5 chercheuses de domaines différents, de la directrice d’un <a href="https://www.ffjd.ca/ce-que-nous-faisons/maison-mere-mallet/services-offerts/soupe-populaire" target="_blank" rel="noopener noreferrer">organisme de formation au travail</a><sup><a href="#sdfootnote2" class="footnote-ref">2</a></sup>, de deux jeunes autistes en formation à l’emploi et de deux intervenantes dans <a href="https://www.integrationtsa.com/" target="_blank" rel="noopener noreferrer">un autre organisme d’intégration au travail</a><sup><a href="#sdfootnote3" class="footnote-ref">3</a></sup>. Ces vidéos pédagogiques suivies de questions constituent un matériel de familiarisation pour les jeunes adultes autistes et les épiceries inclusives. Elles sont disponibles à l’adresse suivante&nbsp;: <a href="https://fredericsdumont.wixsite.com/ptsa" target="_blank" rel="noopener noreferrer">https://fredericsdumont.wixsite.com/ptsa</a>.
+                        </p>
+                        <div class="keywords-line">
+                            <strong>Mots-clés&nbsp;:</strong> Autiste&nbsp;; emploi&nbsp;; intégration socioprofessionnelle&nbsp;; adaptation&nbsp;; inclusion&nbsp;; vidéo pédagogique&nbsp;; validation.
+                        </div>
+                    </div>
+
+                    <div class="abstract-box" lang="en">
+                        <div class="meta-box-label">Abstract (English)</div>
+                        <p>
+                            Follow us on this tour of a grocery store where we observe, from the inside, the work of autistic individuals and the workplace accommodations that can be implemented to foster a more inclusive environment. With the collaboration of several partners across the Quebec City area, researchers at the <em>Centre interdisciplinaire de recherche en réadaptation et intégration sociale</em> (Cirris) designed and validated educational videos enabling autistic individuals to familiarize themselves with concrete grocery store tasks ahead of socioprofessional integration. Complementary videos were also produced for employee mentors to inform them about autism characteristics and practical ways to support autistic coworkers across specific tasks. Twelve employees at an IGA grocery store were filmed performing 21 tasks (such as pizza preparation and shelf stocking) across 7 departments (produce, ready-to-eat, etc.), and edited in iMovie with overlaid text and voice narration. Each video concludes with reflective questions assessing comprehension while inviting the viewer to express personal interest and identify potential sensory or cognitive irritants. Validation was conducted with five interdisciplinary researchers, the director of a vocational training organization, two autistic young adults in employment training, and two practitioners from a specialized job-integration agency. Together, these educational videos and reflection prompts provide an accessible familiarization toolkit for young autistic adults and inclusive grocery stores.
+                        </p>
+                        <div class="keywords-line">
+                            <strong>Keywords:</strong> Autistic; employment; socioprofessional integration; accommodation; inclusion; educational video; validation.
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Corps principal du texte -->
+                <div class="article-body">
+
+                    <!-- INTRODUCTION -->
+                    <h2 class="section-heading" id="sec-introduction">Introduction</h2>
+                    <p class="dropcap-paragraph">
+                        Aller à l’épicerie&nbsp;? C’est presque banal&nbsp;! On ne s’en rend pas toujours compte, mais cet endroit représente une version à petite échelle de son quartier et jusqu’à un certain point de la société. La nourriture représente les goûts des consommateurs du quartier et il s’agit d’un lieu commun où des personnes provenant de toutes les couches de la société, de toutes origines culturelles et de tous les métiers peuvent se côtoyer. C’est un endroit qui se doit d’être accueillant pour tout le monde, d’être inclusif, parce qu’il répond à un besoin essentiel (se nourrir&nbsp;!). Comme la pandémie l’a montré, les employés du secteur de l’alimentation ont travaillé plus que jamais, et comme partout ailleurs, on y retrouve une pénurie de main-d’œuvre. Ainsi, l’épicerie sera toujours nécessaire et elle a en plus le potentiel d’être un milieu inclusif pour les personnes en situation de handicap<sup><a href="#sdfootnote4" class="footnote-ref">4</a></sup>.
+                    </p>
+
+                    <!-- 1. PRÉSENTATION DU PROJET -->
+                    <h2 class="section-heading" id="sec-projet">1. Présentation du projet</h2>
+                    <p>
+                        Nous savons que les personnes autistes sont sous-représentées sur le marché du travail. En effet, des études menées aux États-Unis et au Royaume-Uni démontrent qu’entre 14&nbsp;% et 33&nbsp;% de ces personnes ont un emploi rémunéré, ce qui serait comparable avec la situation au Québec selon Valérie Martin, pour le compte du Réseau national d’expertise en trouble du spectre de l’autisme (RNETSA)<sup><a href="#sdfootnote5" class="footnote-ref">5</a>,<a href="#sdfootnote6" class="footnote-ref">6</a>,<a href="#sdfootnote7" class="footnote-ref">7</a>,<a href="#sdfootnote8" class="footnote-ref">8</a></sup>. Pour accroître la présence des personnes autistes sur le marché du travail, nous pensons qu’une meilleure préparation des milieux qui les accueillent et une information plus tangible sur le travail à accomplir pour les personnes autistes font partie de la solution. Pour ce faire, nous avons développé des vidéos pédagogiques présentant 21 tâches en épicerie, provenant de 7 départements différents (charcuterie/fromagerie, fruits et légumes, pâtisserie et boulangerie, prêt-à-manger, poissonnerie, les allées et les caisses).
+                    </p>
+                    <p>
+                        Notre partenaire, pour ce projet, est l’épicerie IGA, et dans le cadre d’une subvention du Centre des compétences futures du Canada, nous avons filmé des vidéos dans un de leurs magasins en 2021. Nous avons ensuite procédé au montage de 42 capsules (21 destinées aux personnes autistes et 21 destinées à leurs mentors) et à la formulation de différentes questions accompagnant les vidéos. Pour les personnes autistes, ces vidéos démontrent la réalité du travail en épicerie et la complexité des tâches demandées tout en relevant les différents stimuli rencontrés et les façons de les atténuer. Les questions, qui suivent les capsules, aident les personnes autistes à identifier les choses qui pourraient les déranger dans ce qu’ils ont vu et servent à repérer celles qui les intéressent le plus. Pour les mentors, les vidéos contiennent de l’information sur les caractéristiques de l’autisme qui pourraient affecter la réalisation de chacune des 21 tâches sélectionnées tout en recommandant des outils ou des stratégies pour répondre aux difficultés éventuelles.
+                    </p>
+                    <p>
+                        Les vidéos et les questions ont fait l’objet de différentes phases de validation. Une première validation fut réalisée par l’équipe de recherche composée de cinq chercheuses ayant une expertise pertinente sur le sujet. Puis, une seconde a été faite par une gestionnaire d’un organisme communautaire de formation à l’emploi et par deux personnes autistes en formation dans cet organisme. Finalement, elles ont été révisées par deux intervenantes d’un autre organisme communautaire qui accompagne les adultes autistes et leur famille dans l’importante transition que constitue le passage à la vie adulte. Par le visionnement des vidéos, une personne peut se rendre compte à quel point l’expérience vécue par une personne autiste en épicerie diffère d’une personne neurotypique.
+                    </p>
+
+                    <!-- CARTE CONCEPTUELLE 1 : Architecture du dispositif d'adaptation mutuelle -->
+                    <figure class="concept-map-card" aria-label="Carte conceptuelle interactive : Architecture du dispositif d'adaptation mutuelle">
+                        <div class="concept-map-header">
+                            <span class="concept-map-title">Carte conceptuelle 1 — Architecture du dispositif d’adaptation mutuelle (Cirris &amp; IGA)</span>
+                            <span class="concept-map-hint">Cliquez sur un nœud du schéma pour explorer les composantes</span>
+                        </div>
+                        <div class="concept-svg-wrapper">
+                            <svg viewBox="0 0 920 330" role="img" aria-label="Diagramme interactif de l'adaptation mutuelle en épicerie">
+                                <defs>
+                                    <marker id="arrow-bordeaux" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                        <path d="M 0 1 L 10 5 L 0 9 z" fill="#7a2222"/>
+                                    </marker>
+                                    <marker id="arrow-slate" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                        <path d="M 0 1 L 10 5 L 0 9 z" fill="#4a5568"/>
+                                    </marker>
+                                </defs>
+
+                                <!-- Liens structurels -->
+                                <line x1="215" y1="165" x2="295" y2="95" stroke="#7a2222" stroke-width="2" marker-end="url(#arrow-bordeaux)"/>
+                                <line x1="215" y1="165" x2="295" y2="235" stroke="#7a2222" stroke-width="2" marker-end="url(#arrow-bordeaux)"/>
+                                <line x1="515" y1="95" x2="595" y2="145" stroke="#4a5568" stroke-width="2" marker-end="url(#arrow-slate)"/>
+                                <line x1="515" y1="235" x2="595" y2="185" stroke="#4a5568" stroke-width="2" marker-end="url(#arrow-slate)"/>
+                                <line x1="745" y1="165" x2="785" y2="165" stroke="#7a2222" stroke-width="2.2" marker-end="url(#arrow-bordeaux)"/>
+
+                                <!-- Nœud 1 : Constat & Captation -->
+                                <g class="svg-node active" onclick="selectConcept1(this, 'Terrain de recherche : 12 employés filmés sur 21 tâches dans 7 départements', 'Face à un taux d’emploi rémunéré de seulement 14 % à 33 % chez les personnes autistes, l’équipe du Cirris a filmé 12 employés d’une épicerie IGA (2021) réalisant 21 tâches concrètes réparties dans 7 départements clés.')">
+                                    <rect x="20" y="105" width="195" height="120" rx="10" fill="#ffffff" stroke="#cbd5e0" stroke-width="1.5"/>
+                                    <text x="117" y="135" text-anchor="middle" font-size="11" font-weight="700" fill="#7a2222">TERRAIN &amp; CAPTATION</text>
+                                    <text x="117" y="158" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">12 employés IGA</text>
+                                    <text x="117" y="178" text-anchor="middle" font-size="12" fill="#4a5568">21 tâches filmées</text>
+                                    <text x="117" y="197" text-anchor="middle" font-size="12" fill="#4a5568">7 départements</text>
+                                </g>
+
+                                <!-- Nœud 2 : Volet Personnes autistes -->
+                                <g class="svg-node" onclick="selectConcept1(this, 'Volet 1 — 21 capsules pédagogiques pour les personnes autistes', 'Montées avec iMovie (narration + texte superposé), ces 21 capsules dévoilent la réalité concrète des tâches et des stimuli. Chaque capsule se conclut par des questions d’auto-évaluation pour repérer les intérêts et les irritants sensoriels.')">
+                                    <rect x="300" y="35" width="215" height="115" rx="10" fill="#ffffff" stroke="#cbd5e0" stroke-width="1.5"/>
+                                    <text x="407" y="62" text-anchor="middle" font-size="11" font-weight="700" fill="#7a2222">PRÉPARATION DU TRAVAILLEUR</text>
+                                    <text x="407" y="84" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">21 capsules Autistes</text>
+                                    <text x="407" y="104" text-anchor="middle" font-size="11.5" fill="#4a5568">Repérage des stimuli &amp; tâches</text>
+                                    <text x="407" y="122" text-anchor="middle" font-size="11.5" fill="#4a5568">+ Questions intérêts / irritants</text>
+                                </g>
+
+                                <!-- Nœud 3 : Volet Mentors -->
+                                <g class="svg-node" onclick="selectConcept1(this, 'Volet 2 — 21 capsules pédagogiques pour les mentors en épicerie', 'Destinées aux collègues et gestionnaires-mentors, ces 21 capsules expliquent les particularités cognitives et sensorielles de l’autisme propres à chaque poste et proposent des outils concrets d’accompagnement.')">
+                                    <rect x="300" y="180" width="215" height="115" rx="10" fill="#ffffff" stroke="#cbd5e0" stroke-width="1.5"/>
+                                    <text x="407" y="207" text-anchor="middle" font-size="11" font-weight="700" fill="#7a2222">PRÉPARATION DU MILIEU</text>
+                                    <text x="407" y="229" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">21 capsules Mentors</text>
+                                    <text x="407" y="249" text-anchor="middle" font-size="11.5" fill="#4a5568">Caractéristiques de l’autisme</text>
+                                    <text x="407" y="267" text-anchor="middle" font-size="11.5" fill="#4a5568">+ Stratégies &amp; outils d’accueil</text>
+                                </g>
+
+                                <!-- Nœud 4 : Validation tripartite -->
+                                <g class="svg-node" onclick="selectConcept1(this, 'Validation tripartite rigoureuse', 'Les 42 capsules et questionnaires ont été validés en trois temps : (1) 5 chercheuses interdisciplinaires, (2) 1 gestionnaire et 2 jeunes adultes autistes en formation à l’emploi, (3) 2 intervenantes spécialisées en transition vers la vie adulte.')">
+                                    <rect x="600" y="95" width="145" height="140" rx="10" fill="#ffffff" stroke="#cbd5e0" stroke-width="1.5"/>
+                                    <text x="672" y="125" text-anchor="middle" font-size="11" font-weight="700" fill="#7a2222">VALIDATION</text>
+                                    <text x="672" y="148" text-anchor="middle" font-size="12" font-weight="700" fill="#1a202c">5 chercheuses</text>
+                                    <text x="672" y="169" text-anchor="middle" font-size="12" font-weight="700" fill="#1a202c">2 jeunes autistes</text>
+                                    <text x="672" y="190" text-anchor="middle" font-size="11.5" fill="#4a5568">1 gest. + 2 interv.</text>
+                                    <text x="672" y="210" text-anchor="middle" font-size="11" fill="#4a5568">organismes emploi</text>
+                                </g>
+
+                                <!-- Nœud 5 : Finalité -->
+                                <g class="svg-node" onclick="selectConcept1(this, 'Finalité : Adaptation mutuelle et épicerie inclusive', 'L’inclusion ne repose pas uniquement sur l’effort individuel de la personne autiste : elle résulte d’un ajustement réciproque entre la familiarisation du travailleur et la transformation des pratiques des mentors.')">
+                                    <rect x="790" y="105" width="115" height="120" rx="10" fill="#7a2222" stroke="#5e1a1a" stroke-width="1.5"/>
+                                    <text x="847" y="148" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">ADAPTATION</text>
+                                    <text x="847" y="168" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">MUTUELLE</text>
+                                    <text x="847" y="192" text-anchor="middle" font-size="10.5" fill="#f5e6e6">Inclusion durable</text>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="concept-detail-panel" id="concept1Detail">
+                            <strong>Terrain de recherche : 12 employés filmés sur 21 tâches dans 7 départements</strong>
+                            Face à un taux d’emploi rémunéré de seulement 14&nbsp;% à 33&nbsp;% chez les personnes autistes, l’équipe du Cirris a filmé 12 employés d’une épicerie IGA (2021) réalisant 21 tâches concrètes réparties dans 7 départements clés.
+                        </div>
+                    </figure>
+
+                    <p>
+                        Les épiceries mettent beaucoup d’efforts pour présenter leurs produits. Les départements sont disposés selon un ordre particulier, tout comme les produits dans les rayons. L’expérience client est également planifiée, mais peut varier d’un magasin à l’autre. Pour la plupart des gens, faire les courses reste une expérience agréable. Cependant, il est important de se rappeler que les épiceries ont été conçues pour plaire à une population majoritairement neurotypique. Imaginons maintenant que nous nous trouvions dans une épicerie dans un pays étranger, avec des panneaux lumineux, des sons cacophoniques et des odeurs fortes et inhabituelles, en plus d’une foule de gens. Nous pourrions trouver cette expérience fort désagréable. C’est le genre d’obstacles que les personnes autistes peuvent rencontrer quotidiennement, que ce soit lorsqu’elles font des courses ou qu’elles travaillent dans une épicerie. Pour mieux comprendre leur point de vue, nous proposons de découvrir cette expérience en nous mettant à la place d’une personne autiste. Rédigé en collaboration avec une personne autiste qui a travaillé dans une épicerie, nous pourrons mieux saisir leurs défis et leur réalité quotidienne.
+                    </p>
+
+                    <!-- 2. VISITE À L'ÉPICERIE À TRAVERS LE REGARD D'UNE PERSONNE AUTISTE -->
+                    <h2 class="section-heading" id="sec-visite">2. Visite à l’épicerie à travers le regard d’une personne autiste</h2>
+                    <p>
+                        Les premières portes s’ouvrent. <em>Oups&nbsp;!</em>, c’est la désinfection des mains. <em>Ah non&nbsp;!</em>, pas encore ce liquide gluant et froid qui ne sent pas bon. Heureusement, il y a une autre option. Je vais au lavabo pour me laver les mains à l’eau tiède et au savon. Je prends souvent un panier à main parce qu’il ne fait pas un bruit effroyable quand je le sors des autres et en plus je peux ainsi aller plus vite. Une autre porte et hop me voilà dans la section des <strong>fruits et légumes</strong>. Tout de suite, c’est ce bruit ambiant qui m’assaille. C’est un mélange de gens qui parlent, de paniers et des bips des caisses pas très loin.
+                    </p>
+                    <p>
+                        Je suis arrivée à 8:30, comme je le fais tous les lundis matin, car je sais qu’à cette heure, le magasin est moins achalandé. Je reconnais également les employés et leurs routines, je suis généralement capable de passer à la même caisse et de me stationner à la même place de stationnement. J’aime être capable d’anticiper le plus de choses possibles, cette stabilité diminue mon inconfort. S’il y a plus de personnes et de bruits ou que je suis simplement plus fatiguée qu’à l’habitude, je mets mes lunettes de soleil pour diminuer la stimulation visuelle provoquée par les néons. Dans ce département des fruits et légumes, je vois un jeune homme qui s’affaire à placer des bananes. Il semble aussi être incommodé par le bruit, car il porte des coquilles insonorisantes sur les oreilles. Je le comprends, je porte aussi des réducteurs de bruits, mais les miens sont plus petits et plus discrets alors la majorité des gens ne les remarquent pas. Son travail est impeccable, je vois qu’il est très concentré donc je ne le dérange pas pour ne pas briser sa concentration.
+                    </p>
+                    <p>
+                        Je vois que sur son chariot, il y a également des ananas qui ont déjà été apprêtés pour la consommation<sup><a href="#sdfootnote9" class="footnote-ref">9</a></sup>. Je viens de remarquer qu’ils ont changé l’emplacement de certains produits que j’ai inscrits sur ma liste. Je vais toujours à la même épicerie, car je suis capable de visualiser mentalement l’emplacement de chaque chose. Lorsqu’il y a un changement dans le placement des produits, je dois déconstruire l’image mentale et la reconstruire pour me repérer. C’est une frustration que je n’avais pas prévue et qui me fait perdre du temps. Je sais que de l’extérieur j’ai l’air figé et les gens qui passent à côté de moi me dévisagent. Je garde mon calme et je poursuis.
+                    </p>
+                    <p>
+                        Après la section des fruits et légumes, je me dirige dans les sections de la <strong>boulangerie</strong> et de la <strong>pâtisserie</strong>. Un employé s’affaire à écrire le nom d’un client sur un gâteau d’anniversaire<sup><a href="#sdfootnote10" class="footnote-ref">10</a></sup>. Le client a une question particulière pour l’employé qui semble alors se figer, il n’avait peut-être pas envisagé ce scénario social ou parfois le délai de traitement d’une nouvelle information est plus long que pour une personne neurotypique. Quand on doit répondre rapidement c’est parfois angoissant. En plus, on voit souvent la personne en face de nous s’impatienter. Dans le contexte du travail, c’est parfois rassurant d’aller chercher un ou une collègue pour répondre à une question à laquelle on n’a pas la réponse. Après avoir répondu au client, l’employé et son collègue discutent un peu&nbsp;: il saura désormais comment répondre à cette question. Les interactions avec les clients ne sont pas toujours difficiles pour les personnes autistes, car elles sont claires et plus structurées que les échanges et les communications informelles en général. C’est un échange de services où la demande et le but sont concrets et définis.
+                    </p>
+                    <p>
+                        Ce même employé enfile maintenant des gants de laine propres pour commencer la cuisson des croissants<sup><a href="#sdfootnote11" class="footnote-ref">11</a></sup>. C’est un moyen qu’il utilise pour se couper du froid et du chaud. En effet, au départ, les croissants arrivent congelés et ils doivent être disposés sur une plaque. Celle-ci est placée dans un chariot, et lorsque le chariot est plein, il doit être introduit dans le four qui peut être déjà chaud à cause de la cuisson précédente. Voir cet employé me rappelle lorsque j’étais plus jeune et que je travaillais moi aussi dans une épicerie dans le département de la charcuterie. Comme je suis hyposensible au froid, j’étais souvent celle qui allait dans le réfrigérateur de la boucherie lorsque c’était nécessaire, puisque contrairement à mes collègues, je n’en sortais pas frigorifiée.
+                    </p>
+                    <p>
+                        Dans cette même section du magasin, on retrouve des espaces de travail plus à l’abri du bruit pour le <strong>prêt-à-manger</strong>. Sur un comptoir, deux employées s’affairent à la préparation de divers menus&nbsp;: jambon à l’ananas<sup><a href="#sdfootnote12" class="footnote-ref">12</a></sup>; sandwichs<sup><a href="#sdfootnote13" class="footnote-ref">13</a></sup>; pizzas<sup><a href="#sdfootnote14" class="footnote-ref">14</a></sup>.
+                    </p>
+                    <p>
+                        L’une d’elles ne suit pas de recette. C’est une employée qui semble plus expérimentée, mais sa collègue Émilie a la même expérience et pourtant, elle suit une recette imagée. Un cartable avec toutes les recettes imagées est disponible pour tous les employés, mais Émilie est la seule à toujours l’avoir près d’elle lorsqu’elle cuisine. C’est simplement parce qu’elle s’en sert comme aide-mémoire. Un rapide coup d’œil vers ces images et les flèches lui permettent de se rappeler la prochaine étape et les mesures précises des différents ingrédients. Ça lui demande tout simplement moins d’énergie à la fin de la journée et la rend plus productive. La voilà qui a terminé de préparer des pizzas et qui se dirige vers la balance étiqueteuse qui pèse et imprime l’étiquette avec le prix. Émilie colle cette étiquette sur l’emballage de la pizza. Une liste imagée est disponible à côté de la machine pour identifier plus rapidement le code du produit à entrer.
+                    </p>
+                    <p>
+                        Ensuite, c’est la section de la <strong>poissonnerie</strong>. Il s’agit probablement de la section de l’épicerie la plus pénible pour tous les hypersensibles. La lumière est blanche et très intense, la température plus froide, l’odeur de poisson que l’on pouvait déjà sentir depuis l’entrée est désormais pratiquement intolérable et la majorité des produits sont mouillés ou visqueux. Lors des périodes du homard ou des moules, c’est tellement intense que j’essaie d’éviter le plus possible d’aller à l’épicerie ou je demande à quelqu’un d’autre d’y aller quand je le peux. Certaines mesures peuvent être mises en place pour atténuer des aspects pouvant être dérangeants comme porter des gants et apprendre une technique pour manipuler les aliments. Porter un masque chirurgical (possiblement en ajoutant une odeur plaisante) et augmenter les courants d’air peuvent aussi aider à réduire les odeurs dérangeantes. Derrière le comptoir, il y a une grande table comme surface de travail dédiée à la préparation des produits. Il y a une variété de recettes et de tâches qu’il est possible de faire et chacune peut avoir ses particularités&nbsp;: emballage des filets de saumon et <a href="https://youtu.be/t1YturdH6ic" target="_blank" rel="noopener noreferrer">placement des produits</a><sup><a href="#sdfootnote15" class="footnote-ref">15</a></sup>; préparation de la salade de goberge et des <a href="https://youtu.be/2T9ultXk91I" target="_blank" rel="noopener noreferrer">tournedos de saumon</a><sup><a href="#sdfootnote16" class="footnote-ref">16</a></sup>; cuisson et préparation des homards<sup><a href="#sdfootnote17" class="footnote-ref">17</a></sup>.
+                    </p>
+
+                    <!-- CARTE CONCEPTUELLE 2 : Cartographie sensorielle et adaptations par département -->
+                    <figure class="concept-map-card" aria-label="Carte conceptuelle interactive : Parcours des 7 départements, irritants et adaptations">
+                        <div class="concept-map-header">
+                            <span class="concept-map-title">Carte conceptuelle 2 — Cartographie des 7 départements&nbsp;: stimuli, forces et adaptations</span>
+                            <span class="concept-map-hint">Sélectionnez un département pour afficher les défis sensoriels et les solutions concrètes</span>
+                        </div>
+                        <div class="concept-svg-wrapper">
+                            <svg viewBox="0 0 920 295" role="img" aria-label="Cartographie interactive des 7 départements de l'épicerie">
+                                <!-- Ligne de parcours reliant les 7 départements -->
+                                <path d="M 85 85 L 835 85" stroke="#d4c5b9" stroke-width="4" stroke-linecap="round"/>
+                                <path d="M 85 85 L 210 215 L 460 215 L 710 215 L 835 85" fill="none" stroke="#e5ddd0" stroke-width="2" stroke-dasharray="5,5"/>
+
+                                <!-- Dept 1 : Fruits & légumes -->
+                                <g class="svg-node active" onclick="selectConcept2(this, '1. Fruits et légumes — Gestion sonore et repérage spatial', 'Stimuli : Bruit ambiant des paniers, conversations et bips des caisses proches ; éclairage des néons ; déstabilisation lors du déplacement des produits. Adaptations : Coquilles insonorisantes ou réducteurs de bruit discrets, lunettes de soleil, horaires stables (8h30), respect de la concentration.')">
+                                    <rect x="25" y="30" width="120" height="105" rx="8" fill="#ffffff" stroke="#cbd5e0" stroke-width="1.5"/>
+                                    <circle cx="85" cy="52" r="12" fill="#7a2222"/>
+                                    <text x="85" y="56" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">1</text>
+                                    <text x="85" y="80" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a202c">Fruits &amp;</text>
+                                    <text x="85" y="95" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a202c">légumes</text>
+                                    <text x="85" y="118" text-anchor="middle" font-size="10" fill="#7a2222">Coquilles &amp; routine</text>
+                                </g>
+
+                                <!-- Dept 2 : Boulangerie & Pâtisserie -->
+                                <g class="svg-node" onclick="selectConcept2(this, '2. Boulangerie et pâtisserie — Scénarios sociaux et chocs thermiques', 'Stimuli : Questions imprévues des clients (délai de traitement cognitif) et alternance froid (croissants congelés) / chaud (four). Adaptations : Gants de laine propres comme isolant thermique, recours rassurant à un collègue pour enrichir son répertoire de réponses.')">
+                                    <rect x="275" y="30" width="120" height="105" rx="8" fill="#ffffff" stroke="#cbd5e0" stroke-width="1.5"/>
+                                    <circle cx="335" cy="52" r="12" fill="#7a2222"/>
+                                    <text x="335" y="56" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">2</text>
+                                    <text x="335" y="80" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a202c">Boulangerie &amp;</text>
+                                    <text x="335" y="95" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a202c">pâtisserie</text>
+                                    <text x="335" y="118" text-anchor="middle" font-size="10" fill="#7a2222">Gants &amp; pairage</text>
+                                </g>
+
+                                <!-- Dept 3 : Prêt-à-manger -->
+                                <g class="svg-node" onclick="selectConcept2(this, '3. Prêt-à-manger — Soutiens visuels et économie cognitive', 'Environnement plus à l’abri du bruit pour préparer pizzas, sandwichs et jambon à l’ananas. Adaptations : Cartable de recettes imagées avec flèches séquentielles et liste imagée des codes près de la balance étiqueteuse pour réduire la fatigue mentale.')">
+                                    <rect x="525" y="30" width="120" height="105" rx="8" fill="#ffffff" stroke="#cbd5e0" stroke-width="1.5"/>
+                                    <circle cx="585" cy="52" r="12" fill="#7a2222"/>
+                                    <text x="585" y="56" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">3</text>
+                                    <text x="585" y="80" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a202c">Prêt-à-</text>
+                                    <text x="585" y="95" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a202c">manger</text>
+                                    <text x="585" y="118" text-anchor="middle" font-size="10" fill="#7a2222">Recettes imagées</text>
+                                </g>
+
+                                <!-- Dept 4 : Poissonnerie -->
+                                <g class="svg-node" onclick="selectConcept2(this, '4. Poissonnerie — Haute intensité multisensorielle', 'Stimuli : Lumière blanche intense, froid, odeurs marquées (homard/moules) et textures mouillées/visqueuses. Adaptations : Port de gants et techniques de manipulation, masque chirurgical avec odeur agréable, ventilation accrue, recettes et codes imagés.')">
+                                    <rect x="775" y="30" width="120" height="105" rx="8" fill="#ffffff" stroke="#cbd5e0" stroke-width="1.5"/>
+                                    <circle cx="835" cy="52" r="12" fill="#7a2222"/>
+                                    <text x="835" y="56" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">4</text>
+                                    <text x="835" y="83" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a202c">Poissonnerie</text>
+                                    <text x="835" y="118" text-anchor="middle" font-size="10" fill="#7a2222">Masque, gants &amp; air</text>
+                                </g>
+
+                                <!-- Dept 5 : Charcuterie & Fromages -->
+                                <g class="svg-node" onclick="selectConcept2(this, '5. Charcuterie et fromages — Exposition centrale et hyposensibilité', 'Îlot central exposé au bruit et aux interactions continues au comptoir. Atout sensoriel documenté : une personne autiste hyposensible au froid peut intervenir efficacement dans le réfrigérateur de la boucherie sans inconfort thermique.')">
+                                    <rect x="150" y="160" width="125" height="105" rx="8" fill="#ffffff" stroke="#cbd5e0" stroke-width="1.5"/>
+                                    <circle cx="212" cy="182" r="12" fill="#7a2222"/>
+                                    <text x="212" y="186" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">5</text>
+                                    <text x="212" y="210" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a202c">Charcuterie &amp;</text>
+                                    <text x="212" y="225" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a202c">fromages</text>
+                                    <text x="212" y="248" text-anchor="middle" font-size="10" fill="#7a2222">Atout chambre froide</text>
+                                </g>
+
+                                <!-- Dept 6 : Les Allées -->
+                                <g class="svg-node" onclick="selectConcept2(this, '6. Les allées — Rigueur méthodique et repères visuels', 'Stimuli : Vibrations du chariot et froissement des sachets de pâtes. Forces : Rigueur d’alignement, rotation méthodique des stocks. Adaptations : Photo plastifiée du résultat attendu accrochée au chariot, tri préalable par hauteur d’étagère, coquilles.')">
+                                    <rect x="398" y="160" width="125" height="105" rx="8" fill="#ffffff" stroke="#cbd5e0" stroke-width="1.5"/>
+                                    <circle cx="460" cy="182" r="12" fill="#7a2222"/>
+                                    <text x="460" y="186" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">6</text>
+                                    <text x="460" y="213" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a202c">Les allées</text>
+                                    <text x="460" y="248" text-anchor="middle" font-size="10" fill="#7a2222">Photo plastifiée &amp; tri</text>
+                                </g>
+
+                                <!-- Dept 7 : Les Caisses & Salle de repos -->
+                                <g class="svg-node" onclick="selectConcept2(this, '7. Les caisses (& salle de repos) — Procédures structurées et mentorat', 'Contrairement aux préjugés, le travail à la caisse repose sur des séquences prévisibles (« Avez-vous vos sacs ? »). Adaptations : Essai accompagné par un mentor, préparation de réponses types, transfert aux collègues pour l’imprévu, salle de repos sombre et calme.')">
+                                    <rect x="645" y="160" width="130" height="105" rx="8" fill="#ffffff" stroke="#cbd5e0" stroke-width="1.5"/>
+                                    <circle cx="710" cy="182" r="12" fill="#7a2222"/>
+                                    <text x="710" y="186" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">7</text>
+                                    <text x="710" y="210" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a202c">Les caisses &amp;</text>
+                                    <text x="710" y="225" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a202c">salle de repos</text>
+                                    <text x="710" y="248" text-anchor="middle" font-size="10" fill="#7a2222">Scripts &amp; mentorat</text>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="concept-detail-panel" id="concept2Detail">
+                            <strong>1. Fruits et légumes — Gestion sonore et repérage spatial</strong>
+                            Stimuli&nbsp;: Bruit ambiant des paniers, conversations et bips des caisses proches&nbsp;; éclairage des néons&nbsp;; déstabilisation lors du déplacement des produits. Adaptations&nbsp;: Coquilles insonorisantes ou réducteurs de bruit discrets, lunettes de soleil, horaires stables (8h30), respect de la concentration.
+                        </div>
+                    </figure>
+
+                    <p>
+                        Lors de la préparation des recettes, on y retrouve les mêmes outils que dans les sections précédentes, soit un cartable avec des recettes imagées et une liste imagée des codes à entrer dans l’étiqueteuse. Je revérifie ma liste pour la 40<sup>e</sup> fois depuis que je suis entrée dans l’épicerie. Je dois cocher chacun des aliments au fur et à mesure et, malgré tout, je dois toujours faire des allers-retours entre les rangées, car j’oublie constamment des items. Les multiples stimulations, les personnes autour de moi, toutes les choses auxquelles je pense m’empêchent d’être totalement concentrée, ce qui fait en sorte que faire l’épicerie me prend un temps fou. Ce qui devrait prendre 45 minutes, me prend 1&nbsp;heure&nbsp;30.
+                    </p>
+                    <p>
+                        Il y a ensuite l’îlot de la <strong>charcuterie</strong> et des <strong>fromages</strong>. C’est un endroit central, à la vue de tous et qui est donc plus exposé aux bruits. De plus, c’est un endroit où les employés sont amenés à <a href="https://youtu.be/S7-7bk-Pmp4" target="_blank" rel="noopener noreferrer">interagir avec les clients</a>, pour leur préparer les produits qu’ils demandent. Il n’y a pas aujourd’hui de personnes autistes; elles travaillent dans d’autres secteurs de l’épicerie.
+                    </p>
+                    <p>
+                        Je continue mon parcours dans l’épicerie vers les <strong>allées</strong> où je croise à nouveau l’employé qui portait des coquilles insonorisantes. Il amène un chariot dans une allée. Le chariot est bruyant et il vibre par moments, ce qui n’est pas plaisant. Il se dépêche alors d’arriver à sa destination afin de <strong>remplir les tablettes</strong> avec les produits de son chariot<sup><a href="#sdfootnote18" class="footnote-ref">18</a></sup>. Il regarde alors une photo plastifiée qui est accrochée à son chariot et qui représente le résultat attendu. De plus, pour l’aider dans cette tâche, les produits qui vont sur les étagères du haut sont sur le devant de son chariot. Il peut donc se fier à ce classement et à l’image pour repérer rapidement l’endroit pour y placer les produits. Il est très méthodique et place les nouveaux produits derrière afin de créer une rotation. Quand je prends les produits dont j’ai besoin, je replace les produits qui suivent pour ne pas défaire la présentation. Je n’aime pas non plus quand les gens laissent des produits n’importe où dans l’épicerie. J’ai donc tendance à les ramasser et les remettre à un employé ou à la caisse. Je vois maintenant l’employé qui est arrêté pour <strong>aligner les produits</strong> et bien les positionner<sup><a href="#sdfootnote19" class="footnote-ref">19</a></sup>. Avant de commencer, il ajuste bien ses coquilles insonorisantes sur sa tête. Comme vous pourrez le constater dans la vidéo (à partir de 01:55)<sup><a href="#sdfootnote20" class="footnote-ref">20</a></sup>, le <strong>bruit des sachets</strong> de pâtes peut rapidement devenir dérangeant. C’est une tâche répétitive dont il s’acquitte avec précision et persévérance.
+                    </p>
+                    <p>
+                        Lorsque je passe à la <strong>caisse</strong>, je place mes articles par catégorie sur le tapis. J’ai toujours à peu près la même méthode. C’est un passage que je n’aime pas lorsqu’il y a beaucoup de monde, car parfois c’est assez coincé et nous sommes trop près les uns des autres. Je n’aime pas sentir les odeurs des gens, ni devoir les frôler. Je suis polie et souriante, mais depuis quelques années, j’ai arrêté de regarder dans les yeux lorsque je vais dans les magasins, car je me suis rendu compte que ça me demandait beaucoup d’énergie, alors je ne le fais plus systématiquement. On entend parfois dire qu’on ne retrouvera pas de personnes autistes à la caisse parce qu’il y a trop d’interaction avec les clients&nbsp;; c’est faux, c’est une question d’approche, car elles ont toutes les capacités pour le faire. Comme toujours, il faut miser sur leurs forces et avoir confiance en leur potentiel. Dans le magasin dans lequel nous nous trouvons, toute personne autiste est amenée à essayer d’opérer la caisse au moins une fois avec son mentor (ici la directrice adjointe).
+                    </p>
+                    <p>
+                        On peut considérer le travail à la caisse comme une procédure dont on peut apprendre toutes les étapes par cœur<sup><a href="#sdfootnote21" class="footnote-ref">21</a></sup>. En tant que clients, nous connaissons nous-mêmes les questions qu’on nous posera&nbsp;: «&nbsp;Avez-vous vos sacs&nbsp;?&nbsp;», «&nbsp;Avez-vous la carte de points&nbsp;?&nbsp;», etc. Ce n’est donc pas une si grande surprise d’en voir performer certains à ce poste.
+                    </p>
+                    <p>
+                        Il y aura certainement, comme dans la vidéo, plus de questions inattendues à la caisse de la part des clients qu’ailleurs en magasin. Le travail du mentor et de l’employé est d’anticiper les questions les plus communes et trouver les réponses adéquates à retenir. Pour toutes les questions inattendues, il reste l’option de référer le client à l’employé qui sera le plus en mesure de répondre à la question. C’est sensiblement la même situation avec <a href="https://youtu.be/K6NLkMGctjw" target="_blank" rel="noopener noreferrer">l’emballage à la caisse</a><sup><a href="#sdfootnote22" class="footnote-ref">22</a></sup>. Ainsi, les mêmes principes de formation s’appliquent. De plus, aux caisses, il y a toujours un ou une collègue tout près en cas de questionnement.
+                    </p>
+                    <p>
+                        Nous avons terminé notre tour virtuel d’une épicerie. Nous n’avons pas été dans le secteur réservé aux employés où nous aurions pu trouver une salle de repos (confortable, sombre et tranquille) utilisée parfois pour décompresser pendant les pauses. Cependant, nous avons pu constater les défis et les solutions qui s’offrent aux personnes autistes, ainsi que le rôle que peut jouer le mentor afin de soutenir ses collègues. Nous vous invitons donc à utiliser ces vidéos<sup><a href="#sdfootnote23" class="footnote-ref">23</a></sup> afin d’aider une personne autiste à se familiariser avec les tâches en épicerie ou amener vos employés qui travailleront avec elle à se familiariser avec les caractéristiques de l’autisme. Vous pourrez également accéder aux questions qui ont été conçues pour les aider à identifier les choses qu’elles ont aimées et moins aimées dans leurs visionnements. C’est ce genre d’action qui nous mènera vers une plus grande compréhension des différences de chacun et qui nous permettra une plus grande inclusion pour le bénéfice de tous.
+                    </p>
+
+                    <!-- RÉFÉRENCES BIBLIOGRAPHIQUES -->
+                    <h2 class="section-heading" id="sec-references">Références bibliographiques</h2>
+                    <ul class="biblio-list">
+                        <li>
+                            Letscher, S., Jolicoeur, E., Point, M., Milot, E. et als. (2019), «&nbsp;<a href="https://www.erudit.org/fr/revues/rse/2019-v45-n2-rse05127/1067531ar.pdf" target="_blank" rel="noopener noreferrer">Obstacles et facilitateurs liés à la participation sociale et l’inclusion de personnes ayant des incapacités intellectuelles</a>&nbsp;», <em>Revue des sciences de l’éducation</em>, vol.&nbsp;45, n°&nbsp;2, DOI&nbsp;: <a href="https://doi.org/10.7202/1067531ar" target="_blank" rel="noopener noreferrer">doi.org/10.7202/1067531</a>, pp.&nbsp;1-26.
+                        </li>
+                        <li>
+                            Roux, A.M., Shattuck, P.T., Rast, J.E., Anderson, K.A. (2017), <em>National Autism Indicators Report: Developmental Disability Services and Outcomes in Adulthood</em>, Philadelphia - PA&nbsp;: Life Course Outcomes Research Program, A.J. Drexel Autism Institute, Drexel University, URL&nbsp;: <a href="https://tinyurl.com/ypbx8dn7" target="_blank" rel="noopener noreferrer">https://tinyurl.com/ypbx8dn7</a>.
+                        </li>
+                        <li>
+                            Roux, A.M., Shattuck, P.T., Cooper, B.P., Anderson, K.A., et als (2013), «&nbsp;Postsecondary employment experiences among young adults with an autism spectrum disorder&nbsp;», <em>Journal of the American Academy of Child &amp; Adolescent Psychiatry</em>, vol.&nbsp;52, n°&nbsp;9, DOI&nbsp;: <a href="https://doi.org/10.1016/j.jaac.2013.05.019" target="_blank" rel="noopener noreferrer">10.1016/j.jaac.2013.05.019</a>, pp.&nbsp;931-939.
+                        </li>
+                        <li>
+                            Putz, C., Sparkes, I., Foubert, J. (2020), <em>Outcomes for disabled people in the UK</em>, URL&nbsp;: <a href="https://tinyurl.com/ys87m7je" target="_blank" rel="noopener noreferrer">https://tinyurl.com/ys87m7je</a>.
+                        </li>
+                        <li>
+                            Martin, V. (2018), <em>La situation d’emploi des personnes ayant un TSA. Fiche synthèse&nbsp;1</em>, Réseau national d’expertise en trouble du spectre de l’autisme, URL&nbsp;: <a href="https://tinyurl.com/4a9db8jx" target="_blank" rel="noopener noreferrer">https://tinyurl.com/4a9db8jx</a>.
+                        </li>
+                    </ul>
+
+                    <!-- NOTES DE BAS DE PAGE -->
+                    <section class="footnotes-section" aria-label="Notes de bas de page">
+                        <h2 class="section-heading" id="sec-notes" style="margin-top: 0;">Notes de bas de page</h2>
+                        <ol class="footnotes-list">
+                            <li id="sdfootnote1"><a href="http://penseraccessibilite.com/travail-des-personnes-autistes-en-epicerie/" target="_blank" rel="noopener noreferrer">http://penseraccessibilite.com/travail-des-personnes-autistes-en-epicerie/</a>.</li>
+                            <li id="sdfootnote2"><a href="https://tinyurl.com/y97chwwt" target="_blank" rel="noopener noreferrer">https://tinyurl.com/y97chwwt</a>.</li>
+                            <li id="sdfootnote3"><a href="https://www.integrationtsa.com/" target="_blank" rel="noopener noreferrer">https://www.integrationtsa.com/</a>.</li>
+                            <li id="sdfootnote4">Letscher, S., Jolicoeur, E., Point, M. et als. (2019), «&nbsp;<a href="https://www.erudit.org/fr/revues/rse/2019-v45-n2-rse05127/1067531ar.pdf" target="_blank" rel="noopener noreferrer">Obstacles et facilitateurs liés à la participation sociale et l’inclusion de personnes ayant des incapacités intellectuelles</a>&nbsp;», <em>Revue des sciences de l’éducation</em>, vol.&nbsp;45, n°&nbsp;2, DOI&nbsp;: <a href="https://doi.org/10.7202/1067531ar" target="_blank" rel="noopener noreferrer">doi.org/10.7202/1067531</a>, pp.&nbsp;1-26.</li>
+                            <li id="sdfootnote5">Roux, A. M., Shattuck, P. T., Rast, J. E., Anderson, K. A. (2017), <em>National Autism Indicators Report: Developmental Disability Services and Outcomes in Adulthood</em>, Philadelphia - PA&nbsp;: Life Course Outcomes Research Program, A.J. Drexel Autism Institute, Drexel University, URL&nbsp;: <a href="https://tinyurl.com/ypbx8dn7" target="_blank" rel="noopener noreferrer">https://tinyurl.com/ypbx8dn7</a>.</li>
+                            <li id="sdfootnote6">Martin, V. (2018), <em>La situation d’emploi des personnes ayant un TSA. Fiche synthèse&nbsp;1</em>, Réseau national d’expertise en trouble du spectre de l’autisme, URL&nbsp;: <a href="https://tinyurl.com/4a9db8jx" target="_blank" rel="noopener noreferrer">https://tinyurl.com/4a9db8jx</a>.</li>
+                            <li id="sdfootnote7">Putz, C., Sparkes, I., Foubert, J. (2020), <em>Outcomes for disabled people in the UK</em>, URL&nbsp;: <a href="https://tinyurl.com/ys87m7je" target="_blank" rel="noopener noreferrer">https://tinyurl.com/ys87m7je</a>.</li>
+                            <li id="sdfootnote8">Martin, V. (2018), <em>La situation d’emploi des personnes ayant un TSA. Fiche synthèse&nbsp;1</em>, Réseau national d’expertise en trouble du spectre de l’autisme, URL&nbsp;: <a href="https://tinyurl.com/4a9db8jx" target="_blank" rel="noopener noreferrer">https://tinyurl.com/4a9db8jx</a>.</li>
+                            <li id="sdfootnote9"><a href="https://youtu.be/GN7tovYyU8A" target="_blank" rel="noopener noreferrer">https://youtu.be/GN7tovYyU8A</a>.</li>
+                            <li id="sdfootnote10"><a href="https://youtu.be/EWpSIz6u5ME" target="_blank" rel="noopener noreferrer">https://youtu.be/EWpSIz6u5ME</a>.</li>
+                            <li id="sdfootnote11"><a href="https://youtu.be/vVrTvfAu3vU" target="_blank" rel="noopener noreferrer">https://youtu.be/vVrTvfAu3vU</a>.</li>
+                            <li id="sdfootnote12"><a href="https://youtu.be/dfH5WiyfiEE" target="_blank" rel="noopener noreferrer">https://youtu.be/dfH5WiyfiEE</a>.</li>
+                            <li id="sdfootnote13"><a href="https://youtu.be/3YLIeG6ca1k" target="_blank" rel="noopener noreferrer">https://youtu.be/3YLIeG6ca1k</a>.</li>
+                            <li id="sdfootnote14"><a href="https://youtu.be/rWJu2EXYbXE" target="_blank" rel="noopener noreferrer">https://youtu.be/rWJu2EXYbXE</a>.</li>
+                            <li id="sdfootnote15"><a href="https://youtu.be/aSz_NzFPIB4" target="_blank" rel="noopener noreferrer">https://youtu.be/aSz_NzFPIB4</a>.</li>
+                            <li id="sdfootnote16"><a href="https://youtu.be/dxdPiMuBr_E" target="_blank" rel="noopener noreferrer">https://youtu.be/dxdPiMuBr_E</a>.</li>
+                            <li id="sdfootnote17"><a href="https://youtu.be/9WrvJBfTjdw" target="_blank" rel="noopener noreferrer">https://youtu.be/9WrvJBfTjdw</a>.</li>
+                            <li id="sdfootnote18"><a href="https://youtu.be/b4bZZdui9f0" target="_blank" rel="noopener noreferrer">https://youtu.be/b4bZZdui9f0</a>.</li>
+                            <li id="sdfootnote19"><a href="https://youtu.be/VrU76U7LYwk" target="_blank" rel="noopener noreferrer">https://youtu.be/VrU76U7LYwk</a>.</li>
+                            <li id="sdfootnote20"><a href="https://youtube.com/clip/UgkxockPcWMUJTaXkoUVjJiO7Yuf7QI5cvl6" target="_blank" rel="noopener noreferrer">https://youtube.com/clip/UgkxockPcWMUJTaXkoUVjJiO7Yuf7QI5cvl6</a>.</li>
+                            <li id="sdfootnote21"><a href="https://youtu.be/fFEcxQrK4hg" target="_blank" rel="noopener noreferrer">https://youtu.be/fFEcxQrK4hg</a>.</li>
+                            <li id="sdfootnote22"><a href="https://youtu.be/K6NLkMGctjw" target="_blank" rel="noopener noreferrer">https://youtu.be/K6NLkMGctjw</a>.</li>
+                            <li id="sdfootnote23"><a href="https://fredericsdumont.wixsite.com/ptsa" target="_blank" rel="noopener noreferrer">https://fredericsdumont.wixsite.com/ptsa</a>.</li>
+                        </ol>
+                    </section>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <!-- Modal Universel (PDF / Vidéo) -->
+    <div class="modal-overlay" id="mediaModal" onclick="closeModalOnOutside(event)">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 id="modalTitle">Titre de la fenêtre</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBodyContent"></div>
+        </div>
+    </div>
+
+    <!-- Modal de Proposition d'Article / Projet -->
+    <div class="modal-overlay" id="proposalModal" onclick="closeProposalModalOnOutside(event)">
+        <div class="modal-container" style="max-width: 800px; height: auto;">
+            <div class="modal-header">
+                <h3 id="proposalModalTitle">Proposer une captation ou un article / Nous faire part d'un commentaire</h3>
+                <button class="modal-close" onclick="closeProposalModal()">&times;</button>
+            </div>
+            <div class="modal-body" style="padding: 1.5rem; overflow-y: auto;">
+                <form id="proposalForm" onsubmit="submitProposal(event)" style="display: flex; flex-direction: column; gap: 1rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                    <input type="hidden" id="propCategory" value="article">
+                    <div>
+                        <label for="propName" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Votre nom</label>
+                        <input type="text" id="propName" required style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propEmail" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Votre courriel</label>
+                        <input type="email" id="propEmail" required style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propTitle" id="propTitleLabel" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Que désirez-vous nous communiquer ?</label>
+                        <input type="text" id="propTitle" required placeholder="Ex: Analyse de l'accessibilité urbaine..." style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propDesc" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Description ou résumé</label>
+                        <textarea id="propDesc" rows="4" required placeholder="Décrivez votre proposition en quelques lignes..." style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff; resize: vertical;"></textarea>
+                    </div>
+                    <button type="submit" style="background-color: #7a2222; color: #fff; border: none; padding: 0.75rem; border-radius: 4px; font-weight: 600; cursor: pointer; margin-top: 0.5rem; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#5e1a1a'" onmouseout="this.style.backgroundColor='#7a2222'">Envoyer la proposition</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSubmenu(event, submenuId, arrowId) {
+            event.stopPropagation();
+            const submenu = document.getElementById(submenuId);
+            const arrow = document.getElementById(arrowId);
+            submenu.classList.toggle('open');
+            arrow.style.transform = submenu.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
+
+        function scrollToTopPage(event) {
+            event.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            updateActiveNavLink('top-page');
+        }
+
+        function scrollToSection(event, targetId) {
+            event.preventDefault();
+            const target = document.getElementById(targetId);
+            if (target) {
+                const topbarOffset = 82; // 60px barre supérieure + 22px marge au-dessus du titre
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - topbarOffset;
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+                updateActiveNavLink(targetId);
+            }
+        }
+
+        function updateActiveNavLink(activeId) {
+            const items = document.querySelectorAll('#pageNavSubmenu .submenu-item');
+            items.forEach(item => {
+                const href = item.getAttribute('href').replace('#', '');
+                if (href === activeId) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+
+        function selectConcept1(element, title, description) {
+            const container = element.closest('svg');
+            container.querySelectorAll('.svg-node').forEach(node => node.classList.remove('active'));
+            element.classList.add('active');
+            const detailBox = document.getElementById('concept1Detail');
+            detailBox.innerHTML = '<strong>' + title + '</strong>' + description;
+        }
+
+        function selectConcept2(element, title, description) {
+            const container = element.closest('svg');
+            container.querySelectorAll('.svg-node').forEach(node => node.classList.remove('active'));
+            element.classList.add('active');
+            const detailBox = document.getElementById('concept2Detail');
+            detailBox.innerHTML = '<strong>' + title + '</strong>' + description;
+        }
+
+        function copyCitation() {
+            const text = document.getElementById('citationText').innerText.trim();
+            const btn = document.getElementById('copyCitationBtn');
+            navigator.clipboard.writeText(text).then(() => {
+                const original = btn.innerHTML;
+                btn.innerHTML = 'Référence copiée !';
+                setTimeout(() => { btn.innerHTML = original; }, 2200);
+            });
+        }
+
+        function openModal(type, title, url) {
+            const modal = document.getElementById('mediaModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalBodyContent = document.getElementById('modalBodyContent');
+
+            modalTitle.textContent = title;
+            modalBodyContent.innerHTML = '';
+
+            if (type === 'pdf') {
+                const iframe = document.createElement('iframe');
+                iframe.className = 'pdf-frame';
+                iframe.src = url;
+                modalBodyContent.appendChild(iframe);
+            } else if (type === 'video') {
+                const iframe = document.createElement('iframe');
+                iframe.className = 'video-frame';
+                iframe.src = url;
+                iframe.setAttribute('allow', 'autoplay; fullscreen');
+                modalBodyContent.appendChild(iframe);
+            }
+
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('mediaModal');
+            modal.style.display = 'none';
+            document.getElementById('modalBodyContent').innerHTML = '';
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeModalOnOutside(event) {
+            const modal = document.getElementById('mediaModal');
+            if (event.target === modal) closeModal();
+        }
+
+        function openProposalModal(type) {
+            const proposalModal = document.getElementById('proposalModal');
+            const titleEl = document.getElementById('proposalModalTitle');
+            const categoryEl = document.getElementById('propCategory');
+            const titleLabelEl = document.getElementById('propTitleLabel');
+            const titleInputEl = document.getElementById('propTitle');
+
+            categoryEl.value = type;
+            titleEl.textContent = "Nous faire part d'un commentaire ou d'une proposition (captation ou article)";
+            titleLabelEl.textContent = "Que voulez-vous nous communiquer ?";
+            titleInputEl.placeholder = "Ex: projet de captation, soumettre un article, faire un commentaire...";
+
+            proposalModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProposalModal() {
+            const proposalModal = document.getElementById('proposalModal');
+            proposalModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeProposalModalOnOutside(event) {
+            const proposalModal = document.getElementById('proposalModal');
+            if (event.target === proposalModal) closeProposalModal();
+        }
+
+        function submitProposal(event) {
+            event.preventDefault();
+            const name = document.getElementById('propName').value;
+            const email = document.getElementById('propEmail').value;
+            const category = document.getElementById('propCategory').value;
+            const title = document.getElementById('propTitle').value;
+            const desc = document.getElementById('propDesc').value;
+
+            const typeLabel = category === 'captation' ? 'Proposition de captation' : "Proposition d'article";
+            const subject = encodeURIComponent(`${typeLabel} : ${title}`);
+            const body = encodeURIComponent(`Nom : ${name}\nCourriel : ${email}\nType : ${typeLabel}\nTitre : ${title}\n\nDescription :\n${desc}`);
+
+            window.location.href = `mailto:sociocamera@gmail.com?subject=${subject}&body=${body}`;
+            closeProposalModal();
+        }
+
+        window.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+                closeProposalModal();
+            }
+        });
+    </script>
+</body>
+</html>
