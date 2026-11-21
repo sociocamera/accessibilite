@@ -747,6 +747,270 @@
             aside.sidebar.mobile-open { transform: translateX(0); }
             .main-wrapper { margin-left: 0; width: 100%; }
         }
+
+        /* --- Slider de vidéos harmonisé avec la charte de la page --- */
+        .netflix-slider-section {
+            margin: 2.25rem 0 2.5rem 0;
+            background-color: #FCF9F4;
+            border-radius: 10px;
+            padding: 1.5rem 1.25rem 1.75rem 1.25rem;
+            box-shadow: 0 4px 12px rgba(122, 34, 34, 0.04);
+            border: 1px solid #e2d9c8;
+            position: relative;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .netflix-slider-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 0 0.25rem 0.65rem 0.25rem;
+            border-bottom: 1px solid #ece4d5;
+        }
+
+        .netflix-slider-title {
+            color: #1a202c;
+            font-size: 0.98rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .netflix-slider-badge {
+            background-color: #7a2222;
+            color: #ffffff;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            padding: 0.2rem 0.55rem;
+            border-radius: 4px;
+            letter-spacing: 0.06em;
+            font-weight: 700;
+        }
+
+        .netflix-slider-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .netflix-track {
+            display: flex;
+            gap: 0.9rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding: 0.5rem 0.25rem;
+        }
+
+        .netflix-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .netflix-card {
+            flex: 0 0 245px;
+            background-color: #FAF6EF;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.28s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.28s ease, border-color 0.28s ease;
+            border: 1px solid #dfd7c8;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .netflix-card:hover {
+            transform: scale(1.04);
+            z-index: 10;
+            box-shadow: 0 8px 20px rgba(122, 34, 34, 0.14);
+            border-color: #7a2222;
+        }
+
+        .netflix-thumb-box {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background-color: #eae3d5;
+            overflow: hidden;
+            border-bottom: 1px solid #e5ddd0;
+        }
+
+        .netflix-thumb-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: opacity 0.25s ease, transform 0.35s ease;
+        }
+
+        .netflix-card:hover .netflix-thumb-img {
+            opacity: 0.92;
+            transform: scale(1.03);
+        }
+
+        .netflix-play-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(26, 32, 44, 0.45) 0%, rgba(26, 32, 44, 0.1) 60%, rgba(26, 32, 44, 0.05) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.9;
+            transition: opacity 0.25s ease;
+        }
+
+        .netflix-play-circle {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background-color: rgba(122, 34, 34, 0.92);
+            border: 2px solid #FAF6EF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .netflix-card:hover .netflix-play-circle {
+            transform: scale(1.1);
+            background-color: #5e1a1a;
+        }
+
+        .netflix-ep-tag {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background-color: rgba(250, 246, 239, 0.94);
+            color: #7a2222;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.15rem 0.48rem;
+            border-radius: 4px;
+            border: 1px solid #d4c5b9;
+        }
+
+        .netflix-card-info {
+            padding: 0.75rem 0.85rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background-color: #FAF6EF;
+        }
+
+        .netflix-card-title {
+            color: #1a202c;
+            font-size: 0.84rem;
+            font-weight: 600;
+            line-height: 1.38;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .netflix-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 36px;
+            height: 64px;
+            background-color: rgba(250, 246, 239, 0.95);
+            color: #7a2222;
+            border: 1px solid #d4c5b9;
+            border-radius: 6px;
+            cursor: pointer;
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .netflix-nav-btn:hover {
+            background-color: #7a2222;
+            color: #ffffff;
+            border-color: #7a2222;
+        }
+
+        .netflix-nav-btn.prev {
+            left: -8px;
+        }
+
+        .netflix-nav-btn.next {
+            right: -8px;
+        }
+
+        /* --- Disposition Modale Vidéo + Synopsis --- */
+        .video-modal-layout {
+            display: grid;
+            grid-template-columns: 1fr 310px;
+            width: 100%;
+            height: 100%;
+            background-color: #141414;
+        }
+
+        .video-modal-player-wrap {
+            width: 100%;
+            height: 100%;
+            background-color: #000000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-modal-synopsis-panel {
+            background-color: #FAF6EF;
+            border-left: 1px solid #d4c5b9;
+            padding: 1.5rem 1.35rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+            overflow-y: auto;
+            color: #2b2b2b;
+        }
+
+        .synopsis-heading {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #7a2222;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #7a2222;
+        }
+
+        .synopsis-text {
+            font-family: "Georgia", "Cambria", "Times New Roman", serif;
+            font-size: 0.96rem;
+            line-height: 1.68;
+            color: #2b2b2b;
+            text-align: justify;
+        }
+
+        @media (max-width: 820px) {
+            .video-modal-layout {
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr auto;
+            }
+            .video-modal-synopsis-panel {
+                border-left: none;
+                border-top: 1px solid #d4c5b9;
+                max-height: 42%;
+            }
+            .netflix-card {
+                flex: 0 0 205px;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -978,7 +1242,28 @@
                         </div>
                     </div>
 
+                                        <!-- Slider de vidéos de type Netflix -->
+                    <section class="netflix-slider-section" aria-label="Capsules vidéo documentaires">
+                        <div class="netflix-slider-header">
+                            <div class="netflix-slider-title">
+                                <span class="netflix-slider-badge">Capsules vidéo</span>
+                                <span>Témoignages et terrain — Mobilité urbaine à Québec</span>
+                            </div>
+                        </div>
+                        <div class="netflix-slider-wrapper">
+                            <button type="button" class="netflix-nav-btn prev" onclick="scrollVideoSlider(-1)" aria-label="Vidéos précédentes">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                            </button>
+                            <div class="netflix-track" id="netflixVideoTrack"></div>
+                            <button type="button" class="netflix-nav-btn next" onclick="scrollVideoSlider(1)" aria-label="Vidéos suivantes">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                            </button>
+                        </div>
+                    </section>
+
+
                     <p>Cette approche nous permet dès lors de saisir en profondeur les intersections entre ces différentes formes d’oppression, afin d’identifier les barrières qui peuvent entraver les déplacements de certains groupes et les rendre invisibles aux yeux de la société. En considérant l’intersectionnalité, il devient possible de proposer des solutions plus efficaces pour améliorer l’accessibilité aux transports urbains et favoriser une mobilité inclusive pour tous les individus, indépendamment de leurs identités multiples et de leurs conditions.</p>
+
 
                     <p>Cet article propose donc d’explorer cette mécanique en allant à la rencontre de quatre individus vivant avec une incapacité, dont les profils incarnent parfois concrètement, parfois subtilement, l’enchevêtrement des causes et des conséquences de ces inégalités d’accès aux transports urbains. L’approche ici retenue consiste à conjuguer le savoir théorique au savoir expérientiel. Ainsi, à travers différents témoignages ancrés sur le territoire de la ville de Québec, cet article permettra de découvrir que l’expérience des inégalités en matière de mobilité est réelle et ses conséquences tangibles, que la théorie peut devenir concrète et que les réflexions qui en émergent peuvent offrir des prémisses de solutions. Nous sommes donc allées à la rencontre d’Arielle, Maxime, Élise et Richard pour tenter de comprendre leur rapport à la mobilité. Ils et elles ont accepté de nous ouvrir une fenêtre sur leur monde et de nous laisser entrevoir des réalités trop souvent ignorées. Tout au long de l’article, les propos de nos protagonistes sont rapportés sous la forme de témoignages, venant appuyer le contenu théorique exposé&nbsp;:</p>
 
@@ -1448,8 +1733,13 @@
 
         function openModal(type, title, url) {
             const modal = document.getElementById('mediaModal');
+            const modalContainer = modal.querySelector('.modal-container');
             const modalTitle = document.getElementById('modalTitle');
             const modalBodyContent = document.getElementById('modalBodyContent');
+
+            if (modalContainer) {
+                modalContainer.style.maxWidth = '900px';
+            }
 
             modalTitle.textContent = title;
             modalBodyContent.innerHTML = '';
@@ -1539,6 +1829,169 @@
                 closeProposalModal();
             }
         });
+
+        const netflixVideosData = [
+            {
+                num: "01",
+                title: "Transport adapté : une difficile gestion personnelle",
+                driveId: "1y4OiFYfbzaZ6DsHypdGpdE2OpOqP30-z",
+                previewUrl: "https://drive.google.com/file/d/1y4OiFYfbzaZ6DsHypdGpdE2OpOqP30-z/preview?autoplay=1",
+                thumbnailUrl: "https://lh3.googleusercontent.com/d/1rYflEw0cdSTVhyj6ya-K-zXeTZbIDV7b",
+                synopsis: "Arielle partage son quotidien marqué par la rigidité du transport adapté. Contrainte de réserver ses déplacements la veille avant dix-huit heures, elle déplore la perte de spontanéité et l'impact de ces délais sur sa vie sociale, illustrant comment la logistique rigide entrave la liberté citoyenne des personnes handicapées."
+            },
+            {
+                num: "02",
+                title: "Les pièges à éclopés pour les personnes en situation de handicap",
+                driveId: "1n9WYMkg-_orBbgUCLU4LbdKxoLlSYRPJ",
+                previewUrl: "https://drive.google.com/file/d/1n9WYMkg-_orBbgUCLU4LbdKxoLlSYRPJ/preview?autoplay=1",
+                thumbnailUrl: "https://drive.google.com/thumbnail?id=1BJ9CLPqRDZdbgi_A0rt9naW4UuCj2DDq&sz=w640",
+                synopsis: "Arielle dénonce les chantiers urbains et les trottoirs dégradés qu'elle surnomme les pièges à éclopés. Obligée d'anticiper chaque itinéraire en fauteuil roulant, elle souligne la frustration causée par l'absence de contournements sécurisés et appelle les aménageurs urbains à intégrer systématiquement l'accessibilité universelle dans leurs listes de vérification lors des travaux."
+            },
+            {
+                num: "03",
+                title: "Mobilité et handicap intellectuel",
+                driveId: "1kFb3R9e2-NAwSQEWbjAyKCwtIJRxapzc",
+                previewUrl: "https://drive.google.com/file/d/1kFb3R9e2-NAwSQEWbjAyKCwtIJRxapzc/preview?autoplay=1",
+                thumbnailUrl: "https://drive.google.com/thumbnail?id=1hkosYKpiFfWEvu7kZMLsPY0ecWH4x4Kw&sz=w640",
+                synopsis: "Élise et Richard témoignent des défis liés à la déficience intellectuelle dans les transports. Ils décrivent le stress généré par des trajets en boucles interminables dépassant parfois deux heures, ainsi que l'impatience de certains chauffeurs pressés, plaidant pour un accueil humain, bienveillant et pleinement respectueux de leur propre rythme."
+            },
+            {
+                num: "04",
+                title: "Avantages du transport adapté",
+                driveId: "19VS0oHywOTuUN7RmE6bxPMLIyDqCO1Tm",
+                previewUrl: "https://drive.google.com/file/d/19VS0oHywOTuUN7RmE6bxPMLIyDqCO1Tm/preview?autoplay=1",
+                thumbnailUrl: "https://drive.google.com/thumbnail?id=18uFFck031fSqR74igYkNKc_ZJK5FYzUl&sz=w640",
+                synopsis: "Maxime porte un regard nuancé sur le transport adapté à Québec. Tout en préférant la spontanéité du réseau régulier lorsque les arrêts sont accessibles, il reconnaît l'utilité essentielle de ce service porte-à-porte lors des hivers rigoureux ou pour atteindre des secteurs périphériques dépourvus d'infrastructures réellement adaptées aux fauteuils roulants."
+            },
+            {
+                num: "05",
+                title: "L'Arche de Québec propose des solutions de transport adapté",
+                driveId: "1W3X2zbiQidTfxWODNzMeGafZZ6Cj50Jf",
+                previewUrl: "https://drive.google.com/file/d/1W3X2zbiQidTfxWODNzMeGafZZ6Cj50Jf/preview?autoplay=1",
+                thumbnailUrl: "https://drive.google.com/thumbnail?id=1WbYPcQr6E2sKjyefQ8Pbo-B65KFqPQ8X&sz=w640",
+                synopsis: "Présentation des initiatives concrètes développées par l'organisme communautaire L'Arche de Québec pour pallier les lacunes du transport adapté public. Face aux contraintes horaires et à la rigidité institutionnelle, ces solutions souples de proximité favorisent l'autonomie, la participation citoyenne et l'épanouissement social des personnes vivant avec une déficience intellectuelle."
+            },
+            {
+                num: "06",
+                title: "Mobilité sociale pour les personnes en situation de handicap",
+                driveId: "1N213Jl_4dFeKrtdTaIBM0mbyZOobhmbB",
+                previewUrl: "https://drive.google.com/file/d/1N213Jl_4dFeKrtdTaIBM0mbyZOobhmbB/preview?autoplay=1",
+                thumbnailUrl: "https://drive.google.com/thumbnail?id=1kbTLJs0n0g81cV16dRiMys7c58Qzt7F6&sz=w640",
+                synopsis: "Analyse de la mobilité comme droit fondamental conditionnant l'accès à l'emploi, aux loisirs et à la vie communautaire. À travers les expériences croisées des protagonistes, cette capsule démontre qu'un réseau de transport inclusif constitue un levier social indispensable pour briser l'isolement et garantir une véritable participation citoyenne à Québec."
+            },
+            {
+                num: "07",
+                title: "Quelle place choisit-on de laisser dans la ville pour les personnes en situation de handicap ?",
+                driveId: "10kYlUS2sGTOXNIeBYGFy-UoFfkzIJBQ2",
+                previewUrl: "https://drive.google.com/file/d/10kYlUS2sGTOXNIeBYGFy-UoFfkzIJBQ2/preview?autoplay=1",
+                thumbnailUrl: "https://drive.google.com/thumbnail?id=1czUpgOUO6NyuVN-9qjuDfQwSSvzy_KKP&sz=w640",
+                synopsis: "Réflexion critique sur la conception urbaine pensée pour des corps jugés standards. Arielle questionne le flou réglementaire entourant la circulation des fauteuils roulants et roues motorisées entre trottoirs et chaussées, invitant la collectivité à repenser le partage de l'espace public pour ne plus condamner la différence à l'exclusion."
+            },
+            {
+                num: "08",
+                title: "Vivre avec une déficience intellectuelle et se déplacer en fauteuil roulant",
+                driveId: "1peITAOx9UYQcKXTd6fX8CBvZXzPHscaE",
+                previewUrl: "https://drive.google.com/file/d/1peITAOx9UYQcKXTd6fX8CBvZXzPHscaE/preview?autoplay=1",
+                thumbnailUrl: "https://drive.google.com/thumbnail?id=1xsXhxXoD3NS_XMTJOUuzSC5bdkfqAyxX&sz=w640",
+                synopsis: "Richard, soixante-quatre ans, raconte son quotidien à la croisée d'une déficience intellectuelle et d'un déplacement en fauteuil roulant. Malgré les obstacles physiques, les difficultés auditives et la lenteur imposée par l'environnement urbain, il affirme avec détermination son autonomie personnelle et son droit d'être traité avec dignité lors de ses trajets."
+            },
+            {
+                num: "09",
+                title: "Se déplacer en fauteuil roulant",
+                driveId: "1erdagqSvMBewdG2RSZQcm3il_vi_Y2yz",
+                previewUrl: "https://drive.google.com/file/d/1erdagqSvMBewdG2RSZQcm3il_vi_Y2yz/preview?autoplay=1",
+                thumbnailUrl: "https://drive.google.com/thumbnail?id=1_FebiBJ6HxldAPwRvUMmwraa7RzBaalD&sz=w640",
+                synopsis: "Maxime illustre les stratégies développées pour naviguer en fauteuil roulant dans la topographie exigeante de Québec. Entre franchissement d'obstacles, contournement de trottoirs endommagés et parcours à la force des bras jusqu'aux arrêts accessibles, il témoigne de la charge physique constante requise pour pallier les déficits des infrastructures municipales."
+            },
+            {
+                num: "10",
+                title: "Transport adapté et personne en situation de handicap",
+                driveId: "1uUwABXtissd91T_e9tKcEW7w_oLJTPQp",
+                previewUrl: "https://drive.google.com/file/d/1uUwABXtissd91T_e9tKcEW7w_oLJTPQp/preview?autoplay=1",
+                thumbnailUrl: "https://drive.google.com/thumbnail?id=1_G45dkD3jx9l12nKMo3zmmFpIoEAZF7c&sz=w640",
+                synopsis: "Synthèse des enjeux entourant le transport adapté et la nécessité de renverser le paradigme actuel de l'accessibilité. Plutôt que de faire peser la charge mentale et matérielle de l'adaptation sur les personnes en situation de handicap, cette capsule appelle à une prise en charge collective et universelle de la mobilité."
+            }
+        ];
+
+        function initNetflixSlider() {
+            const track = document.getElementById('netflixVideoTrack');
+            if (!track) return;
+            track.innerHTML = '';
+
+            netflixVideosData.forEach((video, index) => {
+                const card = document.createElement('div');
+                card.className = 'netflix-card';
+                card.setAttribute('role', 'button');
+                card.setAttribute('tabindex', '0');
+                card.setAttribute('aria-label', 'Lire la vidéo : ' + video.title);
+                card.onclick = () => openSliderVideoModal(index);
+                card.onkeydown = (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        openSliderVideoModal(index);
+                    }
+                };
+
+                card.innerHTML = `
+                    <div class="netflix-thumb-box">
+                        <img class="netflix-thumb-img" src="${video.thumbnailUrl}" alt="${video.title}" loading="lazy">
+                        <span class="netflix-ep-tag">Capsule ${video.num}</span>
+                        <div class="netflix-play-overlay">
+                            <div class="netflix-play-circle">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="netflix-card-info">
+                        <div class="netflix-card-title">${video.title}</div>
+                    </div>
+                `;
+                track.appendChild(card);
+            });
+        }
+
+        function scrollVideoSlider(direction) {
+            const track = document.getElementById('netflixVideoTrack');
+            if (!track) return;
+            const scrollAmount = 520;
+            track.scrollBy({
+                left: direction * scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+
+        function openSliderVideoModal(index) {
+            const video = netflixVideosData[index];
+            if (!video) return;
+
+            const modal = document.getElementById('mediaModal');
+            const modalContainer = modal.querySelector('.modal-container');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalBodyContent = document.getElementById('modalBodyContent');
+
+            if (modalContainer) {
+                modalContainer.style.maxWidth = '1120px';
+            }
+
+            modalTitle.textContent = video.title;
+            modalBodyContent.innerHTML = `
+                <div class="video-modal-layout">
+                    <div class="video-modal-player-wrap">
+                        <iframe class="video-frame" src="${video.previewUrl}" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                    </div>
+                    <aside class="video-modal-synopsis-panel">
+                        <div class="synopsis-heading">Synopsis</div>
+                        <p class="synopsis-text">${video.synopsis}</p>
+                    </aside>
+                </div>
+            `;
+
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        document.addEventListener('DOMContentLoaded', initNetflixSlider);
+
     </script>
 </body>
 </html>
