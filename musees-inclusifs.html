@@ -1,0 +1,1786 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; frame-src https://drive.google.com; connect-src https://script.google.com; object-src 'none';">
+    <title>Les musées inclusifs : le cas du MNBAQ | Revue de Sociologie Visuelle</title>
+    <meta name="description" content="Les musées inclusifs : le cas du plan d’action sur l’accessibilité universelle du Musée national des beaux-arts du Québec par Aude Porcedda et Josée Duhaime.">
+    <meta name="keywords" content="musées inclusifs, accessibilité universelle, MNBAQ, médiation culturelle, PAI, sociologie visuelle, Aude Porcedda, Josée Duhaime">
+    <link rel="canonical" href="https://doi.org/10.13140/RG.2.2.35504.53768">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Revue Sociologie Visuelle">
+    <meta property="og:title" content="Les musées inclusifs : le cas du plan d’action sur l’accessibilité universelle du MNBAQ">
+    <meta property="og:description" content="Partage d’expériences entre l’équipe du MNBAQ, les usagers PAI, les experts et les scientifiques autour de l’accessibilité universelle.">
+    <meta property="og:url" content="https://inclusionsociale.com/musees-inclusifs.html">
+    <meta property="og:image" content="https://lh3.googleusercontent.com/d/1R-6VqA6SZ8t1dall1uf0mj_ehOcj7jNW">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="fr_CA">
+
+    <!-- Twitter / X Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Les musées inclusifs : le cas du MNBAQ | Revue de Sociologie Visuelle">
+    <meta name="twitter:description" content="Le cas du plan d’action sur l’accessibilité universelle du Musée national des beaux-arts du Québec.">
+    <meta name="twitter:image" content="https://inclusionsociale.com/images/vignette-inclusion-sociale.jpg">
+
+    <style>
+        :root {
+            --bg-color: #FAF6EF;
+            --text-color: #2b2b2b;
+            --primary-color: #1a202c;
+            --accent-color: #4a5568;
+            --border-color: #e2e8f0;
+            --card-bg: #FCF9F4;
+            --diagram-bg: #F3EDE2;
+            --hover-border: #cbd5e0;
+            --max-width: 1400px;
+            --sidebar-width: 320px;
+            --topbar-height: 60px;
+            --modal-header-bg: #7a2222;
+            --bordeaux: #7a2222;
+            --bordeaux-dark: #5e1a1a;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Georgia", "Cambria", "Times New Roman", serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.75;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Barre horizontale permanente supérieure */
+        .top-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--topbar-height);
+            background-color: var(--bg-color);
+            border-bottom: 1px solid var(--border-color);
+            display: grid;
+            grid-template-columns: var(--sidebar-width) 1fr auto;
+            align-items: center;
+            padding: 0;
+            z-index: 1100;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .top-navbar-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            letter-spacing: 0.02em;
+            padding-left: 1.5rem;
+            border-right: 1px solid var(--border-color);
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .top-navbar-location {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            background-color: #f2ede4;
+            padding: 0.3rem 0.75rem;
+            border-radius: 4px;
+            margin-right: 2.5rem;
+        }
+
+        /* Colonne latérale gauche permanente sous la barre fixe du haut */
+        aside.sidebar {
+            position: fixed;
+            top: var(--topbar-height);
+            left: 0;
+            width: var(--sidebar-width);
+            height: calc(100vh - var(--topbar-height));
+            background-color: #f5f0e6;
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            z-index: 1000;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            overflow-y: auto;
+        }
+
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .btn-home {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            background-color: var(--bordeaux);
+            color: #fff;
+            border: none;
+            padding: 0.85rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        .btn-home svg {
+            position: absolute;
+            left: 1rem;
+        }
+
+        .btn-home:hover {
+            background-color: var(--bordeaux-dark);
+        }
+
+        .sidebar-info-section {
+            padding: 1rem 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .sidebar-card {
+            background-color: #FAF6EF;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 0.85rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            text-align: justify;
+        }
+
+        .sidebar-card.editor-card {
+            flex-direction: row;
+            align-items: center;
+            gap: 0.75rem;
+            text-align: left;
+        }
+
+        .editor-info h4 {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            margin-bottom: 0.15rem;
+        }
+
+        .editor-info p {
+            font-size: 0.78rem;
+            color: var(--accent-color);
+            line-height: 1.4;
+        }
+
+        .sidebar-nav {
+            padding: 1.25rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            flex: 1;
+        }
+
+        .sidebar-section-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--bordeaux);
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+            padding-left: 0.25rem;
+        }
+
+        .sidebar-page-nav-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background: transparent;
+            border: none;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--bordeaux);
+            letter-spacing: 0.05em;
+            padding: 0.5rem 0.25rem 0.25rem 0.25rem;
+            margin-top: 0.5rem;
+            cursor: pointer;
+            text-align: left;
+            transition: opacity 0.2s;
+        }
+
+        .sidebar-page-nav-toggle:hover {
+            opacity: 0.8;
+        }
+
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--primary-color);
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-align: left;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            background-color: #eae3d5;
+            border-color: var(--hover-border);
+        }
+
+        .submenu {
+            display: none;
+            flex-direction: column;
+            gap: 0.35rem;
+            padding-left: 0.75rem;
+            margin-top: -0.15rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .submenu.open {
+            display: flex;
+        }
+
+        .submenu-item {
+            font-size: 0.82rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            padding: 0.42rem 0.75rem;
+            border-radius: 4px;
+            transition: background-color 0.15s, color 0.15s;
+            border-left: 2px solid #d4c5b9;
+            line-height: 1.35;
+        }
+
+        .submenu-item:hover, .submenu-item.active {
+            background-color: #eae3d5;
+            color: var(--bordeaux);
+            border-left-color: var(--bordeaux);
+            font-weight: 600;
+        }
+
+        /* Conteneur principal centré avec largeur maximale de 1060px à droite de la barre latérale */
+        .main-wrapper {
+            margin-left: var(--sidebar-width);
+            margin-top: var(--topbar-height);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: calc(100% - var(--sidebar-width));
+            padding: 2.5rem 2rem 4rem 2rem;
+        }
+
+        .article-container {
+            width: 100%;
+            max-width: 1060px;
+            margin: 0 auto;
+        }
+
+        /* En-tête de l'article */
+        .article-header {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #dfd7c8;
+            padding-bottom: 1.5rem;
+        }
+
+        .article-category-badge {
+            display: inline-block;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--bordeaux);
+            margin-bottom: 0.65rem;
+        }
+
+        .article-title {
+            font-size: 2.15rem;
+            line-height: 1.25;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        /* Deux cases côte à côte sous le titre (Auteures + Citation) */
+        .meta-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2.25rem;
+            align-items: stretch;
+        }
+
+        .meta-box {
+            background-color: #FCF9F4;
+            border: 1px solid #e3dcd0;
+            border-radius: 8px;
+            padding: 1.35rem 1.5rem;
+            font-size: 0.88rem;
+            line-height: 1.55;
+            color: #3d4450;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .authors-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            text-align: center;
+        }
+
+        .author-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .author-photo {
+            width: 88px;
+            height: 88px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d9cfc1;
+            margin-bottom: 0.65rem;
+            background-color: #ede6d8;
+        }
+
+        .author-name {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--primary-color);
+            margin-bottom: 0.2rem;
+        }
+
+        .author-affiliation {
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            line-height: 1.35;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .citation-label {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--bordeaux);
+            margin-bottom: 0.5rem;
+        }
+
+        .citation-text {
+            text-align: justify;
+            font-size: 0.88rem;
+            color: #2b2b2b;
+        }
+
+        /* Section Résumé (Français & Anglais côte à côte) */
+        .abstract-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2.75rem;
+        }
+
+        .abstract-box {
+            background-color: #FCF9F4;
+            border: 1px solid #e3dcd0;
+            border-radius: 8px;
+            padding: 1.4rem 1.6rem;
+            font-size: 0.9rem;
+            line-height: 1.62;
+            color: #333;
+            text-align: justify;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .abstract-box h3 {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--bordeaux);
+            margin-bottom: 0.65rem;
+        }
+
+        .abstract-keywords {
+            margin-top: 0.85rem;
+            padding-top: 0.65rem;
+            border-top: 1px dashed #dcd3c4;
+            font-size: 0.83rem;
+            color: var(--accent-color);
+        }
+
+        /* Corps de l'article */
+        .article-body {
+            font-size: 1.06rem;
+            line-height: 1.8;
+            color: var(--text-color);
+        }
+
+        .article-body p {
+            margin-bottom: 1.25rem;
+            text-align: justify;
+        }
+
+        /* Ancres de défilement avec marge supérieure pour ne pas être masquées par la barre fixe */
+        .section-anchor {
+            scroll-margin-top: 90px;
+        }
+
+        .article-body h2 {
+            color: var(--bordeaux);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 2.6rem;
+            margin-bottom: 1.15rem;
+            padding-bottom: 0.45rem;
+            border-bottom: 1px solid #e2d9c8;
+            line-height: 1.3;
+        }
+
+        .article-body h3.subsection-title {
+            color: var(--bordeaux);
+            font-size: 1.22rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            margin-bottom: 0.9rem;
+            line-height: 1.35;
+        }
+
+        /* Lettrine bordeaux en caractère gras pour la section Introduction */
+        .intro-dropcap::first-letter {
+            float: left;
+            font-size: 3.6rem;
+            line-height: 0.82;
+            padding-top: 0.12rem;
+            padding-right: 0.65rem;
+            padding-bottom: 0.05rem;
+            color: var(--bordeaux);
+            font-weight: 700;
+            font-family: "Georgia", "Times New Roman", serif;
+        }
+
+        .article-body ul {
+            margin: 1rem 0 1.4rem 1.75rem;
+        }
+
+        .article-body li {
+            margin-bottom: 0.55rem;
+            text-align: justify;
+            padding-left: 0.25rem;
+        }
+
+        .article-blockquote {
+            margin: 1.5rem 2rem;
+            padding: 1.1rem 1.5rem;
+            border-left: 3px solid var(--bordeaux);
+            background-color: #FCF9F4;
+            font-style: italic;
+            font-size: 1rem;
+            color: #3a3a3a;
+            border-radius: 0 6px 6px 0;
+        }
+
+        sup a.footnote-ref {
+            color: var(--bordeaux);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0 1px;
+        }
+
+        sup a.footnote-ref:hover {
+            text-decoration: underline;
+        }
+
+        /* Cartes conceptuelles interactives SVG (fond plus pâle que #FAF6EF) */
+        .conceptual-card {
+            background-color: #FDFBF7;
+            border: 1px solid #e3dbd0;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2.25rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .conceptual-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #ebe4d8;
+            padding-bottom: 0.75rem;
+        }
+
+        .conceptual-card-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--bordeaux);
+        }
+
+        .conceptual-card-subtitle {
+            font-size: 0.82rem;
+            color: var(--accent-color);
+            margin-top: 0.15rem;
+        }
+
+        .conceptual-badge {
+            font-size: 0.72rem;
+            font-weight: 600;
+            background-color: #f3ede2;
+            color: var(--bordeaux);
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            border: 1px solid #e0d6c5;
+        }
+
+        .svg-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        .svg-wrapper svg {
+            width: 100%;
+            max-width: 960px;
+            height: auto;
+            display: block;
+        }
+
+        .svg-node {
+            cursor: pointer;
+            transition: opacity 0.2s, transform 0.2s;
+        }
+
+        .svg-node:hover {
+            opacity: 0.88;
+        }
+
+        .svg-node.active-node rect,
+        .svg-node.active-node circle {
+            stroke: var(--bordeaux);
+            stroke-width: 2.5px;
+        }
+
+        .diagram-detail-panel {
+            margin-top: 1rem;
+            background-color: #FAF6EF;
+            border: 1px solid #e2d9c8;
+            border-left: 4px solid var(--bordeaux);
+            border-radius: 6px;
+            padding: 0.9rem 1.15rem;
+            font-size: 0.88rem;
+            line-height: 1.55;
+            color: #2b2b2b;
+        }
+
+        .diagram-detail-panel strong {
+            color: var(--bordeaux);
+        }
+
+        /* Bibliographie et notes */
+        .references-section, .footnotes-section {
+            margin-top: 3rem;
+            padding-top: 1.75rem;
+            border-top: 1px solid #dcd3c4;
+        }
+
+        .references-list {
+            list-style: none;
+            margin-left: 0 !important;
+        }
+
+        .references-list li {
+            padding-left: 1.75rem;
+            text-indent: -1.75rem;
+            font-size: 0.92rem;
+            line-height: 1.6;
+            margin-bottom: 0.7rem;
+            color: #373d47;
+        }
+
+        .footnotes-list {
+            font-size: 0.84rem;
+            line-height: 1.55;
+            color: #4a5568;
+            column-count: 2;
+            column-gap: 2rem;
+        }
+
+        .footnote-item {
+            break-inside: avoid;
+            margin-bottom: 0.55rem;
+            scroll-margin-top: 90px;
+        }
+
+        .footnote-item a.back-ref {
+            color: var(--bordeaux);
+            font-weight: 700;
+            text-decoration: none;
+            margin-right: 0.35rem;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            padding-left: 2rem;
+        }
+
+        .btn-header {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: 1px solid var(--primary-color);
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: background-color 0.2s;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-header.secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border-color: var(--border-color);
+        }
+
+        .btn-header.secondary:hover {
+            background-color: #f2ede4;
+            border-color: var(--hover-border);
+        }
+
+        /* Modales */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+        }
+
+        .modal-container {
+            background: var(--bg-color);
+            width: 100%;
+            max-width: 900px;
+            height: 85vh;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            border: 1px solid #d4c5b9;
+        }
+
+        .modal-header {
+            padding: 1.25rem 1.5rem;
+            background: var(--modal-header-bg);
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .modal-header h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .modal-close {
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #fff;
+            opacity: 0.85;
+            transition: opacity 0.2s;
+        }
+
+        .modal-close:hover {
+            opacity: 1;
+        }
+
+        .modal-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            background-color: var(--bg-color);
+        }
+
+        .pdf-frame, .video-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        @media (max-width: 1200px) {
+            :root { --sidebar-width: 0px; }
+            .top-navbar { left: 0; padding: 0 1rem; grid-template-columns: 1fr auto; }
+            .top-navbar-title { display: none; }
+            aside.sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
+            aside.sidebar.mobile-open { transform: translateX(0); }
+            .main-wrapper { margin-left: 0; width: 100%; }
+        }
+
+        @media (max-width: 860px) {
+            .meta-grid, .abstract-grid {
+                grid-template-columns: 1fr;
+            }
+            .footnotes-list {
+                column-count: 1;
+            }
+            .article-title {
+                font-size: 1.65rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barre horizontale permanente supérieure -->
+    <header class="top-navbar">
+        <div class="top-navbar-title">Revue Sociologie Visuelle</div>
+        <div class="header-actions">
+            <button class="btn-header secondary" onclick="openModal('video', 'Présentation introductive — Vidéo', 'https://drive.google.com/file/d/10Va3etjn9wZIqrVnByyNXDVM-XPKOHkK/preview?autoplay=1')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                Visionner la vidéo de présentation
+            </button>
+            <button class="btn-header secondary" onclick="openProposalModal('article')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                Proposer un projet de captation ou un article
+            </button>
+            <button class="btn-header secondary" onclick="openModal('pdf', 'Télécharger le numéro complet', 'https://drive.google.com/file/d/1d3ZUnnEwYomQ1VRQ1lF8XNei88HelQvy/preview')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Télécharger le numéro
+            </button>
+        </div>
+        <div class="top-navbar-location" id="locationIndicator">Les musées inclusifs (MNBAQ)</div>
+    </header>
+
+    <!-- Colonne latérale gauche permanente -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="https://inclusionsociale.com/#article-musees-inclusifs" class="btn-home">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                ACCUEIL
+            </a>
+        </div>
+
+        <div class="sidebar-info-section">
+            <div style="font-size: 0.72rem; color: #718096; text-align: left; margin-bottom: 0.05rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                DOI : <a href="https://doi.org/10.13140/RG.2.2.35504.53768" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; opacity: 0.85;">10.13140/RG.2.2.35504.53768</a>
+            </div>
+
+            <div class="sidebar-card editor-card">
+                <div class="editor-info">
+                    <h4>Éditeurs</h4>
+                    <p><b>François Routhier &amp; Pierre Fraser</b></p>
+                    <p>Plus de 18 équipes de recherche mobilisées afin de saisir comment le milieu façonne et articule l'accès aux services et à l'inclusion sociale.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-nav">
+            <div class="sidebar-section-label">NAVIGATION SUR LE SITE</div>
+
+            <div>
+                <button class="nav-btn" onclick="toggleSubmenu(event, 'accessibilitySubmenu', 'submenuArrow')">
+                    <span>Penser l'accessibilité</span>
+                    <svg id="submenuArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu" id="accessibilitySubmenu">
+                    <a href="https://inclusionsociale.com/#theme-1" class="submenu-item">1. Espace urbain &amp; transports</a>
+                    <a href="https://inclusionsociale.com/#theme-2" class="submenu-item">2. Éducation &amp; institutions</a>
+                    <a href="https://inclusionsociale.com/#theme-3" class="submenu-item">3. Travail, autonomie &amp; loisirs</a>
+                    <a href="https://inclusionsociale.com/#theme-4" class="submenu-item">4. Expérience vécue &amp; stigmates</a>
+                </div>
+            </div>
+
+            <div>
+                <button class="nav-btn" onclick="toggleSubmenu(event, 'bilansSubmenu', 'bilansSubmenuArrow')">
+                    <span>Bilans</span>
+                    <svg id="bilansSubmenuArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu" id="bilansSubmenu">
+                    <a href="https://inclusionsociale.com/mentorat-actif-bilan.html" class="submenu-item">Mentorat actif, un plus tard</a>
+                </div>
+            </div>
+
+            <div>
+                <a href="https://inclusionsociale.com/tournages.html" class="nav-btn" style="font-weight: normal;">
+                    <span>Tournages en cours</span>
+                </a>
+            </div>
+
+            <!-- Mention cliquable NAVIGATION DANS LA PAGE -->
+            <div style="margin-top: 0.35rem; border-top: 1px solid #e2d9c8; padding-top: 0.5rem;">
+                <button class="sidebar-page-nav-toggle" onclick="toggleSubmenu(event, 'pageNavSubmenu', 'pageNavArrow')" aria-expanded="true">
+                    <span>NAVIGATION DANS LA PAGE</span>
+                    <svg id="pageNavArrow" width="14" height="14" fill="none" stroke="#7a2222" stroke-width="2.2" viewBox="0 0 24 24" style="transform: rotate(180deg); transition: transform 0.2s;"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu open" id="pageNavSubmenu" style="margin-top: 0.35rem;">
+                    <a href="#top-presentation" class="submenu-item" onclick="scrollToSection(event, 'top-presentation')">Présentation</a>
+                    <a href="#sec-intro" class="submenu-item" onclick="scrollToSection(event, 'sec-intro')">Introduction</a>
+                    <a href="#sec-1" class="submenu-item" onclick="scrollToSection(event, 'sec-1')">1. Les musées inclusifs</a>
+                    <a href="#sec-2" class="submenu-item" onclick="scrollToSection(event, 'sec-2')">2. L’accès inclusif au MNBAQ</a>
+                    <a href="#sec-3" class="submenu-item" onclick="scrollToSection(event, 'sec-3')">3. Cadre théorique et méthodologie</a>
+                    <a href="#sec-4" class="submenu-item" onclick="scrollToSection(event, 'sec-4')">4. Résultats et recommandations</a>
+                    <a href="#sec-4-avant" class="submenu-item" onclick="scrollToSection(event, 'sec-4-avant')">— Avant la visite</a>
+                    <a href="#sec-4-pendant" class="submenu-item" onclick="scrollToSection(event, 'sec-4-pendant')">— Pendant la visite</a>
+                    <a href="#sec-4-apres" class="submenu-item" onclick="scrollToSection(event, 'sec-4-apres')">— Après la visite</a>
+                    <a href="#sec-conclusion" class="submenu-item" onclick="scrollToSection(event, 'sec-conclusion')">Conclusion</a>
+                    <a href="#sec-references" class="submenu-item" onclick="scrollToSection(event, 'sec-references')">Références bibliographiques</a>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Zone de contenu dynamique à droite -->
+    <div class="main-wrapper" id="top-presentation">
+        <main class="article-container">
+
+            <!-- En-tête de l'article -->
+            <header class="article-header">
+                <span class="article-category-badge">Revue Sociologie Visuelle • N° 4 — Penser l'accessibilité</span>
+                <h1 class="article-title">Les musées inclusifs : le cas du plan d’action sur l’accessibilité universelle du Musée national des beaux-arts du Québec</h1>
+            </header>
+
+            <!-- Deux cases côte à côte directement sous le titre -->
+            <section class="meta-grid" aria-label="Auteures et citation de l'article">
+                <!-- Case 1 : Deux photos des auteures côte à côte, noms puis affiliations -->
+                <div class="meta-box">
+                    <div class="authors-row">
+                        <div class="author-item">
+                            <img src="https://lh3.googleusercontent.com/d/1W3BP4-lVosRprmKQzM7gCljQUGq4VqDs" alt="Aude Porcedda" class="author-photo">
+                            <div class="author-name">Aude Porcedda</div>
+                            <div class="author-affiliation">Université du Québec à Trois-Rivières</div>
+                        </div>
+                        <div class="author-item">
+                            <img src="https://lh3.googleusercontent.com/d/11jPZaji-09Jt4qT_yy_a2tmDqrUPsgOy" alt="Josée Duhaime" class="author-photo">
+                            <div class="author-name">Josée Duhaime</div>
+                            <div class="author-affiliation">Musée national des beaux-arts du Québec</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 2 : Citation de l'article -->
+                <div class="meta-box">
+                    <div class="citation-label">Citer cet article</div>
+                    <p class="citation-text">
+                        Porcedda, A., Duhaime, J. (2023), « Les musées inclusifs : le cas du plan d’action sur l’accessibilité universelle du Musée national des beaux-arts du Québec », <em>Sociologie Visuelle</em>, n° 4, François Routhier et Pierre Fraser (éds.), Québec : Photo|Sociétés, pp. 187-206.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section Résumé : deux cases (Français / Anglais) -->
+            <section class="abstract-grid" aria-label="Résumés en français et en anglais">
+                <div class="abstract-box">
+                    <h3>Résumé</h3>
+                    <p>
+                        Notre article consistera à rendre compte du partage d’expériences entre l’équipe du MNBAQ, les usagers PAI (personnes ayant des incapacités), les experts et les scientifiques autour de l’accessibilité universelle. Il permettra de dégager des recommandations générales et spécifiques pour améliorer l’expérience de visite inclusive selon les limitations des personnes. Il expliquera les défis que le MNBAQ doit relever et les actions entreprises depuis la fin de la recherche pour initier le changement.
+                    </p>
+                    <div class="abstract-keywords">
+                        <strong>Mots clés :</strong> Accessibilité ; inclusion ; médiation ; musée ; PAI.
+                    </div>
+                </div>
+
+                <div class="abstract-box" lang="en">
+                    <h3>Abstract</h3>
+                    <p>
+                        This article reports on the sharing of experiences between the Musée national des beaux-arts du Québec (MNBAQ) team, users with disabilities (PWDs), experts, and researchers around universal accessibility. It identifies general and specific recommendations to enhance an inclusive visitor experience tailored to individuals' diverse limitations. Finally, it outlines the organizational challenges the MNBAQ faces and the concrete actions undertaken since the completion of the study to initiate systemic change.
+                    </p>
+                    <div class="abstract-keywords">
+                        <strong>Keywords:</strong> Accessibility; inclusion; mediation; museum; persons with disabilities.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Corps complet de l'article -->
+            <article class="article-body">
+
+                <h2 id="sec-intro" class="section-anchor">Introduction</h2>
+
+                <p class="intro-dropcap">
+                    Dans le domaine muséal, plusieurs recherches font état des transformations en cours par rapport à l’accueil des non-publics<sup><a class="footnote-ref" id="sdfootnote1anc" href="#sdfootnote1sym">1</a>-<a class="footnote-ref" id="sdfootnote2anc" href="#sdfootnote2sym">2</a></sup> et permettent déjà de déterminer certaines pistes à suivre, que ce soit au sujet de l’accès au bâti<sup><a class="footnote-ref" id="sdfootnote3anc" href="#sdfootnote3sym">3</a>-<a class="footnote-ref" id="sdfootnote4anc" href="#sdfootnote4sym">4</a>-<a class="footnote-ref" id="sdfootnote5anc" href="#sdfootnote5sym">5</a>-<a class="footnote-ref" id="sdfootnote6anc" href="#sdfootnote6sym">6</a>-<a class="footnote-ref" id="sdfootnote7anc" href="#sdfootnote7sym">7</a>-<a class="footnote-ref" id="sdfootnote8anc" href="#sdfootnote8sym">8</a></sup>, la conception universelle des expositions<sup><a class="footnote-ref" id="sdfootnote9anc" href="#sdfootnote9sym">9</a></sup> ou encore la médiation culturelle et du développement des publics<sup><a class="footnote-ref" id="sdfootnote10anc" href="#sdfootnote10sym">10</a>-<a class="footnote-ref" id="sdfootnote11anc" href="#sdfootnote11sym">11</a>-<a class="footnote-ref" id="sdfootnote12anc" href="#sdfootnote12sym">12</a>-<a class="footnote-ref" id="sdfootnote13anc" href="#sdfootnote13sym">13</a>-<a class="footnote-ref" id="sdfootnote14anc" href="#sdfootnote14sym">14</a></sup>. Quant aux travaux sur les besoins des personnes ayant des limitations communicationnelles telles les personnes autistes<sup><a class="footnote-ref" id="sdfootnote15anc" href="#sdfootnote15sym">15</a></sup>, ils révèlent que certaines incapacités demandent des adaptations spécifiques qui peuvent entrer en contradiction avec les pratiques muséales. Enfin, des travaux plus généraux<sup><a class="footnote-ref" id="sdfootnote16anc" href="#sdfootnote16sym">16</a>-<a class="footnote-ref" id="sdfootnote17anc" href="#sdfootnote17sym">17</a>-<a class="footnote-ref" id="sdfootnote18anc" href="#sdfootnote18sym">18</a>-<a class="footnote-ref" id="sdfootnote19anc" href="#sdfootnote19sym">19</a>-<a class="footnote-ref" id="sdfootnote20anc" href="#sdfootnote20sym">20</a></sup> montrent que les freins à l’accessibilité sont attribuables, d’une part, au regard que les PAI portent sur les musées, et d’autre part, à celui qu’adoptent les équipes muséales sur les PAI.
+                </p>
+
+                <p>
+                    Au Québec, il est possible d’affirmer que les premiers gestes visant l’accessibilité ont consisté à éliminer les barrières architecturales<sup><a class="footnote-ref" id="sdfootnote21anc" href="#sdfootnote21sym">21</a></sup>. En effet, l’adoption de lois et de politiques visant à assurer la pleine participation des PAI obligent les organismes publics du Québec à se structurer en adoptant une programmation, des plans d’action et des politiques spécifiques. Toutefois, certains responsables invoqueront les budgets serrés et soutiendront qu’il est difficile de justifier la concentration des ressources sur une faible proportion d’utilisateurs comme les PAI. D’autres, motivés par la conviction que les lieux culturels dans nos sociétés modernes favorisent l’épanouissement de soi et l’accroissement de la qualité de vie<sup><a class="footnote-ref" id="sdfootnote22anc" href="#sdfootnote22sym">22</a>-<a class="footnote-ref" id="sdfootnote23anc" href="#sdfootnote23sym">23</a>-<a class="footnote-ref" id="sdfootnote24anc" href="#sdfootnote24sym">24</a></sup>, saisiront l’occasion pour développer de nouveaux services et produits à l’attention des PAI.
+                </p>
+
+                <p>
+                    Ainsi, une fois les obstacles environnementaux, technologiques, sociaux et économiques levés, le musée veillerait à informer les différents publics, à former son personnel à l’accueil des PAI, à créer des partenariats avec des organismes spécialisés ou des organismes communautaires afin d’être en lien avec les besoins de sa communauté<sup><a class="footnote-ref" id="sdfootnote25anc" href="#sdfootnote25sym">25</a></sup>.
+                </p>
+
+                <h2 id="sec-1" class="section-anchor">1. Les musées inclusifs</h2>
+
+                <p>
+                    Si la muséologie a d’abord été centrée sur les problématiques de conservation et de mise en espace des collections, elle a intégré peu à peu la question du public en offrant des expériences multidimensionnelles et multisensorielles<sup><a class="footnote-ref" id="sdfootnote26anc" href="#sdfootnote26sym">26</a>-<a class="footnote-ref" id="sdfootnote27anc" href="#sdfootnote27sym">27</a></sup>. Ce souci pour l’éducation et la didactique sera plus fort en Amérique du Nord et en Angleterre, car le musée est établi pour le bénéfice de la communauté et non les collections comme en Europe. Ce mouvement conduit les musées en Angleterre et aux États-Unis à poser les premières initiatives à destination des publics vivant avec des incapacités visuelles<sup><a class="footnote-ref" id="sdfootnote28anc" href="#sdfootnote28sym">28</a></sup>. À cet égard, la Perkins Institution (1893), l’American Museum of Natural History de New York aux États-Unis (1909), le Sunderland Museum (1913) en Angleterre ou encore le Musée Ethnologique de l’Université McGill au Québec (1932) se sont démarqués en offrant des activités aux personnes malentendantes<sup><a class="footnote-ref" id="sdfootnote29anc" href="#sdfootnote29sym">29</a></sup>.
+                </p>
+
+                <p>
+                    Toutefois, il faudra attendre le début des années 1970 pour observer, dans le milieu muséal, une prise de conscience des inégalités sociales, notamment des incapacités vécues par les personnes vivant avec des séquelles de la guerre. En France, en Europe, comme aux États&#8209;Unis, l’accessibilité est d’abord portée dans trois domaines que sont le cadre bâti, les transports et l’information-communication<sup><a class="footnote-ref" id="sdfootnote30anc" href="#sdfootnote30sym">30</a></sup>. Ainsi, plusieurs musées font figure de références en matière d’accessibilité. Citons l’aménagement des espaces du Centre Pompidou (1977). Le Victoria and Albert Museum inscrivait dans sa mission, dès les années 1980, les concepts suivants : accès, inclusion et diversité. Quant au Musée national des sciences, des techniques et des industries de La Villette (France), il a rédigé en 1984 une Charte des personnes handicapées. Des expositions ont été réalisées comme <em>Vue d’un autre œil</em> au Musée de la Civilisation de Québec en 1989. Enfin des espaces de visite ont complètement été dédiés aux personnes vivant avec des incapacités, telles que les incapacités visuelles avec la création de la galerie tactile du Louvre à Paris (1995). Les exemples peuvent être multipliés, mais ce qu’il est important de retenir, c’est l’émergence d’une réflexion partagée par les professionnels du secteur muséal autour de la problématique commune qu’est l’accessibilité universelle<sup><a class="footnote-ref" id="sdfootnote31anc" href="#sdfootnote31sym">31</a></sup>.
+                </p>
+
+                <p>
+                    Depuis une dizaine d’années, un nouveau courant de la muséologie préconise de dissoudre le primat de la conservation des bâtiments et des collections afin de se recentrer vers les publics : l’acquisition de cette fonction sociale force les musées à être au service du développement de la société en étant en lien avec l’environnement naturel et social qui les entoure<sup><a class="footnote-ref" id="sdfootnote32anc" href="#sdfootnote32sym">32</a></sup>. C’est de cette manière que le mouvement des musées bienveillants s’impose<sup><a class="footnote-ref" id="sdfootnote33anc" href="#sdfootnote33sym">33</a></sup>. Le concept de musée bienveillant — plus connu sous l’appellation <em>caring museum</em><sup><a class="footnote-ref" id="sdfootnote34anc" href="#sdfootnote34sym">34</a>-<a class="footnote-ref" id="sdfootnote35anc" href="#sdfootnote35sym">35</a></sup> — amène les musées à favoriser les capacités et la démarche d’autonomie face à l’art, l’histoire ou la science de leurs visiteurs, quels que soient leur âge ou leur origine sociale. Ainsi, l’année 2022 ancrera ce mouvement au niveau international lors de la modification de la définition des musées :
+                </p>
+
+                <blockquote class="article-blockquote">
+                    « Un musée est une institution permanente, à but non lucratif, au service de la société, qui se consacre à la recherche, la collecte, la conservation, l’interprétation et l’exposition du patrimoine matériel et immatériel. Ouvert au public, accessible et inclusif, il encourage la diversité et la durabilité. Les musées opèrent et communiquent de manière éthique et professionnelle, avec la participation de diverses communautés. Ils offrent à leurs publics des expériences variées d’éducation, de divertissement, de réflexion et de partage de connaissances<sup><a class="footnote-ref" id="sdfootnote36anc" href="#sdfootnote36sym">36</a></sup> ».
+                </blockquote>
+
+                <p>
+                    Dans le contexte du handicap, un musée bienveillant devient théoriquement un musée qui accueille les visiteurs, en prend soin tout comme avec leurs employés, leurs communautés et leurs partenaires, s’adapte à leurs incapacités et stimule leurs compétences. Les responsables des musées sont alors invités à repenser l’aménagement et l’accessibilité de leurs architectures, de leurs expositions, de leurs activités de médiation, mais également à repenser la nature de leurs partenariats, la formation de leurs employés et plus globalement la gestion de l’institution.
+                </p>
+
+                <p>
+                    Toutefois, l’expérience de visite des PAI et leur participation sociale sont freinées par les dépenses secondaires (ex. payer le transport, un accompagnateur, etc.), la planification du trajet pour se rendre du domicile au lieu culturel, par la disponibilité conditionnelle d’un tiers ou encore par le degré d’autonomie. Le musée, comme organisation, crée, de par son fonctionnement, plusieurs obstacles, tels que la manière de penser les politiques tarifaires, les difficultés environnementales pour accéder et se déplacer dans le musée, mais également les difficultés techniques (utilisation des applications non accessibles), financières (budget non prévu en amont), humaines (personnes non formées), de communication (expliquer les adaptations ponctuelles à tous lors d’un événement) ou encore d’information (partage des conditions d’accueil à l’ensemble du personnel). Les contraintes sont également liées à l’environnement avoisinant dans lequel le musée existe et sont occasionnées par des difficultés institutionnelles (visions, financements, expertises), sociétales (représentation, éducation, civisme) ou encore sociocognitives (supports d’apprentissage, types de communication, compréhension des besoins des différents types d’incapacités).
+                </p>
+
+                <!-- CARTE CONCEPTUELLE 1 : Évolution paradigmatique & écosystème des freins -->
+                <div class="conceptual-card" id="diagram-1">
+                    <div class="conceptual-card-header">
+                        <div>
+                            <div class="conceptual-card-title">Carte conceptuelle 1 — Du musée-collection au « Caring Museum » et cartographie des obstacles</div>
+                            <div class="conceptual-card-subtitle">Cliquez sur un jalon historique ou une sphère d'obstacles pour afficher son analyse sociologique</div>
+                        </div>
+                        <span class="conceptual-badge">Infographie interactive</span>
+                    </div>
+                    <div class="svg-wrapper">
+                        <svg viewBox="0 0 920 310" role="img" aria-label="Diagramme de l'évolution des musées et des freins à l'inclusion">
+                            <defs>
+                                <marker id="arrowBordeaux" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#7a2222"/>
+                                </marker>
+                            </defs>
+                            <!-- Ligne temporelle supérieure -->
+                            <text x="20" y="24" font-size="12" font-weight="700" fill="#7a2222" letter-spacing="0.5">A. MUTATION HISTORIQUE DU PARADIGME MUSÉAL</text>
+                            <line x1="120" y1="75" x2="800" y2="75" stroke="#cbbba3" stroke-width="3" marker-end="url(#arrowBordeaux)"/>
+
+                            <g class="svg-node active-node" onclick="selectDiagramNode('d1', 0, this)">
+                                <rect x="20" y="40" width="240" height="72" rx="8" fill="#FAF6EF" stroke="#7a2222" stroke-width="2"/>
+                                <text x="140" y="65" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">1. Primat de la collection</text>
+                                <text x="140" y="84" text-anchor="middle" font-size="11" fill="#4a5568">Conservation &amp; mise en espace</text>
+                                <text x="140" y="100" text-anchor="middle" font-size="10" fill="#7a2222">(XIXe s. – années 1960)</text>
+                            </g>
+
+                            <g class="svg-node" onclick="selectDiagramNode('d1', 1, this)">
+                                <rect x="330" y="40" width="250" height="72" rx="8" fill="#FAF6EF" stroke="#c8bda9" stroke-width="1.5"/>
+                                <text x="455" y="65" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">2. Accessibilité normative</text>
+                                <text x="455" y="84" text-anchor="middle" font-size="11" fill="#4a5568">Cadre bâti, transport, info-com</text>
+                                <text x="455" y="100" text-anchor="middle" font-size="10" fill="#7a2222">(Années 1970 – Pompidou, Louvre)</text>
+                            </g>
+
+                            <g class="svg-node" onclick="selectDiagramNode('d1', 2, this)">
+                                <rect x="650" y="40" width="250" height="72" rx="8" fill="#FAF6EF" stroke="#c8bda9" stroke-width="1.5"/>
+                                <text x="775" y="65" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">3. Musée bienveillant (ICOM 2022)</text>
+                                <text x="775" y="84" text-anchor="middle" font-size="11" fill="#4a5568">Caring museum, autonomie &amp; soin</text>
+                                <text x="775" y="100" text-anchor="middle" font-size="10" fill="#7a2222">(Fonction sociale &amp; participative)</text>
+                            </g>
+
+                            <!-- Séparateur -->
+                            <line x1="20" y1="138" x2="900" y2="138" stroke="#e4dccf" stroke-dasharray="4 4"/>
+                            <text x="20" y="162" font-size="12" font-weight="700" fill="#7a2222" letter-spacing="0.5">B. SYSTÈME DES FREINS À L'EXPÉRIENCE DES PAI</text>
+
+                            <g class="svg-node" onclick="selectDiagramNode('d1', 3, this)">
+                                <rect x="20" y="178" width="275" height="112" rx="8" fill="#F5EFE4" stroke="#c8bda9" stroke-width="1.5"/>
+                                <text x="157" y="202" text-anchor="middle" font-size="13" font-weight="700" fill="#7a2222">Obstacles individuels &amp; périphériques</text>
+                                <text x="157" y="224" text-anchor="middle" font-size="11.5" fill="#2b2b2b">• Coûts secondaires (transport, tiers)</text>
+                                <text x="157" y="244" text-anchor="middle" font-size="11.5" fill="#2b2b2b">• Planification complexe du trajet</text>
+                                <text x="157" y="264" text-anchor="middle" font-size="11.5" fill="#2b2b2b">• Dépendance au degré d'autonomie</text>
+                            </g>
+
+                            <g class="svg-node" onclick="selectDiagramNode('d1', 4, this)">
+                                <rect x="322" y="178" width="275" height="112" rx="8" fill="#F5EFE4" stroke="#c8bda9" stroke-width="1.5"/>
+                                <text x="459" y="202" text-anchor="middle" font-size="13" font-weight="700" fill="#7a2222">Obstacles organisationnels internes</text>
+                                <text x="459" y="224" text-anchor="middle" font-size="11.5" fill="#2b2b2b">• Politiques tarifaires &amp; budgets tardifs</text>
+                                <text x="459" y="244" text-anchor="middle" font-size="11.5" fill="#2b2b2b">• Applications numériques inaccessibles</text>
+                                <text x="459" y="264" text-anchor="middle" font-size="11.5" fill="#2b2b2b">• Déficit de formation &amp; info interne</text>
+                            </g>
+
+                            <g class="svg-node" onclick="selectDiagramNode('d1', 5, this)">
+                                <rect x="625" y="178" width="275" height="112" rx="8" fill="#F5EFE4" stroke="#c8bda9" stroke-width="1.5"/>
+                                <text x="762" y="202" text-anchor="middle" font-size="13" font-weight="700" fill="#7a2222">Contraintes macro-environnementales</text>
+                                <text x="762" y="224" text-anchor="middle" font-size="11.5" fill="#2b2b2b">• Institutionnelles (visions, normes)</text>
+                                <text x="762" y="244" text-anchor="middle" font-size="11.5" fill="#2b2b2b">• Sociétales (représentations, civisme)</text>
+                                <text x="762" y="264" text-anchor="middle" font-size="11.5" fill="#2b2b2b">• Sociocognitives (supports adaptés)</text>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="diagram-detail-panel" id="d1-detail">
+                        <strong>1. Primat de la collection (XIXe s. – années 1960) :</strong> La muséologie traditionnelle privilégiait la conservation matérielle des œuvres. Dès 1893 (Perkins Institution) puis 1932 (Musée Ethnologique de McGill), des initiatives pionnières émergent en Amérique du Nord et en Angleterre, où le musée est conçu pour le bénéfice éducatif de la communauté.
+                    </div>
+                </div>
+
+                <h2 id="sec-2" class="section-anchor">2. L’accès inclusif au Musée national des beaux-arts du Québec (MNBAQ)</h2>
+
+                <p>
+                    Au Québec, la première loi assurant l’exercice des droits des personnes handicapées est adoptée en 1978, créant ainsi l’Office des personnes handicapées du Québec (OPHQ), qui veille à offrir des services, à informer et conseiller les personnes présentant un handicap afin de favoriser leur intégration scolaire, professionnelle et sociale<sup><a class="footnote-ref" id="sdfootnote37anc" href="#sdfootnote37sym">37</a></sup>. En 1984, la première politique, <em>À part… égale</em> est adoptée dès lors et permettant de sortir d’une approche biomédicale du handicap à une perspective de citoyenneté, de droits de la personne et d’égalité des chances. En 2004, le projet de loi n° 56 oblige les ministères, les municipalités, les entreprises de transport en commun, les établissements scolaires et les Sociétés d’État à rendre annuellement des comptes sur les mesures adoptées pour favoriser l’accès, l’intégration et la participation des personnes ayant des incapacités.
+                </p>
+
+                <p>
+                    En tant que Société d’État, le Musée national des beaux-arts du Québec (MNBAQ) a l’obligation de fournir un plan d’action annuel visant à améliorer son accessibilité aux publics en situation de handicap, et ce, depuis 2009. Le dossier de l’accessibilité universelle a alors été sous la responsabilité du service des ressources matérielles. En 2018, le MNBAQ a été accrédité par l’organisme Kéroul, qui évalue l’accessibilité des lieux touristiques grâce à l’aménagement bâti et l’offre d’entrées gratuites aux accompagnateurs des personnes ayant des incapacités. Le MNBAQ s’est alors engagé à mettre l’accessibilité au cœur de son plan stratégique et de son plan d’action. Plusieurs projets sont développés, particulièrement au niveau de la médiation culturelle, par l’amélioration d’une programmation favorisant la création et la diffusion de projets artistiques inspirés de la collection nationale. Les groupes visés sont les PAI, les personnes vivant avec une problématique de santé mentale et les groupes marginalisés. Dans ce contexte, des rencontres artistiques de répit en mode virtuel, accessibles, ont été offertes aux PAI par l’intermédiaire des organismes communautaires ainsi qu’au grand public. Par-là, les gens pouvaient, à l’aide d’une art-thérapeute, se ressourcer grâce à la beauté<sup><a class="footnote-ref" id="sdfootnote38anc" href="#sdfootnote38sym">38</a></sup>. Des exemples de projets réalisés par le MNBAQ sont présentés ci-dessous :
+                </p>
+
+                <ul>
+                    <li><strong>accès-musée :</strong> un programme pour accueillir gratuitement les clientèles en structurant des partenariats avec les organismes communautaires ;</li>
+                    <li><strong>s’inspirer :</strong> un projet qui touche les 18-30 ans vivant avec des problématiques de santé mentale ;</li>
+                    <li><strong>parcours sensoriel :</strong> un projet pour les personnes ayant une déficience visuelle qui propose un parcours sensoriel de sept stations interactives, présentant certaines œuvres d’art à découvrir grâce à des dispositifs sonores, en braille, et tactiles (avec la firme Tactile Studio) ;</li>
+                    <li><strong>InterG :</strong> un projet aidant à combattre l’isolement chez les aînés tout en stimulant la création d’échanges et de rencontres intergénérationnelles avec les tout-petits.</li>
+                </ul>
+
+                <p>
+                    L’évolution de l’action muséale du MNBAQ en matière d’accessibilité universelle peut se résumer en trois étapes qui sont autant de niveaux d’engagement. Dans un premier temps, le MNBAQ a procédé à des adaptations physiques et a offert la gratuité aux accompagnateurs des PAI. Le responsable de ce dossier appartenait à la direction des ressources matérielles. Des formations de Kéroul étaient offertes aux employés du service à la clientèle. Toutefois, les différents types d’incapacités, autres que motrices, n’étaient pas prises en compte.
+                </p>
+
+                <p>
+                    Dans un deuxième temps, la direction de la médiation a concentré ses actions pour bâtir des liens avec la communauté et co-construire des activités et des services plus adaptés à une plus large diversité d’incapacités. Des ressources en médiation ont alors été embauchées pour faciliter l’adaptation de l’offre en fonction des différents types d’incapacités et le développement des liens avec le milieu communautaire. Néanmoins, force est de constater que les actions de médiation ne permettent pas un renouvellement des pratiques muséales dans leur ensemble. En effet, la mise en place de services et de produits n’entraîne ni une transformation de la perception du handicap dans la culture organisationnelle, ni une généralisation dans les pratiques. Il est donc possible, pour un corps professionnel, un service ou une direction de maintenir son fonctionnement sans considérer l’accessibilité universelle, voire pour un musée de limiter les actions lorsque la priorité est moins soutenue par l’équipe de direction. La transversalité que l’accessibilité universelle impose est difficilement conciliable, à court et moyen terme, avec la nécessité de maintenir le fonctionnement du musée.
+                </p>
+
+                <p>
+                    Dans un troisième temps, le MNBAQ souhaite que l’accessibilité universelle s’inscrive durablement dans un projet collectif plutôt que dans des actions isolées et ponctuelles. Dans ces conditions, la direction générale a inscrit l’accessibilité universelle dans la planification stratégique. Ce troisième niveau d’engagement inviterait à faire de l’accessibilité universelle une valeur à part entière, de reconnaître les membres du personnel vivant avec des incapacités et de faire en sorte que l’accessibilité universelle devienne, à court et moyen termes, un symbole de fierté, et permette, à long terme, de contribuer à la participation sociale du plus grand nombre.
+                </p>
+
+                <!-- CARTE CONCEPTUELLE 2 : Les 3 étapes d'engagement du MNBAQ -->
+                <div class="conceptual-card" id="diagram-2">
+                    <div class="conceptual-card-header">
+                        <div>
+                            <div class="conceptual-card-title">Carte conceptuelle 2 — Les trois niveaux d’engagement institutionnel du MNBAQ</div>
+                            <div class="conceptual-card-subtitle">Sélectionnez une phase pour explorer les porteurs du dossier, les réalisations et les limites structurelles</div>
+                        </div>
+                        <span class="conceptual-badge">Modèle évolutif</span>
+                    </div>
+                    <div class="svg-wrapper">
+                        <svg viewBox="0 0 920 225" role="img" aria-label="Les trois étapes d'engagement du MNBAQ">
+                            <defs>
+                                <marker id="arrowStep" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#7a2222"/>
+                                </marker>
+                            </defs>
+                            <!-- Étape 1 -->
+                            <g class="svg-node active-node" onclick="selectDiagramNode('d2', 0, this)">
+                                <rect x="20" y="25" width="265" height="175" rx="10" fill="#FAF6EF" stroke="#7a2222" stroke-width="2"/>
+                                <rect x="20" y="25" width="265" height="36" rx="10" fill="#7a2222"/>
+                                <text x="152" y="48" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">ÉTAPE 1 : Approche matérielle</text>
+                                <text x="36" y="84" font-size="12" font-weight="700" fill="#1a202c">Pilote : Ressources matérielles</text>
+                                <text x="36" y="106" font-size="11.5" fill="#2b2b2b">• Plan d'action annuel (dès 2009)</text>
+                                <text x="36" y="126" font-size="11.5" fill="#2b2b2b">• Accréditation Kéroul (2018)</text>
+                                <text x="36" y="146" font-size="11.5" fill="#2b2b2b">• Gratuité aux accompagnateurs</text>
+                                <text x="36" y="176" font-size="11" font-style="italic" fill="#7a2222">Limite : centré sur la motricité</text>
+                            </g>
+
+                            <line x1="290" y1="112" x2="322" y2="112" stroke="#7a2222" stroke-width="2.5" marker-end="url(#arrowStep)"/>
+
+                            <!-- Étape 2 -->
+                            <g class="svg-node" onclick="selectDiagramNode('d2', 1, this)">
+                                <rect x="328" y="25" width="265" height="175" rx="10" fill="#FAF6EF" stroke="#c8bda9" stroke-width="1.5"/>
+                                <rect x="328" y="25" width="265" height="36" rx="10" fill="#5a3838"/>
+                                <text x="460" y="48" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">ÉTAPE 2 : Médiation &amp; co-création</text>
+                                <text x="344" y="84" font-size="12" font-weight="700" fill="#1a202c">Pilote : Direction de la médiation</text>
+                                <text x="344" y="106" font-size="11.5" fill="#2b2b2b">• Liens milieu communautaire</text>
+                                <text x="344" y="126" font-size="11.5" fill="#2b2b2b">• Projets : accès-musée, InterG,</text>
+                                <text x="352" y="143" font-size="11.5" fill="#2b2b2b">s'inspirer, parcours sensoriel</text>
+                                <text x="344" y="176" font-size="11" font-style="italic" fill="#7a2222">Limite : silos entre directions</text>
+                            </g>
+
+                            <line x1="598" y1="112" x2="630" y2="112" stroke="#7a2222" stroke-width="2.5" marker-end="url(#arrowStep)"/>
+
+                            <!-- Étape 3 -->
+                            <g class="svg-node" onclick="selectDiagramNode('d2', 2, this)">
+                                <rect x="636" y="25" width="265" height="175" rx="10" fill="#FAF6EF" stroke="#c8bda9" stroke-width="1.5"/>
+                                <rect x="636" y="25" width="265" height="36" rx="10" fill="#3a2a2a"/>
+                                <text x="768" y="48" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">ÉTAPE 3 : Projet collectif global</text>
+                                <text x="652" y="84" font-size="12" font-weight="700" fill="#1a202c">Pilote : Direction générale</text>
+                                <text x="652" y="106" font-size="11.5" fill="#2b2b2b">• Planification stratégique globale</text>
+                                <text x="652" y="126" font-size="11.5" fill="#2b2b2b">• Reconnaissance employés PAI</text>
+                                <text x="652" y="146" font-size="11.5" fill="#2b2b2b">• Transversalité &amp; fierté partagée</text>
+                                <text x="652" y="176" font-size="11" font-style="italic" fill="#2c5e3b">Objectif : participation citoyenne</text>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="diagram-detail-panel" id="d2-detail">
+                        <strong>Étape 1 — Approche matérielle et normative (2009–2018) :</strong> Sous l'impulsion de la Loi de 2004 (projet de loi n° 56) et de l'accréditation Kéroul, le MNBAQ adapte ses infrastructures physiques et forme l'accueil. Bien qu'essentielle, cette phase laisse dans l'ombre les incapacités sensorielles, intellectuelles et psychologiques.
+                    </div>
+                </div>
+
+                <h2 id="sec-3" class="section-anchor">3. Notre cadre théorique et méthodologie ainsi que les participants à cette recherche</h2>
+
+                <p>
+                    Pour penser les musées inclusifs dans le cadre de ce projet de recherche, le modèle de développement humain : <em>Processus de production du handicap</em> (MDH-PPH)<sup><a class="footnote-ref" id="sdfootnote39anc" href="#sdfootnote39sym">39</a></sup>, combiné à la chaîne de l’accessibilité culturelle<sup><a class="footnote-ref" id="sdfootnote40anc" href="#sdfootnote40sym">40</a></sup> a permis de considérer, avant, pendant et après l’expérience de visite, l’ensemble des dimensions systémiques (macro-environnement sociétal, microenvironnement personnel, méso-environnement communautaire) interagissant avec les caractéristiques personnelles de chaque personne dans la réalisation de leurs habitudes de vie. Qu’il s’agisse du coût de l’activité culturelle (abordabilité), de l’offre de transport collectif ou adapté, des espaces, des expositions ou des services de restauration (disponibilité), de l’accueil des personnes ayant des incapacités par les employés du musée (acceptabilité), de l’environnement muséal (accessibilité) et des adaptations mises en place (adaptabilités). Ainsi, l’accès inclusif vise la pleine participation sociale, citoyenne et culturelle et l’exercice du droit à l’égalité pour toutes les personnes : c’est donc un projet de société et une responsabilité collective<sup><a class="footnote-ref" id="sdfootnote41anc" href="#sdfootnote41sym">41</a></sup>.
+                </p>
+
+                <p>
+                    Dans ce cadre, notre devis qualitatif s’est basé sur une étude de cas au MNBAQ dans une démarche de recherche-action. Entre juin 2021 et février 2022, grâce au partenariat avec ce dernier et le Regroupement des organismes pour personnes handicapés de la région de la Capitale-Nationale (ROP-03), nous avons conduit quatre groupes de discussions avec les employés du musée (n = 12), réalisé des observations (n = 13) et complété un questionnaire avec les PAI sur leur expérience en suivant le parcours d’accessibilité avant, pendant et après leur visite, ainsi que demandé à trois experts des rapports d’analyse du contenu (littératie), de l’architecture (ergothérapie) et du point de vue du milieu associatif. L’ensemble des données a été triangulé afin de faire ressortir les freins et les facilitateurs à l’expérience muséale pour les PAI. De là, nous avons pu formuler des recommandations pour optimiser l’accès au contenu et au bâtiment et proposer des stratégies de gestion du musée dans ce domaine.
+                </p>
+
+                <p>
+                    Nous avons ainsi rencontré les trois groupes de participants suivants : les personnes ayant des incapacités, les employés et les experts. Les treize PAI étaient majoritairement des femmes (61 %) de 60 ans et plus (31 %) avec une scolarité de niveau universitaire (31 %) et des types d’incapacités variés au regard de l’ensemble des participants : mixte (23 %), moteur (15 %), visuel (8 %) et auditif (15 %). Les participantes féminines se sont majoritairement déplacées avec leur propre véhicule (46 %) et sont venues seules, en couple ou entre amies. Quant aux participants masculins, le type d’incapacité majoritaire est d’origine motrice (23 %). Âgés principalement de 60 ans et plus (60 % des hommes), leur scolarité est de niveau collégial (40 %), secondaire (40 %) et primaire (20 %). Leur visite s’est faite en couple ou avec un ami. Ils ont privilégié le transport adapté (39 % des participants masculins) pour se rendre au MNBAQ. Plus globalement, nous avons constaté, en fonction du type d’incapacités, les faits significatifs suivants :
+                </p>
+
+                <ul>
+                    <li>les personnes présentant une incapacité motrice sont plus représentées dans notre échantillon que celles présentant une incapacité psychologique ;</li>
+                    <li>seule une personne de 60 ans et plus est venue faire la visite avec sa propre voiture, présentant une incapacité motrice et son niveau scolaire est collégial, alors que toutes les autres personnes étaient accompagnées ;</li>
+                    <li>les personnes accompagnées (en couple ou avec un accompagnateur) ont majoritairement utilisé leur propre véhicule ;</li>
+                    <li>le transport adapté a majoritairement été utilisé par les personnes ayant une incapacité motrice ou visuelle.</li>
+                </ul>
+
+                <p>
+                    Dans le cadre de quatre focus groupes, les douze employés de la conservation, de la médiation, du service à la clientèle, de la sécurité, des ressources humaines, des ressources matérielles et de la boutique ont répondu à nos questions sur leur travail, sur leur perception et leur compréhension de l’accessibilité universelle, et sur leur sensibilisation à cet enjeu. Leurs connaissances des actions posées au MNBAQ et leur avis sur les conditions de succès et d’échec pour la mise en œuvre de l’accessibilité universelle, sur les actions à prioriser et sur les éléments à éviter dans la gestion du changement au sein du MNBAQ y ont également été abordés.
+                </p>
+
+                <p>
+                    Enfin, un expert en ergothérapie pour analyser les lieux, un expert en littératie pour analyser les textes et le site Web, ainsi qu’un expert du milieu associatif pour analyser l’expérience muséale ont été mandatés afin de partager leurs recommandations en matière d’accessibilité muséale. En les convoquant, l’idée était double, soit (1) de confronter la norme à la réalité de l’expérience de visite, et (2) d’outiller le MNBAQ avec des recommandations partagées par les professionnels du handicap.
+                </p>
+
+                <!-- CARTE CONCEPTUELLE 3 : Architecture théorique MDH-PPH & Triangulation -->
+                <div class="conceptual-card" id="diagram-3">
+                    <div class="conceptual-card-header">
+                        <div>
+                            <div class="conceptual-card-title">Carte conceptuelle 3 — Cadre théorique (MDH-PPH &amp; Chaîne culturelle) et triangulation méthodologique</div>
+                            <div class="conceptual-card-subtitle">Cliquez sur les dimensions de la chaîne d'accessibilité ou sur les pôles d'enquête (n = 28 participants/experts)</div>
+                        </div>
+                        <span class="conceptual-badge">Architecture méthodologique</span>
+                    </div>
+                    <div class="svg-wrapper">
+                        <svg viewBox="0 0 920 275" role="img" aria-label="Architecture théorique et méthodologique de l'étude">
+                            <!-- Bloc Gauche : MDH-PPH & 5 critères -->
+                            <rect x="20" y="18" width="520" height="240" rx="10" fill="#FAF6EF" stroke="#d5cbb8" stroke-width="1.5"/>
+                            <text x="280" y="42" text-anchor="middle" font-size="13" font-weight="700" fill="#7a2222">MODÈLE MDH-PPH × CHAÎNE D'ACCESSIBILITÉ CULTURELLE</text>
+                            <text x="280" y="60" text-anchor="middle" font-size="11" fill="#4a5568">Interaction entre facteurs personnels et environnements (Micro / Méso / Macro)</text>
+
+                            <g class="svg-node active-node" onclick="selectDiagramNode('d3', 0, this)">
+                                <rect x="38" y="76" width="150" height="52" rx="6" fill="#F3EDE2" stroke="#7a2222" stroke-width="2"/>
+                                <text x="113" y="98" text-anchor="middle" font-size="12" font-weight="700" fill="#1a202c">Abordabilité</text>
+                                <text x="113" y="115" text-anchor="middle" font-size="10.5" fill="#4a5568">Coûts directs &amp; indirects</text>
+                            </g>
+
+                            <g class="svg-node" onclick="selectDiagramNode('d3', 1, this)">
+                                <rect x="205" y="76" width="150" height="52" rx="6" fill="#F3EDE2" stroke="#c8bda9" stroke-width="1.5"/>
+                                <text x="280" y="98" text-anchor="middle" font-size="12" font-weight="700" fill="#1a202c">Disponibilité</text>
+                                <text x="280" y="115" text-anchor="middle" font-size="10.5" fill="#4a5568">Transport, espaces, resto</text>
+                            </g>
+
+                            <g class="svg-node" onclick="selectDiagramNode('d3', 2, this)">
+                                <rect x="372" y="76" width="150" height="52" rx="6" fill="#F3EDE2" stroke="#c8bda9" stroke-width="1.5"/>
+                                <text x="447" y="98" text-anchor="middle" font-size="12" font-weight="700" fill="#1a202c">Acceptabilité</text>
+                                <text x="447" y="115" text-anchor="middle" font-size="10.5" fill="#4a5568">Accueil &amp; regard social</text>
+                            </g>
+
+                            <g class="svg-node" onclick="selectDiagramNode('d3', 3, this)">
+                                <rect x="115" y="144" width="155" height="52" rx="6" fill="#F3EDE2" stroke="#c8bda9" stroke-width="1.5"/>
+                                <text x="192" y="166" text-anchor="middle" font-size="12" font-weight="700" fill="#1a202c">Accessibilité</text>
+                                <text x="192" y="183" text-anchor="middle" font-size="10.5" fill="#4a5568">Bâti, signalétique, web</text>
+                            </g>
+
+                            <g class="svg-node" onclick="selectDiagramNode('d3', 4, this)">
+                                <rect x="290" y="144" width="155" height="52" rx="6" fill="#F3EDE2" stroke="#c8bda9" stroke-width="1.5"/>
+                                <text x="367" y="166" text-anchor="middle" font-size="12" font-weight="700" fill="#1a202c">Adaptabilité</text>
+                                <text x="367" y="183" text-anchor="middle" font-size="10.5" fill="#4a5568">Dispositifs sur mesure</text>
+                            </g>
+
+                            <rect x="38" y="210" width="484" height="32" rx="5" fill="#7a2222"/>
+                            <text x="280" y="230" text-anchor="middle" font-size="11.5" font-weight="600" fill="#ffffff">Parcours chronologique : AVANT LA VISITE  →  PENDANT LA VISITE  →  APRÈS LA VISITE</text>
+
+                            <!-- Bloc Droit : Triangulation des données -->
+                            <rect x="560" y="18" width="340" height="240" rx="10" fill="#FAF6EF" stroke="#d5cbb8" stroke-width="1.5"/>
+                            <text x="730" y="42" text-anchor="middle" font-size="13" font-weight="700" fill="#7a2222">TRIANGULATION (2021–2022)</text>
+
+                            <g class="svg-node" onclick="selectDiagramNode('d3', 5, this)">
+                                <rect x="580" y="60" width="300" height="54" rx="6" fill="#F3EDE2" stroke="#c8bda9" stroke-width="1.5"/>
+                                <text x="730" y="82" text-anchor="middle" font-size="12" font-weight="700" fill="#1a202c">1. Usagers PAI (n = 13)</text>
+                                <text x="730" y="100" text-anchor="middle" font-size="10.5" fill="#4a5568">Observations in situ + questionnaires (61% F, 60+ ans)</text>
+                            </g>
+
+                            <g class="svg-node" onclick="selectDiagramNode('d3', 6, this)">
+                                <rect x="580" y="124" width="300" height="54" rx="6" fill="#F3EDE2" stroke="#c8bda9" stroke-width="1.5"/>
+                                <text x="730" y="146" text-anchor="middle" font-size="12" font-weight="700" fill="#1a202c">2. Employés du MNBAQ (n = 12)</text>
+                                <text x="730" y="164" text-anchor="middle" font-size="10.5" fill="#4a5568">4 focus groupes (plancher &amp; plateau)</text>
+                            </g>
+
+                            <g class="svg-node" onclick="selectDiagramNode('d3', 7, this)">
+                                <rect x="580" y="188" width="300" height="54" rx="6" fill="#F3EDE2" stroke="#c8bda9" stroke-width="1.5"/>
+                                <text x="730" y="210" text-anchor="middle" font-size="12" font-weight="700" fill="#1a202c">3. Experts mandatés (n = 3)</text>
+                                <text x="730" y="228" text-anchor="middle" font-size="10.5" fill="#4a5568">Ergothérapie, littératie (Scolarius) &amp; milieu associatif</text>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="diagram-detail-panel" id="d3-detail">
+                        <strong>Abordabilité :</strong> Englobe non seulement le tarif d'entrée (gratuit pour l'accompagnateur), mais surtout le coût financier, cognitif et organisationnel assumé par la PAI pour planifier son déplacement et mobiliser un accompagnateur.
+                    </div>
+                </div>
+
+                <h2 id="sec-4" class="section-anchor">4. Les résultats et les recommandations issus de la recherche</h2>
+
+                <h3 id="sec-4-avant" class="subsection-title section-anchor">Avant la visite : les usagers doivent s’organiser seuls</h3>
+
+                <p>
+                    L’évaluation de cette portion du parcours s’est faite sur le plan de la planification de la venue des participants, qui devaient consulter le site Internet du MNBAQ et préparer leur déplacement de leur domicile à l’entrée du musée.
+                </p>
+
+                <p>
+                    Que ce soit pour les visiteurs, pour les employés ou pour les experts, l’accès au contenu sur le site Internet pour aider à la préparation de la visite ne semble pas optimal, voire pourrait se révéler être un obstacle à la planification de la visite. Le contenu n’est ni lisible ni compréhensible ou accessible sans formation ou connaissance préalable. Les personnes rencontrées suggèrent de mieux organiser l’information, de revoir les liens qui permettent d’obtenir de l’information sur les expositions et sur les services accessibles, ainsi que de prévoir des facilitateurs comme la synthèse vocale des informations ou le grossissement des caractères.
+                </p>
+
+                <p>
+                    Quant aux éléments architecturaux, ils touchent le stationnement et l’accès à l’édifice, l’entretien des sols et les portes extérieures. Le chemin pour se rendre du stationnement à l’entrée du MNBAQ n’est pas accessible et l’aménagement de l’espace dédié à l’accueil des visiteurs n’est pas adapté. Les éléments soulevés par les personnes rencontrées concernent la distance à parcourir entre le stationnement et l’entrée, ou encore entre les différents espaces et bâtiments du musée, la non-visibilité et compréhensibilité des marqueurs d’orientation, les surfaces glissantes, l’éblouissement des panneaux vitrés qui protègent les œuvres, l’éclairage aveuglant dans le hall d’accueil et enfin le sens d’ouverture des portes. Les recommandations principales visent à atténuer ces effets, que ce soit par l’implantation d’indices visuo-tactiles (sol, fenêtre, mur) pour favoriser l’orientation et la visibilité ou par la gestion de l’éclairage pour atténuer la luminosité.
+                </p>
+
+                <p>
+                    Du point de vue de la gestion, deux aspects sont à considérer : l’accompagnement et le respect des PAI. En effet, les coûts financiers et organisationnels de planifier le transport et/ou de recruter un accompagnateur sont élevés pour les PAI. Sans la planification du transport, sans la présence d’un accompagnateur (bénévoles, employés externes payés par les PAI, membre de la famille, amis, groupe), sans la connaissance préalable des lieux et/ou d’un support à la visite (guide-animateur, livret, application, etc.), la visite du musée ne peut, dans la grande majorité des cas, se faire de manière autonome. Sauf une personne habituée à fréquenter le musée, ils n’auraient jamais visité le musée sans un accompagnateur et n’y reviendront pas de manière autonome. Les employés ont insisté sur l’importance de ne pas stigmatiser les PAI (1) en favorisant leur implication en amont pour la conception des projets, (2) en informant les organismes qui les représentent pour adapter et diffuser l’offre muséale et (3) en repensant le rôle des guides et/ou des bénévoles pour leur offrir un accompagnement adapté. Par conséquent, selon les employés rencontrés, l’idée de programmer une offre spécifique sans penser en amont l’accompagnement pour les différents types d’incapacité ne semble pas une stratégie à privilégier.
+                </p>
+
+                <p>
+                    Enfin, une question s’est posée lors de nos échanges : jusqu’où le musée doit-il aller dans l’accessibilité universelle ? Comment doit-il agir avec les PAI ? Des employés sont sensibilisés et considèrent les publics dans leur diversité ; certains vivent cette situation, qu’il s’agisse d’eux-mêmes ou d’un proche. D’autres, au contraire, tiennent des propos de l’ordre du capacitisme, c’est-à-dire le fait d’adopter un système de valeurs dévalorisant certaines capacités par rapport à d’autres ou encore une forme de discrimination sur le handicap<sup><a class="footnote-ref" id="sdfootnote42anc" href="#sdfootnote42sym">42</a></sup>. Pour ces raisons, un commissaire aux expositions souligne qu’« il faut que les équipes soient mobilisées et formées, il faut que cela descende partout pour que tout le monde comprenne pourquoi on fait les choses, il faut qu’ils vivent l’expérience d’une personne avec des incapacités pour changer leurs pratiques. » Les formations doivent être ciblées et détaillées sur chacun des types d’incapacités et orienter le personnel pour savoir comment intervenir auprès de cette clientèle. Alors que l’incapacité motrice semble mieux connue et comprise, plusieurs intervenants mentionnent le besoin d’en savoir plus sur les besoins de la clientèle âgée et des personnes vivant non seulement avec des incapacités visuelles et auditives, mais également psychologiques et intellectuelles.
+                </p>
+
+                <p>
+                    Pour conclure sur l’expérience muséale avant la visite, les experts, les usagers et les employés considèrent que les outils et les services mis à leur disposition en amont de la visite sont faiblement disponibles, accessibles et acceptables. Quant à l’abordabilité, il est intéressant de constater que les employés et les experts estiment que le coût social et organisationnel d’accueillir et d’organiser des activités pour les PAI, pour l’utilisateur et le personnel est moyennement élevé, alors que du point de vue de l’usager, le coût de la préparation de sa visite en amont est très élevé. Pour l’utilisabilité, les experts estiment que l’information utile à la préparation de la visite est très difficile à trouver sans prérequis alors que les employés et les usagers la jugent difficile à trouver.
+                </p>
+
+                <h3 id="sec-4-pendant" class="subsection-title section-anchor">Pendant la visite : le défi de l’esthétisation de l’accessibilité universelle</h3>
+
+                <p>
+                    L’évaluation de cette partie a porté sur l’accueil, le vestiaire (n’a pas été utilisé en période estivale), l’ascenseur, le contenu de l’exposition, la lisibilité des textes, l’usage de l’audioguide, les besoins en termes de médiation, la circulation, le plaisir à visiter le MNBAQ, les besoins d’assistance, et enfin, la relation avec les autres visiteurs.
+                </p>
+
+                <p>
+                    Du point de vue de l’accès au contenu, 70 % des personnes l’ont trouvé facile. Les personnes insatisfaites (30 %) ont mentionné qu’il était difficile de lire ce qui est écrit sur les murs. Pour les personnes ayant des problèmes de motricité ou de surdité, cette contrainte les oblige à regarder partout autour d’eux pour ne pas gêner les autres visiteurs lors de leur déplacement et donc à faire des rotations du corps supplémentaires, à reculer et à avancer pour prendre de la distance sur l’œuvre et pour pouvoir lire les textes. Cette situation provoque de la fatigue supplémentaire. Globalement, les PAI s’entendent majoritairement sur la trop petite taille des écrits et sur l’absence de contrastes des couleurs (écriture lustrée/noir sur blanc dans le noir/tout est blanc). En effet, 84 % des participants ont jugé insuffisante la lisibilité des textes. L’écriture est trop petite, trop basse, trop ou pas assez éclairée, peu de contraste entre le fond et le texte, avec souvent un fort éblouissement quand elle est lustrée.
+                </p>
+
+                <p>
+                    Afin d’apprécier le niveau scolaire requis pour lire et comprendre un texte, l’outil Scolarius<sup><a class="footnote-ref" id="sdfootnote43anc" href="#sdfootnote43sym">43</a></sup> a été utilisé. Il permet d’évaluer le niveau de difficulté d’un texte en fonction de la longueur des mots, des phrases et des paragraphes. Habituellement, le niveau scolaire correspondant au troisième secondaire est acceptable, mais idéalement, une information requérant un niveau scolaire primaire permettrait de rendre l’information accessible au plus grand nombre<sup><a class="footnote-ref" id="sdfootnote44anc" href="#sdfootnote44sym">44</a></sup>. Les principaux constats pour le MNBAQ sont que : (1) le niveau des contenus est très variable et souvent trop élevé (niveau secondaire, collégial et universitaire) pour permettre à tous les publics d’avoir une bonne compréhension de l’ensemble des textes, et (2), que l’esthétisation des écrits se fait au détriment de la lisibilité et de l’adoption d’une norme d’écriture des textes propre au MNBAQ dans le respect des critères de rédaction accessibles. La nécessité de consulter les publics cibles est au cœur de la démarche de changement proposée par l’experte en littératie, afin de valider la compréhensibilité et la lisibilité des textes.
+                </p>
+
+                <p>
+                    Une minorité des participants (30 %) ont utilisé l’audioguide. Quand ils ont réussi à télécharger l’application, elle leur a permis d’en apprendre plus sur la vie du peintre faisant l’objet de l’exposition. Cet outil a facilité la compréhension des textes. Cependant, les participants auraient aimé avoir plus de descriptions sur les peintures, les dessins et les sculptures exposés. L’utilisation du cellulaire a aussi été difficile pour plusieurs raisons :
+                </p>
+
+                <ul>
+                    <li>en l’absence d’écouteurs, les participants étaient gênés de mettre du son ;</li>
+                    <li>le contenu se déroulait sans faire référence oralement au numéro des zones et sans s’arrêter ;</li>
+                    <li>le dispositif n’était pas relié aux implants des personnes malentendantes ;</li>
+                    <li>il était difficile de manipuler le cellulaire pour les personnes en fauteuil roulant, car leurs mains étaient mobilisées pour se déplacer.</li>
+                </ul>
+
+                <p>
+                    Selon les employés rencontrés, il existe une « belle interaction entre les guides et les visiteurs ». Toutefois, l’interaction varie d’une part selon le niveau de formation et de sensibilisation du personnel : « La qualité du service dépendait de quel employé était présent (à l’aise ou non avec les PAI) », et d’autre part, en fonction du type d’incapacité vécue par le visiteur : « On n’arrivera jamais à satisfaire tout le monde ». Les employés dédiés à la billetterie, aux visites de groupe et aux relations avec les organismes communautaires suggèrent également de s’appuyer sur deux outils pour mieux répondre aux besoins des PAI selon leur incapacité : un sondage réalisé auprès des organismes avant leur venue au musée pour mieux préparer cette dernière, ainsi qu’un sondage auprès des PAI réalisé après leur visite pour évaluer leur niveau de satisfaction et procéder aux ajustements nécessaires.
+                </p>
+
+                <p>
+                    Pour toutes ces raisons, et ce, quel que soit le type d’incapacités, 60 % des participants ont estimé qu’il serait utile d’avoir un vrai guide pour circuler et discuter des œuvres, ou encore d’avoir un livret explicatif pour se concentrer sur les œuvres. Seules les personnes malvoyantes préfèreraient un audioguide traditionnel apportant des descriptions orales sur les œuvres, le fait d’avoir un contrôle sur le déroulé du contenu, des repères oraux pour se situer dans l’espace, et enfin, des maquettes pour toucher.
+                </p>
+
+                <p>
+                    Du point de vue de l’aménagement des espaces, la taille des pièces et la hauteur des plafonds transforment l’espace muséal en caisse de résonance, renforçant d’autant l’état de stress occasionnant de la fatigue, en particulier pour les personnes vivant avec une incapacité auditive. Les personnes en fauteuil roulant ont également ressenti un inconfort quant à l’ambiance thermique du musée. Saisies par le froid, certaines d’entre elles ne pouvaient plus utiliser leurs mains pour avancer. Quant à la circulation dans l’exposition, les participants l’ont majoritairement trouvée simple. Toutefois, plusieurs lieux de circulation (couloirs, escaliers, pentes, portes) confrontent les visiteurs à des obstacles physiques et psychologiques. La vue d’un escalier ou d’une pente indique aux PAI qu’ils vont devoir fournir un effort supplémentaire. Cet effort s’ajoute aux autres stress environnementaux mentionnés plus tôt, les conduisant alors à revoir leur engagement dans le parcours de visite.
+                </p>
+
+                <p>
+                    Dans ce musée dédié à l’art, les choix organisationnels semblent souvent se faire selon une valeur liée à l’esthétisme. Par exemple, le fait d’aménager les espaces pour laisser le passage des fauteuils roulants conduit certains employés à se poser la question de la nécessité de cette action qui diminue la place pour exposer les œuvres : ce choix n’est pas toujours facile à faire. Le même constat s’observe dans les choix architecturaux (escaliers, salle de bain, cellules de prison du Baillairgé, etc.). Citons les propos suivants tenus par un des employés : « L’escalier est magnifique, mais il n’est pas fait pour un être humain, il est fait pour être beau, être regardé ». Dans ce sens, les employés proposent « d’esthétiser l’accessibilité universelle ! Aller dans le beau, rendre l’accessibilité esthétique pour correspondre à la priorité du musée, de ce qui est beau ». En effet, si la valeur de l’esthétisme est celle qui permet de déterminer la priorité, comme l’est la sécurité dans un avion, alors l’hypothèse serait d’inviter les employés à proposer des manières d’esthétiser l’accessibilité universelle dans leurs pratiques, pour que l’esthétisme et l’accessibilité puissent coïncider, et non s’opposer.
+                </p>
+
+                <p>
+                    De plus, il ressort des propos tenus par les employés un défi sur le plan de la gestion du travail et de la communication. Les musées d’État sont des « machines dans lesquelles les choses sont très lentes. Nous sommes écoutés, mais c’est très long avant que ça change. Ça prend beaucoup d’énergie ». Il y a « de la lenteur dans les procédures, car nous sommes un milieu syndiqué. Chacun a ses tâches bien cadrées, il ne faut pas trop déborder. La culture du débordement n’est, en revanche, pas trop présente, mais une certaine sensibilité par rapport à ça. » Le MNBAQ est perçu comme très hiérarchique, malgré la volonté de travailler par projet : « Nous n’avons aucune idée de ce que les autres services font. Il n’y a pas de sentiment d’appartenance, et pour certains, encore moins avec le télétravail. On entend la volonté de changement vers la transversalité, mais on ne la vit pas ».
+                </p>
+
+                <p>
+                    Cette gestion, qui combine une structure par projet et l’autre bureaucratique, provoque parfois des problèmes (1) de vision entre les gardiens des traditions et les porteurs d’innovation, (2) de communication et d’écoute entre les employés du « plancher » en contact direct avec les visiteurs et les prestataires, et ceux du « plateau »<sup><a class="footnote-ref" id="sdfootnote45anc" href="#sdfootnote45sym">45</a></sup>, qui prennent les décisions, ainsi que (3) des problèmes quant à la manière dont les décisions sont prises, car il y a le sentiment que les équipes « plancher » règlent les choses rapidement en faisant des propositions d’actions, alors que les équipes « plateau » passent par la hiérarchie pour proposer des changements, souvent en décalage avec le terrain. Par exemple, dans le cadre de la gestion de la Covid-19, pendant que « le comité de direction menait beaucoup de discussions et de consultations dans lesquelles il fallait présenter et représenter, les employés de terrain ont été beaucoup plus autonomes et ont ajusté les choses très rapidement sans consulter le plateau ». Ces deux vitesses conduisent à une diminution des interactions entre les membres du personnel et l’équipe de direction. Certains diront même que, « si on veut que ça bouge, il faut que ça passe par en bas, avec les gens assez rapides. Le risque qu’on se trompe est faible et très peu grave ».
+                </p>
+
+                <p>
+                    Toutefois, il ressort du discours du personnel que « depuis la pandémie, il y a beaucoup plus de travail en équipe pour construire une exposition, pour améliorer la visite pour tous ». L’acquisition de cette autonomie et de cette transversalité semblent avoir été renforcées par la crise et semble une voie intéressante à poursuivre pour faciliter le changement. Le travail d’équipe demeure une clé de réussite de l’accessibilité du musée « à condition d’une coordination entre le plancher et le plateau ». Cela implique de « réfléchir l’accessibilité de manière interdisciplinaire et transversale dans tous les services, afin de casser l’isolement des professions et penser l’accessibilité de façon globale ».
+                </p>
+
+                <p>
+                    Enfin, le financement et l’aménagement des espaces comportent des défis administratifs. Le coût des modifications entre en conflit avec la réalité du financement des travaux et des projets ainsi que les normes du bâtiment. Ces affirmations illustrent la situation mentionnée :
+                </p>
+
+                <blockquote class="article-blockquote">
+                    « Il faut prévoir notre budget trois ans à l’avance avec le Conseil du Trésor. Il y a des normes du code du bâtiment qui datent et qui sont encore en vigueur. Cela s’est fait à des années différentes. Il y a donc des droits acquis et des codes différents, pas forcément accessibles. On fait quelque chose qui répond aux normes, mais ça ne fonctionne pas. C’est comme dans les expositions, c’est après qu’on corrige. Le musée a été conçu pour être pris en photos. Mais pas pensé pour les humains au quotidien. »
+                </blockquote>
+
+                <p>
+                    Par conséquent, il est parfois difficile de faire des ajustements dans un bâtiment patrimonial réalisé avec une architecture qui a évolué selon les normes, les modes et les architectes. Il est tout aussi difficile de faire des ajustements dans les services et les produits réalisés sans concertation avec les employés « du plancher » et les usagers.
+                </p>
+
+                <p>
+                    Pour conclure sur l’expérience pendant la visite, les experts, les usagers et les employés considèrent que les outils et les services mis à disposition des PAI en amont de la visite sont faiblement disponibles et accessibles. Selon l’avis des trois groupes, l’acceptabilité est élevée, c’est-à-dire que les bénéfices liés à la visite sont élevés pour les usagers. Les PAI ressentent du plaisir, et en majorité, se sentent respectées par les autres visiteurs et les employés. Quant à l’abordabilité, il est intéressant de constater que les usagers et les experts estiment que le coût social, organisationnel à la fois de l’utilisateur et du personnel, est élevé, alors que les employés estiment que le coût de la préparation de sa visite pour les PAI est très élevé. Pour l’utilisabilité, les experts et les employés estiment que l’information présentée dans les expositions est difficile à comprendre et à lire sans prérequis, alors que les usagers la considèrent peu difficile à comprendre. En effet, pour ces derniers, ils se sont très bien adaptés à l’expérience de visite au musée, ce qui est confirmé par les observations <em>in situ</em> réalisées par l’équipe de recherche. Quant aux employés et aux experts, ils estiment que la participation à la visite est difficile pour les PAI. Les employés et les experts sous-évalueraient-ils la capacité d’adaptation des PAI, ou ces dernières, observées dans le contexte de la recherche, ont-elles exagéré le plaisir vécu ?
+                </p>
+
+                <!-- CARTE CONCEPTUELLE 4 : Tensions organisationnelles (Plancher vs Plateau & Esthétisme vs Usage) -->
+                <div class="conceptual-card" id="diagram-4">
+                    <div class="conceptual-card-header">
+                        <div>
+                            <div class="conceptual-card-title">Carte conceptuelle 4 — Indicateurs empiriques et tensions organisationnelles au MNBAQ</div>
+                            <div class="conceptual-card-subtitle">Explorez les indicateurs chiffrés de l'enquête et la dynamique entre « Plancher » et « Plateau »</div>
+                        </div>
+                        <span class="conceptual-badge">Synthèse analytique</span>
+                    </div>
+                    <div class="svg-wrapper">
+                        <svg viewBox="0 0 920 265" role="img" aria-label="Indicateurs et tensions organisationnelles au MNBAQ">
+                            <!-- Indicateurs chiffrés à gauche -->
+                            <text x="20" y="24" font-size="12" font-weight="700" fill="#7a2222">A. INDICATEURS CLÉS DE L'EXPÉRIENCE EN SALLE</text>
+
+                            <g class="svg-node active-node" onclick="selectDiagramNode('d4', 0, this)">
+                                <rect x="20" y="38" width="195" height="92" rx="8" fill="#FAF6EF" stroke="#7a2222" stroke-width="2"/>
+                                <text x="117" y="72" text-anchor="middle" font-size="24" font-weight="700" fill="#7a2222">84 %</text>
+                                <text x="117" y="94" text-anchor="middle" font-size="11.5" font-weight="600" fill="#1a202c">Lisibilité insuffisante</text>
+                                <text x="117" y="112" text-anchor="middle" font-size="10.5" fill="#4a5568">Cartels petits, reflets, contraste</text>
+                            </g>
+
+                            <g class="svg-node" onclick="selectDiagramNode('d4', 1, this)">
+                                <rect x="230" y="38" width="195" height="92" rx="8" fill="#FAF6EF" stroke="#c8bda9" stroke-width="1.5"/>
+                                <text x="327" y="72" text-anchor="middle" font-size="24" font-weight="700" fill="#7a2222">60 %</text>
+                                <text x="327" y="94" text-anchor="middle" font-size="11.5" font-weight="600" fill="#1a202c">Souhaitent un guide humain</text>
+                                <text x="327" y="112" text-anchor="middle" font-size="10.5" fill="#4a5568">Ou un livret explicatif papier</text>
+                            </g>
+
+                            <g class="svg-node" onclick="selectDiagramNode('d4', 2, this)">
+                                <rect x="20" y="146" width="195" height="92" rx="8" fill="#FAF6EF" stroke="#c8bda9" stroke-width="1.5"/>
+                                <text x="117" y="180" text-anchor="middle" font-size="24" font-weight="700" fill="#7a2222">30 %</text>
+                                <text x="117" y="202" text-anchor="middle" font-size="11.5" font-weight="600" fill="#1a202c">Usage de l'audioguide</text>
+                                <text x="117" y="220" text-anchor="middle" font-size="10.5" fill="#4a5568">Freins mains libres &amp; implants</text>
+                            </g>
+
+                            <g class="svg-node" onclick="selectDiagramNode('d4', 3, this)">
+                                <rect x="230" y="146" width="195" height="92" rx="8" fill="#FAF6EF" stroke="#c8bda9" stroke-width="1.5"/>
+                                <text x="327" y="180" text-anchor="middle" font-size="24" font-weight="700" fill="#2c5e3b">83 %</text>
+                                <text x="327" y="202" text-anchor="middle" font-size="11.5" font-weight="600" fill="#1a202c">Satisfaction boutique</text>
+                                <text x="327" y="220" text-anchor="middle" font-size="10.5" fill="#4a5568">Calme sonore &amp; lumière douce</text>
+                            </g>
+
+                            <!-- Tensions organisationnelles à droite -->
+                            <text x="455" y="24" font-size="12" font-weight="700" fill="#7a2222">B. TENSIONS INTERNES &amp; LEVIERS DE RÉSOLUTION</text>
+
+                            <g class="svg-node" onclick="selectDiagramNode('d4', 4, this)">
+                                <rect x="455" y="38" width="445" height="92" rx="8" fill="#F3EDE2" stroke="#c8bda9" stroke-width="1.5"/>
+                                <text x="677" y="62" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a202c">Tension 1 : « Plancher » vs « Plateau »</text>
+                                <text x="677" y="83" text-anchor="middle" font-size="11.5" fill="#2b2b2b">Terrain (accueil, sécurité, médiation) : réactivité &amp; ajustement immédiat</text>
+                                <text x="677" y="102" text-anchor="middle" font-size="11.5" fill="#2b2b2b">Direction &amp; Conseil du Trésor : lenteur bureaucratique &amp; cycles de 3 ans</text>
+                                <text x="677" y="120" text-anchor="middle" font-size="11" font-weight="600" fill="#7a2222">→ Levier : co-construction transversale et décloisonnement des services</text>
+                            </g>
+
+                            <g class="svg-node" onclick="selectDiagramNode('d4', 5, this)">
+                                <rect x="455" y="146" width="445" height="92" rx="8" fill="#F3EDE2" stroke="#c8bda9" stroke-width="1.5"/>
+                                <text x="677" y="170" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a202c">Tension 2 : Esthétisme muséal vs Usage humain</text>
+                                <text x="677" y="191" text-anchor="middle" font-size="11.5" fill="#2b2b2b">Conflit entre pureté scénographique (escaliers, cartels minimalistes) et accès</text>
+                                <text x="677" y="210" text-anchor="middle" font-size="11.5" fill="#2b2b2b">Acoustique réverbérante, froid thermique et éblouissement des vitrines</text>
+                                <text x="677" y="228" text-anchor="middle" font-size="11" font-weight="600" fill="#7a2222">→ Levier : « Esthétiser l'accessibilité universelle » (allier le beau et l'utile)</text>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="diagram-detail-panel" id="d4-detail">
+                        <strong>84 % de lisibilité jugée insuffisante :</strong> L'analyse par l'outil <em>Scolarius</em> confirme que le niveau de littératie des cartels (secondaire supérieur à universitaire) et les choix graphiques (petite police, surface lustrée, faible contraste) entraînent fatigue visuelle et contorsions physiques.
+                    </div>
+                </div>
+
+                <h3 id="sec-4-apres" class="subsection-title section-anchor">Après la visite : le défi de fidéliser des visiteurs heureux en quête d’autonomie</h3>
+
+                <p>
+                    L’évaluation de cette partie s’est faite en considérant le restaurant, la boutique, la signalisation, la luminosité, les contrastes, les espaces de repos, les explications du personnel, la sécurité, le retour à l’accueil, la salle de bain, le vestiaire (qui n’a pas été utilisé) et le retour à domicile.
+                </p>
+
+                <p>
+                    Les usagers participants étaient heureux d’avoir vécu cette visite au musée. Majoritairement, ils recommanderaient la visite à leurs pairs, sauf pour les personnes ayant des incapacités auditives, car le bruit et la foule occasionnent du stress et de la fatigue pour ces personnes. Globalement, les problèmes soulignés par les usagers, les experts et le personnel touchent l’aménagement du hall d’accueil, les espaces de restauration et de la boutique (comptoir trop haut, accès aux tables difficile, espace étroit entre les comptoirs de livres de la boutique pour tourner), et l’information (menu du restaurant, signalisation). Cependant, pour la boutique, 83 % des participants ont été satisfaits de leur expérience. Certains ont constaté qu’elle n’était pas assez visible, difficile à repérer (enseigne et signalétique). Les prix des produits vendus dans la boutique restent élevés pour cette clientèle. Toutefois, les ambiances lumineuses et sonores ont été évaluées positivement par les PAI. Ces dernières qualifient la boutique d’agréablement lumineuse et moins bruyante que le reste du musée. Malgré l’enjeu d’exiguïté de l’espace de la boutique, la circulation pour les PAI a été possible. En ce qui a trait au sentiment de sécurité et le retour à l’accueil, les PAI se sont toutes senties en sécurité et accompagnées par les agents de sécurité. Enfin, le retour à domicile s’est très bien passé en général, compte tenu du fait que les personnes avaient planifié leur visite. Les agents de sécurité facilitaient également leur sortie en leur permettant de passer par la porte d’entrée automatique du pavillon Pierre-Lassonde pour rejoindre l’espace dédié au transport adapté, plutôt que par la sortie vers la terrasse extérieure. Cette porte de sortie n’est pas munie de bouton.
+                </p>
+
+                <p>
+                    Pour conclure sur l’expérience après la visite, les avis des usagers ne concordent pas avec ceux des experts et des employés. Les usagers ont planifié leur retour avant de venir. Ils n’ont donc pas remarqué d’autres éléments facilitants (soutien des agents de sécurité) ou freinants (aménagement des espaces de restauration, de la boutique, de la salle de bain, chemin à parcourir pour aller au stationnement, signalisation) déjà signifiés dans la partie avant la visite du parcours. Quant aux employés et aux experts, leur analyse des autres espaces (boutique, restaurant, salle de bain, cour intérieure, stationnement, site Internet) coïncide avec les constats faits par les PAI quant au besoin d’optimiser l’accessibilité des bâtiments, des espaces et des contenus. Toutefois, nous faisons l’hypothèse que l’évaluation de l’après-visite devrait être repensée en fonction de la relation que le visiteur et l’équipe du musée veulent établir entre eux. Il serait ainsi intéressant d’évaluer l’après-visite dans une recherche future.
+                </p>
+
+                <h2 id="sec-conclusion" class="section-anchor">Conclusion sur les défis de la recherche partenariale</h2>
+
+                <p>
+                    De ce qui précède, nous pouvons conclure qu’au-delà des intérêts et des besoins de chacun, il y a un véritable consensus sur le fait que malgré les nombreuses actions en place, il reste des efforts à faire pour favoriser l’accessibilité universelle du MNBAQ dans le cadre d’un projet organisationnel. Les résultats de la recherche invitent à proposer une réflexion partagée sur ce que pourrait être une pratique de médiation culturelle inclusive, de conservation inclusive, de communication inclusive ou encore de gestion inclusive pour le musée, en s’appuyant à la fois sur ses valeurs renouvelées et ses pratiques traditionnelles.
+                </p>
+
+                <p>
+                    Cette étude de cas a permis la mise en lumière de facilitateurs et d’obstacles à l’accessibilité universelle dans ce musée en considérant les défis d’une gestion visant l’inclusion. Elle propose des recommandations et des stratégies pour renouveler le plan d’action sur l’accessibilité universelle du MNBAQ. Pour l’organisation avant la visite, elle recommande de former l’ensemble des membres de l’équipe du musée, d’adapter le site Internet, l’aménagement du stationnement et la signalisation du parcours, et de penser au rôle d’accompagnement du service à la clientèle et du service de la médiation dans la préparation de la visite.
+                </p>
+
+                <p>
+                    Pour l’organisation pendant la visite, il ressort l’importance de l’accessibilité du contenu tel que l’audioguide et le feuillet explicatif, la lisibilité des textes, de la signalisation et des informations, la luminosité et l’ambiance sonore. Il en est de même pour les éléments d’aménagement des espaces tels que les ascenseurs, les salles de bain, les escaliers et les corridors. L’ensemble de ces éléments a été fortement recommandé par les PAI.
+                </p>
+
+                <p>
+                    Quant à l’organisation après la visite, la présence d’un accompagnateur pour les PAI en plus de leur capacité à s’adapter aux différents environnements et à planifier leurs déplacements dans des lieux publics facilitent la fin de la visite et le retour à domicile. Pour améliorer l’expérience des visiteurs après la visite, il est essentiellement recommandé d’adapter l’accessibilité physique et informationnelle des espaces autres que ceux réservés aux expositions.
+                </p>
+
+                <p>
+                    Cette étude de cas du MNBAQ est une leçon importante pour initier un changement vers l’accessibilité universelle dans les institutions culturelles. Le choix de la recherche-action en partenariat a permis un arrimage étroit entre l’équipe de recherche et le milieu de la pratique, ce qui renforce le potentiel d’appropriation des résultats. La triangulation des données contribue à la fiabilité des conclusions.
+                </p>
+
+                <p>
+                    L’implication des personnes vivant avec des incapacités, des employés du MNBAQ et des experts dans le domaine du handicap est en cohérence avec le principe « rien pour nous, sans nous ». En effet, aucun plan d’action ne devrait être décidé sans la participation pleine et directe des membres du groupe concerné par ce plan d’action, soit les PAI, les employés et les associations communautaires.
+                </p>
+
+                <p>
+                    Cependant, les PAI n’ont pas été incluses dans le comité de pilotage de la recherche. Elles étaient représentées par un regroupement de leurs associations. Le nombre de participants (13) et d’employés (12) ayant pris part à la recherche reste assez modeste, ce qui limite la transférabilité des résultats. L’ensemble des incapacités a été représenté, avec néanmoins une surreprésentation des déficiences motrices et une sous-représentation des déficiences psychologiques et invisibles. Compte tenu du fait que la recherche s’est déroulée durant la pandémie, la disponibilité de l’offre et l’aménagement des espaces ont été modifiés. Il a donc été impossible d’évaluer certains points comme l’accès au vestiaire ou à la salle de bain du hall d’entrée du pavillon Pierre-Lassonde, les mobiliers pour se reposer, les audioguides, la circulation des visiteurs, etc.
+                </p>
+
+                <p>
+                    Le cas du MNBAQ a permis de créer une grille d’analyse de la chaîne culturelle de l’accessibilité muséale dans l’esprit du MDH-PPH qui sera testée et validée dans d’autres musées dans le cadre d’un volet 2 de cette recherche afin de réaliser un portrait de l’accessibilité des musées du Québec.
+                </p>
+
+                <!-- Références bibliographiques -->
+                <section class="references-section section-anchor" id="sec-references">
+                    <h2 style="margin-top: 0;">Références bibliographiques</h2>
+                    <ul class="references-list">
+                        <li>Barreto, R. (2000), <em>The Art of Universal Design. Public Art Review</em> [texte de communication], Designing for the 21<sup>st</sup> Century Conference (Providence, Rhode Island), URL : <a href="https://tinyurl.com/4m7xwhxf" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">https://tinyurl.com/4m7xwhxf</a>.</li>
+                        <li>Beauchemin, W.-J., Maingnien, N., Duguay, N. (2020), <em>Portraits d’institutions culturelles montréalaises. Quels modes d’action pour l’accessibilité, l’inclusion et l’équité ?</em>, Québec : Presses de l’Université Laval.</li>
+                        <li>Blaho-Ponce, C. (2013), « La chaîne d’accessibilité, pivot de l’accès au Tourisme Handicap », <em>Téoros</em>, vol. 32, n° 2, pp. 104-115, DOI : <a href="https://doi.org/10.7202/1036600ar" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">https://doi.org/10.7202/1036600ar</a>.</li>
+                        <li>Bourges, J.-L. (2011), « Musées et seniors : chronique d’une rencontre annoncée », <em>La Lettre de l’OCIM</em>, n° 133, pp. 24-30.</li>
+                        <li>Chenu, R. (2017), <em>Musées et handicaps : les freins de l’accessibilité</em> [mémoire de master 2], Metz : Université de Lorraine.</li>
+                        <li>Conseil international des musées [ICOM] (2022, 24 août), <em>L’ICOM approuve une nouvelle définition de musée</em>, paragr. 2, URL : <a href="https://tinyurl.com/3h3dcxfx" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">https://tinyurl.com/3h3dcxfx</a>.</li>
+                        <li>De Caro, L. (2012), <em>Moulding the museum medium. Explorations on embodied and multisensory experience in contemporary museum environments</em> [mémoire de maîtrise], Minneapolis : University of Minnesota.</li>
+                        <li>Delin, A. (2002), « Buried in the footnotes: The absence of disabled people in the collective imagery of our past », dans R. Sandell (dir.), <em>Museums, Society, Inequality</em> (p. 84-97), New York : Routledge.</li>
+                        <li>Folcher, V., Lompré, N. (2012), « Accessibilité pour et dans l’usage : concevoir des situations d’activité adaptées à tous et à chacun », <em>Le travail humain</em>, 75, pp. 89-120, DOI : <a href="https://doi.org/10.3917/th.751.0089" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">https://doi.org/10.3917/th.751.0089</a>.</li>
+                        <li>Fougeyrollas, P., Fiset, D., Dumont, I. et al. (2019), « Réflexion critique sur la notion d’accessibilité universelle et articulation conceptuelle pour le développement d’environnements inclusifs », <em>Développement humain, handicap et changement social</em>, vol. 25, n° 1, pp. 161-175.</li>
+                        <li>Goss, J., Reich, S., Stoessel, S., Iacovelli, S. (2012), <em>Universally Designed Museum Programming</em> [livre blanc], Boston : Museum of Science.</li>
+                        <li>Handa, K., Handa, D. et T. Yoshiko (2010), « Investigation of priority needs in terms of museum service accessibility for visually impaired visitors », <em>British Journal of Visual Impairment</em>, vol. 28, pp. 221-234.</li>
+                        <li>Hudson, K. (1975), <em>A social history of museums: what the visitors thought</em>, Atlantic Highlands, N.J. : Humanities Press.</li>
+                        <li>Kreis, S. (2012), <em>Guide pour élaborer une muséographie universellement accessible</em>, Québec : Service de soutien aux institutions muséales, ressource en ligne, Collections de BAnQ, URL : <a href="https://tinyurl.com/mruppauy" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">https://tinyurl.com/mruppauy</a>.</li>
+                        <li>Lamoureux, E., Saillant, F., Maignien, N., H-Levy, F. (2021), <em>Médiation culturelle, musées, publics diversifiés. Guide pour une expérience inclusive</em>, Gouvernement du Québec, URL : <a href="https://tinyurl.com/2ntxrhtt" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">https://tinyurl.com/2ntxrhtt</a>.</li>
+                        <li>Lapointe, M.-C., Luckerhoff, J. (2020), <em>Non-publics de la culture. Six institutions culturelles de la Mauricie à l’étude</em>, Québec : Presses de l’Université du Québec.</li>
+                        <li>Lebat, C. (2012), <em>Le public déficient visuel face aux offres culturelles adaptées : musées, monuments, et spectacle vivant</em>, Rapport d’enquête, Groupe de travail RECA « Évaluation ».</li>
+                        <li>Lebat, C. (2018), « Les personnes en situation de handicap sensoriel dans les musées : réalités d’accueil, expériences de visite et trajectoires identitaires », <em>Héritage culturel et muséologie</em>, Université Sorbonne Paris Cité.</li>
+                        <li>Liagre, F. (2003), <em>Présidente fondatrice de l’association Aventure et Partage dans Vivons ensemble nos vacances</em>, Campagne nationale Tourisme et Handicap, brochure Secrétariat d’État au Tourisme, 13 p.</li>
+                        <li>Meunier, A., Soulier, V. (2010), « Préfiguration du concept de muséologie citoyenne », <em>Histoire, musées et éducation à la citoyenneté</em>, sous la direction de J.-F. Cardin, M.-A. Éthier &amp; A. Meunier, Québec : MultiMondes.</li>
+                        <li>Musée national des beaux-arts du Québec (2020), <em>Un musée ancré dans sa communauté</em>, Rapport annuel 2019-2020, URL : <a href="https://tinyurl.com/54vrm7xm" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">https://tinyurl.com/54vrm7xm</a>.</li>
+                        <li>OPHQ (2017), <em>Les personnes avec incapacités au Québec. Prévalence et caractéristiques de l’incapacité</em>, vol. 1, Drummondville : OPHQ.</li>
+                        <li>Parent, L. (2017), « Ableism/disablism, on dit ça comment en français ? », <em>Canadian Journal of Disability Studies - Association Canadienne des Études sur l’Incapacité</em>, DOI : <a href="https://doi.org/10.15353/cjds.v6i2.355" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">https://doi.org/10.15353/cjds.v6i2.355</a>.</li>
+                        <li>Prost, M. (2013), « Des seniors au muséum : une nébuleuse de projets », <em>La Lettre de l’OCIM</em>, n° 149, pp. 5-10.</li>
+                        <li>Rispal, A. (2020, 25 avril), <em>Le ‘caring museum’, un nouveau concept pour un musée inclusif</em> [billet de blogue], <em>Invisibl.eu</em>.</li>
+                        <li>Robertson, H. L. (2015), <em>The caring museum: New models of engagement with ageing</em>, Cambridge et Édimbourg : MuseumsEtc.</li>
+                        <li>Rogers, P. (2005), <em>Managing Access at the Museum: Disability and Institutional Boundaries</em> [mémoire de fin d’études], Toronto : University of Toronto.</li>
+                        <li>Roppola, T. (2012), <em>Designing for the museum visitor experience</em>, New York : Routledge.</li>
+                        <li>Ruel, J., Gingras, F., Moreau, A.-C., Grenon, M.-M. (2019), « L’accès à l’information sous l’angle de sa compréhensibilité : lorsque l’émetteur rencontre le récepteur », <em>Études de linguistique appliquée</em>, vol. 195, n° 3, pp. 275-293.</li>
+                        <li>Tokar, S. (2002), « Universal design in north american museums with hands-on science exhibits : A survey », <em>Visitor Studies Today</em>, vol. 7, n° 3, pp. 6-10.</li>
+                        <li>Tsapkini, K., Jarema, G., Kehayia, E. (2004), « Regularity re-visited : Modality matters », <em>Brain and Language</em>, vol. 89, n° 3, pp. 611-616.</li>
+                        <li>Verjus, P.-M., De Pachtère, P. (2013), « Les personnes âgées dépendantes : un nouveau public pour la CSTI ? », <em>La Lettre de l’OCIM</em>, n° 149, pp. 11-15.</li>
+                        <li>Weisen, M. (2008), « How Accessible Are Museums Today? », <em>Touch in Museums: Policy and Practice in Object Handling</em>, Helen Chatterjee (éd.), Oxford : Berg, pp. 243-252.</li>
+                    </ul>
+                </section>
+
+                <!-- Notes de bas de page -->
+                <section class="footnotes-section" aria-label="Notes de bas de page">
+                    <h2 style="margin-top: 0; font-size: 1.25rem;">Notes</h2>
+                    <div class="footnotes-list">
+                        <div class="footnote-item" id="sdfootnote1sym"><a class="back-ref" href="#sdfootnote1anc">1</a> Lamoureux, E., Saillant, F., Maignien, N., H-Levy, F. (2021), <em>Médiation culturelle, musées, publics diversifiés. Guide pour une expérience inclusive</em>, Gouvernement du Québec, URL : https://tinyurl.com/2ntxrhtt.</div>
+                        <div class="footnote-item" id="sdfootnote2sym"><a class="back-ref" href="#sdfootnote2anc">2</a> Lapointe, M.-C., Luckerhoff, J. (2020), <em>Non-publics de la culture. Six institutions culturelles de la Mauricie à l’étude</em>, Québec : Presses de l’Université du Québec.</div>
+                        <div class="footnote-item" id="sdfootnote3sym"><a class="back-ref" href="#sdfootnote3anc">3</a> Barreto, R. (2000), <em>The Art of Universal Design. Public Art Review</em> [texte de communication], Designing for the 21<sup>st</sup> Century Conference (Providence, Rhode Island).</div>
+                        <div class="footnote-item" id="sdfootnote4sym"><a class="back-ref" href="#sdfootnote4anc">4</a> De Caro, L. (2012), <em>Moulding the museum medium. Explorations on embodied and multisensory experience in contemporary museum environments</em> [mémoire de maîtrise], Minneapolis : University of Minnesota.</div>
+                        <div class="footnote-item" id="sdfootnote5sym"><a class="back-ref" href="#sdfootnote5anc">5</a> Delin, A. (2002), « Buried in the footnotes: The absence of disabled people in the collective imagery of our past », dans R. Sandell (dir.), <em>Museums, Society, Inequality</em>, New York : Routledge, p. 84-97.</div>
+                        <div class="footnote-item" id="sdfootnote6sym"><a class="back-ref" href="#sdfootnote6anc">6</a> Goss, J., Reich, S., Stoessel, S., Iacovelli, S. (2012), <em>Universally Designed Museum Programming</em> [livre blanc], Boston : Museum of Science.</div>
+                        <div class="footnote-item" id="sdfootnote7sym"><a class="back-ref" href="#sdfootnote7anc">7</a> Roppola, T. (2012), <em>Designing for the museum visitor experience</em>, New York : Routledge.</div>
+                        <div class="footnote-item" id="sdfootnote8sym"><a class="back-ref" href="#sdfootnote8anc">8</a> Tokar, S. (2002), « Universal design in north american museums with hands-on science exhibits : A survey », <em>Visitor Studies Today</em>, vol. 7, n° 3, pp. 6-10.</div>
+                        <div class="footnote-item" id="sdfootnote9sym"><a class="back-ref" href="#sdfootnote9anc">9</a> Barreto, R. (2000), <em>op. cit.</em></div>
+                        <div class="footnote-item" id="sdfootnote10sym"><a class="back-ref" href="#sdfootnote10anc">10</a> Bourges, J.-L. (2011), « Musées et seniors : chronique d’une rencontre annoncée », <em>La Lettre de l’OCIM</em>, n° 133, pp. 24-30.</div>
+                        <div class="footnote-item" id="sdfootnote11sym"><a class="back-ref" href="#sdfootnote11anc">11</a> Lebat, C. (2012), <em>Le public déficient visuel face aux offres culturelles adaptées : musées, monuments, et spectacle vivant</em>, Rapport d’enquête, Groupe de travail RECA « Évaluation ».</div>
+                        <div class="footnote-item" id="sdfootnote12sym"><a class="back-ref" href="#sdfootnote12anc">12</a> Prost, M. (2013), « Des seniors au muséum : une nébuleuse de projets », <em>La Lettre de l’OCIM</em>, n° 149, pp. 5-10.</div>
+                        <div class="footnote-item" id="sdfootnote13sym"><a class="back-ref" href="#sdfootnote13anc">13</a> Verjus, P.-M., De Pachtère, P. (2013), « Les personnes âgées dépendantes : un nouveau public pour la CSTI ? », <em>La Lettre de l’OCIM</em>, n° 149, pp. 11-15.</div>
+                        <div class="footnote-item" id="sdfootnote14sym"><a class="back-ref" href="#sdfootnote14anc">14</a> Weisen, M. (2008), « How Accessible Are Museums Today? », <em>Touch in Museums: Policy and Practice in Object Handling</em>, Helen Chatterjee (éd.), Oxford : Berg, pp. 243-252.</div>
+                        <div class="footnote-item" id="sdfootnote15sym"><a class="back-ref" href="#sdfootnote15anc">15</a> Tsapkini, K., Jarema, G., Kehayia, E. (2004), « Regularity re-visited : Modality matters », <em>Brain and Language</em>, vol. 89, n° 3, pp. 611-616.</div>
+                        <div class="footnote-item" id="sdfootnote16sym"><a class="back-ref" href="#sdfootnote16anc">16</a> Chenu, R. (2017), <em>Musées et handicaps : les freins de l’accessibilité</em> [mémoire de master 2], Metz : Université de Lorraine.</div>
+                        <div class="footnote-item" id="sdfootnote17sym"><a class="back-ref" href="#sdfootnote17anc">17</a> Handa, K., Handa, D., Yoshiko, T. (2010), « Investigation of priority needs in terms of museum service accessibility for visually impaired visitors », <em>British Journal of Visual Impairment</em>, vol. 28, pp. 221-234.</div>
+                        <div class="footnote-item" id="sdfootnote18sym"><a class="back-ref" href="#sdfootnote18anc">18</a> Kreis, S. (2012), <em>Guide pour élaborer une muséographie universellement accessible</em>, Québec : Service de soutien aux institutions muséales, BAnQ.</div>
+                        <div class="footnote-item" id="sdfootnote19sym"><a class="back-ref" href="#sdfootnote19anc">19</a> Lamoureux, E., Saillant, F., Maignien, N., H-Levy, F. (2021), <em>op. cit.</em></div>
+                        <div class="footnote-item" id="sdfootnote20sym"><a class="back-ref" href="#sdfootnote20anc">20</a> Rogers, P. (2005), <em>Managing Access at the Museum: Disability and Institutional Boundaries</em> [mémoire de fin d’études], Toronto : University of Toronto.</div>
+                        <div class="footnote-item" id="sdfootnote21sym"><a class="back-ref" href="#sdfootnote21anc">21</a> Ministère de la Culture et des Communications (2017).</div>
+                        <div class="footnote-item" id="sdfootnote22sym"><a class="back-ref" href="#sdfootnote22anc">22</a> Liagre, F. (2003), <em>Présidente fondatrice de l’association Aventure et Partage dans Vivons ensemble nos vacances</em>, Campagne nationale Tourisme et Handicap, Secrétariat d’État au Tourisme, 13 p.</div>
+                        <div class="footnote-item" id="sdfootnote23sym"><a class="back-ref" href="#sdfootnote23anc">23</a> Blaho-Ponce, C. (2013), « La chaîne d’accessibilité, pivot de l’accès au Tourisme Handicap », <em>Téoros</em>, vol. 32, n° 2, pp. 104-115.</div>
+                        <div class="footnote-item" id="sdfootnote24sym"><a class="back-ref" href="#sdfootnote24anc">24</a> Beauchemin, W.-J., Maingnien, N., Duguay, N. (2020), <em>Portraits d’institutions culturelles montréalaises</em>, Québec : Presses de l’Université Laval.</div>
+                        <div class="footnote-item" id="sdfootnote25sym"><a class="back-ref" href="#sdfootnote25anc">25</a> Ruel, J., Gingras, F., Moreau, A.-C., Grenon, M.-M. (2019), « L’accès à l’information sous l’angle de sa compréhensibilité », <em>Études de linguistique appliquée</em>, vol. 195, n° 3, pp. 275-293.</div>
+                        <div class="footnote-item" id="sdfootnote26sym"><a class="back-ref" href="#sdfootnote26anc">26</a> De Caro, L. (2012), <em>op. cit.</em></div>
+                        <div class="footnote-item" id="sdfootnote27sym"><a class="back-ref" href="#sdfootnote27anc">27</a> Lebat, C. (2018), <em>op. cit.</em>, Université Sorbonne Paris Cité, p. 189.</div>
+                        <div class="footnote-item" id="sdfootnote28sym"><a class="back-ref" href="#sdfootnote28anc">28</a> Hudson, K. (1975), <em>A social history of museums: what the visitors thought</em>, Atlantic Highlands, N.J. : Humanities Press, p. 6.</div>
+                        <div class="footnote-item" id="sdfootnote29sym"><a class="back-ref" href="#sdfootnote29anc">29</a> Lebat, C. (2018), <em>op. cit.</em>, p. 194.</div>
+                        <div class="footnote-item" id="sdfootnote30sym"><a class="back-ref" href="#sdfootnote30anc">30</a> Folcher, V., Lompré, N. (2012), « Accessibilité pour et dans l’usage », <em>Le travail humain</em>, 75, pp. 89-120.</div>
+                        <div class="footnote-item" id="sdfootnote31sym"><a class="back-ref" href="#sdfootnote31anc">31</a> Lebat, C. (2018), <em>op. cit.</em></div>
+                        <div class="footnote-item" id="sdfootnote32sym"><a class="back-ref" href="#sdfootnote32anc">32</a> Meunier, A., Soulier, V. (2010), « Préfiguration du concept de muséologie citoyenne », <em>Histoire, musées et éducation à la citoyenneté</em>, Québec : MultiMondes, p. 313.</div>
+                        <div class="footnote-item" id="sdfootnote33sym"><a class="back-ref" href="#sdfootnote33anc">33</a> Lamoureux, E., Saillant, F., Maignien, N., H-Levy, F. (2021), <em>op. cit.</em></div>
+                        <div class="footnote-item" id="sdfootnote34sym"><a class="back-ref" href="#sdfootnote34anc">34</a> Robertson, H. L. (2015), <em>The caring museum: New models of engagement with ageing</em>, Cambridge et Édimbourg : MuseumsEtc.</div>
+                        <div class="footnote-item" id="sdfootnote35sym"><a class="back-ref" href="#sdfootnote35anc">35</a> Rispal, A. (2020, 25 avril), <em>Le ‘caring museum’, un nouveau concept pour un musée inclusif</em>, <em>Invisibl.eu</em>.</div>
+                        <div class="footnote-item" id="sdfootnote36sym"><a class="back-ref" href="#sdfootnote36anc">36</a> Conseil international des musées [ICOM] (2022, 24 août), <em>L’ICOM approuve une nouvelle définition de musée</em>, paragr. 2.</div>
+                        <div class="footnote-item" id="sdfootnote37sym"><a class="back-ref" href="#sdfootnote37anc">37</a> OPHQ (2017), <em>Les personnes avec incapacités au Québec. Prévalence et caractéristiques de l’incapacité</em>, vol. 1, Drummondville : OPHQ.</div>
+                        <div class="footnote-item" id="sdfootnote38sym"><a class="back-ref" href="#sdfootnote38anc">38</a> Musée national des beaux-arts du Québec (2020), <em>Un musée ancré dans sa communauté</em>, Rapport annuel 2019-2020, p. 50.</div>
+                        <div class="footnote-item" id="sdfootnote39sym"><a class="back-ref" href="#sdfootnote39anc">39</a> Fougeyrollas, P., Fiset, D., Dumont, I. et al. (2019), <em>op. cit.</em>, vol. 25, n° 1, pp. 161-175.</div>
+                        <div class="footnote-item" id="sdfootnote40sym"><a class="back-ref" href="#sdfootnote40anc">40</a> Blaho-Ponce, C. (2013), <em>op. cit.</em></div>
+                        <div class="footnote-item" id="sdfootnote41sym"><a class="back-ref" href="#sdfootnote41anc">41</a> Fougeyrollas, P., Fiset, D., Dumont, I. et al. (2019), <em>op. cit.</em></div>
+                        <div class="footnote-item" id="sdfootnote42sym"><a class="back-ref" href="#sdfootnote42anc">42</a> Parent, L. (2017), « Ableism/disablism, on dit ça comment en français ? », <em>Canadian Journal of Disability Studies</em>.</div>
+                        <div class="footnote-item" id="sdfootnote43sym"><a class="back-ref" href="#sdfootnote43anc">43</a> Scolarius : <a href="https://www.scolarius.com/" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">https://www.scolarius.com/</a>.</div>
+                        <div class="footnote-item" id="sdfootnote44sym"><a class="back-ref" href="#sdfootnote44anc">44</a> 19 % des Québécois sont analphabètes (niveaux -1 et 1 de littératie) et 34,3 % éprouvent de grandes difficultés de lecture et se situent au niveau 2 de littératie (Fondation pour l’alphabétisation, consulté en mars 2022).</div>
+                        <div class="footnote-item" id="sdfootnote45sym"><a class="back-ref" href="#sdfootnote45anc">45</a> Les employés du « plancher » sont ceux travaillant à l’accueil, à l’entretien, à l’animation, à la boutique et à la sécurité. Les employés du « plateau » sont ceux qui travaillent dans les bureaux et en particulier les directeurs, les conservateurs et les chargés de projets.</div>
+                    </div>
+                </section>
+
+            </article>
+        </main>
+    </div>
+
+    <!-- Modal Universel (PDF / Vidéo) -->
+    <div class="modal-overlay" id="mediaModal" onclick="closeModalOnOutside(event)">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 id="modalTitle">Titre de la fenêtre</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBodyContent"></div>
+        </div>
+    </div>
+
+    <!-- Modal de Proposition d'Article / Projet -->
+    <div class="modal-overlay" id="proposalModal" onclick="closeProposalModalOnOutside(event)">
+        <div class="modal-container" style="max-width: 800px; height: auto;">
+            <div class="modal-header">
+                <h3 id="proposalModalTitle">Nous faire part d'un commentaire ou d'une proposition (captation ou article)</h3>
+                <button class="modal-close" onclick="closeProposalModal()">&times;</button>
+            </div>
+            <div class="modal-body" style="padding: 1.5rem; overflow-y: auto;">
+                <form id="proposalForm" onsubmit="submitProposal(event)" style="display: flex; flex-direction: column; gap: 1rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                    <input type="hidden" id="propCategory" value="article">
+                    <div>
+                        <label for="propName" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Votre nom</label>
+                        <input type="text" id="propName" required style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propEmail" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Votre courriel</label>
+                        <input type="email" id="propEmail" required style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propTitle" id="propTitleLabel" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Que voulez-vous nous communiquer ?</label>
+                        <input type="text" id="propTitle" required placeholder="Ex: projet de captation, soumettre un article, faire un commentaire..." style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propDesc" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Description ou résumé</label>
+                        <textarea id="propDesc" rows="4" required placeholder="Décrivez votre proposition en quelques lignes..." style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff; resize: vertical;"></textarea>
+                    </div>
+                    <button type="submit" style="background-color: #7a2222; color: #fff; border: none; padding: 0.75rem; border-radius: 4px; font-weight: 600; cursor: pointer; margin-top: 0.5rem; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#5e1a1a'" onmouseout="this.style.backgroundColor='#7a2222'">Envoyer la proposition</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSubmenu(event, submenuId, arrowId) {
+            event.stopPropagation();
+            const submenu = document.getElementById(submenuId);
+            const arrow = document.getElementById(arrowId);
+            submenu.classList.toggle('open');
+            arrow.style.transform = submenu.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
+
+        function scrollToSection(event, targetId) {
+            event.preventDefault();
+            if (targetId === 'top-presentation') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                return;
+            }
+            const target = document.getElementById(targetId);
+            if (target) {
+                const topbarOffset = 95; // Pointage légèrement au-dessus du titre du sous-chapitre
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - topbarOffset;
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Données interactives pour les 4 cartes conceptuelles
+        const diagramData = {
+            d1: [
+                "<strong>1. Primat de la collection (XIXe s. – années 1960) :</strong> La muséologie traditionnelle privilégiait la conservation matérielle des œuvres. Dès 1893 (Perkins Institution) puis 1932 (Musée Ethnologique de McGill), des initiatives pionnières émergent en Amérique du Nord et en Angleterre, où le musée est conçu pour le bénéfice éducatif de la communauté.",
+                "<strong>2. Accessibilité normative (Années 1970–1990) :</strong> Sous l'effet de la prise de conscience des inégalités vécues par les personnes ayant des séquelles de guerre, l'action se structure autour du cadre bâti, des transports et de l'information-communication (Centre Pompidou 1977, Charte de La Villette 1984, galerie tactile du Louvre 1995).",
+                "<strong>3. Musée bienveillant / Caring Museum (ICOM 2022) :</strong> La nouvelle définition internationale de l'ICOM consacre la fonction sociale, éthique et participative du musée : il ne s'agit plus seulement de donner accès aux murs, mais de prendre soin des visiteurs, des employés et des communautés.",
+                "<strong>Obstacles individuels et périphériques :</strong> L'expérience est freinée bien avant l'entrée au musée par les frais secondaires (transport adapté, rémunération d'un accompagnateur), la planification logistique complexe et la dépendance envers la disponibilité d'un tiers.",
+                "<strong>Obstacles organisationnels internes :</strong> Le fonctionnement muséal génère ses propres barrières : tarification rigide, budgets planifiés sans intégrer l'accessibilité en amont, outils numériques non accessibles et manque de partage d'information entre services.",
+                "<strong>Contraintes macro-environnementales :</strong> Le musée évolue dans un cadre plus large marqué par des contraintes institutionnelles (normes patrimoniales datées), sociétales (préjugés capacitistes) et sociocognitives (supports pédagogiques peu adaptés)."
+            ],
+            d2: [
+                "<strong>Étape 1 — Approche matérielle et normative (2009–2018) :</strong> Sous l'impulsion de la Loi de 2004 (projet de loi n° 56) et de l'accréditation Kéroul, le MNBAQ adapte ses infrastructures physiques et forme l'accueil. Bien qu'essentielle, cette phase laisse dans l'ombre les incapacités sensorielles, intellectuelles et psychologiques.",
+                "<strong>Étape 2 — Médiation culturelle et co-création (2018–2021) :</strong> Embauche de ressources dédiées et création de programmes phares (<em>accès-musée</em>, <em>s'inspirer</em>, <em>parcours sensoriel</em> avec Tactile Studio, <em>InterG</em>). Toutefois, ces initiatives restent portées par une seule direction sans transformer l'ensemble de la culture organisationnelle.",
+                "<strong>Étape 3 — Projet collectif et stratégique (Horizon 2022+) :</strong> Intégration de l'accessibilité universelle au cœur de la planification stratégique par la direction générale afin de décloisonner les métiers, reconnaître le personnel vivant avec des incapacités et instaurer une responsabilité partagée."
+            ],
+            d3: [
+                "<strong>Abordabilité :</strong> Englobe non seulement le tarif d'entrée (gratuit pour l'accompagnateur), mais surtout le coût financier, cognitif et organisationnel assumé par la PAI pour planifier son déplacement et mobiliser un accompagnateur.",
+                "<strong>Disponibilité :</strong> Renvoie à l'existence effective d'une offre de transport adapté, de places de stationnement proches, d'espaces de repos, d'une restauration accessible et d'une programmation culturelle ouverte.",
+                "<strong>Acceptabilité :</strong> Mesure la qualité de l'accueil humain, l'attitude non stigmatisante du personnel et le sentiment de respect ressenti par la personne handicapée au sein de l'institution.",
+                "<strong>Accessibilité :</strong> Concerne l'aménagement physique des pavillons (portes automatiques, ascenseurs, contrastes visuels, éclairage sans éblouissement) et la navigabilité du site Web en amont.",
+                "<strong>Adaptabilité :</strong> Capacité du musée à ajuster ses dispositifs de médiation (maquettes tactiles, braille, livrets simplifiés, boucles magnétiques) à la diversité singulière des incapacités.",
+                "<strong>1. Usagers PAI (n = 13) :</strong> Échantillon composé à 61 % de femmes et majoritairement de personnes de 60 ans et plus, représentant des incapacités mixtes (23 %), motrices (15 % F / 23 % H), auditives (15 %) et visuelles (8 %), suivies tout au long du parcours.",
+                "<strong>2. Employés du MNBAQ (n = 12) :</strong> Quatre groupes de discussion réunissant des travailleurs de la conservation, de la médiation, de la sécurité, de l'accueil, de la boutique, des ressources humaines et matérielles.",
+                "<strong>3. Experts mandatés (n = 3) :</strong> Évaluation croisée par un ergothérapeute (bâti), une experte en littératie (analyse <em>Scolarius</em> des textes et du site Web) et un représentant du milieu associatif (ROP-03)."
+            ],
+            d4: [
+                "<strong>84 % de lisibilité jugée insuffisante :</strong> L'analyse par l'outil <em>Scolarius</em> confirme que le niveau de littératie des cartels (secondaire supérieur à universitaire) et les choix graphiques (petite police, surface lustrée, faible contraste) entraînent fatigue visuelle et contorsions physiques.",
+                "<strong>60 % souhaitent un guide humain ou un livret :</strong> Quel que soit le type d'incapacité, la majorité des participants privilégient la médiation humaine ou un support écrit clair afin de pouvoir se concentrer sur la contemplation des œuvres.",
+                "<strong>30 % d'utilisation de l'audioguide mobile :</strong> L'application sur cellulaire pose des défis ergonomiques majeurs (mains occupées à propulser le fauteuil roulant, absence d'écouteurs, incompatibilité avec les implants cochléaires).",
+                "<strong>83 % de satisfaction à la boutique :</strong> Malgré une signalétique discrète et des allées étroites entre les présentoirs de livres, la boutique est appréciée pour son éclairage doux et son calme acoustique comparativement aux grandes salles réverbérantes.",
+                "<strong>Tension « Plancher » vs « Plateau » :</strong> Les équipes de terrain (« plancher ») ajustent rapidement les pratiques au contact du public, tandis que les décisions administratives (« plateau ») suivent des cycles hiérarchiques et budgétaires triennaux auprès du Conseil du Trésor.",
+                "<strong>Esthétiser l'accessibilité universelle :</strong> Plutôt que d'opposer la beauté architecturale (ex. escaliers monumentaux, scénographie épurée) aux besoins fonctionnels des visiteurs, les employés proposent de faire de l'accessibilité un véritable geste esthétique."
+            ]
+        };
+
+        function selectDiagramNode(diagramKey, index, element) {
+            const container = document.getElementById(
+                diagramKey === 'd1' ? 'diagram-1' :
+                diagramKey === 'd2' ? 'diagram-2' :
+                diagramKey === 'd3' ? 'diagram-3' : 'diagram-4'
+            );
+            if (container) {
+                container.querySelectorAll('.svg-node').forEach(node => {
+                    node.classList.remove('active-node');
+                    const rect = node.querySelector('rect');
+                    if (rect) {
+                        rect.setAttribute('stroke', '#c8bda9');
+                        rect.setAttribute('stroke-width', '1.5');
+                    }
+                });
+            }
+            element.classList.add('active-node');
+            const activeRect = element.querySelector('rect');
+            if (activeRect) {
+                activeRect.setAttribute('stroke', '#7a2222');
+                activeRect.setAttribute('stroke-width', '2.5');
+            }
+            const detailBox = document.getElementById(`${diagramKey}-detail`);
+            if (detailBox && diagramData[diagramKey] && diagramData[diagramKey][index]) {
+                detailBox.innerHTML = diagramData[diagramKey][index];
+            }
+        }
+
+        function openModal(type, title, url) {
+            const modal = document.getElementById('mediaModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalBodyContent = document.getElementById('modalBodyContent');
+
+            modalTitle.textContent = title;
+            modalBodyContent.innerHTML = '';
+
+            if (type === 'pdf') {
+                const iframe = document.createElement('iframe');
+                iframe.className = 'pdf-frame';
+                iframe.src = url;
+                modalBodyContent.appendChild(iframe);
+            } else if (type === 'video') {
+                const iframe = document.createElement('iframe');
+                iframe.className = 'video-frame';
+                iframe.src = url;
+                iframe.setAttribute('allow', 'autoplay; fullscreen');
+                modalBodyContent.appendChild(iframe);
+            }
+
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('mediaModal');
+            modal.style.display = 'none';
+            document.getElementById('modalBodyContent').innerHTML = '';
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeModalOnOutside(event) {
+            const modal = document.getElementById('mediaModal');
+            if (event.target === modal) closeModal();
+        }
+
+        function openProposalModal(type) {
+            const proposalModal = document.getElementById('proposalModal');
+            const titleEl = document.getElementById('proposalModalTitle');
+            const categoryEl = document.getElementById('propCategory');
+            const titleLabelEl = document.getElementById('propTitleLabel');
+            const titleInputEl = document.getElementById('propTitle');
+
+            categoryEl.value = type;
+            titleEl.textContent = "Nous faire part d'un commentaire ou d'une proposition (captation ou article)";
+            titleLabelEl.textContent = "Que voulez-vous nous communiquer ?";
+            titleInputEl.placeholder = "Ex: projet de captation, soumettre un article, faire un commentaire...";
+
+            proposalModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProposalModal() {
+            const proposalModal = document.getElementById('proposalModal');
+            proposalModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeProposalModalOnOutside(event) {
+            const proposalModal = document.getElementById('proposalModal');
+            if (event.target === proposalModal) closeProposalModal();
+        }
+
+        function submitProposal(event) {
+            event.preventDefault();
+            const name = document.getElementById('propName').value;
+            const email = document.getElementById('propEmail').value;
+            const category = document.getElementById('propCategory').value;
+            const title = document.getElementById('propTitle').value;
+            const desc = document.getElementById('propDesc').value;
+
+            const typeLabel = category === 'captation' ? 'Proposition de captation' : "Proposition d'article";
+            const subject = encodeURIComponent(`${typeLabel} : ${title}`);
+            const body = encodeURIComponent(`Nom : ${name}\nCourriel : ${email}\nType : ${typeLabel}\nTitre : ${title}\n\nDescription :\n${desc}`);
+
+            window.location.href = `mailto:sociocamera@gmail.com?subject=${subject}&body=${body}`;
+            closeProposalModal();
+        }
+
+        window.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+                closeProposalModal();
+            }
+        });
+    </script>
+</body>
+</html>
