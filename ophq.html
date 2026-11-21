@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; frame-src https://drive.google.com; connect-src https://script.google.com; object-src 'none';">
+    <title>Les plans d’action des municipalités à l’égard des personnes handicapées | Revue de Sociologie Visuelle</title>
+    <meta name="description" content="Les plans d’action des municipalités à l’égard des personnes handicapées : une obligation légale visant à réduire les obstacles à leur participation sociale. Article de Olivier Clément-Sainte-Marie, Mélanie Deslauriers et Vanessa Marquis.">
+    <meta name="keywords" content="inclusion sociale, accessibilité, sociologie visuelle, handicap, OPHQ, plans d'action, municipalités, participation sociale">
+    <link rel="canonical" href="https://doi.org/10.13140/RG.2.2.35504.53768">
+
+    <!-- Open Graph (Facebook, LinkedIn, WhatsApp, etc.) -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Revue Sociologie Visuelle">
+    <meta property="og:title" content="Les plans d’action des municipalités à l’égard des personnes handicapées | Revue de Sociologie Visuelle">
+    <meta property="og:description" content="Une obligation légale visant à réduire les obstacles à leur participation sociale — Olivier Clément-Sainte-Marie, Mélanie Deslauriers et Vanessa Marquis.">
+    <meta property="og:url" content="https://inclusionsociale.com/">
+    <meta property="og:image" content="https://lh3.googleusercontent.com/d/1R-6VqA6SZ8t1dall1uf0mj_ehOcj7jNW">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="fr_CA">
+
+    <!-- Twitter / X Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Les plans d’action des municipalités à l’égard des personnes handicapées">
+    <meta name="twitter:description" content="Numéro spécial de la Revue de Sociologie Visuelle consacré à l'inclusion sociale et à l'accessibilité.">
+    <meta name="twitter:image" content="https://inclusionsociale.com/images/vignette-inclusion-sociale.jpg">
+
+    <style>
+        :root {
+            --bg-color: #FAF6EF;
+            --bg-paler: #FDFBF7;
+            --box-whitish: #FCFAF6;
+            --text-color: #2b2b2b;
+            --primary-color: #1a202c;
+            --accent-color: #4a5568;
+            --bordeaux: #7a2222;
+            --bordeaux-dark: #5e1a1a;
+            --border-color: #e2dcd0;
+            --card-bg: #FAF6EF;
+            --hover-border: #cbd5e0;
+            --max-width: 1400px;
+            --sidebar-width: 320px;
+            --topbar-height: 60px;
+            --modal-header-bg: #7a2222;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Georgia", "Cambria", "Times New Roman", serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.75;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Barre horizontale permanente supérieure : toute la largeur de la page */
+        .top-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--topbar-height);
+            background-color: var(--bg-color);
+            border-bottom: 1px solid var(--border-color);
+            display: grid;
+            grid-template-columns: var(--sidebar-width) 1fr auto;
+            align-items: center;
+            padding: 0;
+            z-index: 1100;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .top-navbar-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            letter-spacing: 0.02em;
+            padding-left: 1.5rem;
+            border-right: 1px solid var(--border-color);
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .top-navbar-location {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            background-color: #f2ede4;
+            padding: 0.3rem 0.75rem;
+            border-radius: 4px;
+            margin-right: 2.5rem;
+        }
+
+        /* Colonne latérale gauche permanente sous la barre fixe du haut */
+        aside.sidebar {
+            position: fixed;
+            top: var(--topbar-height);
+            left: 0;
+            width: var(--sidebar-width);
+            height: calc(100vh - var(--topbar-height));
+            background-color: #f5f0e6;
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            z-index: 1000;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            overflow-y: auto;
+        }
+
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .btn-home {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            background-color: var(--bordeaux);
+            color: #fff;
+            border: none;
+            padding: 0.85rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        .btn-home svg {
+            position: absolute;
+            left: 1rem;
+        }
+
+        .btn-home:hover {
+            background-color: var(--bordeaux-dark);
+        }
+
+        .sidebar-info-section {
+            padding: 1rem 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .sidebar-card {
+            background-color: #FAF6EF;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 0.85rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            text-align: justify;
+        }
+
+        .sidebar-card.editor-card {
+            flex-direction: row;
+            align-items: center;
+            gap: 0.75rem;
+            text-align: left;
+        }
+
+        .editor-info h4 {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            margin-bottom: 0.15rem;
+        }
+
+        .editor-info p {
+            font-size: 0.78rem;
+            color: var(--accent-color);
+            line-height: 1.4;
+        }
+
+        .sidebar-nav {
+            padding: 1.25rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            flex: 1;
+        }
+
+        .sidebar-section-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--bordeaux);
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+            padding-left: 0.25rem;
+        }
+
+        .page-nav-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-top: 1px solid var(--border-color);
+            padding: 0.85rem 0.25rem 0.35rem 0.25rem;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--bordeaux);
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            text-align: left;
+            font-family: inherit;
+            transition: opacity 0.2s;
+        }
+
+        .page-nav-toggle:hover {
+            opacity: 0.8;
+        }
+
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--primary-color);
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-align: left;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            background-color: #eae3d5;
+            border-color: var(--hover-border);
+        }
+
+        .submenu {
+            display: none;
+            flex-direction: column;
+            gap: 0.4rem;
+            padding-left: 0.75rem;
+            margin-top: 0.15rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .submenu.open {
+            display: flex;
+        }
+
+        .submenu-item {
+            font-size: 0.82rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            padding: 0.45rem 0.75rem;
+            border-radius: 4px;
+            line-height: 1.35;
+            transition: background-color 0.15s, color 0.15s;
+            border-left: 2px solid #d4c5b9;
+        }
+
+        .submenu-item:hover, .submenu-item.active {
+            background-color: #eae3d5;
+            color: var(--bordeaux);
+            border-left-color: var(--bordeaux);
+            font-weight: 500;
+        }
+
+        /* Conteneur principal à droite, décalé pour laisser place à la sidebar et topbar */
+        .main-wrapper {
+            margin-left: var(--sidebar-width);
+            margin-top: var(--topbar-height);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: calc(100% - var(--sidebar-width));
+            padding: 2.5rem 2.5rem 4rem 2.5rem;
+        }
+
+        /* Largeur maximale de 1060px centrée à droite de la barre latérale */
+        .article-container {
+            width: 100%;
+            max-width: 1060px;
+            margin: 0 auto;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            padding-left: 2rem;
+        }
+
+        .btn-header {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: 1px solid var(--primary-color);
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: background-color 0.2s;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-header.secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border-color: var(--border-color);
+        }
+
+        .btn-header.secondary:hover {
+            background-color: #f2ede4;
+            border-color: var(--hover-border);
+        }
+
+        /* En-tête de l'article */
+        .article-header {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid var(--bordeaux);
+        }
+
+        .article-kicker {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--bordeaux);
+            margin-bottom: 0.75rem;
+        }
+
+        .article-title {
+            font-size: 2.15rem;
+            font-weight: 700;
+            line-height: 1.28;
+            color: var(--primary-color);
+        }
+
+        /* Deux cases côte à côte sous le titre (Auteurs & Citation) */
+        .meta-grid {
+            display: grid;
+            grid-template-columns: 1.25fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .whitish-box {
+            background-color: var(--box-whitish);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.35rem 1.5rem;
+            font-size: 0.9rem;
+            line-height: 1.55;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.025);
+        }
+
+        .box-label {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--bordeaux);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .authors-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            text-align: center;
+        }
+
+        .author-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .author-photo {
+            width: 82px;
+            height: 82px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d9cfc1;
+            margin-bottom: 0.6rem;
+            background-color: #ede6d8;
+        }
+
+        .author-name {
+            font-weight: 700;
+            font-size: 0.88rem;
+            color: var(--primary-color);
+            line-height: 1.3;
+            margin-bottom: 0.25rem;
+        }
+
+        .author-affiliation {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.76rem;
+            color: var(--accent-color);
+            line-height: 1.35;
+        }
+
+        .citation-text {
+            font-size: 0.88rem;
+            color: #3a3a3a;
+            text-align: justify;
+        }
+
+        /* Section Résumé FR / EN */
+        .abstract-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2.75rem;
+        }
+
+        .abstract-text {
+            font-size: 0.91rem;
+            line-height: 1.62;
+            text-align: justify;
+            color: #333;
+        }
+
+        .keywords-line {
+            margin-top: 0.85rem;
+            padding-top: 0.75rem;
+            border-top: 1px dashed var(--border-color);
+            font-size: 0.84rem;
+            color: var(--accent-color);
+        }
+
+        /* Corps de l'article */
+        .article-body {
+            font-size: 1.08rem;
+            line-height: 1.8;
+            color: var(--text-color);
+        }
+
+        .article-body p {
+            margin-bottom: 1.25rem;
+            text-align: justify;
+        }
+
+        .article-body ul {
+            margin: 0.75rem 0 1.4rem 1.75rem;
+        }
+
+        .article-body li {
+            margin-bottom: 0.65rem;
+            text-align: justify;
+            padding-left: 0.35rem;
+        }
+
+        /* Lettrine bordeaux en gras sur le premier paragraphe de l'Introduction */
+        .dropcap-paragraph::first-letter {
+            float: left;
+            font-size: 3.7rem;
+            line-height: 0.82;
+            padding-top: 0.18rem;
+            padding-right: 0.65rem;
+            padding-bottom: 0.05rem;
+            font-weight: 700;
+            color: var(--bordeaux);
+            font-family: "Georgia", "Times New Roman", serif;
+        }
+
+        /* Titres des sous-chapitres en rouge bordeaux avec décalage d'ancre pour la topbar */
+        .chapter-heading {
+            scroll-margin-top: 88px;
+            color: var(--bordeaux);
+            font-size: 1.45rem;
+            font-weight: 700;
+            line-height: 1.35;
+            margin-top: 2.75rem;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #dfd6c7;
+        }
+
+        .sub-heading {
+            color: var(--bordeaux);
+            font-size: 1.15rem;
+            font-weight: 700;
+            font-style: italic;
+            margin-top: 2rem;
+            margin-bottom: 0.85rem;
+        }
+
+        /* Appels de notes et liens */
+        sup a.footnote-ref {
+            color: var(--bordeaux);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.78rem;
+            padding: 0 0.15rem;
+        }
+
+        sup a.footnote-ref:hover {
+            text-decoration: underline;
+        }
+
+        /* Cartes conceptuelles interactives / Infographies SVG (fond plus pâle que #FAF6EF) */
+        .concept-card {
+            background-color: var(--bg-paler);
+            border: 1px solid #dfd7c8;
+            border-radius: 10px;
+            padding: 1.5rem 1.75rem;
+            margin: 2rem 0;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        .concept-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid #ebe4d8;
+        }
+
+        .concept-card-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--bordeaux);
+        }
+
+        .concept-card-subtitle {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.8rem;
+            color: var(--accent-color);
+        }
+
+        .concept-badge {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            background-color: #f4ece1;
+            color: var(--bordeaux);
+            padding: 0.25rem 0.65rem;
+            border-radius: 999px;
+            border: 1px solid #e2d5c3;
+        }
+
+        .concept-svg {
+            width: 100%;
+            height: auto;
+            display: block;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .svg-node {
+            cursor: pointer;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .svg-node:hover rect, .svg-node:hover circle {
+            stroke: var(--bordeaux);
+            stroke-width: 2.2;
+        }
+
+        .svg-node.active rect, .svg-node.active circle {
+            stroke: var(--bordeaux);
+            stroke-width: 2.5;
+            fill: #fdf5f5;
+        }
+
+        .concept-detail-panel {
+            margin-top: 1rem;
+            padding: 0.9rem 1.15rem;
+            background-color: #FAF6EF;
+            border-left: 3px solid var(--bordeaux);
+            border-radius: 4px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.86rem;
+            line-height: 1.55;
+            color: #2d3748;
+        }
+
+        .concept-detail-panel strong {
+            color: var(--bordeaux);
+        }
+
+        /* Grille des graphiques de données */
+        .charts-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.75rem 0;
+        }
+
+        .charts-grid-2 .concept-card {
+            margin: 0;
+        }
+
+        /* Onglets interactifs pour les diagrammes */
+        .diagram-tabs {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .diagram-tab-btn {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 0.4rem 0.85rem;
+            border-radius: 5px;
+            border: 1px solid #d8cfc0;
+            background-color: #FAF6EF;
+            color: var(--accent-color);
+            cursor: pointer;
+            transition: all 0.18s;
+        }
+
+        .diagram-tab-btn.active, .diagram-tab-btn:hover {
+            background-color: var(--bordeaux);
+            color: #fff;
+            border-color: var(--bordeaux);
+        }
+
+        /* Références et notes de bas de page */
+        .references-section, .footnotes-section {
+            margin-top: 2.75rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #d8cfc0;
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+
+        .references-list p, .footnotes-list p {
+            margin-bottom: 0.65rem;
+            padding-left: 1.5rem;
+            text-indent: -1.5rem;
+            text-align: justify;
+            word-break: break-word;
+        }
+
+        .references-list a, .footnotes-list a {
+            color: var(--bordeaux);
+            text-decoration: underline;
+        }
+
+        /* Styles harmonisés des fenêtres modales */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+        }
+
+        .modal-container {
+            background: var(--bg-color);
+            width: 100%;
+            max-width: 900px;
+            height: 85vh;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            border: 1px solid #d4c5b9;
+        }
+
+        .modal-header {
+            padding: 1.25rem 1.5rem;
+            background: var(--modal-header-bg);
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .modal-header h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .modal-close {
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #fff;
+            opacity: 0.85;
+            transition: opacity 0.2s;
+        }
+
+        .modal-close:hover {
+            opacity: 1;
+        }
+
+        .modal-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            background-color: var(--bg-color);
+        }
+
+        .pdf-frame, .video-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        @media (max-width: 1200px) {
+            :root { --sidebar-width: 0px; }
+            .top-navbar { left: 0; padding: 0 1rem; grid-template-columns: 1fr auto; }
+            .top-navbar-title { display: none; }
+            aside.sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
+            aside.sidebar.mobile-open { transform: translateX(0); }
+            .main-wrapper { margin-left: 0; width: 100%; padding: 1.5rem; }
+        }
+
+        @media (max-width: 900px) {
+            .meta-grid, .abstract-grid, .charts-grid-2 {
+                grid-template-columns: 1fr;
+            }
+            .authors-row {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+            }
+            .article-title {
+                font-size: 1.65rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barre horizontale permanente supérieure -->
+    <header class="top-navbar">
+        <div class="top-navbar-title">Revue Sociologie Visuelle</div>
+        <div class="header-actions">
+            <button class="btn-header secondary" onclick="openModal('video', 'Présentation introductive — Vidéo', 'https://drive.google.com/file/d/10Va3etjn9wZIqrVnByyNXDVM-XPKOHkK/preview?autoplay=1')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                Visionner la vidéo de présentation
+            </button>
+            <button class="btn-header secondary" onclick="openProposalModal('article')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                Proposer un projet de captation ou un article
+            </button>
+            <button class="btn-header secondary" onclick="openModal('pdf', 'Télécharger le numéro complet', 'https://drive.google.com/file/d/1d3ZUnnEwYomQ1VRQ1lF8XNei88HelQvy/preview')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Télécharger le numéro
+            </button>
+        </div>
+        <div class="top-navbar-location" id="locationIndicator">Article — OPHQ</div>
+    </header>
+
+    <!-- Colonne latérale gauche permanente -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="https://inclusionsociale.com/#article-ophq-plans" class="btn-home">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                ACCUEIL
+            </a>
+        </div>
+
+        <div class="sidebar-info-section">
+            <div style="font-size: 0.72rem; color: #718096; text-align: left; margin-bottom: 0.05rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                DOI : <a href="https://doi.org/10.13140/RG.2.2.35504.53768" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; opacity: 0.85;">10.13140/RG.2.2.35504.53768</a>
+            </div>
+
+            <div class="sidebar-card editor-card">
+                <div class="editor-info">
+                    <h4>Éditeurs</h4>
+                    <p><b>François Routhier &amp; Pierre Fraser</b></p>
+                    <p>Plus de 18 équipes de recherche mobilisées afin de saisir comment le milieu façonne et articule l'accès aux services et à l'inclusion sociale.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-nav">
+            <div class="sidebar-section-label">NAVIGATION SUR LE SITE</div>
+
+            <div>
+                <button class="nav-btn" onclick="toggleSubmenu(event, 'accessibilitySubmenu', 'submenuArrow')">
+                    <span>Penser l'accessibilité</span>
+                    <svg id="submenuArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu" id="accessibilitySubmenu">
+                    <a href="https://inclusionsociale.com/#theme-1" class="submenu-item">1. Espace urbain &amp; transports</a>
+                    <a href="https://inclusionsociale.com/#theme-2" class="submenu-item">2. Éducation &amp; institutions</a>
+                    <a href="https://inclusionsociale.com/#theme-3" class="submenu-item">3. Travail, autonomie &amp; loisirs</a>
+                    <a href="https://inclusionsociale.com/#theme-4" class="submenu-item">4. Expérience vécue &amp; stigmates</a>
+                </div>
+            </div>
+
+            <div>
+                <button class="nav-btn" onclick="toggleSubmenu(event, 'bilansSubmenu', 'bilansSubmenuArrow')">
+                    <span>Bilans</span>
+                    <svg id="bilansSubmenuArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu" id="bilansSubmenu">
+                    <a href="https://inclusionsociale.com/mentorat-actif-bilan.html" class="submenu-item">Mentorat actif, un plus tard</a>
+                </div>
+            </div>
+
+            <div>
+                <a href="https://inclusionsociale.com/tournages.html" class="nav-btn" style="font-weight: normal;">
+                    <span>Tournages en cours</span>
+                </a>
+            </div>
+
+            <!-- Mention cliquable NAVIGATION DANS LA PAGE en couleur rouge bordeaux -->
+            <div>
+                <button class="page-nav-toggle" onclick="toggleSubmenu(event, 'pageNavSubmenu', 'pageNavArrow')" aria-expanded="true">
+                    <span>NAVIGATION DANS LA PAGE</span>
+                    <svg id="pageNavArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="transform: rotate(180deg); transition: transform 0.2s;"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu open" id="pageNavSubmenu">
+                    <a href="#top-presentation" class="submenu-item" onclick="scrollToTopPresentation(event)">Présentation</a>
+                    <a href="#introduction" class="submenu-item" onclick="scrollToChapter(event, 'introduction')">Introduction</a>
+                    <a href="#chapitre-1" class="submenu-item" onclick="scrollToChapter(event, 'chapitre-1')">1. Le Québec : État précurseur (1978)</a>
+                    <a href="#chapitre-2" class="submenu-item" onclick="scrollToChapter(event, 'chapitre-2')">2. Révision de la Loi en 2004</a>
+                    <a href="#chapitre-3" class="submenu-item" onclick="scrollToChapter(event, 'chapitre-3')">3. Les plans d’action des municipalités</a>
+                    <a href="#chapitre-4" class="submenu-item" onclick="scrollToChapter(event, 'chapitre-4')">4. Étude de cas : Ville de Beloeil</a>
+                    <a href="#references" class="submenu-item" onclick="scrollToChapter(event, 'references')">Références bibliographiques</a>
+                    <a href="#notes" class="submenu-item" onclick="scrollToChapter(event, 'notes')">Notes</a>
+                </div>
+            </div>
+
+        </div>
+    </aside>
+
+    <!-- Zone de contenu dynamique à droite (largeur maximale de 1060px centrée) -->
+    <div class="main-wrapper" id="top-presentation">
+        <main class="article-container">
+            <article>
+
+                <!-- En-tête de l'article -->
+                <header class="article-header">
+                    <div class="article-kicker">Revue Sociologie Visuelle • N° 4 • Gouvernance municipale et inclusion</div>
+                    <h1 class="article-title">Les plans d’action des municipalités à l’égard des personnes handicapées&nbsp;: une obligation légale visant à réduire les obstacles à leur participation sociale</h1>
+                </header>
+
+                <!-- Deux cases côte à côte sous le titre (Auteurs & Citation) -->
+                <section class="meta-grid" aria-label="Auteurs et citation de l'article">
+                    <!-- Première case : 3 photos côte à côte, noms et affiliations dessous -->
+                    <div class="whitish-box">
+                        <span class="box-label">Auteurs et affiliation</span>
+                        <div class="authors-row">
+                            <div class="author-item">
+                                <img src="https://lh3.googleusercontent.com/d/1GcAG1yM19jx3zM4-LsVBLhQcBQohK5Vt" alt="Portrait de Olivier Clément-Sainte-Marie" class="author-photo">
+                                <div class="author-name">Olivier Clément-Sainte-Marie</div>
+                                <div class="author-affiliation">Office des personnes handicapées du Québec</div>
+                            </div>
+                            <div class="author-item">
+                                <img src="https://lh3.googleusercontent.com/d/1uJ46l8Kxw6c-LoCpkXt--MFhyQpHZDPT" alt="Portrait de Mélanie Deslauriers" class="author-photo">
+                                <div class="author-name">Mélanie Deslauriers</div>
+                                <div class="author-affiliation">Office des personnes handicapées du Québec</div>
+                            </div>
+                            <div class="author-item">
+                                <img src="https://lh3.googleusercontent.com/d/1DPPNdmfVSBDnErrboTYjvKNbjmSldMSF" alt="Portrait de Vanessa Marquis" class="author-photo">
+                                <div class="author-name">Vanessa Marquis</div>
+                                <div class="author-affiliation">Office des personnes handicapées du Québec</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Seconde case : Citation de l'article -->
+                    <div class="whitish-box">
+                        <span class="box-label">Citer cet article</span>
+                        <p class="citation-text">
+                            Clément-Sainte-Marie, O., Deslauriers, M., Marquis, V. (2023), «&nbsp;Les plans d’action des municipalités à l’égard des personnes handicapées&nbsp;: une obligation légale visant à réduire les obstacles à leur participation sociale&nbsp;», <i>Sociologie Visuelle</i>, n° 4, François Routhier et Pierre Fraser (éds.), Québec&nbsp;: Photo|Société, pp. 215-228.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Section Résumé : deux cases sur fond blanchâtre (Français / Anglais) -->
+                <section class="abstract-grid" aria-label="Résumés français et anglais">
+                    <div class="whitish-box">
+                        <span class="box-label">Résumé</span>
+                        <p class="abstract-text">
+                            L’entrée en vigueur de l’article 61.1 de la <i>Loi assurant l’exercice des droits des personnes handicapées en vue de leur intégration scolaire, professionnelle et sociale</i> (Loi), lors de sa révision en 2004, introduisait l’obligation légale pour les municipalités d’au moins 15&nbsp;000 habitants d’adopter annuellement un plan d’action à l’égard des personnes handicapées. En cohérence avec ses rôles de vigie et de soutien-conseil à l’égard de la mise en œuvre de la Loi, l’Office des personnes handicapées du Québec (l’Office) s’assure que les organisations assujetties produisent annuellement leur plan d’action et offre du soutien et des conseils aux municipalités dans l’élaboration et l’amélioration de leurs plans d’action. En vertu de son rôle d’évaluation prescrit par la Loi, les plans d’action font l’objet d’un bilan annuel produit par l’Office depuis 2009, dans lequel les divers éléments les composant sont analysés. Les données contenues dans cet article permettent de constater que, de 2009 à 2021, le taux de production des plans d’action pour les municipalités est passé de 69&nbsp;% à 100&nbsp;%. De plus, une entrevue menée avec la municipalité de Beloeil sur la mise en œuvre d’un projet de centre aquatique inclusif permet de faire ressortir que la collaboration avec différents acteurs est nécessaire pour mener à bien un tel projet.
+                        </p>
+                        <div class="keywords-line">
+                            <strong>Mots-clés&nbsp;:</strong> Loi&nbsp;; OPHQ&nbsp;; organisations&nbsp;; personnes handicapées&nbsp;; plan d’action.
+                        </div>
+                    </div>
+
+                    <div class="whitish-box">
+                        <span class="box-label">Abstract</span>
+                        <p class="abstract-text">
+                            The coming into force of section 61.1 of the <i>Act to secure handicapped persons in the exercise of their rights with a view to achieving social, school and workplace integration</i> (the Act), following its 2004 revision, introduced a legal obligation for municipalities with at least 15,000 inhabitants to annually adopt an action plan for persons with disabilities. In line with its oversight and advisory support roles regarding the implementation of the Act, the Office des personnes handicapées du Québec (the Office) ensures that subject organizations produce their annual action plans and provides guidance to municipalities in developing and improving them. Pursuant to its statutory evaluation mandate, the Office has produced an annual assessment since 2009 analyzing the various components of these action plans. Data presented in this article show that between 2009 and 2021, the production rate of municipal action plans rose from 69% to 100%. Furthermore, an interview conducted with the municipality of Beloeil regarding the implementation of an inclusive aquatic center highlights that collaboration across multiple stakeholders is essential to successfully carry out such an initiative.
+                        </p>
+                        <div class="keywords-line">
+                            <strong>Keywords:</strong> Act; OPHQ; organizations; persons with disabilities; action plan.
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Corps de l'article -->
+                <div class="article-body">
+
+                    <!-- INTRODUCTION -->
+                    <h2 id="introduction" class="chapter-heading">Introduction</h2>
+
+                    <p class="dropcap-paragraph">
+                        L’entrée en vigueur de l’article 61.1 de la <i>Loi assurant l’exercice des droits des personnes handicapées en vue de leur intégration scolaire, professionnelle et sociale</i> (<i>Loi</i>) lors de sa révision en 2004<sup><a href="#sdfootnote1sym" id="sdfootnote1anc" class="footnote-ref">1</a></sup> introduisait l’obligation légale pour les ministères et les organismes publics d’au moins 50 employés, ainsi que les municipalités d’au moins 15&nbsp;000 habitants d’adopter annuellement un plan d’action à l’égard des personnes handicapées. En cohérence avec son rôle de vigie à l’égard de la mise en œuvre de la <i>Loi</i>, l’Office des personnes handicapées du Québec (l’Office) s’assure, depuis, que les quelque 200 organisations assujetties, incluant 75 municipalités en 2023, produisent annuellement leur plan d’action. L’Office leur offre également du soutien et des conseils dans l’élaboration et l’amélioration de leurs plans d’action. L’importance des plans d’action a été réitérée avec la diffusion en janvier 2022 du nouveau plan d’engagements «&nbsp;Une action gouvernementale concertée à l’égard des personnes handicapées&nbsp;: mise en œuvre 2021&#8209;2024 de la politique À part entière : pour un véritable exercice du droit à l’égalité&nbsp;» (Plan d’engagements 2021-2024)<sup><a href="#sdfootnote2sym" id="sdfootnote2anc" class="footnote-ref">2</a></sup>.
+                    </p>
+
+                    <p>
+                        Cet article se décline en trois temps. Dans un premier temps, un court historique de la <i>Loi</i> québécoise sera présenté, incluant la création de l’Office en 1978. Dans un deuxième temps, il sera question des résultats du suivi des plans d’action des municipalités effectué par l’Office en vertu de son rôle d’évaluation prescrit par la <i>Loi</i>. En effet, depuis 2009, les plans d’action font l’objet d’un bilan annuel produit par l’Office, dans lequel les divers éléments les composant sont analysés. Dans un troisième temps, il sera question de la mise en œuvre d’une mesure inclusive par la ville de Beloeil, soit la conception d’un centre aquatique. Il sera également question, plus largement, de la démarche d’élaboration du plan d’action de cette municipalité.
+                    </p>
+
+                    <!-- CARTE CONCEPTUELLE 1 : Architecture institutionnelle de l'article 61.1 -->
+                    <div class="concept-card">
+                        <div class="concept-card-header">
+                            <div>
+                                <div class="concept-card-title">Carte conceptuelle 1 — L’écosystème de l’obligation légale (Article 61.1)</div>
+                                <div class="concept-card-subtitle">Cliquez sur un nœud du diagramme pour explorer le mécanisme institutionnel</div>
+                            </div>
+                            <span class="concept-badge">Diagramme interactif</span>
+                        </div>
+
+                        <svg class="concept-svg" viewBox="0 0 960 250" role="img" aria-label="Diagramme de l'écosystème législatif de l'article 61.1">
+                            <defs>
+                                <marker id="arrowBordeaux" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#7a2222"/>
+                                </marker>
+                            </defs>
+
+                            <!-- Connexions -->
+                            <line x1="215" y1="120" x2="275" y2="120" stroke="#7a2222" stroke-width="2" marker-end="url(#arrowBordeaux)"/>
+                            <path d="M 485 100 L 545 65" stroke="#7a2222" stroke-width="2" fill="none" marker-end="url(#arrowBordeaux)"/>
+                            <path d="M 485 140 L 545 175" stroke="#7a2222" stroke-width="2" fill="none" marker-end="url(#arrowBordeaux)"/>
+                            <path d="M 755 65 L 800 105" stroke="#7a2222" stroke-width="2" fill="none" marker-end="url(#arrowBordeaux)"/>
+                            <path d="M 755 175 L 800 135" stroke="#7a2222" stroke-width="2" fill="none" marker-end="url(#arrowBordeaux)"/>
+
+                            <!-- Nœud 1 : Cadre légal -->
+                            <g class="svg-node active" onclick="selectConceptNode('cc1', 0, this)">
+                                <rect x="15" y="65" width="200" height="110" rx="8" fill="#FAF6EF" stroke="#b8a996" stroke-width="1.5"/>
+                                <text x="115" y="95" text-anchor="middle" font-size="11" font-weight="700" fill="#7a2222">CADRE LÉGISLATIF</text>
+                                <text x="115" y="117" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">Article 61.1 de la Loi</text>
+                                <text x="115" y="138" text-anchor="middle" font-size="11" fill="#4a5568">Révision de 2004</text>
+                                <text x="115" y="156" text-anchor="middle" font-size="10.5" fill="#718096">Politique À part entière</text>
+                            </g>
+
+                            <!-- Nœud 2 : Rôle de l'OPHQ -->
+                            <g class="svg-node" onclick="selectConceptNode('cc1', 1, this)">
+                                <rect x="280" y="65" width="205" height="110" rx="8" fill="#FAF6EF" stroke="#b8a996" stroke-width="1.5"/>
+                                <text x="382" y="95" text-anchor="middle" font-size="11" font-weight="700" fill="#7a2222">ORGANISME PIVOT</text>
+                                <text x="382" y="117" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">Rôle de l’Office (OPHQ)</text>
+                                <text x="382" y="138" text-anchor="middle" font-size="11" fill="#4a5568">Vigie • Soutien-conseil</text>
+                                <text x="382" y="156" text-anchor="middle" font-size="10.5" fill="#718096">Évaluation annuelle (2009+)</text>
+                            </g>
+
+                            <!-- Nœud 3 : Ministères -->
+                            <g class="svg-node" onclick="selectConceptNode('cc1', 2, this)">
+                                <rect x="550" y="20" width="205" height="85" rx="8" fill="#FAF6EF" stroke="#b8a996" stroke-width="1.5"/>
+                                <text x="652" y="46" text-anchor="middle" font-size="10.5" font-weight="700" fill="#7a2222">ADMINISTRATION PUBLIQUE</text>
+                                <text x="652" y="66" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a202c">Ministères &amp; Organismes</text>
+                                <text x="652" y="86" text-anchor="middle" font-size="11" fill="#4a5568">Seuil : ≥ 50 employés</text>
+                            </g>
+
+                            <!-- Nœud 4 : Municipalités -->
+                            <g class="svg-node" onclick="selectConceptNode('cc1', 3, this)">
+                                <rect x="550" y="135" width="205" height="85" rx="8" fill="#FAF6EF" stroke="#b8a996" stroke-width="1.5"/>
+                                <text x="652" y="161" text-anchor="middle" font-size="10.5" font-weight="700" fill="#7a2222">PALIER LOCAL</text>
+                                <text x="652" y="181" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a202c">Municipalités assujetties</text>
+                                <text x="652" y="201" text-anchor="middle" font-size="11" fill="#4a5568">≥ 15 000 hab. (75 en 2023)</text>
+                            </g>
+
+                            <!-- Nœud 5 : Finalité -->
+                            <g class="svg-node" onclick="selectConceptNode('cc1', 4, this)">
+                                <rect x="805" y="65" width="140" height="110" rx="8" fill="#FAF6EF" stroke="#b8a996" stroke-width="1.5"/>
+                                <text x="875" y="95" text-anchor="middle" font-size="10.5" font-weight="700" fill="#7a2222">FINALITÉ</text>
+                                <text x="875" y="117" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a202c">Participation</text>
+                                <text x="875" y="135" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a202c">sociale</text>
+                                <text x="875" y="156" text-anchor="middle" font-size="10.5" fill="#4a5568">Réduction d’obstacles</text>
+                            </g>
+                        </svg>
+
+                        <div class="concept-detail-panel" id="cc1-detail">
+                            <strong>Article 61.1 de la Loi (2004) :</strong> Rend obligatoire l’adoption, la publication et la mise à jour annuelle d’un plan d’action identifiant les obstacles à l’intégration des personnes handicapées et les mesures envisagées pour les réduire.
+                        </div>
+                    </div>
+
+                    <!-- CHAPITRE 1 -->
+                    <h2 id="chapitre-1" class="chapter-heading">1. Le Québec&nbsp;: État précurseur en adoptant une <i>Loi assurant l’exercice des droits des personnes handicapées</i> il y a 45 ans</h2>
+
+                    <p>
+                        En 1978, l’Assemblée nationale adoptait à l’unanimité la <i>Loi assurant l’exercice des droits des personnes handicapées</i>. Le Québec devenait ainsi la première juridiction au Canada à se doter d’une législation spécifique à l’égard des personnes handicapées. Pour la première fois, une loi interpellait le gouvernement et les fournisseurs de services publics en vue de les responsabiliser à l’égard des personnes handicapées. Cette loi avait pour objectifs la mise en place de services, la coordination des efforts et le développement maximal du potentiel des personnes handicapées, afin qu’elles deviennent des membres à part entière de la société. L’adoption de la <i>Loi</i> introduisait également une définition de personne handicapée, en plus d’une reconnaissance de la contribution des organismes de promotion et de défense des intérêts des personnes handicapées.
+                    </p>
+
+                    <p>
+                        En parallèle, l’adoption de la <i>Loi</i> bonifiait la <i>Charte des droits et libertés de la personne du Québec</i> en ajoutant le «&nbsp;handicap&nbsp;» comme motif de discrimination interdit. Ce choix législatif avait été fait pour reconnaître que les droits des personnes handicapées sont strictement les mêmes que ceux de tous les autres citoyens, déjà inscrits dans la <i>Charte</i>, et que le fait d’être une personne handicapée ne devait pas entraver l’égalité de leurs chances. Ainsi, les personnes handicapées pouvaient bénéficier des mêmes droits et libertés fondamentales reconnus à toute personne. Cela assurait également qu’elles auraient les mêmes recours en cas de discrimination, via le Tribunal des droits de la personne.
+                    </p>
+
+                    <p>
+                        Créé le 8 novembre 1978, l’Office devenait donc le nouvel organisme gouvernemental dont la mission serait de favoriser l’intégration scolaire, professionnelle et sociale des personnes handicapées<sup><a href="#sdfootnote3sym" id="sdfootnote3anc" class="footnote-ref">3</a></sup>. Il avait pour premières fonctions de «&nbsp;veiller à la coordination des services dispensés aux personnes handicapées, de les informer et de les conseiller, de promouvoir leurs intérêts et de favoriser leur intégration scolaire, professionnelle et sociale&nbsp;»<sup><a href="#sdfootnote4sym" id="sdfootnote4anc" class="footnote-ref">4</a></sup>. Pour l’Office, la période allant de 1978 à 2004 fut marquée par le développement de programmes et mesures destinés aux personnes handicapées tels que le transport adapté, les centres de travail adaptés, différents programmes d’aides techniques, les services de maintien à domicile, les programmes d’adaptation de domicile et de véhicule, les frais de déplacement (transport, repas, hébergement, accompagnement) et la vignette de stationnement.
+                    </p>
+
+                    <p>
+                        Le 11 mars 1987, dans la volonté de responsabiliser davantage les ministères et les organismes publics quant à l’intégration sociale des personnes handicapées dans leurs champs de compétence respectifs, le Conseil des ministres a pris la décision que les programmes développés par l’Office devaient être transférés aux instances concernées. Pour répondre à cette décision, un comité a été mis en place et le milieu associatif a été consulté à propos de la coordination du transfert des programmes. Ainsi, à partir de 1989, la responsabilité des programmes a peu à peu été remise entre les mains des ministères et des organismes publics visés. Depuis ce moment, les personnes handicapées reçoivent leurs services aux mêmes endroits que le reste de la population. Le transfert des programmes a conséquemment eu pour effet d’entreprendre les réflexions sur les rôles de l’Office, ainsi que sur sa mission. Ces réflexions trouveront finalement écho lors de la révision de la <i>Loi</i> en 2004.
+                    </p>
+
+                    <!-- CARTE CONCEPTUELLE 2 : Frise chronologique 1978-2004 -->
+                    <div class="concept-card">
+                        <div class="concept-card-header">
+                            <div>
+                                <div class="concept-card-title">Carte conceptuelle 2 — Trajectoire historique et mutation du rôle de l’Office (1978–2004)</div>
+                                <div class="concept-card-subtitle">Sélectionnez une étape chronologique pour afficher son impact institutionnel</div>
+                            </div>
+                            <span class="concept-badge">Frise interactive</span>
+                        </div>
+
+                        <svg class="concept-svg" viewBox="0 0 960 190" role="img" aria-label="Frise chronologique de 1978 à 2004">
+                            <!-- Axe horizontal -->
+                            <line x1="70" y1="68" x2="890" y2="68" stroke="#7a2222" stroke-width="3"/>
+
+                            <!-- Jalon 1 : 1978 -->
+                            <g class="svg-node active" onclick="selectConceptNode('cc2', 0, this)">
+                                <circle cx="120" cy="68" r="14" fill="#FAF6EF" stroke="#7a2222" stroke-width="2.5"/>
+                                <text x="120" y="42" text-anchor="middle" font-size="13" font-weight="700" fill="#7a2222">1978</text>
+                                <rect x="30" y="95" width="180" height="78" rx="6" fill="#FAF6EF" stroke="#b8a996" stroke-width="1.3"/>
+                                <text x="120" y="118" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a202c">Adoption de la Loi</text>
+                                <text x="120" y="136" text-anchor="middle" font-size="10.5" fill="#4a5568">Création de l’Office (8 nov.)</text>
+                                <text x="120" y="153" text-anchor="middle" font-size="10.5" fill="#4a5568">Charte bonifiée (non-discrim.)</text>
+                            </g>
+
+                            <!-- Jalon 2 : 1978-1987 -->
+                            <g class="svg-node" onclick="selectConceptNode('cc2', 1, this)">
+                                <circle cx="370" cy="68" r="14" fill="#FAF6EF" stroke="#7a2222" stroke-width="2.5"/>
+                                <text x="370" y="42" text-anchor="middle" font-size="13" font-weight="700" fill="#7a2222">1978 – 1987</text>
+                                <rect x="275" y="95" width="190" height="78" rx="6" fill="#FAF6EF" stroke="#b8a996" stroke-width="1.3"/>
+                                <text x="370" y="118" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a202c">Développement direct</text>
+                                <text x="370" y="136" text-anchor="middle" font-size="10.5" fill="#4a5568">Transport &amp; travail adaptés</text>
+                                <text x="370" y="153" text-anchor="middle" font-size="10.5" fill="#4a5568">Aides techniques, maintien</text>
+                            </g>
+
+                            <!-- Jalon 3 : 1987-1989 -->
+                            <g class="svg-node" onclick="selectConceptNode('cc2', 2, this)">
+                                <circle cx="620" cy="68" r="14" fill="#FAF6EF" stroke="#7a2222" stroke-width="2.5"/>
+                                <text x="620" y="42" text-anchor="middle" font-size="13" font-weight="700" fill="#7a2222">1987 – 1989</text>
+                                <rect x="525" y="95" width="190" height="78" rx="6" fill="#FAF6EF" stroke="#b8a996" stroke-width="1.3"/>
+                                <text x="620" y="118" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a202c">Transfert des programmes</text>
+                                <text x="620" y="136" text-anchor="middle" font-size="10.5" fill="#4a5568">Remise aux ministères visés</text>
+                                <text x="620" y="153" text-anchor="middle" font-size="10.5" fill="#4a5568">Accès aux guichets universels</text>
+                            </g>
+
+                            <!-- Jalon 4 : 1993-2004 -->
+                            <g class="svg-node" onclick="selectConceptNode('cc2', 3, this)">
+                                <circle cx="850" cy="68" r="14" fill="#FAF6EF" stroke="#7a2222" stroke-width="2.5"/>
+                                <text x="850" y="42" text-anchor="middle" font-size="13" font-weight="700" fill="#7a2222">1993 – 2004</text>
+                                <rect x="755" y="95" width="190" height="78" rx="6" fill="#FAF6EF" stroke="#b8a996" stroke-width="1.3"/>
+                                <text x="850" y="118" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a202c">Révision (PL 155)</text>
+                                <text x="850" y="136" text-anchor="middle" font-size="10.5" fill="#4a5568">Approche par les obstacles</text>
+                                <text x="850" y="153" text-anchor="middle" font-size="10.5" fill="#4a5568">Obligation des plans d’action</text>
+                            </g>
+                        </svg>
+
+                        <div class="concept-detail-panel" id="cc2-detail">
+                            <strong>1978 — Acte fondateur :</strong> Le Québec devient la première juridiction canadienne à adopter une loi dédiée et inscrit le « handicap » comme motif interdit de discrimination dans la Charte des droits et libertés de la personne.
+                        </div>
+                    </div>
+
+                    <!-- CHAPITRE 2 -->
+                    <h2 id="chapitre-2" class="chapter-heading">2. Révision de la Loi en 2004&nbsp;: de nouvelles responsabilités et un nouveau rôle pour l’Office des personnes handicapées du Québec</h2>
+
+                    <p>
+                        Le 17 février 1993, le Conseil des ministres donnait le mandat à l’Office de voir à la préparation du projet de loi 155 afin de modifier en conséquence la <i>Loi assurant l’exercice des droits des personnes handicapées</i>. Toutefois, il fallut attendre une dizaine d’années afin que celui-ci soit finalement adopté le 15 décembre 2004. Pendant toute cette période, de nombreuses consultations ont eu lieu auprès du milieu associatif et ont entre autres permis d’identifier les champs de responsabilités et les secteurs d’action prioritaires, notamment l’emploi, le transport, l’accès aux documents et aux services ainsi que l’accessibilité.
+                    </p>
+
+                    <p>
+                        D’emblée, l’adoption de la <i>Loi</i> révisée en modifie le titre. Dorénavant, elle serait connue comme étant la <i>Loi assurant l’exercice des droits des personnes handicapées en vue de leur intégration scolaire, professionnelle et sociale</i>. L’intention du législateur derrière ce changement était de s’appuyer sur une vision de l’intégration sociale des personnes handicapées qui prenne en compte les réalités actuelles et les réalités prévisibles à moyen terme. Le processus de révision mènera également à l’ajout d’une nouvelle définition de personnes handicapées&nbsp;: «&nbsp;Toute personne ayant une déficience entraînant une incapacité significative et persistante et qui est sujette à rencontrer des obstacles dans l’accomplissement d’activités courantes&nbsp;»<sup><a href="#sdfootnote5sym" id="sdfootnote5anc" class="footnote-ref">5</a></sup>. Du même coup, la notion d’obstacle fait son entrée dans la <i>Loi</i> et est définie de manière à ne pas limiter la compréhension à l’accessibilité physique seulement.
+                    </p>
+
+                    <p>
+                        En ce qui a trait à l’Office, le législateur a voulu qu’il joue un rôle déterminant dans l’amélioration des possibilités offertes aux personnes handicapées. Ce rôle s’exercerait dorénavant par une combinaison unique de fonctions, soit :
+                    </p>
+                    <ul>
+                        <li>conduire des travaux d’évaluation et de recherche&nbsp;;</li>
+                        <li>offrir du soutien-conseil aux organisations exerçant des responsabilités en vertu de la <i>Loi</i>&nbsp;;</li>
+                        <li>réaliser des mandats de concertation et de coordination auprès des partenaires pour la recherche de solutions et leur mise en œuvre&nbsp;;</li>
+                        <li>offrir des services directs à la population pour renseigner, conseiller et accompagner les personnes handicapées et leur famille dans leurs démarches d’accès aux services publics.</li>
+                    </ul>
+
+                    <p>
+                        La révision de la <i>Loi</i> en 2004 est marquée par l’ajout de différentes responsabilités et obligations dans le but d’accroitre la responsabilisation des organisations dans différents secteurs clés. Il s’agit des dispositions législatives suivantes&nbsp;:
+                    </p>
+                    <ul>
+                        <li>l’article 26.5 qui a mené à l’établissement de la politique gouvernementale<sup><a href="#sdfootnote6sym" id="sdfootnote6anc" class="footnote-ref">6</a></sup>. Elle vise à mettre en place toutes les conditions qui permettront aux personnes handicapées d’avoir accès, en toute égalité, aux documents et aux services offerts au public&nbsp;;</li>
+                        <li>l’article 61.2 qui intègre une nouvelle responsabilité, la clause d’impact. Cela a créé l’«&nbsp;obligation pour les ministères et les organismes publics de consulter le ministre responsable de l’application de la <i>Loi</i> au moment de l’élaboration de mesures prévues par les lois et les règlements qui pourraient avoir un impact significatif sur les personnes handicapées&nbsp;»<sup><a href="#sdfootnote7sym" id="sdfootnote7anc" class="footnote-ref">7</a></sup>&nbsp;;</li>
+                        <li>l’article 63 qui stipule que le ministère de l’Emploi et de la Solidarité sociale doit favoriser l’élaboration, la coordination, le suivi et l’évaluation d’une stratégie visant l’intégration et le maintien en emploi des personnes handicapées — 2<sup>e</sup> Stratégie nationale pour l’intégration et le maintien en emploi des personnes handicapées 2019-2024 est actuellement mise en œuvre.</li>
+                    </ul>
+
+                    <p>
+                        D’autres ajouts lors de la révision de la <i>Loi</i> touchent autant les ministères et organismes publics que les municipalités&nbsp;:
+                    </p>
+                    <ul>
+                        <li>l’article 61.1 qui stipule que les ministères et les organismes publics d’au moins 50 employés ainsi que les municipalités comptant au moins 15&nbsp;000&nbsp;habitants ont l’obligation légale de produire annuellement des plans à l’égard des personnes handicapées depuis 2004&nbsp;;</li>
+                        <li>l’article 61.3 qui indique que tous les ministères, les organismes publics et les municipalités, de même que les municipalités régionales de comté, doivent dorénavant tenir compte de leur accessibilité aux personnes handicapées dans leur processus d’approvisionnement lors de l’achat ou de la location de biens et de services&nbsp;;</li>
+                        <li>l’article 69 qui mandatait le ministre du Travail de produire un rapport sur l’accessibilité des immeubles construits avant 1976. Ce rapport devait porter «&nbsp;sur le problème de la non-accessibilité de ces immeubles aux personnes handicapées, sur les catégories d’immeubles qui pourraient être visées par des normes ou en être exemptées, sur les coûts d’application de ces normes par catégorie d’immeubles&nbsp;»<sup><a href="#sdfootnote8sym" id="sdfootnote8anc" class="footnote-ref">8</a></sup>. Le portrait de l’accessibilité des bâtiments construits avant 1976 du secteur public a été réalisé et des recommandations ont été adressées aux instances gouvernementales en 2021.</li>
+                    </ul>
+
+                    <!-- CARTE CONCEPTUELLE 3 : Architecture de la Loi révisée (2004) -->
+                    <div class="concept-card">
+                        <div class="concept-card-header">
+                            <div>
+                                <div class="concept-card-title">Carte conceptuelle 3 — Architecture de la Loi révisée en 2004 : fonctions de l’Office et articles clés</div>
+                                <div class="concept-card-subtitle">Basculez entre les deux volets de la réforme législative de 2004</div>
+                            </div>
+                            <div class="diagram-tabs">
+                                <button class="diagram-tab-btn active" onclick="switchReformTab('fonctions', this)">4 fonctions de l’Office</button>
+                                <button class="diagram-tab-btn" onclick="switchReformTab('articles', this)">Dispositions légales (Art. 26.5 à 69)</button>
+                            </div>
+                        </div>
+
+                        <div id="tab-fonctions">
+                            <svg class="concept-svg" viewBox="0 0 960 185" role="img" aria-label="Les quatre fonctions de l'Office des personnes handicapées du Québec">
+                                <g>
+                                    <rect x="10" y="15" width="222" height="155" rx="8" fill="#FAF6EF" stroke="#7a2222" stroke-width="1.6"/>
+                                    <circle cx="42" cy="46" r="15" fill="#7a2222"/>
+                                    <text x="42" y="51" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">1</text>
+                                    <text x="68" y="51" font-size="13" font-weight="700" fill="#7a2222">Évaluation &amp; Recherche</text>
+                                    <text x="24" y="82" font-size="11.5" fill="#2b2b2b">Analyse annuelle des plans</text>
+                                    <text x="24" y="100" font-size="11.5" fill="#2b2b2b">d’action, calcul de l’indice</text>
+                                    <text x="24" y="118" font-size="11.5" fill="#2b2b2b">de qualité et production</text>
+                                    <text x="24" y="136" font-size="11.5" fill="#2b2b2b">des bilans nationaux.</text>
+                                </g>
+                                <g>
+                                    <rect x="249" y="15" width="222" height="155" rx="8" fill="#FAF6EF" stroke="#b8a996" stroke-width="1.5"/>
+                                    <circle cx="281" cy="46" r="15" fill="#7a2222"/>
+                                    <text x="281" y="51" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">2</text>
+                                    <text x="307" y="51" font-size="13" font-weight="700" fill="#7a2222">Soutien-conseil</text>
+                                    <text x="263" y="82" font-size="11.5" fill="#2b2b2b">Accompagnement des</text>
+                                    <text x="263" y="100" font-size="11.5" fill="#2b2b2b">municipalités et ministères</text>
+                                    <text x="263" y="118" font-size="11.5" fill="#2b2b2b">via des guides méthodo-</text>
+                                    <text x="263" y="136" font-size="11.5" fill="#2b2b2b">logiques et avis experts.</text>
+                                </g>
+                                <g>
+                                    <rect x="488" y="15" width="222" height="155" rx="8" fill="#FAF6EF" stroke="#b8a996" stroke-width="1.5"/>
+                                    <circle cx="520" cy="46" r="15" fill="#7a2222"/>
+                                    <text x="520" y="51" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">3</text>
+                                    <text x="546" y="51" font-size="13" font-weight="700" fill="#7a2222">Concertation</text>
+                                    <text x="502" y="82" font-size="11.5" fill="#2b2b2b">Coordination inter-</text>
+                                    <text x="502" y="100" font-size="11.5" fill="#2b2b2b">sectorielle avec les</text>
+                                    <text x="502" y="118" font-size="11.5" fill="#2b2b2b">partenaires publics et le</text>
+                                    <text x="502" y="136" font-size="11.5" fill="#2b2b2b">milieu associatif.</text>
+                                </g>
+                                <g>
+                                    <rect x="727" y="15" width="222" height="155" rx="8" fill="#FAF6EF" stroke="#b8a996" stroke-width="1.5"/>
+                                    <circle cx="759" cy="46" r="15" fill="#7a2222"/>
+                                    <text x="759" y="51" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">4</text>
+                                    <text x="785" y="51" font-size="13" font-weight="700" fill="#7a2222">Services directs</text>
+                                    <text x="741" y="82" font-size="11.5" fill="#2b2b2b">Renseignement, conseil</text>
+                                    <text x="741" y="100" font-size="11.5" fill="#2b2b2b">et accompagnement des</text>
+                                    <text x="741" y="118" font-size="11.5" fill="#2b2b2b">personnes handicapées</text>
+                                    <text x="741" y="136" font-size="11.5" fill="#2b2b2b">et de leurs familles.</text>
+                                </g>
+                            </svg>
+                        </div>
+
+                        <div id="tab-articles" style="display: none;">
+                            <svg class="concept-svg" viewBox="0 0 960 210" role="img" aria-label="Dispositions légales de la Loi révisée">
+                                <!-- Ligne 1 : 3 articles -->
+                                <rect x="15" y="12" width="295" height="85" rx="7" fill="#FAF6EF" stroke="#7a2222" stroke-width="1.5"/>
+                                <text x="30" y="36" font-size="12" font-weight="700" fill="#7a2222">Art. 26.5 — Documents &amp; Services</text>
+                                <text x="30" y="56" font-size="11" fill="#2b2b2b">Égalité d’accès aux communications</text>
+                                <text x="30" y="73" font-size="11" fill="#4a5568">et aux services publics (Politique 2007).</text>
+
+                                <rect x="332" y="12" width="295" height="85" rx="7" fill="#FAF6EF" stroke="#7a2222" stroke-width="1.5"/>
+                                <text x="347" y="36" font-size="12" font-weight="700" fill="#7a2222">Art. 61.1 — Plans d’action annuels</text>
+                                <text x="347" y="56" font-size="11" fill="#2b2b2b">Ministères (≥ 50 emp.) et municipalités</text>
+                                <text x="347" y="73" font-size="11" fill="#4a5568">(≥ 15 000 hab.) : bilan + obstacles + mesures.</text>
+
+                                <rect x="650" y="12" width="295" height="85" rx="7" fill="#FAF6EF" stroke="#7a2222" stroke-width="1.5"/>
+                                <text x="665" y="36" font-size="12" font-weight="700" fill="#7a2222">Art. 61.2 — Clause d’impact</text>
+                                <text x="665" y="56" font-size="11" fill="#2b2b2b">Consultation obligatoire avant toute loi</text>
+                                <text x="665" y="73" font-size="11" fill="#4a5568">ou règlement à impact significatif.</text>
+
+                                <!-- Ligne 2 : 3 articles -->
+                                <rect x="15" y="112" width="295" height="85" rx="7" fill="#FAF6EF" stroke="#b8a996" stroke-width="1.5"/>
+                                <text x="30" y="136" font-size="12" font-weight="700" fill="#7a2222">Art. 61.3 — Approvisionnement</text>
+                                <text x="30" y="156" font-size="11" fill="#2b2b2b">Critère d’accessibilité lors de l’achat</text>
+                                <text x="30" y="173" font-size="11" fill="#4a5568">ou de la location de biens et services.</text>
+
+                                <rect x="332" y="112" width="295" height="85" rx="7" fill="#FAF6EF" stroke="#b8a996" stroke-width="1.5"/>
+                                <text x="347" y="136" font-size="12" font-weight="700" fill="#7a2222">Art. 63 — Stratégie en emploi</text>
+                                <text x="347" y="156" font-size="11" fill="#2b2b2b">Intégration et maintien en emploi</text>
+                                <text x="347" y="173" font-size="11" fill="#4a5568">(2e Stratégie nationale 2019–2024).</text>
+
+                                <rect x="650" y="112" width="295" height="85" rx="7" fill="#FAF6EF" stroke="#b8a996" stroke-width="1.5"/>
+                                <text x="665" y="136" font-size="12" font-weight="700" fill="#7a2222">Art. 69 — Immeubles pré-1976</text>
+                                <text x="665" y="156" font-size="11" fill="#2b2b2b">Portrait de la non-accessibilité du parc</text>
+                                <text x="665" y="173" font-size="11" fill="#4a5568">immobilier public et recommandations.</text>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- CHAPITRE 3 -->
+                    <h2 id="chapitre-3" class="chapter-heading">3. Les plans d’action des municipalités&nbsp;: un outil permettant de réduire des obstacles concrets à la participation sociale des personnes handicapées</h2>
+
+                    <p>
+                        Annuellement, l’Office analyse chaque plan d’action adopté par les municipalités assujetties au Québec et consigne, notamment, les éléments suivants&nbsp;:
+                    </p>
+                    <ul>
+                        <li>le respect des obligations liées à l’article 61.1 de la <i>Loi</i>&nbsp;: identification des obstacles, bilan des mesures prises au cours de l’année qui se termine ainsi que les mesures envisagées pour l’année qui débute&nbsp;;</li>
+                        <li>la prise en compte de certaines des bonnes pratiques du <i>Guide pour l’élaboration du plan d’action annuel à l’égard des personnes handicapées&nbsp;: volet – Municipalités</i> (Office 2022b), comme la mise en place d’un groupe de travail interne et la consultation de personnes handicapées&nbsp;;</li>
+                        <li>l’identification des principaux obstacles et thèmes visés par les mesures prévues dans les plans d’action comme l’accessibilité des infrastructures municipales, l’accès aux activités de loisirs organisées par les municipalités, l’emploi et les transports.</li>
+                    </ul>
+
+                    <h3 class="sub-heading">L’ensemble des municipalités assujetties produisent leur plan d’action</h3>
+
+                    <p>
+                        En 2021, 73 municipalités avaient l’obligation légale de produire un plan d’action en vertu de l’article 61.1 de la <i>Loi</i><sup><a href="#sdfootnote9sym" id="sdfootnote9anc" class="footnote-ref">9</a></sup>. De ce nombre, 100&nbsp;% ont produit un plan d’action. Depuis 2009, première année de suivi, le taux de production des plans d’action est passé de 63&nbsp;% à 100&nbsp;% en 2021 (Figure 1). Au total, il s’agit d’une hausse de 37 points de pourcentage.
+                    </p>
+
+                    <!-- FIGURE 1 : Graphique vectoriel fidèle -->
+                    <div class="concept-card">
+                        <div class="concept-card-header">
+                            <div>
+                                <div class="concept-card-title">Figure 1 — Taux de production des plans d’action par les municipalités assujetties à la <i>Loi</i>, 2009 à 2021</div>
+                                <div class="concept-card-subtitle">Progression de 63 % en 2009 à la conformité totale de 100 % en 2021 (N = 73 municipalités)</div>
+                            </div>
+                            <span class="concept-badge">Données OPHQ</span>
+                        </div>
+                        <svg class="concept-svg" viewBox="0 0 920 230" role="img" aria-label="Graphique de progression du taux de production des plans d'action de 2009 à 2021">
+                            <!-- Lignes de grille -->
+                            <line x1="60" y1="30" x2="880" y2="30" stroke="#e5ddd0" stroke-dasharray="4,4"/>
+                            <text x="50" y="34" text-anchor="end" font-size="11" fill="#718096">100 %</text>
+                            <line x1="60" y1="75" x2="880" y2="75" stroke="#e5ddd0" stroke-dasharray="4,4"/>
+                            <text x="50" y="79" text-anchor="end" font-size="11" fill="#718096">75 %</text>
+                            <line x1="60" y1="120" x2="880" y2="120" stroke="#e5ddd0" stroke-dasharray="4,4"/>
+                            <text x="50" y="124" text-anchor="end" font-size="11" fill="#718096">50 %</text>
+                            <line x1="60" y1="165" x2="880" y2="165" stroke="#e5ddd0" stroke-dasharray="4,4"/>
+                            <text x="50" y="169" text-anchor="end" font-size="11" fill="#718096">25 %</text>
+                            <line x1="60" y1="190" x2="880" y2="190" stroke="#b8a996" stroke-width="1.5"/>
+
+                            <!-- Aire dégradée sous la courbe -->
+                            <defs>
+                                <linearGradient id="areaGrad1" x1="0" y1="0" x2="0" y2="1">
+                                    <stop offset="0%" stop-color="#7a2222" stop-opacity="0.22"/>
+                                    <stop offset="100%" stop-color="#7a2222" stop-opacity="0.01"/>
+                                </linearGradient>
+                            </defs>
+                            <polygon points="100,96.6 250,74 400,56 550,41 700,33 840,30 840,190 100,190" fill="url(#areaGrad1)"/>
+
+                            <!-- Courbe principale -->
+                            <polyline points="100,96.6 250,74 400,56 550,41 700,33 840,30" fill="none" stroke="#7a2222" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+
+                            <!-- Points clés documentés -->
+                            <circle cx="100" cy="96.6" r="6" fill="#7a2222"/>
+                            <rect x="74" y="68" width="52" height="20" rx="4" fill="#7a2222"/>
+                            <text x="100" y="82" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff">63 %</text>
+                            <text x="100" y="210" text-anchor="middle" font-size="11.5" font-weight="600" fill="#2b2b2b">2009</text>
+
+                            <circle cx="250" cy="74" r="4.5" fill="#9b4d4d"/>
+                            <text x="250" y="210" text-anchor="middle" font-size="11" fill="#4a5568">2011</text>
+
+                            <circle cx="400" cy="56" r="4.5" fill="#9b4d4d"/>
+                            <text x="400" y="210" text-anchor="middle" font-size="11" fill="#4a5568">2014</text>
+
+                            <circle cx="550" cy="41" r="4.5" fill="#9b4d4d"/>
+                            <text x="550" y="210" text-anchor="middle" font-size="11" fill="#4a5568">2017</text>
+
+                            <circle cx="700" cy="33" r="4.5" fill="#9b4d4d"/>
+                            <text x="700" y="210" text-anchor="middle" font-size="11" fill="#4a5568">2019</text>
+
+                            <circle cx="840" cy="30" r="6.5" fill="#7a2222"/>
+                            <rect x="811" y="3" width="58" height="20" rx="4" fill="#7a2222"/>
+                            <text x="840" y="17" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff">100 %</text>
+                            <text x="840" y="210" text-anchor="middle" font-size="11.5" font-weight="700" fill="#7a2222">2021</text>
+
+                            <!-- Annotation hausse -->
+                            <rect x="360" y="128" width="230" height="32" rx="6" fill="#FAF6EF" stroke="#d8cfc0"/>
+                            <text x="475" y="148" text-anchor="middle" font-size="12" font-weight="700" fill="#7a2222">+37 points de pourcentage (2009–2021)</text>
+                        </svg>
+                    </div>
+
+                    <h3 class="sub-heading">La grande majorité des municipalités produisent un bilan des mesures prises l’année précédente</h3>
+
+                    <p>
+                        Les municipalités ont également l’obligation de décrire, dans leur plan d’action, les mesures prises au cours de l’année qui se termine. Il s’agit des bilans des plans d’action<sup><a href="#sdfootnote10sym" id="sdfootnote10anc" class="footnote-ref">10</a></sup>. En 2021, 96&nbsp;% des municipalités ont inclus dans leur plan d’action un bilan des mesures prises en 2020 (Figure 2). Depuis 2017, le taux de production des bilans des plans d’action s’est maintenu entre 90 et 96&nbsp;% à l’exception de 2018, où il avait chuté à 78&nbsp;%. Enfin, pour 2021, le taux de production des bilans des mesures prises en 2020 varie selon la taille des municipalités :
+                    </p>
+                    <ul>
+                        <li>94&nbsp;% des municipalités ayant entre 15 000 et 29 999 habitants&nbsp;;</li>
+                        <li>96&nbsp;% des municipalités ayant entre 30 000 et 99 999 habitants&nbsp;;</li>
+                        <li>100&nbsp;% des municipalités de 100 000 habitants et plus.</li>
+                    </ul>
+
+                    <!-- FIGURES 2 & 3 CÔTE À CÔTE -->
+                    <div class="charts-grid-2">
+                        <!-- Figure 2 -->
+                        <div class="concept-card">
+                            <div class="concept-card-header">
+                                <div>
+                                    <div class="concept-card-title">Figure 2 — Production de bilans (2017–2021)</div>
+                                    <div class="concept-card-subtitle">Taux par taille démographique en 2021</div>
+                                </div>
+                                <span class="concept-badge">96 % en 2021</span>
+                            </div>
+                            <svg class="concept-svg" viewBox="0 0 440 215" role="img" aria-label="Taux de production des bilans selon la taille des municipalités en 2021">
+                                <text x="15" y="25" font-size="11.5" font-weight="700" fill="#1a202c">Répartition par taille de municipalité (2021) :</text>
+
+                                <text x="15" y="55" font-size="11" fill="#2b2b2b">15 000 – 29 999 hab.</text>
+                                <rect x="165" y="42" width="225" height="18" rx="4" fill="#ebe4d8"/>
+                                <rect x="165" y="42" width="211.5" height="18" rx="4" fill="#9e3b3b"/>
+                                <text x="398" y="55" font-size="11" font-weight="700" fill="#7a2222">94 %</text>
+
+                                <text x="15" y="90" font-size="11" fill="#2b2b2b">30 000 – 99 999 hab.</text>
+                                <rect x="165" y="77" width="225" height="18" rx="4" fill="#ebe4d8"/>
+                                <rect x="165" y="77" width="216" height="18" rx="4" fill="#8c2d2d"/>
+                                <text x="398" y="90" font-size="11" font-weight="700" fill="#7a2222">96 %</text>
+
+                                <text x="15" y="125" font-size="11" fill="#2b2b2b">100 000 hab. et plus</text>
+                                <rect x="165" y="112" width="225" height="18" rx="4" fill="#ebe4d8"/>
+                                <rect x="165" y="112" width="225" height="18" rx="4" fill="#7a2222"/>
+                                <text x="398" y="125" font-size="11" font-weight="700" fill="#7a2222">100 %</text>
+
+                                <line x1="15" y1="150" x2="425" y2="150" stroke="#e2dcd0"/>
+                                <text x="15" y="173" font-size="11" fill="#4a5568">• Maintien entre <tspan font-weight="700" fill="#1a202c">90 % et 96 %</tspan> de 2017 à 2021</text>
+                                <text x="15" y="193" font-size="11" fill="#4a5568">• Creux conjoncturel en 2018 : <tspan font-weight="700" fill="#7a2222">78 %</tspan></text>
+                            </svg>
+                        </div>
+
+                        <!-- Figure 3 -->
+                        <div class="concept-card">
+                            <div class="concept-card-header">
+                                <div>
+                                    <div class="concept-card-title">Figure 3 — Réalisation des mesures (2020–2021)</div>
+                                    <div class="concept-card-subtitle">Analyse de 2 367 mesures (70 municipalités)</div>
+                                </div>
+                                <span class="concept-badge">63 % réalisées</span>
+                            </div>
+                            <svg class="concept-svg" viewBox="0 0 440 215" role="img" aria-label="État de réalisation des 2 367 mesures prévues">
+                                <text x="15" y="25" font-size="11.5" font-weight="700" fill="#1a202c">Ventilation des 2 367 mesures analysées :</text>
+
+                                <!-- Barre segmentée horizontale -->
+                                <rect x="15" y="45" width="258" height="34" rx="4" fill="#7a2222"/>
+                                <text x="144" y="67" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">63 % Réalisées / part.</text>
+
+                                <rect x="276" y="45" width="115" height="34" rx="4" fill="#c58b68"/>
+                                <text x="333" y="67" text-anchor="middle" font-size="11.5" font-weight="700" fill="#fff">28 % Non</text>
+
+                                <rect x="394" y="45" width="33" height="34" rx="4" fill="#a0aec0"/>
+                                <text x="410" y="67" text-anchor="middle" font-size="10.5" font-weight="700" fill="#fff">8%</text>
+
+                                <!-- Légende détaillée -->
+                                <rect x="15" y="100" width="12" height="12" rx="2" fill="#7a2222"/>
+                                <text x="34" y="110" font-size="11" fill="#2b2b2b"><tspan font-weight="700">63 %</tspan> réalisées ou partiellement réalisées</text>
+
+                                <rect x="15" y="124" width="12" height="12" rx="2" fill="#c58b68"/>
+                                <text x="34" y="134" font-size="11" fill="#2b2b2b"><tspan font-weight="700">28 %</tspan> non réalisées</text>
+
+                                <rect x="15" y="148" width="12" height="12" rx="2" fill="#a0aec0"/>
+                                <text x="34" y="158" font-size="11" fill="#2b2b2b"><tspan font-weight="700">8 %</tspan> absentes des bilans analysés</text>
+
+                                <text x="15" y="188" font-size="10.5" font-style="italic" fill="#4a5568">Sur 5 ans (2017–2021), ce taux oscille entre 63 % et 74 %.</text>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <h3 class="sub-heading">Près des deux tiers des mesures planifiées dans les plans d’action 2020 ont été réalisés</h3>
+
+                    <p>
+                        L’analyse des bilans présentés dans les plans d’action permet d’établir le taux de réalisation<sup><a href="#sdfootnote11sym" id="sdfootnote11anc" class="footnote-ref">11</a></sup> des mesures prévues dans les plans d’action de l’année précédente. Au total, 70 municipalités ont produit un plan d’action pour 2020 et pour 2021 et tous contenaient un bilan de l’année précédente. Parmi les 2&nbsp;367 mesures qui ont été analysées<sup><a href="#sdfootnote12sym" id="sdfootnote12anc" class="footnote-ref">12</a></sup> :
+                    </p>
+                    <ul>
+                        <li>63&nbsp;% ont été réalisées ou partiellement réalisées&nbsp;;</li>
+                        <li>28&nbsp;% n’ont pas été réalisées&nbsp;;</li>
+                        <li>8&nbsp;% étaient absentes des bilans analysés.</li>
+                    </ul>
+
+                    <p>
+                        Depuis 2017, la proportion des mesures qui ont été réalisées ou partiellement réalisées oscille entre 74&nbsp;% et 63&nbsp;% (Figure 3). Sur 5 ans, cette proportion a majoritairement avoisiné les trois quarts, à l’exception d’une baisse observée entre 2020 et 2021, où elle se situe à 63&nbsp;%.
+                    </p>
+
+                    <h3 class="sub-heading">Plus de 9 municipalités sur 10 identifient des obstacles dans leur plan d’action</h3>
+
+                    <p>
+                        Selon l’article&nbsp;61.1 de la <i>Loi</i>, les organisations assujetties doivent identifier, dans leur plan d’action, les obstacles à la participation sociale des personnes handicapées dans le secteur d’activité relevant de leurs attributions, afin de planifier des mesures pertinentes permettant de les réduire. Le <i>Guide pour l’élaboration du plan d’action annuel à l’égard des personnes handicapées</i> produit par l’Office mentionne que l’identification des obstacles à la participation sociale des personnes handicapées constitue la pierre d’assise des travaux et que «&nbsp;cette étape est cruciale afin que les mesures identifiées correspondent aux véritables besoins des personnes handicapées&nbsp;»<sup><a href="#sdfootnote13sym" id="sdfootnote13anc" class="footnote-ref">13</a></sup>.
+                    </p>
+
+                    <p>
+                        L’analyse des plans d’action 2021 révèle que 93&nbsp;% des municipalités identifient clairement les obstacles priorisés dans leur plan d’action (Figure&nbsp;4), une proportion supérieure à celle de 2017 (86&nbsp;%). Au total, il s’agit d’une augmentation de 7 points de pourcentage.
+                    </p>
+
+                    <h3 class="sub-heading">La consultation de personnes handicapées&nbsp;: indicateur d’une bonne qualité</h3>
+
+                    <p>
+                        Au-delà des obligations prescrites par la <i>Loi</i>, l’Office suggère fortement aux organisations de consulter des personnes handicapées ou leurs représentants au moment de l’élaboration d’un plan d’action. Cette consultation contribue à l’amélioration de la qualité d’un plan d’action en s’assurant que les obstacles pertinents sont identifiés et que les mesures adéquates pour les réduire sont prévues. Au total, 78&nbsp;% des municipalités ont indiqué dans leur plan d’action 2021 avoir consulté des personnes handicapées ou leurs représentants lors de l’élaboration de celui-ci (Figure 5). Depuis 2017, la proportion des municipalités ayant consulté est passée de 71&nbsp;% à 78&nbsp;%, une augmentation de 7 points de pourcentage. Les municipalités de grande taille sont proportionnellement plus nombreuses que les municipalités de taille moindre à consulter des personnes handicapées ou leurs représentants pour l’élaboration de leur plan d’action. En effet, pour 2021, de telles consultations ont été menées par :
+                    </p>
+                    <ul>
+                        <li>71&nbsp;% des municipalités ayant entre 15&nbsp;000 et 29&nbsp;999 habitants&nbsp;;</li>
+                        <li>79&nbsp;% des municipalités ayant entre 30&nbsp;000 et 99&nbsp;999 habitants&nbsp;;</li>
+                        <li>100&nbsp;% des municipalités de 100&nbsp;000 habitants et plus.</li>
+                    </ul>
+
+                    <!-- FIGURES 4 & 5 CÔTE À CÔTE -->
+                    <div class="charts-grid-2">
+                        <!-- Figure 4 -->
+                        <div class="concept-card">
+                            <div class="concept-card-header">
+                                <div>
+                                    <div class="concept-card-title">Figure 4 — Identification des obstacles</div>
+                                    <div class="concept-card-subtitle">Évolution 2017 vs 2021 (+7 pts)</div>
+                                </div>
+                                <span class="concept-badge">93 % en 2021</span>
+                            </div>
+                            <svg class="concept-svg" viewBox="0 0 440 165" role="img" aria-label="Identification des obstacles dans les plans d'action 2017 à 2021">
+                                <text x="15" y="34" font-size="11.5" font-weight="600" fill="#4a5568">Année 2017</text>
+                                <rect x="115" y="18" width="265" height="24" rx="4" fill="#ebe4d8"/>
+                                <rect x="115" y="18" width="228" height="24" rx="4" fill="#9e6b55"/>
+                                <text x="388" y="35" font-size="12" font-weight="700" fill="#4a5568">86 %</text>
+
+                                <text x="15" y="78" font-size="11.5" font-weight="700" fill="#7a2222">Année 2021</text>
+                                <rect x="115" y="62" width="265" height="24" rx="4" fill="#ebe4d8"/>
+                                <rect x="115" y="62" width="246.5" height="24" rx="4" fill="#7a2222"/>
+                                <text x="388" y="79" font-size="12" font-weight="700" fill="#7a2222">93 %</text>
+
+                                <rect x="15" y="106" width="410" height="44" rx="6" fill="#FAF6EF" stroke="#e2dcd0"/>
+                                <text x="220" y="132" text-anchor="middle" font-size="11.5" fill="#2b2b2b">Plus de <tspan font-weight="700" fill="#7a2222">9 municipalités sur 10</tspan> ciblent des obstacles précis.</text>
+                            </svg>
+                        </div>
+
+                        <!-- Figure 5 -->
+                        <div class="concept-card">
+                            <div class="concept-card-header">
+                                <div>
+                                    <div class="concept-card-title">Figure 5 — Consultation des personnes</div>
+                                    <div class="concept-card-subtitle">Global (71 % → 78 %) et selon la taille (2021)</div>
+                                </div>
+                                <span class="concept-badge">78 % en 2021</span>
+                            </div>
+                            <svg class="concept-svg" viewBox="0 0 440 165" role="img" aria-label="Consultation des personnes handicapées selon la taille de la municipalité">
+                                <text x="15" y="30" font-size="11" fill="#2b2b2b">15 000 – 29 999 hab.</text>
+                                <rect x="165" y="17" width="220" height="17" rx="4" fill="#ebe4d8"/>
+                                <rect x="165" y="17" width="156" height="17" rx="4" fill="#a84a4a"/>
+                                <text x="394" y="30" font-size="11" font-weight="700" fill="#7a2222">71 %</text>
+
+                                <text x="15" y="60" font-size="11" fill="#2b2b2b">30 000 – 99 999 hab.</text>
+                                <rect x="165" y="47" width="220" height="17" rx="4" fill="#ebe4d8"/>
+                                <rect x="165" y="47" width="174" height="17" rx="4" fill="#8f3232"/>
+                                <text x="394" y="60" font-size="11" font-weight="700" fill="#7a2222">79 %</text>
+
+                                <text x="15" y="90" font-size="11" fill="#2b2b2b">100 000 hab. et plus</text>
+                                <rect x="165" y="77" width="220" height="17" rx="4" fill="#ebe4d8"/>
+                                <rect x="165" y="77
