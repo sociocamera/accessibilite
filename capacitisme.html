@@ -1,10 +1,10 @@
-Accueil<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; frame-src https://drive.google.com; connect-src https://script.google.com; object-src 'none';">
-    <title>Monuments au capacitisme</title>
+    <title>Inclusion sociale et accessibilité</title>
     <meta name="description" content="Numéro spécial de la Revue de Sociologie Visuelle consacré à l'inclusion sociale et à l'accessibilité. Contributions empiriques et théoriques dirigées par François Routhier et Pierre Fraser.">
     <meta name="keywords" content="inclusion sociale, accessibilité, sociologie visuelle, handicap, transport urbain, éducation inclusive, CIRRIS, PSVI">
     <link rel="canonical" href="https://doi.org/10.13140/RG.2.2.35504.53768">
@@ -64,198 +64,13 @@ Accueil<!DOCTYPE html>
             align-items: center;
         }
 
-        .top-navbar-right {
-            position: relative;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            flex-wrap: nowrap;
-            gap: 0.6rem;
-            margin-right: 2.5rem;
-        }
-
         .top-navbar-location {
             font-size: 0.85rem;
             color: var(--accent-color);
             background-color: #f2ede4;
             padding: 0.3rem 0.75rem;
             border-radius: 4px;
-            white-space: nowrap;
-            margin: 0;
-        }
-
-        .btn-stats {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #f2ede4;
-            color: var(--primary-color);
-            border: 1px solid var(--border-color);
-            height: 30px;
-            width: 32px;
-            padding: 0;
-            border-radius: 4px;
-            cursor: pointer;
-            flex-shrink: 0;
-            transition: background-color 0.2s, border-color 0.2s, color 0.2s;
-        }
-
-        .btn-stats:hover,
-        .btn-stats.active {
-            background-color: #7a2222;
-            border-color: #7a2222;
-            color: #ffffff;
-        }
-
-        /* Fenêtre contextuelle (Popover) des statistiques sous le bouton */
-        .stats-popover {
-            display: none;
-            position: absolute;
-            top: calc(100% + 12px);
-            right: 0;
-            width: 310px;
-            background-color: var(--bg-color);
-            border: 1px solid #d4c5b9;
-            border-radius: 8px;
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.14);
-            z-index: 1500;
-            overflow: hidden;
-            animation: popoverFadeIn 0.18s ease-out;
-        }
-
-        .stats-popover.open {
-            display: block;
-        }
-
-        @keyframes popoverFadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-6px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .stats-popover-header {
-            background-color: var(--modal-header-bg);
-            color: #ffffff;
-            padding: 0.75rem 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 1px solid #5e1a1a;
-        }
-
-        .stats-popover-header h4 {
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 0.02em;
-            display: flex;
-            align-items: center;
-            gap: 0.45rem;
-            margin: 0;
-        }
-
-        .stats-popover-close {
-            background: transparent;
-            border: none;
-            color: #ffffff;
-            font-size: 1.15rem;
-            line-height: 1;
-            cursor: pointer;
-            opacity: 0.8;
-            transition: opacity 0.15s;
-        }
-
-        .stats-popover-close:hover {
-            opacity: 1;
-        }
-
-        .stats-popover-body {
-            padding: 1rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-
-        .stat-highlight-card {
-            background-color: #f5f0e6;
-            border: 1px solid #e2d9cb;
-            border-left: 3px solid #7a2222;
-            border-radius: 6px;
-            padding: 0.75rem 0.9rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .stat-highlight-info {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .stat-label {
-            font-size: 0.72rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--accent-color);
-            font-weight: 600;
-        }
-
-        .stat-period {
-            font-size: 0.85rem;
-            color: var(--primary-color);
-            font-weight: 500;
-            margin-top: 0.1rem;
-        }
-
-        .stat-value-main {
-            font-size: 1.55rem;
-            font-weight: 700;
-            color: #7a2222;
-            font-variant-numeric: tabular-nums;
-            line-height: 1.1;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.65rem;
-        }
-
-        .stat-mini-card {
-            background-color: #ffffff;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 0.65rem 0.75rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.2rem;
-        }
-
-        .stat-mini-card .stat-period {
-            font-size: 0.78rem;
-            color: var(--accent-color);
-        }
-
-        .stat-mini-card .stat-value {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            font-variant-numeric: tabular-nums;
-        }
-
-        .stats-popover-footer {
-            padding: 0.55rem 1rem;
-            background-color: #f2ede4;
-            border-top: 1px solid #e2d9cb;
-            font-size: 0.72rem;
-            color: var(--accent-color);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            margin-right: 2.5rem;
         }
 
         /* Colonne latérale gauche permanente sous la barre fixe du haut */
@@ -892,7 +707,7 @@ Accueil<!DOCTYPE html>
             opacity: 0.8;
         }
 
-.author-citation-row {
+        .author-citation-row {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 1.25rem;
@@ -952,6 +767,95 @@ Accueil<!DOCTYPE html>
             }
         }
 
+        /* Styles des boutons et panneaux déployables de traduction (Anglais / Espagnol) */
+        .translation-toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.85rem;
+            margin: 1.75rem 0 1.25rem 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .btn-lang-toggle {
+            background-color: #f3ede2;
+            color: #7a2222;
+            border: 1.5px solid #7a2222;
+            padding: 0.65rem 1.15rem;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s ease;
+        }
+
+        .btn-lang-toggle:hover,
+        .btn-lang-toggle[aria-expanded="true"] {
+            background-color: #7a2222;
+            color: #ffffff;
+        }
+
+        .lang-panel {
+            display: none;
+            background-color: #fcfbf8;
+            border: 1.5px solid #d4c5b9;
+            border-left: 5px solid #7a2222;
+            border-radius: 8px;
+            padding: 1.5rem 1.75rem;
+            margin: 1.25rem 0 2.25rem 0;
+            box-shadow: 0 6px 18px rgba(43, 43, 43, 0.05);
+        }
+
+        .lang-panel.open {
+            display: block;
+        }
+
+        .lang-panel-banner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            padding-bottom: 0.85rem;
+            margin-bottom: 1.25rem;
+            border-bottom: 1px solid #dfd3c3;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .lang-panel-tag {
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #7a2222;
+        }
+
+        .btn-lang-close {
+            background-color: #7a2222;
+            color: #ffffff;
+            border: none;
+            padding: 0.55rem 1.1rem;
+            border-radius: 6px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-lang-close:hover {
+            background-color: #5e1a1a;
+        }
+
+        .lang-panel-footer-close {
+            margin-top: 2rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid #dfd3c3;
+            display: flex;
+            justify-content: flex-end;
+        }
     </style>
 </head>
 <body>
@@ -973,56 +877,7 @@ Accueil<!DOCTYPE html>
                 Télécharger le numéro
             </button>
         </div>
-        <div class="top-navbar-right">
-            <div class="top-navbar-location" id="locationIndicator">Monuments au capacitisme</div>
-            <button type="button" class="btn-stats" id="statsBtn" title="Statistiques de consultation" aria-label="Statistiques de consultation" aria-expanded="false" onclick="toggleStatsPopover(event)">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="18" y1="20" x2="18" y2="10"></line>
-                    <line x1="12" y1="20" x2="12" y2="4"></line>
-                    <line x1="6" y1="20" x2="6" y2="14"></line>
-                </svg>
-            </button>
-
-            <!-- Fenêtre contextuelle des statistiques -->
-            <div class="stats-popover" id="statsPopover" role="dialog" aria-label="Statistiques de fréquentation" onclick="event.stopPropagation()">
-                <div class="stats-popover-header">
-                    <h4>
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="18" y1="20" x2="18" y2="10"></line>
-                            <line x1="12" y1="20" x2="12" y2="4"></line>
-                            <line x1="6" y1="20" x2="6" y2="14"></line>
-                        </svg>
-                        Fréquentation du portail
-                    </h4>
-                    <button type="button" class="stats-popover-close" onclick="closeStatsPopover()" aria-label="Fermer">&times;</button>
-                </div>
-                <div class="stats-popover-body">
-                    <div class="stat-highlight-card">
-                        <div class="stat-highlight-info">
-                            <span class="stat-label">Aujourd'hui</span>
-                            <span class="stat-period">20 novembre 2026</span>
-                        </div>
-                        <span class="stat-value-main">109</span>
-                    </div>
-                    <div class="stats-grid">
-                        <div class="stat-mini-card">
-                            <span class="stat-label">Mois en cours</span>
-                            <span class="stat-period">Novembre 2026</span>
-                            <span class="stat-value">594</span>
-                        </div>
-                        <div class="stat-mini-card">
-                            <span class="stat-label">Mois précédent</span>
-                            <span class="stat-period">Octobre 2026</span>
-                            <span class="stat-value">498</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="stats-popover-footer">
-                    <span>Source : Log_Quant</span>
-                    <span>Consultations</span>
-                </div>
-            </div>
-        </div>
+        <div class="top-navbar-location" id="locationIndicator">Accueil</div>
     </header>
 
     <!-- Colonne latérale gauche permanente -->
@@ -1108,26 +963,24 @@ Accueil<!DOCTYPE html>
             <article class="article-container" id="presentation">
                 <header class="article-header">
                     <h1 class="article-title">Monuments au capacitisme</h1>
-<div class="author-citation-row">
-                    <div class="meta-box">
-                        <div class="author-box-content">
-                            <img src="https://lh3.googleusercontent.com/d/1hic4CrvVZqhlNlkFPjL1A8AaQgoS09RY" alt="Jérôme Saunier" class="author-avatar-circle" />
-                            <div class="author-block">
-                                <div class="author-name">Jérôme Saunier</div>
-                                <div class="author-affiliation"><strong>Affiliation</strong><br>Militant pour les droits des personnes en situation de handicap.</div>
+                    <div class="author-citation-row">
+                        <div class="meta-box">
+                            <div class="author-box-content">
+                                <img src="https://lh3.googleusercontent.com/d/1hic4CrvVZqhlNlkFPjL1A8AaQgoS09RY" alt="Jérôme Saunier" class="author-avatar-circle" />
+                                <div class="author-block">
+                                    <div class="author-name">Jérôme Saunier</div>
+                                    <div class="author-affiliation"><strong>Affiliation</strong><br>Militant pour les droits des personnes en situation de handicap.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="meta-box">
+                            <div class="citation-box">
+                                <span class="citation-label">Citer cet article :</span>
+                                Saunier, J. (2023), «&nbsp;Monuments au capacitisme&nbsp;», <em>Sociologie Visuelle</em>, n° 4, François Routhier et Pierre Fraser (éds.), Québec&nbsp;: Photo|Société, pp. 111-120.
                             </div>
                         </div>
                     </div>
-
-                    <div class="meta-box">
-                        <div class="citation-box">
-                            <span class="citation-label">Citer cet article :</span>
-                            Saunier, J. (2023), «&nbsp;Monuments au capacitisme&nbsp;», <em>Sociologie Visuelle</em>, n° 4, François Routhier et Pierre Fraser (éds.), Québec&nbsp;: Photo|Société, pp. 111-120.
-                        </div>
-                    </div>
-                </div>
-
-
                 </header>
 
                 <section class="abstract-block" aria-label="Résumés en français et en anglais">
@@ -1138,6 +991,650 @@ Accueil<!DOCTYPE html>
                     <div class="abstract-box" lang="en" aria-label="Abstract in English">
                         <p><strong>Abstract. —</strong> What is ableism? According to the disabled feminist collective <em>Les Dévalideuses</em>, “it is the set of prejudices and discriminatory behaviours against people with a visible or invisible disability. [Ableism], on a societal scale, is based on the idea that a disabled person is less capable than an able-bodied person, that their very life has less value.” It establishes a hierarchy between bodies and minds according to their supposed abilities. The bodily and mental norm it sets up devalues people with disabilities. Like racism or sexism, to which it is linked, it is a centuries-old form of systemic oppression whose impact remains considerable in Quebec society. In this text, we will see concretely how prejudices and the maintenance or creation of barriers contribute to the discrimination, stigmatization, and social exclusion of disabled people.</p>
                         <p><strong>Keywords. —</strong> Ableism; bodily norm; discrimination; exclusion; disability; prejudices; stigmatization.</p>
+                    </div>
+                </section>
+
+                <!-- BOUTONS DE DÉPLOIEMENT DES VERSIONS ANGLAISE ET ESPAGNOLE JUSTE AVANT "INTRODUCTION" -->
+                <div class="translation-toolbar" role="group" aria-label="Versions traduites de l'article">
+                    <button type="button" id="btn-english-version" class="btn-lang-toggle" aria-expanded="false" aria-controls="english-version-panel" onclick="toggleLanguagePanel('en')">
+                        <span>English Version</span>
+                    </button>
+                    <button type="button" id="btn-spanish-version" class="btn-lang-toggle" aria-expanded="false" aria-controls="spanish-version-panel" onclick="toggleLanguagePanel('es')">
+                        <span>Versión en español</span>
+                    </button>
+                </div>
+
+                <!-- VERSION EN ANGLAIS (DÉPLOYABLE) -->
+                <section id="english-version-panel" class="lang-panel" lang="en" aria-label="English translation of the article">
+                    <div class="lang-panel-banner">
+                        <span class="lang-panel-tag">English Version — Monuments to Ableism</span>
+                        <button type="button" class="btn-lang-close" onclick="closeLanguagePanel('en')">Close English Version</button>
+                    </div>
+
+                    <div class="article-body">
+                        <h2 class="subchapter-title" id="en-sous-chapitre-0">Introduction</h2>
+
+                        <p class="dropcap">According to the Société de transport de Montréal (STM), the De l’Église metro station, in the Verdun borough, will not become wheelchair accessible before 2028. Put into service in 1978 with the extension of the Green Line to the Angrignon terminus, it will then be fifty years old. By a singular coincidence, it was in 1978 that the National Assembly amended the Charter of Human Rights and Freedoms to prohibit discrimination based on disability. That same year, people with disabilities were granted a new “right to the full and equal recognition and exercise of human rights and freedoms” while stations were simultaneously opened that maintained the discrimination introduced at the inauguration of the metro in 1966. It will have taken half a century for the De l’Église station to finally comply with the charter.</p>
+
+                        <div class="section-title-small">De l’Église Station</div>
+
+                        <div class="figure-grid">
+                            <figure class="figure-item">
+                                <img src="https://raw.githubusercontent.com/sociocamera/accessibilite/capacitisme/capacitisme_03.jpg" alt="Interior view of De l’Église station"/>
+                                <figcaption class="figure-caption">
+                                    <strong>© Jérôme Saunier — Image description:</strong><br/>
+                                    Interior view of De l’Église station: high-angle view of the stairs, yellow floor markings at each landing, concrete walls with characteristic grooves, narrow horizontal windows, narrow vertical window.
+                                </figcaption>
+                            </figure>
+                            <figure class="figure-item">
+                                <img src="https://raw.githubusercontent.com/sociocamera/accessibilite/capacitisme/capacitisme_02.jpg" alt="Exterior view of De l’Église station"/>
+                                <figcaption class="figure-caption">
+                                    <strong>© Jérôme Saunier — Image description:</strong><br/>
+                                    Exterior view of De l’Église station: people enter the building under concrete arches. The metro symbol is visible at top left: a white downward-pointing arrow on a blue background above the word “métro” in white on a black background. Grey clouds.
+                                </figcaption>
+                            </figure>
+                        </div>
+
+                        <p>This emblematic Verdun building is a true monument to what, at the time, did not yet go by the name of ableism. The same applies to the other stations built without elevators, and particularly those that opened in the 1980s on the Orange and Blue lines. In theory, the twenty-five stations built after the charter amendments took effect (during the decade following the extension of the Green Line) should have been designed according to the principles of universal accessibility. They nonetheless accounted for 38.4% of the sixty-five-station network existing in 1988. Yet it was not until 2007, during the extension of the Orange Line to Laval, that the first three accessible stations opened their doors. At the time of writing (April 2023), twenty-three other stations had been made accessible, which still represented only 38.2% of the network; and forty-two remained to be adapted.</p>
+
+                        <!-- INTERACTIVE CONCEPT MAP 1 (ENGLISH) -->
+                        <aside class="concept-map-card" aria-label="Interactive concept map: Timeline and legal mechanics of inaccessibility">
+                            <div class="concept-map-header">
+                                <span class="concept-map-badge">Interactive Concept Map 1</span>
+                                <h4 class="concept-map-title">Legal and Architectural Trajectory of Exclusion (1966–2028)</h4>
+                            </div>
+                            <p class="concept-map-instruction">Click on a timeline step or an analysis block to explore the contradictions between proclaimed rights and legal exemptions.</p>
+                            <div class="concept-svg-wrapper">
+                                <svg viewBox="0 0 880 310" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Chronological and legal diagram of metro and building inaccessibility in Quebec">
+                                    <rect x="20" y="16" width="840" height="42" rx="6" fill="#f3ede2" stroke="#dfd3c3"/>
+                                    <text x="36" y="42" font-size="12" font-weight="700" fill="#7a2222" letter-spacing="0.5">SPHERE OF PROCLAIMED RIGHTS &amp; STANDARDS</text>
+                                    <text x="844" y="42" font-size="11" fill="#5a6577" text-anchor="end">Charter &amp; Building Code</text>
+
+                                    <line x1="55" y1="150" x2="825" y2="150" stroke="#7a2222" stroke-width="3" marker-end="url(#arrowBordeaux)"/>
+
+                                    <g class="svg-node active" onclick="selectConceptNode('en_map1', 0, this)">
+                                        <rect x="25" y="74" width="128" height="56" rx="7" fill="#FAF6EF" stroke="#7a2222" stroke-width="2.5"/>
+                                        <text x="89" y="96" font-size="13" font-weight="700" fill="#7a2222" text-anchor="middle">1966</text>
+                                        <text x="89" y="114" font-size="10.5" fill="#2b2b2b" text-anchor="middle">Inauguration</text>
+                                        <text x="89" y="126" font-size="10.5" fill="#2b2b2b" text-anchor="middle">of the metro</text>
+                                        <circle cx="89" cy="150" r="7" fill="#7a2222"/>
+                                    </g>
+
+                                    <g class="svg-node" onclick="selectConceptNode('en_map1', 1, this)">
+                                        <rect x="175" y="74" width="154" height="56" rx="7" fill="#FAF6EF" stroke="#cbd5e0" stroke-width="1.5"/>
+                                        <text x="252" y="96" font-size="13" font-weight="700" fill="#1a202c" text-anchor="middle">1976 – 1978</text>
+                                        <text x="252" y="114" font-size="10.5" fill="#2b2b2b" text-anchor="middle">Charter amended &amp;</text>
+                                        <text x="252" y="126" font-size="10.5" fill="#2b2b2b" text-anchor="middle">De l’Église Station</text>
+                                        <circle cx="252" cy="150" r="7" fill="#4a5568"/>
+                                    </g>
+
+                                    <g class="svg-node" onclick="selectConceptNode('en_map1', 2, this)">
+                                        <rect x="352" y="74" width="154" height="56" rx="7" fill="#FAF6EF" stroke="#cbd5e0" stroke-width="1.5"/>
+                                        <text x="429" y="96" font-size="13" font-weight="700" fill="#1a202c" text-anchor="middle">1980 – 1988</text>
+                                        <text x="429" y="114" font-size="10.5" fill="#2b2b2b" text-anchor="middle">25 stations built</text>
+                                        <text x="429" y="126" font-size="10.5" fill="#2b2b2b" text-anchor="middle">without elevators</text>
+                                        <circle cx="429" cy="150" r="7" fill="#4a5568"/>
+                                    </g>
+
+                                    <g class="svg-node" onclick="selectConceptNode('en_map1', 3, this)">
+                                        <rect x="529" y="74" width="154" height="56" rx="7" fill="#FAF6EF" stroke="#cbd5e0" stroke-width="1.5"/>
+                                        <text x="606" y="96" font-size="13" font-weight="700" fill="#1a202c" text-anchor="middle">2004 – 2007</text>
+                                        <text x="606" y="114" font-size="10.5" fill="#2b2b2b" text-anchor="middle">Late repeal &amp;</text>
+                                        <text x="606" y="126" font-size="10.5" fill="#2b2b2b" text-anchor="middle">3 stations in Laval</text>
+                                        <circle cx="606" cy="150" r="7" fill="#4a5568"/>
+                                    </g>
+
+                                    <g class="svg-node" onclick="selectConceptNode('en_map1', 4, this)">
+                                        <rect x="706" y="74" width="154" height="56" rx="7" fill="#FAF6EF" stroke="#cbd5e0" stroke-width="1.5"/>
+                                        <text x="783" y="96" font-size="13" font-weight="700" fill="#1a202c" text-anchor="middle">2023 – 2028</text>
+                                        <text x="783" y="114" font-size="10.5" fill="#2b2b2b" text-anchor="middle">38.2% accessible;</text>
+                                        <text x="783" y="126" font-size="10.5" fill="#2b2b2b" text-anchor="middle">50-year wait</text>
+                                        <circle cx="783" cy="150" r="7" fill="#4a5568"/>
+                                    </g>
+
+                                    <line x1="252" y1="157" x2="252" y2="188" stroke="#4a5568" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrowSlate)"/>
+                                    <line x1="429" y1="157" x2="429" y2="188" stroke="#4a5568" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrowSlate)"/>
+                                    <line x1="606" y1="157" x2="606" y2="188" stroke="#4a5568" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrowSlate)"/>
+
+                                    <g class="svg-node" onclick="selectConceptNode('en_map1', 5, this)">
+                                        <rect x="145" y="192" width="235" height="96" rx="8" fill="#f7f1e7" stroke="#d4c5b9" stroke-width="1.5"/>
+                                        <text x="262" y="214" font-size="11.5" font-weight="700" fill="#7a2222" text-anchor="middle">The “caveats” of the 1978 Act</text>
+                                        <text x="262" y="233" font-size="10.5" fill="#2b2b2b" text-anchor="middle">• Sec. 70: exemption for “unjustifiable” cost</text>
+                                        <text x="262" y="250" font-size="10.5" fill="#2b2b2b" text-anchor="middle">• Sec. 71–72: immunity for pre-1976</text>
+                                        <text x="262" y="265" font-size="10.5" fill="#2b2b2b" text-anchor="middle">buildings and public transit</text>
+                                    </g>
+
+                                    <g class="svg-node" onclick="selectConceptNode('en_map1', 6, this)">
+                                        <rect x="425" y="192" width="315" height="96" rx="8" fill="#f7f1e7" stroke="#d4c5b9" stroke-width="1.5"/>
+                                        <text x="582" y="214" font-size="11.5" font-weight="700" fill="#7a2222" text-anchor="middle">Post-2004 regulatory inertia</text>
+                                        <text x="582" y="233" font-size="10.5" fill="#2b2b2b" text-anchor="middle">• Sec. 69: regulation on pre-1976 buildings</text>
+                                        <text x="582" y="248" font-size="10.5" fill="#2b2b2b" text-anchor="middle">never adopted by the government</text>
+                                        <text x="582" y="265" font-size="10.5" fill="#2b2b2b" text-anchor="middle">• 42 of 68 stations still inaccessible in 2023</text>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="concept-detail-panel" id="en_map1-detail">
+                                <h5>1966 — Exclusion embedded in concrete from the outset</h5>
+                                <p>When the Montreal metro opened in 1966, the entire network was designed exclusively around fixed stairs and escalators. The complete absence of elevators immediately erected a physical boundary between able-bodied users and people with reduced mobility.</p>
+                            </div>
+                        </aside>
+
+                        <h2 class="subchapter-title" id="en-sous-chapitre-1">A Discriminatory Law</h2>
+
+                        <p>What happened? The 1978 Act provided exemptions from the charter that prevented people with disabilities from alleging discrimination over the inaccessibility of buildings constructed before 1976 (and therefore not subject to Quebec’s Building Code adopted that year) and public transit systems. These exemptions were not repealed until 2004, a quarter of a century after the 1978 Act came into force. During that time, public transit and buildings were able to remain legally inaccessible to people with disabilities.</p>
+
+                        <p>By granting the right to full equality to people with disabilities, the 1978 Act guaranteed equal access, while simultaneously giving the government the power to override that right, notably if it deemed that the cost of modifications did not justify making a building accessible to those individuals. In 1978, the National Assembly therefore added a “caveat” [sic] to the new right of people with disabilities. This “restriction on avenues of recourse under the Charter of Human Rights and Freedoms” was reportedly the result of a compromise “with various sectors,” “as a corollary to the obligation of building owners.” One deduces that the property owners’ lobby was heard even though Section 70 was “strongly criticized by some […] at the time.” The caveat placed on the obligations of public transit organizations is equally outrageous. In 2004, the government finally acknowledged “that maintaining those sections cannot be justified” (that is, the exemptions). All of these restrictions on rights have perpetuated segregationist practices and mindsets up to the present day. If all the metro stations of the 1980s could be put into service legally despite the charter, it is no surprise that other discriminatory structures continued to appear in the landscape. As we will see, inaccessible architecture is still practiced even though the prohibition against discrimination remains fully in force.</p>
+
+                        <h2 class="subchapter-title" id="en-sous-chapitre-2">Still More Stairs</h2>
+
+                        <p>Among the remarkable monuments recently erected to the glory of ableism, mention should be made of the Île-Bizard park lookout (2020), the Biodôme (2020), and the grand staircase at Place Ville-Marie (2022). The lookout is merely a completely inaccessible assembly of platforms and stairs.</p>
+
+                        <div class="figure-grid">
+                            <figure class="figure-item">
+                                <div class="figure-item-title">Place Ville-Marie Grand Staircase</div>
+                                <img src="https://raw.githubusercontent.com/sociocamera/accessibilite/capacitisme/capacitisme_04.jpg" alt="Place Ville-Marie Grand Staircase"/>
+                                <figcaption class="figure-caption"><strong>© Marie-Eve Veilleux</strong></figcaption>
+                            </figure>
+                            <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+                                <figure class="figure-item">
+                                    <div class="figure-item-title">Bois-de-l’Île-Bizard Nature Park Lookout</div>
+                                    <img src="https://raw.githubusercontent.com/sociocamera/accessibilite/capacitisme/capacitisme.jpg" alt="Bois-de-l’Île-Bizard Nature Park Lookout" style="max-height: 170px;"/>
+                                    <figcaption class="figure-caption"><strong>© Ville de Montréal</strong></figcaption>
+                                </figure>
+                                <figure class="figure-item">
+                                    <div class="figure-item-title">Montreal Biodôme</div>
+                                    <img src="https://raw.githubusercontent.com/sociocamera/accessibilite/capacitisme/capacitisme_01.jpg" alt="Montreal Biodôme" style="max-height: 170px;"/>
+                                    <figcaption class="figure-caption"><strong>© Biodôme de Montréal</strong></figcaption>
+                                </figure>
+                            </div>
+                        </div>
+
+                        <p>Visitors to the fully renovated Biodôme are offered a partially accessible route: while people with disabilities must settle for an enclosed elevator to reach the mezzanine, non-disabled people can get there by taking a pleasant elevated walkway that passes through the treetops beneath the glass roof. The grand staircase at Place Ville-Marie, for its part, is equipped with a ramp designed for wheelchairs, yet it is anything but safe.</p>
+
+                        <p>We must also mention an upcoming project by the City of Montréal that, if built according to the published sketches, will become yet another monument to ableism in Montréal. It is Espace Rivière, a building serving as a municipal library and community center that will open in the Rivière-des-Prairies–Pointe-aux-Trembles borough in a few years. Like the Biodôme, Espace Rivière would feature an internal walkway reserved for people who have no difficulty climbing stairs and inaccessible to people with reduced mobility. Elsewhere in Quebec, the staircase on the Grands-Domaines trail on the Sillery promontory deserves mention.</p>
+
+                        <p>Given the enormous backlog accumulated in the accessibility of the regular network, the lives of very many people with reduced mobility remain subject to the uncertainties and rigidities of the STM’s paratransit service. Access to the metro, still largely prohibited because the State decided so in 1978, would have given people able to travel on their own the autonomy they have a right to enjoy as citizens. Instead, the authorities knowingly maintained the segregationist nature of the metro. It is in this context that we must understand the creation, in the early 1980s, of the segregated paratransit service. It obviously meets needs that the metro cannot fulfill, but it also denotes the implicit refusal to make the metro an inclusive space.</p>
+
+                        <p>The slope to climb to make commercial spaces located in the building stock prior to (and even after) 1976 accessible is, for its part, steeper than ever. The human-scale neighborhoods that are so often praised do not offer the same quality of life depending on whether one is able to enter the shops and restaurants lining their streets and receive the same services as the rest of the population (in accordance with the charter). Indeed, beyond the discrimination instituted by the 1978 Act, the Building Code provides exceptions for small-footprint buildings, under which accessibility requirements do not apply to the countless buildings lining commercial streets, compromising the accessibility of a considerable share of our cities. That regulation falls under municipalities, which have been dragging their feet for a long time.</p>
+
+                        <!-- INTERACTIVE CONCEPT MAP 2 (ENGLISH) -->
+                        <aside class="concept-map-card" aria-label="Interactive concept map: Typology of monuments to ableism">
+                            <div class="concept-map-header">
+                                <span class="concept-map-badge">Interactive Concept Map 2</span>
+                                <h4 class="concept-map-title">Mapping “Monuments to Ableism” in Urban Space</h4>
+                            </div>
+                            <p class="concept-map-instruction">Select an architectural or urban pole in the diagram below to compare dominant design with its exclusionary effects.</p>
+                            <div class="concept-svg-wrapper">
+                                <svg viewBox="0 0 880 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Radial diagram of four forms of monuments to ableism">
+                                    <line x1="440" y1="170" x2="185" y2="75" stroke="#7a2222" stroke-width="2" stroke-dasharray="5 3"/>
+                                    <line x1="440" y1="170" x2="695" y2="75" stroke="#7a2222" stroke-width="2" stroke-dasharray="5 3"/>
+                                    <line x1="440" y1="170" x2="185" y2="265" stroke="#7a2222" stroke-width="2" stroke-dasharray="5 3"/>
+                                    <line x1="440" y1="170" x2="695" y2="265" stroke="#7a2222" stroke-width="2" stroke-dasharray="5 3"/>
+
+                                    <g class="svg-node active" onclick="selectConceptNode('en_map2', 0, this)">
+                                        <rect x="315" y="122" width="250" height="96" rx="48" fill="#7a2222" stroke="#5e1a1a" stroke-width="2.5"/>
+                                        <text x="440" y="156" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">HEGEMONY OF STAIRS</text>
+                                        <text x="440" y="175" font-size="11" fill="#f5ebe8" text-anchor="middle">&amp; Able-bodied norm</text>
+                                        <text x="440" y="193" font-size="10" fill="#e2d8c8" text-anchor="middle">(Contemporary and inherited architecture)</text>
+                                    </g>
+
+                                    <g class="svg-node" onclick="selectConceptNode('en_map2', 1, this)">
+                                        <rect x="25" y="24" width="265" height="98" rx="8" fill="#FAF6EF" stroke="#cbd5e0" stroke-width="1.5"/>
+                                        <text x="42" y="48" font-size="12" font-weight="700" fill="#7a2222">1. Recent cultural facilities</text>
+                                        <text x="42" y="68" font-size="10.5" fill="#2b2b2b">• Biodôme (2020): walkway vs enclosed lift</text>
+                                        <text x="42" y="84" font-size="10.5" fill="#2b2b2b">• Île-Bizard lookout (2020): 100% stairs</text>
+                                        <text x="42" y="100" font-size="10.5" fill="#2b2b2b">• Espace Rivière project: reserved walkway</text>
+                                    </g>
+
+                                    <g class="svg-node" onclick="selectConceptNode('en_map2', 2, this)">
+                                        <rect x="590" y="24" width="265" height="98" rx="8" fill="#FAF6EF" stroke="#cbd5e0" stroke-width="1.5"/>
+                                        <text x="607" y="48" font-size="12" font-weight="700" fill="#7a2222">2. Civic spaces &amp; lookouts</text>
+                                        <text x="607" y="68" font-size="10.5" fill="#2b2b2b">• Place Ville-Marie (2022): unsafe ramp</text>
+                                        <text x="607" y="84" font-size="10.5" fill="#2b2b2b">• Sillery promontory: monumental stairs</text>
+                                        <text x="607" y="100" font-size="10.5" fill="#2b2b2b">• Aesthetics prioritized over safety</text>
+                                    </g>
+
+                                    <g class="svg-node" onclick="selectConceptNode('en_map2', 3, this)">
+                                        <rect x="25" y="216" width="265" height="98" rx="8" fill="#FAF6EF" stroke="#cbd5e0" stroke-width="1.5"/>
+                                        <text x="42" y="240" font-size="12" font-weight="700" fill="#7a2222">3. Mobility &amp; segregated transit</text>
+                                        <text x="42" y="260" font-size="10.5" fill="#2b2b2b">• Regular metro network largely closed</text>
+                                        <text x="42" y="276" font-size="10.5" fill="#2b2b2b">• Paratransit (1980s): rigid parallel</text>
+                                        <text x="42" y="290" font-size="10.5" fill="#2b2b2b">service limiting spontaneity</text>
+                                    </g>
+
+                                    <g class="svg-node" onclick="selectConceptNode('en_map2', 4, this)">
+                                        <rect x="590" y="216" width="265" height="98" rx="8" fill="#FAF6EF" stroke="#cbd5e0" stroke-width="1.5"/>
+                                        <text x="607" y="240" font-size="12" font-weight="700" fill="#7a2222">4. Neighborhood commercial streets</text>
+                                        <text x="607" y="260" font-size="10.5" fill="#2b2b2b">• Code exceptions for small footprints</text>
+                                        <text x="607" y="276" font-size="10.5" fill="#2b2b2b">• Inaccessible shops and restaurants</text>
+                                        <text x="607" y="290" font-size="10.5" fill="#2b2b2b">• Regulatory inaction by municipalities</text>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="concept-detail-panel" id="en_map2-detail">
+                                <h5>Conceptual Core — The hegemony of stairs as a spatial norm</h5>
+                                <p>As Laurence Parent (2010) highlights, the omnipresence of stairs in public architecture is not a mere aesthetic choice: it materializes an ableist conception of space in which the able-bodied person is the sole yardstick.</p>
+                            </div>
+                        </aside>
+
+                        <h2 class="subchapter-title" id="en-sous-chapitre-3">Institutionalized Segregation</h2>
+
+                        <p>The 1978 Act and the Building Code are at the origin of this discrimination that can rightly be called systemic, since, in this case, it was established and maintained by the State. It is proof, if any were needed, of the pre-eminent role politics plays in the construction of disability—meaning that in almost every scenario, disability is a political choice: the choice of the non-disabled majority (smaller than believed) to ignore the legitimate needs of the disabled minority based on prejudices that devalue it, and to look after its own interests alone by brandishing the social norm of the non-disabled body. It is by choosing to create disabling barriers or not to remove them that “non-conforming” bodies and minds are placed in a situation of disability and relegated to second-class status as disabled people. This process of construction is all the harder to grasp and seems all the further removed from common sense because ableism renders it invisible by naturalizing disability on the basis of functional differences, which are treated as its true cause, abstracted from the physical and sociopolitical environment.</p>
+
+                        <p>Moreover, the exemption provided by the 1978 Act for “unjustifiable” modification costs reveals the capitalist foundations of ableism, as our economic system places greater importance on profits and money than on people. This mindset reigns in the private sector as well as within public administrations. In this context, any means is considered fair to preserve privileges, even means frankly incompatible with human decency. Into this category falls the decision to declare in effect null and void, for an entire segment of society, an essential provision of Quebec’s supreme law. The force of inertia produced by ableism is such that the new non-discrimination obligation carried very little weight in the balance: despite this progressive measure, the status quo immediately reasserted itself.</p>
+
+                        <p>The catastrophic consequences of the 1978 Act and the Building Code are still being felt. Since the government unfortunately set a bad example, we are no longer surprised by the near-universal reluctance to apply the principles of universal accessibility or by ignorance of the provisions in force. Worse still, by adopting discriminatory exemptions and regulations, it pushed back the accessibility of public and private infrastructure in Quebec by several decades. Instead of ensuring the exercise of the rights of people with disabilities, it guaranteed their non-observance. Or rather, it confirmed the absence of a right, for these people, to live in full equality. It normalized segregation by codifying the customary “right” to discriminate against them, as if discrimination were in the natural order of things. It lent credibility to the idea that making spaces accessible is an unreasonable financial burden. It cemented the second-class citizen status of people with disabilities. The monuments to ableism are there to bear witness.</p>
+
+                        <h2 class="subchapter-title" id="en-sous-chapitre-4">What Now?</h2>
+
+                        <p>To transform Quebec into an inclusive society that makes equity a cardinal value, it is unrealistic to rely on a supposed “natural” improvement in accessibility dictated by market forces. This wait-and-see stance only ever benefits lobby interests by postponing respect for rights indefinitely. Waiting for each private business to make voluntary efforts is a recipe for failure. It would be equally futile to count on episodic revisions to the Building Code, which also occur far too slowly.</p>
+
+                        <p>On the ground, we see that many individuals are open to change, or even determined to improve the daily lives of people with disabilities. Yet their goodwill often runs up against the systemic barriers we have discussed. What should be done? Fundamental rights must be guaranteed right now through a universal accessibility act backed by binding targets and dissuasive penalties, as well as an effective regulatory framework and strong enforcement mechanisms, as exist in other provinces and countries, including Ontario, Manitoba, Canada at the federal level, and the United States. Without this, it will be difficult to fight discrimination. Yet no such act is currently on the table in Quebec. The regulation on the categories of buildings built before 1976 to be made accessible and the accessibility standards to be met—whose adoption was provided for by the Act to secure handicapped persons in the exercise of their rights with a view to achieving social, school and workplace integration—has never seen the light of day. Authorities seem to rely above all on piecemeal solutions taking the form of financial assistance to improve building accessibility. These bureaucratic programs are underfunded and ineffective. Respect for people’s rights therefore remains dependent on the goodwill of owners and tenants, who have full latitude to maintain prohibited segregation. The endless complaint-handling procedures before the Commission des droits de la personne et des droits de la jeunesse never lead to anything more than case-by-case settlements, whereas radical systemic changes are needed. The emancipation of an entire social group long marginalized requires more than a few occasional accommodations.</p>
+
+                        <!-- INTERACTIVE CONCEPT MAP 3 (ENGLISH) -->
+                        <aside class="concept-map-card" aria-label="Interactive concept map: From segregationist status quo to anti-ableist transition">
+                            <div class="concept-map-header">
+                                <span class="concept-map-badge">Interactive Concept Map 3</span>
+                                <h4 class="concept-map-title">From Institutionalized Segregation to Anti-Ableist Transition</h4>
+                            </div>
+                            <p class="concept-map-instruction">Click on the components of the two paradigms (left: current blockages; right: levers for transformation) to examine the mechanisms at play.</p>
+                            <div class="concept-svg-wrapper">
+                                <svg viewBox="0 0 880 345" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Interactive comparison between the current ableist system and an anti-ableist society">
+                                    <rect x="20" y="14" width="390" height="315" rx="10" fill="#f7f1e7" stroke="#d4c5b9" stroke-width="1.5"/>
+                                    <text x="215" y="40" font-size="12.5" font-weight="700" fill="#7a2222" text-anchor="middle">SEGREGATIONIST PARADIGM (STATUS QUO)</text>
+
+                                    <g class="svg-node active" onclick="selectConceptNode('en_map3', 0, this)">
+                                        <rect x="42" y="58" width="346" height="52" rx="6" fill="#FAF6EF" stroke="#7a2222" stroke-width="2.5"/>
+                                        <text x="215" y="80" font-size="11.5" font-weight="700" fill="#1a202c" text-anchor="middle">1. Naturalization of disability &amp; market logic</text>
+                                        <text x="215" y="97" font-size="10.2" fill="#4a5568" text-anchor="middle">Disability attributed to the body; accessibility seen as a cost</text>
+                                    </g>
+
+                                    <line x1="215" y1="110" x2="215" y2="128" stroke="#7a2222" stroke-width="1.8" marker-end="url(#arrowBordeaux)"/>
+
+                                    <g class="svg-node" onclick="selectConceptNode('en_map3', 1, this)">
+                                        <rect x="42" y="132" width="346" height="52" rx="6" fill="#FAF6EF" stroke="#cbd5e0" stroke-width="1.5"/>
+                                        <text x="215" y="154" font-size="11.5" font-weight="700" fill="#1a202c" text-anchor="middle">2. Voluntarism &amp; underused subsidies</text>
+                                        <text x="215" y="171" font-size="10.2" fill="#4a5568" text-anchor="middle">PAAC (7 grants in yr 1); goodwill of property owners</text>
+                                    </g>
+
+                                    <line x1="215" y1="184" x2="215" y2="202" stroke="#7a2222" stroke-width="1.8" marker-end="url(#arrowBordeaux)"/>
+
+                                    <g class="svg-node" onclick="selectConceptNode('en_map3', 2, this)">
+                                        <rect x="42" y="206" width="346" height="52" rx="6" fill="#FAF6EF" stroke="#cbd5e0" stroke-width="1.5"/>
+                                        <text x="215" y="228" font-size="11.5" font-weight="700" fill="#1a202c" text-anchor="middle">3. Individual complaint routes (CDPDJ)</text>
+                                        <text x="215" y="245" font-size="10.2" fill="#4a5568" text-anchor="middle">38% of files disability-related; case-by-case settlements</text>
+                                    </g>
+
+                                    <text x="215" y="292" font-size="11" font-weight="700" fill="#7a2222" text-anchor="middle">→ Outcome: Second-class citizenship</text>
+
+                                    <line x1="416" y1="172" x2="462" y2="172" stroke="#7a2222" stroke-width="3" marker-end="url(#arrowBordeaux)"/>
+
+                                    <rect x="470" y="14" width="390" height="315" rx="10" fill="#f2f5f2" stroke="#c6d4c6" stroke-width="1.5"/>
+                                    <text x="665" y="40" font-size="12.5" font-weight="700" fill="#22543d" text-anchor="middle">ANTI-ABLEIST TRANSITION (SOLUTIONS)</text>
+
+                                    <g class="svg-node" onclick="selectConceptNode('en_map3', 3, this)">
+                                        <rect x="492" y="58" width="346" height="52" rx="6" fill="#ffffff" stroke="#cbd5e0" stroke-width="1.5"/>
+                                        <text x="665" y="80" font-size="11.5" font-weight="700" fill="#1a202c" text-anchor="middle">1. Binding universal accessibility legislation</text>
+                                        <text x="665" y="97" font-size="10.2" fill="#4a5568" text-anchor="middle">Mandatory targets, dissuasive penalties (ON, MB, CAN models)</text>
+                                    </g>
+
+                                    <line x1="665" y1="110" x2="665" y2="128" stroke="#22543d" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
+
+                                    <g class="svg-node" onclick="selectConceptNode('en_map3', 4, this)">
+                                        <rect x="492" y="132" width="346" height="52" rx="6" fill="#ffffff" stroke="#cbd5e0" stroke-width="1.5"/>
+                                        <text x="665" y="154" font-size="11.5" font-weight="700" fill="#1a202c" text-anchor="middle">2. Tighter municipal regulations</text>
+                                        <text x="665" y="171" font-size="10.2" fill="#4a5568" text-anchor="middle">Revision of By-law 11-018 &amp; Montreal Charter (2021)</text>
+                                    </g>
+
+                                    <line x1="665" y1="184" x2="665" y2="202" stroke="#22543d" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
+
+                                    <g class="svg-node" onclick="selectConceptNode('en_map3', 5, this)">
+                                        <rect x="492" y="206" width="346" height="52" rx="6" fill="#ffffff" stroke="#cbd5e0" stroke-width="1.5"/>
+                                        <text x="665" y="228" font-size="11.5" font-weight="700" fill="#1a202c" text-anchor="middle">3. Adequate funding &amp; political will</text>
+                                        <text x="665" y="245" font-size="10.2" fill="#4a5568" text-anchor="middle">Faster STM rollout, compliance with UN CRPD &amp; Charter</text>
+                                    </g>
+
+                                    <text x="665" y="292" font-size="11" font-weight="700" fill="#22543d" text-anchor="middle">→ Outcome: Full equality, freedom and autonomy</text>
+                                </svg>
+                            </div>
+                            <div class="concept-detail-panel" id="en_map3-detail">
+                                <h5>Naturalization of disability and capitalist logic</h5>
+                                <p>Ableism masks its political dimension by attributing exclusion to individual impairments rather than environmental design. By subordinating fundamental rights to financial profitability, the State and the market perpetuate exclusion.</p>
+                            </div>
+                        </aside>
+
+                        <p>Fortunately, this immobilized picture is not entirely bleak. As noted above, the STM is gradually increasing the number of accessible metro stations (with the meager subsidies granted by governments); the pace must be accelerated. Moreover, the City of Montréal has undertaken a revision of its own building by-law. This is an initiative to welcome and follow closely to ensure it translates into a significant tightening of accessibility obligations. Municipalities do not have to stick to the bare minimum set by a timid and outdated Building Code. Although public authorities are unlikely to attach another odious caveat to the fundamental rights of people with disabilities, vigilance will be required during consultations, yet architectural accessibility is only part of the equation.</p>
+
+                        <p>In this regard, let us recall that in 2021, the City of Montréal added to the Montréal Charter of Rights and Responsibilities a commitment to combat ableism. Will disability rights advocacy groups feel less alone in their fierce fight for dignity? All that remains for the City is to move from words to deeds. However, according to a recent organizational assessment, it is only at the stage of “awareness” when it comes to integrating universal accessibility into its ways of operating.</p>
+
+                        <p>The Government of Quebec must also put the human rights of people with disabilities front and center so they can finally enjoy full equality. To do so, it must go beyond policies that stick to generalities. It must stop ignoring us, take the Convention on the Rights of Persons with Disabilities seriously, enforce the Charter of Human Rights and Freedoms, and legislate accordingly. It is possible to guarantee the social, economic, and political participation of the greatest number by turning our backs once and for all on oppressive practices that foster disability and exclusion.</p>
+
+                        <h2 class="subchapter-title" id="en-sous-chapitre-5">Conclusion</h2>
+
+                        <p>The Quebec State has been and continues to be one of the main actors in the vast enterprise of constructing disability launched several decades ago in Quebec. The 1978 Act was a double-edged sword that left deep systemic after-effects. The example came from the top, and cities as well as the private sector are not lagging behind when it comes to promoting exclusion. Monuments to ableism continue to materialize or threaten to rise from the ground. Quebec began long ago to build up a large collection of these monuments that it is counterproductive to keep expanding.</p>
+
+                        <p>The urgency lies in a concerted struggle against the oppression that disability constitutes, in order to give everyone greater freedom, autonomy, and control over their lives. We have seen that solutions exist to guarantee the right to accessibility that stems from the Charter. Now we must legislate and adequately fund the transition toward inclusion. It is time to make political choices in favor of human rights and the common good. It is high time to change course and resolutely set about building an equitable, inclusive, and, above all, anti-ableist society.</p>
+                    </div>
+
+                    <div class="lang-panel-footer-close">
+                        <button type="button" class="btn-lang-close" onclick="closeLanguagePanel('en')">Close English Version</button>
+                    </div>
+                </section>
+
+                <!-- VERSION EN ESPAGNOL (DÉPLOYABLE) -->
+                <section id="spanish-version-panel" class="lang-panel" lang="es" aria-label="Versión en español del artículo">
+                    <div class="lang-panel-banner">
+                        <span class="lang-panel-tag">Versión en español — Monumentos al capacitismo</span>
+                        <button type="button" class="btn-lang-close" onclick="closeLanguagePanel('es')">Cerrar versión en español</button>
+                    </div>
+
+                    <div class="article-body">
+                        <h2 class="subchapter-title" id="es-sous-chapitre-0">Introducción</h2>
+
+                        <p class="dropcap">Según la Société de transport de Montréal (STM), la estación de metro De l’Église, en el distrito de Verdun, no será accesible en silla de ruedas antes de 2028. Puesta en servicio en 1978 con la prolongación de la línea verde hasta el término Angrignon, tendrá entonces cincuenta años. Por una singular coincidencia, fue en 1978 cuando la Asamblea Nacional modificó la Carta de derechos y libertades de la persona para prohibir la discriminación basada en la discapacidad. Ese mismo año, se otorgó a las personas con discapacidad un nuevo «derecho al reconocimiento y al ejercicio, en plena igualdad, de los derechos y libertades de la persona» y se abrieron simultáneamente estaciones que mantenían la discriminación introducida en la inauguración del metro, en 1966. Habrá hecho falta medio siglo para que la estación De l’Église cumpla por fin con la carta.</p>
+
+                        <div class="section-title-small">Estación De l’Église</div>
+
+                        <div class="figure-grid">
+                            <figure class="figure-item">
+                                <img src="https://raw.githubusercontent.com/sociocamera/accessibilite/capacitisme/capacitisme_03.jpg" alt="Vista del interior de la estación De l’Église"/>
+                                <figcaption class="figure-caption">
+                                    <strong>© Jérôme Saunier — Descripción de la imagen:</strong><br/>
+                                    Vista del interior de la estación De l’Église: vista en picado de la escalera, señalización amarilla en el suelo en cada descansillo, muros de hormigón con estrías características, ventanas horizontales estrechas, ventana vertical estrecha.
+                                </figcaption>
+                            </figure>
+                            <figure class="figure-item">
+                                <img src="https://raw.githubusercontent.com/sociocamera/accessibilite/capacitisme/capacitisme_02.jpg" alt="Vista del exterior de la estación De l’Église"/>
+                                <figcaption class="figure-caption">
+                                    <strong>© Jérôme Saunier — Descripción de la imagen:</strong><br/>
+                                    Vista del exterior de la estación De l’Église: personas entran en el edificio bajo los arcos de hormigón. Se ve el símbolo del metro arriba a la izquierda: flecha blanca sobre fondo azul apuntando hacia abajo sobre la palabra «métro» en blanco sobre fondo negro. Nubes grises.
+                                </figcaption>
+                            </figure>
+                        </div>
+
+                        <p>Este edificio emblemático de Verdun es un verdadero monumento a lo que, en aquel entonces, aún no llevaba el nombre de capacitismo. Lo mismo ocurre con las demás estaciones construidas sin ascensores, y en particular con aquellas que surgieron en los años 1980 en las líneas naranja y azul. En teoría, las veinticinco estaciones acondicionadas tras la entrada en vigor de las modificaciones de la carta (durante la década siguiente a la prolongación de la línea verde) deberían haber sido diseñadas según los principios de la accesibilidad universal. Representaban, aun así, el 38,4 % de la red de sesenta y cinco estaciones existente en 1988. Sin embargo, no fue sino hasta 2007, durante la prolongación de la línea naranja hacia Laval, cuando abrieron sus puertas las tres primeras estaciones accesibles. Al momento de escribir estas líneas (abril de 2023), veintitrés estaciones más se habían vuelto accesibles, lo que seguía representando solo el 38,2 % de la red; y quedaban cuarenta y dos por adaptar.</p>
+
+                        <!-- MAPA CONCEPTUAL INTERACTIVO 1 (ESPAÑOL) -->
+                        <aside class="concept-map-card" aria-label="Mapa conceptual interactivo: Cronología y mecánica jurídica de la inaccesibilidad">
+                            <div class="concept-map-header">
+                                <span class="concept-map-badge">Mapa conceptual interactivo 1</span>
+                                <h4 class="concept-map-title">Trayectoria jurídica y arquitectónica de la exclusión (1966–2028)</h4>
+                            </div>
+                            <p class="concept-map-instruction">Haga clic en una etapa de la cronología o en un bloque de análisis para explorar las contradicciones entre los derechos proclamados y las exenciones legales.</p>
+                            <div class="concept-svg-wrapper">
+                                <svg viewBox="0 0 880 310" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama cronológico y jurídico de la inaccesibilidad del metro y de los edificios en Quebec">
+                                    <rect x="20" y="16" width="840" height="42" rx="6" fill="#f3ede2" stroke="#dfd3c3"/>
+                                    <text x="36" y="42" font-size="12" font-weight="700" fill="#7a2222" letter-spacing="0.5">ESFERA DE LOS DERECHOS PROCLAMADOS Y NORMAS</text>
+                                    <text x="844" y="42" font-size="11" fill="#5a6577" text-anchor="end">Carta y Código de construcción</text>
+
+                                    <line x1="55" y1="150" x2="825" y2="150" stroke="#7a2222" stroke-width="3" marker-end="url(#arrowBordeaux)"/>
+
+                                    <g class="svg-node active" onclick="selectConceptNode('es_map1', 0, this)">
+                                        <rect x="25" y="74" width="128" height="56" rx="7" fill="#FAF6EF" stroke="#7a2222" stroke-width="2.5"/>
+                                        <text x="89" y="96" font-size="13" font-weight="700" fill="#7a2222" text-anchor="middle">1966</text>
+                                        <text x="89" y="114" font-size="10.5" fill="#2b2b2b" text-anchor="middle">Inauguración</text>
+                                        <text x="89" y="126" font-size="10.5" fill="#2b2b2b" text-anchor="middle">del metro</text>
+                                        <circle cx="89" cy="150" r="7" fill="#7a2222"/>
+                                    </g>
+
+                                    <g class="svg-node" onclick="selectConceptNode('es_map1', 1, this)">
+                                        <rect x="175" y="74" width="154" height="56" rx="7" fill="#FAF6EF" stroke="#cbd5e0" stroke-width="1.5"/>
+                                        <text x="252" y="96" font-size="13" font-weight="700" fill="#1a202c" text-anchor="middle">1976 – 1978</text>
+                                        <text x="252" y="114" font-size="10.5" fill="#2b2b2b" text-anchor="middle">Carta modificada y</text>
+                                        <text x="252" y="126" font-size="10.5" fill="#2b2b2b" text-anchor="middle">Estación De l’Église</text>
+                                        <circle cx="252" cy="150" r="7" fill="#4a5568"/>
+                                    </g>
+
+                                    <g class="svg-node" onclick="selectConceptNode('es_map1', 2, this)">
+                                        <rect x="352" y="74" width="154" height="56" rx="7" fill="#FAF6EF" stroke="#cbd5e0" stroke-width="1.5"/>
+                                        <text x="429" y="96" font-size="13" font-weight="700" fill="#1a202c" text-anchor="middle">1980 – 1988</text>
+                                        <text x="429" y="114" font-size="10.5" fill="#2b2b2b" text-anchor="middle">25 estaciones construidas</text>
+                                        <text x="429" y="126" font-size="10.5" fill="#2b2b2b" text-anchor="middle">sin ascensores</text>
+                                        <circle cx="429" cy="150" r="7" fill="#4a5568"/>
+                                    </g>
+
+                                    <g class="svg-node" onclick="selectConceptNode('es_map1', 3, this)">
+                                        <rect x="529" y="74" width="154" height="56" rx="7" fill="#FAF6EF" stroke="#cbd5e0" stroke-width="1.5"/>
+                                        <text x="606" y="96" font-size="13" font-weight="700" fill="#1a202c" text-anchor="middle">2004 – 2007</text>
+                                        <text x="606" y="114" font-size="10.5" fill="#2b2b2b" text-anchor="middle">Derogación tardía y</text>
+                                        <text x="606" y="126" font-size="10.5" fill="#2b2b2b" text-anchor="middle">3 estaciones en Laval</text>
+                                        <circle cx="606" cy="150" r="7" fill="#4a5568"/>
+                                    </g>
+
+                                    <g class="svg-node" onclick="selectConceptNode('es_map1', 4, this)">
+                                        <rect x="706" y="74" width="154" height="56" rx="7" fill="#FAF6EF" stroke="#cbd5e0" stroke-width="1.5"/>
+                                        <text x="783" y="96" font-size="13" font-weight="700" fill="#1a202c" text-anchor="middle">2023 – 2028</text>
+                                        <text x="783" y="114" font-size="10.5" fill="#2b2b2b" text-anchor="middle">38,2 % accesible;</text>
+                                        <text x="783" y="126" font-size="10.5" fill="#2b2b2b" text-anchor="middle">50 años de espera</text>
+                                        <circle cx="783" cy="150" r="7" fill="#4a5568"/>
+                                    </g>
+
+                                    <line x1="252" y1="157" x2="252" y2="188" stroke="#4a5568" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrowSlate)"/>
+                                    <line x1="429" y1="157" x2="429" y2="188" stroke="#4a5568" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrowSlate)"/>
+                                    <line x1="606" y1="157" x2="606" y2="188" stroke="#4a5568" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrowSlate)"/>
+
+                                    <g class="svg-node" onclick="selectConceptNode('es_map1', 5, this)">
+                                        <rect x="145" y="192" width="235" height="96" rx="8" fill="#f7f1e7" stroke="#d4c5b9" stroke-width="1.5"/>
+                                        <text x="262" y="214" font-size="11.5" font-weight="700" fill="#7a2222" text-anchor="middle">Los «peros» de la ley de 1978</text>
+                                        <text x="262" y="233" font-size="10.5" fill="#2b2b2b" text-anchor="middle">• Art. 70: exención por costo «injustificable»</text>
+                                        <text x="262" y="250" font-size="10.5" fill="#2b2b2b" text-anchor="middle">• Art. 71–72: inmunidad de inmuebles</text>
+                                        <text x="262" y="265" font-size="10.5" fill="#2b2b2b" text-anchor="middle">anteriores a 1976 y del transporte colectivo</text>
+                                    </g>
+
+                                    <g class="svg-node" onclick="selectConceptNode('es_map1', 6, this)">
+                                        <rect x="425" y="192" width="315" height="96" rx="8" fill="#f7f1e7" stroke="#d4c5b9" stroke-width="1.5"/>
+                                        <text x="582" y="214" font-size="11.5" font-weight="700" fill="#7a2222" text-anchor="middle">Inercia reglamentaria posterior a 2004</text>
+                                        <text x="582" y="233" font-size="10.5" fill="#2b2b2b" text-anchor="middle">• Art. 69: reglamento sobre edificios pre-1976</text>
+                                        <text x="582" y="248" font-size="10.5" fill="#2b2b2b" text-anchor="middle">nunca adoptado por el gobierno</text>
+                                        <text x="582" y="265" font-size="10.5" fill="#2b2b2b" text-anchor="middle">• 42 de 68 estaciones aún inaccesibles en 2023</text>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="concept-detail-panel" id="es_map1-detail">
+                                <h5>1966 — La exclusión inscrita en el hormigón desde el origen</h5>
+                                <p>Durante la inauguración del metro de Montreal en 1966, toda la red se concibe exclusivamente en torno a escaleras fijas y mecánicas. La ausencia total de ascensores erige de entrada una frontera física entre usuarios sin discapacidad y personas con movilidad reducida.</p>
+                            </div>
+                        </aside>
+
+                        <h2 class="subchapter-title" id="es-sous-chapitre-1">Una ley discriminatoria</h2>
+
+                        <p>¿Qué ocurrió? La ley de 1978 contemplaba exenciones a la carta que impedían a las personas con discapacidad alegar discriminación por la inaccesibilidad de los edificios construidos antes de 1976 (por lo tanto, no sujetos al Código de construcción de Quebec adoptado ese año) y de los medios de transporte colectivo. Estas exenciones no fueron derogadas sino hasta 2004, es decir, un cuarto de siglo después de la entrada en vigor de la ley de 1978. Durante ese tiempo, el transporte público y los edificios pudieron permanecer legalmente inaccesibles para las personas con discapacidad.</p>
+
+                        <p>Al otorgar el derecho a la plena igualdad a las personas con discapacidad, la ley de 1978 garantizaba la igualdad de acceso, pero al mismo tiempo daba al gobierno el poder de pasar por alto ese derecho, en particular si estimaba que el costo de las modificaciones no justificaba garantizar la accesibilidad de un inmueble a dichas personas. En 1978, la Asamblea Nacional añadió por lo tanto un «pero» [sic] al nuevo derecho de las personas con discapacidad. Esta «restricción de las posibilidades de recurso en virtud de la Carta de derechos y libertades» habría sido el fruto de un compromiso «con los distintos sectores», «como corolario de la obligación de los propietarios de inmuebles». Se deduce que el lobby de los propietarios fue escuchado a pesar de que el artículo 70 «fue vivamente criticado por algunos […] en su momento». El pero aplicado a las obligaciones de los organismos de transporte público es igualmente indignante. En 2004, el gobierno terminó por reconocer «que no puede justificarse mantener esos artículos» (es decir, las exenciones). Todas estas restricciones de derechos han perpetuado hasta hoy prácticas y una mentalidad segregacionistas. Si todas las estaciones de metro de los años 1980 pudieron ponerse en servicio legalmente a pesar de la carta, no sorprende que otras estructuras discriminatorias hayan seguido apareciendo en el paisaje. Como veremos, aún se practica una arquitectura inaccesible a pesar de que la prohibición de la discriminación sigue plenamente vigente.</p>
+
+                        <h2 class="subchapter-title" id="es-sous-chapitre-2">Todavía más escaleras</h2>
+
+                        <p>Entre los monumentos notables erigidos recientemente a la gloria del capacitismo, conviene mencionar el mirador del parque de l’Île-Bizard (2020), el Biodôme (2020) y la gran escalera de la Place Ville-Marie (2022). El mirador no es más que un conjunto totalmente inaccesible de plataformas y escaleras.</p>
+
+                        <div class="figure-grid">
+                            <figure class="figure-item">
+                                <div class="figure-item-title">Gran escalera de la Place Ville-Marie</div>
+                                <img src="https://raw.githubusercontent.com/sociocamera/accessibilite/capacitisme/capacitisme_04.jpg" alt="Gran escalera de la Place Ville-Marie"/>
+                                <figcaption class="figure-caption"><strong>© Marie-Eve Veilleux</strong></figcaption>
+                            </figure>
+                            <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+                                <figure class="figure-item">
+                                    <div class="figure-item-title">Mirador del parque natural Bois-de-l’Île-Bizard</div>
+                                    <img src="https://raw.githubusercontent.com/sociocamera/accessibilite/capacitisme/capacitisme.jpg" alt="Mirador del parque natural Bois-de-l’Île-Bizard" style="max-height: 170px;"/>
+                                    <figcaption class="figure-caption"><strong>© Ville de Montréal</strong></figcaption>
+                                </figure>
+                                <figure class="figure-item">
+                                    <div class="figure-item-title">Biodôme de Montreal</div>
+                                    <img src="https://raw.githubusercontent.com/sociocamera/accessibilite/capacitisme/capacitisme_01.jpg" alt="Biodôme de Montreal" style="max-height: 170px;"/>
+                                    <figcaption class="figure-caption"><strong>© Biodôme de Montréal</strong></figcaption>
+                                </figure>
+                            </div>
+                        </div>
+
+                        <p>A las personas que visitan el Biodôme, totalmente renovado, se les propone un recorrido parcialmente accesible: mientras que las personas con discapacidad deben conformarse con un ascensor cerrado para acceder al entrepiso, las personas sin discapacidad pueden llegar allí utilizando una agradable pasarela elevada que atraviesa las copas de los árboles bajo la cubierta acristalada. La gran escalera de la Place Ville-Marie, por su parte, cuenta con una rampa diseñada para desplazarse en silla de ruedas, pero es todo menos segura.</p>
+
+                        <p>También hay que mencionar un proyecto futuro de la Ciudad de Montreal que, si se realiza conforme a los bocetos publicados, se convertirá en un monumento más al capacitismo montrealaise. Se trata de Espace Rivière, un edificio que hará las veces de biblioteca municipal y centro comunitario y que verá la luz en el distrito de Rivière-des-Prairies–Pointe-aux-Trembles dentro de algunos años. Al igual que el Biodôme, Espace Rivière estaría atravesado por una pasarela interna reservada a las personas que no tienen ninguna dificultad para subir escaleras e inaccesible para las personas con movilidad reducida. En otros lugares de Quebec, la escalera del sendero de los Grands-Domaines en el promontorio de Sillery es digna de mención.</p>
+
+                        <p>Habida cuenta del enorme retraso acumulado en materia de accesibilidad de la red ordinaria, la vida de muchísimas personas con movilidad reducida sigue sometida a los imprevistos y rigideces del transporte adaptado de la STM. El acceso al metro, aún en gran parte prohibido porque el Estado así lo decidió en 1978, habría dado a las personas capaces de desplazarse solas la autonomía que tienen derecho a disfrutar en tanto que ciudadanas y ciudadanos. En cambio, las autoridades mantuvieron a sabiendas el carácter segregacionista del metro. Es en este contexto donde debe comprenderse la creación, a principios de los años 1980, del servicio segregado de transporte adaptado. Este responde evidentemente a necesidades que el metro no puede cubrir, pero denota también el rechazo implícito a hacer del metro un espacio inclusivo.</p>
+
+                        <p>La pendiente que hay que remontar para hacer accesibles los espacios comerciales situados en el entorno construido anterior (e incluso posterior) a 1976 es, por su parte, más empinada que nunca. Los barrios a escala humana que tanto se elogian no ofrecen la misma calidad de vida según se pueda o no entrar en los comercios y restaurantes que bordean sus calles y recibir allí los mismos servicios que el resto de la población (de conformidad con la carta). En efecto, además de la discriminación instaurada por la ley de 1978, el Código de construcción prevé excepciones para los edificios de pequeño tamaño, en virtud de las cuales los requisitos de accesibilidad no se aplican a los innumerables inmuebles que bordean las calles comerciales, lo que compromete la puesta en accesibilidad de una parte considerable de nuestras ciudades. Esa reglamentación compete a los municipios, que llevan mucho tiempo demorándose.</p>
+
+                        <!-- MAPA CONCEPTUAL INTERACTIVO 2 (ESPAÑOL) -->
+                        <aside class="concept-map-card" aria-label="Mapa conceptual interactivo: Tipología de los monumentos al capacitismo">
+                            <div class="concept-map-header">
+                                <span class="concept-map-badge">Mapa conceptual interactivo 2</span>
+                                <h4 class="concept-map-title">Cartografía de los «monumentos al capacitismo» en el espacio urbano</h4>
+                            </div>
+                            <p class="concept-map-instruction">Seleccione un polo arquitectónico o urbano en el esquema a continuación para comparar el diseño dominante con sus efectos de exclusión.</p>
+                            <div class="concept-svg-wrapper">
+                                <svg viewBox="0 0 880 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama radial de cuatro formas de monumentos al capacitismo">
+                                    <line x1="440" y1="170" x2="185" y2="75" stroke="#7a2222" stroke-width="2" stroke-dasharray="5 3"/>
+                                    <line x1="440" y1="170" x2="695" y2="75" stroke="#7a2222" stroke-width="2" stroke-dasharray="5 3"/>
+                                    <line x1="440" y1="170" x2="185" y2="265" stroke="#7a2222" stroke-width="2" stroke-dasharray="5 3"/>
+                                    <line x1="440" y1="170" x2="695" y2="265" stroke="#7a2222" stroke-width="2" stroke-dasharray="5 3"/>
+
+                                    <g class="svg-node active" onclick="selectConceptNode('es_map2', 0, this)">
+                                        <rect x="315" y="122" width="250" height="96" rx="48" fill="#7a2222" stroke="#5e1a1a" stroke-width="2.5"/>
+                                        <text x="440" y="156" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">HEGEMONÍA DE LA ESCALERA</text>
+                                        <text x="440" y="175" font-size="11" fill="#f5ebe8" text-anchor="middle">y norma del cuerpo sin discapacidad</text>
+                                        <text x="440" y="193" font-size="10" fill="#e2d8c8" text-anchor="middle">(Arquitectura contemporánea y heredada)</text>
+                                    </g>
+
+                                    <g class="svg-node" onclick="selectConceptNode('es_map2', 1, this)">
+                                        <rect x="25" y="24" width="265" height="98" rx="8" fill="#FAF6EF" stroke="#cbd5e0" stroke-width="1.5"/>
+                                        <text x="42" y="48" font-size="12" font-weight="700" fill="#7a2222">1. Equipamientos culturales recientes</text>
+                                        <text x="42" y="68" font-size="10.5" fill="#2b2b2b">• Biodôme (2020): pasarela vs ascensor cerrado</text>
+                                        <text x="42" y="84" font-size="10.5" fill="#2b2b2b">• Mirador Île-Bizard (2020): 100 % escaleras</text>
+                                        <text x="42" y="100" font-size="10.5" fill="#2b2b2b">• Proyecto Espace Rivière: pasarela reservada</text>
+                                    </g>
+
+                                    <g class="svg-node" onclick="selectConceptNode('es_map2', 2, this)">
+                                        <rect x="590" y="24" width="265" height="98" rx="8" fill="#FAF6EF" stroke="#cbd5e0" stroke-width="1.5"/>
+                                        <text x="607" y="48" font-size="12" font-weight="700" fill="#7a2222">2. Espacios cívicos y miradores</text>
+                                        <text x="607" y="68" font-size="10.5" fill="#2b2b2b">• Place Ville-Marie (2022): rampa insegura</text>
+                                        <text x="607" y="84" font-size="10.5" fill="#2b2b2b">• Promontorio de Sillery: escalera monumental</text>
+                                        <text x="607" y="100" font-size="10.5" fill="#2b2b2b">• Estética arquitectónica por encima de la seguridad</text>
+                                    </g>
+
+                                    <g class="svg-node" onclick="selectConceptNode('es_map2', 3, this)">
+                                        <rect x="25" y="216" width="265" height="98" rx="8" fill="#FAF6EF" stroke="#cbd5e0" stroke-width="1.5"/>
+                                        <text x="42" y="240" font-size="12" font-weight="700" fill="#7a2222">3. Movilidad y transporte segregado</text>
+                                        <text x="42" y="260" font-size="10.5" fill="#2b2b2b">• Red ordinaria del metro ampliamente cerrada</text>
+                                        <text x="42" y="276" font-size="10.5" fill="#2b2b2b">• Transporte adaptado (años 1980): servicio</text>
+                                        <text x="42" y="290" font-size="10.5" fill="#2b2b2b">paralelo rígido que limita la espontaneidad</text>
+                                    </g>
+
+                                    <g class="svg-node" onclick="selectConceptNode('es_map2', 4, this)">
+                                        <rect x="590" y="216" width="265" height="98" rx="8" fill="#FAF6EF" stroke="#cbd5e0" stroke-width="1.5"/>
+                                        <text x="607" y="240" font-size="12" font-weight="700" fill="#7a2222">4. Calles comerciales de barrio</text>
+                                        <text x="607" y="260" font-size="10.5" fill="#2b2b2b">• Excepciones del Código para tamaños pequeños</text>
+                                        <text x="607" y="276" font-size="10.5" fill="#2b2b2b">• Comercios y restaurantes inaccesibles</text>
+                                        <text x="607" y="290" font-size="10.5" fill="#2b2b2b">• Inacción reglamentaria de los municipios</text>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="concept-detail-panel" id="es_map2-detail">
+                                <h5>Núcleo conceptual — La hegemonía de la escalera como norma espacial</h5>
+                                <p>Como señala Laurence Parent (2010), la omnipresencia de la escalera en la arquitectura pública no es una simple elección estética: materializa una concepción capacitista del espacio en la que el cuerpo sin discapacidad constituye el único patrón de medida.</p>
+                            </div>
+                        </aside>
+
+                        <h2 class="subchapter-title" id="es-sous-chapitre-3">Segregación institucionalizada</h2>
+
+                        <p>La ley de 1978 y el Código de construcción están en el origen de esta discriminación que puede calificarse con razón de sistémica, puesto que, en este caso, fue instaurada y mantenida por el Estado. Es la prueba, si hiciera falta, del papel preeminente que desempeña la política en la construcción de la discapacidad, es decir, en casi todos los supuestos, la discapacidad es una elección política: la elección de la mayoría sin discapacidad (más pequeña de lo que se cree) de ignorar las necesidades legítimas de la minoría con discapacidad sobre la base de prejuicios que la desvalorizan, y de atender únicamente sus propios intereses blandiendo la norma social del cuerpo sin discapacidad. Es eligiendo crear barreras discapacitantes o no eliminarlas como se coloca a los cuerpos y mentes «no conformes» en situación de discapacidad, relegándolos a un estatus de segunda clase, el de persona con discapacidad. Este proceso de construcción es tanto más difícil de captar y parece tanto más alejado del sentido común cuanto que el capacitismo lo invisibiliza al naturalizar la discapacidad sobre la base de las diferencias funcionales, que serían su verdadera causa, haciendo abstracción del entorno físico y sociopolítico.</p>
+
+                        <p>Por otra parte, la exención prevista por la ley de 1978 por costo de modificaciones «injustificable» es reveladora de los fundamentos capitalistas del capacitismo, ya que nuestro sistema económico otorga mayor importancia a las ganancias y al dinero que a las personas. Esta mentalidad reina tanto en el sector privado como en el seno de las administraciones públicas. En este contexto, todos los medios son válidos para mantener los privilegios, incluso los medios francamente incompatibles con la decencia humana. Entra en esta categoría la decisión de declarar en cierto modo nula y sin efecto, para todo un sector de la sociedad, una disposición esencial de la ley suprema de Quebec. La fuerza de inercia que produce el capacitismo es tal que la nueva obligación de no discriminación no pesó gran cosa en la balanza: a pesar de esta medida progresista, el statu quo recuperó de inmediato sus derechos.</p>
+
+                        <p>Las consecuencias catastróficas de la ley de 1978 y del Código de construcción todavía se dejan sentir. Dado que el gobierno dio desafortunadamente el mal ejemplo, ya no sorprende la reticencia casi general a aplicar los principios de la accesibilidad universal ni el desconocimiento de las disposiciones vigentes. Peor aún, al adoptar exenciones y una reglamentación discriminatorias, retrasó en varias décadas la puesta en accesibilidad de las infraestructuras públicas y privadas en Quebec. En lugar de asegurar el ejercicio de los derechos de las personas con discapacidad, garantizó su incumplimiento. O más bien, confirmó la ausencia de derecho, para estas personas, a vivir en plena igualdad. Normalizó la segregación al codificar el «derecho» consuetudinario a discriminarlas, como si la discriminación formara parte del orden natural de las cosas. Acreditó la idea de que la puesta en accesibilidad es una carga financiera irrazonable. Cementó el estatus de ciudadanas y ciudadanos de segunda clase de las personas con discapacidad. Los monumentos al capacitismo están ahí para dar testimonio de ello.</p>
+
+                        <h2 class="subchapter-title" id="es-sous-chapitre-4">¿Y ahora qué?</h2>
+
+                        <p>Para transformar a Quebec en una sociedad inclusiva que haga de la equidad un valor cardinal, no es realista remitirse a una supuesta mejora «natural» de la accesibilidad dictada por las leyes del mercado. Esta postura expectante solo beneficia a los intereses de los grupos de presión al aplazar indefinidamente el respeto de los derechos. Esperar que cada empresa privada realice esfuerzos de manera voluntaria es la receta del fracaso. Sería igualmente inútil contar con las modificaciones episódicas del Código de construcción, que también se producen con demasiada lentitud.</p>
+
+                        <p>Sobre el terreno, se constata que muchas personas están abiertas al cambio, e incluso decididas a mejorar el día a día de las personas con discapacidad. Pero su buena voluntad choca a menudo con los obstáculos sistémicos que hemos evocado. ¿Qué hacer? Hay que garantizar desde ya los derechos fundamentales mediante una ley sobre la accesibilidad universal acompañada de metas vinculantes y sanciones disuasorias, así como de un marco reglamentario eficaz y de sólidos mecanismos de aplicación, como existen en otras provincias y países, entre ellos Ontario, Manitoba, Canadá en el ámbito federal y Estados Unidos. Sin ello, será difícil combatir la discriminación. Ahora bien, ninguna ley de este tipo está actualmente sobre la mesa en Quebec. El reglamento sobre las categorías de inmuebles construidos antes de 1976 que deben hacerse accesibles y las normas de accesibilidad que deben respetarse —cuya adopción estaba prevista por la Ley que asegura el ejercicio de los derechos de las personas con discapacidad con miras a su integración escolar, profesional y social— nunca llegó a ver la luz. Las autoridades parecen apostar sobre todo por soluciones puntuales que adoptan la forma de ayudas financieras para mejorar la accesibilidad de los edificios. Estos programas burocráticos están infrafinanciados y son poco eficaces. El respeto de los derechos de las personas sigue dependiendo, por tanto, de la buena voluntad de propietarios e inquilinos, que tienen plena libertad para mantener la segregación prohibida. Los interminables procedimientos de tramitación de las denuncias presentadas ante la Commission des droits de la personne et des droits de la jeunesse nunca desembocan sino en acuerdos caso por caso, cuando es necesario aplicar cambios sistémicos radicales. La emancipación de todo un grupo social marginado desde hace mucho tiempo exige algo más que unas cuantas adaptaciones ocasionales.</p>
+
+                        <!-- MAPA CONCEPTUAL INTERACTIVO 3 (ESPAÑOL) -->
+                        <aside class="concept-map-card" aria-label="Mapa conceptual interactivo: Del statu quo segregacionista a la transición anticapacitista">
+                            <div class="concept-map-header">
+                                <span class="concept-map-badge">Mapa conceptual interactivo 3</span>
+                                <h4 class="concept-map-title">De la segregación institucionalizada a la transición anticapacitista</h4>
+                            </div>
+                            <p class="concept-map-instruction">Haga clic en los componentes de los dos paradigmas (a la izquierda: bloqueos actuales; a la derecha: palancas de transformación) para examinar los mecanismos en juego.</p>
+                            <div class="concept-svg-wrapper">
+                                <svg viewBox="0 0 880 345" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Comparación interactiva entre el sistema capacitista actual y la sociedad anticapacitista">
+                                    <rect x="20" y="14" width="390" height="315" rx="10" fill="#f7f1e7" stroke="#d4c5b9" stroke-width="1.5"/>
+                                    <text x="215" y="40" font-size="12.5" font-weight="700" fill="#7a2222" text-anchor="middle">PARADIGMA SEGREGACIONISTA (STATU QUO)</text>
+
+                                    <g class="svg-node active" onclick="selectConceptNode('es_map3', 0, this)">
+                                        <rect x="42" y="58" width="346" height="52" rx="6" fill="#FAF6EF" stroke="#7a2222" stroke-width="2.5"/>
+                                        <text x="215" y="80" font-size="11.5" font-weight="700" fill="#1a202c" text-anchor="middle">1. Naturalización de la discapacidad y lógica mercantil</text>
+                                        <text x="215" y="97" font-size="10.2" fill="#4a5568" text-anchor="middle">Discapacidad atribuida al cuerpo; accesibilidad vista como costo</text>
+                                    </g>
+
+                                    <line x1="215" y1="110" x2="215" y2="128" stroke="#7a2222" stroke-width="1.8" marker-end="url(#arrowBordeaux)"/>
+
+                                    <g class="svg-node" onclick="selectConceptNode('es_map3', 1, this)">
+                                        <rect x="42" y="132" width="346" height="52" rx="6" fill="#FAF6EF" stroke="#cbd5e0" stroke-width="1.5"/>
+                                        <text x="215" y="154" font-size="11.5" font-weight="700" fill="#1a202c" text-anchor="middle">2. Voluntariado y subvenciones subutilizadas</text>
+                                        <text x="215" y="171" font-size="10.2" fill="#4a5568" text-anchor="middle">PAAC (7 solicitudes año 1); buena voluntad de propietarios</text>
+                                    </g>
+
+                                    <line x1="215" y1="184" x2="215" y2="202" stroke="#7a2222" stroke-width="1.8" marker-end="url(#arrowBordeaux)"/>
+
+                                    <g class="svg-node" onclick="selectConceptNode('es_map3', 2, this)">
+                                        <rect x="42" y="206" width="346" height="52" rx="6" fill="#FAF6EF" stroke="#cbd5e0" stroke-width="1.5"/>
+                                        <text x="215" y="228" font-size="11.5" font-weight="700" fill="#1a202c" text-anchor="middle">3. Judicialización individual (CDPDJ)</text>
+                                        <text x="215" y="245" font-size="10.2" fill="#4a5568" text-anchor="middle">38 % de expedientes por discapacidad; acuerdos caso por caso</text>
+                                    </g>
+
+                                    <text x="215" y="292" font-size="11" font-weight="700" fill="#7a2222" text-anchor="middle">→ Resultado: Ciudadanía de segunda clase</text>
+
+                                    <line x1="416" y1="172" x2="462" y2="172" stroke="#7a2222" stroke-width="3" marker-end="url(#arrowBordeaux)"/>
+
+                                    <rect x="470" y="14" width="390" height="315" rx="10" fill="#f2f5f2" stroke="#c6d4c6" stroke-width="1.5"/>
+                                    <text x="665" y="40" font-size="12.5" font-weight="700" fill="#22543d" text-anchor="middle">TRANSICIÓN ANTICAPACITISTA (SOLUCIONES)</text>
+
+                                    <g class="svg-node" onclick="selectConceptNode('es_map3', 3, this)">
+                                        <rect x="492" y="58" width="346" height="52" rx="6" fill="#ffffff" stroke="#cbd5e0" stroke-width="1.5"/>
+                                        <text x="665" y="80" font-size="11.5" font-weight="700" fill="#1a202c" text-anchor="middle">1. Ley vinculante sobre accesibilidad universal</text>
+                                        <text x="665" y="97" font-size="10.2" fill="#4a5568" text-anchor="middle">Metas obligatorias, sanciones disuasorias (modelos ON, MB, CAN)</text>
+                                    </g>
+
+                                    <line x1="665" y1="110" x2="665" y2="128" stroke="#22543d" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
+
+                                    <g class="svg-node" onclick="selectConceptNode('es_map3', 4, this)">
+                                        <rect x="492" y="132" width="346" height="52" rx="6" fill="#ffffff" stroke="#cbd5e0" stroke-width="1.5"/>
+                                        <text x="665" y="154" font-size="11.5" font-weight="700" fill="#1a202c" text-anchor="middle">2. Endurecimiento reglamentario municipal</text>
+                                        <text x="665" y="171" font-size="10.2" fill="#4a5568" text-anchor="middle">Revisión del reglamento 11-018 y Carta montrealaise (2021)</text>
+                                    </g>
+
+                                    <line x1="665" y1="184" x2="665" y2="202" stroke="#22543d" stroke-width="1.8" marker-end="url(#arrowSlate)"/>
+
+                                    <g class="svg-node" onclick="selectConceptNode('es_map3', 5, this)">
+                                        <rect x="492" y="206" width="346" height="52" rx="6" fill="#ffffff" stroke="#cbd5e0" stroke-width="1.5"/>
+                                        <text x="665" y="228" font-size="11.5" font-weight="700" fill="#1a202c" text-anchor="middle">3. Financiamiento adecuado y voluntad política</text>
+                                        <text x="665" y="245" font-size="10.2" fill="#4a5568" text-anchor="middle">Aceleración de la STM, respeto de la Convención ONU y la Carta</text>
+                                    </g>
+
+                                    <text x="665" y="292" font-size="11" font-weight="700" fill="#22543d" text-anchor="middle">→ Resultado: Plena igualdad, libertad y autonomía</text>
+                                </svg>
+                            </div>
+                            <div class="concept-detail-panel" id="es_map3-detail">
+                                <h5>Naturalización de la discapacidad y lógica capitalista</h5>
+                                <p>El capacitismo oculta su dimensión política al atribuir la exclusión a las deficiencias individuales en lugar de a la configuración del entorno. Al subordinar los derechos fundamentales a la rentabilidad financiera, el Estado y el mercado perpetúan la exclusión.</p>
+                            </div>
+                        </aside>
+
+                        <p>Afortunadamente, este panorama inmovilista no es del todo sombrío. Se ha visto más arriba que la STM aumenta gradualmente el número de estaciones de metro accesibles (con los escasos subsidios que le otorgan los gobiernos); hay que acelerar el ritmo. Por otra parte, la Ciudad de Montreal ha emprendido la revisión de su propio reglamento de construcción. Se trata de una iniciativa que conviene celebrar y seguir de cerca para asegurarse de que se traduzca en un endurecimiento importante de las obligaciones de accesibilidad. Los municipios no tienen por qué atenerse al estricto mínimo previsto por un Código de construcción tímido y obsoleto. Aunque es poco probable que los poderes públicos impongan de nuevo un odioso pero a los derechos fundamentales de las personas con discapacidad, será necesaria la vigilancia durante las consultas, pero la accesibilidad arquitectónica es solo una parte de la ecuación.</p>
+
+                        <p>A este respecto, recordemos que en 2021, la Ciudad de Montreal añadió en la Carta montrealaise de derechos y responsabilidades el compromiso de luchar contra el capacitismo. ¿Se sentirán menos solos los grupos de defensa de los derechos de las personas con discapacidad en su lucha encarnizada por la dignidad? Solo queda que la Ciudad pase de las palabras a los hechos. Sin embargo, según un diagnóstico organizacional reciente, apenas se encuentra en el nivel de «toma de conciencia» en lo que respecta a la integración de la accesibilidad universal en su forma de actuar.</p>
+
+                        <p>El gobierno de Quebec también debe poner los derechos humanos de las personas con discapacidad en primer plano para que disfruten por fin de la plena igualdad. Para ello, debe superar las políticas que se limitan a generalidades. Debe dejar de ignorarnos, tomarse en serio la Convención sobre los derechos de las personas con discapacidad, hacer respetar la Carta de derechos y libertades de la persona y legislar en consecuencia. Es posible garantizar la participación social, económica y política del mayor número dando la espalda de una vez por todas a las prácticas opresivas que favorecen la discapacidad y la exclusión.</p>
+
+                        <h2 class="subchapter-title" id="es-sous-chapitre-5">Conclusión</h2>
+
+                        <p>El Estado quebequense ha sido y sigue siendo uno de los principales actores de la vasta empresa de construcción de la discapacidad iniciada hace varias décadas en Quebec. La ley de 1978 fue un arma de doble filo que dejó profundas secuelas sistémicas. El ejemplo venía de arriba, y las ciudades así como el sector privado no se quedan atrás en materia de promoción de la exclusión. Monumentos al capacitismo siguen materializándose o amenazan con surgir. Quebec comenzó hace mucho tiempo a constituir una gran colección de estos monumentos que resulta contraproducente seguir engrosando.</p>
+
+                        <p>La urgencia reside en la lucha concertada contra la opresión que constituye la discapacidad, con el fin de dar a todas y a todos mayor libertad, autonomía y control sobre su existencia. Hemos visto que existen soluciones para garantizar el derecho a la accesibilidad que se desprende de la Carta. Ahora hay que legislar y financiar adecuadamente la transición hacia la inclusión. Es hora de tomar decisiones políticas a favor de los derechos humanos y del bien común. Hace ya demasiado tiempo que es necesario cambiar de rumbo y emprender resueltamente la construcción de una sociedad equitativa, inclusiva y, sobre todo, anticapacitista.</p>
+                    </div>
+
+                    <div class="lang-panel-footer-close">
+                        <button type="button" class="btn-lang-close" onclick="closeLanguagePanel('es')">Cerrar versión en español</button>
                     </div>
                 </section>
 
@@ -1576,30 +2073,39 @@ Accueil<!DOCTYPE html>
     </div>
 
     <script>
-        function toggleStatsPopover(event) {
-            event.stopPropagation();
-            const popover = document.getElementById('statsPopover');
-            const btn = document.getElementById('statsBtn');
-            const isOpen = popover.classList.toggle('open');
-            btn.classList.toggle('active', isOpen);
-            btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-        }
+        function toggleLanguagePanel(lang) {
+            const panelId = lang === 'en' ? 'english-version-panel' : 'spanish-version-panel';
+            const btnId = lang === 'en' ? 'btn-english-version' : 'btn-spanish-version';
+            const panel = document.getElementById(panelId);
+            const btn = document.getElementById(btnId);
+            if (!panel || !btn) return;
 
-        function closeStatsPopover() {
-            const popover = document.getElementById('statsPopover');
-            const btn = document.getElementById('statsBtn');
-            popover.classList.remove('open');
-            btn.classList.remove('active');
-            btn.setAttribute('aria-expanded', 'false');
-        }
-
-        document.addEventListener('click', function(event) {
-            const popover = document.getElementById('statsPopover');
-            const btn = document.getElementById('statsBtn');
-            if (popover && popover.classList.contains('open') && !popover.contains(event.target) && !btn.contains(event.target)) {
-                closeStatsPopover();
+            const isOpen = panel.classList.contains('open');
+            if (isOpen) {
+                panel.classList.remove('open');
+                btn.setAttribute('aria-expanded', 'false');
+            } else {
+                panel.classList.add('open');
+                btn.setAttribute('aria-expanded', 'true');
+                const topbarHeight = 60;
+                const y = panel.getBoundingClientRect().top + window.pageYOffset - topbarHeight - 20;
+                window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
             }
-        });
+        }
+
+        function closeLanguagePanel(lang) {
+            const panelId = lang === 'en' ? 'english-version-panel' : 'spanish-version-panel';
+            const btnId = lang === 'en' ? 'btn-english-version' : 'btn-spanish-version';
+            const panel = document.getElementById(panelId);
+            const btn = document.getElementById(btnId);
+            if (panel) panel.classList.remove('open');
+            if (btn) {
+                btn.setAttribute('aria-expanded', 'false');
+                const topbarHeight = 60;
+                const y = btn.getBoundingClientRect().top + window.pageYOffset - topbarHeight - 24;
+                window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+            }
+        }
 
         function toggleSubmenu(event, submenuId, arrowId) {
             event.stopPropagation();
@@ -1700,7 +2206,6 @@ Accueil<!DOCTYPE html>
             if (event.key === 'Escape') {
                 closeModal();
                 closeProposalModal();
-                closeStatsPopover();
             }
         });
 
@@ -1781,6 +2286,162 @@ Accueil<!DOCTYPE html>
                 {
                     title: "Financement adéquat et primauté des droits humains",
                     text: "Garantir la pleine égalité exige de financer adéquatement l’adaptation du réseau de la STM et du cadre bâti, tout en respectant pleinement la Charte québécoise et la Convention de l’ONU relative aux droits des personnes handicapées."
+                }
+            ],
+            en_map1: [
+                {
+                    title: "1966 — Exclusion embedded in concrete from the outset",
+                    text: "When the Montreal metro opened in 1966, the entire network was designed exclusively around fixed stairs and escalators. The complete absence of elevators immediately erected a physical boundary between able-bodied users and people with reduced mobility."
+                },
+                {
+                    title: "1976 – 1978 — The paradox of the Charter and De l’Église Station",
+                    text: "While the Building Code emerged in 1976 and the Charter of Human Rights and Freedoms prohibited disability discrimination in 1978, De l’Église station opened that same year without an elevator, protected by legislative exemptions."
+                },
+                {
+                    title: "1980 – 1988 — 25 new stations built inaccessibly in full legality",
+                    text: "During the decade following the extension of the Green Line, twenty-five stations were built on the Orange and Blue lines without universal access, representing 38.4% of the 65 stations existing in 1988."
+                },
+                {
+                    title: "2004 – 2007 — End of exemptions but delayed rollout",
+                    text: "It took until 2004 (a quarter-century later) for the National Assembly to repeal the 1978 exemptions, and until 2007 for the first three accessible stations to open during the extension toward Laval."
+                },
+                {
+                    title: "2023 – 2028 — A half-century wait for compliance",
+                    text: "In April 2023, only 26 of 68 stations (38.2% of the network) were accessible, leaving 42 stations to be adapted. De l’Église station will not be wheelchair accessible until 2028, fifty years after its inauguration."
+                },
+                {
+                    title: "The “caveats” of the 1978 Act (Sections 70, 71 and 72)",
+                    text: "Under the influence of the real estate owners’ lobby, the 1978 Act barred recourse for the inaccessibility of buildings built before 1976 and public transit, while allowing the government to set aside the right to equality if the cost was deemed “unjustifiable.”"
+                },
+                {
+                    title: "Post-2004 regulatory inertia (Section 69 unadopted)",
+                    text: "Even after the repeal of exemptions in 2004, the regulation provided for under Section 69 to impose accessibility standards on buildings constructed before 1976 was never adopted by the Government of Quebec."
+                }
+            ],
+            en_map2: [
+                {
+                    title: "Conceptual Core — The hegemony of stairs as a spatial norm",
+                    text: "As Laurence Parent (2010) highlights, the omnipresence of stairs in public architecture is not a mere aesthetic choice: it materializes an ableist conception of space in which the able-bodied person is the sole yardstick."
+                },
+                {
+                    title: "1. Recent cultural facilities: differentiated access or total exclusion",
+                    text: "At the renovated Biodôme (2020), people with disabilities are relegated to an enclosed elevator while non-disabled people enjoy a panoramic walkway in the treetops—a model echoed in Espace Rivière’s sketches. The Île-Bizard lookout (2020) is simply an assembly of stairs."
+                },
+                {
+                    title: "2. Civic spaces and lookouts: accessibility sacrificed",
+                    text: "The grand staircase at Place Ville-Marie (2022) features a ramp deemed unsafe for wheelchairs, while in Quebec City, the staircase on the Grands-Domaines trail on the Sillery promontory illustrates the persistence of this exclusionary architecture."
+                },
+                {
+                    title: "3. Urban mobility and segregated paratransit",
+                    text: "Maintaining the inaccessibility of the metro justified the creation in the early 1980s of a parallel paratransit service. Although useful, this stopgap measure entrenches spatial segregation and deprives citizens of spontaneous mobility."
+                },
+                {
+                    title: "4. Neighborhood commercial streets and small footprints",
+                    text: "Beyond pre-1976 buildings, the Building Code exempts small-footprint buildings from accessibility requirements. In the absence of municipal regulatory action, most neighborhood shops and restaurants remain closed to people with disabilities."
+                }
+            ],
+            en_map3: [
+                {
+                    title: "Naturalization of disability and capitalist logic",
+                    text: "Ableism masks its political dimension by attributing exclusion to individual impairments rather than environmental design. By subordinating fundamental rights to financial profitability, the State and the market perpetuate exclusion."
+                },
+                {
+                    title: "The failure of voluntarism and underfunded programs",
+                    text: "Relying on market forces or piecemeal subsidies is ineffective: in Montreal, the Programme d’aide à l’accessibilité des commerces (PAAC) approved only 7 applications in its first year ($50,586.75 disbursed out of a $1.6M budget)."
+                },
+                {
+                    title: "Limits of individual recourse before the CDPDJ",
+                    text: "Although “disability” accounts for 38% of files at the Commission des droits de la personne et des droits de la jeunesse (2020–2021), complaints result only in lengthy case-by-case settlements without systemic transformation."
+                },
+                {
+                    title: "Adopt binding universal accessibility legislation",
+                    text: "Following Ontario, Manitoba, the Canadian federal level, and the United States, Quebec must legislate by imposing mandatory targets, firm timelines, rigorous enforcement mechanisms, and dissuasive penalties."
+                },
+                {
+                    title: "Tighter municipal regulations and moving to action",
+                    text: "Municipalities can go beyond the bare minimum of the provincial Building Code. Montreal began revising By-law 11-018 and added the fight against ableism to its Charter in 2021: it must now move beyond mere “awareness.”"
+                },
+                {
+                    title: "Adequate funding and primacy of human rights",
+                    text: "Guaranteeing full equality requires adequately funding the adaptation of the STM network and built environment, while fully respecting the Quebec Charter and the UN Convention on the Rights of Persons with Disabilities."
+                }
+            ],
+            es_map1: [
+                {
+                    title: "1966 — La exclusión inscrita en el hormigón desde el origen",
+                    text: "Durante la inauguración del metro de Montreal en 1966, toda la red se concibe exclusivamente en torno a escaleras fijas y mecánicas. La ausencia total de ascensores erige de entrada una frontera física entre usuarios sin discapacidad y personas con movilidad reducida."
+                },
+                {
+                    title: "1976 – 1978 — La paradoja de la Carta y de la estación De l’Église",
+                    text: "Mientras que el Código de construcción ve la luz en 1976 y la Carta de derechos y libertades de la persona prohíbe en 1978 la discriminación basada en la discapacidad, la estación De l’Église abre ese mismo año sin ascensor, protegida por exenciones legislativas."
+                },
+                {
+                    title: "1980 – 1988 — 25 nuevas estaciones inaccesibles en plena legalidad",
+                    text: "Durante la década siguiente a la prolongación de la línea verde, veinticinco estaciones se acondicionan en las líneas naranja y azul sin acceso universal, representando el 38,4 % de las 65 estaciones existentes en 1988."
+                },
+                {
+                    title: "2004 – 2007 — Fin de las exenciones pero inicio tardío",
+                    text: "Hay que esperar hasta 2004 (un cuarto de siglo después) para que la Asamblea Nacional derogue las exenciones de 1978, y hasta 2007 para la apertura de las tres primeras estaciones accesibles durante la prolongación hacia Laval."
+                },
+                {
+                    title: "2023 – 2028 — Medio siglo de espera para el cumplimiento",
+                    text: "En abril de 2023, solo 26 estaciones de 68 (38,2 % de la red) son accesibles, quedando 42 estaciones por adaptar. La estación De l’Église no será accesible en silla de ruedas hasta 2028, cincuenta años después de su inauguración."
+                },
+                {
+                    title: "Los «peros» de la ley de 1978 (Artículos 70, 71 y 72)",
+                    text: "Bajo la influencia del lobby de los propietarios inmobiliarios, la ley de 1978 prohíbe cualquier recurso por inaccesibilidad de los inmuebles construidos antes de 1976 y del transporte colectivo, a la vez que permite al gobierno apartar el derecho a la igualdad si el costo se considera «injustificable»."
+                },
+                {
+                    title: "La inercia reglamentaria posterior a 2004 (Artículo 69 no adoptado)",
+                    text: "Incluso tras la derogación de las exenciones en 2004, el reglamento previsto en el artículo 69 para imponer normas de accesibilidad a los edificios construidos antes de 1976 nunca fue adoptado por el gobierno de Quebec."
+                }
+            ],
+            es_map2: [
+                {
+                    title: "Núcleo conceptual — La hegemonía de la escalera como norma espacial",
+                    text: "Como señala Laurence Parent (2010), la omnipresencia de la escalera en la arquitectura pública no es una simple elección estética: materializa una concepción capacitista del espacio en la que el cuerpo sin discapacidad constituye el único patrón de medida."
+                },
+                {
+                    title: "1. Equipamientos culturales recientes: acceso diferenciado o exclusión total",
+                    text: "En el Biodôme renovado (2020), las personas con discapacidad quedan relegadas a un ascensor cerrado mientras las personas sin discapacidad disfrutan de una pasarela panorámica entre las copas de los árboles —un modelo reproducido en los bocetos de Espace Rivière—. El mirador de l’Île-Bizard (2020) es solo un conjunto de escaleras."
+                },
+                {
+                    title: "2. Espacios cívicos y miradores: la accesibilidad sacrificada",
+                    text: "La gran escalera de la Place Ville-Marie (2022) cuenta con una rampa considerada insegura para las sillas de ruedas, mientras que en Quebec, la escalera del sendero de los Grands-Domaines en el promontorio de Sillery ilustra la persistencia de esta arquitectura excluyente."
+                },
+                {
+                    title: "3. Movilidad urbana y transporte adaptado segregado",
+                    text: "El mantenimiento de la inaccesibilidad del metro justificó la creación a principios de los años 1980 de un servicio paralelo de transporte adaptado. Aunque útil, este dispositivo paliativo consagra la segregación espacial y priva a la ciudadanía de una movilidad espontánea."
+                },
+                {
+                    title: "4. Calles comerciales de barrio y tamaños pequeños",
+                    text: "Además de los inmuebles anteriores a 1976, el Código de construcción exime a los edificios de pequeño tamaño de los requisitos de accesibilidad. A falta de acción reglamentaria de los municipios, la mayoría de los comercios y restaurantes de barrio siguen cerrados a las personas con discapacidad."
+                }
+            ],
+            es_map3: [
+                {
+                    title: "Naturalización de la discapacidad y lógica capitalista",
+                    text: "El capacitismo oculta su dimensión política al atribuir la exclusión a las deficiencias individuales en lugar de a la configuración del entorno. Al subordinar los derechos fundamentales a la rentabilidad financiera, el Estado y el mercado perpetúan la exclusión."
+                },
+                {
+                    title: "El fracaso del voluntariado y de los programas infrafinanciados",
+                    text: "Remitirse a las leyes del mercado o a subvenciones puntuales es ineficaz: en Montreal, el Programme d’aide à l’accessibilité des commerces (PAAC) acogió solo 7 solicitudes en su primer año (50 586,75 $ desembolsados sobre un presupuesto de 1,6 M$)."
+                },
+                {
+                    title: "Los límites de los recursos individuales ante la CDPDJ",
+                    text: "Aunque el motivo «discapacidad» representa el 38 % de los expedientes de la Commission des droits de la personne et des droits de la jeunesse (2020–2021), las denuncias solo desembocan en acuerdos largos y caso por caso, sin transformación sistémica."
+                },
+                {
+                    title: "Adoptar una ley vinculante sobre accesibilidad universal",
+                    text: "A semejanza de Ontario, Manitoba, el ámbito federal canadiense y Estados Unidos, Quebec debe legislar imponiendo metas obligatorias, plazos firmes, mecanismos de aplicación rigurosos y sanciones disuasorias."
+                },
+                {
+                    title: "Endurecimiento reglamentario municipal y paso a los hechos",
+                    text: "Los municipios pueden ir más allá del mínimo estricto del Código de construcción provincial. Montreal inició la revisión de su reglamento 11-018 e inscribió la lucha contra el capacitismo en su Carta en 2021: ahora debe superar la etapa de la simple «toma de conciencia»."
+                },
+                {
+                    title: "Financiamiento adecuado y primacía de los derechos humanos",
+                    text: "Garantizar la plena igualdad exige financiar adecuadamente la adaptación de la red de la STM y del entorno construido, respetando plenamente la Carta quebequense y la Convención de la ONU sobre los derechos de las personas con discapacidad."
                 }
             ]
         };
