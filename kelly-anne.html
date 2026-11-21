@@ -1,0 +1,1802 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; frame-src https://drive.google.com; connect-src https://script.google.com; object-src 'none';">
+    <title>Dans la classe de Kelly-Anne</title>
+    <meta name="description" content="Dans la classe de Kelly-Anne : contexte d’enseignement-apprentissage d’une élève sourde signeure en langue des signes québécoise au secondaire, pour une société plus inclusive.">
+    <meta name="keywords" content="inclusion sociale, accessibilité, sociologie visuelle, handicap, éducation inclusive, LSQ, surdité, Kelly-Anne">
+    <link rel="canonical" href="https://doi.org/10.13140/RG.2.2.35504.53768">
+
+<!-- Open Graph (Facebook, LinkedIn, WhatsApp, etc.) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Revue Sociologie Visuelle">
+<meta property="og:title" content="Inclusion sociale et accessibilité | Revue de Sociologie Visuelle">
+<meta property="og:description" content="Numéro spécial de la Revue de Sociologie Visuelle consacré à l'inclusion sociale et à l'accessibilité. Contributions empiriques et théoriques dirigées par François Routhier et Pierre Fraser.">
+<meta property="og:url" content="https://inclusionsociale.com/">
+<meta property="og:image" content="https://lh3.googleusercontent.com/d/1R-6VqA6SZ8t1dall1uf0mj_ehOcj7jNW">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="fr_CA">
+
+<!-- Twitter / X Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Inclusion sociale et accessibilité | Revue de Sociologie Visuelle">
+<meta name="twitter:description" content="Numéro spécial de la Revue de Sociologie Visuelle consacré à l'inclusion sociale et à l'accessibilité.">
+<meta name="twitter:image" content="https://inclusionsociale.com/images/vignette-inclusion-sociale.jpg">
+
+
+    <style>
+        :root {
+            --bg-color: #FAF6EF;
+            --text-color: #2b2b2b;
+            --primary-color: #1a202c;
+            --accent-color: #4a5568;
+            --border-color: #e2e8f0;
+            --card-bg: #FAF6EF;
+            --hover-border: #cbd5e0;
+            --max-width: 1400px;
+            --sidebar-width: 320px;
+            --topbar-height: 60px;
+            --modal-header-bg: #7a2222; /* Bordeaux de référence */
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: "Georgia", "Cambria", "Times New Roman", serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Barre horizontale permanente supérieure : toute la largeur de la page */
+        .top-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--topbar-height);
+            background-color: var(--bg-color);
+            border-bottom: 1px solid var(--border-color);
+            display: grid;
+            grid-template-columns: var(--sidebar-width) 1fr auto;
+            align-items: center;
+            padding: 0;
+            z-index: 1100;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .top-navbar-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            letter-spacing: 0.02em;
+            padding-left: 1.5rem;
+            border-right: 1px solid var(--border-color);
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .top-navbar-location {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            background-color: #f2ede4;
+            padding: 0.3rem 0.75rem;
+            border-radius: 4px;
+            margin-right: 2.5rem;
+        }
+
+        /* Colonne latérale gauche permanente sous la barre fixe du haut */
+        aside.sidebar {
+            position: fixed;
+            top: var(--topbar-height);
+            left: 0;
+            width: var(--sidebar-width);
+            height: calc(100vh - var(--topbar-height));
+            background-color: #f5f0e6;
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            z-index: 1000;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            overflow-y: auto;
+        }
+
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .btn-home {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            background-color: #7a2222;
+            color: #fff;
+            border: none;
+            padding: 0.85rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        .btn-home svg {
+            position: absolute;
+            left: 1rem;
+        }
+
+        .btn-home:hover {
+            background-color: #5e1a1a;
+        }
+
+        .sidebar-info-section {
+            padding: 1rem 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .sidebar-card {
+            background-color: #FAF6EF;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 0.85rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            text-align: justify;
+        }
+
+        .sidebar-card.editor-card {
+            flex-direction: row;
+            align-items: center;
+            gap: 0.75rem;
+            text-align: left;
+        }
+
+        .editor-info h4 {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            margin-bottom: 0.15rem;
+        }
+
+        .editor-info p {
+            font-size: 0.78rem;
+            color: var(--accent-color);
+            line-height: 1.4;
+        }
+
+        .sidebar-nav {
+            padding: 1.25rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            flex: 1;
+        }
+
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--primary-color);
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-align: left;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            background-color: #eae3d5;
+            border-color: var(--hover-border);
+        }
+
+        .submenu {
+            display: none;
+            flex-direction: column;
+            gap: 0.4rem;
+            padding-left: 1rem;
+            margin-top: -0.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .submenu.open {
+            display: flex;
+        }
+
+        .submenu-item {
+            font-size: 0.82rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            padding: 0.4rem 0.75rem;
+            border-radius: 4px;
+            transition: background-color 0.15s, color 0.15s;
+            border-left: 2px solid #d4c5b9;
+        }
+
+        .submenu-item:hover {
+            background-color: #eae3d5;
+            color: var(--primary-color);
+            border-left-color: var(--primary-color);
+        }
+
+        /* Conteneur principal à droite, décalé pour laisser place à la sidebar et topbar */
+        .main-wrapper {
+            margin-left: var(--sidebar-width);
+            margin-top: var(--topbar-height);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            width: calc(100% - var(--sidebar-width));
+            padding: 2rem;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            padding-left: 2rem;
+        }
+
+        .btn-header {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: 1px solid var(--primary-color);
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: background-color 0.2s;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-header.secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border-color: var(--border-color);
+        }
+
+        .btn-header.secondary:hover {
+            background-color: #f2ede4;
+            border-color: var(--hover-border);
+        }
+
+        /* Styles harmonisés des fenêtres modales selon l'image de référence */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+        }
+
+        .modal-container {
+            background: var(--bg-color);
+            width: 100%;
+            max-width: 900px;
+            height: 85vh;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            border: 1px solid #d4c5b9;
+        }
+
+        .modal-header {
+            padding: 1.25rem 1.5rem;
+            background: var(--modal-header-bg);
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .modal-header h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .modal-close {
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #fff;
+            opacity: 0.85;
+            transition: opacity 0.2s;
+        }
+
+        .modal-close:hover {
+            opacity: 1;
+        }
+
+        .modal-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            background-color: var(--bg-color);
+        }
+
+        .pdf-frame, .video-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Styles spécifiques à l'article intégré dans la zone dynamique */
+        .article-container {
+            max-width: 1060px;
+            width: 100%;
+            margin: 0 auto;
+            padding-bottom: 3rem;
+        }
+
+        .article-main-title {
+            font-size: 1.95rem;
+            line-height: 1.35;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 1.75rem;
+            padding-bottom: 1.15rem;
+            border-bottom: 2px solid #7a2222;
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: 1.35fr 1fr;
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .whitish-box {
+            background-color: #FDFBF7;
+            border: 1px solid #e5ddd0;
+            border-radius: 8px;
+            padding: 1.25rem 1.5rem;
+            font-size: 0.84rem;
+            line-height: 1.55;
+            color: #3a3a3a;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+        }
+
+        .authors-photos {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 0.9rem;
+        }
+
+        .authors-photos img {
+            width: 82px;
+            height: 82px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 1px solid #d4c5b9;
+            background-color: #f2ede4;
+        }
+
+        .authors-names {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 0.88rem;
+        }
+
+        .authors-names sup, .authors-affiliations sup {
+            color: #7a2222;
+            font-weight: 600;
+        }
+
+        .authors-affiliations {
+            color: #555;
+            font-size: 0.8rem;
+            line-height: 1.45;
+            border-top: 1px solid #ece5d8;
+            padding-top: 0.5rem;
+        }
+
+        .citation-box h4 {
+            color: #7a2222;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 0.5rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .abstract-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .abstract-box h4 {
+            color: #7a2222;
+            font-size: 0.88rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .abstract-keywords {
+            margin-top: 0.75rem;
+            padding-top: 0.6rem;
+            border-top: 1px solid #ece5d8;
+            font-size: 0.8rem;
+            color: #4a5568;
+        }
+
+        .article-hero-figure {
+            margin: 1.75rem 0 2.25rem 0;
+            text-align: center;
+        }
+
+        .article-hero-figure img {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #dcd3c4;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .article-caption {
+            font-size: 0.82rem;
+            color: #5a524a;
+            font-style: italic;
+            margin-top: 0.5rem;
+            text-align: right;
+        }
+
+        .section-heading {
+            color: #7a2222;
+            font-size: 1.45rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.35rem;
+            border-bottom: 1px solid #e2d8c8;
+            scroll-margin-top: calc(var(--topbar-height) + 28px);
+        }
+
+        .subsection-heading {
+            color: #7a2222;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-top: 1.85rem;
+            margin-bottom: 0.85rem;
+            scroll-margin-top: calc(var(--topbar-height) + 28px);
+        }
+
+        .article-body p {
+            margin-bottom: 1.15rem;
+            text-align: justify;
+            font-size: 1.04rem;
+            line-height: 1.78;
+        }
+
+        .drop-cap::first-letter {
+            float: left;
+            font-size: 3.6rem;
+            line-height: 0.82;
+            padding-top: 0.15rem;
+            padding-right: 0.65rem;
+            padding-bottom: 0.05rem;
+            color: #7a2222;
+            font-weight: 700;
+            font-family: "Georgia", "Times New Roman", serif;
+        }
+
+        .article-quote {
+            margin: 1.4rem 0 1.4rem 1.5rem;
+            padding: 0.85rem 1.25rem;
+            border-left: 3px solid #7a2222;
+            background-color: #f6f1e7;
+            border-radius: 0 6px 6px 0;
+            font-size: 0.98rem;
+            line-height: 1.68;
+            color: #2d2d2d;
+            text-align: justify;
+        }
+
+        .article-inline-figure {
+            margin: 1.65rem auto;
+            max-width: 760px;
+            text-align: center;
+        }
+
+        .article-inline-figure img {
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid #dcd3c4;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .article-dual-figures {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.15rem;
+            margin: 1.65rem 0;
+        }
+
+        .article-dual-figures img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #dcd3c4;
+        }
+
+        /* Cartes conceptuelles interactives (fond plus pâle que #FAF6EF) */
+        .concept-map-card {
+            background-color: #FEFDFB;
+            border: 1px solid #e2d8c8;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .concept-map-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #efe8dc;
+            padding-bottom: 0.75rem;
+        }
+
+        .concept-map-title {
+            font-size: 0.98rem;
+            font-weight: 700;
+            color: #7a2222;
+        }
+
+        .concept-map-hint {
+            font-size: 0.78rem;
+            color: #6b635b;
+            background-color: #FAF6EF;
+            padding: 0.25rem 0.65rem;
+            border-radius: 4px;
+            border: 1px solid #e6dec8;
+        }
+
+        .concept-svg-wrapper {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        .concept-svg-wrapper svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .svg-node {
+            cursor: pointer;
+            transition: transform 0.18s ease, opacity 0.18s ease;
+        }
+
+        .svg-node:hover rect, .svg-node:hover circle {
+            stroke: #7a2222;
+            stroke-width: 2.5px;
+        }
+
+        .svg-node.active rect, .svg-node.active circle {
+            fill: #7a2222 !important;
+        }
+
+        .svg-node.active text {
+            fill: #ffffff !important;
+        }
+
+        .concept-detail-panel {
+            margin-top: 1rem;
+            padding: 0.95rem 1.15rem;
+            background-color: #FAF6EF;
+            border-left: 3px solid #7a2222;
+            border-radius: 4px;
+            font-size: 0.88rem;
+            line-height: 1.55;
+            color: #2b2b2b;
+        }
+
+        .concept-detail-panel strong {
+            color: #7a2222;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .footnote-ref {
+            color: #7a2222;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.78rem;
+            padding: 0 1px;
+        }
+
+        .footnote-ref:hover {
+            text-decoration: underline;
+        }
+
+        .references-list, .footnotes-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+
+        .references-list p {
+            padding-left: 1.5rem;
+            text-indent: -1.5rem;
+            text-align: left;
+            margin-bottom: 0.35rem;
+        }
+
+        .footnotes-list p {
+            font-size: 0.86rem;
+            line-height: 1.55;
+            color: #3f3f3f;
+            margin-bottom: 0.35rem;
+            text-align: justify;
+        }
+
+        .nav-section-toggle {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #7a2222;
+            letter-spacing: 0.05em;
+            margin-top: 0.5rem;
+            margin-bottom: 0.25rem;
+            padding: 0.45rem 0.25rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            user-select: none;
+            border-radius: 4px;
+            transition: background-color 0.15s;
+        }
+
+        .nav-section-toggle:hover {
+            background-color: #eae3d5;
+        }
+
+
+        /* Section des deux capsules vidéo avant l'Introduction */
+        .video-showcase-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0 2.25rem 0;
+        }
+
+        .video-card {
+            background-color: #FDFBF7;
+            border: 1px solid #e5ddd0;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 18px rgba(122, 34, 34, 0.12);
+            border-color: #7a2222;
+        }
+
+        .video-thumb-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background-color: #1a202c;
+            overflow: hidden;
+        }
+
+        .video-thumb-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .video-card:hover .video-thumb-wrapper img {
+            transform: scale(1.03);
+        }
+
+        .video-play-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(26, 32, 44, 0.28);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s ease;
+        }
+
+        .video-card:hover .video-play-overlay {
+            background: rgba(122, 34, 34, 0.38);
+        }
+
+        .video-play-badge {
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background-color: rgba(122, 34, 34, 0.92);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+            transition: transform 0.2s ease;
+        }
+
+        .video-card:hover .video-play-badge {
+            transform: scale(1.08);
+        }
+
+        .video-card-body {
+            padding: 1rem 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+            border-top: 1px solid #ece5d8;
+        }
+
+        .video-card-title {
+            font-size: 0.98rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1.4;
+        }
+
+        .video-card-tag {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #7a2222;
+            background-color: #f5eceb;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        /* Disposition modale avec lecteur vidéo à gauche et synopsis à droite */
+        .modal-container.video-synopsis-modal {
+            max-width: 1120px;
+            height: 76vh;
+        }
+
+        .modal-video-split {
+            display: grid;
+            grid-template-columns: 1.85fr 1fr;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .modal-video-pane {
+            background-color: #000;
+            width: 100%;
+            height: 100%;
+            display: flex;
+        }
+
+        .modal-synopsis-pane {
+            background-color: #FDFBF7;
+            border-left: 1px solid #e2d8c8;
+            padding: 1.5rem 1.65rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+        }
+
+        .modal-synopsis-pane h4 {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #7a2222;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e5ddd0;
+        }
+
+        .modal-synopsis-pane p {
+            font-size: 0.96rem;
+            line-height: 1.7;
+            color: #2b2b2b;
+            text-align: justify;
+        }
+
+        @media (max-width: 900px) {
+            .video-showcase-grid {
+                grid-template-columns: 1fr;
+            }
+            .modal-container.video-synopsis-modal {
+                height: 88vh;
+            }
+            .modal-video-split {
+                grid-template-columns: 1fr;
+                grid-template-rows: 1.3fr 1fr;
+            }
+            .modal-synopsis-pane {
+                border-left: none;
+                border-top: 1px solid #e2d8c8;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .meta-grid, .abstract-grid, .article-dual-figures {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            :root { --sidebar-width: 0px; }
+            .top-navbar { left: 0; padding: 0 1rem; grid-template-columns: 1fr auto; }
+            .top-navbar-title { display: none; }
+            aside.sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
+            aside.sidebar.mobile-open { transform: translateX(0); }
+            .main-wrapper { margin-left: 0; width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barre horizontale permanente supérieure -->
+    <header class="top-navbar">
+        <div class="top-navbar-title">Revue Sociologie Visuelle</div>
+        <div class="header-actions">
+            <button class="btn-header secondary" onclick="openModal('video', 'Présentation introductive — Vidéo', 'https://drive.google.com/file/d/10Va3etjn9wZIqrVnByyNXDVM-XPKOHkK/preview?autoplay=1')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                Visionner la vidéo de présentation
+            </button>
+            <button class="btn-header secondary" onclick="openProposalModal('article')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                Proposer un projet de captation ou un article
+            </button>
+            <button class="btn-header secondary" onclick="openModal('pdf', 'Télécharger le numéro complet', 'https://drive.google.com/file/d/1d3ZUnnEwYomQ1VRQ1lF8XNei88HelQvy/preview')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Télécharger le numéro
+            </button>
+        </div>
+        <div class="top-navbar-location" id="locationIndicator">Dans la classe de Kelly-Anne</div>
+    </header>
+
+    <!-- Colonne latérale gauche permanente -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="https://inclusionsociale.com/#theme-2" class="btn-home">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                ACCUEIL
+            </a>
+        </div>
+
+        <div class="sidebar-info-section">
+            <div style="font-size: 0.72rem; color: #718096; text-align: left; margin-bottom: 0.05rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                DOI : <a href="https://doi.org/10.13140/RG.2.2.35504.53768" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; opacity: 0.85;">10.13140/RG.2.2.35504.53768</a>
+            </div>
+
+            <div class="sidebar-card editor-card">
+                <div class="editor-info">
+                    <h4>Éditeurs</h4>
+                    <p><b>François Routhier & Pierre Fraser</b></p>
+                    <p>Plus de 18 équipes de recherche mobilisées afin de saisir comment le milieu façonne et articule l'accès aux services et à l'inclusion sociale.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-nav">
+            <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: #7a2222; letter-spacing: 0.05em; margin-bottom: 0.5rem; padding-left: 0.25rem;">NAVIGATION SUR LE SITE</div>
+
+            <div>
+                <button class="nav-btn" onclick="toggleSubmenu(event, 'accessibilitySubmenu', 'submenuArrow')">
+                    <span>Penser l'accessibilité</span>
+                    <svg id="submenuArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu" id="accessibilitySubmenu">
+                    <a href="https://inclusionsociale.com/#theme-1" class="submenu-item">1. Espace urbain & transports</a>
+                    <a href="https://inclusionsociale.com/#theme-2" class="submenu-item">2. Éducation & institutions</a>
+                    <a href="https://inclusionsociale.com/#theme-3" class="submenu-item">3. Travail, autonomie & loisirs</a>
+                    <a href="https://inclusionsociale.com/#theme-4" class="submenu-item">4. Expérience vécue & stigmates</a>
+                </div>
+            </div>
+
+            <div>
+                <button class="nav-btn" onclick="toggleSubmenu(event, 'bilansSubmenu', 'bilansSubmenuArrow')">
+                    <span>Bilans</span>
+                    <svg id="bilansSubmenuArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu" id="bilansSubmenu">
+                    <a href="https://inclusionsociale.com/mentorat-actif-bilan.html" class="submenu-item">Mentorat actif, un plus tard</a>
+                </div>
+            </div>
+            <!-- Bouton Tournages en cours non gras -->
+            <div>
+                <a href="https://inclusionsociale.com/tournages.html" class="nav-btn" style="font-weight: normal;">
+                    <span>Tournages en cours</span>
+                </a>
+            </div>
+
+            <!-- Menu cliquable : NAVIGATION DANS LA PAGE -->
+            <div>
+                <div class="nav-section-toggle" onclick="toggleSubmenu(event, 'pageNavSubmenu', 'pageNavArrow')">
+                    <span>NAVIGATION DANS LA PAGE</span>
+                    <svg id="pageNavArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </div>
+                <div class="submenu" id="pageNavSubmenu">
+                    <a href="#top-presentation" class="submenu-item" onclick="scrollToSection(event, 'top-presentation')">Présentation</a>
+                    <a href="#sec-introduction" class="submenu-item" onclick="scrollToSection(event, 'sec-introduction')">Introduction</a>
+                    <a href="#sec-ecole" class="submenu-item" onclick="scrollToSection(event, 'sec-ecole')">1. L’école de Kelly-Anne</a>
+                    <a href="#sec-famille" class="submenu-item" onclick="scrollToSection(event, 'sec-famille')">2. La famille de Kelly-Anne</a>
+                    <a href="#sec-amis" class="submenu-item" onclick="scrollToSection(event, 'sec-amis')">3. Les amis</a>
+                    <a href="#sec-journee" class="submenu-item" onclick="scrollToSection(event, 'sec-journee')">4. Une journée type à l’école</a>
+                    <a href="#sec-francais" class="submenu-item" onclick="scrollToSection(event, 'sec-francais')">— Français</a>
+                    <a href="#sec-anglais" class="submenu-item" onclick="scrollToSection(event, 'sec-anglais')">— Anglais</a>
+                    <a href="#sec-danse" class="submenu-item" onclick="scrollToSection(event, 'sec-danse')">5. Danse-études</a>
+                    <a href="#sec-conclusion" class="submenu-item" onclick="scrollToSection(event, 'sec-conclusion')">Conclusion</a>
+                    <a href="#sec-references" class="submenu-item" onclick="scrollToSection(event, 'sec-references')">Références bibliographiques</a>
+                    <a href="#sec-notes" class="submenu-item" onclick="scrollToSection(event, 'sec-notes')">Notes</a>
+                </div>
+            </div>
+
+        </div>
+    </aside>
+
+    <!-- Zone de contenu dynamique à droite (Frame de base) -->
+    <div class="main-wrapper" id="top-presentation">
+        <main class="article-container">
+            <article>
+                <h1 class="article-main-title">
+                    Dans la classe de Kelly-Anne : contexte d’enseignement-apprentissage d’une élève sourde signeure en langue des signes québécoise au secondaire, pour une société plus inclusive
+                </h1>
+
+                <!-- Section directement sous le titre : deux cases côte à côte sur fond blanchâtre -->
+                <div class="meta-grid">
+                    <!-- Case 1 : Deux photos des auteurs côte à côte, puis noms et affiliations -->
+                    <div class="whitish-box"> 
+                        <div class="authors-photos">
+                            <img src="https://lh3.googleusercontent.com/d/1mcou5DFYzFpOPYCzbL7pPb106uAcsvzC" alt="Photo de Sylvain Letscher">
+                            <img src="https://lh3.googleusercontent.com/d/1ueJ-A4rJBDDbxz_NZEc7LScz7m2KDOrE" alt="Photo d'Audrey Dupont">
+                            <img src="https://lh3.googleusercontent.com/d/1FWBONEim02MrelIvGNvsS8gVDNmjZBsg" alt="Photo de Rachel Berthiaume">
+                            <img src="https://lh3.googleusercontent.com/d/1O4StMZNSWCV56BfjkHacsr0KIE2dvDZ0" alt="Naomie Dubé-Fournier">
+                            <img src="https://lh3.googleusercontent.com/d/1eqpiA9E9BlUxZeP2_lBvKBo6lLgWazU7" alt="Édith Jolicoeur">
+                        </div>
+                        <div class="authors-names">
+                            Sylvain LETSCHER<sup>3</sup>, Audrey DUPONT<sup>2-3</sup>, Rachel BERTHIAUME<sup>1</sup>, Naomie FOURNIER DUBÉ<sup>2-3</sup>, Édith JOLICOEUR<sup>3</sup>, Caroline DURANLEAU<sup>4-5</sup>, Claire MOUSSEL<sup>6</sup>
+                        </div>
+                        <div class="authors-affiliations">
+                            <strong>Affiliations :</strong> <sup>1</sup> Université de Montréal. <sup>2</sup> Université de Montréal. <sup>3</sup> Université du Québec à Rimouski. <sup>4</sup> Projet RÉSEAU en éducation. <sup>5</sup> Université du Québec à Trois-Rivières. <sup>6</sup> Association du Québec pour enfants avec problèmes auditifs (AQEPA).
+                        </div>
+                    </div>
+
+                    <!-- Case 2 : Citation de l'article -->
+                    <div class="whitish-box citation-box">
+                        <h4>Citer cet article</h4>
+                        <p>
+                            Letscher, S., Dupont, A., Berthiaume, R. et als. (2023), « Dans la classe de Kelly-Anne : Contexte d’enseignement-apprentissage d’une élève sourde signeure en langue des signes québécoise au secondaire, pour une société plus inclusive », <em>Sociologie Visuelle</em>, n° 4, François Routhier et Pierre Fraser (éds.), Québec : Photo|Société, pp. 63-81.
+                        </p>
+                        <p style="margin-top: 0.65rem; color: #5a524a;">
+                            <strong>Crédit photos :</strong> Jean-Luc Théberge (UQAR)
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Section Résumé : deux cases sur fond blanchâtre (Français et Anglais) -->
+                <div class="abstract-grid">
+                    <div class="whitish-box abstract-box">
+                        <h4>Résumé</h4>
+                        <p>
+                            Sur le plan international, dans le contexte d’éducation des élèves sourds ou ayant une surdité et de revendications, il existe peu de recherches sur la participation et l’inclusion des élèves sourds signeurs en langue des signes québécoise. En ce sens, cet article propose d’illustrer le contexte d’enseignement-apprentissage d’une élève sourde signeure en langue des signes québécoise (LSQ), au secondaire. Cette réflexion s’inscrit dans une démarche d’analyse vidéo participative « dans la classe de Kelly-Anne », en contexte ordinaire, dans un programme en danse-études. Des entrevues semi-dirigées ont été réalisées auprès de Kelly-Anne, sa direction d’école, son enseignante de français, son enseignant d’anglais, son enseignante en danse Hip Hop, sa mère Sourde, son interprète coda et deux de ses amies. Cette initiative s’inscrit dans le contexte d’élaboration de contenus ou de ressources pédagogiques du projet RÉSEAU éducation, soutenu par le ministère de l’Enseignement supérieur, pour les enseignantes et enseignants en formation initiale et continue. Les résultats permettent d’identifier des ressources pour favoriser la participation de Kelly-Anne dans ses études (en français, anglais et danse-études), en contexte bilingue et inclusif, dans la classe ordinaire de son école de quartier.
+                        </p>
+                        <div class="abstract-keywords">
+                            <strong>Mots-clés :</strong> Bilinguisme ; danse-études ; éducation inclusive ; élève sourd ; langue des signes québécoise ; surdité.
+                        </div>
+                    </div>
+
+                    <div class="whitish-box abstract-box">
+                        <h4>Abstract</h4>
+                        <p>
+                            Internationally, within the context of the education of deaf or hard-of-hearing students and advocacy efforts, little research exists on the participation and inclusion of deaf students who sign in Quebec Sign Language (LSQ). Accordingly, this article illustrates the teaching and learning context of a deaf secondary school student who uses Quebec Sign Language. This inquiry is part of a participatory video analysis approach entitled “In Kelly-Anne’s Classroom,” set in a regular classroom within a dance-studies program. Semi-structured interviews were conducted with Kelly-Anne, her school administration, her French teacher, her English teacher, her Hip Hop dance teacher, her Deaf mother, her CODA interpreter, and two of her friends. This initiative is part of the development of educational content and pedagogical resources for the RÉSEAU éducation project, supported by the Ministry of Higher Education, for pre-service and in-service teachers. The findings identify key resources that foster Kelly-Anne’s participation in her studies (French, English, and dance-studies) within a bilingual and inclusive context in her neighborhood school’s regular classroom.
+                        </p>
+                        <div class="abstract-keywords">
+                            <strong>Keywords:</strong> Bilingualism; dance-studies; inclusive education; deaf student; Quebec Sign Language (LSQ); deafness.
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Corps de l'article -->
+                <div class="article-body">
+                                        <!-- Deux capsules vidéo avant l'Introduction -->
+                    <div class="video-showcase-grid">
+                        <div class="video-card" role="button" tabindex="0"
+                             onclick="openVideoWithSynopsis('Dans la classe de Kelly-Anne (version courte)', 'https://drive.google.com/file/d/1o0YY-SXSxJjgvftsATewMQwE3dJSjifX/preview?autoplay=1', 'synopsis-courte')"
+                             onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+                            <div class="video-thumb-wrapper">
+                                <img src="https://lh3.googleusercontent.com/d/1GHPxl7rw6QGgoGDRfp4zoGUghtu6XXDe" alt="Dans la classe de Kelly-Anne (version courte)">
+                                <div class="video-play-overlay">
+                                    <div class="video-play-badge">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="video-card-body">
+                                <span class="video-card-title">Dans la classe de Kelly-Anne (version courte)</span>
+                                <span class="video-card-tag">Vidéo</span>
+                            </div>
+                        </div>
+
+                        <div class="video-card" role="button" tabindex="0"
+                             onclick="openVideoWithSynopsis('Dans la classe de Kelly-Anne (version longue)', 'https://drive.google.com/file/d/1gBLWZEJ6UbtQHkNHOHx-0tVlD5wk59Fx/preview?autoplay=1', 'synopsis-longue')"
+                             onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+                            <div class="video-thumb-wrapper">
+                                <img src="https://lh3.googleusercontent.com/d/1sEMtC831k2daVvZj92FGPPpbyoDOIsOk" alt="Dans la classe de Kelly-Anne (version longue)">
+                                <div class="video-play-overlay">
+                                    <div class="video-play-badge">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="video-card-body">
+                                <span class="video-card-title">Dans la classe de Kelly-Anne (version longue)</span>
+                                <span class="video-card-tag">Vidéo</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2 class="section-heading" id="sec-introduction">Introduction</h2>
+                    <p class="drop-cap">
+                        Cet article est tiré du projet inédit « Dans la classe de Kelly-Anne », produit pour RÉSEAU éducation, soutenu par le ministère de l’Enseignement supérieur<a class="footnote-ref" id="sdfootnote1anc" href="#sdfootnote1sym"><sup>1</sup></a>. L’initiative, à visée pédagogique, illustre le contexte d’enseignement-apprentissage d’élèves en contexte d’éducation inclusive en textes, photos et vidéos, en s’appuyant sur une démarche d’analyse vidéo participative<a class="footnote-ref" id="sdfootnote2anc" href="#sdfootnote2sym"><sup>2</sup></a>. Sur le plan international, dans le contexte d’éducation des élèves sourds ou ayant une surdité<a class="footnote-ref" id="sdfootnote3anc" href="#sdfootnote3sym"><sup>3</sup></a> et de revendications<a class="footnote-ref" id="sdfootnote4anc" href="#sdfootnote4sym"><sup>4</sup></a>, il existe peu d’initiatives de recherche, ou de projets pédagogiques sur la participation et l’inclusion des élèves sourds signeurs en langue des signes québécoise. Dans cette visée, le premier forum social en éducation<a class="footnote-ref" id="sdfootnote5anc" href="#sdfootnote5sym"><sup>5</sup></a> pour les élèves sourds ou vivant avec une surdité ayant eu lieu en octobre 2021 au Québec a permis de faire ressortir cinq (5) principaux enjeux pour ces enfants, ces jeunes ou jeunes adultes : 1) Le soutien aux personnes et aux familles, compte tenu de contextes de vulnérabilité pour l’élève durant son cheminement scolaire ; 2) Le soutien aux professionnels, notamment en termes de formation et de services d’interprétariat (p. ex., pour faire face à la pénurie d’interprètes) ; 3) Le besoin de sensibilisation, d’information et de collaboration des parents et du personnel éducatif accompagnant l’élève (p. ex. sur les besoins éducatifs pour l’enfant et le jeune sourd ou vivant avec une surdité) ; 4) le besoin de continuité des services de la petite enfance jusqu’aux études postsecondaires (p. ex., en langue des signes québécoise dans la classe ordinaire) ; 5) Des défis dans le parcours scolaire, et sur le plan des méthodes d’enseignement-apprentissage (p. ex., d’une approche de communication orale à bilingue).
+                    </p>
+                    <p>
+                        En mai 2022, le colloque « Éducation des élèves sourds ou ayant une surdité : entre participation sociale, inclusion et littératie »<a class="footnote-ref" id="sdfootnote6anc" href="#sdfootnote6sym"><sup>6</sup></a> a permis d’identifier des ressources éducatives, ainsi que des pistes pédagogiques pour les élèves sourds ou ayant une surdité, entre participation sociale, inclusion et littératie. Comme le souligne la sous-ministre à l’Éducation lors de ce colloque : « L’éducation est un puissant levier permettant de bâtir une société plus ouverte et plus inclusive », d’autant si les « services éducatifs sont accessibles, de qualité et adaptés à la diversité des élèves. » Ces ressources interpellent tant les personnes sourdes ou ayant une surdité, mais aussi leur famille et les intervenants scolaires et des services complémentaires, du réseau de la santé et des services sociaux et communautaires que l’administration des politiques.
+                    </p>
+                    <p>
+                        En ce sens, comment ces enjeux, s’illustrent-ils concrètement pour une élève sourde signeure en langue des signes québécoise [LSQ], quant à l’enseignement du français, perçu comme une première langue ou une seconde langue, et l’anglais, comme troisième langue ? Le parcours de Kelly-Anne, une élève de 3<sup>e</sup> secondaire, qui est présenté dans le projet « Dans la classe de Kelly-Anne », se caractérise par une forte participation sociale, par exemple par les relations sociales significatives qu’elle entretient avec des amis, et par une forte littératie<a class="footnote-ref" id="sdfootnote7anc" href="#sdfootnote7sym"><sup>7</sup></a>, dans ses apprentissages en langue (langue des signes, français, anglais). Si la langue des signes québécoise est la langue maternelle, ou la première langue de Kelly-Anne, quels sont ses besoins, ses forces, ou quels défis représente son contexte d’enseignement-apprentissage, pour des matières comme le français et l’anglais, ainsi que dans un programme de danse-études ? Comment se caractérise la réussite éducative, au-delà d’un programme scolaire, dans la classe ordinaire de son école de quartier, pour Kelly-Anne ?
+                    </p>
+                    <p>
+                        Il faut souligner que la langue des signes québécoise (LSQ) est reconnue officiellement depuis le 21 juin 2019 par le gouvernement du Canada dans la Loi canadienne sur l’accessibilité, comme faisant partie des langues « les plus utilisées par les sourds au Canada pour communiquer » (art. 5.1 §1 et 2)<a class="footnote-ref" id="sdfootnote8anc" href="#sdfootnote8sym"><sup>8</sup></a>. Quelle incidence a pu avoir cette reconnaissance dans le contexte d’éducation inclusive de Kelly-Anne ? L’éducation inclusive interpelle l’école, qui « cherche à s’adapter a priori à la diversité des élèves dans leur ensemble » (Conseil supérieur de l’Éducation, 2017, p. 5), la société, pour qu’elle devienne plus inclusive. Ainsi, contrairement à l’intégration scolaire, où il est demandé à l’élève handicapé ou en difficulté d’adaptation ou d’apprentissage (ÉHDAA) de s’adapter aux pratiques existantes de la classe ordinaire, l’inclusion scolaire place l’école en situation d’adaptation devant les difficultés de l’élève, c’est-à-dire qu’elle cherchera à offrir aux élèves des outils et moyens qui donneront à tous des chances égales de réussite.
+                    </p>
+
+                    <!-- CARTE CONCEPTUELLE INTERACTIVE 1 : Les 5 enjeux du Forum social & Inclusion vs Intégration -->
+                    <div class="concept-map-card" id="map-enjeux">
+                        <div class="concept-map-header">
+                            <span class="concept-map-title">Carte conceptuelle 1 — Architecture de l’inclusion scolaire et les 5 enjeux du Forum social (2021)</span>
+                            <span class="concept-map-hint">Cliquez sur un nœud pour explorer les détails</span>
+                        </div>
+                        <div class="concept-svg-wrapper">
+                            <svg viewBox="0 0 860 290" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Liens -->
+                                <line x1="430" y1="75" x2="100" y2="165" stroke="#cbbba8" stroke-width="2"/>
+                                <line x1="430" y1="75" x2="265" y2="165" stroke="#cbbba8" stroke-width="2"/>
+                                <line x1="430" y1="75" x2="430" y2="165" stroke="#cbbba8" stroke-width="2"/>
+                                <line x1="430" y1="75" x2="595" y2="165" stroke="#cbbba8" stroke-width="2"/>
+                                <line x1="430" y1="75" x2="760" y2="165" stroke="#cbbba8" stroke-width="2"/>
+                                <line x1="250" y1="45" x2="320" y2="45" stroke="#7a2222" stroke-width="2" stroke-dasharray="4,3"/>
+                                <line x1="540" y1="45" x2="610" y2="45" stroke="#7a2222" stroke-width="2" stroke-dasharray="4,3"/>
+
+                                <!-- Nœud Central -->
+                                <g class="svg-node active" onclick="selectConceptNode('map-enjeux', this, 'Paradigme de l’éducation inclusive (CSE, 2017)', 'Contrairement à l’intégration scolaire qui exige que l’élève s’adapte aux pratiques existantes, l’inclusion scolaire transforme a priori l’environnement éducatif pour offrir à tous des chances égales de réussite et de participation sociale.')">
+                                    <rect x="320" y="18" width="220" height="56" rx="8" fill="#FAF6EF" stroke="#7a2222" stroke-width="2"/>
+                                    <text x="430" y="42" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">Éducation Inclusive</text>
+                                    <text x="430" y="60" text-anchor="middle" font-size="11" fill="#4a5568">Adaptation a priori de l’école</text>
+                                </g>
+
+                                <!-- Nœud Latéral Gauche : Cadre légal -->
+                                <g class="svg-node" onclick="selectConceptNode('map-enjeux', this, 'Reconnaissance officielle de la LSQ (2019)', 'La Loi canadienne sur l’accessibilité (art. 5.1) reconnaît officiellement la langue des signes québécoise (LSQ) comme langue première de communication des personnes sourdes au Canada, légitimant son usage pédagogique.')">
+                                    <rect x="60" y="20" width="190" height="50" rx="6" fill="#FAF6EF" stroke="#b5a491" stroke-width="1.5"/>
+                                    <text x="155" y="42" text-anchor="middle" font-size="12" font-weight="600" fill="#1a202c">Cadre légal (2019)</text>
+                                    <text x="155" y="58" text-anchor="middle" font-size="10.5" fill="#4a5568">Reconnaissance de la LSQ</text>
+                                </g>
+
+                                <!-- Nœud Latéral Droit : Littératie plurilingue -->
+                                <g class="svg-node" onclick="selectConceptNode('map-enjeux', this, 'Répertoire plurilingue et littératie', 'Articulation entre la LSQ (langue première), le français (langue d’enseignement et d’écriture) et l’anglais (troisième langue), soutenant la réussite académique et sociale.')">
+                                    <rect x="610" y="20" width="190" height="50" rx="6" fill="#FAF6EF" stroke="#b5a491" stroke-width="1.5"/>
+                                    <text x="705" y="42" text-anchor="middle" font-size="12" font-weight="600" fill="#1a202c">Littératie plurilingue</text>
+                                    <text x="705" y="58" text-anchor="middle" font-size="10.5" fill="#4a5568">LSQ • Français • Anglais</text>
+                                </g>
+
+                                <!-- 5 Enjeux en bas -->
+                                <g class="svg-node" onclick="selectConceptNode('map-enjeux', this, 'Enjeu 1 : Soutien aux personnes et aux familles', 'Accompagnement psychosocial et éducatif tout au long du cheminement scolaire afin de prévenir les situations de vulnérabilité et l’isolement.')">
+                                    <rect x="25" y="165" width="150" height="72" rx="6" fill="#FAF6EF" stroke="#b5a491" stroke-width="1.5"/>
+                                    <text x="100" y="188" text-anchor="middle" font-size="11.5" font-weight="700" fill="#7a2222">1. Familles & Élèves</text>
+                                    <text x="100" y="206" text-anchor="middle" font-size="10.5" fill="#2b2b2b">Soutien continu face</text>
+                                    <text x="100" y="220" text-anchor="middle" font-size="10.5" fill="#2b2b2b">aux vulnérabilités</text>
+                                </g>
+
+                                <g class="svg-node" onclick="selectConceptNode('map-enjeux', this, 'Enjeu 2 : Soutien aux professionnels & interprétariat', 'Formation spécialisée du personnel et stabilisation des services d’interprétariat LSQ-français pour pallier la pénurie d’interprètes qualifiés.')">
+                                    <rect x="190" y="165" width="150" height="72" rx="6" fill="#FAF6EF" stroke="#b5a491" stroke-width="1.5"/>
+                                    <text x="265" y="188" text-anchor="middle" font-size="11.5" font-weight="700" fill="#7a2222">2. Professionnels</text>
+                                    <text x="265" y="206" text-anchor="middle" font-size="10.5" fill="#2b2b2b">Formation et accès</text>
+                                    <text x="265" y="220" text-anchor="middle" font-size="10.5" fill="#2b2b2b">aux interprètes LSQ</text>
+                                </g>
+
+                                <g class="svg-node" onclick="selectConceptNode('map-enjeux', this, 'Enjeu 3 : Sensibilisation et collaboration', 'Coopération étroite entre parents, enseignants, interprètes et pairs autour de la culture sourde et des besoins éducatifs spécifiques.')">
+                                    <rect x="355" y="165" width="150" height="72" rx="6" fill="#FAF6EF" stroke="#b5a491" stroke-width="1.5"/>
+                                    <text x="430" y="188" text-anchor="middle" font-size="11.5" font-weight="700" fill="#7a2222">3. Collaboration</text>
+                                    <text x="430" y="206" text-anchor="middle" font-size="10.5" fill="#2b2b2b">Sensibilisation des pairs</text>
+                                    <text x="430" y="220" text-anchor="middle" font-size="10.5" fill="#2b2b2b">et de l’équipe-école</text>
+                                </g>
+
+                                <g class="svg-node" onclick="selectConceptNode('map-enjeux', this, 'Enjeu 4 : Continuité des services', 'Maintien de la cohérence des mesures d’accessibilité (dont la LSQ en classe ordinaire) de la petite enfance jusqu’aux études postsecondaires.')">
+                                    <rect x="520" y="165" width="150" height="72" rx="6" fill="#FAF6EF" stroke="#b5a491" stroke-width="1.5"/>
+                                    <text x="595" y="188" text-anchor="middle" font-size="11.5" font-weight="700" fill="#7a2222">4. Continuité</text>
+                                    <text x="595" y="206" text-anchor="middle" font-size="10.5" fill="#2b2b2b">De la petite enfance</text>
+                                    <text x="595" y="220" text-anchor="middle" font-size="10.5" fill="#2b2b2b">au postsecondaire</text>
+                                </g>
+
+                                <g class="svg-node" onclick="selectConceptNode('map-enjeux', this, 'Enjeu 5 : Méthodes pédagogiques bilingues', 'Transition d’une approche strictement oraliste vers une pédagogie bilingue (LSQ / français écrit et oral) valorisant les supports visuels.')">
+                                    <rect x="685" y="165" width="150" height="72" rx="6" fill="#FAF6EF" stroke="#b5a491" stroke-width="1.5"/>
+                                    <text x="760" y="188" text-anchor="middle" font-size="11.5" font-weight="700" fill="#7a2222">5. Pédagogie bilingue</text>
+                                    <text x="760" y="206" text-anchor="middle" font-size="10.5" fill="#2b2b2b">Transition de l’oralisme</text>
+                                    <text x="760" y="220" text-anchor="middle" font-size="10.5" fill="#2b2b2b">vers le bilinguisme</text>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="concept-detail-panel" id="detail-map-enjeux">
+                            <strong>Paradigme de l’éducation inclusive (CSE, 2017)</strong>
+                            Contrairement à l’intégration scolaire qui exige que l’élève s’adapte aux pratiques existantes, l’inclusion scolaire transforme a priori l’environnement éducatif pour offrir à tous des chances égales de réussite et de participation sociale.
+                        </div>
+                    </div>
+
+                    <h2 class="section-heading" id="sec-ecole">1. L’école de Kelly-Anne</h2>
+                    <p>
+                        Kelly-Anne est une élève sourde en 3<sup>e</sup> année du secondaire, dans une classe ordinaire de son école de quartier. Elle a 14 ans, bientôt 15 ans. Elle n’a jamais redoublé. Ses cours, dans les matières disciplinaires, se déroulent le matin. Elle suit un programme de danse-études qui lui permet un aménagement l’après-midi, pour se consacrer à la danse.
+                    </p>
+                    <p>
+                        L’école de Kelly-Anne accueille 2 400 élèves qui peuvent faire le choix de programmes de sport-études, incluant la danse, et musique-études, ou encore de centres d’intérêt, notamment les arts plastiques, les médias ou les sciences, notamment. Selon le directeur adjoint, la vision de l’école s’appuie sur une dimension inclusive, en ce qu’elle favorise le recours à des mesures adaptées, selon le besoin de l’élève, avec des ordinateurs portables, l’accompagnement d’un interprète, d’un orthopédagogue, d’un psychologue, par exemple.
+                    </p>
+                    <blockquote class="article-quote">
+                        « À l’Académie, l’inclusion est très importante, quel que soit le type de besoin, ce qui arrive avec l’élève, sa situation. On demeure toujours une maison d’enseignement, une maison d’éducation. Lorsqu’il y a des défis particuliers, que ce soit au niveau du genre, des élèves, il y a des comités, des spécialistes, des services qui s’occupent de ça. L’école est une microsociété, on travaille avec des gens qui ont différents talents, différents défis, différentes qualités, différents défauts. Notre travail, c’est de voir comment on peut travailler tous ensemble dans une mini-société et comment on peut s’aider tout le monde, progresser. La notion d’inclusion, de respect, de dépassement de soi, de réussite personnelle et de réussite académique, c’est très important. On travaille avec tous les élèves, peu importe le défi ou le besoin. » (Directeur adjoint)
+                    </blockquote>
+
+                    <figure class="article-inline-figure">
+                        <img src="https://lh3.googleusercontent.com/d/1PUqa2z2oviWPuhgATIg7s-HPAn-UivAf" alt="L'école de Kelly-Anne et l'accompagnement en classe">
+                    </figure>
+
+                    <p>
+                        Kelly-Anne a quant à elle besoin d’un service continu d’un interprète en langue des signes québécoise pour toutes ses matières, comme cela est inscrit dans son plan d’intervention depuis le début de sa scolarité. Elle a commencé l’école à 5 ans, à la maternelle, en classe ordinaire, c’est-à-dire seulement avec des élèves entendants, et la même interprète en langue des signes québécoise l’a suivi jusqu’à sa première année du secondaire. Elle a changé d’interprète pour la première fois en deuxième année du secondaire, puis une nouvelle fois en secondaire 3, lorsqu’elle a fait le choix de poursuivre ses études dans l’école de son quartier, en programme danse-études. Selon sa mère, Kelly-Anne est motivée à l’école, elle aime ses cours, ses notes sont toujours bonnes, et elle réussit à obtenir des résultats élevés même 85 % et 90 %, ce que confirment les observations de ses enseignants.
+                    </p>
+                    <p>
+                        Actuellement, son interprète est une personne coda (<em>child of deaf adults</em> ou enfant de parents Sourds), ce qui veut dire que la langue des signes québécoise est sa première langue. Selon l’évaluation qui a été faite par un organisme externe au service d’interprétariat régional, son niveau de langue (d’interprète en français-LSQ) équivaut à B-2, ou celui d’une interprète junior intermédiaire. Elle poursuit des études en interprétation en LSQ. Cela fait trois ans qu’elle interprète dans les écoles. Elle suit Kelly-Anne depuis cette année, et ce pour trois journées par semaine, le mercredi, le jeudi et le vendredi. C’est une autre interprète d’expérience qui accompagne Kelly-Anne les deux autres journées. La pénurie de main-d’œuvre, comme le souligne sa mère, fait en sorte que Kelly-Anne s’est retrouvée sans interprète durant plusieurs jours au cours de son trimestre d’automne.
+                    </p>
+                    <p>
+                        Selon l’interprète coda, son rôle est de soutenir la communication entre Kelly-Anne et ses enseignants du début à la fin de chaque cours (et avec les autres élèves dans la classe, éventuellement). La langue des signes permet d’accéder à une information plus complète, contrairement à la lecture labiale, selon l’interprète. Kelly-Anne ajoute : « [La LSQ] donne plus de clarté, plus de précision aussi. Cela me permet de garder mon [attention] sur le cours, parce qu’en lisant sur les lèvres, cela me fatigue énormément. Donc, en ayant une aide, cela rend l’information plus claire. C’est plus facile comme ça ». Le code de déontologie oblige à interpréter intégralement tous les propos de l’enseignant, mais aussi ceux de chacun des élèves, même lorsque le langage qu’ils utilisent paraît inapproprié. Cela permet à Kelly-Anne de se sentir incluse et de participer aux échanges ou aux discussions, et de rire parfois, avec et comme les autres élèves.
+                    </p>
+                    <p>
+                        Kelly-Anne participe à la rédaction de son plan d’intervention qui est vérifié chaque année. L’élève mentionne notamment qu’elle peut se prévaloir d’un tiers temps supplémentaire, mais préfère ne pas l’utiliser dans ses cours, pour le moment. Elle ne souhaite pas non plus avoir recours à un appareil MF, c’est-à-dire un appareil d’amplification du son avec un micro pour l’enseignant relié à son appareil auditif, même si les ressources enseignantes ont suivi une formation à ce sujet en début d’année. Par ailleurs, les enseignants sont ouverts à accueillir l’interprète de Kelly-Anne dans leur classe. Ils connaissent aussi quelques stratégies pour soutenir la compréhension de Kelly-Anne, comme de permettre à l’élève de se placer en avant pour qu’elle puisse lire sur les lèvres, ou de ne pas lui tourner le dos, si possible, pour qu’elle ne perde pas l’information orale, même en présence de l’interprète. L’interprète se place assis dans un côté de la classe, un peu en angle, face à Kelly-Anne pour qu’elle puisse aussi voir l’enseignante et le tableau interactif. Si malgré tout Kelly-Anne ne comprend pas, elle se sent à l’aise de poser des questions à ses enseignants.
+                    </p>
+
+                    <figure class="article-inline-figure">
+                        <img src="https://lh3.googleusercontent.com/d/1EM_UfqxSOpPlkwu9GCoUwr_xrzzY_LJJ" alt="Disposition spatiale et communication visuelle en classe">
+                    </figure>
+
+                    <p>
+                        L’interprète mentionne qu’une sensibilisation à la langue des signes, et à la culture sourde (p. ex., les arts Sourds, le théâtre Sourd, l’humour Sourd, la journée mondiale des Sourds, etc.), pourrait être proposée pour le personnel et les élèves de l’école qui le souhaitent. C’est ce que la sœur de Kelly-Anne a fait dans son école à la suite d’une proposition du directeur. Elle a ainsi offert un atelier de langue des signes à une quarantaine d’élèves de secondaire 1 à 5 : « Elle s’est sentie fière d’avoir fait ça, d’avoir accompli ce petit atelier-là. Puis, elle voyait des gens dans le corridor de secondaire 5 qui lui disaient ‘Salut !’ par la suite, ça lui faisait plaisir » (Mère de Kelly-Anne). D’ailleurs, les enseignants de français, d’anglais et de danse de Kelly-Anne proposent d’avoir accès à une formation sur des signes de base dans l’école pour communiquer quelques mots avec elle. L’enseignante en danse utilise déjà quelques signes de base avec Kelly-Anne. Son enseignant d’anglais va même plus loin et souhaiterait que cela soit une matière obligatoire dans le cadre de la formation en enseignement à l’université.
+                    </p>
+                    <p>
+                        Dans la perspective de la reconnaissance de la langue des signes québécoise comme langue officielle au Canada, depuis 2019<a class="footnote-ref" id="sdfootnote9anc" href="#sdfootnote9sym"><sup>9</sup></a>, il serait même possible de proposer un cours de langue des signes aux élèves comme seconde ou troisième langue, ce qui rejoint les recommandations du forum social en éducation pour les élèves sourds ou vivant avec une surdité au Québec<a class="footnote-ref" id="sdfootnote10anc" href="#sdfootnote10sym"><sup>10</sup></a>. La langue des signes présente beaucoup d’avantages dans la communication visuelle, selon l’interprète de Kelly-Anne, même pour un entendant.
+                    </p>
+                    <p>
+                        Kelly-Anne participe aux activités de l’école. Par exemple, elle a représenté le programme de danse lors des portes ouvertes de l’école, avec d’autres élèves. Elle participe même en dehors de l’école, par exemple, lors de compétitions en danse, ou pour présenter un spectacle de danse qu’elle a travaillé avec les autres élèves en danse-études, lors d’activités spéciales de représentation, ce qui contribuait à un sentiment d’exclusion chez l’adolescente.
+                    </p>
+                    <p>
+                        Dans son ancienne école, le contexte de COVID-19, entre 2020 et 2021 a affecté les relations de Kelly-Anne avec les autres élèves et les enseignants, selon sa mère. Le port du masque l’empêchait de communiquer avec les autres, en lisant sur les lèvres.
+                    </p>
+                    <blockquote class="article-quote">
+                        « Cela n’a pas retardé mes apprentissages la COVID-19, mais cela a eu un gros impact parce que je ne pouvais plus lire sur les lèvres à cause des masques. J’avais de la [difficulté] à lire sur les lèvres. Les [enseignants] et les surveillants n’acceptaient pas qu’on baisse les masques à cause du regard des autres. Ce n’était pas juste pour les autres. Donc, j’avais beaucoup de [difficulté] à communiquer, à comprendre une conversation. Par exemple, ce qui se disait dans les groupes d’amis, avec un masque en plus, et que ça parle, je n’étais plus là. Cela prend le soutien des [enseignants] aussi. Ils le savaient, ils baissaient leur masque lorsqu’ils me parlaient. Aussi, ils m’autorisaient tout en gardant une certaine distance, à baisser le masque, lorsque j’étais en travail d’équipe pour qu’ils puissent comprendre, que je puisse être dans le groupe, à m’intégrer. [...] Et aussi ça fait de la buée lorsqu’on le porte trop souvent. Ce n’était pas quelque chose de [très] accessible. » (Kelly-Anne)
+                    </blockquote>
+                    <p>
+                        Le rêve de Kelly-Anne était depuis longtemps de faire des cours de danse, d’après sa mère. Son orientation vers un programme de danse-études a été l’opportunité pour elle de réaliser ce rêve, de changer d’école, et du même coup, de prendre un nouvel élan.
+                    </p>
+                    <blockquote class="article-quote">
+                        « Dans mon ancienne école, c’était quelque chose de bof. Ce n’était pas parfait. J’étais un peu tannée. Je suis avec un nouveau programme ici, avec du nouveau monde. La communication était quelque chose, parce que ce n’était pas vraiment inclusif. J’étais souvent à part. Je ne me sentais vraiment pas à ma place. Il n’y avait personne pour moi autour. J’en avais un peu [des amis], mais c’était souvent de gros groupes d’amis. Pour moi, cela ne marche pas les gros groupes d’amis, parce que souvent ça placote et j’étais la seule qui ne comprenait pas ce qu’il se passait et la seule à demander les conversations qu’il y avait. » (Kelly-Anne)
+                    </blockquote>
+                    <p>
+                        Si Kelly-Anne réussit très bien dans les matières en français, en anglais et dans sa spécialisation en danse, elle aime moins les sciences, ainsi que les disciplines en histoire et géographie. L’histoire se raconte, il peut y avoir plusieurs versions de l’histoire, il est plus facile de s’y perdre, comme le mentionne Kelly-Anne. Cela se passe bien en éducation physique.
+                    </p>
+                    <blockquote class="article-quote">
+                        « Je dirais que les matières qui sont faciles pour moi, ce serait le français et l’anglais. Dans la plupart des matières, c’est super correct. Il y a peut-être juste en histoire où c’est peut-être un peu compliqué, parce qu’il faut raconter les images, en parlant beaucoup. C’est moins technique, c’est moins direct. » (Kelly-Anne)
+                    </blockquote>
+                    <p>
+                        L’art plastique suscite également l’intérêt de Kelly-Anne.
+                    </p>
+                    <blockquote class="article-quote">
+                        « L’art plastique, c’est quelque chose qui me passionne beaucoup. J’ai beaucoup de facilité aussi à travers les années. Je dessine partout dans mes cours, dans mes cahiers. S’ils sont ouverts, mes cahiers sont pleins de dessins partout, sur les feuilles, plein partout. J’aime ça. Ça me permet de trouver ma façon de me libérer. Tu dessines comment tu [te sens] un peu. » (Kelly-Anne)
+                    </blockquote>
+
+                    <!-- CARTE CONCEPTUELLE INTERACTIVE 2 : Écosystème de communication et ergonomie visuelle en classe -->
+                    <div class="concept-map-card" id="map-classe">
+                        <div class="concept-map-header">
+                            <span class="concept-map-title">Carte conceptuelle 2 — Écosystème triangulaire de communication et ergonomie visuelle</span>
+                            <span class="concept-map-hint">Sélectionnez un acteur ou dispositif pour voir son rôle</span>
+                        </div>
+                        <div class="concept-svg-wrapper">
+                            <svg viewBox="0 0 860 275" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Triangle visuel -->
+                                <polygon points="430,45 190,215 670,215" fill="none" stroke="#d4c5b9" stroke-width="2.5" stroke-dasharray="6,4"/>
+                                <line x1="430" y1="45" x2="430" y2="145" stroke="#7a2222" stroke-width="1.5"/>
+                                <line x1="190" y1="215" x2="430" y2="145" stroke="#7a2222" stroke-width="1.5"/>
+                                <line x1="670" y1="215" x2="430" y2="145" stroke="#7a2222" stroke-width="1.5"/>
+
+                                <!-- Sommet : Kelly-Anne -->
+                                <g class="svg-node active" onclick="selectConceptNode('map-classe', this, 'Kelly-Anne (Élève sourde signeure en LSQ)', 'Placée à l’avant de la classe pour optimiser son champ visuel. Elle combine l’interprétation intégrale en LSQ, la lecture labiale ciblée, le suivi sur tableau interactif et un appareil auditif à l’oreille droite.')">
+                                    <rect x="315" y="16" width="230" height="56" rx="8" fill="#FAF6EF" stroke="#7a2222" stroke-width="2"/>
+                                    <text x="430" y="39" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">Kelly-Anne (À l’avant)</text>
+                                    <text x="430" y="57" text-anchor="middle" font-size="11" fill="#4a5568">Attention visuelle & LSQ</text>
+                                </g>
+
+                                <!-- Centre : Supports numériques -->
+                                <g class="svg-node" onclick="selectConceptNode('map-classe', this, 'Supports visuels & numériques (TBI & Google Classroom)', 'Le tableau blanc interactif (TBI) et Google Classroom permettent de fixer les consignes par écrit, réduisant la fatigue cognitive liée à la lecture labiale et palliant les absences ponctuelles d’interprète.')">
+                                    <rect x="330" y="120" width="200" height="50" rx="25" fill="#FAF6EF" stroke="#7a2222" stroke-width="1.5"/>
+                                    <text x="430" y="142" text-anchor="middle" font-size="11.5" font-weight="700" fill="#7a2222">TBI & Google Classroom</text>
+                                    <text x="430" y="157" text-anchor="middle" font-size="10" fill="#2b2b2b">Ancrage visuel des consignes</text>
+                                </g>
+
+                                <!-- Bas Gauche : Interprète CODA -->
+                                <g class="svg-node" onclick="selectConceptNode('map-classe', this, 'Interprète CODA (Langue maternelle : LSQ)', 'Assise de côté en angle face à Kelly-Anne pour maintenir la ligne de vue avec l’enseignant et le tableau. Elle traduit intégralement les cours et les échanges entre pairs selon le code de déontologie.')">
+                                    <rect x="70" y="190" width="240" height="62" rx="8" fill="#FAF6EF" stroke="#b5a491" stroke-width="1.5"/>
+                                    <text x="190" y="214" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a202c">Interprète LSQ (CODA)</text>
+                                    <text x="190" y="232" text-anchor="middle" font-size="10.5" fill="#4a5568">Positionnée en angle • Traduction intégrale</text>
+                                </g>
+
+                                <!-- Bas Droit : Enseignants & Pairs -->
+                                <g class="svg-node" onclick="selectConceptNode('map-classe', this, 'Enseignants & Camarades de classe', 'Les enseignants évitent de tourner le dos en parlant, utilisent des vidéos sous-titrées et apprennent des signes de base. Les pairs répètent au besoin ou utilisent l’écrit en petits groupes.')">
+                                    <rect x="550" y="190" width="240" height="62" rx="8" fill="#FAF6EF" stroke="#b5a491" stroke-width="1.5"/>
+                                    <text x="670" y="214" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a202c">Enseignants & Pairs</text>
+                                    <text x="670" y="232" text-anchor="middle" font-size="10.5" fill="#4a5568">Face à l’élève • Sous-titres • Signes de base</text>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="concept-detail-panel" id="detail-map-classe">
+                            <strong>Kelly-Anne (Élève sourde signeure en LSQ)</strong>
+                            Placée à l’avant de la classe pour optimiser son champ visuel. Elle combine l’interprétation intégrale en LSQ, la lecture labiale ciblée, le suivi sur tableau interactif et un appareil auditif à l’oreille droite.
+                        </div>
+                    </div>
+
+                    <h2 class="section-heading" id="sec-famille">2. La famille de Kelly-Anne</h2>
+                    <p>
+                        La mère de Kelly-Anne et son beau-père sont Sourds<a class="footnote-ref" id="sdfootnote11anc" href="#sdfootnote11sym"><sup>11</sup></a> et communiquent en langue des signes québécoise à la maison. Il s’agit d’une famille recomposée depuis 12 ans. Kelly-Anne a une petite sœur, en secondaire 1 dans une autre école, qui est sourde et communique en langue des signes québécoise, ainsi que deux petits frères entendants, âgés de 3 et 5 ans. La famille plus élargie est entendante. Selon son interprète, Kelly-Anne indique ne s’identifier ni comme Sourde ni comme malentendante. Kelly-Anne précise tout de même : « c’est ma première langue, la LSQ. C’est la langue avec laquelle je suis le plus à l’aise, que je suis le plus « moi-même ». À l’extérieur de la famille, le plus souvent, elle va oraliser avec les entendants et communiquer en langue des signes avec les Sourds.
+                    </p>
+                    <p>
+                        Kelly-Anne porte un appareil auditif du côté de son oreille droite, ce qui lui permet parfois, selon elle, d’entendre la voix de l’enseignant, dépendamment s’il a un accent, du ton de voix qu’il utilise, de la vitesse de parole. C’est ce que rapporte aussi l’une de ses camarades de classe. De son autre oreille, il ne lui est pas possible de porter un appareil auditif du fait de sa surdité profonde.
+                    </p>
+                    <blockquote class="article-quote">
+                        [Kelly-Anne] « n’entend pas nécessairement toutes les voix. Des fois, les gens parlent un peu trop vite. Donc, tu sais, c’est sûr que des fois, répéter, on s’habitue. Je me suis vraiment habituée rapidement, et c’est devenu une très bonne amie en plus, et je n’ai pas tant besoin de répéter, ça va super bien. » (Annabelle, amie de Kelly-Anne dans sa classe)
+                    </blockquote>
+                    <p>
+                        Sa mère mentionne que Kelly-Anne « veut entendre, elle veut comprendre. Elle est curieuse de savoir les mots qui ont été dits ». Cependant, elle ne souhaite pas avoir d’implant cochléaire. Elle a eu accès à une orthophoniste de l’âge de 3 ans jusqu’à 9 ans, pour apprendre la prononciation, l’oralisation, la perception des mots, la perception des sons, entre autres. Elle a aussi utilisé une méthode de soutien oral avec la langue parlée complétée<a class="footnote-ref" id="sdfootnote12anc" href="#sdfootnote12sym"><sup>12</sup></a>, durant un an, mais a préféré communiquer par le biais de la langue des signes par la suite. Comme mentionné précédemment, elle ne souhaite pas utiliser un appareil MF, même si elle pourrait y avoir droit. Sa mère l’a beaucoup aidé dans ses devoirs et leçons au primaire, mais pour le secondaire, Kelly-Anne préfère être autonome. Sa tante l’a accompagnée, cependant, pour l’apprentissage de l’anglais par contact vidéo.
+                    </p>
+                    <blockquote class="article-quote">
+                        « Ma famille me supporte énormément dans toutes mes choses, que ce soit pour l’école [etc.]. Des fois, je demande à ma tante de m’aider. Si je ne comprends pas quelque chose dans les devoirs, elle est toujours là, si jamais il y a quelque chose qui ne marche pas. Par exemple, si on revient à la COVID-19, lorsque cela ne marchait pas avec les surveillants, des fois mes parents s’impliquaient, pour savoir ce que cela me prenait, une solution, pour que je ne sois pas trop à part. » (Kelly-Anne)
+                    </blockquote>
+                    <p>
+                        Kelly-Anne et sa mère rappellent la situation d’autres élèves sourds ou ayant une surdité qui, même avec deux appareils auditifs (un pour chaque oreille), vivent des difficultés, notamment du fait du manque d’enseignement bilingue (en français et langue des signes québécoise) dans la classe ordinaire. La mère de Kelly-Anne est proche de l’une de ces élèves : « Elle a dit qu’elle voulait abandonner l’école parce qu’elle n’aimait pas ça, elle n’aime pas l’école, elle trouve ça difficile, donc j’essaie de l’encourager ». L’élève a même vécu de l’intimidation, mais a pu être soutenu par un éducateur spécialisé de l’école, pour régler la situation conflictuelle avec les autres élèves. L’élève a obtenu également un soutien d’un psychologue, d’un psychoéducateur et d’un travailleur social de l’école. Une sensibilisation peut être faite pour que l’élève se sente respecté en tant qu’élève sourd, comme le soutient la mère de Kelly-Anne. Ce type de situation peut être causé par différents facteurs, dont la pénurie d’interprètes en langue de signes québécoise<a class="footnote-ref" id="sdfootnote13anc" href="#sdfootnote13sym"><sup>13</sup></a>. Le contexte actuel fait en sorte qu’il peut y avoir un fort roulement des interprètes, avec un niveau de langue qui varie, ou dont les signes ne correspondent pas à ceux de l’élève.
+                    </p>
+
+                    <h2 class="section-heading" id="sec-amis">3. Les amis</h2>
+                    <p>
+                        De ce fait, comme le rappelle l’enseignante de français de Kelly-Anne, l’école a une mission (« instruire, socialiser et qualifier ») plus grande que seulement permettre à l’élève d’obtenir de bons résultats scolaires, soit celle d’amener l’élève à socialiser, ce qui passe en partie par l’aider à se faire des amis.
+                    </p>
+                    <blockquote class="article-quote">
+                        « Ce n’est pas juste ‘les notes’ à l’école. C’est ‘un milieu de vie’, l’école. Quand elle vient à l’école, ce n’est pas juste pour apprendre l’accord du participe passé employé avec l’auxiliaire avoir, c’est pour venir à l’école, puis aller voir ses amis aussi. [...] Ce que cela apporte, c’est une diversité [comme si un élève] colombien qui serait en classe, qui parle seulement espagnol, ce serait le même impact [de trouver une façon de] communiquer avec pour favoriser son inclusion. » (Enseignante de français de Kelly-Anne)
+                    </blockquote>
+
+                    <figure class="article-inline-figure">
+                        <img src="https://lh3.googleusercontent.com/d/1xy8d-6PaeNwwK5l-4OE2QxNOndDxnJhP" alt="Kelly-Anne et ses camarades de classe">
+                    </figure>
+
+                    <p>
+                        Selon l’interprète de Kelly-Anne, les élèves de sa classe sont inclusifs et ouverts d’esprit. Ils sont à l’aise avec elle, et n’hésiteront pas à répéter un mot ou une phrase, pour favoriser la compréhension de Kelly-Anne. Si, malgré cela, Kelly-Anne ne comprend pas, elle demande qu’on lui donne l’information par écrit. Pour les travaux d’équipe, elle se met souvent en équipe avec les deux mêmes élèves avec qui elle s’entend bien. Les autres élèves vont aussi parfois vers Kelly-Anne pour discuter avec elle, sans le soutien de l’interprète.
+                    </p>
+                    <p>
+                        Comme mentionné plus haut, Kelly-Anne vivait des difficultés avec des élèves à son ancienne école, ce qui a l’a amenée à envisager de changer d’école. Dans sa nouvelle école, quelques élèves ont appris des mots en signes. Kelly-Anne aime bien qu’on lui dise des petits mots comme « Merci », ou « Bonjour ». Cette année, Kelly-Anne a plusieurs amis avec qui elle s’entend bien, dans la classe et dans l’école.
+                    </p>
+                    <blockquote class="article-quote">
+                        « Cette année, j’ai changé d’école. Je me sens bien ici. C’est grand. [...] Mon inclusion dans l’école, cela se passe bien. Je n’en parle pas vraiment de ma surdité. C’est quelque chose que tout le monde sait. Si quelqu’un a des questions, il va me les poser. Je vais répondre. Cela se passe quand même bien l’inclusion. » (Kelly-Anne)
+                    </blockquote>
+                    <p>
+                        Naomie est une amie depuis le primaire et est également dans la même école que Kelly-Anne, en secondaire 3, cette année. Elle est entendante, mais elle a appris des mots de base en LSQ pour pouvoir communiquer avec elle.
+                    </p>
+                    <blockquote class="article-quote">
+                        « On se voit en dehors de l’école, on s’est vues plusieurs fois cet été, puis même si on était dans des écoles différentes, on se voyait encore un peu, puis on continue de se parler. Exemple : cet été, on est allées à l’Expo. Souvent, on va magasiner ensemble, on sort dehors. Souvent, je vais chez elle. Pour moi, il n’y a pas vraiment de différence entre elle et mes autres amis, mais j’essaye tout le temps de porter attention à ses besoins à elle, puis de l’inclure avec moi. Exemple : quand je suis avec mes amis, tu sais, des fois les autres ne le savent pas et là je vois qu’elle n’est pas trop à l’aise, je lui dis : ‘Veux-tu que l’on s’en aille ? Partir avec toi, c’est correct.’ J’essaye de ne pas la mettre à part même si on est avec d’autres personnes en même temps. » (Naomie, amie de Kelly-Anne dans et en dehors de l’école)
+                    </blockquote>
+
+                    <figure class="article-inline-figure">
+                        <img src="https://lh3.googleusercontent.com/d/1ira0Jk_jviKvsh3BNc79kOMJoA0Sy5Hr" alt="Travail d'équipe et socialisation en classe">
+                    </figure>
+
+                    <p>
+                        Une élève de sa classe, avec qui Kelly-Anne aime travailler en équipe et discuter témoigne également. Elle est entendante, mais elle connait quelques signes : « Je la texte souvent. Je lui parle très souvent en dehors des cours [...]. On se parle pas mal de toute autre chose que la classe, les matières. » (Annabelle, amie de Kelly-Anne dans sa classe)
+                    </p>
+
+                    <h2 class="section-heading" id="sec-journee">4. Une journée type à l’école de Kelly-Anne</h2>
+                    <p>
+                        Le matin, les élèves ont trois périodes de cours, une première matière de 8h35 à 9h35, puis de 9h40 à 10h40 à la deuxième, et pour la troisième, de 11h à 12h15. L’après-midi, Kelly-Anne se rend à son école de danse qui est à proximité, de 13h à 15h. Ci-après, on se rend dans la classe de français de Kelly-Anne, en anglais puis en danse, en octobre, puis en décembre.
+                    </p>
+
+                    <h3 class="subsection-heading" id="sec-francais">Français</h3>
+                    <p>
+                        L’enseignante de français de Kelly-Anne enseigne le français depuis 30 ans au secondaire. Elle indique qu’en début d’année, elle demande aux élèves de rédiger un texte sur le thème « Si j’avais une baguette magique - tu peux faire ce que tu veux – qu’est-ce que tu aimerais faire ? » Elle souligne que ce texte lui montre que Kelly-Anne a un très bon niveau de langue en français, mais surtout qu’elle a des rêves qu’elle souhaiterait réaliser. Voici un extrait de la production écrite de Kelly-Anne où elle évoque entre autres le rêve d’aller un jour à l’Université Gallaudet, à Washington<a class="footnote-ref" id="sdfootnote14anc" href="#sdfootnote14sym"><sup>14</sup></a>. L’Université Gallaudet est une Université qui accueille les étudiants Sourds. Voici un extrait de sa production écrite :
+                    </p>
+                    <blockquote class="article-quote">
+                        « Si j’avais une baguette magique, j’irais faire le tour du monde sans toutes les lois, frontières et etc. J’irais visiter differents endroits comme les États-Unis, Rome, et du côté de l’Asie, donc la Corée du Sud. Je visiterais meme le Japon car je trouve que la végétation à cet endroit-ci est impressionnante et fascinante. J’aimerais bien pouvoir apprendre et perfectionner le ASL (American Sign Language). Je trouve que cette langue est incroyable et magnifique. J’adorerais aller à l’université de Gallaudet, c’est une école universitaire à Washington (États-Unis), pour les sourds. Je crois que ce serait un de mes principaux rêves à réaliser si possible. Ensuite, ce serait de posséder tous les livres en anglais de l’auteure Collen Hoover. J’adore les livres et encore plus ceux de cette auteure, car elle donne beaucoup d’intrigues et le goût de lire dans ses livres. » (Kelly-Anne)
+                    </blockquote>
+                    <p>
+                        Kelly-Anne est en réussite en français : « Le français, cela a [bien] été pour moi, parce que je parle et je signe. C’est assez facile pour les textes, la lecture » (Kelly-Anne). Une élève de sa classe, avec qui Kelly-Anne aime travailler en équipe, témoigne également.
+                    </p>
+                    <blockquote class="article-quote">
+                        « [Kelly-Anne] comprend très bien, [donc] je trouve ça quand même très facile. Elle va lire sur mes lèvres, sinon je peux quand même lui montrer dans le cahier, un endroit, un passage en particulier ou une question. » (Annabelle, amie de Kelly-Anne dans sa classe)
+                    </blockquote>
+
+                    <figure class="article-inline-figure">
+                        <img src="https://lh3.googleusercontent.com/d/1-vM4Ah6NgJ9ivN6SaD7O-UOzs43snyvJ" alt="Cours de français de Kelly-Anne">
+                    </figure>
+
+                    <p>
+                        Son enseignante de français évoque également la réussite de Kelly-Anne dans ses cours lors des évaluations. Pour chacune des trois étapes de remise de bulletin dans une année scolaire, l’enseignante évalue trois compétences : au moins deux fois, celle en écriture, deux fois celle en lecture, et deux fois la compétence à communiquer oralement (ou avec le soutien de l’interprète en langue des signes).
+                    </p>
+                    <blockquote class="article-quote">
+                        « Maintenant, on va vraiment utiliser l’inclusion pour les rentrer dans les classes [ordinaires] pour qu’ils puissent suivre le programme normalement, comme tous les autres élèves. [...] Moi, comme enseignante, [c’est de] m’adapter aux besoins de chaque élève pour répondre à ses besoins. [...] [Kelly-Anne], c’est un cœur d’or, si vous la voyez là, sa joie de vivre. On est toujours de bonne humeur, tant elle est contente de venir à l’école, puis ça paraît au niveau de son énergie, de son attitude. Au niveau des résultats scolaires, la dernière production écrite qu’elle a faite, que j’ai évaluée : 99%. J’ai évalué l’orthographe, la syntaxe, la ponctuation. Son dernier examen de lecture : 90%. Donc, ses résultats me prouvent qu’elle est en croisière [...]. Les élèves de la classe ne l’ont pas mis à part. [...] Elle a tout son petit groupe d’amis, en travail d’équipe, donc c’est vraiment l’inclusion pour elle, même au niveau des élèves, elle fait partie à part entière du groupe. C’est vraiment super. » (Enseignante de français de Kelly-Anne)
+                    </blockquote>
+                    <p>
+                        Lors du tournage, cette journée-là, comme habituellement, l’enseignante est assise juste en avant de Kelly-Anne, ce qui lui permet de voir également le tableau interactif. L’enseignante présente le corrigé du dernier cours, puis les élèves ont à travailler un texte en vue d’un examen de lecture, d’abord seuls, puis en équipe. La semaine suivante, ils se prépareront également pour une présentation orale. Actuellement, les élèves travaillent sur des textes scientifiques, puis dans quelques semaines, ils feront la lecture de textes sur le thème des contes et légendes. L’enseignante utilise le Google Classroom pour y déposer une aide sur la préparation de textes, accessible tant pour les parents que pour l’élève. Pour un élève en difficulté, l’enseignante peut proposer de travailler sur un autre texte que celui proposé, sur un sujet que l’élève maîtrise, pour qu’il perde moins de points sur le contenu, et prendre la meilleure note des deux productions écrites. Ces mesures s’inscrivent dans des pratiques inclusives ou de soutien pour tous les élèves de la classe de Kelly-Anne.
+                    </p>
+
+                    <h3 class="subsection-heading" id="sec-anglais">Anglais</h3>
+                    <p>
+                        Kelly-Anne, ce qu’elle préfère, c’est la danse, mais l’anglais aussi. Sa mère ajoute qu’elle regarde la télévision en anglais avec les sous-titres en anglais. Elle lit tous ses livres en anglais. Elle porte beaucoup d’attention à l’apprentissage de cette langue.
+                    </p>
+                    <blockquote class="article-quote">
+                        « L’anglais, au début, c’était [difficile] parce que c’est une autre langue. C’est une autre façon de prononcer les mots. La prononciation est difficile aussi. C’est à force de continuer que ça va un peu mieux. C’est une autre façon d’écrire les phrases. Lorsque j’ai été en immersion anglaise, j’avais deux, trois cours d’anglais par jour, pendant un long trois, quatre mois. C’est juste une question d’habitude, savoir comment ça marche à l’étude, les exercices à faire. [...] Ma force, je dirais que c’est l’anglais. Je suis forte. Je sais ce que je fais. C’est clair pour moi. C’est facile. » (Kelly-Anne)
+                    </blockquote>
+                    <p>
+                        Kelly-Anne a une amie sourde d’une autre école, d’une autre classe ordinaire, pour qui l’apprentissage du français et de l’anglais est un plus grand défi. Elle est dégagée de cette dernière matière, parce que c’est trop difficile pour elle. En effet, lorsqu’une élève comme Kelly-Anne apprend l’anglais, l’interprète doit comprendre le message oral en anglais et l’interpréter en langue des signes québécoise, plutôt qu’en <em>american sign language</em>. Kelly-Anne préfère cette manière de procéder, car sinon cela l’amènerait à apprendre une autre structure de phrases et de signes, en plus de celle du français. Elle trouve cependant l’anglais plus facile que le français.
+                    </p>
+                    <p>
+                        L’enseignant d’anglais est depuis six ans dans l’école de Kelly-Anne. Il sait que Kelly-Anne a été en programme d’immersion en anglais, ce qui l’a beaucoup aidée à progresser dans l’apprentissage de cette langue. Kelly-Anne participe beaucoup même dans les débats devant tout le groupe, réussit à exposer son point de vue, argumenter et tenir sa position.
+                    </p>
+                    <blockquote class="article-quote">
+                        « Elle est déjà excellente pour son niveau de secondaire 3. Elle est capable de bien s’exprimer. Elle est capable de bien se faire comprendre même devant la classe. On fait des débats de temps en temps et elle n’est pas gênée de parler devant 30 personnes. Elle est moins gênée que des personnes qui ne sont pas Sourdes. [...] Elle a 90 % au niveau de de la compétence numéro 1 qui est d’interagir oralement en anglais. [...] Elle lit beaucoup et elle lit en anglais. Donc, tout ce qui est au niveau de la compétence numéro 2 qui est de comprendre les textes et de réinvestir [ce qu’elle a appris] dans une production écrite, la compétence numéro 3, c’est quand même quelque chose qui est facile pour elle. » (Enseignant d’anglais de Kelly-Anne)
+                    </blockquote>
+                    <p>
+                        L’enseignant utilise lui aussi le Google Classroom pour partager des informations, des consignes sur les travaux par exemple, avec les élèves. De plus, il se sert de vidéos sous-titrées pour adapter l’enseignement dans la classe.
+                    </p>
+                    <p>
+                        Son enseignant rapporte le défi auquel Kelly-Anne fait face lorsqu’elle se retrouve en cours d’anglais sans interprète. En effet, lors du tournage, ce matin-là, l’interprète n’a pu être présent pour des raisons de santé, ni être remplacé. Kelly-Anne s’est donc retrouvée seule et a tenté de pallier la communication visuellement, en suivant les consignes sur le tableau interactif, ou encore en posant des questions à l’enseignant ou à un autre élève. Malgré cela, Kelly-Anne a obtenu 90 % à son évaluation orale lors de son cours d’anglais, à ce moment-ci.
+                    </p>
+                    <blockquote class="article-quote">
+                        « Quand son interprète n’est pas là, des fois ça peut arriver, elle a de la difficulté à comprendre ce que je veux dire. Je suis un enseignant qui bouge souvent [dans la classe], mais j’essaye de rester le plus mobile possible, de la regarder pour qu’elle puisse lire sur mes lèvres également. C’est de l’inclure dans tout cet apprentissage-là, pédagogiquement parlant. C’est important qu’elle aussi, elle puisse comprendre ce que je dis. [...] L’interprète est là vraiment pour clarifier les choses et s’assurer que Kelly-Anne a compris. » (Enseignant d’anglais de Kelly-Anne)
+                    </blockquote>
+
+                    <figure class="article-inline-figure">
+                        <img src="https://lh3.googleusercontent.com/d/1nHuaevGUn07ADU3q2zw8PLtomygKdiYN" alt="Activité d'interaction en anglais">
+                    </figure>
+
+                    <p>
+                        Cette journée-là, l’activité d’évaluation en anglais s’est déroulée selon une formule de <em>speed dating</em>, et consistait à se créer un personnage et d’en discuter avec un autre élève, de manière tournante. Kelly-Anne s’est inspirée de personnages fictifs provenant des émissions qu’elle regarde chez elle en sous-titrage. Une camarade de classe évoque son échange avec Kelly-Anne :
+                    </p>
+                    <blockquote class="article-quote">
+                        « Je devais présenter un personnage que j’avais inventé, que je devais interpréter. Même chose pour elle. Donc, on devait avoir une discussion, faire connaissance. Mon personnage, c’était une jeune étudiante espagnole d’à peu près 25 ans, et le sien, c’était un personnage qui venait du ciel [...], [et qui] orientait un peu les gens sur terre. » (Annabelle, amie de Kelly-Anne dans sa classe)
+                    </blockquote>
+
+                    <!-- CARTE CONCEPTUELLE INTERACTIVE 3 : Horaires et stratégies multisensorielles -->
+                    <div class="concept-map-card" id="map-journee">
+                        <div class="concept-map-header">
+                            <span class="concept-map-title">Carte conceptuelle 3 — Organisation d’une journée type et modalités d’apprentissage</span>
+                            <span class="concept-map-hint">Cliquez sur chaque bloc horaire pour voir les stratégies mobilisées</span>
+                        </div>
+                        <div class="concept-svg-wrapper">
+                            <svg viewBox="0 0 860 220" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Flèche chronologique -->
+                                <line x1="40" y1="105" x2="820" y2="105" stroke="#7a2222" stroke-width="2.5"/>
+                                <polygon points="820,105 808,99 808,111" fill="#7a2222"/>
+
+                                <!-- Période 1-3 : Français -->
+                                <g class="svg-node active" onclick="selectConceptNode('map-journee', this, 'Matinée (8h35 – 12h15) : Français (Résultats : 90 % à 99 %)', 'Évaluation des 3 compétences (lecture, écriture, communication orale avec interprète LSQ). Enseignante assise à l’avant, corrigés projetés au tableau interactif et ressources déposées sur Google Classroom.')">
+                                    <rect x="45" y="32" width="180" height="145" rx="8" fill="#FAF6EF" stroke="#7a2222" stroke-width="2"/>
+                                    <text x="135" y="56" text-anchor="middle" font-size="11" font-weight="700" fill="#7a2222">8h35 – 12h15 (Matin)</text>
+                                    <text x="135" y="78" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">Cours de Français</text>
+                                    <text x="135" y="102" text-anchor="middle" font-size="10.5" fill="#4a5568">Écriture : 99 %</text>
+                                    <text x="135" y="118" text-anchor="middle" font-size="10.5" fill="#4a5568">Lecture : 90 %</text>
+                                    <text x="135" y="142" text-anchor="middle" font-size="10" fill="#2b2b2b">Travail seul puis en équipe</text>
+                                </g>
+
+                                <!-- Matinée : Anglais -->
+                                <g class="svg-node" onclick="selectConceptNode('map-journee', this, 'Matinée (8h35 – 12h15) : Anglais L3 (Résultat : 90 %)', 'Interprétation de l’anglais oral vers la LSQ (évitant la surcharge syntaxique de l’ASL). Appui sur les vidéos sous-titrées, la lecture de romans en anglais et l’interaction directe (speed dating).')">
+                                    <rect x="245" y="32" width="180" height="145" rx="8" fill="#FAF6EF" stroke="#b5a491" stroke-width="1.5"/>
+                                    <text x="335" y="56" text-anchor="middle" font-size="11" font-weight="700" fill="#7a2222">8h35 – 12h15 (Matin)</text>
+                                    <text x="335" y="78" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">Cours d’Anglais</text>
+                                    <text x="335" y="102" text-anchor="middle" font-size="10.5" fill="#4a5568">Oral : 90 % (sans interprète)</text>
+                                    <text x="335" y="118" text-anchor="middle" font-size="10.5" fill="#4a5568">Trilinguisme LSQ-FR-EN</text>
+                                    <text x="335" y="142" text-anchor="middle" font-size="10" fill="#2b2b2b">Sous-titrage & débats</text>
+                                </g>
+
+                                <!-- Pause / Transition -->
+                                <g class="svg-node" onclick="selectConceptNode('map-journee', this, 'Pause du midi (12h15 – 13h00) : Vie sociale et pairs', 'Intégration au sein de petits groupes d’amis (Naomie, Annabelle) qui utilisent des signes de base en LSQ, répètent au besoin et communiquent par messagerie texte.')">
+                                    <rect x="445" y="52" width="155" height="105" rx="8" fill="#FAF6EF" stroke="#b5a491" stroke-width="1.5"/>
+                                    <text x="522" y="76" text-anchor="middle" font-size="11" font-weight="700" fill="#7a2222">12h15 – 13h00</text>
+                                    <text x="522" y="98" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a202c">Socialisation</text>
+                                    <text x="522" y="118" text-anchor="middle" font-size="10" fill="#4a5568">Petits groupes d’amis</text>
+                                    <text x="522" y="134" text-anchor="middle" font-size="10" fill="#4a5568">Signes de base & texto</text>
+                                </g>
+
+                                <!-- Après-midi : Danse-études -->
+                                <g class="svg-node" onclick="selectConceptNode('map-journee', this, 'Après-midi (13h00 – 15h00) : Programme Danse-études', 'Ateliers de Hip Hop, ballet, contemporain et tap. Perception multisensorielle combinant les basses sonores, les vibrations du plancher, la mémoire visuelle et le décompte en LSQ (« 5, 6, 7, 8 »).')">
+                                    <rect x="620" y="32" width="185" height="145" rx="8" fill="#FAF6EF" stroke="#b5a491" stroke-width="1.5"/>
+                                    <text x="712" y="56" text-anchor="middle" font-size="11" font-weight="700" fill="#7a2222">13h00 – 15h00 (Après-midi)</text>
+                                    <text x="712" y="78" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">Danse-études</text>
+                                    <text x="712" y="102" text-anchor="middle" font-size="10.5" fill="#4a5568">Hip Hop, Contemporain</text>
+                                    <text x="712" y="118" text-anchor="middle" font-size="10.5" fill="#4a5568">Vibrations & Repères visuels</text>
+                                    <text x="712" y="142" text-anchor="middle" font-size="10" fill="#2b2b2b">Décompte signé 5-6-7-8</text>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="concept-detail-panel" id="detail-map-journee">
+                            <strong>Matinée (8h35 – 12h15) : Français (Résultats : 90 % à 99 %)</strong>
+                            Évaluation des 3 compétences (lecture, écriture, communication orale avec interprète LSQ). Enseignante assise à l’avant, corrigés projetés au tableau interactif et ressources déposées sur Google Classroom.
+                        </div>
+                    </div>
+
+                    <h2 class="section-heading" id="sec-danse">5. Danse-études</h2>
+                    <p>
+                        L’enseignante de Hip-Hop de Kelly-Anne enseigne depuis 15 ans en danse-études et depuis trois ans dans l’école de danse de Kelly-Anne.
+                    </p>
+
+                    <figure class="article-inline-figure">
+                        <img src="https://lh3.googleusercontent.com/d/1KQyXxW5jvLSEnnK2qraXlYP4sL74L0HM" alt="Atelier de danse Hip-Hop en programme danse-études">
+                    </figure>
+
+                    <blockquote class="article-quote">
+                        « On voit que c’est une passionnée, c’est une fille qui ressent beaucoup les choses et c’est quelque chose qui est très précieux en danse, de ressentir quelque chose, pour le performer, et c’est quelque chose qu’elle a acquis dès le début. [...] Par rapport à son niveau dans le groupe justement, on a été très surpris parce qu’elle est très forte [...]. Elle apprend extrêmement rapidement. Et c’est une fille qui [est persévérante]. » (Enseignante en danse Hip Hop de Kelly-Anne)
+                    </blockquote>
+
+                    <figure class="article-inline-figure">
+                        <img src="https://lh3.googleusercontent.com/d/1i8B_CO_Cgswg5ApsjTeqZ67xFtV1AEnB" alt="Répétition chorégraphique en groupe">
+                    </figure>
+
+                    <p>
+                        Chaque jour, lors des ateliers, Kelly-Anne apprend plusieurs styles de danse dont le ballet classique, la danse contemporaine, le tap et le Hip Hop, en vue de compétitions ou de spectacles à différents moments de l’année. L’interprète intervient plus souvent lorsque l’enseignante donne les consignes. Kelly-Anne entend un peu la musique avec son appareil auditif, comme le son est assez fort, avec de la basse, lors des exercices de danse. Elle peut ressentir aussi les vibrations sonores, même si le plancher n’est pas adapté en sol vibrant. Également, elle peut s’appuyer sur le mouvement visuel du corps de l’enseignante qui fait face aux élèves, ou celui des autres élèves lors des chorégraphies en danse. Les autres élèves peuvent lui montrer les mouvements aussi.
+                    </p>
+                    <blockquote class="article-quote">
+                        « On a le langage corporel qui nous aide beaucoup, et il y a des profs qui sont beaucoup plus expressifs que d’autres, donc c’est sûr que ça dépend aussi de la méthode d’enseignement du professeur et ça lui est personnel. Mais en ce qui me concerne, c’est sûr que moi, je suis quelqu’un avec beaucoup de gestuelle. On a suivi des petits cours pour avoir quelques petits trucs justement. Exemple : pour compter les temps, pour lui dire quand est-ce que la musique commence. On se fait bien comprendre [...]. La musique est très forte dans les locaux. Par rapport à comment elle l’entend, je ne sais pas, mais une chose qui est certaine, c’est qu’elle ressent beaucoup. Avec les élèves du groupe justement, j’ai appris à compter ‘5, 6, 7, 8’ en langue des signes pour pouvoir lui dire que c’est maintenant que ça commence. En même temps, des fois, j’oublie complètement de compter et elle s’y retrouve pareil, parce qu’il y a vraiment une énergie de groupe et elle est très attentive aussi à son environnement. C’est ce qui fait en sorte que les [autres élèves] aussi lui disent, lui font des signes. Elle voit que les danseurs commencent à se préparer, donc elle va vraiment suivre l’énergie des autres danseurs. Donc, qu’elle entende ou non, une chose qui est sûre, c’est qu’elle ressent beaucoup. Elle est en parfaite harmonie avec les autres danseurs de son groupe. Il y a une belle chimie entre les élèves et elle. » (Enseignante en danse Hip Hop de Kelly-Anne)
+                    </blockquote>
+
+                    <figure class="article-inline-figure">
+                        <img src="https://lh3.googleusercontent.com/d/1ZPDSyZNNtUxrsvzGVXE0Twq9QL1QEl_q" alt="Spectacle de Hip-Hop de fin décembre">
+                    </figure>
+
+                    <p>
+                        Fin décembre, lors de son spectacle de Hip Hop, Kelly-Anne est à certains moments en avant du groupe d’élèves et ne peut donc s’appuyer sur les mouvements d’une autre élève qui serait devant elle. Pour s’assurer d’être à l’unisson avec son groupe, elle a mémorisé la séquence en danse visuellement lors des ateliers. Elle garde son appareil auditif à ce moment, ce qui lui permet de capter quelques sons. Le mouvement crée aussi des vibrations dans le sol que Kelly-Anne peut ressentir. La salle de spectacle non plus ne comprend pas de plancher vibrant.
+                    </p>
+
+                    <div class="article-dual-figures">
+                        <img src="https://lh3.googleusercontent.com/d/1NI0U14X9kXdjg7mAzdfO7wBMQdDEzTN2" alt="Performance sur scène — Vue 1">
+                        <img src="https://lh3.googleusercontent.com/d/1Qi9gg6pI9l8ERfgjIrnwzWGNAUc0vV67" alt="Performance sur scène — Vue 2">
+                    </div>
+
+                    <p>
+                        Son enseignante évoque que la langue des signes inspire, et pourrait même être intégrée aux chorégraphies<a class="footnote-ref" id="sdfootnote15anc" href="#sdfootnote15sym"><sup>15</sup></a>.
+                    </p>
+                    <blockquote class="article-quote">
+                        « C’est quelque chose qui est inspirant, c’est quelque chose qui donne envie de découvrir et je pense que la danse aussi, c’est une culture qui ouvre. Des projets comme chorégraphier avec la langue des signes, cela a déjà été vu et c’est quelque chose qu’on veut revoir également. En plus, on a la chance d’avoir une élève qui a une grande connaissance à ce niveau-là. Donc, ce n’est pas exclu qu’à un moment donné, on fasse un projet dont la danse va raconter en langue des signes justement l’histoire de cette chorégraphie, ou de cette chanson-là. Exemple : surtout en contemporain, ce sont des choses qui peuvent beaucoup se travailler puisque c’est libre de mouvement. On peut facilement intégrer des mots et justement des phrases qui peuvent justement parler des paroles ou bien sûr raconter une histoire. Donc, ce sont des choses que j’aimerais beaucoup voir et que j’aimerais beaucoup travailler. J’ai déjà eu la chance aussi de voir des chorégraphies avec des gestes comme ça. » (Enseignante en danse Hip Hop de Kelly-Anne)
+                    </blockquote>
+
+                    <h2 class="section-heading" id="sec-conclusion">Conclusion</h2>
+                    <figure class="article-inline-figure">
+                        <img src="https://lh3.googleusercontent.com/d/1sEMtC831k2daVvZj92FGPPpbyoDOIsOk" alt="Kelly-Anne dans son environnement scolaire inclusif">
+                    </figure>
+                    <p>
+                        Cet article est un extrait du projet « Dans la classe de Kelly-Anne » disponible sur la plateforme RÉSEAU éducation des Universités du Québec, soutenue par le ministère de l’Enseignement supérieur<a class="footnote-ref" id="sdfootnote16anc" href="#sdfootnote16sym"><sup>16</sup></a>. Au-delà des matières enseignées durant le secondaire, Kelly-Anne a développé une amitié avec plusieurs élèves dans la classe ordinaire de son école de quartier. Si l’élève réussit aussi bien tant sur le plan de la réussite scolaire que de ses relations sociales, c’est entre autres parce que l’école a mis des mesures en place qui favorisent son inclusion. L’école est le reflet de la société, d’une « mini-société inclusive ». La présence de l’interprète en langue de signes est cruciale pour permettre à Kelly-Anne d’accéder à toute l’information communiquée par l’enseignant, et de participer avec les autres élèves. En ce sens, l’école de Kelly-Anne, d’autant qu’elle est en réussite, est un modèle d’école inclusive, où elle se réalise avec passion dans les matières comme le français, l’anglais et notamment la danse. Son rêve est peut-être encore celui de parcourir le monde, d’étudier à l’Université Gallaudet, aux États-Unis, d’apprendre l’American Sign Language, de continuer à lire l’anglais et de vivre la danse. Peu importe les rêves que Kelly-Anne développera, son inclusion scolaire participe à lui montrer que le fait d’être une élève sourde signeure en langue des signes québécoise n’est pas une limite à ce qu’elle peut accomplir.
+                    </p>
+
+                    <h2 class="section-heading" id="sec-references">Références bibliographiques</h2>
+                    <div class="references-list">
+                        <p>AQEPA (2023), <em>Vivre avec la surdité, Démystifier la langue parlée complétée pour mieux comprendre son utilisation</em>, Montréal : AQEPA, URL : <a href="https://tinyurl.com/pau9p59d" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">https://tinyurl.com/pau9p59d</a>.</p>
+                        <p>Dubuisson, C., Berthiaume, R. (2005), « Entre parents parlons surdité », <em>Recueil de textes</em>, Montréal, Groupe de recherche sur la LSQ et le bilinguisme sourd, 99 p.</p>
+                        <p>Dupont, A., Letscher, S., Jolicoeur, E., Berthiaume, R. et als. (accepté), « Littératie et surdité : Les défis de l’évaluation d’élèves S/sourds », <em>Revue hybride de l’éducation</em>, URL : <a href="http://revues.uqac.ca/index.php/rhe" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">http://revues.uqac.ca/index.php/rhe</a>.</p>
+                        <p>Letscher, S. Moussel, C., Dupont A., Beauregard, F. et als. (2022), Forum social de l’AQEPA : <em>Pour l’accès à l’éducation des élèves S/sourds ou ayant une surdité, Défis, pistes de solution et moyens d’action</em>, Montréal : AQEPA, URL : <a href="https://tinyurl.com/bd3xkv3a" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">https://tinyurl.com/bd3xkv3a</a>, 38 p.</p>
+                        <p>Letscher, S., Dupont, A., Beauregard, F., Berthiaume, R. et als. (2020), « La question du droit à l’éducation pour l’élève sourd ou ayant une surdité : le cas du Québec », dans J.-F. Joye, C. Benelbaz et F. Faberon (Dir.), <em>Identité, dignité et handicap</em>, Clermont-Ferrand : Presses Universitaires de l’Université Clermont-Auvergne, URL : <a href="https://tinyurl.com/2zs9dvdw" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">https://tinyurl.com/2zs9dvdw</a>, pp. 211-224.</p>
+                        <p>Letscher, S., Parent, G. Beaumier, F. (2008), « Un spectacle de danse contemporaine réalisé avec des élèves sourds et des élèves entendants en France : Influence du Processus de Production du Handicap [PPH] de Fougeyrollas et al. (1998) afin de favoriser la participation sociale de personnes sourdes », <em>Développement humain, handicap et changement social</em>, vol. 17, n° 1, pp. 59-73 ; Petit V. et Colin L. (2009), « La Vidéo Participative : essai de cadrage du concept », <em>SociologieS</em>, pp. 1-14.</p>
+                        <p>Rioux-Soucy L.-M. (2007) fait référence à la première initiative internationale de ce genre, en danse contemporaine, portée par la Compagnie de danse Les Ateliers Desmaé, et en collaboration avec Letscher S., dans une classe ordinaire en enseignement bilingue, auprès d’élèves sourds signeurs en langue des signes québécoise et des élèves entendants, en classe ordinaire : « Qui a dit que les sourds n’entendaient rien à la musique et à la danse ? », <em>Le Devoir</em>, URL : <a href="https://tinyurl.com/348sse73" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">https://tinyurl.com/348sse73</a>.</p>
+                    </div>
+
+                    <h2 class="section-heading" id="sec-notes">Notes</h2>
+                    <div class="footnotes-list">
+                        <p id="sdfootnote1sym"><a class="footnote-ref" href="#sdfootnote1anc">1.</a> Le projet complet « Dans la classe de Kelly-Anne » (trois capsules vidéos : en français, en anglais et en danse, incluant une mise en situation pédagogique et des entrevues explicatives, ainsi qu’un guide d’accompagnement pédagogique) est accessible pour toutes les ressources enseignantes du réseau des universités du Québec en suivant ce lien : <a href="http://www.uqtr.ca/reseau-education" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">www.uqtr.ca/reseau-education</a>. Ce projet « Dans la classe d Kelly-Anne » a été produit par l’Université du Québec à Rimouski, et fait partie de l’initiative RÉSEAU éducation coordonnée par l’Université du Québec à Trois-Rivières, soutenue par le ministère de l’Enseignement supérieur.</p>
+                        <p id="sdfootnote2sym"><a class="footnote-ref" href="#sdfootnote2anc">2.</a> Letscher, S., Parent, G., Beaumier, F. (2008), « Un spectacle de danse contemporaine réalisé avec des élèves sourds et des élèves entendants en France : Influence du Processus de Production du Handicap [PPH] de Fougeyrollas et als. (1998) afin de favoriser la participation sociale de personnes sourdes », <em>Développement humain, handicap et changement social</em>, vol. 17, n° 1, pp. 59-73 ; Petit V. et Colin L. (2009), « La Vidéo Participative : essai de cadrage du concept », <em>SociologieS</em>, pp. 1-14.</p>
+                        <p id="sdfootnote3sym"><a class="footnote-ref" href="#sdfootnote3anc">3.</a> Letscher, S., Dupont, A., Beauregard, F., Berthiaume, R., et als. (2020), « La question du droit à l’éducation pour l’élève sourd ou ayant une surdité : le cas du Québec », dans J.-F. Joye, C. Benelbaz et F. Faberon (dir.), <em>Identité, dignité et handicap</em>, Clermont-Ferrand : Presses Universitaires de l’Université Clermont-Auvergne, URL : <a href="https://tinyurl.com/2zs9dvdw" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">https://tinyurl.com/2zs9dvdw</a>, pp. 211-224.</p>
+                        <p id="sdfootnote4sym"><a class="footnote-ref" href="#sdfootnote4anc">4.</a> Ce rapport a été remis au ministère de l’Éducation du Québec : Letscher, S., Moussel, C., Dupont, A., Beauregard, F. et als. (2022), Forum social de l’AQEPA : Pour l’accès à l’éducation des élèves S/sourds ou ayant une surdité, Défis, pistes de solution et moyens d’action. Montréal : AQEPA, URL : <a href="https://tinyurl.com/bd3xkv3a" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">https://tinyurl.com/bd3xkv3a</a>, 38 p.</p>
+                        <p id="sdfootnote5sym"><a class="footnote-ref" href="#sdfootnote5anc">5.</a> <em>Idem</em>.</p>
+                        <p id="sdfootnote6sym"><a class="footnote-ref" href="#sdfootnote6anc">6.</a> Le contenu de ce colloque est disponible sur la plateforme de l’ACFAS (<a href="https://tinyurl.com/bdctsznw" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">https://tinyurl.com/bdctsznw</a>) dont 19 vidéoconférences (en langue des signes québécoise et français) sont diffusées sur l’interface web de l’Association du Québec pour enfants avec problèmes auditifs (<a href="https://aqepa.org/congres-acfas-2022/" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">https://aqepa.org/congres-acfas-2022/</a>).</p>
+                        <p id="sdfootnote7sym"><a class="footnote-ref" href="#sdfootnote7anc">7.</a> À l’instar d’élèves signeurs en langue des signes québécoise de la recherche de Letscher S. et al. (2020). <em>Ibid</em>, et l’étude de Dupont, A., Letscher, S., Jolicoeur, E., Berthiaume, R. et als. (accepté), « Littératie et surdité : Les défis de l’évaluation d’élèves S/sourds », <em>Revue hybride de l’éducation</em>, URL : <a href="http://revues.uqac.ca/index.php/rhe" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">http://revues.uqac.ca/index.php/rhe</a>.</p>
+                        <p id="sdfootnote8sym"><a class="footnote-ref" href="#sdfootnote8anc">8.</a> Le texte complet et un résumé vidéo en langue des signes québécoise sont accessibles en ligne : <a href="https://tinyurl.com/2b2p2uc4" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">https://tinyurl.com/2b2p2uc4</a>.</p>
+                        <p id="sdfootnote9sym"><a class="footnote-ref" href="#sdfootnote9anc">9.</a> <em>Idem</em>., (2019).</p>
+                        <p id="sdfootnote10sym"><a class="footnote-ref" href="#sdfootnote10anc">10.</a> <em>Idem</em>., (2022).</p>
+                        <p id="sdfootnote11sym"><a class="footnote-ref" href="#sdfootnote11anc">11.</a> Le substantif Sourd avec un « S » majuscule fait référence à la personne sourde qui utilise la langue des signes et se considère comme appartenant à la culture sourde, par exemple, selon Dubuisson C. et Berhiaume R. (2005), « Entre parents parlons surdité », <em>Recueil de textes</em>, Montréal, Groupe de recherche sur la LSQ et le bilinguisme sourd, 99 p.</p>
+                        <p id="sdfootnote12sym"><a class="footnote-ref" href="#sdfootnote12anc">12.</a> La langue parlée complétée n’est pas une langue à part entière comme la langue de signes, mais plutôt un mode de communication visuel composé de huit configurations de la main à cinq endroits sur le visage qui, avec la lecture labiale (le fait de lire sur les lèvres), est utilisée pour faciliter l’oralisation, selon l’Association du Québec pour enfants avec problèmes auditifs [AQEPA] (2023), <em>Vivre avec la surdité, Démystifier la langue parlée complétée pour mieux comprendre son utilisation</em>, Montréal, AQEPA, URL : <a href="https://tinyurl.com/pau9p59d" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">https://tinyurl.com/pau9p59d</a>.</p>
+                        <p id="sdfootnote13sym"><a class="footnote-ref" href="#sdfootnote13anc">13.</a> <em>Idem</em>., (2022).</p>
+                        <p id="sdfootnote14sym"><a class="footnote-ref" href="#sdfootnote14anc">14.</a> L’Université Gallaudet prodigue un enseignement bilingue en <em>american sign language</em> et en anglais pour les étudiants Sourds, aux États-Unis, selon Gallaudet University (2023), <em>Leaders. Innovators. Changemakers</em>, Washington, URL : <a href="https://gallaudet.edu/" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">https://gallaudet.edu/</a>.</p>
+                        <p id="sdfootnote15sym"><a class="footnote-ref" href="#sdfootnote15anc">15.</a> Rioux Soucy L.-M. (2007) fait référence à la première initiative internationale de ce genre, en danse contemporaine, portée par la Compagnie de danse Les Ateliers Desmaé et en collaboration avec Letscher, S., dans une classe ordinaire en enseignement bilingue, auprès d’élèves sourds signeurs en langue des signes québécoise et des élèves entendants, en classe ordinaire : « Qui a dit que les sourds n’entendaient rien à la musique et à la danse ? », <em>Le Devoir</em>, URL : <a href="https://tinyurl.com/348sse73" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">https://tinyurl.com/348sse73</a>, p. 1.</p>
+                        <p id="sdfootnote16sym"><a class="footnote-ref" href="#sdfootnote16anc">16.</a> <em>Idem.</em>, <a href="https://www.uqtr.ca/reseau-education" target="_blank" rel="noopener noreferrer" style="color: #7a2222;">https://www.uqtr.ca/reseau-education</a>.</p>
+                    </div>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <!-- Modal Universel (PDF / Vidéo) -->
+    <div class="modal-overlay" id="mediaModal" onclick="closeModalOnOutside(event)">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 id="modalTitle">Titre de la fenêtre</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBodyContent"></div>
+        </div>
+    </div>
+
+    <!-- Modal de Proposition d'Article / Projet -->
+    <div class="modal-overlay" id="proposalModal" onclick="closeProposalModalOnOutside(event)">
+        <div class="modal-container" style="max-width: 800px; height: auto;">
+            <div class="modal-header">
+                <h3 id="proposalModalTitle">Proposer une captation ou un article / Nous faire part d'un commentaire</h3>
+                <button class="modal-close" onclick="closeProposalModal()">&times;</button>
+            </div>
+            <div class="modal-body" style="padding: 1.5rem; overflow-y: auto;">
+                <form id="proposalForm" onsubmit="submitProposal(event)" style="display: flex; flex-direction: column; gap: 1rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                    <input type="hidden" id="propCategory" value="article">
+                    <div>
+                        <label for="propName" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Votre nom</label>
+                        <input type="text" id="propName" required style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propEmail" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Votre courriel</label>
+                        <input type="email" id="propEmail" required style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propTitle" id="propTitleLabel" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Que désirez-vous nous communiquer ?</label>
+                        <input type="text" id="propTitle" required placeholder="Ex: Analyse de l'accessibilité urbaine..." style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propDesc" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Description ou résumé</label>
+                        <textarea id="propDesc" rows="4" required placeholder="Décrivez votre proposition en quelques lignes..." style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff; resize: vertical;"></textarea>
+                    </div>
+                    <button type="submit" style="background-color: #7a2222; color: #fff; border: none; padding: 0.75rem; border-radius: 4px; font-weight: 600; cursor: pointer; margin-top: 0.5rem; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#5e1a1a'" onmouseout="this.style.backgroundColor='#7a2222'">Envoyer la proposition</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSubmenu(event, submenuId, arrowId) {
+            event.stopPropagation();
+            const submenu = document.getElementById(submenuId);
+            const arrow = document.getElementById(arrowId);
+            submenu.classList.toggle('open');
+            arrow.style.transform = submenu.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
+
+        function scrollToSection(event, targetId) {
+            event.preventDefault();
+            if (targetId === 'top-presentation') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                return;
+            }
+            const targetEl = document.getElementById(targetId);
+            if (targetEl) {
+                const topbarOffset = 60 + 24;
+                const elementPosition = targetEl.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - topbarOffset;
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        function selectConceptNode(mapId, nodeEl, title, description) {
+            const container = document.getElementById(mapId);
+            if (!container) return;
+            const nodes = container.querySelectorAll('.svg-node');
+            nodes.forEach(n => n.classList.remove('active'));
+            nodeEl.classList.add('active');
+            const detailPanel = document.getElementById('detail-' + mapId);
+            if (detailPanel) {
+                detailPanel.innerHTML = '<strong>' + title + '</strong>' + description;
+            }
+        }
+
+        const VIDEO_SYNOPSES = {
+            'synopsis-courte': "Cette capsule présente le parcours scolaire de Kelly-Anne, une jeune élève sourde signeure en langue des signes québécoise fréquentant une classe ordinaire au secondaire. Grâce au soutien de son interprète, à l’engagement de ses enseignants et à sa passion pour la danse, elle s’épanouit pleinement dans un environnement éducatif bilingue et inclusif, illustrant des pratiques concrètes favorables à la réussite.",
+            'synopsis-longue': "Ce documentaire explore en profondeur le quotidien éducatif et social de Kelly-Anne, une adolescente sourde signeure en langue des signes québécoise intégrée en classe ordinaire et en programme danse-études. À travers les témoignages de Kelly-Anne, de sa mère, de son interprète, de ses enseignants et de ses amies, le film révèle les leviers pédagogiques et humains d’une véritable inclusion scolaire."
+        };
+
+        function openVideoWithSynopsis(title, url, synopsisKey) {
+            const modal = document.getElementById('mediaModal');
+            const modalContainer = modal.querySelector('.modal-container');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalBodyContent = document.getElementById('modalBodyContent');
+
+            modalContainer.classList.add('video-synopsis-modal');
+            modalTitle.textContent = title;
+            modalBodyContent.innerHTML = '';
+
+            const splitWrapper = document.createElement('div');
+            splitWrapper.className = 'modal-video-split';
+
+            const videoPane = document.createElement('div');
+            videoPane.className = 'modal-video-pane';
+            const iframe = document.createElement('iframe');
+            iframe.className = 'video-frame';
+            iframe.src = url;
+            iframe.setAttribute('allow', 'autoplay; fullscreen');
+            iframe.setAttribute('allowfullscreen', 'true');
+            videoPane.appendChild(iframe);
+
+            const synopsisPane = document.createElement('div');
+            synopsisPane.className = 'modal-synopsis-pane';
+            const heading = document.createElement('h4');
+            heading.textContent = 'Synopsis';
+            const paragraph = document.createElement('p');
+            paragraph.textContent = VIDEO_SYNOPSES[synopsisKey] || '';
+            synopsisPane.appendChild(heading);
+            synopsisPane.appendChild(paragraph);
+
+            splitWrapper.appendChild(videoPane);
+            splitWrapper.appendChild(synopsisPane);
+            modalBodyContent.appendChild(splitWrapper);
+
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function openModal(type, title, url) {
+            const modal = document.getElementById('mediaModal');
+            const modalContainer = modal.querySelector('.modal-container');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalBodyContent = document.getElementById('modalBodyContent');
+
+            modalContainer.classList.remove('video-synopsis-modal');
+            modalTitle.textContent = title;
+            modalBodyContent.innerHTML = '';
+
+            if (type === 'pdf') {
+                const iframe = document.createElement('iframe');
+                iframe.className = 'pdf-frame';
+                iframe.src = url;
+                modalBodyContent.appendChild(iframe);
+            } else if (type === 'video') {
+                const iframe = document.createElement('iframe');
+                iframe.className = 'video-frame';
+                iframe.src = url;
+                iframe.setAttribute('allow', 'autoplay; fullscreen');
+                modalBodyContent.appendChild(iframe);
+            }
+
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('mediaModal');
+            const modalContainer = modal.querySelector('.modal-container');
+            modal.style.display = 'none';
+            modalContainer.classList.remove('video-synopsis-modal');
+            document.getElementById('modalBodyContent').innerHTML = '';
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeModalOnOutside(event) {
+            const modal = document.getElementById('mediaModal');
+            if (event.target === modal) closeModal();
+        }
+
+        function openProposalModal(type) {
+            const proposalModal = document.getElementById('proposalModal');
+            const titleEl = document.getElementById('proposalModalTitle');
+            const categoryEl = document.getElementById('propCategory');
+            const titleLabelEl = document.getElementById('propTitleLabel');
+            const titleInputEl = document.getElementById('propTitle');
+
+            categoryEl.value = type;
+
+            if (type === 'captation') {
+                titleEl.textContent = "Nous faire part d'un commentaire ou d'une proposition (captation ou article)";
+                titleLabelEl.textContent = "Que voulez-vous nous communiquer ?";
+                titleInputEl.placeholder = "Ex: projet de captation, soumettre un article, faire un commentaire...";
+            } else {
+                titleEl.textContent = "Nous faire part d'un commentaire ou d'une proposition (captation ou article)";
+                titleLabelEl.textContent = "Que voulez-vous nous communiquer ?";
+                titleInputEl.placeholder = "Ex: projet de captation, soumettre un article, faire un commentaire...";
+            }
+
+            proposalModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProposalModal() {
+            const proposalModal = document.getElementById('proposalModal');
+            proposalModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeProposalModalOnOutside(event) {
+            const proposalModal = document.getElementById('proposalModal');
+            if (event.target === proposalModal) closeProposalModal();
+        }
+
+        function submitProposal(event) {
+            event.preventDefault();
+            const name = document.getElementById('propName').value;
+            const email = document.getElementById('propEmail').value;
+            const category = document.getElementById('propCategory').value;
+            const title = document.getElementById('propTitle').value;
+            const desc = document.getElementById('propDesc').value;
+
+            const typeLabel = category === 'captation' ? 'Proposition de captation' : "Proposition d'article";
+            const subject = encodeURIComponent(`${typeLabel} : ${title}`);
+            const body = encodeURIComponent(`Nom : ${name}\nCourriel : ${email}\nType : ${typeLabel}\nTitre : ${title}\n\nDescription :\n${desc}`);
+
+            window.location.href = `mailto:sociocamera@gmail.com?subject=${subject}&body=${body}`;
+            closeProposalModal();
+        }
+
+        window.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+                closeProposalModal();
+            }
+        });
+    </script>
+</body>
+</html>
