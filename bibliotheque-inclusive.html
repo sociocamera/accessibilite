@@ -1,0 +1,1856 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; frame-src https://drive.google.com; connect-src https://script.google.com; object-src 'none';">
+    <title>Co-conception d’une bibliothèque scolaire inclusive | Revue de Sociologie Visuelle</title>
+    <meta name="description" content="Co-conception d’une bibliothèque scolaire inclusive par Ernesto Morales, Julie Ruel et collaborateurs. Numéro spécial de la Revue de Sociologie Visuelle dirigé par François Routhier et Pierre Fraser.">
+    <meta name="keywords" content="inclusion sociale, accessibilité, sociologie visuelle, bibliothèque scolaire inclusive, handicap, CIRRIS, PSVI">
+    <link rel="canonical" href="https://doi.org/10.13140/RG.2.2.35504.53768">
+
+<!-- Open Graph (Facebook, LinkedIn, WhatsApp, etc.) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Revue Sociologie Visuelle">
+<meta property="og:title" content="Inclusion sociale et accessibilité | Revue de Sociologie Visuelle">
+<meta property="og:description" content="Numéro spécial de la Revue de Sociologie Visuelle consacré à l'inclusion sociale et à l'accessibilité. Contributions empiriques et théoriques dirigées par François Routhier et Pierre Fraser.">
+<meta property="og:url" content="https://inclusionsociale.com/">
+<meta property="og:image" content="https://lh3.googleusercontent.com/d/1R-6VqA6SZ8t1dall1uf0mj_ehOcj7jNW">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="fr_CA">
+
+<!-- Twitter / X Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Inclusion sociale et accessibilité | Revue de Sociologie Visuelle">
+<meta name="twitter:description" content="Numéro spécial de la Revue de Sociologie Visuelle consacré à l'inclusion sociale et à l'accessibilité.">
+<meta name="twitter:image" content="https://inclusionsociale.com/images/vignette-inclusion-sociale.jpg">
+
+
+    <style>
+        :root {
+            --bg-color: #FAF6EF;
+            --text-color: #2b2b2b;
+            --primary-color: #1a202c;
+            --accent-color: #4a5568;
+            --border-color: #e2e8f0;
+            --card-bg: #FAF6EF;
+            --hover-border: #cbd5e0;
+            --max-width: 1400px;
+            --sidebar-width: 320px;
+            --topbar-height: 60px;
+            --modal-header-bg: #7a2222; /* Bordeaux de référence */
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Georgia", "Cambria", "Times New Roman", serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Barre horizontale permanente supérieure : toute la largeur de la page */
+        .top-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--topbar-height);
+            background-color: var(--bg-color);
+            border-bottom: 1px solid var(--border-color);
+            display: grid;
+            grid-template-columns: var(--sidebar-width) 1fr auto;
+            align-items: center;
+            padding: 0;
+            z-index: 1100;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .top-navbar-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            letter-spacing: 0.02em;
+            padding-left: 1.5rem;
+            border-right: 1px solid var(--border-color);
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .top-navbar-location {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            background-color: #f2ede4;
+            padding: 0.3rem 0.75rem;
+            border-radius: 4px;
+            margin-right: 2.5rem;
+        }
+
+        /* Colonne latérale gauche permanente sous la barre fixe du haut */
+        aside.sidebar {
+            position: fixed;
+            top: var(--topbar-height);
+            left: 0;
+            width: var(--sidebar-width);
+            height: calc(100vh - var(--topbar-height));
+            background-color: #f5f0e6;
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            z-index: 1000;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            overflow-y: auto;
+        }
+
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .btn-home {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            background-color: #7a2222;
+            color: #fff;
+            border: none;
+            padding: 0.85rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        .btn-home svg {
+            position: absolute;
+            left: 1rem;
+        }
+
+        .btn-home:hover {
+            background-color: #5e1a1a;
+        }
+
+        .sidebar-info-section {
+            padding: 1rem 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .sidebar-card {
+            background-color: #FAF6EF;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 0.85rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            text-align: justify;
+        }
+
+        .sidebar-card.editor-card {
+            flex-direction: row;
+            align-items: center;
+            gap: 0.75rem;
+            text-align: left;
+        }
+
+        .editor-info h4 {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            margin-bottom: 0.15rem;
+        }
+
+        .editor-info p {
+            font-size: 0.78rem;
+            color: var(--accent-color);
+            line-height: 1.4;
+        }
+
+        .sidebar-nav {
+            padding: 1.25rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            flex: 1;
+        }
+
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--primary-color);
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-align: left;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            background-color: #eae3d5;
+            border-color: var(--hover-border);
+        }
+
+        .page-nav-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background: transparent;
+            border: none;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #7a2222;
+            letter-spacing: 0.05em;
+            margin-top: 0.75rem;
+            margin-bottom: 0.25rem;
+            padding: 0.4rem 0.25rem;
+            cursor: pointer;
+            text-align: left;
+            font-family: inherit;
+            transition: opacity 0.2s ease;
+        }
+
+        .page-nav-toggle:hover {
+            opacity: 0.8;
+        }
+
+        .submenu {
+            display: none;
+            flex-direction: column;
+            gap: 0.4rem;
+            padding-left: 1rem;
+            margin-top: -0.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .submenu.open {
+            display: flex;
+        }
+
+        .submenu-item {
+            font-size: 0.82rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            padding: 0.4rem 0.75rem;
+            border-radius: 4px;
+            transition: background-color 0.15s, color 0.15s;
+            border-left: 2px solid #d4c5b9;
+        }
+
+        .submenu-item:hover {
+            background-color: #eae3d5;
+            color: var(--primary-color);
+            border-left-color: #7a2222;
+        }
+
+        /* Conteneur principal à droite, décalé pour laisser place à la sidebar et topbar */
+        .main-wrapper {
+            margin-left: var(--sidebar-width);
+            margin-top: var(--topbar-height);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            width: calc(100% - var(--sidebar-width));
+            padding: 2.5rem 2rem 4rem 2rem;
+            align-items: center;
+        }
+
+        .article-container {
+            width: 100%;
+            max-width: 1060px;
+            margin: 0 auto;
+        }
+
+        /* Ancre avec décalage pour pointer légèrement au-dessus des titres */
+        .scroll-anchor {
+            scroll-margin-top: calc(var(--topbar-height) + 28px);
+        }
+
+        /* En-tête de l'article */
+        .article-header {
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #d4c5b9;
+            padding-bottom: 1.25rem;
+        }
+
+        .article-kicker {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #7a2222;
+            margin-bottom: 0.5rem;
+        }
+
+        .article-title {
+            font-size: 2.25rem;
+            line-height: 1.25;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        /* Grille à deux cases blanchâtres (Auteurs & Citation) */
+        .meta-grid {
+            display: grid;
+            grid-template-columns: 1.45fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .whitish-box {
+            background-color: #FDFBF7;
+            border: 1px solid #e5dec9;
+            border-radius: 8px;
+            padding: 1.25rem 1.4rem;
+            font-size: 0.86rem;
+            line-height: 1.55;
+            color: #3a3a3a;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .authors-photos-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.85rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.9rem;
+            border-bottom: 1px solid #ece5d3;
+        }
+
+        .author-photo-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .author-avatar {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #7a2222;
+            background-color: #f2ede4;
+            margin-bottom: 0.45rem;
+        }
+
+        .author-avatar-placeholder {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            border: 2px dashed #b8a99a;
+            background-color: #f4efe6;
+            color: #7a2222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 0.45rem;
+        }
+
+        .author-card-name {
+            font-weight: 700;
+            font-size: 0.8rem;
+            color: var(--primary-color);
+            line-height: 1.25;
+        }
+
+        .author-card-name sup {
+            color: #7a2222;
+            font-weight: 600;
+        }
+
+        .all-authors-list {
+            font-size: 0.84rem;
+            color: #2b2b2b;
+            margin-bottom: 0.65rem;
+        }
+
+        .affiliations-list {
+            font-size: 0.78rem;
+            color: var(--accent-color);
+            line-height: 1.45;
+        }
+
+        .box-label {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.76rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #7a2222;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Grille à deux cases blanchâtres (Résumés FR & EN) */
+        .abstract-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .abstract-box {
+            background-color: #FDFBF7;
+            border: 1px solid #e5dec9;
+            border-radius: 8px;
+            padding: 1.35rem 1.5rem;
+            font-size: 0.88rem;
+            line-height: 1.6;
+            color: #333333;
+            text-align: justify;
+        }
+
+        .abstract-keywords {
+            margin-top: 0.85rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid #ece5d3;
+            font-size: 0.82rem;
+            color: var(--accent-color);
+            text-align: left;
+        }
+
+        /* Corps de l'article */
+        .article-body {
+            font-size: 1.06rem;
+            line-height: 1.78;
+            color: var(--text-color);
+        }
+
+        .article-body p {
+            margin-bottom: 1.15rem;
+            text-align: justify;
+        }
+
+        /* Titres des sous-chapitres en rouge bordeaux */
+        .section-heading {
+            color: #7a2222;
+            font-size: 1.55rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.35rem;
+            border-bottom: 1px solid #e2d8c8;
+        }
+
+        .subsection-heading {
+            color: #7a2222;
+            font-size: 1.24rem;
+            font-weight: 700;
+            margin-top: 1.9rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .subsubsection-heading {
+            color: #7a2222;
+            font-size: 1.08rem;
+            font-style: italic;
+            font-weight: 700;
+            margin-top: 1.4rem;
+            margin-bottom: 0.55rem;
+        }
+
+        /* Lettrine rouge bordeaux en gras pour Introduction */
+        .dropcap::first-letter {
+            float: left;
+            font-size: 3.7rem;
+            line-height: 0.82;
+            padding-top: 0.1rem;
+            padding-right: 0.65rem;
+            padding-left: 0.05rem;
+            color: #7a2222;
+            font-weight: 700;
+            font-family: "Georgia", "Times New Roman", serif;
+        }
+
+        .article-body ul, .article-body ol {
+            margin: 0.75rem 0 1.25rem 1.75rem;
+        }
+
+        .article-body li {
+            margin-bottom: 0.45rem;
+            text-align: justify;
+        }
+
+        .footnote-ref {
+            font-size: 0.72em;
+            vertical-align: super;
+            color: #7a2222;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footnote-ref:hover {
+            text-decoration: underline;
+        }
+
+        /* Figure et image */
+        .article-figure {
+            background-color: #FDFBF7;
+            border: 1px solid #e5dec9;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.75rem 0;
+            text-align: center;
+        }
+
+        .article-figure figcaption {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            margin-bottom: 0.85rem;
+            text-align: left;
+        }
+
+        .article-figure img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            border: 1px solid #e2d8c8;
+        }
+
+        /* Tableaux du groupe nominal */
+        .data-table-wrapper {
+            margin: 1.5rem 0 2rem 0;
+            overflow-x: auto;
+        }
+
+        .table-caption {
+            font-size: 0.98rem;
+            margin-bottom: 0.6rem;
+            color: var(--primary-color);
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #FDFBF7;
+            font-size: 0.95rem;
+        }
+
+        .data-table th {
+            background-color: #f0e9dc;
+            color: #7a2222;
+            font-weight: 700;
+            text-align: left;
+            padding: 0.75rem 1rem;
+            border: 1px solid #d8cebe;
+        }
+
+        .data-table th.freq-col, .data-table td.freq-col {
+            text-align: center;
+            width: 130px;
+            font-weight: 600;
+        }
+
+        .data-table td {
+            padding: 0.65rem 1rem;
+            border: 1px solid #e2d8c8;
+            vertical-align: middle;
+        }
+
+        .data-table tr:nth-child(even) td {
+            background-color: #FAF6EF;
+        }
+
+        /* Cartes conceptuelles interactives SVG (fond plus pâle que #FAF6EF) */
+        .concept-map-card {
+            background-color: #FEFDFB;
+            border: 1px solid #e4dccd;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2.25rem 0;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+        }
+
+        .concept-map-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #eee7d8;
+            padding-bottom: 0.6rem;
+        }
+
+        .concept-map-title {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #7a2222;
+        }
+
+        .concept-map-hint {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.78rem;
+            color: var(--accent-color);
+            font-style: italic;
+        }
+
+        .concept-svg {
+            width: 100%;
+            height: auto;
+            display: block;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .svg-node {
+            cursor: pointer;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .svg-node:hover rect, .svg-node:hover circle, .svg-node:hover polygon {
+            stroke: #7a2222;
+            stroke-width: 2.5px;
+            filter: drop-shadow(0 3px 6px rgba(122, 34, 34, 0.16));
+        }
+
+        .svg-node.active rect, .svg-node.active circle {
+            fill: #7a2222 !important;
+        }
+
+        .svg-node.active text {
+            fill: #ffffff !important;
+        }
+
+        .concept-detail-panel {
+            margin-top: 1rem;
+            padding: 0.95rem 1.15rem;
+            background-color: #FAF6EF;
+            border-left: 4px solid #7a2222;
+            border-radius: 4px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.88rem;
+            line-height: 1.55;
+            color: #2b2b2b;
+        }
+
+        .concept-detail-panel strong {
+            color: #7a2222;
+        }
+
+        /* Références et notes */
+        .references-list, .footnotes-list {
+            font-size: 0.9rem;
+            line-height: 1.55;
+            color: #3a3a3a;
+        }
+
+        .references-list p, .footnotes-list p {
+            padding-left: 1.5rem;
+            text-indent: -1.5rem;
+            margin-bottom: 0.55rem;
+            text-align: left;
+        }
+
+        .footnotes-section {
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #d4c5b9;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            padding-left: 2rem;
+        }
+
+        .btn-header {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: 1px solid var(--primary-color);
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: background-color 0.2s;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-header.secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border-color: var(--border-color);
+        }
+
+        .btn-header.secondary:hover {
+            background-color: #f2ede4;
+            border-color: var(--hover-border);
+        }
+
+        /* Styles harmonisés des fenêtres modales selon l'image de référence */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+        }
+
+        .modal-container {
+            background: var(--bg-color);
+            width: 100%;
+            max-width: 900px;
+            height: 85vh;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            border: 1px solid #d4c5b9;
+        }
+
+        .modal-header {
+            padding: 1.25rem 1.5rem;
+            background: var(--modal-header-bg);
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .modal-header h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .modal-close {
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #fff;
+            opacity: 0.85;
+            transition: opacity 0.2s;
+        }
+
+        .modal-close:hover {
+            opacity: 1;
+        }
+
+        .modal-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            background-color: var(--bg-color);
+        }
+
+        .pdf-frame, .video-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        @media (max-width: 1200px) {
+            :root { --sidebar-width: 0px; }
+            .top-navbar { left: 0; padding: 0 1rem; grid-template-columns: 1fr auto; }
+            .top-navbar-title { display: none; }
+            aside.sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
+            aside.sidebar.mobile-open { transform: translateX(0); }
+            .main-wrapper { margin-left: 0; width: 100%; }
+            .meta-grid, .abstract-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barre horizontale permanente supérieure -->
+    <header class="top-navbar">
+        <div class="top-navbar-title">Revue Sociologie Visuelle</div>
+        <div class="header-actions">
+            <button class="btn-header secondary" onclick="openModal('video', 'Présentation introductive — Vidéo', 'https://drive.google.com/file/d/10Va3etjn9wZIqrVnByyNXDVM-XPKOHkK/preview?autoplay=1')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                Visionner la vidéo de présentation
+            </button>
+            <button class="btn-header secondary" onclick="openProposalModal('article')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                Proposer un projet de captation ou un article
+            </button>
+            <button class="btn-header secondary" onclick="openModal('pdf', 'Télécharger le numéro complet', 'https://drive.google.com/file/d/1d3ZUnnEwYomQ1VRQ1lF8XNei88HelQvy/preview')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Télécharger le numéro
+            </button>
+        </div>
+        <div class="top-navbar-location" id="locationIndicator">Co-conception d’une bibliothèque scolaire inclusive</div>
+    </header>
+
+    <!-- Colonne latérale gauche permanente -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="https://inclusionsociale.com" class="btn-home">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                ACCUEIL
+            </a>
+        </div>
+
+        <div class="sidebar-info-section">
+            <div style="font-size: 0.72rem; color: #718096; text-align: left; margin-bottom: 0.05rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                DOI : <a href="https://doi.org/10.13140/RG.2.2.35504.53768" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; opacity: 0.85;">10.13140/RG.2.2.35504.53768</a>
+            </div>
+
+            <div class="sidebar-card editor-card">
+                <div class="editor-info">
+                    <h4>Éditeurs</h4>
+                    <p><b>François Routhier & Pierre Fraser</b></p>
+                    <p>Plus de 18 équipes de recherche mobilisées afin de saisir comment le milieu façonne et articule l'accès aux services et à l'inclusion sociale.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-nav">
+            <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: #7a2222; letter-spacing: 0.05em; margin-bottom: 0.5rem; padding-left: 0.25rem;">NAVIGATION SUR LE SITE</div>
+
+            <div>
+                <button class="nav-btn" onclick="toggleSubmenu(event, 'accessibilitySubmenu', 'submenuArrow')">
+                    <span>Penser l'accessibilité</span>
+                    <svg id="submenuArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu" id="accessibilitySubmenu">
+                    <a href="https://inclusionsociale.com/#theme-1" class="submenu-item">1. Espace urbain & transports</a>
+                    <a href="https://inclusionsociale.com/#theme-2" class="submenu-item">2. Éducation & institutions</a>
+                    <a href="https://inclusionsociale.com/#theme-3" class="submenu-item">3. Travail, autonomie & loisirs</a>
+                    <a href="https://inclusionsociale.com/#theme-4" class="submenu-item">4. Expérience vécue & stigmates</a>
+                </div>
+            </div>
+
+            <div>
+                <button class="nav-btn" onclick="toggleSubmenu(event, 'bilansSubmenu', 'bilansSubmenuArrow')">
+                    <span>Bilans</span>
+                    <svg id="bilansSubmenuArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu" id="bilansSubmenu">
+                    <a href="https://inclusionsociale.com/mentorat-actif-bilan.html" class="submenu-item">Mentorat actif, un plus tard</a>
+                </div>
+            </div>
+
+            <!-- Bouton Tournages en cours non gras -->
+            <div>
+                <a href="https://inclusionsociale.com/tournages.html" class="nav-btn" style="font-weight: normal;">
+                    <span>Tournages en cours</span>
+                </a>
+            </div>
+
+            <!-- Mention cliquable NAVIGATION DANS LA PAGE sous Tournages en cours -->
+            <div>
+                <button class="page-nav-toggle" onclick="toggleSubmenu(event, 'pageNavSubmenu', 'pageNavArrow')">
+                    <span>NAVIGATION DANS LA PAGE</span>
+                    <svg id="pageNavArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="transform: rotate(180deg);"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu open" id="pageNavSubmenu">
+                    <a href="#top-presentation" class="submenu-item">Présentation</a>
+                    <a href="#sec-introduction" class="submenu-item">Introduction</a>
+                    <a href="#sec-besoins" class="submenu-item">1. Les besoins de l’école l’Envol</a>
+                    <a href="#sec-methodologie" class="submenu-item">2. Méthodologie</a>
+                    <a href="#sec-resultats" class="submenu-item">3. Résultats</a>
+                    <a href="#sec-discussion" class="submenu-item">4. Discussion</a>
+                    <a href="#sec-conclusion" class="submenu-item">Conclusion</a>
+                    <a href="#sec-references" class="submenu-item">Références bibliographiques</a>
+                </div>
+            </div>
+
+        </div>
+    </aside>
+
+    <!-- Zone de contenu dynamique à droite -->
+    <div class="main-wrapper" id="top-presentation">
+        <main class="article-container">
+
+            <!-- En-tête du haut de la page -->
+            <header class="article-header">
+                <div class="article-kicker">Rubrique 02 • Éducation — Sociologie Visuelle, n° 4</div>
+                <h1 class="article-title">Co-conception d’une bibliothèque scolaire inclusive</h1>
+            </header>
+
+            <!-- Deux cases l'une à côté de l'autre sur fond blanchâtre (Auteurs & Citation) -->
+            <section class="meta-grid" aria-label="Auteurs et citation">
+                <!-- Première case : 4 photos côte à côte, noms et affiliations -->
+                <div class="whitish-box">
+                    <div class="box-label">Auteurs et affiliations</div>
+                    <div class="authors-photos-row">
+                        <div class="author-photo-card">
+                            <img src="https://lh3.googleusercontent.com/d/1U-IJ3tNTWLfkTzGJ7A4jKScgQn9tZXR1" alt="Ernesto Morales" class="author-avatar">
+                            <div class="author-card-name">Ernesto MORALES<sup>2-5</sup></div>
+                        </div>
+                        <div class="author-photo-card">
+                            <img src="https://lh3.googleusercontent.com/d/1Hv29FOZ4Ol3y2BPA3XtBicjS5LoIx7be" alt="Julie Ruel" class="author-avatar">
+                            <div class="author-card-name">Julie RUEL<sup>2-4</sup></div>
+                        </div>
+                    </div>
+                    <div class="all-authors-list">
+                        <strong>Coauteurs :</strong> William Thériault<sup>2-5</sup> Émilie Léger<sup>1</sup> Karine N. TREMBLAY<sup>3</sup>, André C. MOREAU<sup>4</sup>, Francis CHARRIER<sup>2-5</sup>
+                    </div>
+                    <div class="affiliations-list">
+                        <strong>Affiliations :</strong>
+                        <sup>1</sup> Centre de services scolaire des Premières-Seigneuries.
+                        <sup>2</sup> Cirris.
+                        <sup>3</sup> Université du Québec à Chicoutimi.
+                        <sup>4</sup> Université du Québec en Outaouais.
+                        <sup>5</sup> Université Laval.
+                    </div>
+                </div>
+
+                <!-- Seconde case : Citation de l'article -->
+                <div class="whitish-box" style="display: flex; flex-direction: column; justify-content: center;">
+                    <div class="box-label">Citer cet article</div>
+                    <p style="margin: 0; text-align: justify;">
+                        Morales, E., Ruel, J. et als. (2023), «&nbsp;Co-conception d’une bibliothèque scolaire inclusive&nbsp;», <em>Sociologie Visuelle</em>, n° 4, François Routhier et Pierre Fraser (éds.), Québec&nbsp;: Photo|Société, pp. 25-42.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section Résumé : deux cases sur fond blanchâtre (Français & Anglais) -->
+            <section class="abstract-grid" aria-label="Résumés">
+                <!-- Case 1 : Résumé en français -->
+                <div class="abstract-box">
+                    <div class="box-label">Résumé</div>
+                    <p>
+                        Plusieurs organisations internationales et gouvernementales reconnaissent le rôle important occupé par les bibliothèques scolaires dans les activités d’enseignement et d’apprentissage de l’ensemble de la communauté scolaire. Au Québec, le ministère de l’Éducation<a class="footnote-ref" id="fnref1" href="#fn1">1</a> considère que les bibliothèques scolaires complètent et soutiennent l’atteinte des objectifs pédagogiques poursuivis par les écoles. Ces bibliothèques contribuent à la formation des jeunes lecteurs par le développement du plaisir de lire et de l’habitude à lire pour la vie<a class="footnote-ref" id="fnref2" href="#fn2">2</a>. Les bibliothèques scolaires soutiennent aussi l’acquisition de compétences disciplinaires et transversales essentielles à la réussite scolaire<a class="footnote-ref" id="fnref3" href="#fn3">3</a>. Une bibliothèque est un lieu de développement culturel, de détente et d’émerveillement, d’apprentissage diversifié, de connaissances du monde et de soi, de développement du sens critique, de différenciation, de recherche, ainsi que d’intimité et de liberté<a class="footnote-ref" id="fnref4" href="#fn4">4</a>-<a class="footnote-ref" id="fnref5" href="#fn5">5</a>. Pour jouer ces rôles importants, les bibliothèques scolaires doivent être inclusives, c’est-à-dire être capables d’accueillir et de servir l’ensemble des élèves, peu importe le niveau de leurs aptitudes et la nature de leurs incapacités<a class="footnote-ref" id="fnref6" href="#fn6">6</a>. La réalisation d’un tel projet demande aux bibliothécaires de se questionner sur la qualité et l’impact que peuvent avoir&nbsp;: (i) les politiques et les procédures employées&nbsp;; (ii) les lieux et les équipements offerts&nbsp;; (iii) les sources d’information et leurs formats&nbsp;; (iv) les compétences et les attitudes du personnel&nbsp;; (v) les activités d’enseignement et d’apprentissage offertes aux élèves handicapés ou en difficulté d’adaptation ou d’apprentissage<a class="footnote-ref" id="fnref7" href="#fn7">7</a>.
+                    </p>
+                    <div class="abstract-keywords">
+                        <strong>Mots-clés :</strong> Accessibilité universelle&nbsp;; aménagement physique&nbsp;; élèves ayant des incapacités&nbsp;; salle de classe&nbsp;; environnement capacitant&nbsp;; obstacles environnementaux.
+                    </div>
+                </div>
+
+                <!-- Case 2 : Résumé en anglais -->
+                <div class="abstract-box" lang="en">
+                    <div class="box-label">Abstract</div>
+                    <p>
+                        Several international and governmental organizations recognize the important role played by school libraries in the teaching and learning activities of the entire school community. In Quebec, the Ministry of Education considers that school libraries complement and support the achievement of the educational objectives pursued by schools. These libraries contribute to the development of young readers by fostering the pleasure of reading and lifelong reading habits. School libraries also support the acquisition of disciplinary and cross-curricular competencies essential to academic success. A library is a place for cultural development, relaxation and wonder, diversified learning, knowledge of the world and of oneself, development of critical thinking, differentiation, research, as well as intimacy and freedom. To fulfill these vital roles, school libraries must be inclusive—that is, capable of welcoming and serving all students, regardless of their level of ability or the nature of their disabilities. Carrying out such a project requires librarians to examine the quality and impact of: (i) the policies and procedures used; (ii) the spaces and equipment provided; (iii) information sources and their formats; (iv) staff skills and attitudes; and (v) teaching and learning activities offered to students with disabilities or learning and adjustment difficulties.
+                    </p>
+                    <div class="abstract-keywords">
+                        <strong>Keywords:</strong> Universal accessibility; physical layout; students with disabilities; classroom; enabling environment; environmental barriers.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Corps principal de l'article -->
+            <article class="article-body">
+
+                <!-- INTRODUCTION -->
+                <h2 id="sec-introduction" class="section-heading scroll-anchor">Introduction</h2>
+
+                <p class="dropcap">
+                    Un nombre croissant d’architectes, de concepteurs et de chercheurs s’intéressent à la conception et au développement de bibliothèques inclusives, mais la littérature scientifique sur le sujet est encore limitée. Jusqu’à présent, des aménagements physiques ont été identifiés pour accueillir des personnes ayant un trouble du spectre de l’autisme (TSA)<a class="footnote-ref" id="fnref8" href="#fn8">8</a> ou une déficience intellectuelle (DI)<a class="footnote-ref" id="fnref9" href="#fn9">9</a>. Aussi, des guides et des outils ont soutenu la conception de bibliothèques publiques, universitaires et scolaires plus accessibles<a class="footnote-ref" id="fnref10" href="#fn10">10</a>. Ces ressources ont contribué à sensibiliser les directions des écoles ainsi que les bibliothécaires aux enjeux de la conception de bibliothèques accessibles et inclusives. Cependant, peu de ces ressources ont proposé des solutions concrètes et scientifiquement validées pour les milieux scolaires ordinaires et spécialisés du Québec. Il est donc essentiel de poursuivre la recherche dans ce domaine et de développer des approches inclusives et validées scientifiquement pour la conception de bibliothèques dans notre province.
+                </p>
+
+                <p>
+                    Cet article présente la démarche de recherche réalisée en collaboration avec l’École spécialisée de l’Envol. Elle accueille environ 120 élèves allant du préscolaire jusqu’à l’âge adulte (4 à 21 ans) qui vivent avec une DI moyenne à profonde, à laquelle peuvent s’ajouter d’autres troubles associés tel qu’un TSA, une déficience langagière, physique, ou une déficience visuelle. Cette école veut réaménager sa bibliothèque. Elle est rattachée au Centre de services scolaire des Premières-Seigneuries, au Québec (Canada). Le présent article vise l’atteinte de deux objectifs&nbsp;: 1) mieux connaître et comprendre les réalités, les obstacles, les besoins et les attentes du personnel scolaire lorsqu’il réalise des activités pédagogiques en lien avec la bibliothèque scolaire, dans un contexte où il travaille auprès d’élèves ayant une DI moyenne à profonde à laquelle peuvent s’ajouter d’autres troubles associés&nbsp;; et 2) co-construire une proposition d’aménagement d’une bibliothèque scolaire inclusive.
+                </p>
+
+                <!-- SECTION 1 -->
+                <h2 id="sec-besoins" class="section-heading scroll-anchor">1. Les besoins de l’école l’Envol</h2>
+
+                <figure class="article-figure">
+                    <figcaption><strong>Figure 1.</strong> Le schéma de la bibliothèque lors de la demande de soutien</figcaption>
+                    <img src="https://lh3.googleusercontent.com/d/13kDoQIr6gpPBWITUCXakoaEnIaSS-X4P" alt="Figure 1. Le schéma de la bibliothèque lors de la demande de soutien">
+                </figure>
+
+                <p>
+                    Au départ, une bibliothécaire scolaire et une conseillère en adaptation scolaire du Centre de services scolaire des Premières-Seigneuries ont communiqué avec nous pour le réaménagement intérieur de la bibliothèque scolaire de l’école spécialisée de l’Envol. Cette volonté de réaménager ce lieu a été prise par la direction de l’époque à la suite de la visite de la bibliothécaire. Celle-ci a d’abord été mandatée pour soutenir l’école dans la sélection de livres correspondant aux intérêts et au niveau de lecture des adolescents de 16 à 21 ans ayant une DI moyenne à profonde. La bibliothécaire a entre autres constaté que les lieux, soit la localisation du comptoir de prêts, le mobilier, la signalisation ou l’affichage entre autres, ne répondaient pas aux caractéristiques et aux besoins des élèves de cette école. En ce sens, elle n’était pas inclusive. Dans la figure 1, les principales observations de la bibliothécaire sont ajoutées au schéma de la bibliothèque tel qu’il était lors de la demande de soutien.
+                </p>
+
+                <p>
+                    On note que la bibliothèque est utilisée comme un espace de dépôt de livres et de visionnement de films. Cependant, le potentiel pédagogique de la bibliothèque n’est pas suffisamment exploité par le personnel scolaire. Il serait souhaitable que les enseignants perçoivent la bibliothèque comme une extension de la salle de classe, afin de l’utiliser pleinement pour améliorer le niveau de littératie et de lecture des élèves. De plus, les collections de livres sont obsolètes ou inadaptées aux adolescents âgés de 16 à 21 ans. Les documents proposés sont peu variés et il y a peu d’animations autour du livre. Enfin, il n’existe aucun système de classement pour les documents audiovisuels et les livres numériques ne sont pas disponibles. En résumé, les professionnelles qui nous ont contactés nomment que les trois problèmes principaux de leur bibliothèque scolaire sont les suivants&nbsp;:
+                </p>
+
+                <ol>
+                    <li>le contenu de la bibliothèque, soit les livres, les collections et le matériel, n’est pas adéquat pour les élèves ayant une DI moyenne à profonde ou encore, il est désuet&nbsp;;</li>
+                    <li>les liens entre la bibliothèque et la salle de classe sont limités&nbsp;: on profite très peu du potentiel pédagogique de la bibliothèque en salle de classe&nbsp;;</li>
+                    <li>l’environnement physique de la bibliothèque ne répond pas aux caractéristiques et aux besoins des élèves de l’école&nbsp;: elle n’est donc pas inclusive.</li>
+                </ol>
+
+                <p>
+                    Les deux premiers problèmes, soit la gestion des collections de la bibliothèque et son potentiel pédagogique ont fait l’objet d’une recherche par nos collègues Tremblay et ses collaborateurs<a class="footnote-ref" id="fnref11" href="#fn11">11</a>-<a class="footnote-ref" id="fnref12" href="#fn12">12</a>. En ce qui concerne l’environnement physique d’une bibliothèque inclusive, celle-ci fait l’objet de la recherche présentée dans cet article.
+                </p>
+
+                <!-- Carte conceptuelle 1 : Les 3 enjeux systémiques -->
+                <div class="concept-map-card" id="map-enjeux">
+                    <div class="concept-map-header">
+                        <span class="concept-map-title">Carte conceptuelle 1 — Diagnostic des trois enjeux de la bibliothèque de l’Envol</span>
+                        <span class="concept-map-hint">Cliquez sur un nœud du schéma pour explorer l'analyse</span>
+                    </div>
+                    <svg class="concept-svg" viewBox="0 0 920 260" role="img" aria-label="Carte conceptuelle du diagnostic des trois enjeux">
+                        <defs>
+                            <marker id="arrow1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                <path d="M 0 1 L 10 5 L 0 9 z" fill="#7a2222"/>
+                            </marker>
+                        </defs>
+                        <!-- Liens -->
+                        <path d="M 460 72 L 165 135" stroke="#7a2222" stroke-width="2" fill="none" marker-end="url(#arrow1)"/>
+                        <path d="M 460 72 L 460 135" stroke="#7a2222" stroke-width="2" fill="none" marker-end="url(#arrow1)"/>
+                        <path d="M 460 72 L 755 135" stroke="#7a2222" stroke-width="2" fill="none" marker-end="url(#arrow1)"/>
+
+                        <!-- Nœud central -->
+                        <g class="svg-node active" onclick="selectConceptNode('map-enjeux', 0, this)">
+                            <rect x="275" y="16" width="370" height="56" rx="8" fill="#7a2222" stroke="#5e1a1a" stroke-width="1.5"/>
+                            <text x="460" y="40" text-anchor="middle" fill="#ffffff" font-size="13.5" font-weight="700">DIAGNOSTIC : BIBLIOTHÈQUE NON INCLUSIVE</text>
+                            <text x="460" y="59" text-anchor="middle" fill="#f5e6e6" font-size="11.5">École spécialisée de l’Envol (120 élèves, 4 à 21 ans)</text>
+                        </g>
+
+                        <!-- Branche 1 -->
+                        <g class="svg-node" onclick="selectConceptNode('map-enjeux', 1, this)">
+                            <rect x="30" y="138" width="270" height="96" rx="8" fill="#FAF6EF" stroke="#cbbba6" stroke-width="1.5"/>
+                            <text x="165" y="165" text-anchor="middle" fill="#7a2222" font-size="13" font-weight="700">1. Contenu &amp; Collections</text>
+                            <text x="165" y="186" text-anchor="middle" fill="#2b2b2b" font-size="11.5">Livres désuets pour les 16-21 ans</text>
+                            <text x="165" y="204" text-anchor="middle" fill="#2b2b2b" font-size="11.5">Absence de classement audiovisuel</text>
+                            <text x="165" y="222" text-anchor="middle" fill="#4a5568" font-size="10.5" font-style="italic">(Traité par Tremblay et als., 2021)</text>
+                        </g>
+
+                        <!-- Branche 2 -->
+                        <g class="svg-node" onclick="selectConceptNode('map-enjeux', 2, this)">
+                            <rect x="325" y="138" width="270" height="96" rx="8" fill="#FAF6EF" stroke="#cbbba6" stroke-width="1.5"/>
+                            <text x="460" y="165" text-anchor="middle" fill="#7a2222" font-size="13" font-weight="700">2. Lien Classe-Bibliothèque</text>
+                            <text x="460" y="186" text-anchor="middle" fill="#2b2b2b" font-size="11.5">Usage limité au dépôt et aux films</text>
+                            <text x="460" y="204" text-anchor="middle" fill="#2b2b2b" font-size="11.5">Potentiel en littératie sous-exploité</text>
+                            <text x="460" y="222" text-anchor="middle" fill="#4a5568" font-size="10.5" font-style="italic">(Traité par Moreau et als., 2022)</text>
+                        </g>
+
+                        <!-- Branche 3 -->
+                        <g class="svg-node" onclick="selectConceptNode('map-enjeux', 3, this)">
+                            <rect x="620" y="138" width="270" height="96" rx="8" fill="#FAF6EF" stroke="#7a2222" stroke-width="2"/>
+                            <text x="755" y="165" text-anchor="middle" fill="#7a2222" font-size="13" font-weight="700">3. Environnement Physique</text>
+                            <text x="755" y="186" text-anchor="middle" fill="#2b2b2b" font-size="11.5">Mobilier, éclairage et signalisation</text>
+                            <text x="755" y="204" text-anchor="middle" fill="#2b2b2b" font-size="11.5">Obstacles sensoriels et moteurs</text>
+                            <text x="755" y="222" text-anchor="middle" fill="#7a2222" font-size="10.5" font-weight="700">→ Objet central de cette étude</text>
+                        </g>
+                    </svg>
+                    <div class="concept-detail-panel" id="map-enjeux-detail">
+                        <strong>Vue d'ensemble :</strong> À l'origine, la bibliothèque de l'École spécialisée de l'Envol fonctionne principalement comme un local de dépôt de livres et de visionnement de films, sans répondre aux profils sensoriels, moteurs et cognitifs d'élèves présentant une DI moyenne à profonde associée à un TSA ou à des déficiences visuelles et langagières.
+                    </div>
+                </div>
+
+                <!-- SECTION 2 -->
+                <h2 id="sec-methodologie" class="section-heading scroll-anchor">2. Méthodologie</h2>
+
+                <p>
+                    Notre recherche est qualitative. Elle s’appuie sur la participation des personnes concernées par l’aménagement de la bibliothèque. Cette alliance entre ces personnes du milieu scolaire et nous a permis de concevoir un protocole de recherche menant à préciser le problème, à mettre en œuvre une démarche de collecte de données et à identifier des solutions<a class="footnote-ref" id="fnref13" href="#fn13">13</a>.
+                </p>
+
+                <!-- Carte conceptuelle 2 : Protocole méthodologique en 4 étapes -->
+                <div class="concept-map-card" id="map-methodo">
+                    <div class="concept-map-header">
+                        <span class="concept-map-title">Carte conceptuelle 2 — Architecture méthodologique participative en quatre volets</span>
+                        <span class="concept-map-hint">Sélectionnez une étape pour afficher les paramètres de collecte</span>
+                    </div>
+                    <svg class="concept-svg" viewBox="0 0 920 220" role="img" aria-label="Diagramme des quatre modes de collecte des données">
+                        <defs>
+                            <marker id="arrow2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                                <path d="M 0 1 L 10 5 L 0 9 z" fill="#7a2222"/>
+                            </marker>
+                        </defs>
+                        <!-- Flèches de progression -->
+                        <line x1="215" y1="95" x2="242" y2="95" stroke="#7a2222" stroke-width="2" marker-end="url(#arrow2)"/>
+                        <line x1="440" y1="95" x2="467" y2="95" stroke="#7a2222" stroke-width="2" marker-end="url(#arrow2)"/>
+                        <line x1="665" y1="95" x2="692" y2="95" stroke="#7a2222" stroke-width="2" marker-end="url(#arrow2)"/>
+
+                        <!-- Étape 1 -->
+                        <g class="svg-node active" onclick="selectConceptNode('map-methodo', 0, this)">
+                            <rect x="20" y="30" width="195" height="130" rx="8" fill="#7a2222" stroke="#cbbba6" stroke-width="1.5"/>
+                            <text x="117" y="56" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="700">ÉTAPE 1</text>
+                            <text x="117" y="76" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">Recension des écrits</text>
+                            <text x="117" y="102" text-anchor="middle" fill="#f5e6e6" font-size="11">3 bases : ERIC, ASP, WoS</text>
+                            <text x="117" y="120" text-anchor="middle" fill="#f5e6e6" font-size="11">925 titres examinés</text>
+                            <text x="117" y="138" text-anchor="middle" fill="#f5e6e6" font-size="11" font-weight="700">108 articles retenus</text>
+                        </g>
+
+                        <!-- Étape 2 -->
+                        <g class="svg-node" onclick="selectConceptNode('map-methodo', 1, this)">
+                            <rect x="245" y="30" width="195" height="130" rx="8" fill="#FAF6EF" stroke="#cbbba6" stroke-width="1.5"/>
+                            <text x="342" y="56" text-anchor="middle" fill="#7a2222" font-size="11" font-weight="700">ÉTAPE 2</text>
+                            <text x="342" y="76" text-anchor="middle" fill="#1a202c" font-size="13" font-weight="700">Entrevues individuelles</text>
+                            <text x="342" y="102" text-anchor="middle" fill="#2b2b2b" font-size="11">n = 7 membres du personnel</text>
+                            <text x="342" y="120" text-anchor="middle" fill="#2b2b2b" font-size="11">Durée moyenne : 90 min</text>
+                            <text x="342" y="138" text-anchor="middle" fill="#2b2b2b" font-size="11">24 questions semi-dirigées</text>
+                        </g>
+
+                        <!-- Étape 3 -->
+                        <g class="svg-node" onclick="selectConceptNode('map-methodo', 2, this)">
+                            <rect x="470" y="30" width="195" height="130" rx="8" fill="#FAF6EF" stroke="#cbbba6" stroke-width="1.5"/>
+                            <text x="567" y="56" text-anchor="middle" fill="#7a2222" font-size="11" font-weight="700">ÉTAPE 3</text>
+                            <text x="567" y="76" text-anchor="middle" fill="#1a202c" font-size="13" font-weight="700">Groupe nominal</text>
+                            <text x="567" y="102" text-anchor="middle" fill="#2b2b2b" font-size="11">n = 31 employés réunis</text>
+                            <text x="567" y="120" text-anchor="middle" fill="#2b2b2b" font-size="11">Durée : 60 minutes</text>
+                            <text x="567" y="138" text-anchor="middle" fill="#2b2b2b" font-size="11">Hiérarchisation par consensus</text>
+                        </g>
+
+                        <!-- Étape 4 -->
+                        <g class="svg-node" onclick="selectConceptNode('map-methodo', 3, this)">
+                            <rect x="695" y="30" width="205" height="130" rx="8" fill="#FAF6EF" stroke="#cbbba6" stroke-width="1.5"/>
+                            <text x="797" y="56" text-anchor="middle" fill="#7a2222" font-size="11" font-weight="700">ÉTAPE 4</text>
+                            <text x="797" y="76" text-anchor="middle" fill="#1a202c" font-size="13" font-weight="700">Co-conception (Codesign)</text>
+                            <text x="797" y="102" text-anchor="middle" fill="#2b2b2b" font-size="11">n = 8 enseignantes expertes</text>
+                            <text x="797" y="120" text-anchor="middle" fill="#2b2b2b" font-size="11">2 rencontres à 10 sem.</text>
+                            <text x="797" y="138" text-anchor="middle" fill="#2b2b2b" font-size="11">Validation des plans 3D</text>
+                        </g>
+
+                        <!-- Bande transversale d'analyse -->
+                        <rect x="20" y="176" width="880" height="30" rx="5" fill="#f0e9dc" stroke="#d8cebe"/>
+                        <text x="460" y="195" text-anchor="middle" fill="#7a2222" font-size="11.5" font-weight="700">
+                            Analyse qualitative de contenu par double codification (Paillé &amp; Mucchielli, 2021) • Approbation éthique CIUSSS Capitale-Nationale
+                        </text>
+                    </svg>
+                    <div class="concept-detail-panel" id="map-methodo-detail">
+                        <strong>Étape 1 — Recension des écrits :</strong> Interrogation systématique d'ERIC, Academic Search Premier et Web of Science autour de trois axes (design universel, classes et bibliothèques, enfants ayant des incapacités), permettant de filtrer 925 références vers 108 articles fondateurs.
+                    </div>
+                </div>
+
+                <h3 class="subsection-heading">2.1 Modes de collecte des données</h3>
+                <p>Quatre modes de collecte de données ont permis de recueillir ces perspectives.</p>
+
+                <h4 class="subsubsection-heading">Recension des écrits</h4>
+                <p>
+                    Une recension des écrits a été conduite afin d’identifier les meilleures pratiques internationales en matière d’accessibilité dans les bibliothèques publiques et scolaires. Trois bases de données, issues de disciplines distinctes, ont été consultées. Il s’agit d’ERIC, une base de données en éducation, d’Academic Search Premier, une base multidisciplinaire, ainsi que de Web of Science, une base portant sur les sciences, les sciences sociales et les arts et lettres. Ces bases de données ont été sélectionnées par leur nombre de résultats, soit au moins une centaine. Les mots-clés utilisés et leurs mots équivalents sont regroupés sous trois catégories distinctes&nbsp;: design universel, classes et bibliothèques, enfants ayant des incapacités. Les titres et les résumés de 925 articles ont été examinés. Sur ce nombre, 108 articles ont été retenus et ont fait l’objet d’une lecture complète. Ces articles ont été choisis en fonction de leur pertinence et de leur qualité, en se concentrant sur les meilleures pratiques en matière d’accessibilité pour les bibliothèques publiques et scolaires.
+                </p>
+
+                <h4 class="subsubsection-heading">Entrevues individuelles</h4>
+                <p>
+                    Les entrevues individuelles semi-dirigées sont des outils de choix en recherche qualitative. Elles ont permis de recueillir l’opinion et l’expérience de sept membres du personnel de l’école de l’Envol ou du centre de services scolaire des Premières-Seigneuries, sur la bibliothèque scolaire. Les participantes étaient toutes des femmes, âgées entre 32 et 58 ans. Elles possédaient entre 5 et 24 ans d’expérience dans leur domaine. Il y avait deux enseignantes, trois techniciennes en éducation spécialisée, une bibliothécaire scolaire, ainsi que la directrice de l’école qui était auparavant enseignante. Ces participantes œuvraient auprès de cinq groupes d’élèves différents, sauf pour la bibliothécaire et la directrice qui n’avaient pas un groupe attitré. Les entrevues ont été réalisées par l’équipe de recherche. Elles se sont déroulées à l’école et elles ont duré en moyenne 90 minutes. Les entrevues ont été enregistrées en format audio. Le schéma d’entrevue comprenait 24 questions, sur les sujets suivants&nbsp;:
+                </p>
+                <ol>
+                    <li>leur utilisation actuelle de la bibliothèque scolaire&nbsp;;</li>
+                    <li>la routine et les activités qui y sont réalisées&nbsp;;</li>
+                    <li>les principaux intérêts des élèves&nbsp;;</li>
+                    <li>les difficultés rencontrées par les élèves et le personnel dans le cadre de son utilisation&nbsp;;</li>
+                    <li>les facilitateurs et les obstacles environnementaux actuels&nbsp;;</li>
+                    <li>leurs représentations d’une bibliothèque scolaire idéale, soit leur bibliothèque de rêve&nbsp;;</li>
+                    <li>leurs attentes et préoccupations face au projet de réaménagement de la bibliothèque scolaire inclusive.</li>
+                </ol>
+
+                <h4 class="subsubsection-heading">Groupe nominal</h4>
+                <p>
+                    Ensuite, 31 employés de l’école ont été invités par la directrice pour participer à un groupe nominal<a class="footnote-ref" id="fnref14" href="#fn14">14</a> animé par un membre de l’équipe de recherche. Il a duré 60 minutes et il a eu lieu à l’école. Lorsque les participants étaient en grand groupe, le contenu des échanges du groupe nominal a été enregistré sous mode audio. Ce groupe a réuni des membres de la direction (n=1), une bibliothécaire, des techniciens en éducation spécialisée et une professionnelle en adaptation scolaire (n=12) et des enseignants (n=18). Ce mode de collecte des données a fourni l’occasion à tous les participants d’exprimer leurs idées, peu importe leur statut dans l’école ou leur titre d’emploi<a class="footnote-ref" id="fnref15" href="#fn15">15</a>. Cette activité avait pour but de dégager un consensus sur le réaménagement de la bibliothèque scolaire par du personnel de l’école. Pour y arriver, les participants ont répondu aux trois questions suivantes&nbsp;:
+                </p>
+                <ol>
+                    <li>Quels aménagements physiques sont présents dans votre bibliothèque scolaire idéale ?</li>
+                    <li>Quelles activités pédagogiques et quelles ressources didactiques devraient être disponibles dans votre bibliothèque idéale ?</li>
+                    <li>Quels objectifs doivent guider le projet de réaménagement de votre bibliothèque scolaire ?</li>
+                </ol>
+                <p>
+                    Pour chacune de ces questions, les participants ont réalisé des activités individuelles et de groupe qui s’inspirent des étapes traditionnelles d’un groupe nominal&nbsp;:
+                </p>
+                <ol>
+                    <li>Répondre individuellement à la question sur une feuille de papier (cinq minutes)&nbsp;;</li>
+                    <li>Partager leurs idées en sous-groupe d’environ cinq participants&nbsp;;</li>
+                    <li>Dresser une liste de cinq priorités parmi toutes les idées discutées en sous-groupes&nbsp;;</li>
+                    <li>Discuter en grand groupe de la compilation des priorités retenues et parvenir à un consensus.</li>
+                </ol>
+                <p>
+                    La directrice de l’école spécialisée de l’Envol a formé les sous-groupes en diversifiant les expertises et les expériences des participants.
+                </p>
+
+                <h4 class="subsubsection-heading">Sessions de co-conception</h4>
+                <p>
+                    Les sessions de co-conception s’appuient sur la méthode qualitative de codesign par laquelle des acteurs de ce projet ont été invités à participer au processus de conception de la solution. Cette méthode de conception participative est connue aujourd’hui sous le nom de co-conception<a class="footnote-ref" id="fnref16" href="#fn16">16</a>. Elle réfère à un acte de créativité collective partagée par deux personnes ou plus, où le participant, ici futur utilisateur, est un «&nbsp;expert&nbsp;» de sa propre expérience<a class="footnote-ref" id="fnref17" href="#fn17">17</a>.
+                </p>
+                <p>
+                    D’abord l’équipe de recherche a conçu une première proposition d’aménagement de la bibliothèque de l’École de l’Envol à partir de la recension des écrits, des entrevues individuelles et du groupe nominal. Cette proposition a été présentée à un groupe d’enseignantes (n=8) afin d’être critiquée, enrichie et validée par ces experts. Une deuxième rencontre a eu lieu 10 semaines plus tard avec les mêmes participantes, pour montrer une proposition «&nbsp;améliorée&nbsp;» à la suite de la première rencontre de co-conception. Les participantes l’ont validée et commentée afin de parvenir à des solutions plus réalistes, abordables et raisonnables.
+                </p>
+
+                <h3 class="subsection-heading">2.2 Analyse des données</h3>
+                <p>
+                    Le contenu des entrevues semi-dirigées et des sessions de co-conception a été retranscrit sous la forme de verbatim et il a fait l’objet d’une analyse qualitative de contenu<a class="footnote-ref" id="fnref18" href="#fn18">18</a>. Une liste préliminaire de thèmes a été développée à partir du guide d’entrevue. Deux membres de l’équipe de recherche ont ensuite procédé à une codification du verbatim, en ajoutant des codes émergents. Puis, ils ont comparé leurs résultats. Leurs discussions ont contribué au raffinement de l’analyse des résultats obtenus lors de cette opération. Une méthode semblable a été utilisée pour l’analyse des verbatims issus du groupe nominal. Les codes utilisés ont été développés uniquement de manière inductive, c’est-à-dire, à partir de ce que les participants ont nommé.
+                </p>
+
+                <h4 class="subsubsection-heading">Aspects éthiques</h4>
+                <p>
+                    Le projet de recherche a été soumis et accepté par le Comité d’éthique de la recherche sectoriel en réadaptation et en intégration sociale du Centre intégré universitaire de santé et de services sociaux de la Capitale-Nationale. L’équipe de recherche a obtenu le consentement des participants. Elle a respecté les meilleures pratiques éthiques tout au long de la réalisation de la recherche. Les noms et les dates de naissance des participants ne sont apparus que sur les formulaires de consentement. Toutes les données recueillies ont été rendues anonymes afin de maintenir la confidentialité des participants et de leurs propos. Elles sont conservées dans un classeur verrouillé qui est à la seule disposition de l’équipe de recherche.
+                </p>
+
+                <!-- SECTION 3 -->
+                <h2 id="sec-resultats" class="section-heading scroll-anchor">3. Résultats</h2>
+
+                <h3 class="subsection-heading">3.1 Recension des écrits</h3>
+                <p>
+                    La recension des écrits a permis d’identifier les meilleures pratiques pour aménager une bibliothèque scolaire inclusive. Les pratiques recensées ont été regroupées sous sept catégories distinctes&nbsp;: l’organisation de l’espace, la signalisation, l’ambiance physique, les matériaux à utiliser, le mobilier, les technologies et les ressources, ainsi que la sécurité. Nous avons utilisé ces pratiques à l’étape de co-conception de la bibliothèque idéale.
+                </p>
+
+                <h3 class="subsection-heading">3.2 Entrevues</h3>
+                <p>
+                    Les résultats des entretiens sont présentés en fonction des thèmes les plus importants qui en ont émergé. Il s’agit des activités réalisées à la bibliothèque scolaire, des intérêts des élèves, de l’environnement physique dont l’éclairage, le mobilier et le classement, de l’hygiène et de la bibliothèque de rêve.
+                </p>
+                <p>
+                    <em>Activités actuelles à la bibliothèque.</em> L’activité principale à la bibliothèque est la lecture, mais réalisée sous différentes modalités. Les participantes indiquent que la bibliothèque est un environnement favorisant la responsabilisation des jeunes puisqu’elles utilisent la visite à la bibliothèque pour leur donner des rôles comme aider les autres, s’occuper de barrer la porte, etc. Certains élèves préfèrent la lecture individuelle, tandis que d’autres ont besoin d’assistance, soit par l’intermédiaire d’un intervenant ou par la technologie. Par exemple, certains élèves utilisent des livres audio pour faciliter leur compréhension. Dans d’autres classes, la lecture est proposée sous forme d’histoires racontées par l’intervenant. Par ailleurs, la bibliothèque est parfois utilisée pour visionner des films.
+                </p>
+                <p>
+                    <em>Intérêt des élèves.</em> Les thèmes de livres qui intéressent le plus les élèves sont les moyens de transport et les animaux. Cependant, d’autres thèmes sont abordés tels que les métiers de la construction, les sports, les superhéros, les objets du quotidien, les livres abordant des émissions de télévision connues des élèves ainsi que les fêtes de l’année comme Noël ou Halloween.
+                </p>
+                <p>
+                    <em>Environnement physique.</em> Les participantes mentionnent que les néons n’offrent pas le meilleur éclairage pour leur clientèle. En effet, les lumières fluorescentes et le bruit produit par celles-ci peuvent créer une surcharge sensorielle chez certains élèves, particulièrement ceux ayant un TSA.
+                </p>
+                <p>
+                    <em>Meubles et matériels.</em> Les participantes indiquent que les chaises qu’elles utilisent avec leurs élèves ne sont pas ajustées adéquatement. Quelques-unes sont d’avis que la chaise berçante dangereuse et d’autres la trouvent idéale pour leurs élèves ayant un TSA.
+                </p>
+                <p>
+                    <em>Signalisation et classement.</em> Présentement, les participantes trouvent que la signalisation n’est pas adaptée pour leurs élèves ayant une déficience visuelle. Aussi, le système de classification Dewey, utilisé dans la bibliothèque, n’est pas assez simplifié pour que les élèves l’utilisent de façon autonome, le rendant ainsi non fonctionnel.
+                </p>
+                <p>
+                    <em>Hygiène.</em> L’hygiène est un facteur très important afin de limiter la transmission de virus. En effet, les participantes voulaient toutes que le mobilier et le matériel soient dans des matériaux facilement lavables ou remplaçables. De plus, les livres devraient être résistants aux liquides corporels tels que la bave, et être résistants pour éviter que les élèves les déchirent.
+                </p>
+                <p>
+                    <em>Bibliothèque de rêve.</em> Toutes les participantes ont exprimé leur désir d’avoir différentes sections dans la bibliothèque. Voici une liste d’espaces identifiés&nbsp;:
+                </p>
+                <ul>
+                    <li>un coin atelier ou espace pour travailler&nbsp;;</li>
+                    <li>un coin de stimulation&nbsp;;</li>
+                    <li>un coin pour s’asseoir par terre&nbsp;;</li>
+                    <li>un coin fermé pour les postes audio&nbsp;;</li>
+                    <li>un coin pour le rangement des livres&nbsp;;</li>
+                    <li>un coin pour le prêt des livres&nbsp;;</li>
+                    <li>un coin pour aider les élèves de se calmer, de se recentrer&nbsp;;</li>
+                    <li>un coin pour la lecture et pour l’animation du livre, qui est modulable avec un tapis et différents mobiliers pour s’asseoir.</li>
+                </ul>
+                <p>
+                    Certaines participantes allèguent qu’un surplus de décorations pourrait nuire aux élèves, alors que des décorations en lien avec les thèmes abordés au cours de l’année pourraient rendre la bibliothèque plus attrayante pour les élèves et favoriser leur participation.
+                </p>
+                <p>
+                    Ensuite, des participantes nomment l’importance d’une bonne intensité lumineuse pour que les élèves puissent lire adéquatement, principalement en raison des déficiences visuelles de certains élèves. D’autres évoquent l’option utile de tamiser les lumières lorsqu’elles veulent que leurs élèves se détendent. L’utilisation des lampes individuelles dont l’intensité lumineuse peut être réglée et avec des ampoules non fluorescentes pour faciliter la lecture, a aussi été abordée. Selon les participantes, cela contribuerait à capter l’attention de l’élève sur le livre et aiderait les élèves ayant des incapacités visuelles à mieux voir le texte.
+                </p>
+                <p>
+                    Il a aussi été mentionné que les livres ne doivent pas être trop faciles d’accès en raison des caractéristiques de certains élèves de leur groupe. En effet, certains ont tendance à mettre tous les livres au sol, dans leur bouche ou bien à les briser. Ainsi, pour limiter l’accès direct aux livres et leur visibilité à certains groupes d’élèves, l’idée de tiroirs a été suggérée, limitant ainsi la surcharge visuelle. Cependant, pour d’autres élèves ou groupes, certaines aires de la bibliothèque devraient être modulables et demeurer visibles et atteignables.
+                </p>
+                <p>
+                    Les participantes adoptent l’idée d’avoir des poufs ou un tapis pour installer les élèves et leur permettre de relaxer. Il serait également intéressant d’avoir un lève-personne disponible pour assister les intervenants lorsqu’ils déposent certains élèves en fauteuil roulant au sol, pour éviter les blessures. Au lieu de la chaise berçante jugée dangereuse, l’idée d’un ballon a été évoquée afin de combler les besoins vestibulaires de certains élèves. Enfin, une variété de mobiliers adaptés a été suggérée pour répondre aux différents besoins d’inclusion des élèves, que ce soit au niveau des différentes tailles du matériel, des tables, des sièges pour s’asseoir ou des étagères.
+                </p>
+
+                <h3 class="subsection-heading">3.3 Groupe nominal</h3>
+                <p>
+                    Les tableaux suivants présentent les résultats du groupe nominal. Les thèmes retenus ont été compilés et ils sont présentés par ordre décroissant selon leur fréquence.
+                </p>
+
+                <div class="data-table-wrapper">
+                    <div class="table-caption">
+                        <strong>Question 1</strong><br>
+                        <em>Selon vous, la bibliothèque scolaire de l’École spécialisée l’Envol devrait favoriser&nbsp;?</em>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Thèmes</th>
+                                <th class="freq-col">Fréquence</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Exploration de soi et développement des capacités</td>
+                                <td class="freq-col">6</td>
+                            </tr>
+                            <tr>
+                                <td>Poursuite des apprentissages en classe et acquisition de nouvelles connaissances</td>
+                                <td class="freq-col">4</td>
+                            </tr>
+                            <tr>
+                                <td>Bien-être et plaisir</td>
+                                <td class="freq-col">4</td>
+                            </tr>
+                            <tr>
+                                <td>Développement de la littératie et de la lecture</td>
+                                <td class="freq-col">5</td>
+                            </tr>
+                            <tr>
+                                <td>Interactions sociales</td>
+                                <td class="freq-col">3</td>
+                            </tr>
+                            <tr>
+                                <td>Exploration de la technologie</td>
+                                <td class="freq-col">3</td>
+                            </tr>
+                            <tr>
+                                <td>Réponse aux besoins de tous les élèves</td>
+                                <td class="freq-col">2</td>
+                            </tr>
+                            <tr>
+                                <td>Flexibilité dans ses usages</td>
+                                <td class="freq-col">1</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="data-table-wrapper">
+                    <div class="table-caption">
+                        <strong>Question 2</strong><br>
+                        <em>De quelles activités et ressources pour vous et vos élèves, de nature pédagogique ou autre, aimeriez-vous disposer au sein de la bibliothèque&nbsp;?</em>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Thèmes</th>
+                                <th class="freq-col">Fréquence</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Espaces permettant l’accueil d’invités et la réalisation d’activités de groupes</td>
+                                <td class="freq-col">6</td>
+                            </tr>
+                            <tr>
+                                <td>Activités qui favorisent la découverte de nouvelles thématiques et intérêts chez les élèves</td>
+                                <td class="freq-col">5</td>
+                            </tr>
+                            <tr>
+                                <td>Proposition de livres dans une variété de formats et répondant aux besoins de tous les utilisateurs</td>
+                                <td class="freq-col">4</td>
+                            </tr>
+                            <tr>
+                                <td>Activités – espaces – animations permettant la réalisation d’activités individuelles</td>
+                                <td class="freq-col">3</td>
+                            </tr>
+                            <tr>
+                                <td>Disponibilité de matériel et de jeux ludiques pour développer la littératie et la lecture</td>
+                                <td class="freq-col">2</td>
+                            </tr>
+                            <tr>
+                                <td>Activités favorables à l’apprentissage et à l’utilisation des technologies</td>
+                                <td class="freq-col">1</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="data-table-wrapper">
+                    <div class="table-caption">
+                        <strong>Question 3</strong><br>
+                        <em>Selon vous, quels aménagements physiques devraient être mis en place afin de soutenir l’accès aux ressources didactiques et de permettre la réalisation des activités pédagogiques&nbsp;?</em>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Thèmes</th>
+                                <th class="freq-col">Fréquence</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Mobilier sécuritaire, hygiénique, amovible, modulaire et s’adaptant aux différentes positions souhaitées par les élèves</td>
+                                <td class="freq-col">9</td>
+                            </tr>
+                            <tr>
+                                <td>Aménagement d’espaces à usages variés et favorisant les expériences multisensorielles</td>
+                                <td class="freq-col">9</td>
+                            </tr>
+                            <tr>
+                                <td>Système de classement et de présentation des livres</td>
+                                <td class="freq-col">7</td>
+                            </tr>
+                            <tr>
+                                <td>Possibilité d’aménager des espaces individualisés</td>
+                                <td class="freq-col">5</td>
+                            </tr>
+                            <tr>
+                                <td>Possibilité d’ajustement de la luminosité</td>
+                                <td class="freq-col">5</td>
+                            </tr>
+                            <tr>
+                                <td>Atmosphère calme et épurée</td>
+                                <td class="freq-col">1</td>
+                            </tr>
+                            <tr>
+                                <td>Aires de circulation facilitant les déplacements des personnes en fauteuil roulant</td>
+                                <td class="freq-col">1</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3 class="subsection-heading">3.4 Sessions de co-conception</h3>
+                <p>
+                    À partir des résultats des entretiens, du groupe nominal et des meilleures pratiques issues de la recension des écrits, l’équipe de recherche a élaboré une première proposition pour la conception d’une bibliothèque scolaire inclusive. En s’appuyant sur les éléments mentionnés dans la «&nbsp;bibliothèque de rêve&nbsp;», l’équipe a suggéré d’utiliser le concept de «&nbsp;la rue&nbsp;» comme concept de base pour la conception de la bibliothèque. Ce concept consiste à regrouper les livres en fonction des différentes commodités que l’on peut trouver dans une rue, en se basant sur l’espace rectangulaire et allongé de la bibliothèque actuelle de l’Envol. Par exemple, dans la rue, on peut trouver un garage, un théâtre, une agence de voyage, un zoo, etc. Chacun de ces espaces a été conçu pour regrouper les livres afin qu’ils soient plus faciles à identifier par les enfants. Par exemple, dans «&nbsp;le zoo&nbsp;» de la bibliothèque, on peut trouver tous les livres sur les animaux, la nature et les écosystèmes, et dans «&nbsp;le garage&nbsp;», tous les livres sur les moyens de transport, et ainsi de suite avec chaque espace de la rue. Cette proposition a été élaborée en prenant en compte tous les aspects identifiés lors des entretiens, du groupe nominal et des meilleures pratiques issues de la recension des écrits.
+                </p>
+                <p>
+                    Lors de la première rencontre de co-conception, les participants ont pris connaissance de la première proposition de l’équipe de recherche. Dans l’ensemble, elle a été très bien accueillie, mais des changements importants ont été apportés. Par exemple, la proposition incluait une «&nbsp;clinique&nbsp;» au sein de la rue afin de regrouper les livres sur la santé et la nutrition. Cependant, les participantes ont déclaré que les élèves de l’école spécialisée vont souvent chez le médecin et dans les cliniques. Il était alors préférable de changer ce terme pour celui de «&nbsp;la maison&nbsp;», où l’on pratique des habitudes d’hygiène et de bonnes habitudes de vie et alimentaires.
+                </p>
+                <p>
+                    La proposition a été modifiée et bonifiée à la suite de cette première rencontre et présentée à nouveau lors d’une deuxième séance de co-conception pour valider et recueillir les ajustements demandés. Toutes les particularités de la bibliothèque ont été prises en compte et créées par les participantes et l’équipe de recherche pour répondre à la diversité de leurs élèves. Les résultats des séances de co-conception sont visibles dans la vidéo de la page suivante.
+                </p>
+
+                <!-- Carte conceptuelle 3 : Le concept spatial de « La Rue » -->
+                <div class="concept-map-card" id="map-rue">
+                    <div class="concept-map-header">
+                        <span class="concept-map-title">Carte conceptuelle 3 — Le concept spatial de « La Rue » : classement intuitif et repérage</span>
+                        <span class="concept-map-hint">Cliquez sur un pôle de « La Rue » pour voir sa fonction pédagogique et sensorielle</span>
+                    </div>
+                    <svg class="concept-svg" viewBox="0 0 920 270" role="img" aria-label="Schéma conceptuel de la rue thématique remplaçant la classification Dewey">
+                        <!-- Axe central : La Rue -->
+                        <rect x="30" y="114" width="860" height="42" rx="21" fill="#7a2222"/>
+                        <text x="460" y="140" text-anchor="middle" fill="#ffffff" font-size="13.5" font-weight="700" letter-spacing="0.06em">
+                            AXE DE « LA RUE » — REPÉRAGE VISUEL CONCRET (REMPLACEMENT DU SYSTÈME DEWEY)
+                        </text>
+
+                        <!-- Connecteurs verticaux -->
+                        <line x1="145" y1="88" x2="145" y2="114" stroke="#7a2222" stroke-width="2"/>
+                        <line x1="460" y1="88" x2="460" y2="114" stroke="#7a2222" stroke-width="2"/>
+                        <line x1="775" y1="88" x2="775" y2="114" stroke="#7a2222" stroke-width="2"/>
+                        <line x1="295" y1="156" x2="295" y2="182" stroke="#7a2222" stroke-width="2"/>
+                        <line x1="625" y1="156" x2="625" y2="182" stroke="#7a2222" stroke-width="2"/>
+
+                        <!-- Haut 1 : Le Zoo -->
+                        <g class="svg-node active" onclick="selectConceptNode('map-rue', 0, this)">
+                            <rect x="35" y="18" width="220" height="70" rx="8" fill="#7a2222" stroke="#cbbba6" stroke-width="1.5"/>
+                            <text x="145" y="45" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">🦁 Le Zoo</text>
+                            <text x="145" y="66" text-anchor="middle" fill="#f5e6e6" font-size="11.5">Animaux, nature, écosystèmes</text>
+                        </g>
+
+                        <!-- Haut 2 : Le Garage -->
+                        <g class="svg-node" onclick="selectConceptNode('map-rue', 1, this)">
+                            <rect x="350" y="18" width="220" height="70" rx="8" fill="#FAF6EF" stroke="#cbbba6" stroke-width="1.5"/>
+                            <text x="460" y="45" text-anchor="middle" fill="#7a2222" font-size="13" font-weight="700">🚒 Le Garage</text>
+                            <text x="460" y="66" text-anchor="middle" fill="#2b2b2b" font-size="11.5">Moyens de transport, construction</text>
+                        </g>
+
+                        <!-- Haut 3 : La Maison (ex-Clinique) -->
+                        <g class="svg-node" onclick="selectConceptNode('map-rue', 2, this)">
+                            <rect x="665" y="18" width="220" height="70" rx="8" fill="#FAF6EF" stroke="#7a2222" stroke-width="2"/>
+                            <text x="775" y="45" text-anchor="middle" fill="#7a2222" font-size="13" font-weight="700">🏠 La Maison (ex-Clinique)</text>
+                            <text x="775" y="66" text-anchor="middle" fill="#2b2b2b" font-size="11.5">Hygiène, santé, alimentation</text>
+                        </g>
+
+                        <!-- Bas 1 : Le Théâtre & Agence de voyage -->
+                        <g class="svg-node" onclick="selectConceptNode('map-rue', 3, this)">
+                            <rect x="145" y="182" width="300" height="70" rx="8" fill="#FAF6EF" stroke="#cbbba6" stroke-width="1.5"/>
+                            <text x="295" y="209" text-anchor="middle" fill="#7a2222" font-size="13" font-weight="700">🎭 Théâtre &amp; Agence de voyage</text>
+                            <text x="295" y="230" text-anchor="middle" fill="#2b2b2b" font-size="11.5">Animation du livre, culture, fêtes et découvertes</text>
+                        </g>
+
+                        <!-- Bas 2 : Zones modulables et de retrait -->
+                        <g class="svg-node" onclick="selectConceptNode('map-rue', 4, this)">
+                            <rect x="475" y="182" width="300" height="70" rx="8" fill="#FAF6EF" stroke="#cbbba6" stroke-width="1.5"/>
+                            <text x="625" y="209" text-anchor="middle" fill="#7a2222" font-size="13" font-weight="700">🛋️ Espaces de retrait &amp; Tiroirs</text>
+                            <text x="625" y="230" text-anchor="middle" fill="#2b2b2b" font-size="11.5">Régulation sensorielle, postes audio, accès contrôlé</text>
+                        </g>
+                    </svg>
+                    <div class="concept-detail-panel" id="map-rue-detail">
+                        <strong>Le Zoo :</strong> Exploite l'espace rectangulaire allongé de l'école pour regrouper visuellement les ouvrages sur les animaux et la nature, favorisant le repérage autonome sans recourir au code numérique Dewey.
+                    </div>
+                </div>
+
+                <!-- SECTION 4 -->
+                <h2 id="sec-discussion" class="section-heading scroll-anchor">4. Discussion</h2>
+
+                <p>
+                    Les résultats du projet montrent une certaine concordance avec ce que l’on peut trouver dans la littérature. Par exemple, en ce qui concerne l’environnement physique, la bibliothèque scolaire doit offrir plusieurs aires séparées de dimensions variées ayant des fonctions diverses&nbsp;: rencontre grand groupe, petit groupe, centre d’écoute, station de travail individuel, etc. Elles permettent une meilleure répartition des activités d’apprentissage individuelles et collectives dans l’espace et des niveaux d’intensité variables d’interaction sociale et de stimulation sensorielle<a class="footnote-ref" id="fnref19" href="#fn19">19</a>. Ces aires dédiées permettent également aux élèves de comprendre plus facilement son organisation spatiale<a class="footnote-ref" id="fnref20" href="#fn20">20</a>, comment s’y orienter physiquement et socialement<a class="footnote-ref" id="fnref21" href="#fn21">21</a>, et d’y développer des routines et des compétences pouvant être employées dans la communauté<a class="footnote-ref" id="fnref22" href="#fn22">22</a>. Il faut cependant que ces aires soient harmonieuses, prévisibles et répétitives<a class="footnote-ref" id="fnref23" href="#fn23">23</a>. Pour favoriser l’inclusion de tous les élèves, il faut aussi que l’aménagement s’adapte aux préférences et aux besoins des élèves, ainsi qu’aux types d’activités réalisées. Des murs séparateurs amovibles et des lieux de retrait sont des solutions intéressantes pour augmenter leur niveau de concentration, de contrôle et de sécurité<a class="footnote-ref" id="fnref24" href="#fn24">24</a>. Ils permettent aussi de choisir le moment et la quantité des interactions sociales désirées, et ce, en évitant l’isolement et les surcharges sensorielles<a class="footnote-ref" id="fnref25" href="#fn25">25</a>. L’ambiance calme et confortable est requise pour réduire le stress et la surstimulation des élèves<a class="footnote-ref" id="fnref26" href="#fn26">26</a>. On peut aussi diminuer les contrastes olfactifs, visuels et sonores entre les différentes zones<a class="footnote-ref" id="fnref27" href="#fn27">27</a> par l’emploi de couleurs pastel et neutres<a class="footnote-ref" id="fnref28" href="#fn28">28</a>.
+                </p>
+
+                <p>
+                    De même, comme le propose le modèle co-conçu de la bibliothèque idéale, il faut privilégier la lumière naturelle<a class="footnote-ref" id="fnref29" href="#fn29">29</a> ou éviter les ampoules qui dégagent trop de chaleur, qui clignotent ou qui bourdonnent. Les sources d’éclairage indirectes sont préférables<a class="footnote-ref" id="fnref30" href="#fn30">30</a>. Elles doivent s’ajuster aux besoins particuliers des élèves et de leurs activités<a class="footnote-ref" id="fnref31" href="#fn31">31</a>.
+                </p>
+
+                <p>
+                    Les participants à la recherche se préoccupaient de la mise en bouche du matériel par certains de leurs élèves et de la présence de fluides corporels. Pour y répondre, les bibliothèques scolaires doivent privilégier l’emploi de matériaux durables tels que tuiles de tapis, linoléum, gypse de haute densité et verre trempé<a class="footnote-ref" id="fnref32" href="#fn32">32</a> qui résistent aux égratignures, écaillements et dégradations de toutes sortes<a class="footnote-ref" id="fnref33" href="#fn33">33</a> et qui sont faciles d’entretien<a class="footnote-ref" id="fnref34" href="#fn34">34</a>. Les matériaux doivent aussi être sécuritaires, non toxiques<a class="footnote-ref" id="fnref35" href="#fn35">35</a>, hypo-allergènes, contenant peu de composantes organiques volatiles et ne dégageant pas d’odeurs<a class="footnote-ref" id="fnref36" href="#fn36">36</a>. D’autres auteurs considèrent que les matériaux employés doivent être familiers et chaleureux, avec des surfaces non éblouissantes<a class="footnote-ref" id="fnref37" href="#fn37">37</a>, lisses<a class="footnote-ref" id="fnref38" href="#fn38">38</a>, ainsi que des couleurs, des textures, des niveaux de dureté et de température non contrastants<a class="footnote-ref" id="fnref39" href="#fn39">39</a>.
+                </p>
+
+                <p>
+                    Finalement, en concordance avec les résultats de la recherche et la recension des écrits, le mobilier des bibliothèques scolaires inclut des stations de travail et il doit être accessible à l’ensemble des élèves<a class="footnote-ref" id="fnref40" href="#fn40">40</a>. Les coins doivent être arrondis<a class="footnote-ref" id="fnref41" href="#fn41">41</a>. Ceci implique qu’il y ait des tables, des fauteuils, des chaises, des poufs qui puissent être accessibles et utilisables pour les plus jeunes. De même, le mobilier et l’aménagement doivent permettre à ceux qui se déplacent en fauteuil roulant ou avec un aide à la mobilité d’effectuer leurs transferts<a class="footnote-ref" id="fnref42" href="#fn42">42</a>. Le mobilier est ainsi modulaire et amovible pour s’adapter aux besoins particuliers des élèves et pour permettre le réaménagement des différentes zones de la bibliothèque pour la réalisation de certaines activités<a class="footnote-ref" id="fnref43" href="#fn43">43</a>. Il est également solidement ancré au sol<a class="footnote-ref" id="fnref44" href="#fn44">44</a>. L’ajout de ces divers ajustements à l’aménagement physique et matériel mène à créer une bibliothèque scolaire plus inclusive.
+                </p>
+
+                <!-- Carte conceptuelle 4 : Les 4 piliers architecturaux de l'environnement capacitant -->
+                <div class="concept-map-card" id="map-piliers">
+                    <div class="concept-map-header">
+                        <span class="concept-map-title">Carte conceptuelle 4 — Synthèse des quatre piliers architecturaux d’une bibliothèque inclusive</span>
+                        <span class="concept-map-hint">Cliquez sur un pilier pour consulter ses spécifications techniques</span>
+                    </div>
+                    <svg class="concept-svg" viewBox="0 0 920 230" role="img" aria-label="Synthèse des quatre piliers d'aménagement inclusif">
+                        <!-- Socle -->
+                        <rect x="40" y="175" width="840" height="38" rx="6" fill="#7a2222"/>
+                        <text x="460" y="199" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700" letter-spacing="0.05em">
+                            ENVIRONNEMENT CAPACITANT &amp; ACCESSIBILITÉ UNIVERSELLE (CONCORDANCE LITTÉRATURE / TERRAIN)
+                        </text>
+
+                        <!-- Pilier 1 -->
+                        <g class="svg-node active" onclick="selectConceptNode('map-piliers', 0, this)">
+                            <rect x="45" y="20" width="195" height="142" rx="8" fill="#7a2222" stroke="#cbbba6" stroke-width="1.5"/>
+                            <text x="142" y="48" text-anchor="middle" fill="#ffffff" font-size="12.5" font-weight="700">Zonage &amp; Retrait</text>
+                            <text x="142" y="72" text-anchor="middle" fill="#f5e6e6" font-size="11">Aires prévisibles</text>
+                            <text x="142" y="90" text-anchor="middle" fill="#f5e6e6" font-size="11">Séparateurs amovibles</text>
+                            <text x="142" y="108" text-anchor="middle" fill="#f5e6e6" font-size="11">Couleurs pastel/neutres</text>
+                            <text x="142" y="126" text-anchor="middle" fill="#f5e6e6" font-size="11">Contrôle social</text>
+                        </g>
+
+                        <!-- Pilier 2 -->
+                        <g class="svg-node" onclick="selectConceptNode('map-piliers', 1, this)">
+                            <rect x="258" y="20" width="195" height="142" rx="8" fill="#FAF6EF" stroke="#cbbba6" stroke-width="1.5"/>
+                            <text x="355" y="48" text-anchor="middle" fill="#7a2222" font-size="12.5" font-weight="700">Éclairage Adaptatif</text>
+                            <text x="355" y="72" text-anchor="middle" fill="#2b2b2b" font-size="11">Lumière naturelle priorisée</text>
+                            <text x="355" y="90" text-anchor="middle" fill="#2b2b2b" font-size="11">Zéro néon / bourdonnement</text>
+                            <text x="355" y="108" text-anchor="middle" fill="#2b2b2b" font-size="11">Sources indirectes</text>
+                            <text x="355" y="126" text-anchor="middle" fill="#2b2b2b" font-size="11">Lampes individuelles réglables</text>
+                        </g>
+
+                        <!-- Pilier 3 -->
+                        <g class="svg-node" onclick="selectConceptNode('map-piliers', 2, this)">
+                            <rect x="471" y="20" width="195" height="142" rx="8" fill="#FAF6EF" stroke="#cbbba6" stroke-width="1.5"/>
+                            <text x="568" y="48" text-anchor="middle" fill="#7a2222" font-size="12.5" font-weight="700">Matériaux &amp; Hygiène</text>
+                            <text x="568" y="72" text-anchor="middle" fill="#2b2b2b" font-size="11">Linoléum, verre trempé</text>
+                            <text x="568" y="90" text-anchor="middle" fill="#2b2b2b" font-size="11">Non toxiques, sans COV</text>
+                            <text x="568" y="108" text-anchor="middle" fill="#2b2b2b" font-size="11">Surfaces mates et lisses</text>
+                            <text x="568" y="126" text-anchor="middle" fill="#2b2b2b" font-size="11">Résistants aux fluides</text>
+                        </g>
+
+                        <!-- Pilier 4 -->
+                        <g class="svg-node" onclick="selectConceptNode('map-piliers', 3, this)">
+                            <rect x="684" y="20" width="195" height="142" rx="8" fill="#FAF6EF" stroke="#cbbba6" stroke-width="1.5"/>
+                            <text x="781" y="48" text-anchor="middle" fill="#7a2222" font-size="12.5" font-weight="700">Mobilier &amp; Sécurité</text>
+                            <text x="781" y="72" text-anchor="middle" fill="#2b2b2b" font-size="11">Coins arrondis</text>
+                            <text x="781" y="90" text-anchor="middle" fill="#2b2b2b" font-size="11">Aires de transfert fauteuil</text>
+                            <text x="781" y="108" text-anchor="middle" fill="#2b2b2b" font-size="11">Lève-personne &amp; ballons</text>
+                            <text x="781" y="126" text-anchor="middle" fill="#2b2b2b" font-size="11">Modulaire et ancré au sol</text>
+                        </g>
+                    </svg>
+                    <div class="concept-detail-panel" id="map-piliers-detail">
+                        <strong>Zonage &amp; Retrait :</strong> La séparation harmonieuse et prévisible des espaces (grand groupe, petit groupe, centre d'écoute, lieux de retrait) permet de moduler la stimulation sensorielle et sociale tout en renforçant l'orientation autonome des élèves (Mostafa, 2014 ; Khare &amp; Abir, 2009).
+                    </div>
+                </div>
+
+                <p>
+                    Enfin, l’un des aspects intéressants de ce projet est sans doute le développement d’une méthodologie qui peut être appliquée à plusieurs projets de conception d’un environnement d’apprentissage inclusif. Chacune des étapes de la démarche, soit la recension des écrits, les entretiens individuels, le groupe nominal et les sessions de co-conception, a apporté quelque chose de différent et d’enrichissant au projet. Les entretiens individuels nous ont permis de mieux comprendre ce qui se passe à l’intérieur d’une bibliothèque scolaire et d’explorer les activités que les enseignantes souhaiteraient réaliser à la bibliothèque, mais qui sont impossibles actuellement en raison du manque d’espace. Le groupe nominal nous a clairement indiqué les priorités à couvrir dans l’aménagement d’une bibliothèque scolaire en ce qui concerne l’espace, les activités et les matériaux à utiliser. Enfin, en tenant compte des pratiques issues de la recension des écrits, les sessions de co-conception nous ont permis de concrétiser les idées et les priorités de tous les participants. Elles ont permis de développer des options créatives pour répondre aux besoins mentionnés tout au long du projet. Par exemple, la flexibilité de l’espace, de l’éclairage et du mobilier a été soulevée explicitement lorsque nous avons présenté la première ébauche de l’aménagement de la bibliothèque au groupe d’enseignantes lors de la première session de co-conception.
+                </p>
+
+                <!-- CONCLUSION -->
+                <h2 id="sec-conclusion" class="section-heading scroll-anchor">Conclusion</h2>
+
+                <p>
+                    Cette étude a été menée pour répondre à la demande spécifique d’une école spécialisée accueillant des élèves présentant une DI de moyenne à profonde. Toutefois, nous sommes d’avis que de nombreux éléments issus de cette recherche sur la conception d’une bibliothèque inclusive pourraient être transférables aux écoles ordinaires. En effet, la diversité des élèves et du personnel exige que les architectes et les concepteurs de bibliothèques scolaires respectent les principes d’accessibilité universelle, notamment en ce qui concerne le cadre bâti.
+                </p>
+
+                <p>
+                    Étant donné que la plupart des écoles de la province de Québec ont plus de 50 ans, il devient donc nécessaire que le gouvernement fournisse des efforts non seulement pour rénover le parc immobilier scolaire, mais aussi pour le faire de manière responsable, en s’appuyant sur des données probantes issues de recherches et de la littérature scientifique pertinente. De plus, la méthodologie de la co-conception présentée dans cet article est une approche qu’il convient de faire connaître et d’utiliser avec les futurs utilisateurs. Cette approche rend les projets inestimables et permet de répondre aux besoins réels du milieu de pratique. Le développement méthodologique de cette recherche montre une manière alternative de réaliser des bibliothèques scolaires inclusives, ce qui pourrait entraîner des répercussions positives pour les écoles de la province de Québec et d’autres régions.
+                </p>
+
+                <p>
+                    Ce projet n’aurait jamais vu le jour sans les subventions suivantes&nbsp;: Ministère de l’éducation (2017-2019)&nbsp;; Ministère de l’Éducation et de l’Enseignement supérieur (MEES), Programme de partenariat en adaptation scolaire (Mesure 15351) «&nbsp;Pratiques pédagogiques en littératie&nbsp;: de la salle de classe à la bibliothèque&nbsp;»&nbsp;: et Société inclusive «&nbsp;Pour une Bibliothèque pour tous&nbsp;». Ainsi que la précieuse collaboration de&nbsp;: Céline Crépin, Nicolas Maheux, Valérie Cauchon, Émilie Léger, Maryse Feliziani.
+                </p>
+
+                <!-- RÉFÉRENCES BIBLIOGRAPHIQUES -->
+                <h2 id="sec-references" class="section-heading scroll-anchor">Références bibliographiques</h2>
+
+                <div class="references-list">
+                    <p>Ahrentzen, S. et Steele, K. (2009), <em>Advancing Full Spectrum Housing: Design for Adults with Autism Spectrum Disorders</em>.</p>
+                    <p>Ahrentzen, S. et Steele, K. (2009), <em>op. cit.</em>; Anderson (2013), <em>op. cit.</em></p>
+                    <p>Anderson, L. (2013, July), «&nbsp;Model home, Sonoma, California: in response to a growing need, Leddy Maytum Stacy Architects and a Bay Area nonprofit developed a residential community for adults with autism&nbsp;», <em>Architectural record</em>, vol. 201, n°7, pp. 119-123.</p>
+                    <p>Beaulieu, J. &amp; Langevin, J. (2014), «&nbsp;L’élève qui a des incapacités intellectuelles et la lecture&nbsp;», <em>Revue francophone de la déficience intellectuelle</em>, vol. 25, DOI&nbsp;: <a href="https://doi.org/10.7202/1027327ar" target="_blank" rel="noopener noreferrer">doi.org/10.7202/1027327ar</a>, pp. 52-69.</p>
+                    <p>Bibliothèques scolaires canadiennes (2014), «&nbsp;Carrefour d’apprentissage. L’apprentissage en tête&nbsp;: principes relatifs à la transition de la bibliothèque vers le carrefour d’apprentissage au Canada&nbsp;», <em>Réseau Voices for School Libraries et le comité consultatif sur les bibliothèques scolaires de l’Association canadienne des bibliothèques</em> (ACB).</p>
+                    <p>Demilly, S. (2014), <em>Manager avec l’approche Herrmann: l’art de conjuguer les intelligences individuelles</em>, Paris&nbsp;: Eyrolles.</p>
+                    <p>Fortin, M.-F., et Gagnon, J. (2016), <em>Fondements et étapes du processus de recherche. Méthodes quantitatives et qualitatives</em>, 3<sup>e</sup> ed., Montréal&nbsp;: Chenelière Éducation.</p>
+                    <p>Frier, C., Vadcar, A. (2017), «&nbsp;Mais qu’est-ce qui se passe dans le coin lecture&nbsp;?&nbsp;», <em>Repères</em>, vol. 55, pp. 133-157, URL&nbsp;: <a href="https://tinyurl.com/2w9m36ht" target="_blank" rel="noopener noreferrer">https://tinyurl.com/2w9m36ht</a>.</p>
+                    <p>Gavigan, K. W., Copeland, C. A. (2016), «&nbsp;Building connections, collaboration, and community for differently-and typically-able students in a middle school library in the United States&nbsp;» [paper presentation], <em>IFLA WLIC 2016</em>, Ohio -Columbus, URL&nbsp;: <a href="https://tinyurl.com/5n8v2njm" target="_blank" rel="noopener noreferrer">https://tinyurl.com/5n8v2njm</a>.</p>
+                    <p>Gibson, A. (2006), «&nbsp;Disability Support Services, Victoria University of Wellington&nbsp;», in P. Hernon &amp; P. J. Calvert (Eds.), <em>Improving the Quality of Library Services for Students with Disabilities</em>, Westport: Libraries Unlimited, pp. 57-66.</p>
+                    <p>Hawkins, D. Kosterman, R., Catalano, R. F., Hill, K. G. &amp; Abbott, R. D. (2008), «&nbsp;Effects of Social Development Intervention in Childhood 15 years Later&nbsp;», <em>Arch pediatr Adolesc Med.</em>, vol. 162, n° 2, DOI&nbsp;:10.1001/archpedi.162.12.1133, pp. 1133-1141.</p>
+                    <p>Humphreys, C. &amp; Absler, D. (2011), «&nbsp;History repeating: child protection responses to domestic violence&nbsp;», <em>Child &amp; Family Social Work</em>, vol. 16, n° 4, DOI&nbsp;: <a href="http://dx.doi.org/10.26687/archnet-ijar.v2i1.182" target="_blank" rel="noopener noreferrer">10.26687/archnet-ijar.v2i1.182</a>, pp. 464-473.</p>
+                    <p>Khare, R. &amp; Abir, M. (2009), «&nbsp;Incorporating the Behavioral Dimension in Designing Inclusive Learning Environment for Autism&nbsp;», <em>International Journal of Architectural Research</em>, vol. 3, n° 3, pp. 45-64, DOI&nbsp;: <a href="http://dx.doi.org/10.26687/archnet-ijar.v3i3.189" target="_blank" rel="noopener noreferrer">10.26687/archnet-ijar.v3i3.189</a>.</p>
+                    <p>Lowe, M. S., Booth, C. &amp; Savora, M. (2014), «&nbsp;2014 Student library Survey Report&nbsp;», <em>Library Staff Publication and Research</em>, p. 31, URL&nbsp;: <a href="https://tinyurl.com/yc7m69mf" target="_blank" rel="noopener noreferrer">https://tinyurl.com/yc7m69mf</a>.</p>
+                    <p>Maguire, T., Garvey, L., Ryan, J., Olasoji, M. et Willets, G. (2022), «&nbsp;Using the Nominal Group Technique to determine a nursing framework for a forensic mental health service: A discussion paper&nbsp;», <em>International Journal of Mental Health Nursing</em>, vol. 31, n° 4, DOI&nbsp;: <a href="https://doi.org/10.1111/inm.13023" target="_blank" rel="noopener noreferrer">doi.org/10.1111/inm.13023</a>, pp. 1030-1038.</p>
+                    <p>Mcallister, K., Maguire, B. (2012), «&nbsp;Design considerations for the autism spectrum disorder-friendly Key Stage 1 classroom&nbsp;», <em>British Journal of Learning Support</em>, vol. 27, n° 3, DOI&nbsp;: <a href="http://dx.doi.org/10.1111/j.1467-9604.2012.01525.x" target="_blank" rel="noopener noreferrer">10.1111/j.1467-9604.2012.01525.x</a>.</p>
+                    <p>Ministère de l’Éducation du Québec (2022), <em>Doter les bibliothèques scolaires de ressources variées et de qualité</em>, URL&nbsp;: <a href="https://tinyurl.com/367c6u72" target="_blank" rel="noopener noreferrer">https://tinyurl.com/367c6u72</a>.</p>
+                    <p>Ministère de l’Éducation du Québec (2022), <em>Pourquoi une bibliothèque scolaire&nbsp;?</em>, URL&nbsp;: <a href="https://tinyurl.com/58nzfyud" target="_blank" rel="noopener noreferrer">https://tinyurl.com/58nzfyud</a>.</p>
+                    <p>Ministère de l’Éducation du Québec (2022), <em>Pourquoi une bibliothèque scolaire&nbsp;?</em>, <em>op. cit.</em></p>
+                    <p>Morales, E. Rousseau, J. &amp; Passini, R. (2012), «&nbsp;Using a Co-Design Methodology for Research on Environmental Gerontology&nbsp;», <em>Journal of Gerontology &amp; Geriatric Research</em>, vol. 1, n° 3, DOI&nbsp;: 10.4172/2167-7182.1000106.</p>
+                    <p>Moreau, A. C., Léger, É. et Cauchon, V. (2022), <em>De la salle de classe à la bibliothèque&nbsp;: Guide de la bibliothèque de mon école inclusive</em>, Gatineau&nbsp;: Université du Québec en Outaouais.</p>
+                    <p>Mostafa, M. (2008), «&nbsp;An Architecture for Autism: Concepts of Design Intervention for the Autistic User&nbsp;», <em>International Journal of Architectural research</em>, vol. 2, n° 1, DOI&nbsp;: <a href="http://dx.doi.org/10.26687/archnet-ijar.v2i1.182" target="_blank" rel="noopener noreferrer">10.26687/archnet-ijar.v2i1.182</a>, pp. 189-211.</p>
+                    <p>Mostafa, M. (2013), «&nbsp;Expending Normal: Towards a More Inclusive Approach to Designing the Built Environment&nbsp;», <em>Open house International</em>, vol. 38, n° 1, DOI: <a href="http://dx.doi.org/10.1108/OHI-01-2013-B0001" target="_blank" rel="noopener noreferrer">10.1108/OHI-01-2013-B0001</a>, pp. 4-6.</p>
+                    <p>Mostafa, M. (2014), «&nbsp;Architecture for autism: Autism aspectss<sup>tm</sup> in school design&nbsp;», <em>International Journal of Architectural Research</em>, vol. 8, n° 1, DOI&nbsp;: <a href="http://dx.doi.org/10.26687/archnet-ijar.v8i1.314" target="_blank" rel="noopener noreferrer">10.26687/archnet-ijar.v8i1.314</a>, pp. 143-158.</p>
+                    <p>Paillé, P., &amp; Mucchielli, A. (2021), <em>L’analyse qualitative en sciences humaines et sociales</em>, 5<sup>e</sup> éd., Armand Colin.</p>
+                    <p>Sanchez, P., Vazquez, F., &amp; Serrano, L. (2011), «&nbsp;Autism and the built environment. Autism Spectrum Disorders — From Genes to Environment&nbsp;», <em>InTech</em>, Croatia&nbsp;; Anderson (2013), <em>op. cit.</em></p>
+                    <p>Tremblay, K. N., Moreau, A. C., Morales, E., Philion, R., Ruel, J., Dumont, C. et Charrier, F. (2021), «&nbsp;Collaboration interdisciplinaire et pratiques inclusives en enseignement de la littératie auprès d’élèves ayant une déficience intellectuelle importante&nbsp;», dans F. Julien-Gauthier, H. Gascon et Jourdan-Ionescu C. (dir.), <em>Pratiques inclusives en déficience intellectuelle</em>, Presses de l’Université du Québec, pp. 65-81.</p>
+                    <p>Visser, F. S., Stappers, P. S., Van der Lugt, R. &amp; Sanders, E. B-N. (2005), «&nbsp;Contextmapping&nbsp;: experiences from practice&nbsp;», <em>International Journal of CoCreation in Design and the Arts</em>, vol. 1, n° 2, DOI&nbsp;: 0.1080/15710880500135987, pp. 119-149.</p>
+                </div>
+
+                <!-- NOTES DE BAS DE PAGE -->
+                <div class="footnotes-section">
+                    <h3 class="subsection-heading" style="margin-top: 0;">Notes</h3>
+                    <div class="footnotes-list">
+                        <p id="fn1"><a href="#fnref1">1</a> Ministère de l’Éducation du Québec (2022), <em>Pourquoi une bibliothèque scolaire&nbsp;?</em>, URL&nbsp;: <a href="https://tinyurl.com/58nzfyud" target="_blank" rel="noopener noreferrer">https://tinyurl.com/58nzfyud</a>.</p>
+                        <p id="fn2"><a href="#fnref2">2</a> Ministère de l’Éducation du Québec (2022), <em>Doter les bibliothèques scolaires de ressources variées et de qualité</em>, URL&nbsp;: <a href="https://tinyurl.com/367c6u72" target="_blank" rel="noopener noreferrer">https://tinyurl.com/367c6u72</a>.</p>
+                        <p id="fn3"><a href="#fnref3">3</a> Ministère de l’Éducation du Québec (2022), <em>Pourquoi une bibliothèque scolaire&nbsp;?</em>, <em>op. cit.</em></p>
+                        <p id="fn4"><a href="#fnref4">4</a> Frier, C., Vadcar, A. (2017), «&nbsp;Mais qu’est-ce qui se passe dans le coin lecture&nbsp;?&nbsp;», <em>Repères</em>, vol. 55, URL&nbsp;: <a href="https://tinyurl.com/2w9m36ht" target="_blank" rel="noopener noreferrer">https://tinyurl.com/2w9m36ht</a>, pp. 133-157.</p>
+                        <p id="fn5"><a href="#fnref5">5</a> Bibliothèques scolaires canadiennes (2014), «&nbsp;Carrefour d’apprentissage. L’apprentissage en tête&nbsp;: principes relatifs à la transition de la bibliothèque vers le carrefour d’apprentissage au Canada&nbsp;», <em>Réseau Voices for School Libraries et le comité consultatif sur les bibliothèques scolaires de l’Association canadienne des bibliothèques</em> (ACB).</p>
+                        <p id="fn6"><a href="#fnref6">6</a> Gavigan, K. W., Copeland, C. A. (2016), «&nbsp;Building connections, collaboration, and community for differently-and typically-able students in a middle school library in the United States&nbsp;» [paper presentation], <em>IFLA WLIC 2016</em>, Ohio -Columbus, URL&nbsp;: <a href="https://tinyurl.com/5n8v2njm" target="_blank" rel="noopener noreferrer">https://tinyurl.com/5n8v2njm</a>.</p>
+                        <p id="fn7"><a href="#fnref7">7</a> Gibson, A. (2006), «&nbsp;Disability Support Services, Victoria University of Wellington&nbsp;», in P. Hernon &amp; P. J. Calvert (Eds.), <em>Improving the Quality of Library Services for Students with Disabilities</em>, Westport: Libraries Unlimited, pp. 57-66.</p>
+                        <p id="fn8"><a href="#fnref8">8</a> Mostafa, M. (2014), «&nbsp;Architecture for autism: Autism aspectss<sup>tm</sup> in school design&nbsp;», <em>International Journal of Architectural Research</em>, vol. 8, n° 1, DOI&nbsp;: <a href="http://dx.doi.org/10.26687/archnet-ijar.v8i1.314" target="_blank" rel="noopener noreferrer">10.26687/archnet-ijar.v8i1.314</a>, pp. 143-158.</p>
+                        <p id="fn9"><a href="#fnref9">9</a> Beaulieu, J. &amp; Langevin, J. (2014), «&nbsp;L’élève qui a des incapacités intellectuelles et la lecture&nbsp;», <em>Revue francophone de la déficience intellectuelle</em>, vol. 25, DOI&nbsp;: <a href="https://doi.org/10.7202/1027327ar" target="_blank" rel="noopener noreferrer">doi.org/10.7202/1027327ar</a>, pp. 52-69.</p>
+                        <p id="fn10"><a href="#fnref10">10</a> Bibliothèques scolaires canadiennes (2014), <em>op. cit.</em></p>
+                        <p id="fn11"><a href="#fnref11">11</a> Moreau, A. C., Léger, É. et Cauchon, V. (2022), <em>De la salle de classe à la bibliothèque&nbsp;: Guide de la bibliothèque de mon école inclusive</em>, Gatineau&nbsp;: Université du Québec en Outaouais.</p>
+                        <p id="fn12"><a href="#fnref12">12</a> Tremblay, K. N., Moreau, A. C., Morales, E., Philion, R., Ruel, J., Dumont, C. et Charrier, F. (2021), «&nbsp;Collaboration interdisciplinaire et pratiques inclusives en enseignement de la littératie auprès d’élèves ayant une déficience intellectuelle importante&nbsp;», dans F. Julien-Gauthier, H. Gascon et Jourdan-Ionescu C. (dir.), <em>Pratiques inclusives en déficience intellectuelle</em>, Presses de l’Université du Québec, pp. 65-81.</p>
+                        <p id="fn13"><a href="#fnref13">13</a> Fortin, M.-F., et Gagnon, J. (2016), <em>Fondements et étapes du processus de recherche. Méthodes quantitatives et qualitatives</em>, 3<sup>e</sup> ed., Montréal&nbsp;: Chenelière Éducation.</p>
+                        <p id="fn14"><a href="#fnref14">14</a> Maguire, T., Garvey, L., Ryan, J., Olasoji, M. et Willets, G. (2022), «&nbsp;Using the Nominal Group Technique to determine a nursing framework for a forensic mental health service: A discussion paper&nbsp;», <em>International Journal of Mental Health Nursing</em>, vol. 31, n° 4, DOI&nbsp;: <a href="https://doi.org/10.1111/inm.13023" target="_blank" rel="noopener noreferrer">doi.org/10.1111/inm.13023</a>, pp. 1030-1038.</p>
+                        <p id="fn15"><a href="#fnref15">15</a> <em>Idem</em>.</p>
+                        <p id="fn16"><a href="#fnref16">16</a> Morales, E. Rousseau, J. &amp; Passini, R. (2012), «&nbsp;Using a Co-Design Methodology for Research on Environmental Gerontology&nbsp;», <em>Journal of Gerontology &amp; Geriatric Research</em>, vol. 1, n° 3, DOI&nbsp;: 10.4172/2167-7182.1000106.</p>
+                        <p id="fn17"><a href="#fnref17">17</a> Visser, F. S., Stappers, P. S., Van der Lugt, R. &amp; Sanders, E. B-N. (2005), «&nbsp;Contextmapping&nbsp;: experiences from practice&nbsp;», <em>International Journal of CoCreation in Design and the Arts</em>, vol. 1, n° 2, DOI&nbsp;: 0.1080/15710880500135987, pp. 119-149.</p>
+                        <p id="fn18"><a href="#fnref18">18</a> Paillé, P., &amp; Mucchielli, A. (2021), <em>L’analyse qualitative en sciences humaines et sociales</em>, 5<sup>e</sup> éd., Armand Colin.</p>
+                        <p id="fn19"><a href="#fnref19">19</a> Mostafa, M. (2014), <em>op. cit.</em></p>
+                        <p id="fn20"><a href="#fnref20">20</a> Anderson, L. (2013, July), «&nbsp;Model home, Sonoma, California: in response to a growing need, Leddy Maytum Stacy Architects and a Bay Area nonprofit developed a residential community for adults with autism&nbsp;», <em>Architectural record</em>, vol. 201, n°7, pp. 119-123.</p>
+                        <p id="fn21"><a href="#fnref21">21</a> Lowe, M. S., Booth, C. &amp; Savora, M. (2014), «&nbsp;2014 Student library Survey Report&nbsp;», <em>Library Staff Publication and Research</em>, p. 31, URL&nbsp;: <a href="https://tinyurl.com/yc7m69mf" target="_blank" rel="noopener noreferrer">https://tinyurl.com/yc7m69mf</a>.</p>
+                        <p id="fn22"><a href="#fnref22">22</a> Mostafa, M. (2008), «&nbsp;An Architecture for Autism: Concepts of Design Intervention for the Autistic User&nbsp;», <em>International Journal of Architectural research</em>, vol. 2, n° 1, DOI&nbsp;: <a href="http://dx.doi.org/10.26687/archnet-ijar.v2i1.182" target="_blank" rel="noopener noreferrer">10.26687/archnet-ijar.v2i1.182</a>, pp. 189-211.</p>
+                        <p id="fn23"><a href="#fnref23">23</a> Humphreys, C. &amp; Absler, D. (2011), «&nbsp;History repeating: child protection responses to domestic violence&nbsp;», <em>Child &amp; Family Social Work</em>, vol. 16, n° 4, DOI&nbsp;: <a href="http://dx.doi.org/10.26687/archnet-ijar.v2i1.182" target="_blank" rel="noopener noreferrer">10.26687/archnet-ijar.v2i1.182</a>, pp. 464-473.</p>
+                        <p id="fn24"><a href="#fnref24">24</a> Khare, R. &amp; Abir, M. (2009), «&nbsp;Incorporating the Behavioral Dimension in Designing Inclusive Learning Environment for Autism&nbsp;», <em>International Journal of Architectural Research</em>, vol. 3, n° 3, pp. 45-64, DOI&nbsp;: <a href="http://dx.doi.org/10.26687/archnet-ijar.v3i3.189" target="_blank" rel="noopener noreferrer">10.26687/archnet-ijar.v3i3.189</a>.</p>
+                        <p id="fn25"><a href="#fnref25">25</a> Ahrentzen, S. et Steele, K. (2009), <em>Advancing Full Spectrum Housing: Design for Adults with Autism Spectrum Disorders</em>.</p>
+                        <p id="fn26"><a href="#fnref26">26</a> Humphreys, C. &amp; Absler, D. (2011), <em>op. cit.</em></p>
+                        <p id="fn27"><a href="#fnref27">27</a> Demilly, S. (2014), <em>Manager avec l’approche Herrmann: l’art de conjuguer les intelligences individuelles</em>, Paris&nbsp;: Eyrolles.</p>
+                        <p id="fn28"><a href="#fnref28">28</a> Mcallister, K., Maguire, B. (2012), «&nbsp;Design considerations for the autism spectrum disorder-friendly Key Stage 1 classroom&nbsp;», <em>British Journal of Learning Support</em>, vol. 27, n° 3, DOI&nbsp;: <a href="http://dx.doi.org/10.1111/j.1467-9604.2012.01525.x" target="_blank" rel="noopener noreferrer">10.1111/j.1467-9604.2012.01525.x</a>.</p>
+                        <p id="fn29"><a href="#fnref29">29</a> Mostafa, M. (2013), «&nbsp;Expending Normal: Towards a More Inclusive Approach to Designing the Built Environment&nbsp;», <em>Open house International</em>, vol. 38, n° 1, DOI: <a href="http://dx.doi.org/10.1108/OHI-01-2013-B0001" target="_blank" rel="noopener noreferrer">10.1108/OHI-01-2013-B0001</a>, pp. 4-6.</p>
+                        <p id="fn30"><a href="#fnref30">30</a> Ahrentzen, S. et Steele, K. (2009), <em>op. cit.</em>; Anderson (2013), <em>op. cit.</em></p>
+                        <p id="fn31"><a href="#fnref31">31</a> Hawkins, D. Kosterman, R., Catalano, R. F., Hill, K. G. &amp; Abbott, R. D. (2008), «&nbsp;Effects of Social Development Intervention in Childhood 15 years Later&nbsp;», <em>Arch pediatr Adolesc Med.</em>, vol. 162, n° 2, DOI&nbsp;:10.1001/archpedi.162.12.1133, pp. 1133-1141.</p>
+                        <p id="fn32"><a href="#fnref32">32</a> Sanchez, P., Vazquez, F., &amp; Serrano, L. (2011), «&nbsp;Autism and the built environment. Autism Spectrum Disorders — From Genes to Environment&nbsp;», <em>InTech</em>, Croatia&nbsp;; Anderson (2013), <em>op. cit.</em></p>
+                        <p id="fn33"><a href="#fnref33">33</a> Ahrentzen, S. et Steele, K. (2009), <em>op. cit.</em></p>
+                        <p id="fn34"><a href="#fnref34">34</a> Lowe, M. S., Booth, C. &amp; Savora, M. (2014), <em>op. cit.</em></p>
+                        <p id="fn35"><a href="#fnref35">35</a> Khare, R. &amp; Abir, M. (2009), <em>op. cit.</em></p>
+                        <p id="fn36"><a href="#fnref36">36</a> Ahrentzen, S. et Steele, K. (2009), <em>op. cit.</em></p>
+                        <p id="fn37"><a href="#fnref37">37</a> Hawkins, D. et als (2008), <em>op. cit.</em></p>
+                        <p id="fn38"><a href="#fnref38">38</a> Demilly, S. (2014), <em>op. cit.</em></p>
+                        <p id="fn39"><a href="#fnref39">39</a> Hawkins, D. et als (2008), <em>op. cit.</em></p>
+                        <p id="fn40"><a href="#fnref40">40</a> <em>Idem</em>.</p>
+                        <p id="fn41"><a href="#fnref41">41</a> Khare, R. &amp; Abir, M. (2009), <em>op. cit.</em></p>
+                        <p id="fn42"><a href="#fnref42">42</a> Anderson, L. (2013, July), <em>op. cit.</em></p>
+                        <p id="fn43"><a href="#fnref43">43</a> Hawkins, D. et als (2008), <em>op. cit.</em></p>
+                        <p id="fn44"><a href="#fnref44">44</a> Sanchez, P., Vazquez, F., &amp; Serrano, L. (2011), <em>op. cit.</em></p>
+                    </div>
+                </div>
+
+            </article>
+        </main>
+    </div>
+
+    <!-- Modal Universel (PDF / Vidéo) -->
+    <div class="modal-overlay" id="mediaModal" onclick="closeModalOnOutside(event)">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 id="modalTitle">Titre de la fenêtre</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBodyContent"></div>
+        </div>
+    </div>
+
+    <!-- Modal de Proposition d'Article / Projet -->
+    <div class="modal-overlay" id="proposalModal" onclick="closeProposalModalOnOutside(event)">
+        <div class="modal-container" style="max-width: 800px; height: auto;">
+            <div class="modal-header">
+                <h3 id="proposalModalTitle">Proposer une captation ou un article / Nous faire part d'un commentaire</h3>
+                <button class="modal-close" onclick="closeProposalModal()">&times;</button>
+            </div>
+            <div class="modal-body" style="padding: 1.5rem; overflow-y: auto;">
+                <form id="proposalForm" onsubmit="submitProposal(event)" style="display: flex; flex-direction: column; gap: 1rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                    <input type="hidden" id="propCategory" value="article">
+                    <div>
+                        <label for="propName" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Votre nom</label>
+                        <input type="text" id="propName" required style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propEmail" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Votre courriel</label>
+                        <input type="email" id="propEmail" required style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propTitle" id="propTitleLabel" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Que désirez-vous nous communiquer ?</label>
+                        <input type="text" id="propTitle" required placeholder="Ex: Analyse de l'accessibilité urbaine..." style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propDesc" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Description ou résumé</label>
+                        <textarea id="propDesc" rows="4" required placeholder="Décrivez votre proposition en quelques lignes..." style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff; resize: vertical;"></textarea>
+                    </div>
+                    <button type="submit" style="background-color: #7a2222; color: #fff; border: none; padding: 0.75rem; border-radius: 4px; font-weight: 600; cursor: pointer; margin-top: 0.5rem; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#5e1a1a'" onmouseout="this.style.backgroundColor='#7a2222'">Envoyer la proposition</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const conceptDetailsData = {
+            'map-enjeux': [
+                "<strong>Vue d'ensemble :</strong> À l'origine, la bibliothèque de l'École spécialisée de l'Envol fonctionne principalement comme un local de dépôt de livres et de visionnement de films, sans répondre aux profils sensoriels, moteurs et cognitifs d'élèves présentant une DI moyenne à profonde associée à un TSA ou à des déficiences visuelles et langagières.",
+                "<strong>1. Contenu &amp; Collections :</strong> Les livres disponibles sont obsolètes ou inadaptés aux adolescents de 16 à 21 ans, les documents audiovisuels ne disposent d'aucun système de classement et les livres numériques sont absents (enjeu traité par Tremblay et als., 2021).",
+                "<strong>2. Lien Classe-Bibliothèque :</strong> Le potentiel pédagogique et d'animation autour du livre demeure sous-exploité ; la bibliothèque n'est pas encore investie par le personnel comme une véritable extension de la salle de classe (enjeu traité par Moreau et als., 2022).",
+                "<strong>3. Environnement Physique :</strong> L'emplacement du comptoir de prêts, le mobilier non ajusté, l'éclairage fluorescent générateur de surcharge sensorielle et une signalisation inaccessible font obstacle à l'inclusion — cœur du présent projet de co-conception."
+            ],
+            'map-methodo': [
+                "<strong>Étape 1 — Recension des écrits :</strong> Interrogation systématique d'ERIC, Academic Search Premier et Web of Science autour de trois axes (design universel, classes et bibliothèques, enfants ayant des incapacités), permettant de filtrer 925 références vers 108 articles fondateurs.",
+                "<strong>Étape 2 — Entrevues individuelles :</strong> Rencontres semi-dirigées de 90 minutes (24 questions) auprès de 7 intervenantes (enseignantes, techniciennes en éducation spécialisée, bibliothécaire, direction) possédant de 5 à 24 ans d'expérience.",
+                "<strong>Étape 3 — Groupe nominal :</strong> Réunion de consensus de 60 minutes rassemblant 31 membres du personnel (direction, bibliothécaire, TES, adaptation scolaire, enseignants) afin de hiérarchiser les priorités physiques, pédagogiques et organisationnelles.",
+                "<strong>Étape 4 — Co-conception (Codesign) :</strong> Deux séances itératives à 10 semaines d'intervalle avec 8 enseignantes expertes de leur pratique pour critiquer, ajuster et valider des solutions réalistes, abordables et adaptées."
+            ],
+            'map-rue': [
+                "<strong>Le Zoo :</strong> Exploite l'espace rectangulaire allongé de l'école pour regrouper visuellement les ouvrages sur les animaux et la nature, favorisant le repérage autonome sans recourir au code numérique Dewey.",
+                "<strong>Le Garage :</strong> Rassemble les documents portant sur les moyens de transport et les métiers de la construction, répondant directement aux champs d'intérêt majeurs exprimés par les élèves lors des entretiens.",
+                "<strong>La Maison (ex-Clinique) :</strong> Modification majeure issue de la 1re séance de co-conception : le terme « clinique » a été remplacé par « maison » afin d'éviter de rappeler aux élèves leurs fréquentes visites médicales tout en abordant l'hygiène et la nutrition.",
+                "<strong>Théâtre &amp; Agence de voyage :</strong> Pôles dédiés à l'animation du livre, aux récits racontés, aux fêtes annuelles et à l'ouverture culturelle en petit ou grand groupe.",
+                "<strong>Espaces de retrait &amp; Tiroirs :</strong> Intégration de tiroirs pour moduler la surcharge visuelle et protéger les livres fragiles, couplée à des espaces fermés (postes audio) et des coins de calme pour l'autorégulation sensorielle."
+            ],
+            'map-piliers': [
+                "<strong>Zonage &amp; Retrait :</strong> La séparation harmonieuse et prévisible des espaces (grand groupe, petit groupe, centre d'écoute, lieux de retrait) permet de moduler la stimulation sensorielle et sociale tout en renforçant l'orientation autonome des élèves (Mostafa, 2014 ; Khare &amp; Abir, 2009).",
+                "<strong>Éclairage Adaptatif :</strong> Remplacement des néons bruyants et clignotants par un apport maximal de lumière naturelle, des sources indirectes tamisables et des lampes individuelles réglables soutenant les élèves ayant une déficience visuelle.",
+                "<strong>Matériaux &amp; Hygiène :</strong> Emploi de linoléum, gypse haute densité, tuiles de tapis et verre trempé non toxiques, sans odeur, lavables et résistants aux fluides corporels (bave) ainsi qu'aux déchirures.",
+                "<strong>Mobilier &amp; Sécurité :</strong> Tables, sièges, poufs, tapis et ballons vestibulaires aux coins arrondis, solidement ancrés au sol, modulaires et combinés à un lève-personne pour faciliter les transferts depuis un fauteuil roulant."
+            ]
+        };
+
+        function selectConceptNode(mapId, index, element) {
+            const container = document.getElementById(mapId);
+            if (!container) return;
+            const nodes = container.querySelectorAll('.svg-node');
+            nodes.forEach(node => {
+                node.classList.remove('active');
+                const rect = node.querySelector('rect');
+                const texts = node.querySelectorAll('text');
+                if (rect) rect.setAttribute('fill', '#FAF6EF');
+                texts.forEach((t, idx) => {
+                    t.setAttribute('fill', idx === 0 ? '#7a2222' : '#2b2b2b');
+                });
+            });
+
+            element.classList.add('active');
+            const activeRect = element.querySelector('rect');
+            const activeTexts = element.querySelectorAll('text');
+            if (activeRect) activeRect.setAttribute('fill', '#7a2222');
+            activeTexts.forEach(t => t.setAttribute('fill', '#ffffff'));
+
+            const panel = document.getElementById(mapId + '-detail');
+            if (panel && conceptDetailsData[mapId] && conceptDetailsData[mapId][index]) {
+                panel.innerHTML = conceptDetailsData[mapId][index];
+            }
+        }
+
+        function toggleSubmenu(event, submenuId, arrowId) {
+            event.stopPropagation();
+            const submenu = document.getElementById(submenuId);
+            const arrow = document.getElementById(arrowId);
+            submenu.classList.toggle('open');
+            arrow.style.transform = submenu.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
+
+        function openModal(type, title, url) {
+            const modal = document.getElementById('mediaModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalBodyContent = document.getElementById('modalBodyContent');
+
+            modalTitle.textContent = title;
+            modalBodyContent.innerHTML = '';
+
+            if (type === 'pdf') {
+                const iframe = document.createElement('iframe');
+                iframe.className = 'pdf-frame';
+                iframe.src = url;
+                modalBodyContent.appendChild(iframe);
+            } else if (type === 'video') {
+                const iframe = document.createElement('iframe');
+                iframe.className = 'video-frame';
+                iframe.src = url;
+                iframe.setAttribute('allow', 'autoplay; fullscreen');
+                modalBodyContent.appendChild(iframe);
+            }
+
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('mediaModal');
+            modal.style.display = 'none';
+            document.getElementById('modalBodyContent').innerHTML = '';
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeModalOnOutside(event) {
+            const modal = document.getElementById('mediaModal');
+            if (event.target === modal) closeModal();
+        }
+
+        function openProposalModal(type) {
+            const proposalModal = document.getElementById('proposalModal');
+            const titleEl = document.getElementById('proposalModalTitle');
+            const categoryEl = document.getElementById('propCategory');
+            const titleLabelEl = document.getElementById('propTitleLabel');
+            const titleInputEl = document.getElementById('propTitle');
+
+            categoryEl.value = type;
+
+            if (type === 'captation') {
+                titleEl.textContent = "Nous faire part d'un commentaire ou d'une proposition (captation ou article)";
+                titleLabelEl.textContent = "Que voulez-vous nous communiquer ?";
+                titleInputEl.placeholder = "Ex: projet de captation, soumettre un article, faire un commentaire...";
+            } else {
+                titleEl.textContent = "Nous faire part d'un commentaire ou d'une proposition (captation ou article)";
+                titleLabelEl.textContent = "Que voulez-vous nous communiquer ?";
+                titleInputEl.placeholder = "Ex: projet de captation, soumettre un article, faire un commentaire...";
+            }
+
+            proposalModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProposalModal() {
+            const proposalModal = document.getElementById('proposalModal');
+            proposalModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeProposalModalOnOutside(event) {
+            const proposalModal = document.getElementById('proposalModal');
+            if (event.target === proposalModal) closeProposalModal();
+        }
+
+        function submitProposal(event) {
+            event.preventDefault();
+            const name = document.getElementById('propName').value;
+            const email = document.getElementById('propEmail').value;
+            const category = document.getElementById('propCategory').value;
+            const title = document.getElementById('propTitle').value;
+            const desc = document.getElementById('propDesc').value;
+
+            const typeLabel = category === 'captation' ? 'Proposition de captation' : "Proposition d'article";
+            const subject = encodeURIComponent(`${typeLabel} : ${title}`);
+            const body = encodeURIComponent(`Nom : ${name}\nCourriel : ${email}\nType : ${typeLabel}\nTitre : ${title}\n\nDescription :\n${desc}`);
+
+            window.location.href = `mailto:sociocamera@gmail.com?subject=${subject}&body=${body}`;
+            closeProposalModal();
+        }
+
+        window.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+                closeProposalModal();
+            }
+        });
+    </script>
+</body>
+</html>
