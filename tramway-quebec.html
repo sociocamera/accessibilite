@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; frame-src https://drive.google.com; connect-src https://script.google.com; object-src 'none';">
+    <title>Tramway de Québec</title>
+    <meta name="description" content="Numéro spécial de la Revue de Sociologie Visuelle consacré à l'inclusion sociale et à l'accessibilité. Contributions empiriques et théoriques dirigées par François Routhier et Pierre Fraser.">
+    <meta name="keywords" content="inclusion sociale, accessibilité, sociologie visuelle, handicap, transport urbain, éducation inclusive, CIRRIS, PSVI">
+    <link rel="canonical" href="https://doi.org/10.13140/RG.2.2.35504.53768">
+
+<!-- Open Graph (Facebook, LinkedIn, WhatsApp, etc.) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Revue Sociologie Visuelle">
+<meta property="og:title" content="Inclusion sociale et accessibilité | Revue de Sociologie Visuelle">
+<meta property="og:description" content="Numéro spécial de la Revue de Sociologie Visuelle consacré à l'inclusion sociale et à l'accessibilité. Contributions empiriques et théoriques dirigées par François Routhier et Pierre Fraser.">
+<meta property="og:url" content="https://inclusionsociale.com/">
+<meta property="og:image" content="https://lh3.googleusercontent.com/d/1R-6VqA6SZ8t1dall1uf0mj_ehOcj7jNW">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="fr_CA">
+
+<!-- Twitter / X Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Inclusion sociale et accessibilité | Revue de Sociologie Visuelle">
+<meta name="twitter:description" content="Numéro spécial de la Revue de Sociologie Visuelle consacré à l'inclusion sociale et à l'accessibilité.">
+<meta name="twitter:image" content="https://inclusionsociale.com/images/vignette-inclusion-sociale.jpg">
+
+
+    <style>
+        :root {
+            --bg-color: #FAF6EF;
+            --text-color: #2b2b2b;
+            --primary-color: #1a202c;
+            --accent-color: #4a5568;
+            --border-color: #e2e8f0;
+            --card-bg: #FAF6EF;
+            --hover-border: #cbd5e0;
+            --max-width: 1400px;
+            --sidebar-width: 320px;
+            --topbar-height: 60px;
+            --modal-header-bg: #7a2222; /* Bordeaux de référence */
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Georgia", "Cambria", "Times New Roman", serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Barre horizontale permanente supérieure : toute la largeur de la page */
+        .top-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--topbar-height);
+            background-color: var(--bg-color);
+            border-bottom: 1px solid var(--border-color);
+            display: grid;
+            grid-template-columns: var(--sidebar-width) 1fr auto;
+            align-items: center;
+            padding: 0;
+            z-index: 1100;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .top-navbar-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            letter-spacing: 0.02em;
+            padding-left: 1.5rem;
+            border-right: 1px solid var(--border-color);
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .top-navbar-location {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            background-color: #f2ede4;
+            padding: 0.3rem 0.75rem;
+            border-radius: 4px;
+            margin-right: 2.5rem;
+        }
+
+        /* Colonne latérale gauche permanente sous la barre fixe du haut */
+        aside.sidebar {
+            position: fixed;
+            top: var(--topbar-height);
+            left: 0;
+            width: var(--sidebar-width);
+            height: calc(100vh - var(--topbar-height));
+            background-color: #f5f0e6;
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            z-index: 1000;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            overflow-y: auto;
+        }
+
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .btn-home {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            background-color: #7a2222;
+            color: #fff;
+            border: none;
+            padding: 0.85rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        .btn-home svg {
+            position: absolute;
+            left: 1rem;
+        }
+
+        .btn-home:hover {
+            background-color: #5e1a1a;
+        }
+
+        .sidebar-info-section {
+            padding: 1rem 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .sidebar-card {
+            background-color: #FAF6EF;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 0.85rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            text-align: justify;
+        }
+
+        .sidebar-card.editor-card {
+            flex-direction: row;
+            align-items: center;
+            gap: 0.75rem;
+            text-align: left;
+        }
+
+        .editor-info h4 {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            margin-bottom: 0.15rem;
+        }
+
+        .editor-info p {
+            font-size: 0.78rem;
+            color: var(--accent-color);
+            line-height: 1.4;
+        }
+
+        .sidebar-nav {
+            padding: 1.25rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            flex: 1;
+        }
+
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--primary-color);
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-align: left;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            background-color: #eae3d5;
+            border-color: var(--hover-border);
+        }
+
+        .page-nav-toggle {
+            background: transparent;
+            border: none;
+            color: #7a2222;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.6rem 0.25rem 0.35rem 0.25rem;
+            margin-top: 0.25rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            text-align: left;
+            transition: opacity 0.2s ease;
+        }
+
+        .page-nav-toggle:hover {
+            opacity: 0.8;
+        }
+
+        .submenu {
+            display: none;
+            flex-direction: column;
+            gap: 0.4rem;
+            padding-left: 1rem;
+            margin-top: -0.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .submenu.open {
+            display: flex;
+        }
+
+        .submenu-item {
+            font-size: 0.82rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            padding: 0.4rem 0.75rem;
+            border-radius: 4px;
+            transition: background-color 0.15s, color 0.15s;
+            border-left: 2px solid #d4c5b9;
+        }
+
+        .submenu-item:hover {
+            background-color: #eae3d5;
+            color: var(--primary-color);
+            border-left-color: var(--primary-color);
+        }
+
+        /* Conteneur principal à droite, décalé pour laisser place à la sidebar et topbar */
+        .main-wrapper {
+            margin-left: var(--sidebar-width);
+            margin-top: var(--topbar-height);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            width: calc(100% - var(--sidebar-width));
+            padding: 2rem;
+        }
+
+        /* Zone dynamique centrée à droite avec largeur maximale de 1060px */
+        .article-container {
+            width: 100%;
+            max-width: 1060px;
+            margin: 0 auto;
+            padding: 0.5rem 0.5rem 3.5rem 0.5rem;
+        }
+
+        .article-main-header {
+            border-bottom: 2px solid #7a2222;
+            padding-bottom: 1.25rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .article-main-title {
+            font-size: 2.15rem;
+            line-height: 1.25;
+            color: var(--primary-color);
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        /* Deux cases sous le titre : fond blanchâtre, texte plus petit */
+        .meta-boxes-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .whitish-box {
+            background-color: #FCFBF9;
+            border: 1px solid #e6dfd3;
+            border-radius: 8px;
+            padding: 1.15rem 1.3rem;
+            font-size: 0.84rem;
+            line-height: 1.5;
+            color: var(--text-color);
+            box-shadow: 0 2px 6px rgba(26, 32, 44, 0.04);
+        }
+
+        .authors-pair {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            align-items: start;
+        }
+
+        .author-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .author-photo {
+            width: 92px;
+            height: 92px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 1px solid #dfd7c8;
+            margin-bottom: 0.55rem;
+            background-color: #f2ede4;
+        }
+
+        .author-name {
+            font-weight: 700;
+            font-size: 0.86rem;
+            color: var(--primary-color);
+            margin-bottom: 0.2rem;
+        }
+
+        .author-affiliation {
+            font-size: 0.78rem;
+            color: var(--accent-color);
+            line-height: 1.35;
+        }
+
+        .citation-box-title {
+            font-weight: 700;
+            font-size: 0.86rem;
+            color: #7a2222;
+            margin-bottom: 0.5rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .citation-box-text {
+            font-size: 0.83rem;
+            line-height: 1.55;
+            color: var(--text-color);
+        }
+
+        /* Section Résumé : deux cases sur fond blanchâtre, texte plus petit */
+        .resume-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            margin-bottom: 2.25rem;
+        }
+
+        .resume-box-label {
+            font-weight: 700;
+            font-size: 0.82rem;
+            color: #7a2222;
+            margin-bottom: 0.5rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .resume-box-text {
+            font-size: 0.85rem;
+            line-height: 1.55;
+            color: var(--text-color);
+            text-align: justify;
+        }
+
+        .keywords-line {
+            margin-top: 0.75rem;
+            padding-top: 0.6rem;
+            border-top: 1px solid #ece6da;
+            font-size: 0.8rem;
+            color: var(--accent-color);
+        }
+
+        /* Titres de sous-chapitres en rouge bordeaux */
+        .subchapter-heading {
+            color: #7a2222;
+            font-size: 1.45rem;
+            font-weight: 700;
+            margin-top: 2.25rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.35rem;
+            border-bottom: 1px solid #e6dfd3;
+            scroll-margin-top: 90px;
+        }
+
+        .article-paragraph {
+            font-size: 1.03rem;
+            line-height: 1.75;
+            margin-bottom: 1.15rem;
+            text-align: justify;
+            color: var(--text-color);
+        }
+
+        /* Lettrine rouge bordeaux en caractère gras pour la section Introduction */
+        .dropcap-intro::first-letter {
+            float: left;
+            font-size: 3.6rem;
+            line-height: 0.85;
+            font-weight: 700;
+            color: #7a2222;
+            padding-top: 0.15rem;
+            padding-right: 0.55rem;
+            padding-bottom: 0.1rem;
+        }
+
+        .article-figure {
+            margin: 1.6rem 0;
+            text-align: center;
+        }
+
+        .article-figure img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        .article-figure figcaption {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            margin-top: 0.45rem;
+            font-style: italic;
+        }
+
+        .article-list {
+            margin: 0.85rem 0 1.4rem 1.75rem;
+            font-size: 1rem;
+            line-height: 1.65;
+        }
+
+        .article-list li {
+            margin-bottom: 0.5rem;
+            text-align: justify;
+        }
+
+        /* Cartes conceptuelles interactives : fond un peu plus pâle que #FAF6EF */
+        .concept-card {
+            background-color: #FDFBF7;
+            border: 1px solid #dfd7c8;
+            border-radius: 10px;
+            padding: 1.35rem 1.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 3px 10px rgba(26, 32, 44, 0.04);
+        }
+
+        .concept-card-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .concept-card-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #7a2222;
+            letter-spacing: 0.02em;
+        }
+
+        .concept-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+        }
+
+        .concept-btn {
+            background-color: #f3efe6;
+            color: var(--primary-color);
+            border: 1px solid #d4c5b9;
+            padding: 0.35rem 0.75rem;
+            border-radius: 5px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .concept-btn:hover {
+            background-color: #e6dfd3;
+        }
+
+        .concept-btn.active {
+            background-color: #7a2222;
+            color: #ffffff;
+            border-color: #7a2222;
+        }
+
+        .concept-svg-wrapper {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        .concept-svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .svg-node {
+            cursor: pointer;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .svg-node:hover {
+            opacity: 0.9;
+        }
+
+        .concept-detail-panel {
+            margin-top: 0.9rem;
+            padding: 0.8rem 1rem;
+            background-color: #f6f2ea;
+            border-left: 4px solid #7a2222;
+            border-radius: 4px;
+            font-size: 0.88rem;
+            line-height: 1.5;
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            padding-left: 2rem;
+        }
+
+        .btn-header {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: 1px solid var(--primary-color);
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: background-color 0.2s;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-header.secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border-color: var(--border-color);
+        }
+
+        .btn-header.secondary:hover {
+            background-color: #f2ede4;
+            border-color: var(--hover-border);
+        }
+
+        /* Styles harmonisés des fenêtres modales selon l'image de référence */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+        }
+
+        .modal-container {
+            background: var(--bg-color);
+            width: 100%;
+            max-width: 900px;
+            height: 85vh;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            border: 1px solid #d4c5b9;
+        }
+
+        .modal-header {
+            padding: 1.25rem 1.5rem;
+            background: var(--modal-header-bg);
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .modal-header h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .modal-close {
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #fff;
+            opacity: 0.85;
+            transition: opacity 0.2s;
+        }
+
+        .modal-close:hover {
+            opacity: 1;
+        }
+
+        .modal-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            background-color: var(--bg-color);
+        }
+
+        .pdf-frame, .video-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        @media (max-width: 1200px) {
+            :root { --sidebar-width: 0px; }
+            .top-navbar { left: 0; padding: 0 1rem; grid-template-columns: 1fr auto; }
+            .top-navbar-title { display: none; }
+            aside.sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
+            aside.sidebar.mobile-open { transform: translateX(0); }
+            .main-wrapper { margin-left: 0; width: 100%; }
+        }
+
+        @media (max-width: 820px) {
+            .meta-boxes-grid, .resume-grid, .authors-pair {
+                grid-template-columns: 1fr;
+            }
+            .article-main-title {
+                font-size: 1.65rem;
+            }
+        }
+
+.author-photo {
+    width: 92px;
+    height: 92px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid #dfd7c8;
+    margin-bottom: 0.55rem;
+    background-color: #f2ede4;
+}
+
+.author-affiliations-heading {
+    font-weight: 700;
+    font-size: 0.76rem;
+    color: #7a2222;
+    margin-top: 0.35rem;
+    margin-bottom: 0.2rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.author-affiliation {
+    font-size: 0.78rem;
+    color: var(--accent-color);
+    line-height: 1.35;
+}
+    </style>
+</head>
+<body>
+
+    <!-- Barre horizontale permanente supérieure -->
+    <header class="top-navbar">
+        <div class="top-navbar-title">Revue Sociologie Visuelle</div>
+        <div class="header-actions">
+            <button class="btn-header secondary" onclick="openModal('video', 'Présentation introductive — Vidéo', 'https://drive.google.com/file/d/10Va3etjn9wZIqrVnByyNXDVM-XPKOHkK/preview?autoplay=1')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                Visionner la vidéo de présentation
+            </button>
+            <button class="btn-header secondary" onclick="openProposalModal('article')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                Proposer un projet de captation ou un article
+            </button>
+            <button class="btn-header secondary" onclick="openModal('pdf', 'Télécharger le numéro complet', 'https://drive.google.com/file/d/1d3ZUnnEwYomQ1VRQ1lF8XNei88HelQvy/preview')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Télécharger le numéro
+            </button>
+        </div>
+        <div class="top-navbar-location" id="locationIndicator">Tramway de Québec</div>
+    </header>
+
+    <!-- Colonne latérale gauche permanente -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="https://inclusionsociale.com/#theme-1" class="btn-home">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                INCLUSION SOCIALE
+            </a>
+        </div>
+
+        <div class="sidebar-info-section">
+            <div style="font-size: 0.72rem; color: #718096; text-align: left; margin-bottom: 0.05rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                DOI : <a href="https://doi.org/10.13140/RG.2.2.35504.53768" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; opacity: 0.85;">10.13140/RG.2.2.35504.53768</a>
+            </div>
+
+            <div class="sidebar-card editor-card">
+                <div class="editor-info">
+                    <h4>Éditeurs</h4>
+                    <p><b>François Routhier & Pierre Fraser</b></p>
+                    <p>Plus de 18 équipes de recherche mobilisées afin de saisir comment le milieu façonne et articule l'accès aux services et à l'inclusion sociale.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-nav">
+            <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: #7a2222; letter-spacing: 0.05em; margin-bottom: 0.5rem; padding-left: 0.25rem;">NAVIGATION SUR LE SITE</div>
+
+            <div>
+                <button class="nav-btn" onclick="toggleSubmenu(event, 'accessibilitySubmenu', 'submenuArrow')">
+                    <span>Penser l'accessibilité</span>
+                    <svg id="submenuArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu" id="accessibilitySubmenu">
+                    <a href="https://inclusionsociale.com/#theme-1" class="submenu-item">1. Espace urbain & transports</a>
+                    <a href="https://inclusionsociale.com/#theme-2" class="submenu-item">2. Éducation & institutions</a>
+                    <a href="https://inclusionsociale.com/#theme-3" class="submenu-item">3. Travail, autonomie & loisirs</a>
+                    <a href="https://inclusionsociale.com/#theme-4" class="submenu-item">4. Expérience vécue & stigmates</a>
+                </div>
+            </div>
+
+            <div>
+                <button class="nav-btn" onclick="toggleSubmenu(event, 'bilansSubmenu', 'bilansSubmenuArrow')">
+                    <span>Bilans</span>
+                    <svg id="bilansSubmenuArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu" id="bilansSubmenu">
+                    <a href="https://inclusionsociale.com/mentorat-actif-bilan.html" class="submenu-item">Mentorat actif, un plus tard</a>
+                </div>
+            </div>
+            <!-- Bouton Tournages en cours non gras -->
+            <div>
+                <a href="https://inclusionsociale.com/tournages.html" class="nav-btn" style="font-weight: normal;">
+                    <span>Tournages en cours</span>
+                </a>
+            </div>
+
+            <!-- Navigation dans la page -->
+            <div>
+                <button type="button" class="page-nav-toggle" onclick="toggleSubmenu(event, 'pageNavSubmenu', 'pageNavArrow')" aria-expanded="false" aria-controls="pageNavSubmenu">
+                    <span>NAVIGATION DANS LA PAGE</span>
+                    <svg id="pageNavArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu" id="pageNavSubmenu">
+                    <a href="#top-of-page" class="submenu-item" onclick="scrollToTopOfPage(event)">Présentation</a>
+                    <a href="#sec-introduction" class="submenu-item">Introduction</a>
+                    <a href="#sec-accessibilite-universelle" class="submenu-item">Accessibilité universelle et gouvernance</a>
+                    <a href="#sec-traversee-et-signaux" class="submenu-item">Traversée en plusieurs temps et signaux sonores</a>
+                    <a href="#sec-essais-terrain" class="submenu-item">Essais sur le terrain et perspectives urbaines</a>
+                </div>
+            </div>
+
+        </div>
+    </aside>
+
+    <!-- Zone de contenu dynamique à droite (Frame de base) -->
+    <div class="main-wrapper" id="top-of-page">
+        <main>
+            <section>
+                <div class="article-container">
+                    <header class="article-main-header">
+                        <h1 class="article-main-title">Le tramway de Québec : transformer la ville pour la rendre plus inclusive</h1>
+                    </header>
+
+                    <!-- Deux cases sous le titre : auteurs + citation -->
+                    <div class="meta-boxes-grid">
+<div class="whitish-box">
+        <div class="authors-pair">
+            <div class="author-item">
+                <img src="https://lh3.googleusercontent.com/d/14ytJcnKXMu8CUGeaftZWhzwYBvJAuYi9" alt="Josée Bouchard" class="author-photo">
+                <div class="author-name">Josée Bouchard</div>
+                <div class="author-affiliation">Bureau de projet du tramway de Québec</div>
+            </div>
+            <div class="author-item">
+                <img src="https://lh3.googleusercontent.com/d/1KvUSuaAViDZcSzWggjaRuKFkYNaSsZ4g" alt="Valérie Martel" class="author-photo">
+                <div class="author-name">Valérie Martel</div>
+                <div class="author-affiliation">CIUSS-CN</div>
+            </div>
+        </div>
+    </div>
+                        <div class="whitish-box">
+                            <div class="citation-box-title">Citer cet article</div>
+                            <p class="citation-box-text">
+                                Bouchard, J., Martel, V. (2023), « Le tramway de Québec : transformer la ville pour la rendre plus inclusive », <i>Sociologie Visuelle</i>, n° 4, François Routhier et Pierre Fraser (éds.), Québec : Photo|Société, pp. 243-246.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Section Résumé : deux cases sur fond blanchâtre (FR / EN) -->
+                    <div class="resume-grid">
+                        <div class="whitish-box">
+                            <div class="resume-box-label">Résumé (Français)</div>
+                            <p class="resume-box-text">
+                                Dès 2029, un tramway électrique sillonnera les rues de Québec. Sur un tracé de 19 km de Cap-Rouge à D’Estimauville, il constituera la colonne vertébrale d’un réseau de transport en commun bonifié sur tout le territoire de la ville. Les travaux préparatoires du tramway sont déjà bien entamés. Sur le terrain, on commence à prendre la mesure du plus grand projet de l’histoire de la ville.
+                            </p>
+                            <div class="keywords-line">
+                                <strong>Mots-clés :</strong> Mobilité, RTC, transport collectif, tramway.
+                            </div>
+                        </div>
+
+                        <div class="whitish-box">
+                            <div class="resume-box-label">Abstract (English)</div>
+                            <p class="resume-box-text">
+                                Starting in 2029, an electric tramway will travel through the streets of Québec City. Along a 19 km route from Cap-Rouge to D’Estimauville, it will form the backbone of an enhanced public transit network across the entire city. Preparatory work for the tramway is already well underway. On the ground, people are beginning to grasp the scale of the largest project in the city’s history.
+                            </p>
+                            <div class="keywords-line">
+                                <strong>Keywords:</strong> Mobility, RTC, public transit, tramway.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sous-chapitre 1 : Introduction -->
+                    <h2 class="subchapter-heading" id="sec-introduction">Introduction</h2>
+
+                    <figure class="article-figure">
+                        <img src="https://lh3.googleusercontent.com/d/1iyYKC7JuDTVtvKckCOH30iFfUXQjkvNe" alt="Vue d'ensemble de l'intégration urbaine du tramway de Québec">
+                        <figcaption>Intégration du tramway à l'environnement urbain et aux cheminements piétons.</figcaption>
+                    </figure>
+
+                    <p class="article-paragraph dropcap-intro">
+                        Saviez-vous que l’arrivée du tramway à Québec aura non seulement des retombées positives sur les options de déplacement, mais aussi sur l’inclusion de tous les citoyens ? En effet, le tramway sera intégré à l’environnement urbain de manière exemplaire. Notamment, les trottoirs seront élargis et les abaissements, équipés de dalles podotactiles pour faciliter leur repérage par les personnes ayant des limitations visuelles. En d’autres termes, que vous utilisiez ou non le tramway, vous bénéficierez de cheminements piétons sans obstacles pour vous déplacer aisément dans la ville.
+                    </p>
+
+                    <figure class="article-figure">
+                        <img src="https://lh3.googleusercontent.com/d/1_IadjwdjVE4-BOAvUNYnne0EWtXNNNT7" alt="Aménagement piéton et dalles podotactiles">
+                        <figcaption>Aménagement des abords et repères podotactiles pour l'orientation piétonne.</figcaption>
+                    </figure>
+
+                    <!-- Carte conceptuelle interactive 1 -->
+                    <div class="concept-card" id="conceptCardInclusion">
+                        <div class="concept-card-header">
+                            <div class="concept-card-title">Carte conceptuelle — Le tramway comme levier d'inclusion urbaine</div>
+                            <div class="concept-controls">
+                                <button type="button" class="concept-btn active" onclick="selectConceptNode('inclusion', 'axe', this)">Axe structurant (19 km)</button>
+                                <button type="button" class="concept-btn" onclick="selectConceptNode('inclusion', 'trottoirs', this)">Trottoirs & repères</button>
+                                <button type="button" class="concept-btn" onclick="selectConceptNode('inclusion', 'citoyens', this)">Usagers & non-usagers</button>
+                            </div>
+                        </div>
+                        <div class="concept-svg-wrapper">
+                            <svg class="concept-svg" viewBox="0 0 880 230" role="img" aria-label="Diagramme conceptuel de l'inclusion urbaine par le tramway">
+                                <defs>
+                                    <marker id="arrowBordeaux" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                        <path d="M 0 1 L 10 5 L 0 9 z" fill="#7a2222"/>
+                                    </marker>
+                                </defs>
+                                <line x1="250" y1="115" x2="335" y2="115" stroke="#7a2222" stroke-width="2.5" marker-end="url(#arrowBordeaux)"/>
+                                <line x1="545" y1="115" x2="625" y2="115" stroke="#7a2222" stroke-width="2.5" marker-end="url(#arrowBordeaux)"/>
+
+                                <g class="svg-node" onclick="selectConceptNode('inclusion', 'axe')">
+                                    <rect x="25" y="55" width="225" height="120" rx="10" fill="#f3ece2" stroke="#7a2222" stroke-width="2"/>
+                                    <text x="137" y="98" text-anchor="middle" font-size="14" font-weight="700" fill="#7a2222" font-family="sans-serif">Tramway de Québec</text>
+                                    <text x="137" y="122" text-anchor="middle" font-size="12" fill="#2b2b2b" font-family="sans-serif">Cap-Rouge à D’Estimauville</text>
+                                    <text x="137" y="142" text-anchor="middle" font-size="12" fill="#4a5568" font-family="sans-serif">Colonne vertébrale (dès 2029)</text>
+                                </g>
+
+                                <g class="svg-node" onclick="selectConceptNode('inclusion', 'trottoirs')">
+                                    <rect x="340" y="55" width="205" height="120" rx="10" fill="#f3ece2" stroke="#7a2222" stroke-width="2"/>
+                                    <text x="442" y="98" text-anchor="middle" font-size="14" font-weight="700" fill="#7a2222" font-family="sans-serif">Environnement urbain</text>
+                                    <text x="442" y="122" text-anchor="middle" font-size="12" fill="#2b2b2b" font-family="sans-serif">Trottoirs élargis</text>
+                                    <text x="442" y="142" text-anchor="middle" font-size="12" fill="#4a5568" font-family="sans-serif">Dalles podotactiles aux abaissements</text>
+                                </g>
+
+                                <g class="svg-node" onclick="selectConceptNode('inclusion', 'citoyens')">
+                                    <rect x="630" y="55" width="225" height="120" rx="10" fill="#f3ece2" stroke="#7a2222" stroke-width="2"/>
+                                    <text x="742" y="98" text-anchor="middle" font-size="14" font-weight="700" fill="#7a2222" font-family="sans-serif">Inclusion citoyenne</text>
+                                    <text x="742" y="122" text-anchor="middle" font-size="12" fill="#2b2b2b" font-family="sans-serif">Cheminements sans obstacles</text>
+                                    <text x="742" y="142" text-anchor="middle" font-size="12" fill="#4a5568" font-family="sans-serif">Bénéfice pour tous les usagers</text>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="concept-detail-panel" id="conceptDetailInclusion">
+                            <strong>Axe structurant (19 km) :</strong> Le tramway électrique reliera Cap-Rouge à D’Estimauville dès 2029 comme colonne vertébrale d’un réseau de transport collectif renforcé à l’échelle de la ville.
+                        </div>
+                    </div>
+
+                    <!-- Sous-chapitre 2 : Accessibilité universelle et gouvernance -->
+                    <h2 class="subchapter-heading" id="sec-accessibilite-universelle">Accessibilité universelle et gouvernance</h2>
+
+                    <figure class="article-figure">
+                        <img src="https://lh3.googleusercontent.com/d/1NTSyLszKJDliX_VxlO4Llg0qs-u8zVwl" alt="Concertation et exigences d'accessibilité universelle">
+                        <figcaption>Démarche d'accessibilité universelle appuyée sur des normes et la concertation.</figcaption>
+                    </figure>
+
+                    <p class="article-paragraph">
+                        Afin de garantir l’accessibilité universelle du projet, la conception s’appuie sur des exigences élevées en la matière. Les normes en vigueur dans le domaine et des pratiques exemplaires ont été étudiées pour guider les choix effectués. En outre, l’équipe de projet est soutenue par un groupe de travail en accessibilité universelle (GTAU), qui comprend des représentants du milieu associatif des personnes handicapées ainsi que du réseau de la santé en réadaptation.
+                    </p>
+
+                    <!-- Sous-chapitre 3 : Traversée en plusieurs temps et signaux sonores -->
+                    <h2 class="subchapter-heading" id="sec-traversee-et-signaux">Traversée en plusieurs temps et signaux sonores</h2>
+
+                    <figure class="article-figure">
+                        <img src="https://lh3.googleusercontent.com/d/1uVkP0wgcTj63xMPXcrag1jd3l6AdNAcS" alt="Configuration de traversée en présence d'une plateforme ferroviaire">
+                        <figcaption>Nouvelle configuration des traversées et refuges piétons à proximité de la plateforme.</figcaption>
+                    </figure>
+
+                    <p class="article-paragraph">
+                        Les personnes ayant des limitations devront s’adapter à un nouvel environnement plus accessible, mais aussi très différent. Avec les membres du GTAU, nous cherchons des solutions pour faciliter leur adaptation au changement. Par exemple, la présence d’une plateforme ferroviaire modifiera la manière de traverser la chaussée. Comme c’est déjà le cas sur les boulevards équipés de terre-pleins centraux avec des refuges pour piétons, les citoyens devront parfois traverser les voies en deux ou même trois temps. Cela nécessite une évolution du cadre réglementaire, sous la responsabilité du ministère des Transports et de la Mobilité durable du Québec (MTMDQ).
+                    </p>
+
+                    <figure class="article-figure">
+                        <img src="https://lh3.googleusercontent.com/d/1m3R8eVxcvY7zQsYY0eDFy3p6D-TJHHYq" alt="Observation des déplacements et signaux sonores sur l'axe">
+                        <figcaption>Étude de la perception des signaux sonores dans un contexte de traversée en plusieurs temps.</figcaption>
+                    </figure>
+
+                    <p class="article-paragraph">
+                        À ce sujet, nous avons récemment mené des essais sur le terrain avec des personnes aveugles. Ces essais reproduisaient une situation de traversée en trois temps. Ils avaient pour objectif de documenter la perception des personnes non voyantes à identifier un signal sonore comme étant le leur, lorsque plusieurs signaux sonores sont installés dans le même axe.
+                    </p>
+
+                    <!-- Carte conceptuelle interactive 2 -->
+                    <div class="concept-card" id="conceptCardSignals">
+                        <div class="concept-card-header">
+                            <div class="concept-card-title">Carte conceptuelle — Protocole d'essais et signaux sonores en traversée</div>
+                            <div class="concept-controls">
+                                <button type="button" class="concept-btn active" onclick="selectConceptNode('signals', 'protocole', this)">Protocole (9 pers. × 16)</button>
+                                <button type="button" class="concept-btn" onclick="selectConceptNode('signals', 'signaux', this)">Séquences sonores</button>
+                                <button type="button" class="concept-btn" onclick="selectConceptNode('signals', 'reglementation', this)">Cadre MTMDQ</button>
+                            </div>
+                        </div>
+                        <div class="concept-svg-wrapper">
+                            <svg class="concept-svg" viewBox="0 0 880 230" role="img" aria-label="Diagramme des variables étudiées lors des essais de signaux sonores">
+                                <line x1="255" y1="115" x2="330" y2="115" stroke="#7a2222" stroke-width="2.5" marker-end="url(#arrowBordeaux)"/>
+                                <line x1="550" y1="115" x2="625" y2="115" stroke="#7a2222" stroke-width="2.5" marker-end="url(#arrowBordeaux)"/>
+
+                                <g class="svg-node" onclick="selectConceptNode('signals', 'protocole')">
+                                    <rect x="25" y="55" width="230" height="120" rx="10" fill="#f3ece2" stroke="#7a2222" stroke-width="2"/>
+                                    <text x="140" y="96" text-anchor="middle" font-size="14" font-weight="700" fill="#7a2222" font-family="sans-serif">Essais sur le terrain</text>
+                                    <text x="140" y="120" text-anchor="middle" font-size="12" fill="#2b2b2b" font-family="sans-serif">9 personnes fonctionnellement aveugles</text>
+                                    <text x="140" y="142" text-anchor="middle" font-size="12" fill="#4a5568" font-family="sans-serif">16 mises en situation par participant</text>
+                                </g>
+
+                                <g class="svg-node" onclick="selectConceptNode('signals', 'signaux')">
+                                    <rect x="335" y="55" width="215" height="120" rx="10" fill="#f3ece2" stroke="#7a2222" stroke-width="2"/>
+                                    <text x="442" y="96" text-anchor="middle" font-size="14" font-weight="700" fill="#7a2222" font-family="sans-serif">Variables testées</text>
+                                    <text x="442" y="120" text-anchor="middle" font-size="12" fill="#2b2b2b" font-family="sans-serif">Signal central distinct ou identique</text>
+                                    <text x="442" y="142" text-anchor="middle" font-size="12" fill="#4a5568" font-family="sans-serif">Attente vs traversée & lieu d'activation</text>
+                                </g>
+
+                                <g class="svg-node" onclick="selectConceptNode('signals', 'reglementation')">
+                                    <rect x="630" y="55" width="225" height="120" rx="10" fill="#f3ece2" stroke="#7a2222" stroke-width="2"/>
+                                    <text x="742" y="96" text-anchor="middle" font-size="14" font-weight="700" fill="#7a2222" font-family="sans-serif">Évolution normative</text>
+                                    <text x="742" y="120" text-anchor="middle" font-size="12" fill="#2b2b2b" font-family="sans-serif">Recommandation transmise au MTMDQ</text>
+                                    <text x="742" y="142" text-anchor="middle" font-size="12" fill="#4a5568" font-family="sans-serif">Table de normalisation en cours</text>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="concept-detail-panel" id="conceptDetailSignals">
+                            <strong>Protocole (9 pers. × 16) :</strong> Neuf personnes fonctionnellement aveugles ont participé à 16 mises en situation chacune afin d’observer la distinction d’un signal sonore pertinent le long d’un même axe.
+                        </div>
+                    </div>
+
+                    <!-- Sous-chapitre 4 : Essais sur le terrain et perspectives urbaines -->
+                    <h2 class="subchapter-heading" id="sec-essais-terrain">Essais sur le terrain et perspectives urbaines</h2>
+
+                    <figure class="article-figure">
+                        <img src="https://lh3.googleusercontent.com/d/1hvMpkwkIm8_RVcGOP7p6OqPvf_Ih-aHz" alt="Mise en situation lors des essais sur le terrain">
+                        <figcaption>Mise en situation de traversée avec des personnes fonctionnellement aveugles.</figcaption>
+                    </figure>
+
+                    <p class="article-paragraph">
+                        Au total, neuf personnes fonctionnellement aveugles ont participé aux essais. Chacune devait se prêter à 16 mises en situation. Le nombre limité de participants aux essais ne nous permet pas d’effectuer une généralisation statistique. Toutefois, cette démarche a permis de constater les avantages de l’utilisation d’un signal sonore distinct pour la traversée de la plateforme du tramway. Cette recommandation a d’ailleurs été transmise au MTMDQ, qui continue de travailler à la modification réglementaire à sa Table de normalisation. Les variables suivantes étaient étudiées selon les cas :
+                    </p>
+
+                    <ul class="article-list">
+                        <li>signaux sonores identiques, bout à bout, de manière consécutive OU signaux sonores bout à bout, de manière consécutive, celui du centre étant différent des deux autres ;</li>
+                        <li>participant souhaitant traverser OU en attente ;</li>
+                        <li>activation du signal à l’endroit d’attente du participant OU dans une autre portion de la traversée.</li>
+                    </ul>
+
+                    <figure class="article-figure">
+                        <img src="https://lh3.googleusercontent.com/d/1OA-1jamit4HENd6KmFp26ooy_feBe-D7" alt="Perspectives d'augmentation des traversées signalisées">
+                        <figcaption>Développement des traversées signalisées le long du tracé du tramway.</figcaption>
+                    </figure>
+
+                    <p class="article-paragraph">
+                        Nous suivrons de près l’évolution du dossier afin que les aménagements soient réalisés conformément aux modifications réglementaires. Le long du tracé du tramway, le nombre de traversées signalisées augmentera de près de 60 % par rapport à la situation actuelle. Cette amélioration facilitera et sécurisera assurément les déplacements actifs pour les personnes de toutes conditions.
+                    </p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal Universel (PDF / Vidéo) -->
+    <div class="modal-overlay" id="mediaModal" onclick="closeModalOnOutside(event)">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 id="modalTitle">Titre de la fenêtre</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBodyContent"></div>
+        </div>
+    </div>
+
+    <!-- Modal de Proposition d'Article / Projet -->
+    <div class="modal-overlay" id="proposalModal" onclick="closeProposalModalOnOutside(event)">
+        <div class="modal-container" style="max-width: 800px; height: auto;">
+            <div class="modal-header">
+                <h3 id="proposalModalTitle">Proposer une captation ou un article / Nous faire part d'un commentaire</h3>
+                <button class="modal-close" onclick="closeProposalModal()">&times;</button>
+            </div>
+            <div class="modal-body" style="padding: 1.5rem; overflow-y: auto;">
+                <form id="proposalForm" onsubmit="submitProposal(event)" style="display: flex; flex-direction: column; gap: 1rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                    <input type="hidden" id="propCategory" value="article">
+                    <div>
+                        <label for="propName" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Votre nom</label>
+                        <input type="text" id="propName" required style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propEmail" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Votre courriel</label>
+                        <input type="email" id="propEmail" required style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propTitle" id="propTitleLabel" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Que désirez-vous nous communiquer ?</label>
+                        <input type="text" id="propTitle" required placeholder="Ex: Analyse de l'accessibilité urbaine..." style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propDesc" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Description ou résumé</label>
+                        <textarea id="propDesc" rows="4" required placeholder="Décrivez votre proposition en quelques lignes..." style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff; resize: vertical;"></textarea>
+                    </div>
+                    <button type="submit" style="background-color: #7a2222; color: #fff; border: none; padding: 0.75rem; border-radius: 4px; font-weight: 600; cursor: pointer; margin-top: 0.5rem; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#5e1a1a'" onmouseout="this.style.backgroundColor='#7a2222'">Envoyer la proposition</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSubmenu(event, submenuId, arrowId) {
+            event.stopPropagation();
+            const submenu = document.getElementById(submenuId);
+            const arrow = document.getElementById(arrowId);
+            const isOpen = submenu.classList.toggle('open');
+            if (event.currentTarget && event.currentTarget.hasAttribute('aria-expanded')) {
+                event.currentTarget.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            }
+            if (arrow) {
+                arrow.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+            }
+        }
+
+        function scrollToTopOfPage(event) {
+            event.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        const conceptDescriptions = {
+            inclusion: {
+                axe: '<strong>Axe structurant (19 km) :</strong> Le tramway électrique reliera Cap-Rouge à D’Estimauville dès 2029 comme colonne vertébrale d’un réseau de transport collectif renforcé à l’échelle de la ville.',
+                trottoirs: '<strong>Trottoirs & repères :</strong> L’élargissement des trottoirs et l’installation de dalles podotactiles aux abaissements facilitent le repérage des personnes ayant des limitations visuelles.',
+                citoyens: '<strong>Usagers & non-usagers :</strong> Les cheminements piétons sans obstacles profitent à l’ensemble des citoyens, qu’ils empruntent ou non le tramway.'
+            },
+            signals: {
+                protocole: '<strong>Protocole (9 pers. × 16) :</strong> Neuf personnes fonctionnellement aveugles ont participé à 16 mises en situation chacune afin d’observer la distinction d’un signal sonore pertinent le long d’un même axe.',
+                signaux: '<strong>Séquences sonores :</strong> L’étude compare des signaux consécutifs identiques ou un signal central distinct, selon que la personne attend ou traverse et selon le lieu d’activation.',
+                reglementation: '<strong>Cadre MTMDQ :</strong> Les observations ont alimenté une recommandation transmise au ministère des Transports et de la Mobilité durable du Québec (MTMDQ) et à sa Table de normalisation.'
+            }
+        };
+
+        function selectConceptNode(group, key, btnEl) {
+            const cardId = group === 'inclusion' ? 'conceptCardInclusion' : 'conceptCardSignals';
+            const panelId = group === 'inclusion' ? 'conceptDetailInclusion' : 'conceptDetailSignals';
+            const card = document.getElementById(cardId);
+            const panel = document.getElementById(panelId);
+
+            if (card) {
+                card.querySelectorAll('.concept-btn').forEach(b => b.classList.remove('active'));
+                if (btnEl) {
+                    btnEl.classList.add('active');
+                }
+            }
+            if (panel && conceptDescriptions[group] && conceptDescriptions[group][key]) {
+                panel.innerHTML = conceptDescriptions[group][key];
+            }
+        }
+
+        function openModal(type, title, url) {
+            const modal = document.getElementById('mediaModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalBodyContent = document.getElementById('modalBodyContent');
+
+            modalTitle.textContent = title;
+            modalBodyContent.innerHTML = '';
+
+            if (type === 'pdf') {
+                const iframe = document.createElement('iframe');
+                iframe.className = 'pdf-frame';
+                iframe.src = url;
+                modalBodyContent.appendChild(iframe);
+            } else if (type === 'video') {
+                const iframe = document.createElement('iframe');
+                iframe.className = 'video-frame';
+                iframe.src = url;
+                iframe.setAttribute('allow', 'autoplay; fullscreen');
+                modalBodyContent.appendChild(iframe);
+            }
+
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('mediaModal');
+            modal.style.display = 'none';
+            document.getElementById('modalBodyContent').innerHTML = '';
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeModalOnOutside(event) {
+            const modal = document.getElementById('mediaModal');
+            if (event.target === modal) closeModal();
+        }
+
+        function openProposalModal(type) {
+            const proposalModal = document.getElementById('proposalModal');
+            const titleEl = document.getElementById('proposalModalTitle');
+            const categoryEl = document.getElementById('propCategory');
+            const titleLabelEl = document.getElementById('propTitleLabel');
+            const titleInputEl = document.getElementById('propTitle');
+
+            categoryEl.value = type;
+
+            if (type === 'captation') {
+                titleEl.textContent = "Nous faire part d'un commentaire ou d'une proposition (captation ou article)";
+                titleLabelEl.textContent = "Que voulez-vous nous communiquer ?";
+                titleInputEl.placeholder = "Ex: projet de captation, soumettre un article, faire un commentaire...";
+            } else {
+                titleEl.textContent = "Nous faire part d'un commentaire ou d'une proposition (captation ou article)";
+                titleLabelEl.textContent = "Que voulez-vous nous communiquer ?";
+                titleInputEl.placeholder = "Ex: projet de captation, soumettre un article, faire un commentaire...";
+            }
+
+            proposalModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProposalModal() {
+            const proposalModal = document.getElementById('proposalModal');
+            proposalModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeProposalModalOnOutside(event) {
+            const proposalModal = document.getElementById('proposalModal');
+            if (event.target === proposalModal) closeProposalModal();
+        }
+
+        function submitProposal(event) {
+            event.preventDefault();
+            const name = document.getElementById('propName').value;
+            const email = document.getElementById('propEmail').value;
+            const category = document.getElementById('propCategory').value;
+            const title = document.getElementById('propTitle').value;
+            const desc = document.getElementById('propDesc').value;
+
+            const typeLabel = category === 'captation' ? 'Proposition de captation' : "Proposition d'article";
+            const subject = encodeURIComponent(`${typeLabel} : ${title}`);
+            const body = encodeURIComponent(`Nom : ${name}\nCourriel : ${email}\nType : ${typeLabel}\nTitre : ${title}\n\nDescription :\n${desc}`);
+
+            window.location.href = `mailto:sociocamera@gmail.com?subject=${subject}&body=${body}`;
+            closeProposalModal();
+        }
+
+        window.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+                closeProposalModal();
+            }
+        });
+    </script>
+</body>
+</html>
