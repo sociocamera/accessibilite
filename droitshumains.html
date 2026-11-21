@@ -464,11 +464,114 @@
         .keywords-line {
             font-size: 0.88rem;
             color: var(--accent-color);
-            margin-bottom: 2.25rem;
+            margin-bottom: 1.5rem;
             padding: 0.65rem 1rem;
             background-color: #f4efe6;
             border-left: 3px solid #7a2222;
             border-radius: 4px;
+        }
+
+        /* Barre et tiroirs dépliables Versions Anglaise & Espagnole */
+        .english-toggle-wrapper {
+            margin-bottom: 2rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .language-buttons-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.85rem;
+        }
+
+        .btn-english-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background-color: #7a2222;
+            color: #ffffff;
+            border: 1px solid #7a2222;
+            padding: 0.65rem 1.2rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 2px 6px rgba(122, 34, 34, 0.15);
+        }
+
+        .btn-english-toggle:hover {
+            background-color: #5e1a1a;
+        }
+
+        .btn-english-toggle svg {
+            transition: transform 0.25s ease;
+        }
+
+        .btn-english-toggle[aria-expanded="true"] svg.chevron-icon {
+            transform: rotate(180deg);
+        }
+
+        .english-drawer {
+            display: none;
+            margin-top: 1.25rem;
+            padding: 2rem 2.25rem;
+            background-color: #fdfbf7;
+            border: 1px solid #dfd5c5;
+            border-left: 5px solid #7a2222;
+            border-radius: 8px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+            font-family: "Georgia", "Cambria", "Times New Roman", serif;
+        }
+
+        .english-drawer.open {
+            display: block;
+            animation: fadeInDrawer 0.25s ease-out;
+        }
+
+        @keyframes fadeInDrawer {
+            from { opacity: 0; transform: translateY(-6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .english-drawer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #dfd6c7;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .english-badge {
+            display: inline-block;
+            background-color: #7a2222;
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.3rem 0.7rem;
+            border-radius: 4px;
+        }
+
+        .btn-english-close {
+            background: transparent;
+            border: 1px solid #d4c5b9;
+            color: #7a2222;
+            font-size: 0.82rem;
+            font-weight: 600;
+            padding: 0.35rem 0.8rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-english-close:hover {
+            background-color: #f2ede4;
         }
 
         .chapter-heading {
@@ -623,6 +726,9 @@
             .article-main-title {
                 font-size: 1.55rem;
             }
+            .english-drawer {
+                padding: 1.25rem 1.15rem;
+            }
         }
     </style>
 </head>
@@ -759,6 +865,573 @@
 
                 <div class="keywords-line">
                     <strong>Mots-clés.</strong> — Droits humains ; personne en situation de handicap ; lois.
+                </div>
+
+                <!-- Boutons et panneaux dépliables English Version & Versión en español juste avant Introduction -->
+                <div class="english-toggle-wrapper">
+                    <div class="language-buttons-row">
+                        <button type="button" id="englishToggleBtn" class="btn-english-toggle" aria-expanded="false" aria-controls="englishVersionPanel" onclick="toggleEnglishVersion()">
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                            <span>English Version</span>
+                            <svg class="chevron-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </button>
+
+                        <button type="button" id="spanishToggleBtn" class="btn-english-toggle" aria-expanded="false" aria-controls="spanishVersionPanel" onclick="toggleSpanishVersion()">
+                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                            <span>Versión en español</span>
+                            <svg class="chevron-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </button>
+                    </div>
+
+                    <div id="englishVersionPanel" class="english-drawer" lang="en">
+                        <div class="english-drawer-header">
+                            <span class="english-badge">Full English Translation</span>
+                            <button type="button" class="btn-english-close" onclick="toggleEnglishVersion()">Close English Version &times;</button>
+                        </div>
+
+                        <h2 class="article-main-title" style="font-size: 1.65rem;">Realities of Persons with Disabilities:<br>Adopting a Human Rights Perspective<a class="sdfootnoteanc" name="en_sdfootnote1anc" href="#en_sdfootnote1sym"><sup>*</sup></a></h2>
+
+                        <div class="meta-two-boxes">
+                            <div class="whitish-box author-box-content">
+                                <div class="author-meta-details">
+                                    <strong>Élisabeth Dupuis &amp; Laurence Guénette</strong>
+                                    <p>Affiliation: Ligue des droits et libertés (LDL).</p>
+                                </div>
+                            </div>
+
+                            <div class="whitish-box">
+                                <div class="citation-box-label">Cite this article</div>
+                                <p>Dupuis, É., Guénette, M. (2023), “Réalités des personnes en situation de handicap : poser un regard de droits humains” [Realities of Persons with Disabilities: Adopting a Human Rights Perspective], <i>Sociologie Visuelle</i>, no. 4, François Routhier and Pierre Fraser (eds.), Québec: Photo|Société, pp. 229–235.</p>
+                            </div>
+                        </div>
+
+                        <div class="keywords-line">
+                            <strong>Keywords.</strong> — Human rights; person with a disability; legislation.
+                        </div>
+
+                        <!-- English Introduction -->
+                        <h2 class="chapter-heading" style="margin-top: 1.5rem;">Introduction</h2>
+                        <p class="article-body-p">
+                            <span class="lettrine-bordeaux">T</span>he Ligue des droits et libertés (LDL) is an independent, non-partisan, non-profit organization that has worked for 60 years to promote and protect all human rights—civil, political, economic, social, and cultural. In the spring of 2021, the LDL published a special issue on the rights of persons with disabilities in its journal <i>Droits et Libertés</i>. For many LDL activists, this provided an extraordinary opportunity to examine this issue in depth and enrich their reflections thanks to the outstanding contributions of numerous practitioners with specialized expertise. The text we present here is therefore offered in all humility and draws substantially on the articles published in the 2021 journal, through which we aim to highlight the scope and benefits of adopting a human rights perspective on the lived realities of persons with disabilities.
+                        </p>
+
+                        <!-- English Section 1 -->
+                        <h2 class="chapter-heading">1. In International and Domestic Law: Imperfect yet Valuable Instruments</h2>
+                        <p class="article-body-p">
+                            Adopting a human rights perspective allows us to mobilize instruments developed in international or domestic law which, despite certain shortcomings or obstacles, constitute a powerful argumentative lever. Quebec and Canada have duties and obligations enshrined in statutes, Charters, and Conventions that should always guide governments when drafting policies or legislation, even if this is not always the case in practice. The role that international human rights instruments can play in enforcing human rights is considerable. They are essential tools that set out fundamental principles, make it possible to assess the compliance of domestic legislation, and hold governments to account.
+                        </p>
+                        <p class="article-body-p">
+                            In this regard, the <i>Convention on the Rights of Persons with Disabilities</i> (CRPD) was adopted in 2008 by the United Nations General Assembly, bringing together civil, political, economic, social, and cultural rights within a single instrument, alongside practical provisions unprecedented in international human rights law. Canada ratified it in 2010, followed by the <i>Optional Protocol</i> to the CRPD, a complaints mechanism to which Quebec declared itself bound<a class="sdfootnoteanc" name="en_sdfootnote2anc" href="#en_sdfootnote2sym"><sup>1</sup></a>. Specific provisions designed to promote the exercise of their rights on an equal basis with others are enshrined therein. Among these are the right to freedom from exploitation, violence, and abuse (Article 16), the requirement to eliminate barriers to accessibility in buildings, transportation, communications, and services (Article 9), and participation in political life, requiring States to ensure that voting procedures, facilities, and materials are appropriate, accessible, and easy to understand and use (Article 29). The Convention also affirms the right to “live in the community, with choices equal to others,” obliging States to take “effective and appropriate measures to facilitate full enjoyment by persons with disabilities of this right and their full inclusion and participation in the community” (Article 19).
+                        </p>
+                        <p class="article-body-p">
+                            Under the CRPD, the government is required to adopt economic, budgetary, and fiscal policies that ensure every person has access “to an adequate standard of living for themselves and their families, including adequate food, clothing and housing, and to the continuous improvement of living conditions, and shall take appropriate steps to safeguard and promote the realization of this right without discrimination on the basis of disability” (Article 28).
+                        </p>
+                        <p class="article-body-p">
+                            A reporting mechanism is attached to Canada’s adherence to this Convention, requiring Canada to submit periodic reports to the Committee on the Rights of Persons with Disabilities, the body responsible for monitoring implementation of the CRPD. The review process includes the submission of an alternative shadow report drafted by civil society and community organizations in response to the State’s report. Over the coming months and years, the analysis of Canada’s reports by these organizations will shed essential light on lived challenges and propose concrete pathways forward to advance the rights of persons with disabilities.
+                        </p>
+                        <p class="article-body-p">
+                            To enable persons with disabilities to fully exercise their rights, an enormous amount of work remains to strengthen the current legislative framework by incorporating the provisions of the CRPD into our laws in Quebec and Canada. Criticisms have been voiced regarding the major shortcomings of the <i>Act to secure handicapped persons in the exercise of their rights</i>, adopted in 1978 and amended in 2004: “no target or timeline for the elimination of barriers, and no penalty in the event of non-compliance. Consequently, its provisions are frequently flouted and progress on accessibility moves at a snail’s pace<a class="sdfootnoteanc" name="en_sdfootnote3anc" href="#en_sdfootnote3sym"><sup>2</sup></a>.”
+                        </p>
+                        <p class="article-body-p">
+                            And even when new legislation is enacted that improves the protection of the rights of persons with disabilities, caution and critical scrutiny remain essential. New standards in the Quebec Construction Code for the interior of dwellings were adopted in 2018, and although they are now more comprehensive, they apply only on a voluntary basis: “The only mandatory accessibility standards for new buildings are intended to allow a wheelchair user to visit a dwelling, not to live in it<a class="sdfootnoteanc" name="en_sdfootnote4anc" href="#en_sdfootnote4sym"><sup>3</sup></a>,” notes Olivier Dupuis. Another example: buildings with fewer than nine dwellings or fewer than three storeys are exempt from all accessibility standards, even though housing that meets the needs of its tenants is the foundation of independent living<a class="sdfootnoteanc" name="en_sdfootnote5anc" href="#en_sdfootnote5sym"><sup>4</sup></a>.
+                        </p>
+                        <p class="article-body-p">
+                            That said, a human rights perspective extends beyond the texts available at the national or international level, whether they serve as binding instruments or statements of principle.
+                        </p>
+
+                        <!-- English Interactive Concept Map 1 (SVG) -->
+                        <div class="concept-map-card" id="enConceptMap1">
+                            <div class="concept-map-header">
+                                <span class="concept-map-title">Interactive Concept Map 1 — Legal Frameworks and Accessibility Gaps</span>
+                                <span class="concept-map-hint">Click a node to view the analysis</span>
+                            </div>
+                            <div class="concept-svg-wrapper">
+                                <svg viewBox="0 0 860 270" class="concept-svg" role="img" aria-label="Conceptual diagram on the UN CRPD, civil society monitoring, and legislative gaps in Quebec and Canada">
+                                    <defs>
+                                        <marker id="enArrowBordeaux1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                            <path d="M 0 1 L 10 5 L 0 9 z" fill="#7a2222"/>
+                                        </marker>
+                                        <marker id="enArrowSlate1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                            <path d="M 0 1 L 10 5 L 0 9 z" fill="#4a5568"/>
+                                        </marker>
+                                    </defs>
+
+                                    <!-- Connections -->
+                                    <line x1="210" y1="75" x2="325" y2="75" stroke="#7a2222" stroke-width="2" marker-end="url(#enArrowBordeaux1)"/>
+                                    <line x1="210" y1="190" x2="325" y2="190" stroke="#4a5568" stroke-width="2" marker-end="url(#enArrowSlate1)"/>
+                                    <line x1="515" y1="75" x2="625" y2="75" stroke="#7a2222" stroke-width="2" marker-end="url(#enArrowBordeaux1)"/>
+                                    <line x1="515" y1="190" x2="625" y2="190" stroke="#4a5568" stroke-width="2" marker-end="url(#enArrowSlate1)"/>
+                                    <line x1="420" y1="112" x2="420" y2="152" stroke="#7a2222" stroke-width="1.8" stroke-dasharray="4,3" marker-end="url(#enArrowBordeaux1)"/>
+
+                                    <!-- Node 1 -->
+                                    <g class="svg-node active" data-map="en1" data-key="cdph" onclick="selectConceptNode(this, 'enDetailMap1')">
+                                        <rect x="20" y="38" width="190" height="74" rx="10" fill="#ffffff" stroke="#1a202c" stroke-width="2"/>
+                                        <text x="115" y="68" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">UN CRPD (2008)</text>
+                                        <text x="115" y="88" text-anchor="middle" font-size="11" fill="#4a5568">Ratified 2010 • Art. 9, 16, 19, 28, 29</text>
+                                    </g>
+
+                                    <!-- Node 2 -->
+                                    <g class="svg-node" data-map="en1" data-key="suivi" onclick="selectConceptNode(this, 'enDetailMap1')">
+                                        <rect x="330" y="38" width="185" height="74" rx="10" fill="#ffffff" stroke="#1a202c" stroke-width="2"/>
+                                        <text x="422" y="68" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">Monitoring &amp; Shadow Reports</text>
+                                        <text x="422" y="88" text-anchor="middle" font-size="11" fill="#4a5568">UN Committee &amp; Civil Society</text>
+                                    </g>
+
+                                    <!-- Node 3 -->
+                                    <g class="svg-node" data-map="en1" data-key="levier" onclick="selectConceptNode(this, 'enDetailMap1')">
+                                        <rect x="630" y="38" width="210" height="74" rx="10" fill="#ffffff" stroke="#1a202c" stroke-width="2"/>
+                                        <text x="735" y="68" text-anchor="middle" font-size="13" font-weight="700" fill="#7a2222">Legal &amp; Political Lever</text>
+                                        <text x="735" y="88" text-anchor="middle" font-size="11" fill="#4a5568">Compliance &amp; State Obligations</text>
+                                    </g>
+
+                                    <!-- Node 4 -->
+                                    <g class="svg-node" data-map="en1" data-key="loi1978" onclick="selectConceptNode(this, 'enDetailMap1')">
+                                        <rect x="20" y="153" width="190" height="78" rx="10" fill="#ffffff" stroke="#4a5568" stroke-width="1.8"/>
+                                        <text x="115" y="182" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a202c">1978 Act (amend. 2004)</text>
+                                        <text x="115" y="201" text-anchor="middle" font-size="10.5" fill="#4a5568">No binding timelines</text>
+                                        <text x="115" y="216" text-anchor="middle" font-size="10.5" fill="#4a5568">or non-compliance penalties</text>
+                                    </g>
+
+                                    <!-- Node 5 -->
+                                    <g class="svg-node" data-map="en1" data-key="logement" onclick="selectConceptNode(this, 'enDetailMap1')">
+                                        <rect x="330" y="153" width="185" height="78" rx="10" fill="#ffffff" stroke="#4a5568" stroke-width="1.8"/>
+                                        <text x="422" y="182" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a202c">Construction Code</text>
+                                        <text x="422" y="201" text-anchor="middle" font-size="10.5" fill="#4a5568">Voluntary interior rules (2018)</text>
+                                        <text x="422" y="216" text-anchor="middle" font-size="10.5" fill="#4a5568">Exemptions (&lt; 9 units / &lt; 3 floors)</text>
+                                    </g>
+
+                                    <!-- Node 6 -->
+                                    <g class="svg-node" data-map="en1" data-key="autonomie" onclick="selectConceptNode(this, 'enDetailMap1')">
+                                        <rect x="630" y="153" width="210" height="78" rx="10" fill="#ffffff" stroke="#4a5568" stroke-width="1.8"/>
+                                        <text x="735" y="182" text-anchor="middle" font-size="12.5" font-weight="700" fill="#7a2222">Independent Living at Risk</text>
+                                        <text x="735" y="201" text-anchor="middle" font-size="10.5" fill="#4a5568">Visiting a home ≠ living in it</text>
+                                        <text x="735" y="216" text-anchor="middle" font-size="10.5" fill="#4a5568">Need for regulatory reform</text>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="concept-detail-panel" id="enDetailMap1">
+                                <strong>Convention on the Rights of Persons with Disabilities (CRPD):</strong> Adopted in 2008 by the UN and ratified by Canada in 2010 (with an Optional Protocol complaints procedure to which Quebec declared itself bound), it unites civil, political, economic, social, and cultural rights, including accessibility (Art. 9), protection from exploitation and abuse (Art. 16), independent community living (Art. 19), an adequate standard of living (Art. 28), and political participation (Art. 29).
+                            </div>
+                        </div>
+
+                        <!-- English Section 2 -->
+                        <h2 class="chapter-heading">2. A Powerful and Insightful Analysis: The Interdependence of Human Rights</h2>
+                        <p class="article-body-p">
+                            The Ligue des droits et libertés continually emphasizes the interdependence of human rights—a perspective that calls on us to recognize and act on the reality that when one right is violated, it triggers consequences across multiple other rights. Conversely, when one right is fully realized, it can strengthen respect for many other rights for the communities concerned.
+                        </p>
+                        <p class="article-body-p">
+                            This interdependence of rights clearly lies at the heart of the lived reality of persons with disabilities: “Whether in schooling, employment and income, housing—in short, across all social rights—or in civil rights and liberties, such as access to public space, persons with disabilities face daily obstacles and even outright denials of their rights,” explains LDL activist Christian Nadeau in the special issue of <i>Droits et Libertés</i><a class="sdfootnoteanc" name="en_sdfootnote6anc" href="#en_sdfootnote6sym"><sup>5</sup></a>.
+                        </p>
+                        <p class="article-body-p">
+                            Several perspectives that have become indispensable in recent years align seamlessly with a human rights approach and recognition of the interdependence of rights. In particular, if persons with disabilities endure so many repeated, systematic, and interdependent denials of their human rights, it is because they live within an <i>ableist</i> system, which many have denounced and fought against for years. <i>Ableism</i> is rooted in beliefs, stereotypes, processes, and practices that determine whether a person is deemed <i>capable</i> of conforming to dominant norms. Ableism “shapes our world and creates disability<a class="sdfootnoteanc" name="en_sdfootnote7anc" href="#en_sdfootnote7sym"><sup>6</sup></a>.” Much like other oppressive systems such as racism or patriarchy, ableism exposes a harsh reality while serving as an invaluable analytical concept, as it captures the systemic nature of the discrimination, denials of rights, and processes of exclusion and marginalization experienced by persons with disabilities. The same applies to the expression <i>person in a situation of disability</i> (<i>personne en situation de handicap</i>), which invites us to recognize that the barrier to realizing a person’s human rights lies not within the individual, but “in the social context that deprives them of the resources to which they are entitled in order to make their own choices and direct their life as they see fit<a class="sdfootnoteanc" name="en_sdfootnote8anc" href="#en_sdfootnote8sym"><sup>7</sup></a>.”
+                        </p>
+                        <p class="article-body-p">
+                            Highlighting the systemic context behind rights violations serves, on the one hand, to remind States of their responsibilities to respect, protect, and fulfill human rights. On the other hand, it challenges the notion that measures taken to promote universal accessibility are acts of assistance, altruism, or charity—when in fact we are speaking of <i>human rights</i>!
+                        </p>
+                        <p class="article-body-p">
+                            Just as other marginalized groups suffer extensive denials of rights and navigate systems of oppression, persons with disabilities experience the impacts of major crises in an exacerbated manner. The COVID-19 pandemic generated heightened hardship and isolation for them. While drastic measures were hurriedly put in place to confront the unfolding emergency, persons with disabilities were frequently left to fend for themselves, with essential resources such as respite services, schools, or specialized care suspended, as though they had been forgotten. Many of their rights were undermined, even though “any rule of law, policy, or practice by a governmental or other authority that has the effect of restricting access to the exercise of a right on the basis of a person’s status can find no justification from a human rights standpoint<a class="sdfootnoteanc" name="en_sdfootnote9anc" href="#en_sdfootnote9sym"><sup>8</sup></a>.”
+                        </p>
+                        <p class="article-body-p">
+                            The climate crisis is no exception to this pattern, further aggravating pre-existing inequalities and human rights violations. A 2020 report by the Office of the United Nations High Commissioner for Human Rights revealed that “poverty, stigma and discrimination were the three main factors exposing persons with disabilities to the impacts of climate change<a class="sdfootnoteanc" name="en_sdfootnote10anc" href="#en_sdfootnote10sym"><sup>9</sup></a>.” Worldwide, they are already experiencing heightened impacts on their right to health, their right to food, their right to housing, and their right to an adequate standard of living, among others.
+                        </p>
+                        <p class="article-body-p">
+                            The disproportionate ways in which major crises affect persons with disabilities underscore another vital dimension from a human rights perspective: these individuals must have the opportunity to participate fully in decision-making. While they tend to be rendered <i>invisible</i> by systemic ableism and pervasive barriers to universal accessibility, this in no way justifies government authorities neglecting to take their views, their realities, and of course their rights into account in every decision. The opportunity to participate in decision-making and political life more broadly engages multiple human rights and is key to developing inclusive solutions both during major crises and in “normal” times.
+                        </p>
+                        <p class="article-body-p">
+                            Indeed, the report cited above stresses that “because they are disproportionately affected by climate change, persons with disabilities must be included in climate action. Their participation would help tailor climate action so that it addresses the specific concerns of persons with disabilities regarding the adverse effects of climate change<a class="sdfootnoteanc" name="en_sdfootnote11anc" href="#en_sdfootnote11sym"><sup>10</sup></a>.” For instance, emergency measures implemented following Hurricane Sandy in the United States in 2012—such as evacuation vehicles and shelters provided to disaster victims—violated the rights of persons with disabilities. That said, their participation is essential across all decisions concerning climate change mitigation and adaptation measures, beyond emergency responses to acute disasters. Yet at present, Canada’s National Adaptation Strategy acknowledges the challenges faced by Indigenous peoples and women, while remaining silent on the realities of persons with disabilities.
+                        </p>
+
+                        <!-- English Interactive Concept Map 2 (SVG) -->
+                        <div class="concept-map-card" id="enConceptMap2">
+                            <div class="concept-map-header">
+                                <span class="concept-map-title">Interactive Concept Map 2 — Interdependence of Rights, Ableism, and Crises</span>
+                                <span class="concept-map-hint">Click a node to view the analysis</span>
+                            </div>
+                            <div class="concept-svg-wrapper">
+                                <svg viewBox="0 0 860 270" class="concept-svg" role="img" aria-label="Conceptual diagram linking ableism, social context, interdependence of rights, crises, and participation">
+                                    <defs>
+                                        <marker id="enArrowBordeaux2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                            <path d="M 0 1 L 10 5 L 0 9 z" fill="#7a2222"/>
+                                        </marker>
+                                    </defs>
+
+                                    <!-- Arrows -->
+                                    <line x1="215" y1="75" x2="325" y2="75" stroke="#7a2222" stroke-width="2" marker-end="url(#enArrowBordeaux2)"/>
+                                    <line x1="535" y1="75" x2="640" y2="75" stroke="#7a2222" stroke-width="2" marker-end="url(#enArrowBordeaux2)"/>
+                                    <line x1="215" y1="190" x2="325" y2="190" stroke="#7a2222" stroke-width="2" marker-end="url(#enArrowBordeaux2)"/>
+                                    <line x1="535" y1="190" x2="640" y2="190" stroke="#7a2222" stroke-width="2" marker-end="url(#enArrowBordeaux2)"/>
+                                    <line x1="430" y1="112" x2="430" y2="152" stroke="#7a2222" stroke-width="2" marker-end="url(#enArrowBordeaux2)"/>
+
+                                    <!-- Node A -->
+                                    <g class="svg-node active" data-map="en2" data-key="capacitisme" onclick="selectConceptNode(this, 'enDetailMap2')">
+                                        <rect x="20" y="38" width="195" height="74" rx="10" fill="#ffffff" stroke="#1a202c" stroke-width="2"/>
+                                        <text x="117" y="68" text-anchor="middle" font-size="13" font-weight="700" fill="#7a2222">Ableist System</text>
+                                        <text x="117" y="88" text-anchor="middle" font-size="11" fill="#4a5568">Norms, Stereotypes &amp; Exclusion</text>
+                                    </g>
+
+                                    <!-- Node B -->
+                                    <g class="svg-node" data-map="en2" data-key="interdep" onclick="selectConceptNode(this, 'enDetailMap2')">
+                                        <rect x="330" y="38" width="205" height="74" rx="10" fill="#ffffff" stroke="#1a202c" stroke-width="2"/>
+                                        <text x="432" y="68" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">Interdependence of Rights</text>
+                                        <text x="432" y="88" text-anchor="middle" font-size="11" fill="#4a5568">Housing, Work, Health, Public Space</text>
+                                    </g>
+
+                                    <!-- Node C -->
+                                    <g class="svg-node" data-map="en2" data-key="obligations" onclick="selectConceptNode(this, 'enDetailMap2')">
+                                        <rect x="645" y="38" width="195" height="74" rx="10" fill="#ffffff" stroke="#1a202c" stroke-width="2"/>
+                                        <text x="742" y="68" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">Rights ≠ Charity</text>
+                                        <text x="742" y="88" text-anchor="middle" font-size="11" fill="#4a5568">State Duties &amp; Accessibility</text>
+                                    </g>
+
+                                    <!-- Node D -->
+                                    <g class="svg-node" data-map="en2" data-key="crises" onclick="selectConceptNode(this, 'enDetailMap2')">
+                                        <rect x="20" y="153" width="195" height="78" rx="10" fill="#ffffff" stroke="#4a5568" stroke-width="1.8"/>
+                                        <text x="117" y="182" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a202c">Exacerbated Crises</text>
+                                        <text x="117" y="201" text-anchor="middle" font-size="10.5" fill="#4a5568">COVID-19, Climate Change</text>
+                                        <text x="117" y="216" text-anchor="middle" font-size="10.5" fill="#4a5568">Poverty, Stigma, Sandy (2012)</text>
+                                    </g>
+
+                                    <!-- Node E -->
+                                    <g class="svg-node" data-map="en2" data-key="invisibilite" onclick="selectConceptNode(this, 'enDetailMap2')">
+                                        <rect x="330" y="153" width="205" height="78" rx="10" fill="#ffffff" stroke="#4a5568" stroke-width="1.8"/>
+                                        <text x="432" y="182" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a202c">Barrier in Social Context</text>
+                                        <text x="432" y="201" text-anchor="middle" font-size="10.5" fill="#4a5568">“Person in a situation of disability”</text>
+                                        <text x="432" y="216" text-anchor="middle" font-size="10.5" fill="#4a5568">Deprivation of Resources &amp; Access</text>
+                                    </g>
+
+                                    <!-- Node F -->
+                                    <g class="svg-node" data-map="en2" data-key="participation" onclick="selectConceptNode(this, 'enDetailMap2')">
+                                        <rect x="645" y="153" width="195" height="78" rx="10" fill="#ffffff" stroke="#4a5568" stroke-width="1.8"/>
+                                        <text x="742" y="182" text-anchor="middle" font-size="12.5" font-weight="700" fill="#7a2222">Decision-Making Voice</text>
+                                        <text x="742" y="201" text-anchor="middle" font-size="10.5" fill="#4a5568">Inclusion in Public Policy</text>
+                                        <text x="742" y="216" text-anchor="middle" font-size="10.5" fill="#4a5568">and Climate Action</text>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="concept-detail-panel" id="enDetailMap2">
+                                <strong>Ableist System:</strong> Grounded in beliefs, stereotypes, and practices that assess an individual’s ability to conform to dominant norms, ableism shapes our environments and generates systemic exclusions comparable to other forms of oppression.
+                            </div>
+                        </div>
+
+                        <!-- English Conclusion -->
+                        <h2 class="chapter-heading">Conclusion</h2>
+                        <p class="article-body-p">
+                            Struggles to uphold all the rights of persons with disabilities—from housing access to poverty reduction, and dismantling barriers to full participation in society—thus benefit greatly from being analyzed and addressed through the lens of human rights. States must ensure that they respect, protect, and fulfill the human rights of everyone in order to build a just and inclusive society. This means taking these rights into account when drafting any policy or legislation likely to affect them, while recognizing the interdependence of rights.
+                        </p>
+                        <p class="article-body-p">
+                            As Christian Nadeau reminds us, this interdependence of rights necessarily calls for an interdependence of struggles: “Respect for the rights of persons with disabilities is not something granted by a majority to a minority. Society as a whole owes this to itself. […] In a just society, fighting ableism is ultimately fighting to uphold the integrity of rights as a whole<a class="sdfootnoteanc" name="en_sdfootnote12anc" href="#en_sdfootnote12sym"><sup>11</sup></a>.”
+                        </p>
+                        <p class="article-body-p">
+                            For the Ligue des droits et libertés, adopting a human rights perspective enables the mobilization of concrete legal instruments paired with a compelling argumentative framework, while reminding States of their own obligations in this area. For these are indeed binding obligations incumbent upon States—not charitable gestures—to enable persons with disabilities to participate fully in society and exercise all of their rights. The interdependence of human rights also provides the systemic reach needed to confront systems of oppression that discriminate against and marginalize specific groups, such as ableism. As the LDL emphasizes, human rights serve as a compass pointing the way forward toward a just and inclusive society.
+                        </p>
+
+                        <!-- English Bibliographic References -->
+                        <h2 class="chapter-heading">Bibliographic References</h2>
+                        <div class="biblio-list">
+                            <p class="biblio-item">Bénard, M. (2021), “Le cadre législatif concernant les droits des personnes handicapées et l’accessibilité universelle” [The Legislative Framework Regarding the Rights of Persons with Disabilities and Universal Accessibility], <i>Droits et Libertés</i>, vol. 40, no. 1.</p>
+                            <p class="biblio-item">Human Rights Council (2020), “Analytical study on the promotion and protection of the rights of persons with disabilities in the context of climate change”, HRC 44th Session, URL: https://tinyurl.com/2p8kt4h8.</p>
+                            <p class="biblio-item">Dupuis, O. (2021), “La crise permanente du logement accessible” [The Permanent Crisis of Accessible Housing], <i>Droits et Libertés</i>, vol. 40, no. 1.</p>
+                            <p class="biblio-item">Nadeau, C. (2021), “Droits et handicap : introduction au dossier” [Rights and Disability: Introduction to the Special Issue], <i>Droits et Libertés</i>, vol. 40, no. 1.</p>
+                            <p class="biblio-item">Nicole, F. (2014, October 7), <i>Address at the launch of the campaign “Migrant Workers: Not Commodities!”</i></p>
+                            <p class="biblio-item">Paré, M. (2021), “La CDPH : des efforts du Canada depuis près de 20 ans” [The CRPD: Canada’s Efforts Over Nearly 20 Years], <i>Droits et Libertés</i>, vol. 40, no. 1.</p>
+                        </div>
+
+                        <!-- English Footnotes -->
+                        <div class="footnotes-section">
+                            <div id="en_sdfootnote1" class="footnote-entry"><a name="en_sdfootnote1sym" href="#en_sdfootnote1anc"><sup>*</sup></a> An article largely inspired by the text of Christian Nadeau of the Ligue des droits et libertés.</div>
+                            <div id="en_sdfootnote2" class="footnote-entry"><a name="en_sdfootnote2sym" href="#en_sdfootnote2anc"><sup>1</sup></a> Paré, M. (2021), “La CDPH : des efforts du Canada depuis près de 20 ans”, <i>Droits et Libertés</i>, vol. 40, no. 1.</div>
+                            <div id="en_sdfootnote3" class="footnote-entry"><a name="en_sdfootnote3sym" href="#en_sdfootnote3anc"><sup>2</sup></a> Bénard, M. (2021), “Le cadre législatif concernant les droits des personnes handicapées et l’accessibilité universelle”, <i>Droits et Libertés</i>, vol. 40, no. 1.</div>
+                            <div id="en_sdfootnote4" class="footnote-entry"><a name="en_sdfootnote4sym" href="#en_sdfootnote4anc"><sup>3</sup></a> Dupuis, O. (2021), “La crise permanente du logement accessible”, <i>Droits et Libertés</i>, vol. 40, no. 1.</div>
+                            <div id="en_sdfootnote5" class="footnote-entry"><a name="en_sdfootnote5sym" href="#en_sdfootnote5anc"><sup>4</sup></a> <i>Idem</i>.</div>
+                            <div id="en_sdfootnote6" class="footnote-entry"><a name="en_sdfootnote6sym" href="#en_sdfootnote6anc"><sup>5</sup></a> Nadeau, C. (2021), “Droits et handicap : introduction au dossier”, <i>Droits et Libertés</i>, vol. 40, no. 1.</div>
+                            <div id="en_sdfootnote7" class="footnote-entry"><a name="en_sdfootnote7sym" href="#en_sdfootnote7anc"><sup>6</sup></a> <i>Idem</i>.</div>
+                            <div id="en_sdfootnote8" class="footnote-entry"><a name="en_sdfootnote8sym" href="#en_sdfootnote8anc"><sup>7</sup></a> <i>Idem</i>.</div>
+                            <div id="en_sdfootnote9" class="footnote-entry"><a name="en_sdfootnote9sym" href="#en_sdfootnote9anc"><sup>8</sup></a> Nicole, F. (2014, October 7), <i>Address at the launch of the campaign “Migrant Workers: Not Commodities!”</i></div>
+                            <div id="en_sdfootnote10" class="footnote-entry"><a name="en_sdfootnote10sym" href="#en_sdfootnote10anc"><sup>9</sup></a> Human Rights Council (2020), “Analytical study on the promotion and protection of the rights of persons with disabilities in the context of climate change”, HRC 44th Session, URL: https://tinyurl.com/2p8kt4h8.</div>
+                            <div id="en_sdfootnote11" class="footnote-entry"><a name="en_sdfootnote11sym" href="#en_sdfootnote11anc"><sup>10</sup></a> Nadeau, C. (2021), <i>op. cit.</i></div>
+                            <div id="en_sdfootnote12" class="footnote-entry"><a name="en_sdfootnote12sym" href="#en_sdfootnote12anc"><sup>11</sup></a> <i>Idem</i>.</div>
+                        </div>
+                    </div>
+
+                    <div id="spanishVersionPanel" class="english-drawer" lang="es">
+                        <div class="english-drawer-header">
+                            <span class="english-badge">Traducción completa al español</span>
+                            <button type="button" class="btn-english-close" onclick="toggleSpanishVersion()">Cerrar versión en español &times;</button>
+                        </div>
+
+                        <h2 class="article-main-title" style="font-size: 1.65rem;">Realidades de las personas en situación de<br>discapacidad: adoptar una mirada de derechos humanos<a class="sdfootnoteanc" name="es_sdfootnote1anc" href="#es_sdfootnote1sym"><sup>*</sup></a></h2>
+
+                        <div class="meta-two-boxes">
+                            <div class="whitish-box author-box-content">
+                                <div class="author-meta-details">
+                                    <strong>Élisabeth Dupuis &amp; Laurence Guénette</strong>
+                                    <p>Afiliación: Ligue des droits et libertés (LDL).</p>
+                                </div>
+                            </div>
+
+                            <div class="whitish-box">
+                                <div class="citation-box-label">Citar este artículo</div>
+                                <p>Dupuis, É., Guénette, M. (2023), « Réalités des personnes en situation de handicap : poser un regard de droits humains » [Realidades de las personas en situación de discapacidad: adoptar una mirada de derechos humanos], <i>Sociologie Visuelle</i>, n.º 4, François Routhier y Pierre Fraser (eds.), Québec: Photo|Société, pp. 229-235.</p>
+                            </div>
+                        </div>
+
+                        <div class="whitish-box" style="margin-bottom: 1.25rem; font-size: 0.86rem; line-height: 1.55;">
+                            <div class="resume-box-title">Resumen (Español)</div>
+                            <p>La <i>Ligue des droits et libertés</i> (LDL) propone aquí observar las problemáticas que afectan a las personas en situación de discapacidad desde la perspectiva de los derechos humanos. Esta mirada invita, por una parte, a interesarse por los instrumentos jurídicos de protección de los derechos de las personas en situación de discapacidad, los cuales pueden servir como palancas judiciales y base argumentativa. Por otra parte, la perspectiva propuesta por la LDL implica tener en cuenta la interdependencia de los derechos humanos y visibilizar los impactos que tienen las violaciones de un derecho sobre múltiples otros derechos, una perspectiva muy pertinente para comprender y actuar sobre las realidades de las personas en situación de discapacidad.</p>
+                        </div>
+
+                        <div class="keywords-line">
+                            <strong>Palabras clave.</strong> — Derechos humanos; persona en situación de discapacidad; leyes.
+                        </div>
+
+                        <!-- Spanish Introduction -->
+                        <h2 class="chapter-heading" style="margin-top: 1.5rem;">Introducción</h2>
+                        <p class="article-body-p">
+                            <span class="lettrine-bordeaux">L</span>a Ligue des droits et libertés (LDL) es una organización independiente, no partidista y sin fines de lucro que trabaja desde hace 60 años en la promoción y protección de todos los derechos humanos, civiles, políticos, económicos, sociales y culturales. En la primavera de 2021, la LDL publicó un dosier especial sobre los derechos de las personas en situación de discapacidad en su revista <i>Droits et Libertés</i>. Para numerosos militantes de la LDL, esta fue una oportunidad extraordinaria para profundizar en esta cuestión y nutrir sus reflexiones gracias a las excelentes contribuciones de diversas personas intervinientes dotadas de una gran experiencia en la materia. El texto que proponemos aquí es, por lo tanto, un aporte ofrecido con toda humildad y ampliamente alimentado por los escritos publicados en la revista de 2021, mediante el cual deseamos poner de relieve el alcance y los beneficios de una mirada de derechos humanos sobre la realidad de las personas en situación de discapacidad.
+                        </p>
+
+                        <!-- Spanish Section 1 -->
+                        <h2 class="chapter-heading">1. En el derecho internacional y en el derecho interno: instrumentos imperfectos pero valiosos</h2>
+                        <p class="article-body-p">
+                            Adoptar una mirada de derechos humanos permite movilizar los instrumentos desarrollados en el derecho internacional o interno que, a pesar de ciertas lagunas u obstáculos, constituyen una poderosa palanca argumentativa. Quebec y Canadá tienen deberes y obligaciones inscritos en leyes, Cartas y Convenciones, que deberían guiar siempre a los gobiernos en la elaboración de políticas o legislaciones, aunque no siempre sea así. El papel que pueden desempeñar los instrumentos internacionales de derechos humanos es considerable para hacer respetar los derechos humanos. Se trata de herramientas esenciales que enuncian principios ineludibles y permiten juzgar la conformidad de las legislaciones y llamar al orden a los gobiernos.
+                        </p>
+                        <p class="article-body-p">
+                            En este sentido, la <i>Convención sobre los Derechos de las Personas con Discapacidad</i> (CDPD) fue adoptada en 2008 por la Asamblea General de las Naciones Unidas, agrupando los derechos civiles, políticos, económicos, sociales y culturales en un mismo texto, así como disposiciones prácticas inéditas en el derecho internacional de los derechos humanos. Canadá la ratificó en 2010, seguida del <i>Protocolo Facultativo</i> de la CDPD, un sistema de denuncias al cual Quebec se declaró vinculado<a class="sdfootnoteanc" name="es_sdfootnote2anc" href="#es_sdfootnote2sym"><sup>1</sup></a>. En ella se inscriben disposiciones específicas para favorecer el ejercicio de sus derechos en igualdad de condiciones con las demás personas. Entre ellas figuran el derecho a la protección contra la explotación, la violencia y el abuso (artículo 16), la necesidad de eliminar los obstáculos a la accesibilidad en los edificios, el transporte, las comunicaciones y los servicios (artículo 9) y la participación en la vida política, exigiendo que los Estados velen por que los procedimientos, instalaciones y materiales electorales sean adecuados, accesibles y fáciles de entender y utilizar (artículo 29). La Convención afirma igualmente el derecho a «vivir en la comunidad, con opciones iguales a las de las demás», lo que compromete a los Estados a adoptar «medidas efectivas y pertinentes para facilitar el pleno goce de este derecho por las personas con discapacidad y su plena inclusión y participación en la comunidad» (artículo 19).
+                        </p>
+                        <p class="article-body-p">
+                            En virtud de la CDPD, el gobierno está obligado a adoptar políticas económicas, presupuestarias y fiscales que permitan a cada persona acceder «a un nivel de vida adecuado para ellas y sus familias, lo cual incluye alimentación, vestido y vivienda adecuados, y a la mejora continua de sus condiciones de vida, y adoptarán las medidas pertinentes para salvaguardar y promover el ejercicio de este derecho sin discriminación por motivos de discapacidad» (artículo 28).
+                        </p>
+                        <p class="article-body-p">
+                            Existe un ejercicio de presentación de informes vinculado a la adhesión de Canadá a esta convención, lo que implica que Canadá someta informes periódicos al Comité sobre los Derechos de las Personas con Discapacidad, el órgano de seguimiento de la aplicación de la CDPD. El proceso de examen comprende la elaboración de un informe crítico alternativo, redactado por organizaciones de la sociedad civil y comunitarias a raíz del informe presentado por el Estado. El análisis de los informes de Canadá por parte de estas organizaciones aportará en los próximos meses y años una luz esencial sobre los problemas vividos y propondrá vías de solución para hacer avanzar los derechos de las personas en situación de discapacidad.
+                        </p>
+                        <p class="article-body-p">
+                            Para permitir que las personas en situación de discapacidad ejerzan plenamente sus derechos, queda un enorme trabajo por hacer para reforzar el marco legislativo actual integrando las disposiciones de la CDPD en nuestras leyes en Quebec y en Canadá. Se escuchan críticas sobre las importantes lagunas de la <i>Ley que garantiza el ejercicio de los derechos de las personas con discapacidad</i> (<i>Loi assurant l’exercice des droits des personnes handicapées</i>), adoptada en 1978 y enmendada en 2004: «ningún objetivo ni calendario para la eliminación de los obstáculos, ninguna penalización en caso de incumplimiento. En consecuencia, sus disposiciones son frecuentemente vulneradas y la puesta en accesibilidad avanza a paso de tortuga<a class="sdfootnoteanc" name="es_sdfootnote3anc" href="#es_sdfootnote3sym"><sup>2</sup></a>».
+                        </p>
+                        <p class="article-body-p">
+                            E incluso cuando se implementan nuevas leyes que mejoran la protección de los derechos de las personas en situación de discapacidad, se imponen la prudencia y el sentido crítico. En 2018 se adoptaron nuevas normas en el Código de Construcción de Quebec para el interior de las viviendas y, aunque ahora son más completas, solo se aplican de manera voluntaria: «Las únicas normas de accesibilidad obligatorias para los nuevos edificios buscan permitir que una persona en silla de ruedas visite la vivienda, pero no que habite en ella<a class="sdfootnoteanc" name="es_sdfootnote4anc" href="#es_sdfootnote4sym"><sup>3</sup></a>», subraya Olivier Dupuis. Otro ejemplo: los edificios de menos de nueve viviendas o de menos de tres pisos están exentos de toda norma de accesibilidad, cuando una vivienda que responda a las necesidades de sus inquilinos es la base de una vida autónoma<a class="sdfootnoteanc" name="es_sdfootnote5anc" href="#es_sdfootnote5sym"><sup>4</sup></a>.
+                        </p>
+                        <p class="article-body-p">
+                            Dicho esto, la perspectiva de los derechos humanos va más allá de los textos disponibles en los planos nacional o internacional, ya figuren como instrumentos vinculantes o como simples declaraciones de principios.
+                        </p>
+
+                        <!-- Spanish Interactive Concept Map 1 (SVG) -->
+                        <div class="concept-map-card" id="esConceptMap1">
+                            <div class="concept-map-header">
+                                <span class="concept-map-title">Mapa conceptual interactivo 1 — Articulación de los marcos jurídicos y lagunas de accesibilidad</span>
+                                <span class="concept-map-hint">Haga clic en un nodo para consultar el análisis</span>
+                            </div>
+                            <div class="concept-svg-wrapper">
+                                <svg viewBox="0 0 860 270" class="concept-svg" role="img" aria-label="Diagrama conceptual sobre la CDPD, el seguimiento civil y los límites legislativos en Quebec y Canadá">
+                                    <defs>
+                                        <marker id="esArrowBordeaux1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                            <path d="M 0 1 L 10 5 L 0 9 z" fill="#7a2222"/>
+                                        </marker>
+                                        <marker id="esArrowSlate1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                            <path d="M 0 1 L 10 5 L 0 9 z" fill="#4a5568"/>
+                                        </marker>
+                                    </defs>
+
+                                    <!-- Conexiones -->
+                                    <line x1="210" y1="75" x2="325" y2="75" stroke="#7a2222" stroke-width="2" marker-end="url(#esArrowBordeaux1)"/>
+                                    <line x1="210" y1="190" x2="325" y2="190" stroke="#4a5568" stroke-width="2" marker-end="url(#esArrowSlate1)"/>
+                                    <line x1="515" y1="75" x2="625" y2="75" stroke="#7a2222" stroke-width="2" marker-end="url(#esArrowBordeaux1)"/>
+                                    <line x1="515" y1="190" x2="625" y2="190" stroke="#4a5568" stroke-width="2" marker-end="url(#esArrowSlate1)"/>
+                                    <line x1="420" y1="112" x2="420" y2="152" stroke="#7a2222" stroke-width="1.8" stroke-dasharray="4,3" marker-end="url(#esArrowBordeaux1)"/>
+
+                                    <!-- Nodo 1 -->
+                                    <g class="svg-node active" data-map="es1" data-key="cdph" onclick="selectConceptNode(this, 'esDetailMap1')">
+                                        <rect x="20" y="38" width="190" height="74" rx="10" fill="#ffffff" stroke="#1a202c" stroke-width="2"/>
+                                        <text x="115" y="68" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">CDPD (ONU, 2008)</text>
+                                        <text x="115" y="88" text-anchor="middle" font-size="11" fill="#4a5568">Ratificada 2010 • Art. 9, 16, 19, 28, 29</text>
+                                    </g>
+
+                                    <!-- Nodo 2 -->
+                                    <g class="svg-node" data-map="es1" data-key="suivi" onclick="selectConceptNode(this, 'esDetailMap1')">
+                                        <rect x="330" y="38" width="185" height="74" rx="10" fill="#ffffff" stroke="#1a202c" stroke-width="2"/>
+                                        <text x="422" y="68" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">Seguimiento e informes</text>
+                                        <text x="422" y="88" text-anchor="middle" font-size="11" fill="#4a5568">Comité ONU y sociedad civil</text>
+                                    </g>
+
+                                    <!-- Nodo 3 -->
+                                    <g class="svg-node" data-map="es1" data-key="levier" onclick="selectConceptNode(this, 'esDetailMap1')">
+                                        <rect x="630" y="38" width="210" height="74" rx="10" fill="#ffffff" stroke="#1a202c" stroke-width="2"/>
+                                        <text x="735" y="68" text-anchor="middle" font-size="13" font-weight="700" fill="#7a2222">Palanca jurídica y política</text>
+                                        <text x="735" y="88" text-anchor="middle" font-size="11" fill="#4a5568">Conformidad y deberes del Estado</text>
+                                    </g>
+
+                                    <!-- Nodo 4 -->
+                                    <g class="svg-node" data-map="es1" data-key="loi1978" onclick="selectConceptNode(this, 'esDetailMap1')">
+                                        <rect x="20" y="153" width="190" height="78" rx="10" fill="#ffffff" stroke="#4a5568" stroke-width="1.8"/>
+                                        <text x="115" y="182" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a202c">Ley de 1978 (enm. 2004)</text>
+                                        <text x="115" y="201" text-anchor="middle" font-size="10.5" fill="#4a5568">Sin plazos vinculantes</text>
+                                        <text x="115" y="216" text-anchor="middle" font-size="10.5" fill="#4a5568">ni sanciones por incumplimiento</text>
+                                    </g>
+
+                                    <!-- Nodo 5 -->
+                                    <g class="svg-node" data-map="es1" data-key="logement" onclick="selectConceptNode(this, 'esDetailMap1')">
+                                        <rect x="330" y="153" width="185" height="78" rx="10" fill="#ffffff" stroke="#4a5568" stroke-width="1.8"/>
+                                        <text x="422" y="182" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a202c">Código de construcción</text>
+                                        <text x="422" y="201" text-anchor="middle" font-size="10.5" fill="#4a5568">Normas interiores voluntarias (2018)</text>
+                                        <text x="422" y="216" text-anchor="middle" font-size="10.5" fill="#4a5568">Exenciones (&lt; 9 viv. o &lt; 3 pisos)</text>
+                                    </g>
+
+                                    <!-- Nodo 6 -->
+                                    <g class="svg-node" data-map="es1" data-key="autonomie" onclick="selectConceptNode(this, 'esDetailMap1')">
+                                        <rect x="630" y="153" width="210" height="78" rx="10" fill="#ffffff" stroke="#4a5568" stroke-width="1.8"/>
+                                        <text x="735" y="182" text-anchor="middle" font-size="12.5" font-weight="700" fill="#7a2222">Vida autónoma comprometida</text>
+                                        <text x="735" y="201" text-anchor="middle" font-size="10.5" fill="#4a5568">Visitar una vivienda ≠ habitarla</text>
+                                        <text x="735" y="216" text-anchor="middle" font-size="10.5" fill="#4a5568">Exigencia de reforma normativa</text>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="concept-detail-panel" id="esDetailMap1">
+                                <strong>Convención sobre los Derechos de las Personas con Discapacidad (CDPD):</strong> Adoptada en 2008 por la ONU y ratificada por Canadá en 2010 (con un protocolo facultativo de denuncias al cual Quebec se declaró vinculado), reúne derechos civiles, políticos, económicos, sociales y culturales, incluyendo la accesibilidad (art. 9), la protección contra la explotación y la violencia (art. 16), la vida independiente en la comunidad (art. 19), un nivel de vida adecuado (art. 28) y la participación política (art. 29).
+                            </div>
+                        </div>
+
+                        <!-- Spanish Section 2 -->
+                        <h2 class="chapter-heading">2. Un análisis poderoso y fecundo: la interdependencia de los derechos humanos</h2>
+                        <p class="article-body-p">
+                            La Ligue des droits et libertés insiste continuamente en la interdependencia de los derechos humanos, una perspectiva que invita a constatar y actuar teniendo en cuenta que, cuando se vulnera un derecho, ello acarrea consecuencias sobre muchos otros derechos. A la inversa, cuando se logra realizar plenamente un derecho, esto puede mejorar el respeto de varios otros derechos para las comunidades concernidas.
+                        </p>
+                        <p class="article-body-p">
+                            Esta interdependencia de los derechos está visiblemente en el centro de la realidad de las personas en situación de discapacidad: «Ya se trate de escolarización, empleo e ingresos, vivienda —en suma, del conjunto de los derechos sociales—, o bien de los derechos y libertades civiles, como el acceso al espacio público, las personas en situación de discapacidad se enfrentan cada día a dificultades e incluso a negaciones de sus derechos», explica Christian Nadeau, militante de la LDL, en el dosier especial de la revista <i>Droits et Libertés</i><a class="sdfootnoteanc" name="es_sdfootnote6anc" href="#es_sdfootnote6sym"><sup>5</sup></a>.
+                        </p>
+                        <p class="article-body-p">
+                            Ciertas perspectivas que se han vuelto imprescindibles en los últimos años se yuxtaponen de manera totalmente coherente con un enfoque de derechos humanos y un reconocimiento de la interdependencia de los derechos. En particular, si las personas en situación de discapacidad sufren tantas negaciones de sus derechos humanos, de manera repetida, sistemática e interdependiente, es porque se desenvuelven en el seno de un sistema <i>capacitista</i>, que muchas de ellas denuncian y combaten desde hace años. El <i>capacitismo</i> se basa en creencias, estereotipos, procesos y prácticas que determinan si una persona es <i>capaz</i> de ajustarse a las normas dominantes. El capacitismo «moldea nuestro mundo y crea la discapacidad<a class="sdfootnoteanc" name="es_sdfootnote7anc" href="#es_sdfootnote7sym"><sup>6</sup></a>». Al igual que otras relaciones opresivas, como el racismo o el patriarcado, el capacitismo revela una terrible realidad al tiempo que constituye un concepto valioso, pues permite captar el carácter sistémico de las discriminaciones, negaciones de derechos y procesos de exclusión y marginación vividos por las personas en situación de discapacidad. Lo mismo ocurre con la expresión <i>persona en situación de discapacidad</i>, que invita a reconocer que el obstáculo para la realización de los derechos humanos de una persona no se encuentra en la persona misma, sino «en el contexto social que la priva de los recursos a los que tendría derecho para realizar sus elecciones y orientar su vida como mejor le parezca<a class="sdfootnoteanc" name="es_sdfootnote8anc" href="#es_sdfootnote8sym"><sup>7</sup></a>».
+                        </p>
+                        <p class="article-body-p">
+                            Recordar de este modo el contexto sistémico que provoca las violaciones de derechos permite, por una parte, recordar a los Estados sus responsabilidades en el respeto, la protección y la realización de los derechos humanos. Por otra parte, permite impugnar la visión según la cual las medidas adoptadas para favorecer la accesibilidad universal son gestos de ayuda, altruismo o caridad… ¡cuando estamos hablando de <i>derechos humanos</i>!
+                        </p>
+                        <p class="article-body-p">
+                            Al igual que otros grupos marginados sufren numerosas negaciones de derechos y se desenvuelven en el seno de un sistema de opresión, las personas en situación de discapacidad padecen los efectos de las grandes crisis de manera exacerbada. La pandemia de COVID-19 generó dificultades y un aislamiento acrecentado para ellas. Mientras se implementaban medidas drásticas de forma precipitada para afrontar la crisis que azotaba, las personas en situación de discapacidad fueron dejadas muy a menudo a su suerte, suspendiéndose ciertos recursos esenciales como los servicios de respiro, las escuelas o los cuidados adaptados, como si hubieran sido olvidadas. Varios de sus derechos resultaron menoscabados, cuando «toda norma jurídica, toda política o toda práctica de una autoridad gubernamental o de otro tipo que tenga por efecto restringir el acceso al ejercicio de un derecho en razón de la condición de la persona no puede encontrar justificación alguna desde el punto de vista de los derechos humanos<a class="sdfootnoteanc" name="es_sdfootnote9anc" href="#es_sdfootnote9sym"><sup>8</sup></a>».
+                        </p>
+                        <p class="article-body-p">
+                            La crisis climática no escapa a esta constatación, contribuyendo también a exacerbar las desigualdades y negaciones de derechos humanos ya existentes. Un informe de la Oficina del Alto Comisionado de las Naciones Unidas para los Derechos Humanos revelaba en 2020 que «la pobreza, la estigmatización y la discriminación eran los tres principales elementos que exponían a las personas con discapacidad a los impactos del cambio climático<a class="sdfootnoteanc" name="es_sdfootnote10anc" href="#es_sdfootnote10sym"><sup>9</sup></a>». A escala planetaria, ya se constata que sufren impactos acrecentados sobre su derecho a la salud, su derecho a la alimentación, su derecho a la vivienda y su derecho a un nivel de vida adecuado, entre otros.
+                        </p>
+                        <p class="article-body-p">
+                            La manera en que las grandes crisis afectan a las personas en situación de discapacidad de forma desproporcionada recuerda otra dimensión ineludible desde una perspectiva de derechos humanos: estas personas deben tener la posibilidad de participar plenamente en la toma de decisiones. Si bien tienden a ser <i>invisibilizadas</i> por el capacitismo en tanto sistema y por los múltiples obstáculos a la accesibilidad universal, ello no justifica en modo alguno que las autoridades gubernamentales prescindan de tener en cuenta sus opiniones, sus realidades y, por supuesto, sus derechos en toda decisión. La posibilidad de participar en las decisiones y en la vida política en sentido amplio concierne igualmente a varios derechos humanos y constituye una clave en la búsqueda de soluciones inclusivas tanto frente a las grandes crisis como en tiempos «normales».
+                        </p>
+                        <p class="article-body-p">
+                            De hecho, el informe citado anteriormente subraya que «debido a que se ven afectadas de manera desproporcionada por el cambio climático, las personas con discapacidad deben ser incluidas en la acción climática. Su participación permitiría adaptar la acción climática de modo que aborde las preocupaciones propias de las personas con discapacidad en relación con los efectos adversos del cambio climático<a class="sdfootnoteanc" name="es_sdfootnote11anc" href="#es_sdfootnote11sym"><sup>10</sup></a>». A título de ejemplo, las medidas de emergencia adoptadas tras el huracán Sandy en Estados Unidos en 2012, tales como los vehículos de evacuación o los refugios ofrecidos a las personas damnificadas, vulneraban los derechos de las personas en situación de discapacidad. Dicho esto, su participación es esencial en el conjunto de las decisiones adoptadas en relación con las medidas de mitigación y adaptación al cambio climático, además de las medidas tomadas en situaciones de crisis puntual. Sin embargo, en la actualidad, el plan de adaptación al cambio climático de Canadá reconoce los desafíos de los pueblos indígenas y de las mujeres, pero guarda silencio respecto a las realidades de las personas en situación de discapacidad.
+                        </p>
+
+                        <!-- Spanish Interactive Concept Map 2 (SVG) -->
+                        <div class="concept-map-card" id="esConceptMap2">
+                            <div class="concept-map-header">
+                                <span class="concept-map-title">Mapa conceptual interactivo 2 — Interdependencia de los derechos, capacitismo y crisis</span>
+                                <span class="concept-map-hint">Haga clic en un nodo para consultar el análisis</span>
+                            </div>
+                            <div class="concept-svg-wrapper">
+                                <svg viewBox="0 0 860 270" class="concept-svg" role="img" aria-label="Diagrama conceptual que vincula capacitismo, contexto social, interdependencia de los derechos, crisis y participación">
+                                    <defs>
+                                        <marker id="esArrowBordeaux2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                            <path d="M 0 1 L 10 5 L 0 9 z" fill="#7a2222"/>
+                                        </marker>
+                                    </defs>
+
+                                    <!-- Flechas -->
+                                    <line x1="215" y1="75" x2="325" y2="75" stroke="#7a2222" stroke-width="2" marker-end="url(#esArrowBordeaux2)"/>
+                                    <line x1="535" y1="75" x2="640" y2="75" stroke="#7a2222" stroke-width="2" marker-end="url(#esArrowBordeaux2)"/>
+                                    <line x1="215" y1="190" x2="325" y2="190" stroke="#7a2222" stroke-width="2" marker-end="url(#esArrowBordeaux2)"/>
+                                    <line x1="535" y1="190" x2="640" y2="190" stroke="#7a2222" stroke-width="2" marker-end="url(#esArrowBordeaux2)"/>
+                                    <line x1="430" y1="112" x2="430" y2="152" stroke="#7a2222" stroke-width="2" marker-end="url(#esArrowBordeaux2)"/>
+
+                                    <!-- Nodo A -->
+                                    <g class="svg-node active" data-map="es2" data-key="capacitisme" onclick="selectConceptNode(this, 'esDetailMap2')">
+                                        <rect x="20" y="38" width="195" height="74" rx="10" fill="#ffffff" stroke="#1a202c" stroke-width="2"/>
+                                        <text x="117" y="68" text-anchor="middle" font-size="13" font-weight="700" fill="#7a2222">Sistema capacitista</text>
+                                        <text x="117" y="88" text-anchor="middle" font-size="11" fill="#4a5568">Normas, estereotipos y exclusión</text>
+                                    </g>
+
+                                    <!-- Nodo B -->
+                                    <g class="svg-node" data-map="es2" data-key="interdep" onclick="selectConceptNode(this, 'esDetailMap2')">
+                                        <rect x="330" y="38" width="205" height="74" rx="10" fill="#ffffff" stroke="#1a202c" stroke-width="2"/>
+                                        <text x="432" y="68" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">Interdependencia de derechos</text>
+                                        <text x="432" y="88" text-anchor="middle" font-size="11" fill="#4a5568">Vivienda, empleo, salud, espacio público</text>
+                                    </g>
+
+                                    <!-- Nodo C -->
+                                    <g class="svg-node" data-map="es2" data-key="obligations" onclick="selectConceptNode(this, 'esDetailMap2')">
+                                        <rect x="645" y="38" width="195" height="74" rx="10" fill="#ffffff" stroke="#1a202c" stroke-width="2"/>
+                                        <text x="742" y="68" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">Derechos ≠ Caridad</text>
+                                        <text x="742" y="88" text-anchor="middle" font-size="11" fill="#4a5568">Obligaciones estatales y accesibilidad</text>
+                                    </g>
+
+                                    <!-- Nodo D -->
+                                    <g class="svg-node" data-map="es2" data-key="crises" onclick="selectConceptNode(this, 'esDetailMap2')">
+                                        <rect x="20" y="153" width="195" height="78" rx="10" fill="#ffffff" stroke="#4a5568" stroke-width="1.8"/>
+                                        <text x="117" y="182" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a202c">Crisis exacerbadas</text>
+                                        <text x="117" y="201" text-anchor="middle" font-size="10.5" fill="#4a5568">COVID-19, cambio climático</text>
+                                        <text x="117" y="216" text-anchor="middle" font-size="10.5" fill="#4a5568">Pobreza, estigma, Sandy (2012)</text>
+                                    </g>
+
+                                    <!-- Nodo E -->
+                                    <g class="svg-node" data-map="es2" data-key="invisibilite" onclick="selectConceptNode(this, 'esDetailMap2')">
+                                        <rect x="330" y="153" width="205" height="78" rx="10" fill="#ffffff" stroke="#4a5568" stroke-width="1.8"/>
+                                        <text x="432" y="182" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a202c">Obstáculo en el contexto</text>
+                                        <text x="432" y="201" text-anchor="middle" font-size="10.5" fill="#4a5568">«Persona en situación de discapacidad»</text>
+                                        <text x="432" y="216" text-anchor="middle" font-size="10.5" fill="#4a5568">Privación de recursos y acceso</text>
+                                    </g>
+
+                                    <!-- Nodo F -->
+                                    <g class="svg-node" data-map="es2" data-key="participation" onclick="selectConceptNode(this, 'esDetailMap2')">
+                                        <rect x="645" y="153" width="195" height="78" rx="10" fill="#ffffff" stroke="#4a5568" stroke-width="1.8"/>
+                                        <text x="742" y="182" text-anchor="middle" font-size="12.5" font-weight="700" fill="#7a2222">Participación decisoria</text>
+                                        <text x="742" y="201" text-anchor="middle" font-size="10.5" fill="#4a5568">Inclusión en políticas públicas</text>
+                                        <text x="742" y="216" text-anchor="middle" font-size="10.5" fill="#4a5568">y en la acción climática</text>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="concept-detail-panel" id="esDetailMap2">
+                                <strong>Sistema capacitista:</strong> Basado en creencias, estereotipos y prácticas que evalúan la capacidad de ajustarse a las normas dominantes, el capacitismo moldea nuestros entornos y produce exclusiones sistémicas comparables a otras relaciones de opresión.
+                            </div>
+                        </div>
+
+                        <!-- Spanish Conclusion -->
+                        <h2 class="chapter-heading">Conclusión</h2>
+                        <p class="article-body-p">
+                            Las luchas por el respeto de todos los derechos de las personas en situación de discapacidad —desde los desafíos de acceso a la vivienda hasta los problemas de pobreza, pasando por los obstáculos que impiden participar plenamente en la sociedad— ganan así al ser analizadas y abordadas a la luz de los derechos humanos. Los Estados deben velar por respetar, proteger y hacer efectivos los derechos humanos de todas y todos para vivir en una sociedad justa e inclusiva. Esto significa tener en consideración estos derechos a la hora de esbozar cualquier política o legislación susceptible de afectarlos, reconociendo al mismo tiempo la interdependencia de los derechos.
+                        </p>
+                        <p class="article-body-p">
+                            Como recuerda Christian Nadeau, esta interdependencia de los derechos exige necesariamente una interdependencia de las luchas: «el respeto de los derechos de las personas en situación de discapacidad no es algo que sea otorgado por la mayoría a una minoría. Es la sociedad entera la que se debe esto a sí misma. […] En una sociedad justa, combatir el capacitismo es, en última instancia, luchar por el respeto de la integridad de los derechos en su conjunto<a class="sdfootnoteanc" name="es_sdfootnote12anc" href="#es_sdfootnote12sym"><sup>11</sup></a>».
+                        </p>
+                        <p class="article-body-p">
+                            Para la Ligue des droits et libertés, adoptar una mirada de derechos humanos permite movilizar instrumentos jurídicos concretos, acompañados de una argumentación sólida, además de recordar a los Estados que tienen sus propias obligaciones en la materia. Porque se trata efectivamente de obligaciones que incumben a los Estados —y no de gestos caritativos— para permitir que las personas en situación de discapacidad participen plenamente en la sociedad y ejerzan el conjunto de sus derechos. La interdependencia de los derechos humanos ofrece también ese alcance sistémico capaz de abordar los sistemas de opresión que discriminan y marginan a determinados grupos de personas, como el capacitismo. Como subraya la LDL, los derechos humanos son una brújula que nos indica el camino a seguir para avanzar hacia una sociedad justa e inclusiva.
+                        </p>
+
+                        <!-- Spanish Bibliographic References -->
+                        <h2 class="chapter-heading">Referencias bibliográficas</h2>
+                        <div class="biblio-list">
+                            <p class="biblio-item">Bénard, M. (2021), « Le cadre législatif concernant les droits des personnes handicapées et l’accessibilité universelle » [El marco legislativo relativo a los derechos de las personas con discapacidad y la accesibilidad universal], <i>Droits et Libertés</i>, vol. 40, n.º 1.</p>
+                            <p class="biblio-item">Consejo de Derechos Humanos (2020), « Estudio analítico sobre la promoción y protección de los derechos de las personas con discapacidad en el contexto del cambio climático », CDH 44.º período de sesiones, URL: https://tinyurl.com/2p8kt4h8.</p>
+                            <p class="biblio-item">Dupuis, O. (2021), « La crise permanente du logement accessible » [La crisis permanente de la vivienda accesible], <i>Droits et Libertés</i>, vol. 40, n.º 1.</p>
+                            <p class="biblio-item">Nadeau, C. (2021), « Droits et handicap : introduction au dossier » [Derechos y discapacidad: introducción al dosier], <i>Droits et Libertés</i>, vol. 40, n.º 1.</p>
+                            <p class="biblio-item">Nicole, F. (2014, 7 de octubre), <i>Alocución durante el lanzamiento de la campaña « Travailleuses et travailleurs migrants : pas des marchandises ! » [Trabajadoras y trabajadores migrantes: ¡no son mercancías!]</i>.</p>
+                            <p class="biblio-item">Paré, M. (2021), « La CDPH : des efforts du Canada depuis près de 20 ans » [La CDPD: los esfuerzos de Canadá desde hace casi 20 años], <i>Droits et Libertés</i>, vol. 40, n.º 1.</p>
+                        </div>
+
+                        <!-- Spanish Footnotes -->
+                        <div class="footnotes-section">
+                            <div id="es_sdfootnote1" class="footnote-entry"><a name="es_sdfootnote1sym" href="#es_sdfootnote1anc"><sup>*</sup></a> Artículo ampliamente inspirado en el texto de Christian Nadeau de la Ligue des droits et libertés.</div>
+                            <div id="es_sdfootnote2" class="footnote-entry"><a name="es_sdfootnote2sym" href="#es_sdfootnote2anc"><sup>1</sup></a> Paré, M. (2021), « La CDPH : des efforts du Canada depuis près de 20 ans », <i>Droits et Libertés</i>, vol. 40, n.º 1.</div>
+                            <div id="es_sdfootnote3" class="footnote-entry"><a name="es_sdfootnote3sym" href="#es_sdfootnote3anc"><sup>2</sup></a> Bénard, M. (2021), « Le cadre législatif concernant les droits des personnes handicapées et l’accessibilité universelle », <i>Droits et Libertés</i>, vol. 40, n.º 1.</div>
+                            <div id="es_sdfootnote4" class="footnote-entry"><a name="es_sdfootnote4sym" href="#es_sdfootnote4anc"><sup>3</sup></a> Dupuis, O. (2021), « La crise permanente du logement accessible », <i>Droits et Libertés</i>, vol. 40, n.º 1.</div>
+                            <div id="es_sdfootnote5" class="footnote-entry"><a name="es_sdfootnote5sym" href="#es_sdfootnote5anc"><sup>4</sup></a> <i>Idem</i>.</div>
+                            <div id="es_sdfootnote6" class="footnote-entry"><a name="es_sdfootnote6sym" href="#es_sdfootnote6anc"><sup>5</sup></a> Nadeau, C. (2021), « Droits et handicap : introduction au dossier », <i>Droits et Libertés</i>, vol. 40, n.º 1.</div>
+                            <div id="es_sdfootnote7" class="footnote-entry"><a name="es_sdfootnote7sym" href="#es_sdfootnote7anc"><sup>6</sup></a> <i>Idem</i>.</div>
+                            <div id="es_sdfootnote8" class="footnote-entry"><a name="es_sdfootnote8sym" href="#es_sdfootnote8anc"><sup>7</sup></a> <i>Idem</i>.</div>
+                            <div id="es_sdfootnote9" class="footnote-entry"><a name="es_sdfootnote9sym" href="#es_sdfootnote9anc"><sup>8</sup></a> Nicole, F. (2014, 7 de octubre), <i>Alocución durante el lanzamiento de la campaña « Travailleuses et travailleurs migrants : pas des marchandises ! »</i>.</div>
+                            <div id="es_sdfootnote10" class="footnote-entry"><a name="es_sdfootnote10sym" href="#es_sdfootnote10anc"><sup>9</sup></a> Consejo de Derechos Humanos (2020), « Estudio analítico sobre la promoción y protección de los derechos de las personas con discapacidad en el contexto del cambio climático », CDH 44.º período de sesiones, URL: https://tinyurl.com/2p8kt4h8.</div>
+                            <div id="es_sdfootnote11" class="footnote-entry"><a name="es_sdfootnote11sym" href="#es_sdfootnote11anc"><sup>10</sup></a> Nadeau, C. (2021), <i>op. cit.</i></div>
+                            <div id="es_sdfootnote12" class="footnote-entry"><a name="es_sdfootnote12sym" href="#es_sdfootnote12anc"><sup>11</sup></a> <i>Idem</i>.</div>
+                        </div>
+
+                        <!-- Bouton de fermeture en bas de la version espagnole -->
+                        <div style="margin-top: 1.75rem; padding-top: 1.25rem; border-top: 1px solid #dfd6c7; display: flex; justify-content: flex-end; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                            <button type="button" class="btn-english-close" style="padding: 0.55rem 1.1rem; font-size: 0.88rem;" onclick="toggleSpanishVersion()">Cerrar versión en español &times;</button>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Section Introduction avec lettrine rouge bordeaux en gras -->
@@ -1051,6 +1724,38 @@
     </div>
 
     <script>
+        function toggleEnglishVersion() {
+            const panel = document.getElementById('englishVersionPanel');
+            const btn = document.getElementById('englishToggleBtn');
+            const esPanel = document.getElementById('spanishVersionPanel');
+            const esBtn = document.getElementById('spanishToggleBtn');
+            if (esPanel && esPanel.classList.contains('open')) {
+                esPanel.classList.remove('open');
+                if (esBtn) esBtn.setAttribute('aria-expanded', 'false');
+            }
+            const isOpen = panel.classList.toggle('open');
+            btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            if (!isOpen) {
+                btn.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
+
+        function toggleSpanishVersion() {
+            const panel = document.getElementById('spanishVersionPanel');
+            const btn = document.getElementById('spanishToggleBtn');
+            const enPanel = document.getElementById('englishVersionPanel');
+            const enBtn = document.getElementById('englishToggleBtn');
+            if (enPanel && enPanel.classList.contains('open')) {
+                enPanel.classList.remove('open');
+                if (enBtn) enBtn.setAttribute('aria-expanded', 'false');
+            }
+            const isOpen = panel.classList.toggle('open');
+            btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            if (!isOpen) {
+                btn.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
+
         function toggleSubmenu(event, submenuId, arrowId) {
             event.stopPropagation();
             const submenu = document.getElementById(submenuId);
@@ -1083,21 +1788,57 @@
         }
 
         const conceptDetailsMap1 = {
-            cdph: '<strong>Convention relative aux droits des personnes handicapées (CDPH) :</strong> Adoptée en 2008 par l\'ONU et ratifiée par le Canada en 2010 (avec un protocole facultatif de plainte auquel le Québec s\'est lié), elle réunit droits civils, politiques, économiques, sociaux et culturels, incluant l\'accessibilité (art. 9), la protection contre l\'exploitation et la violence (art. 16), la vie autonome dans la communauté (art. 19), un niveau de vie adéquat (art. 28) et la participation politique (art. 29).',
-            suivi: '<strong>Suivi et contre-rapports :</strong> Le Canada soumet des rapports au Comité des personnes handicapées de l\'ONU, complétés par des rapports critiques alternatifs produits par la société civile et les organismes communautaires afin d\'éclairer les réalités vécues sur le terrain.',
-            levier: '<strong>Levier juridique et politique :</strong> Les normes internationales et internes fournissent un cadre de référence pour évaluer la conformité des lois et rappeler aux gouvernements leurs obligations juridiques.',
-            loi1978: '<strong>Loi assurant l\'exercice des droits des personnes handicapées (1978, amendée en 2004) :</strong> Critiquée pour l\'absence d\'objectifs ou d\'échéanciers contraignants d\'élimination des obstacles et l\'absence de pénalités en cas de non-conformité, ce qui ralentit la mise en accessibilité.',
-            logement: '<strong>Code de construction du Québec :</strong> Les nouvelles dispositions intérieures adoptées en 2018 demeurent largement volontaires, et les petits immeubles (moins de neuf logements ou moins de trois étages) sont exemptés de normes d\'accessibilité.',
-            autonomie: '<strong>Vie autonome compromise :</strong> Comme le souligne Olivier Dupuis, des normes centrées sur la simple visite d\'un logement plutôt que sur le fait d\'y habiter durablement limitent l\'autonomie résidentielle des personnes en situation de handicap.'
+            cdph: `<strong>Convention relative aux droits des personnes handicapées (CDPH) :</strong> Adoptée en 2008 par l'ONU et ratifiée par le Canada en 2010 (avec un protocole facultatif de plainte auquel le Québec s'est lié), elle réunit droits civils, politiques, économiques, sociaux et culturels, incluant l'accessibilité (art. 9), la protection contre l'exploitation et la violence (art. 16), la vie autonome dans la communauté (art. 19), un niveau de vie adéquat (art. 28) et la participation politique (art. 29).`,
+            suivi: `<strong>Suivi et contre-rapports :</strong> Le Canada soumet des rapports au Comité des personnes handicapées de l'ONU, complétés par des rapports critiques alternatifs produits par la société civile et les organismes communautaires afin d'éclairer les réalités vécues sur le terrain.`,
+            levier: `<strong>Levier juridique et politique :</strong> Les normes internationales et internes fournissent un cadre de référence pour évaluer la conformité des lois et rappeler aux gouvernements leurs obligations juridiques.`,
+            loi1978: `<strong>Loi assurant l'exercice des droits des personnes handicapées (1978, amendée en 2004) :</strong> Critiquée pour l'absence d'objectifs ou d'échéanciers contraignants d'élimination des obstacles et l'absence de pénalités en cas de non-conformité, ce qui ralentit la mise en accessibilité.`,
+            logement: `<strong>Code de construction du Québec :</strong> Les nouvelles dispositions intérieures adoptées en 2018 demeurent largement volontaires, et les petits immeubles (moins de neuf logements ou moins de trois étages) sont exemptés de normes d'accessibilité.`,
+            autonomie: `<strong>Vie autonome compromise :</strong> Comme le souligne Olivier Dupuis, des normes centrées sur la simple visite d'un logement plutôt que sur le fait d'y habiter durablement limitent l'autonomie résidentielle des personnes en situation de handicap.`
         };
 
         const conceptDetailsMap2 = {
-            capacitisme: '<strong>Système capacitisme :</strong> Fondé sur des croyances, stéréotypes et pratiques qui évaluent la capacité à se conformer aux normes dominantes, le capacitisme façonne nos environnements et produit des exclusions systémiques comparables à d\'autres rapports d\'oppression.',
-            interdep: '<strong>Interdépendance des droits humains :</strong> Lorsqu\'un droit est bafoué ou réalisé, cela rejaillit sur d\'autres droits (scolarisation, emploi, revenu, logement, accès à l\'espace public et participation civique).',
-            obligations: '<strong>Droits humains plutôt que charité :</strong> L\'accessibilité universelle et la protection des droits relèvent d\'obligations incombant aux États, et non de gestes d\'aide, d\'altruisme ou de charité.',
-            crises: '<strong>Crises exacerbées :</strong> La pandémie de COVID-19 (suspension de répits, écoles ou soins adaptés) et la crise climatique (pauvreté, stigmatisation, discrimination, lacunes lors de l\'ouragan Sandy en 2012) frappent durement les personnes en situation de handicap.',
-            invisibilite: '<strong>Obstacle dans le contexte social :</strong> L\'expression « personne en situation de handicap » met en évidence que l\'entrave réside dans un contexte social qui limite l\'accès aux ressources nécessaires pour orienter sa vie.',
-            participation: '<strong>Participation décisionnelle :</strong> L\'inclusion effective des personnes en situation de handicap dans les processus décisionnels et l\'action climatique (notamment face au silence du plan d\'adaptation canadien) est indispensable à des politiques justes.'
+            capacitisme: `<strong>Système capacitisme :</strong> Fondé sur des croyances, stéréotypes et pratiques qui évaluent la capacité à se conformer aux normes dominantes, le capacitisme façonne nos environnements et produit des exclusions systémiques comparables à d'autres rapports d'oppression.`,
+            interdep: `<strong>Interdépendance des droits humains :</strong> Lorsqu'un droit est bafoué ou réalisé, cela rejaillit sur d'autres droits (scolarisation, emploi, revenu, logement, accès à l'espace public et participation civique).`,
+            obligations: `<strong>Droits humains plutôt que charité :</strong> L'accessibilité universelle et la protection des droits relèvent d'obligations incombant aux États, et non de gestes d'aide, d'altruisme ou de charité.`,
+            crises: `<strong>Crises exacerbées :</strong> La pandémie de COVID-19 (suspension de répits, écoles ou soins adaptés) et la crise climatique (pauvreté, stigmatisation, discrimination, lacunes lors de l'ouragan Sandy en 2012) frappent durement les personnes en situation de handicap.`,
+            invisibilite: `<strong>Obstacle dans le contexte social :</strong> L'expression « personne en situation de handicap » met en évidence que l'entrave réside dans un contexte social qui limite l'accès aux ressources nécessaires pour orienter sa vie.`,
+            participation: `<strong>Participation décisionnelle :</strong> L'inclusion effective des personnes en situation de handicap dans les processus décisionnels et l'action climatique (notamment face au silence du plan d'adaptation canadien) est indispensable à des politiques justes.`
+        };
+
+        const enConceptDetailsMap1 = {
+            cdph: '<strong>Convention on the Rights of Persons with Disabilities (CRPD):</strong> Adopted in 2008 by the UN and ratified by Canada in 2010 (with an Optional Protocol complaints procedure to which Quebec declared itself bound), it unites civil, political, economic, social, and cultural rights, including accessibility (Art. 9), protection from exploitation and abuse (Art. 16), independent community living (Art. 19), an adequate standard of living (Art. 28), and political participation (Art. 29).',
+            suivi: '<strong>Monitoring &amp; Shadow Reports:</strong> Canada submits periodic reports to the UN Committee on the Rights of Persons with Disabilities, complemented by alternative shadow reports prepared by civil society and community organizations to shed light on realities on the ground.',
+            levier: '<strong>Legal &amp; Political Lever:</strong> International and domestic human rights standards provide a benchmark to assess legislative compliance and hold governments to their legal obligations.',
+            loi1978: '<strong>Act to secure handicapped persons in the exercise of their rights (1978, amended in 2004):</strong> Criticized for lacking binding targets or timelines for removing barriers and imposing no penalties for non-compliance, slowing progress toward accessibility.',
+            logement: '<strong>Quebec Construction Code:</strong> New interior residential provisions adopted in 2018 remain largely voluntary, and smaller buildings (fewer than nine units or fewer than three storeys) are exempt from accessibility standards.',
+            autonomie: '<strong>Independent Living at Risk:</strong> As Olivier Dupuis highlights, standards focused merely on enabling a wheelchair user to visit a dwelling rather than live in it long-term undermine residential autonomy.'
+        };
+
+        const enConceptDetailsMap2 = {
+            capacitisme: '<strong>Ableist System:</strong> Grounded in beliefs, stereotypes, and practices that assess an individual’s ability to conform to dominant norms, ableism shapes our environments and generates systemic exclusions comparable to other forms of oppression.',
+            interdep: '<strong>Interdependence of Human Rights:</strong> When one right is violated or fulfilled, it directly impacts multiple other rights (education, employment, income, housing, access to public spaces, and civic participation).',
+            obligations: '<strong>Human Rights Rather Than Charity:</strong> Universal accessibility and the protection of rights constitute binding State obligations—not acts of assistance, altruism, or charity.',
+            crises: '<strong>Exacerbated Crises:</strong> The COVID-19 pandemic (suspension of respite services, schools, and specialized care) and the climate crisis (poverty, stigma, discrimination, failures during Hurricane Sandy in 2012) disproportionately impact persons with disabilities.',
+            invisibilite: '<strong>Barrier in Social Context:</strong> The expression “person in a situation of disability” highlights that the obstacle resides in a social environment that restricts access to the resources needed to direct one’s life.',
+            participation: '<strong>Decision-Making Participation:</strong> Meaningful inclusion of persons with disabilities in policy decisions and climate action (particularly given the silence of Canada’s National Adaptation Strategy) is essential to just governance.'
+        };
+
+        const esConceptDetailsMap1 = {
+            cdph: `<strong>Convención sobre los Derechos de las Personas con Discapacidad (CDPD):</strong> Adoptada en 2008 por la ONU y ratificada por Canadá en 2010 (con un protocolo facultativo de denuncias al cual Quebec se declaró vinculado), reúne derechos civiles, políticos, económicos, sociales y culturales, incluyendo la accesibilidad (art. 9), la protección contra la explotación y la violencia (art. 16), la vida independiente en la comunidad (art. 19), un nivel de vida adecuado (art. 28) y la participación política (art. 29).`,
+            suivi: `<strong>Seguimiento y contrainformes:</strong> Canadá presenta informes periódicos al Comité sobre los Derechos de las Personas con Discapacidad de la ONU, complementados por informes críticos alternativos elaborados por la sociedad civil y las organizaciones comunitarias para arrojar luz sobre las realidades vividas sobre el terreno.`,
+            levier: `<strong>Palanca jurídica y política:</strong> Las normas internacionales e internas proporcionan un marco de referencia para evaluar la conformidad de las leyes y recordar a los gobiernos sus obligaciones jurídicas.`,
+            loi1978: `<strong>Ley que garantiza el ejercicio de los derechos de las personas con discapacidad (1978, enmendada en 2004):</strong> Criticada por la ausencia de objetivos o calendarios vinculantes para la eliminación de los obstáculos y la ausencia de sanciones en caso de incumplimiento, lo que ralentiza la puesta en accesibilidad.`,
+            logement: `<strong>Código de Construcción de Quebec:</strong> Las nuevas disposiciones interiores adoptadas en 2018 siguen siendo en gran medida voluntarias, y los edificios pequeños (menos de nueve viviendas o menos de tres pisos) están exentos de normas de accesibilidad.`,
+            autonomie: `<strong>Vida autónoma comprometida:</strong> Como subraya Olivier Dupuis, las normas centradas en la simple visita a una vivienda en lugar de habitarla de forma duradera limitan la autonomía residencial de las personas en situación de discapacidad.`
+        };
+
+        const esConceptDetailsMap2 = {
+            capacitisme: `<strong>Sistema capacitista:</strong> Basado en creencias, estereotipos y prácticas que evalúan la capacidad de ajustarse a las normas dominantes, el capacitismo moldea nuestros entornos y produce exclusiones sistémicas comparables a otras relaciones de opresión.`,
+            interdep: `<strong>Interdependencia de los derechos humanos:</strong> Cuando un derecho es vulnerado o realizado, ello repercute en otros derechos (escolarización, empleo, ingresos, vivienda, acceso al espacio público y participación cívica).`,
+            obligations: `<strong>Derechos humanos en lugar de caridad:</strong> La accesibilidad universal y la protección de los derechos constituyen obligaciones que incumben a los Estados, y no gestos de ayuda, altruismo o caridad.`,
+            crises: `<strong>Crisis exacerbadas:</strong> La pandemia de COVID-19 (suspensión de servicios de respiro, escuelas o cuidados adaptados) y la crisis climática (pobreza, estigmatización, discriminación, deficiencias durante el huracán Sandy en 2012) golpean duramente a las personas en situación de discapacidad.`,
+            invisibilite: `<strong>Obstáculo en el contexto social:</strong> La expresión «persona en situación de discapacidad» pone de manifiesto que la traba reside en un contexto social que limita el acceso a los recursos necesarios para orientar su vida.`,
+            participation: `<strong>Participación decisoria:</strong> La inclusión efectiva de las personas en situación de discapacidad en los procesos de toma de decisiones y en la acción climática (especialmente ante el silencio del plan de adaptación canadiense) es indispensable para lograr políticas justas.`
         };
 
         function selectConceptNode(nodeEl, panelId) {
@@ -1107,7 +1848,19 @@
             nodeEl.classList.add('active');
             const panel = document.getElementById(panelId);
             if (panel) {
-                panel.innerHTML = mapNum === '1' ? (conceptDetailsMap1[key] || '') : (conceptDetailsMap2[key] || '');
+                if (mapNum === '1') {
+                    panel.innerHTML = conceptDetailsMap1[key] || '';
+                } else if (mapNum === '2') {
+                    panel.innerHTML = conceptDetailsMap2[key] || '';
+                } else if (mapNum === 'en1') {
+                    panel.innerHTML = enConceptDetailsMap1[key] || '';
+                } else if (mapNum === 'en2') {
+                    panel.innerHTML = enConceptDetailsMap2[key] || '';
+                } else if (mapNum === 'es1') {
+                    panel.innerHTML = esConceptDetailsMap1[key] || '';
+                } else if (mapNum === 'es2') {
+                    panel.innerHTML = esConceptDetailsMap2[key] || '';
+                }
             }
         }
 
@@ -1192,7 +1945,13 @@
 
             const typeLabel = category === 'captation' ? 'Proposition de captation' : "Proposition d'article";
             const subject = encodeURIComponent(`${typeLabel} : ${title}`);
-            const body = encodeURIComponent(`Nom : ${name}\nCourriel : ${email}\nType : ${typeLabel}\nTitre : ${title}\n\nDescription :\n${desc}`);
+            const body = encodeURIComponent(`Nom : ${name}
+Courriel : ${email}
+Type : ${typeLabel}
+Titre : ${title}
+
+Description :
+${desc}`);
 
             window.location.href = `mailto:sociocamera@gmail.com?subject=${subject}&body=${body}`;
             closeProposalModal();
