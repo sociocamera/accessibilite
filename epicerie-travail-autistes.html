@@ -520,6 +520,216 @@
             color: var(--bordeaux);
         }
 
+        /* Slider vidéo de type Netflix harmonisé avec la page */
+        .netflix-slider-section {
+            background-color: var(--box-whitish);
+            border: 1px solid #e3dcd0;
+            border-radius: 8px;
+            padding: 1.25rem 1.35rem;
+            margin-bottom: 2.25rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .netflix-slider-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.9rem;
+            border-bottom: 1px solid #ece5d8;
+            padding-bottom: 0.5rem;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .netflix-slider-title {
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--bordeaux);
+        }
+
+        .netflix-slider-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .slider-nav-btn {
+            background-color: #f3ede2;
+            color: var(--bordeaux);
+            border: 1px solid #dcd2c2;
+            border-radius: 5px;
+            width: 30px;
+            height: 30px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .slider-nav-btn:hover {
+            background-color: var(--bordeaux);
+            color: #fff;
+            border-color: var(--bordeaux);
+        }
+
+        .netflix-track {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 0.35rem 0.15rem 0.65rem 0.15rem;
+            scrollbar-width: thin;
+            scrollbar-color: #d4c5b9 #f5f0e6;
+        }
+
+        .netflix-track::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .netflix-track::-webkit-scrollbar-track {
+            background: #f5f0e6;
+            border-radius: 3px;
+        }
+
+        .netflix-track::-webkit-scrollbar-thumb {
+            background: #d4c5b9;
+            border-radius: 3px;
+        }
+
+        .netflix-track::-webkit-scrollbar-thumb:hover {
+            background: var(--bordeaux);
+        }
+
+        .netflix-card {
+            flex: 0 0 235px;
+            background-color: var(--bg-color);
+            border: 1px solid #e3dcd0;
+            border-radius: 7px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .netflix-card:hover {
+            transform: translateY(-4px) scale(1.02);
+            border-color: var(--bordeaux);
+            box-shadow: 0 8px 18px rgba(122, 34, 34, 0.12);
+        }
+
+        .netflix-thumb-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: linear-gradient(135deg, #f2ede4 0%, #e6dfd3 100%);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .netflix-thumb-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .netflix-card:hover .netflix-thumb-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .netflix-thumb-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem;
+            text-align: center;
+            background: radial-gradient(circle at top right, #fdfbf7 0%, #efe8dc 100%);
+            color: var(--bordeaux);
+        }
+
+        .netflix-badge-num {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background-color: var(--bordeaux);
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.15rem 0.45rem;
+            border-radius: 4px;
+            z-index: 2;
+            letter-spacing: 0.03em;
+        }
+
+        .netflix-play-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(26, 32, 44, 0.18);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s ease;
+            z-index: 1;
+        }
+
+        .netflix-card:hover .netflix-play-overlay {
+            background: rgba(122, 34, 34, 0.35);
+        }
+
+        .netflix-play-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(250, 246, 239, 0.94);
+            color: var(--bordeaux);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .netflix-card:hover .netflix-play-circle {
+            transform: scale(1.1);
+            background-color: var(--bordeaux);
+            color: #fff;
+        }
+
+        .netflix-card-body {
+            padding: 0.75rem 0.85rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-top: 1px solid #ece5d8;
+        }
+
+        .netflix-card-title {
+            font-size: 0.83rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            line-height: 1.38;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .netflix-card:hover .netflix-card-title {
+            color: var(--bordeaux);
+        }
+
         /* Corps de l'article */
         .article-body {
             font-size: 1.06rem;
@@ -829,7 +1039,7 @@
 
     <!-- Barre horizontale permanente supérieure -->
     <header class="top-navbar">
-        <div class="top-navbar-title">Revue Sociologie Visuelle</div>
+<div class="top-navbar-title"><img src="https://raw.githubusercontent.com/sociocamera/accessibilite/main/Logo_Inclusion_Sociale.png" alt="Logo Inclusion Sociale" width="36" height="36">&nbsp;&nbsp;&nbsp;&nbsp;INCLUSION SOCIALE</div>
         <div class="header-actions">
             <button class="btn-header secondary" onclick="openModal('video', 'Présentation introductive — Vidéo', 'https://drive.google.com/file/d/10Va3etjn9wZIqrVnByyNXDVM-XPKOHkK/preview?autoplay=1')">
                 <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
@@ -1012,6 +1222,231 @@
                         </p>
                         <div class="keywords-line">
                             <strong>Keywords:</strong> Autistic; employment; socioprofessional integration; accommodation; inclusion; educational video; validation.
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Slider de vidéos pédagogiques (type Netflix) -->
+                <section class="netflix-slider-section" aria-label="Capsules vidéo pédagogiques sur le travail en épicerie">
+                    <div class="netflix-slider-header">
+                        <span class="netflix-slider-title">Capsules vidéo pédagogiques (13 vidéos)</span>
+                        <div class="netflix-slider-controls">
+                            <button type="button" class="slider-nav-btn" onclick="scrollVideoSlider(-1)" aria-label="Défiler vers la gauche">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                            </button>
+                            <button type="button" class="slider-nav-btn" onclick="scrollVideoSlider(1)" aria-label="Défiler vers la droite">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="netflix-track" id="videoSliderTrack">
+                        <!-- Vidéo 01 -->
+                        <div class="netflix-card" role="button" tabindex="0" onclick="openModal('video', '01. Préparation des ananas', 'https://drive.google.com/file/d/1jKWRGryfgjiKXrFL_fUkwaihdaqbPMnF/preview?autoplay=1')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+                            <div class="netflix-thumb-wrapper">
+                                <span class="netflix-badge-num">01</span>
+                                <img src="https://lh3.googleusercontent.com/d/1-W4JVxegR9Tc_pCK7lLpcdEPfKL6cUjr" alt="01. Préparation des ananas" onerror="this.onerror=null;this.src='https://drive.google.com/thumbnail?id=1-W4JVxegR9Tc_pCK7lLpcdEPfKL6cUjr&sz=w600'">
+                                <div class="netflix-play-overlay">
+                                    <div class="netflix-play-circle">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="netflix-card-body">
+                                <div class="netflix-card-title">01. Préparation des ananas</div>
+                            </div>
+                        </div>
+
+                        <!-- Vidéo 02 -->
+                        <div class="netflix-card" role="button" tabindex="0" onclick="openModal('video', '02. Personnaliser des gâteaux d\'anniversaire', 'https://drive.google.com/file/d/1NLW4g9U1nJ_DGcqnPNw-9hDXdfvxNxEh/preview?autoplay=1')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+                            <div class="netflix-thumb-wrapper">
+                                <span class="netflix-badge-num">02</span>
+                                <img src="https://lh3.googleusercontent.com/d/1_LL4EkYaqxSVP3xDZu6mS9eJYpFQ6gD3" alt="02. Personnaliser des gâteaux d'anniversaire" onerror="this.onerror=null;this.src='https://drive.google.com/thumbnail?id=1_LL4EkYaqxSVP3xDZu6mS9eJYpFQ6gD3&sz=w600'">
+                                <div class="netflix-play-overlay">
+                                    <div class="netflix-play-circle">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="netflix-card-body">
+                                <div class="netflix-card-title">02. Personnaliser des gâteaux d'anniversaire</div>
+                            </div>
+                        </div>
+
+                        <!-- Vidéo 03 -->
+                        <div class="netflix-card" role="button" tabindex="0" onclick="openModal('video', '03. Cuisson des croissants', 'https://drive.google.com/file/d/1PU9ybn0m0jebnp-S5pd-H7Fj931Mjc8n/preview?autoplay=1')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+                            <div class="netflix-thumb-wrapper">
+                                <span class="netflix-badge-num">03</span>
+                                <img src="https://lh3.googleusercontent.com/d/1ziIw_a8Gk3Aq9V3aqIpxVzr0poqTkpLZ" alt="03. Cuisson des croissants" onerror="this.onerror=null;this.src='https://drive.google.com/thumbnail?id=1ziIw_a8Gk3Aq9V3aqIpxVzr0poqTkpLZ&sz=w600'">
+                                <div class="netflix-play-overlay">
+                                    <div class="netflix-play-circle">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="netflix-card-body">
+                                <div class="netflix-card-title">03. Cuisson des croissants</div>
+                            </div>
+                        </div>
+
+                        <!-- Vidéo 04 -->
+                        <div class="netflix-card" role="button" tabindex="0" onclick="openModal('video', '04. Préparation du menu du jour', 'https://drive.google.com/file/d/1P4IR2kU52eTdNXt2-zPxcBvZj1l6GF3e/preview?autoplay=1')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+                            <div class="netflix-thumb-wrapper">
+                                <span class="netflix-badge-num">04</span>
+                                <img src="https://lh3.googleusercontent.com/d/11TTqt9I3yeLkVCE4ZoZszIv_Q4hM48iZ" alt="04. Préparation du menu du jour" onerror="this.onerror=null;this.src='https://drive.google.com/thumbnail?id=11TTqt9I3yeLkVCE4ZoZszIv_Q4hM48iZ&sz=w600'">
+                                <div class="netflix-play-overlay">
+                                    <div class="netflix-play-circle">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="netflix-card-body">
+                                <div class="netflix-card-title">04. Préparation du menu du jour</div>
+                            </div>
+                        </div>
+
+                        <!-- Vidéo 05 -->
+                        <div class="netflix-card" role="button" tabindex="0" onclick="openModal('video', '05. Familiarisation à la préparation de sandwichs', 'https://drive.google.com/file/d/1hFSv7aO19BtuktmAbUczc9xXjKeIyQ5a/preview?autoplay=1')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+                            <div class="netflix-thumb-wrapper">
+                                <span class="netflix-badge-num">05</span>
+                                <img src="https://lh3.googleusercontent.com/d/1IIL5UKonM0NzWut1SmQfMXDibd41-KlW" alt="05. Familiarisation à la préparation de sandwichs" onerror="this.onerror=null;this.src='https://drive.google.com/thumbnail?id=1IIL5UKonM0NzWut1SmQfMXDibd41-KlW&sz=w600'">
+                                <div class="netflix-play-overlay">
+                                    <div class="netflix-play-circle">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="netflix-card-body">
+                                <div class="netflix-card-title">05. Familiarisation à la préparation de sandwichs</div>
+                            </div>
+                        </div>
+
+                        <!-- Vidéo 06 -->
+                        <div class="netflix-card" role="button" tabindex="0" onclick="openModal('video', '06. Préparation de pizza', 'https://drive.google.com/file/d/1MxEFaSTAQ5oDBkExw5hp5_AR5V-eV1tD/preview?autoplay=1')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+                            <div class="netflix-thumb-wrapper">
+                                <span class="netflix-badge-num">06</span>
+                                <img src="https://lh3.googleusercontent.com/d/1rPbaOnUswwDsQvGJWAoYg5TpEce8dqf1" alt="06. Préparation de pizza" onerror="this.onerror=null;this.src='https://drive.google.com/thumbnail?id=1rPbaOnUswwDsQvGJWAoYg5TpEce8dqf1&sz=w600'">
+                                <div class="netflix-play-overlay">
+                                    <div class="netflix-play-circle">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="netflix-card-body">
+                                <div class="netflix-card-title">06. Préparation de pizza</div>
+                            </div>
+                        </div>
+
+                        <!-- Vidéo 07 -->
+                        <div class="netflix-card" role="button" tabindex="0" onclick="openModal('video', '07. Emballage du saumon', 'https://drive.google.com/file/d/16HjiwNAAz8hDjmlXMbKp8O4t1vXuYuAi/preview?autoplay=1')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+                            <div class="netflix-thumb-wrapper">
+                                <span class="netflix-badge-num">07</span>
+                                <img src="https://lh3.googleusercontent.com/d/1tFaGTjgzqCXJTNa1z-XRFZ55Z5iKYPD_" alt="07. Emballage du saumon" onerror="this.onerror=null;this.src='https://drive.google.com/thumbnail?id=1tFaGTjgzqCXJTNa1z-XRFZ55Z5iKYPD_&sz=w600'">
+                                <div class="netflix-play-overlay">
+                                    <div class="netflix-play-circle">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="netflix-card-body">
+                                <div class="netflix-card-title">07. Emballage du saumon</div>
+                            </div>
+                        </div>
+
+                        <!-- Vidéo 08 -->
+                        <div class="netflix-card" role="button" tabindex="0" onclick="openModal('video', '08. Cuisson et préparation des homards', 'https://drive.google.com/file/d/1Dn6Ijq-5XMmyiERlDoJFLibPimoNyQeu/preview?autoplay=1')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+                            <div class="netflix-thumb-wrapper">
+                                <span class="netflix-badge-num">08</span>
+                                <img src="https://lh3.googleusercontent.com/d/1EqqMkJF495K9v21r-NpcpEHUPqX1rWrL" alt="08. Cuisson et préparation des homards" onerror="this.onerror=null;this.src='https://drive.google.com/thumbnail?id=1EqqMkJF495K9v21r-NpcpEHUPqX1rWrL&sz=w600'">
+                                <div class="netflix-play-overlay">
+                                    <div class="netflix-play-circle">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="netflix-card-body">
+                                <div class="netflix-card-title">08. Cuisson et préparation des homards</div>
+                            </div>
+                        </div>
+
+                        <!-- Vidéo 09 -->
+                        <div class="netflix-card" role="button" tabindex="0" onclick="openModal('video', '09. Préparation de la salade de goberge', 'https://drive.google.com/file/d/13gyHVyY-b64iI8y32n3BG19TfA3rLAE6/preview?autoplay=1')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+                            <div class="netflix-thumb-wrapper">
+                                <span class="netflix-badge-num">09</span>
+                                <img src="https://lh3.googleusercontent.com/d/1KDWIYzHeU4k0DJwi5e1xqzk4ffSCuAYt" alt="09. Préparation de la salade de goberge" onerror="this.onerror=null;this.src='https://drive.google.com/thumbnail?id=1KDWIYzHeU4k0DJwi5e1xqzk4ffSCuAYt&sz=w600'">
+                                <div class="netflix-play-overlay">
+                                    <div class="netflix-play-circle">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="netflix-card-body">
+                                <div class="netflix-card-title">09. Préparation de la salade de goberge</div>
+                            </div>
+                        </div>
+
+                        <!-- Vidéo 10 -->
+                        <div class="netflix-card" role="button" tabindex="0" onclick="openModal('video', '10. Placement des produits dans les allées en épicerie', 'https://drive.google.com/file/d/1tRqkOykDlonArNYVCVCY_MgGACBiqQN8/preview?autoplay=1')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+                            <div class="netflix-thumb-wrapper">
+                                <span class="netflix-badge-num">10</span>
+                                <img src="https://lh3.googleusercontent.com/d/1CE8Y920VBnu_stCU2gmeisf_7BfbyGk8" alt="10. Placement des produits dans les allées en épicerie" onerror="this.onerror=null;this.src='https://drive.google.com/thumbnail?id=1CE8Y920VBnu_stCU2gmeisf_7BfbyGk8&sz=w600'">
+                                <div class="netflix-play-overlay">
+                                    <div class="netflix-play-circle">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="netflix-card-body">
+                                <div class="netflix-card-title">10. Placement des produits dans les allées en épicerie</div>
+                            </div>
+                        </div>
+
+                        <!-- Vidéo 11 -->
+                        <div class="netflix-card" role="button" tabindex="0" onclick="openModal('video', '11. Arrangement des produits (facing)', 'https://drive.google.com/file/d/1ngkEM80qpQxN3N1hAroT7MU8SGYJt9n2/preview?autoplay=1')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+                            <div class="netflix-thumb-wrapper">
+                                <span class="netflix-badge-num">11</span>
+                                <img src="https://lh3.googleusercontent.com/d/18SHHmuVkxLxJHMHV4SeSuzcIeEa7Wfth" alt="11. Arrangement des produits (facing)" onerror="this.onerror=null;this.src='https://drive.google.com/thumbnail?id=18SHHmuVkxLxJHMHV4SeSuzcIeEa7Wfth&sz=w600'">
+                                <div class="netflix-play-overlay">
+                                    <div class="netflix-play-circle">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="netflix-card-body">
+                                <div class="netflix-card-title">11. Arrangement des produits (facing)</div>
+                            </div>
+                        </div>
+
+                        <!-- Vidéo 12 -->
+                        <div class="netflix-card" role="button" tabindex="0" onclick="openModal('video', '12. Service aux clients', 'https://drive.google.com/file/d/1DY0gdwT-dmr6S2fnxqLkuiX2jeymKnlp/preview?autoplay=1')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+                            <div class="netflix-thumb-wrapper">
+                                <span class="netflix-badge-num">12</span>
+                                <img src="https://lh3.googleusercontent.com/d/1i_7Zgwg0q87R4TXvuv-A9wgfGkg7xEel" alt="12. Service aux clients" onerror="this.onerror=null;this.src='https://drive.google.com/thumbnail?id=1i_7Zgwg0q87R4TXvuv-A9wgfGkg7xEel&sz=w600'">
+                                <div class="netflix-play-overlay">
+                                    <div class="netflix-play-circle">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="netflix-card-body">
+                                <div class="netflix-card-title">12. Service aux clients</div>
+                            </div>
+                        </div>
+
+                        <!-- Vidéo 13 -->
+                        <div class="netflix-card" role="button" tabindex="0" onclick="openModal('video', '13. Emballage en épicerie', 'https://drive.google.com/file/d/1DjI3bcH91gjsUnTpuLKjWMWZi3c1_fij/preview?autoplay=1')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+                            <div class="netflix-thumb-wrapper">
+                                <span class="netflix-badge-num">13</span>
+                                <img src="https://lh3.googleusercontent.com/d/1bYhV40LTfBvcvx3u6uYi7WHUnxMJlhnG" alt="13. Emballage en épicerie" onerror="this.onerror=null;this.src='https://drive.google.com/thumbnail?id=1bYhV40LTfBvcvx3u6uYi7WHUnxMJlhnG&sz=w600'">
+                                <div class="netflix-play-overlay">
+                                    <div class="netflix-play-circle">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="netflix-card-body">
+                                <div class="netflix-card-title">13. Emballage en épicerie</div>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -1351,6 +1786,13 @@
     </div>
 
     <script>
+        function scrollVideoSlider(direction) {
+            const track = document.getElementById('videoSliderTrack');
+            if (track) {
+                track.scrollBy({ left: direction * 500, behavior: 'smooth' });
+            }
+        }
+
         function toggleSubmenu(event, submenuId, arrowId) {
             event.stopPropagation();
             const submenu = document.getElementById(submenuId);
