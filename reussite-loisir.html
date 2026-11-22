@@ -505,6 +505,128 @@
             color: #4a5568;
         }
 
+        /* Conteneur vidéo et synopsis à deux cases */
+        .video-synopsis-grid {
+            display: grid;
+            grid-template-columns: 1.35fr 1fr;
+            gap: 1.25rem;
+            margin: 1.75rem 0;
+            align-items: stretch;
+        }
+
+        .video-player-box {
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            background-color: #1a202c;
+        }
+
+        .video-embed-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            height: 100%;
+            min-height: 250px;
+            background-color: #1a202c;
+        }
+
+        .video-embed-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Vignette de couverture interactive de la vidéo */
+        .video-poster-overlay {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #1a202c;
+            z-index: 2;
+            overflow: hidden;
+        }
+
+        .video-poster-overlay img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.35s ease, filter 0.35s ease;
+        }
+
+        .video-poster-overlay:hover img {
+            transform: scale(1.03);
+            filter: brightness(0.88);
+        }
+
+        .video-play-btn {
+            position: absolute;
+            width: 66px;
+            height: 66px;
+            border-radius: 50%;
+            background-color: rgba(122, 34, 34, 0.92);
+            border: 2px solid #FDFBF7;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.38);
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .video-poster-overlay:hover .video-play-btn {
+            transform: scale(1.08);
+            background-color: #5e1a1a;
+        }
+
+        .video-play-btn svg {
+            margin-left: 4px;
+        }
+
+        .video-synopsis-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .video-synopsis-badge {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--bordeaux);
+            margin-bottom: 0.4rem;
+        }
+
+        .video-synopsis-title {
+            font-family: "Georgia", "Times New Roman", serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #1a202c;
+            line-height: 1.35;
+            margin-bottom: 0.65rem;
+            padding-bottom: 0.45rem;
+            border-bottom: 1px solid #ece5d5;
+        }
+
+        .article-body .video-synopsis-text {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #333;
+            text-align: justify;
+            margin-bottom: 0;
+        }
+
         /* Corps de l'article */
         .article-body {
             font-size: 1.06rem;
@@ -774,7 +896,7 @@
         }
 
         @media (max-width: 860px) {
-            .meta-grid, .abstract-grid {
+            .meta-grid, .abstract-grid, .video-synopsis-grid {
                 grid-template-columns: 1fr;
             }
             .article-title {
@@ -787,7 +909,7 @@
 
     <!-- Barre horizontale permanente supérieure -->
     <header class="top-navbar">
-        <div class="top-navbar-title">Revue Sociologie Visuelle</div>
+        <div class="top-navbar-title"><img src="https://raw.githubusercontent.com/sociocamera/accessibilite/main/Logo_Inclusion_Sociale.png" alt="Logo Inclusion Sociale" width="36" height="36">&nbsp;&nbsp;&nbsp;&nbsp;INCLUSION SOCIALE</div>
         <div class="header-actions">
             <button class="btn-header secondary" onclick="openModal('video', 'Présentation introductive — Vidéo', 'https://drive.google.com/file/d/10Va3etjn9wZIqrVnByyNXDVM-XPKOHkK/preview?autoplay=1')">
                 <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
@@ -952,6 +1074,31 @@
                         <p>
                             En raison de la pandémie de COVID-19, Destination Loisirs a dû être repensée pour l’année 2022 et s’est transformée en événements régionaux<a class="footnote-ref" href="#fn1" id="fnref1">[1]</a>. Les régions de la Capitale-Nationale et de la Chaudière-Appalaches ont uni leurs forces pour offrir une activité conjointe à la fin septembre, organisée au Centre vacances du Lac-Simon de Portneuf. Les activités proposées lors du week-end étaient principalement des activités de plein air, et le choix de l’emplacement a été soigneusement effectué pour assurer une accessibilité physique maximale pour tous les participants. Cela a notamment permis la participation de jeunes de l’organisation Laura Lémerveil, qui compte des membres plus lourdement handicapés nécessitant un ratio d’un (1) accompagnateur pour une (1) personne handicapée, parfois même deux (2) accompagnateurs.
                         </p>
+
+                        <!-- Conteneur à deux cases : Lecteur vidéo avec vignette et Synopsis (50 mots) -->
+                        <div class="video-synopsis-grid" aria-label="Capsule vidéo et synopsis">
+                            <!-- Première case : vidéo player avec vignette -->
+                            <div class="whitish-box video-player-box">
+                                <div class="video-embed-wrapper" id="inlineVideoContainer">
+                                    <div class="video-poster-overlay" onclick="playInlineVideo('inlineVideoContainer', 'https://drive.google.com/file/d/1Ess1PR7ToDzT5D55Y2QkiNWyTK-xzUON/preview?autoplay=1', 'Du paddle board au pédalo ou au kayak, personne n\'est laissé de côté')" role="button" tabindex="0" aria-label="Lancer la vidéo : Du paddle board au pédalo ou au kayak, personne n'est laissé de côté" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+                                        <img src="https://lh3.googleusercontent.com/d/1RiKg_1ZlYRLQWS5Dq1ODMoyXMVfTVneJ" alt="Vignette de la vidéo : Du paddle board au pédalo ou au kayak, personne n'est laissé de côté">
+                                        <div class="video-play-btn" aria-hidden="true">
+                                            <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Seconde case : synopsis de 50 mots -->
+                            <div class="whitish-box video-synopsis-box">
+                                <span class="video-synopsis-badge">Capsule vidéo • Synopsis</span>
+                                <h3 class="video-synopsis-title">Du paddle board au pédalo ou au kayak, personne n’est laissé de côté</h3>
+                                <p class="video-synopsis-text">
+                                    Lors de l’événement régional Destination Loisirs au Centre vacances du Lac-Simon, des participants vivant avec des limitations fonctionnelles découvrent les sports nautiques adaptés. Grâce au prêt d’équipements spécialisés et à un accompagnement personnalisé assuré par des moniteurs expérimentés, chacun profite pleinement de la planche à pagaie, du pédalo ou du kayak.
+                                </p>
+                            </div>
+                        </div>
+
                         <p>
                             L’accompagnement est un facteur clé pour assurer le succès des activités adaptées. Il s’agit non seulement de l’accompagnement de la personne en situation de handicap pour l’aider à réaliser les actions et les mouvements liés à l’activité de loisir qu’elle pratique, mais également de l’accompagnement d’une personne expérimentée dans l’activité proposée. Comme les opportunités de loisirs diversifiées sont plus rares pour les personnes en situation de handicap, il est souvent nécessaire d’expliquer l’activité en détail, y compris les mouvements de base, aux participants avant de commencer l’activité. Dans le cadre des événements organisés par l’Association régionale de loisirs pour personnes handicapées de la Capitale-Nationale (ARLPH de la Capitale-Nationale), les associations membres étaient chargées de fournir des accompagnateurs pour les participants aux activités. L’ARLPH s’est quant à elle occupée de fournir des personnes expérimentées dans les activités proposées, telles que la planche à pagaie (paddleboard) et le vélo.
                         </p>
@@ -1227,6 +1374,13 @@
     </div>
 
     <script>
+        /* Remplacement de la vignette par le lecteur iframe en lecture automatique */
+        function playInlineVideo(containerId, videoUrl, videoTitle) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            container.innerHTML = `<iframe src="${videoUrl}" title="${videoTitle}" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
+        }
+
         function toggleSubmenu(event, submenuId, arrowId) {
             event.stopPropagation();
             const submenu = document.getElementById(submenuId);
