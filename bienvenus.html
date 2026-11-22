@@ -846,6 +846,196 @@
             border: none;
         }
 
+
+        /* =========================================================
+           SLIDER VIDÉOS STYLE NETFLIX (HARMONISÉ AVEC LA PAGE)
+           ========================================================= */
+        .video-slider-section {
+            margin: 0 0 2.5rem 0;
+            padding: 1.35rem 1.5rem;
+            background-color: #FDFBF7;
+            border: 1px solid #e4ddd0;
+            border-top: 3px solid #7a2222;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(43, 43, 43, 0.03);
+        }
+
+        .video-slider-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            gap: 1rem;
+        }
+
+        .video-slider-title-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .video-slider-kicker {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #7a2222;
+        }
+
+        .video-slider-heading {
+            font-family: "Georgia", "Cambria", "Times New Roman", serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 0;
+        }
+
+        .video-slider-controls {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .slider-nav-btn {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            border: 1px solid #d8cebe;
+            background-color: #FAF6EF;
+            color: #7a2222;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+        }
+
+        .slider-nav-btn:hover {
+            background-color: #7a2222;
+            color: #ffffff;
+            border-color: #7a2222;
+        }
+
+        .video-slider-track {
+            display: flex;
+            gap: 1.15rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 0.35rem 0.15rem 0.75rem 0.15rem;
+            scrollbar-width: thin;
+            scrollbar-color: #cbbba8 #f2ede4;
+        }
+
+        .video-slider-track::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .video-slider-track::-webkit-scrollbar-track {
+            background: #f2ede4;
+            border-radius: 3px;
+        }
+
+        .video-slider-track::-webkit-scrollbar-thumb {
+            background: #cbbba8;
+            border-radius: 3px;
+        }
+
+        .video-card {
+            flex: 0 0 265px;
+            background-color: #FAF6EF;
+            border: 1px solid #e4ddd0;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 8px 18px rgba(43, 43, 43, 0.09);
+            border-color: #7a2222;
+        }
+
+        .video-thumb-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background-color: #efe9de;
+            overflow: hidden;
+            border-bottom: 1px solid #e4ddd0;
+        }
+
+        .video-thumb-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .video-card:hover .video-thumb-wrapper img {
+            transform: scale(1.04);
+        }
+
+        .video-play-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(26, 32, 44, 0.22);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s ease;
+        }
+
+        .video-card:hover .video-play-overlay {
+            background: rgba(122, 34, 34, 0.35);
+        }
+
+        .video-play-badge {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background-color: rgba(122, 34, 34, 0.92);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .video-card:hover .video-play-badge {
+            transform: scale(1.1);
+            background-color: #5e1a1a;
+        }
+
+        .video-card-body {
+            padding: 0.85rem 0.95rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+            flex: 1;
+        }
+
+        .video-card-index {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #7a2222;
+        }
+
+        .video-card-title {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            line-height: 1.38;
+        }
+
         @media (max-width: 1200px) {
             :root { --sidebar-width: 0px; }
             .top-navbar { left: 0; padding: 0 1rem; grid-template-columns: 1fr auto; }
@@ -874,7 +1064,7 @@
 
     <!-- Barre horizontale permanente supérieure -->
     <header class="top-navbar">
-        <div class="top-navbar-title">Revue Sociologie Visuelle</div>
+        <div class="top-navbar-title"><img src="https://raw.githubusercontent.com/sociocamera/accessibilite/main/Logo_Inclusion_Sociale.png" alt="Logo Inclusion Sociale" width="36" height="36">&nbsp;&nbsp;&nbsp;&nbsp;INCLUSION SOCIALE</div>
         <div class="header-actions">
             <button class="btn-header secondary" onclick="openModal('video', 'Présentation introductive — Vidéo', 'https://drive.google.com/file/d/10Va3etjn9wZIqrVnByyNXDVM-XPKOHkK/preview?autoplay=1')">
                 <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
@@ -1048,6 +1238,111 @@
                     <p class="abstract-keywords">
                         <strong>Keywords:</strong> Accessibility; older adults; social environment; disabilities; social inclusion; social participation.
                     </p>
+                </div>
+            </section>
+
+            <!-- SLIDER DE VIDÉOS DE TYPE NETFLIX -->
+            <section class="video-slider-section" aria-label="Capsules vidéo de la recherche">
+                <div class="video-slider-header">
+                    <div class="video-slider-title-group">
+                        <span class="video-slider-kicker">Capsules vidéo • Sociologie filmique</span>
+                        <h2 class="video-slider-heading">Témoignages et parcours filmés</h2>
+                    </div>
+                    <div class="video-slider-controls">
+                        <button type="button" class="slider-nav-btn" onclick="scrollVideoSlider(-1)" aria-label="Défiler vers la gauche">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                        </button>
+                        <button type="button" class="slider-nav-btn" onclick="scrollVideoSlider(1)" aria-label="Défiler vers la droite">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="video-slider-track" id="netflixVideoSlider">
+                    <!-- Vidéo 01 -->
+                    <article class="video-card" onclick="openModal('video', '01. Incapacités au quotidien - Une réalité', 'https://drive.google.com/file/d/14PdN6Thw7b6eiHsg1Zr9B-tyYeDUi14U/preview?autoplay=1')" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+                        <div class="video-thumb-wrapper">
+                            <img src="https://lh3.googleusercontent.com/d/13trt24NCr3VKXwCmH0fmu2RG54CZx9Mg" alt="01. Incapacités au quotidien - Une réalité">
+                            <!-- Pour remplacer manuellement la vignette : <img src="URL_DE_VOTRE_VIGNETTE" alt="01. Incapacités au quotidien - Une réalité"> -->
+                            <div class="video-play-overlay">
+                                <span class="video-play-badge">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="video-card-body">
+                            <span class="video-card-index">Capsule 01</span>
+                            <h3 class="video-card-title">Incapacités au quotidien - Une réalité</h3>
+                        </div>
+                    </article>
+
+                    <!-- Vidéo 02 -->
+                    <article class="video-card" onclick="openModal('video', '02. Incapacités : le malaise de demander de l’aide', 'https://drive.google.com/file/d/1jR0WdJPHnMHEoZe2H5v82tHaXsRLQBT8/preview?autoplay=1')" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+                        <div class="video-thumb-wrapper">
+                            <img src="https://lh3.googleusercontent.com/d/12Q0SO_ZiPJHYus2Jtlop36KYbP1pYSSW" alt="02. Incapacités : le malaise de demander de l’aide">
+                            <!-- Pour remplacer manuellement la vignette : <img src="URL_DE_VOTRE_VIGNETTE" alt="02. Incapacités : le malaise de demander de l’aide"> -->
+                            <div class="video-play-overlay">
+                                <span class="video-play-badge">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="video-card-body">
+                            <span class="video-card-index">Capsule 02</span>
+                            <h3 class="video-card-title">Incapacités : le malaise de demander de l'aide</h3>
+                        </div>
+                    </article>
+
+                    <!-- Vidéo 03 -->
+                    <article class="video-card" onclick="openModal('video', '03. Incapacités : les défis de l’accompagnement', 'https://drive.google.com/file/d/1VLICCK0jbSkwME7Tpm3KHzJ2O-QbROwd/preview?autoplay=1')" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+                        <div class="video-thumb-wrapper">
+                            <img src="https://lh3.googleusercontent.com/d/1tXGeH0SKcTdpuSdTPFIHmpDIclo05BDy" alt="03. Incapacités : les défis de l’accompagnement">
+                            <!-- Pour remplacer manuellement la vignette : <img src="URL_DE_VOTRE_VIGNETTE" alt="03. Incapacités : les défis de l’accompagnement"> -->
+                            <div class="video-play-overlay">
+                                <span class="video-play-badge">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="video-card-body">
+                            <span class="video-card-index">Capsule 03</span>
+                            <h3 class="video-card-title">Incapacités : les défis de l'accompagnement</h3>
+                        </div>
+                    </article>
+
+                    <!-- Vidéo 04 -->
+                    <article class="video-card" onclick="openModal('video', '04. Incapacités : les enjeux liés à la demande d’aide', 'https://drive.google.com/file/d/1T7Q2mj_WTV_GTrXgQ81dhrelc6pN-zOX/preview?autoplay=1')" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+                        <div class="video-thumb-wrapper">
+                            <img src="https://lh3.googleusercontent.com/d/1OMUytlkPGnPXPI1JHG0rbLKd_2ySWlzW" alt="04. Incapacités : les enjeux liés à la demande d’aide">
+                            <!-- Pour remplacer manuellement la vignette : <img src="URL_DE_VOTRE_VIGNETTE" alt="04. Incapacités : les enjeux liés à la demande d’aide"> -->
+                            <div class="video-play-overlay">
+                                <span class="video-play-badge">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="video-card-body">
+                            <span class="video-card-index">Capsule 04</span>
+                            <h3 class="video-card-title">Incapacités : les enjeux liés à la demande d'aide</h3>
+                        </div>
+                    </article>
+
+                    <!-- Vidéo 05 -->
+                    <article class="video-card" onclick="openModal('video', '05. Incapacités : parvenir à demander de l’aide', 'https://drive.google.com/file/d/1N_khbgMPl-eB9_--zgJhvqCuoLDvg_T9/preview?autoplay=1')" tabindex="0" role="button" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
+                        <div class="video-thumb-wrapper">
+                            <img src="https://lh3.googleusercontent.com/d/16VXbaWGEDiOVWIEr9hQvuzKZpTgA1pqH" alt="05. Incapacités : parvenir à demander de l’aide">
+                            <!-- Pour remplacer manuellement la vignette : <img src="URL_DE_VOTRE_VIGNETTE" alt="05. Incapacités : parvenir à demander de l’aide"> -->
+                            <div class="video-play-overlay">
+                                <span class="video-play-badge">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="video-card-body">
+                            <span class="video-card-index">Capsule 05</span>
+                            <h3 class="video-card-title">Incapacités : parvenir à demander de l'aide</h3>
+                        </div>
+                    </article>
                 </div>
             </section>
 
@@ -1845,6 +2140,13 @@
     </div>
 
     <script>
+        function scrollVideoSlider(direction) {
+            const track = document.getElementById('netflixVideoSlider');
+            if (track) {
+                track.scrollBy({ left: direction * 560, behavior: 'smooth' });
+            }
+        }
+
         function toggleSubmenu(event, submenuId, arrowId) {
             event.stopPropagation();
             const submenu = document.getElementById(submenuId);
