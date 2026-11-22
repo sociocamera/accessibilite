@@ -1,0 +1,2015 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; frame-src https://drive.google.com; connect-src https://script.google.com; object-src 'none';">
+    <title>« C’est comme si on n’était pas les bienvenus » | Revue de Sociologie Visuelle</title>
+    <meta name="description" content="« C’est comme si on n’était pas les bienvenus » : les éléments de l’environnement social qui facilitent ou freinent l’accès à la ville des personnes aînées ayant des incapacités. Par Émilie Raymond, Mélanie Synnott, Anne-Marie Trempe et Élise Milot.">
+    <meta name="keywords" content="inclusion sociale, accessibilité, personnes aînées, environnement social, incapacités, participation sociale, sociologie visuelle">
+    <link rel="canonical" href="https://doi.org/10.13140/RG.2.2.35504.53768">
+
+<!-- Open Graph (Facebook, LinkedIn, WhatsApp, etc.) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Revue Sociologie Visuelle">
+<meta property="og:title" content="« C’est comme si on n’était pas les bienvenus » | Revue de Sociologie Visuelle">
+<meta property="og:description" content="Les éléments de l’environnement social qui facilitent ou freinent l’accès à la ville des personnes aînées ayant des incapacités.">
+<meta property="og:url" content="https://inclusionsociale.com/">
+<meta property="og:image" content="https://lh3.googleusercontent.com/d/1R-6VqA6SZ8t1dall1uf0mj_ehOcj7jNW">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="fr_CA">
+
+<!-- Twitter / X Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="« C’est comme si on n’était pas les bienvenus » | Revue de Sociologie Visuelle">
+<meta name="twitter:description" content="Les éléments de l’environnement social qui facilitent ou freinent l’accès à la ville des personnes aînées ayant des incapacités.">
+<meta name="twitter:image" content="https://inclusionsociale.com/images/vignette-inclusion-sociale.jpg">
+
+
+    <style>
+        :root {
+            --bg-color: #FAF6EF;
+            --text-color: #2b2b2b;
+            --primary-color: #1a202c;
+            --accent-color: #4a5568;
+            --border-color: #e2e8f0;
+            --card-bg: #FAF6EF;
+            --hover-border: #cbd5e0;
+            --max-width: 1400px;
+            --sidebar-width: 320px;
+            --topbar-height: 60px;
+            --modal-header-bg: #7a2222; /* Bordeaux de référence */
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Georgia", "Cambria", "Times New Roman", serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Barre horizontale permanente supérieure : toute la largeur de la page */
+        .top-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--topbar-height);
+            background-color: var(--bg-color);
+            border-bottom: 1px solid var(--border-color);
+            display: grid;
+            grid-template-columns: var(--sidebar-width) 1fr auto;
+            align-items: center;
+            padding: 0;
+            z-index: 1100;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .top-navbar-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            letter-spacing: 0.02em;
+            padding-left: 1.5rem;
+            border-right: 1px solid var(--border-color);
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .top-navbar-location {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            background-color: #f2ede4;
+            padding: 0.3rem 0.75rem;
+            border-radius: 4px;
+            margin-right: 2.5rem;
+        }
+
+        /* Colonne latérale gauche permanente sous la barre fixe du haut */
+        aside.sidebar {
+            position: fixed;
+            top: var(--topbar-height);
+            left: 0;
+            width: var(--sidebar-width);
+            height: calc(100vh - var(--topbar-height));
+            background-color: #f5f0e6;
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            z-index: 1000;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            overflow-y: auto;
+        }
+
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .btn-home {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            background-color: #7a2222;
+            color: #fff;
+            border: none;
+            padding: 0.85rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        .btn-home svg {
+            position: absolute;
+            left: 1rem;
+        }
+
+        .btn-home:hover {
+            background-color: #5e1a1a;
+        }
+
+        .sidebar-info-section {
+            padding: 1rem 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .sidebar-card {
+            background-color: #FAF6EF;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 0.85rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            text-align: justify;
+        }
+
+        .sidebar-card.editor-card {
+            flex-direction: row;
+            align-items: center;
+            gap: 0.75rem;
+            text-align: left;
+        }
+
+        .editor-info h4 {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            margin-bottom: 0.15rem;
+        }
+
+        .editor-info p {
+            font-size: 0.78rem;
+            color: var(--accent-color);
+            line-height: 1.4;
+        }
+
+        .sidebar-nav {
+            padding: 1.25rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            flex: 1;
+        }
+
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--primary-color);
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-align: left;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            background-color: #eae3d5;
+            border-color: var(--hover-border);
+        }
+
+        .submenu {
+            display: none;
+            flex-direction: column;
+            gap: 0.4rem;
+            padding-left: 1rem;
+            margin-top: -0.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .submenu.open {
+            display: flex;
+        }
+
+        .submenu-item {
+            font-size: 0.82rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            padding: 0.4rem 0.75rem;
+            border-radius: 4px;
+            transition: background-color 0.15s, color 0.15s;
+            border-left: 2px solid #d4c5b9;
+        }
+
+        .submenu-item:hover {
+            background-color: #eae3d5;
+            color: var(--primary-color);
+            border-left-color: var(--primary-color);
+        }
+
+        /* Bouton cliquable de navigation intra-page */
+        .page-nav-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background: transparent;
+            border: none;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #7a2222;
+            letter-spacing: 0.05em;
+            margin-top: 0.65rem;
+            margin-bottom: 0.35rem;
+            padding: 0.4rem 0.25rem;
+            cursor: pointer;
+            text-align: left;
+            transition: opacity 0.2s;
+        }
+
+        .page-nav-toggle:hover {
+            opacity: 0.8;
+        }
+
+        /* Conteneur principal à droite, décalé pour laisser place à la sidebar et topbar */
+        .main-wrapper {
+            margin-left: var(--sidebar-width);
+            margin-top: var(--topbar-height);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: calc(100% - var(--sidebar-width));
+            padding: 2.5rem 2rem 4rem 2rem;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            padding-left: 2rem;
+        }
+
+        .btn-header {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: 1px solid var(--primary-color);
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: background-color 0.2s;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-header.secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border-color: var(--border-color);
+        }
+
+        .btn-header.secondary:hover {
+            background-color: #f2ede4;
+            border-color: var(--hover-border);
+        }
+
+        /* =========================================================
+           STYLES DE L'ARTICLE INTÉGRÉ (ZONE DYNAMIQUE 1060px MAX)
+           ========================================================= */
+        .article-container {
+            width: 100%;
+            max-width: 1060px;
+            margin: 0 auto;
+            color: var(--text-color);
+        }
+
+        .article-anchor {
+            scroll-margin-top: calc(var(--topbar-height) + 28px);
+        }
+
+        .article-header {
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #dfd7c8;
+        }
+
+        .article-kicker {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #7a2222;
+            margin-bottom: 0.65rem;
+        }
+
+        .article-title {
+            font-family: "Georgia", "Cambria", "Times New Roman", serif;
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.28;
+            color: var(--primary-color);
+        }
+
+        /* Deux cases côte à côte sous le titre (Auteurs + Citation) */
+        .meta-grid {
+            display: grid;
+            grid-template-columns: 1.35fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            align-items: stretch;
+        }
+
+        .offwhite-box {
+            background-color: #FDFBF7;
+            border: 1px solid #e4ddd0;
+            border-radius: 8px;
+            padding: 1.35rem 1.5rem;
+            box-shadow: 0 2px 6px rgba(43, 43, 43, 0.03);
+        }
+
+        .meta-box {
+            font-size: 0.84rem;
+            line-height: 1.5;
+            color: #3d4450;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .box-label {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #7a2222;
+            margin-bottom: 0.85rem;
+            display: block;
+        }
+
+        .authors-photos-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.85rem;
+            margin-bottom: 0.9rem;
+        }
+
+        .author-photo-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background-color: #FAF6EF;
+            border: 1px solid #ebe4d7;
+            border-radius: 6px;
+            padding: 0.65rem 0.45rem;
+        }
+
+        .author-photo-card img {
+            width: 74px;
+            height: 74px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid #d8cebe;
+            margin-bottom: 0.45rem;
+            background-color: #efe9de;
+        }
+
+        .author-name {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-weight: 700;
+            font-size: 0.8rem;
+            color: var(--primary-color);
+            line-height: 1.25;
+        }
+
+        .author-name sup {
+            color: #7a2222;
+            font-weight: 700;
+        }
+
+        .coauthor-note {
+            font-size: 0.8rem;
+            color: #4a5568;
+            margin-bottom: 0.55rem;
+            padding-bottom: 0.55rem;
+            border-bottom: 1px dashed #e2dacb;
+        }
+
+        .affiliations-list {
+            font-size: 0.78rem;
+            color: #555e6d;
+            line-height: 1.45;
+        }
+
+        .affiliations-list sup {
+            color: #7a2222;
+            font-weight: 700;
+        }
+
+        .citation-text {
+            font-size: 0.84rem;
+            line-height: 1.58;
+            color: #2f3744;
+            text-align: justify;
+        }
+
+        /* Section Résumé : deux cases (FR + EN) */
+        .abstract-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2.75rem;
+        }
+
+        .abstract-box {
+            font-size: 0.88rem;
+            line-height: 1.6;
+            color: #374151;
+            text-align: justify;
+        }
+
+        .abstract-box p {
+            margin-bottom: 0.85rem;
+        }
+
+        .abstract-keywords {
+            font-size: 0.82rem;
+            color: #4a5568;
+            padding-top: 0.65rem;
+            border-top: 1px solid #ebe4d7;
+            margin-bottom: 0 !important;
+        }
+
+        /* Corps du texte de l'article */
+        .article-body {
+            font-size: 1.07rem;
+            line-height: 1.82;
+            color: #262626;
+        }
+
+        .article-body p {
+            margin-bottom: 1.25rem;
+            text-align: justify;
+        }
+
+        /* Titres des sous-chapitres en rouge bordeaux */
+        .section-title {
+            font-family: "Georgia", "Cambria", "Times New Roman", serif;
+            font-size: 1.55rem;
+            font-weight: 700;
+            color: #7a2222;
+            margin-top: 2.75rem;
+            margin-bottom: 1.15rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 1px solid #e4ddd0;
+            scroll-margin-top: calc(var(--topbar-height) + 28px);
+        }
+
+        .subsection-title {
+            font-family: "Georgia", "Cambria", "Times New Roman", serif;
+            font-size: 1.22rem;
+            font-weight: 700;
+            color: #7a2222;
+            margin-top: 2rem;
+            margin-bottom: 0.9rem;
+            scroll-margin-top: calc(var(--topbar-height) + 28px);
+        }
+
+        /* Lettrine rouge bordeaux en caractère gras sur Introduction */
+        .drop-cap-paragraph::first-letter {
+            float: left;
+            font-family: "Georgia", "Times New Roman", serif;
+            font-size: 3.85rem;
+            font-weight: 700;
+            line-height: 0.82;
+            padding-top: 0.1rem;
+            padding-right: 0.7rem;
+            padding-bottom: 0.05rem;
+            color: #7a2222;
+        }
+
+        .article-list {
+            margin: 0.85rem 0 1.45rem 1.65rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+        }
+
+        .article-list li {
+            text-align: justify;
+            padding-left: 0.25rem;
+        }
+
+        .article-list li::marker {
+            color: #7a2222;
+        }
+
+        /* Citations des participants */
+        .verbatim-quote {
+            margin: 1.35rem 0 1.5rem 0;
+            padding: 1.1rem 1.4rem;
+            background-color: #f6f1e7;
+            border-left: 4px solid #7a2222;
+            border-radius: 0 6px 6px 0;
+            font-size: 1.01rem;
+            line-height: 1.72;
+            color: #2d3748;
+            text-align: justify;
+        }
+
+        .verbatim-author {
+            display: block;
+            margin-top: 0.55rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.84rem;
+            font-style: normal;
+            font-weight: 600;
+            color: #5a4a42;
+        }
+
+        .dialogue-line {
+            margin-bottom: 0.55rem !important;
+        }
+
+        .dialogue-speaker {
+            font-weight: 700;
+            color: #7a2222;
+        }
+
+        /* Figures de l'article */
+        .figure-block {
+            margin: 2rem 0;
+            padding: 1.35rem;
+            background-color: #FDFBF7;
+            border: 1px solid #e4ddd0;
+            border-radius: 8px;
+        }
+
+        .figure-caption {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: #7a2222;
+            margin-bottom: 0.9rem;
+        }
+
+        .figure-content-split {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .figure-content-split img,
+        .figure-block img.full-figure {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            border: 1px solid #e6dfd3;
+            background: #fff;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Cartes conceptuelles interactives (fond un peu plus pâle que #FAF6EF) */
+        .concept-map-card {
+            margin: 2.25rem 0;
+            background-color: #FDFBF7;
+            border: 1px solid #dfd7c8;
+            border-top: 3px solid #7a2222;
+            border-radius: 8px;
+            padding: 1.4rem 1.5rem;
+            box-shadow: 0 4px 12px rgba(43, 43, 43, 0.04);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .concept-map-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.85rem;
+        }
+
+        .concept-map-badge {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #7a2222;
+            background-color: #f4ebe8;
+            padding: 0.22rem 0.6rem;
+            border-radius: 4px;
+        }
+
+        .concept-map-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-top: 0.35rem;
+        }
+
+        .concept-map-hint {
+            font-size: 0.8rem;
+            color: #64748b;
+            font-style: italic;
+        }
+
+        .concept-svg-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            margin: 0.75rem 0;
+        }
+
+        .concept-svg-wrapper svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .svg-node {
+            cursor: pointer;
+            transition: transform 0.18s ease, opacity 0.18s ease;
+        }
+
+        .svg-node:hover rect,
+        .svg-node:hover circle,
+        .svg-node:hover ellipse {
+            stroke: #7a2222;
+            stroke-width: 2.5;
+        }
+
+        .svg-node.active rect,
+        .svg-node.active circle,
+        .svg-node.active ellipse {
+            stroke: #7a2222;
+            stroke-width: 3;
+            fill: #f9efef;
+        }
+
+        .concept-detail-panel {
+            background-color: #FAF6EF;
+            border: 1px solid #e4ddd0;
+            border-left: 3px solid #7a2222;
+            border-radius: 6px;
+            padding: 0.95rem 1.15rem;
+            font-size: 0.9rem;
+            line-height: 1.55;
+            color: #2b2b2b;
+            margin-top: 0.65rem;
+        }
+
+        .concept-detail-panel strong {
+            color: #7a2222;
+        }
+
+        /* Appels de notes et bibliographie */
+        .footnote-ref {
+            font-size: 0.76rem;
+            vertical-align: super;
+            line-height: 0;
+        }
+
+        .footnote-ref a {
+            color: #7a2222;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0 1px;
+        }
+
+        .footnote-ref a:hover {
+            text-decoration: underline;
+        }
+
+        .bibliography-list {
+            list-style: none;
+            padding-left: 0;
+            font-size: 0.93rem;
+            line-height: 1.65;
+        }
+
+        .bibliography-list li {
+            padding-left: 1.75rem;
+            text-indent: -1.75rem;
+            margin-bottom: 0.7rem;
+            text-align: justify;
+        }
+
+        .bibliography-list a {
+            color: #7a2222;
+            word-break: break-all;
+        }
+
+        .footnotes-section {
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #dfd7c8;
+            font-size: 0.86rem;
+            line-height: 1.55;
+            color: #4a5568;
+        }
+
+        .footnote-item {
+            margin-bottom: 0.45rem;
+            padding-left: 1.5rem;
+            text-indent: -1.5rem;
+            scroll-margin-top: calc(var(--topbar-height) + 28px);
+        }
+
+        .footnote-item a.fn-back {
+            color: #7a2222;
+            font-weight: 700;
+            text-decoration: none;
+            margin-right: 0.35rem;
+        }
+
+        .footnote-item a:not(.fn-back) {
+            color: #7a2222;
+            word-break: break-all;
+        }
+
+        /* Styles harmonisés des fenêtres modales selon l'image de référence */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+        }
+
+        .modal-container {
+            background: var(--bg-color);
+            width: 100%;
+            max-width: 900px;
+            height: 85vh;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            border: 1px solid #d4c5b9;
+        }
+
+        .modal-header {
+            padding: 1.25rem 1.5rem;
+            background: var(--modal-header-bg);
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .modal-header h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .modal-close {
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #fff;
+            opacity: 0.85;
+            transition: opacity 0.2s;
+        }
+
+        .modal-close:hover {
+            opacity: 1;
+        }
+
+        .modal-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            background-color: var(--bg-color);
+        }
+
+        .pdf-frame, .video-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        @media (max-width: 1200px) {
+            :root { --sidebar-width: 0px; }
+            .top-navbar { left: 0; padding: 0 1rem; grid-template-columns: 1fr auto; }
+            .top-navbar-title { display: none; }
+            aside.sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
+            aside.sidebar.mobile-open { transform: translateX(0); }
+            .main-wrapper { margin-left: 0; width: 100%; }
+        }
+
+        @media (max-width: 860px) {
+            .meta-grid,
+            .abstract-grid,
+            .figure-content-split {
+                grid-template-columns: 1fr;
+            }
+            .authors-photos-row {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .article-title {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barre horizontale permanente supérieure -->
+    <header class="top-navbar">
+        <div class="top-navbar-title">Revue Sociologie Visuelle</div>
+        <div class="header-actions">
+            <button class="btn-header secondary" onclick="openModal('video', 'Présentation introductive — Vidéo', 'https://drive.google.com/file/d/10Va3etjn9wZIqrVnByyNXDVM-XPKOHkK/preview?autoplay=1')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                Visionner la vidéo de présentation
+            </button>
+            <button class="btn-header secondary" onclick="openProposalModal('article')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                Proposer un projet de captation ou un article
+            </button>
+            <button class="btn-header secondary" onclick="openModal('pdf', 'Télécharger le numéro complet', 'https://drive.google.com/file/d/1d3ZUnnEwYomQ1VRQ1lF8XNei88HelQvy/preview')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Télécharger le numéro
+            </button>
+        </div>
+        <div class="top-navbar-location" id="locationIndicator">« C’est comme si on n’était pas les bienvenus... »</div>
+    </header>
+
+    <!-- Colonne latérale gauche permanente -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="https://inclusionsociale.com/#article-pas-les-bienvenus" class="btn-home">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                ACCUEIL
+            </a>
+        </div>
+
+        <div class="sidebar-info-section">
+            <div style="font-size: 0.72rem; color: #718096; text-align: left; margin-bottom: 0.05rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                DOI : <a href="https://doi.org/10.13140/RG.2.2.35504.53768" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; opacity: 0.85;">10.13140/RG.2.2.35504.53768</a>
+            </div>
+
+            <div class="sidebar-card editor-card">
+                <div class="editor-info">
+                    <h4>Éditeurs</h4>
+                    <p><b>François Routhier & Pierre Fraser</b></p>
+                    <p>Plus de 18 équipes de recherche mobilisées afin de saisir comment le milieu façonne et articule l'accès aux services et à l'inclusion sociale.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-nav">
+            <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: #7a2222; letter-spacing: 0.05em; margin-bottom: 0.5rem; padding-left: 0.25rem;">NAVIGATION SUR LE SITE</div>
+
+            <div>
+                <button class="nav-btn" onclick="toggleSubmenu(event, 'accessibilitySubmenu', 'submenuArrow')">
+                    <span>Penser l'accessibilité</span>
+                    <svg id="submenuArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu" id="accessibilitySubmenu">
+                    <a href="https://inclusionsociale.com/#theme-1" class="submenu-item">1. Espace urbain & transports</a>
+                    <a href="https://inclusionsociale.com/#theme-2" class="submenu-item">2. Éducation & institutions</a>
+                    <a href="https://inclusionsociale.com/#theme-3" class="submenu-item">3. Travail, autonomie & loisirs</a>
+                    <a href="https://inclusionsociale.com/#theme-4" class="submenu-item">4. Expérience vécue & stigmates</a>
+                </div>
+            </div>
+
+            <div>
+                <button class="nav-btn" onclick="toggleSubmenu(event, 'bilansSubmenu', 'bilansSubmenuArrow')">
+                    <span>Bilans</span>
+                    <svg id="bilansSubmenuArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu" id="bilansSubmenu">
+                    <a href="https://inclusionsociale.com/mentorat-actif-bilan.html" class="submenu-item">Mentorat actif, un plus tard</a>
+                </div>
+            </div>
+            <!-- Bouton Tournages en cours non gras -->
+            <div>
+                <a href="https://inclusionsociale.com/tournages.html" class="nav-btn" style="font-weight: normal;">
+                    <span>Tournages en cours</span>
+                </a>
+            </div>
+
+            <!-- NAVIGATION DANS LA PAGE (cliquable pour déployer le menu des sous-chapitres) -->
+            <div>
+                <button class="page-nav-toggle" onclick="toggleSubmenu(event, 'pageNavSubmenu', 'pageNavArrow')" aria-expanded="false" aria-controls="pageNavSubmenu">
+                    <span>NAVIGATION DANS LA PAGE</span>
+                    <svg id="pageNavArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="transition: transform 0.2s;"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu" id="pageNavSubmenu">
+                    <a href="#presentation" class="submenu-item" onclick="scrollToSection(event, 'presentation')">Présentation</a>
+                    <a href="#introduction" class="submenu-item" onclick="scrollToSection(event, 'introduction')">Introduction</a>
+                    <a href="#sec-1" class="submenu-item" onclick="scrollToSection(event, 'sec-1')">1. De qui parle-t-on ?</a>
+                    <a href="#sec-autres-recherches" class="submenu-item" onclick="scrollToSection(event, 'sec-autres-recherches')">Ce qu’en disent les autres recherches</a>
+                    <a href="#sec-methodologie" class="submenu-item" onclick="scrollToSection(event, 'sec-methodologie')">La méthodologie de la recherche</a>
+                    <a href="#sec-2" class="submenu-item" onclick="scrollToSection(event, 'sec-2')">2. Résultats</a>
+                    <a href="#sec-2-1" class="submenu-item" onclick="scrollToSection(event, 'sec-2-1')">1) L’accompagnement</a>
+                    <a href="#sec-2-2" class="submenu-item" onclick="scrollToSection(event, 'sec-2-2')">2) Interactions sociales dans les lieux publics</a>
+                    <a href="#sec-2-3" class="submenu-item" onclick="scrollToSection(event, 'sec-2-3')">3) Organisation et prestation des services</a>
+                    <a href="#sec-2-4" class="submenu-item" onclick="scrollToSection(event, 'sec-2-4')">4) Rapport aux incapacités et aides techniques</a>
+                    <a href="#sec-3" class="submenu-item" onclick="scrollToSection(event, 'sec-3')">3. Discussion et recommandations</a>
+                    <a href="#sec-financement" class="submenu-item" onclick="scrollToSection(event, 'sec-financement')">Sources de financement</a>
+                    <a href="#sec-remerciements" class="submenu-item" onclick="scrollToSection(event, 'sec-remerciements')">Remerciements</a>
+                    <a href="#sec-references" class="submenu-item" onclick="scrollToSection(event, 'sec-references')">Références bibliographiques</a>
+                </div>
+            </div>
+
+        </div>
+    </aside>
+
+    <!-- Zone de contenu dynamique à droite (Frame de base) -->
+    <div class="main-wrapper" id="presentation">
+        <main class="article-container">
+
+            <!-- En-tête de l'article -->
+            <header class="article-header">
+                <div class="article-kicker">Revue Sociologie Visuelle • Numéro 4 — Penser l'accessibilité</div>
+                <h1 class="article-title">«&nbsp;C’est comme si on n’était pas les bienvenus&nbsp;»&nbsp;: les éléments de l’environnement social qui facilitent ou freinent l’accès à la ville des personnes aînées ayant des incapacités</h1>
+            </header>
+
+            <!-- Deux cases côte à côte sous le titre (Auteurs + Citation) -->
+            <section class="meta-grid" aria-label="Auteurs et citation de l'article">
+                <!-- Case 1 : Trois photos des auteurs + noms + affiliations -->
+                <div class="offwhite-box meta-box">
+                    <div>
+                        <span class="box-label">Auteures &amp; Affiliations</span>
+                        <div class="authors-photos-row">
+                            <div class="author-photo-card">
+                                <img src="https://lh3.googleusercontent.com/d/15HyI6Q6_2KR24yBi-MlLbs7iojG4jk4R" alt="Portrait d'Émilie Raymond">
+                                <div class="author-name">Émilie RAYMOND<sup>2</sup></div>
+                            </div>
+                            <div class="author-photo-card">
+                                <img src="https://lh3.googleusercontent.com/d/1DPPNdmfVSBDnErrboTYjvKNbjmSldMSF" alt="Portrait de Mélanie Synnott">
+                                <div class="author-name">Mélanie SYNNOTT<sup>1</sup></div>
+                            </div>
+                            <div class="author-photo-card">
+                                <img src="https://lh3.googleusercontent.com/d/1HhsNCjjknha9HK2037LhImf_iZ5DU-mh" alt="Portrait d'Anne-Marie Trempe">
+                                <div class="author-name">Anne-Marie TREMPE<sup>3</sup></div>
+                            </div>
+                        </div>
+                        <div class="coauthor-note">
+                            Co-auteure : <strong>Élise MILOT<sup>2</sup></strong>
+                        </div>
+                    </div>
+                    <div class="affiliations-list">
+                        <sup>1</sup> Cirris. &nbsp;
+                        <sup>2</sup> Université Laval, École de travail social et de criminologie. &nbsp;
+                        <sup>3</sup> Université Laval, maîtrise en travail social, auxiliaire de recherche.
+                    </div>
+                </div>
+
+                <!-- Case 2 : Citation de l'article -->
+                <div class="offwhite-box meta-box">
+                    <div>
+                        <span class="box-label">Citer cet article</span>
+                        <p class="citation-text">
+                            Raymond, É., Synnott, M., Trempe, A.-M., Milot, É. (2023), «&nbsp;C’est comme si on n’était pas les bienvenus&nbsp;»&nbsp;: les éléments de l’environnement social qui facilitent ou freinent l’accès à la ville des personnes aînées ayant des incapacités&nbsp;», <em>Sociologie Visuelle</em>, n° 4, François Routhier et Pierre Fraser (éds.), Québec&nbsp;: Photo|Société, pp. 141-156.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Résumé : deux cases (FR + EN) sur fond blanchâtre -->
+            <section class="abstract-grid" aria-label="Résumés en français et en anglais">
+                <!-- Case 1 : Résumé en français -->
+                <div class="offwhite-box abstract-box">
+                    <span class="box-label">Résumé</span>
+                    <p>
+                        L’article présente les résultats de la recherche «&nbsp;Accès-communauté&nbsp;: un objectif partagé&nbsp;», une recherche-action participative qui a exploré le thème de l’inclusion sociale des personnes aînées ayant des incapacités. L’objectif de cette recherche était de comprendre ce qui facilite ou freine les déplacements et l’accès aux milieux de participation sociale dans le groupe concerné. Dans cet article, nous nous sommes concentrés sur l’environnement social des personnes participantes. Ce dernier peut être défini comme la manière dont la société est organisée notamment sur le plan du fonctionnement de la gouverne de l’État, des services aux citoyens et aux citoyennes, et des relations entre les individus<span class="footnote-ref"><a id="sdfootnote1anc" href="#sdfootnote1sym">1</a></span>.
+                    </p>
+                    <p class="abstract-keywords">
+                        <strong>Mots-clés&nbsp;:</strong> Accessibilité&nbsp;; personnes aînées&nbsp;; environnement social&nbsp;; incapacités&nbsp;; inclusion sociale&nbsp;; participation sociale.
+                    </p>
+                </div>
+
+                <!-- Case 2 : Résumé en anglais -->
+                <div class="offwhite-box abstract-box" lang="en">
+                    <span class="box-label">Abstract</span>
+                    <p>
+                        This article presents the findings of “Accès-communauté&nbsp;: un objectif partagé,” a participatory action research project exploring the social inclusion of older adults living with disabilities. The objective of this study was to understand what facilitates or hinders mobility and access to environments of social participation for this group. In this paper, we focus specifically on the participants’ social environment, defined as the way society is organized in terms of state governance, public and citizen services, and interpersonal relationships.
+                    </p>
+                    <p class="abstract-keywords">
+                        <strong>Keywords:</strong> Accessibility; older adults; social environment; disabilities; social inclusion; social participation.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Corps complet de l'article -->
+            <article class="article-body">
+
+                <!-- INTRODUCTION -->
+                <h2 class="section-title" id="introduction">Introduction</h2>
+
+                <p class="drop-cap-paragraph">
+                    Au Québec, le thème de participation sociale des personnes aînées est central dans les politiques sociales du vieillissement. D’abord, le plus récent plan d’action du gouvernement, «&nbsp;Un Québec pour tous les âges<span class="footnote-ref"><a id="sdfootnote2anc" href="#sdfootnote2sym">2</a></span>&nbsp;», qui couvre la période de 2018 à 2023, a pour première orientation stratégique le fait de soutenir la participation des personnes aînées dans la communauté. La question du territoire occupant aussi une place importante dans ce plan d’action, la troisième orientation stratégique prévoit la création d’environnements sains, sécuritaires et accueillants. Ensuite, depuis le milieu des années 2000, le gouvernement du Québec a soutenu et financé un vaste réseau de municipalités amies des aînés (MADA) suivant un modèle développé par l’Organisation mondiale de la santé. Les trois piliers de ce modèle sont la participation sociale, la santé et la sécurité. En 2023, plus de 1 000 administrations municipales au Québec étaient certifiées MADA<span class="footnote-ref"><a id="sdfootnote3anc" href="#sdfootnote3sym">3</a></span>. Ces municipalités se sont notamment engagées à mettre un frein à l’âgisme, en adaptant leurs politiques, leurs services et leurs structures pour mieux accueillir les personnes aînées et soutenir leur participation<span class="footnote-ref"><a id="sdfootnote4anc" href="#sdfootnote4sym">4</a></span>.
+                </p>
+
+                <p>
+                    Or, ni le plan d’action du Gouvernement du Québec ni le programme MADA ne mentionnent que certaines personnes peuvent éprouver des difficultés dans leurs déplacements ou leur accès aux milieux de participation sociale en raison de leurs incapacités. Afin d’assurer une plus grande équité en la matière, il est nécessaire de mieux connaître et comprendre comment les personnes aînées ayant des incapacités voient et vivent leur participation et leur inclusion sociales. Pour le moment, nous ne savons pas comment rendre une ville réellement accueillante pour ces personnes&nbsp;; une ville qui leur permettrait d’exercer en toute égalité leurs droits par un accès sans restriction aux espaces urbains et aux services<span class="footnote-ref"><a id="sdfootnote5anc" href="#sdfootnote5sym">5</a></span>.
+                </p>
+
+                <!-- 1. DE QUI PARLE-T-ON ? -->
+                <h2 class="section-title" id="sec-1">1. De qui parle-t-on&nbsp;?</h2>
+
+                <p>
+                    L’incapacité réfère au degré de réduction dans la possibilité d’accomplir une activité physique ou mentale<span class="footnote-ref"><a id="sdfootnote6anc" href="#sdfootnote6sym">6</a></span>. Le taux d’incapacité augmente avec l’âge&nbsp;: 19&nbsp;% des 55-64 ans, 20&nbsp;% des 65-74 ans et 33&nbsp;% des 75 ans ou plus ont au moins une incapacité. Comme le nombre de personnes aînées dans la population continuera d’être en hausse dans les prochaines années, ce sera aussi le cas du nombre de personnes aînées vivant avec des incapacités.
+                </p>
+
+                <!-- Figure 1 -->
+                <div class="figure-block">
+                    <div class="figure-caption">
+                        Figure 1 — Taux d’incapacité chez les personnes aînées, 2017<span class="footnote-ref"><a id="sdfootnote7anc" href="#sdfootnote7sym">7</a></span>
+                    </div>
+                    <div class="figure-content-split">
+                        <div>
+                            <img src="https://lh3.googleusercontent.com/d/1X02WtiNjWx4SWpPwcO-qzfdqYqzmuLtl" alt="Figure 1 : Graphique du taux d’incapacité chez les personnes aînées en 2017">
+                        </div>
+                        <div>
+                            <p style="margin-bottom: 0;">
+                                En 2017, près de la moitié des personnes âgées de 65 ans et plus ayant des incapacités avaient des incapacités considérées «&nbsp;graves&nbsp;» ou «&nbsp;très graves&nbsp;». Ces personnes expérimentaient quotidiennement des limitations importantes dans la réalisation de leurs activités et de leurs rôles sociaux.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sous-chapitre : Ce qu'en disent les autres recherches -->
+                <h3 class="subsection-title" id="sec-autres-recherches">Ce qu’en disent les autres recherches</h3>
+
+                <p>
+                    Plusieurs recherches confirment que l’environnement social a un impact sur l’inclusion sociale des personnes aînées ayant des incapacités. Parmi les éléments qui favorisent cette inclusion, à travers les déplacements et l’accès aux milieux de participation sociale, on retrouve&nbsp;:
+                </p>
+
+                <ul class="article-list">
+                    <li>
+                        le soutien reçu des membres de la famille, des amis et des voisins<span class="footnote-ref"><a id="sdfootnote8anc" href="#sdfootnote8sym">8</a>-<a id="sdfootnote9anc" href="#sdfootnote9sym">9</a>-<a id="sdfootnote10anc" href="#sdfootnote10sym">10</a></span>&nbsp;;
+                    </li>
+                    <li>
+                        le fait d’être accompagné pour faire des activités, ce qui donne de la motivation ainsi qu’un sentiment de confiance et de sécurité par rapport aux déplacements<span class="footnote-ref"><a id="sdfootnote11anc" href="#sdfootnote11sym">11</a>-<a id="sdfootnote12anc" href="#sdfootnote12sym">12</a></span>&nbsp;; l’accompagnement peut provenir du réseau social comme de personnes rémunérées<span class="footnote-ref"><a id="sdfootnote13anc" href="#sdfootnote13sym">13</a></span>&nbsp;;
+                    </li>
+                    <li>
+                        la compréhension d’autrui à l’égard des défis rencontrés et l’aide offerte spontanément pour y faire face<span class="footnote-ref"><a id="sdfootnote14anc" href="#sdfootnote14sym">14</a></span>.
+                    </li>
+                </ul>
+
+                <p>
+                    À l’inverse, d’autres éléments de l’environnement social représentent des obstacles à l’inclusion&nbsp;:
+                </p>
+
+                <ul class="article-list">
+                    <li>
+                        les attitudes négatives des gens, principalement dans la rue, dans les ascenseurs ou dans le transport en commun<span class="footnote-ref"><a id="sdfootnote15anc" href="#sdfootnote15sym">15</a>-<a id="sdfootnote16anc" href="#sdfootnote16sym">16</a></span>&nbsp;;
+                    </li>
+                    <li>
+                        la peur d’être gêné, incompris, traité différemment, ignoré ou perçu comme vulnérable<span class="footnote-ref"><a id="sdfootnote17anc" href="#sdfootnote17sym">17</a></span>&nbsp;;
+                    </li>
+                    <li>
+                        le désir de ne pas se sentir dépendant ou comme un fardeau pour l’entourage<span class="footnote-ref"><a id="sdfootnote18anc" href="#sdfootnote18sym">18</a>-<a id="sdfootnote19anc" href="#sdfootnote19sym">19</a>-<a id="sdfootnote20anc" href="#sdfootnote20sym">20</a></span> et pour les autres<span class="footnote-ref"><a id="sdfootnote21anc" href="#sdfootnote21sym">21</a></span>&nbsp;;
+                    </li>
+                    <li>
+                        les demandes d’accommodements accueillies avec scepticisme ou irritation<span class="footnote-ref"><a id="sdfootnote22anc" href="#sdfootnote22sym">22</a></span>.
+                    </li>
+                </ul>
+
+                <p>
+                    Pour éviter cette stigmatisation, les personnes aînées peuvent prendre la décision de limiter elles-mêmes leur mobilité<span class="footnote-ref"><a id="sdfootnote23anc" href="#sdfootnote23sym">23</a></span>. Elles peuvent aussi faire le choix de ne pas utiliser des aides techniques qui rendraient plus «&nbsp;visibles&nbsp;» leurs déficiences<span class="footnote-ref"><a id="sdfootnote24anc" href="#sdfootnote24sym">24</a>-<a id="sdfootnote25anc" href="#sdfootnote25sym">25</a></span>.
+                </p>
+
+                <!-- CARTE CONCEPTUELLE INTERACTIVE 1 -->
+                <div class="concept-map-card" id="map-env-social">
+                    <div class="concept-map-header">
+                        <div>
+                            <span class="concept-map-badge">Carte conceptuelle interactive 1</span>
+                            <h4 class="concept-map-title">La dualité de l’environnement social dans l’accès à la ville</h4>
+                        </div>
+                        <span class="concept-map-hint">Cliquez sur un pôle du schéma pour explorer ses mécanismes</span>
+                    </div>
+                    <div class="concept-svg-wrapper">
+                        <svg viewBox="0 0 920 310" role="img" aria-label="Diagramme interactif opposant les facilitateurs et les obstacles de l'environnement social">
+                            <defs>
+                                <marker id="arrow-bordeaux" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#7a2222"/>
+                                </marker>
+                                <marker id="arrow-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#2f6f4e"/>
+                                </marker>
+                            </defs>
+
+                            <!-- Lignes de connexion -->
+                            <path d="M 270 95 C 330 95, 330 140, 365 148" fill="none" stroke="#2f6f4e" stroke-width="2" marker-end="url(#arrow-green)"/>
+                            <path d="M 270 155 L 365 155" fill="none" stroke="#2f6f4e" stroke-width="2" marker-end="url(#arrow-green)"/>
+                            <path d="M 270 215 C 330 215, 330 170, 365 162" fill="none" stroke="#2f6f4e" stroke-width="2" marker-end="url(#arrow-green)"/>
+
+                            <path d="M 650 85 C 590 85, 590 138, 555 146" fill="none" stroke="#7a2222" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#arrow-bordeaux)"/>
+                            <path d="M 650 155 L 555 155" fill="none" stroke="#7a2222" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#arrow-bordeaux)"/>
+                            <path d="M 650 225 C 590 225, 590 172, 555 164" fill="none" stroke="#7a2222" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#arrow-bordeaux)"/>
+
+                            <path d="M 460 198 L 460 238" fill="none" stroke="#4a5568" stroke-width="2" marker-end="url(#arrow-bordeaux)"/>
+
+                            <!-- Colonne Gauche : Facilitateurs -->
+                            <text x="145" y="34" text-anchor="middle" font-size="12" font-weight="700" fill="#2f6f4e" letter-spacing="0.8">FACILITATEURS SOCIAUX</text>
+
+                            <g class="svg-node" onclick="selectConcept('map-env-social', 'fac-reseau', this)">
+                                <rect x="20" y="65" width="250" height="50" rx="8" fill="#eef6f1" stroke="#2f6f4e" stroke-width="1.5"/>
+                                <text x="145" y="88" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a2f">Soutien du réseau proche</text>
+                                <text x="145" y="105" text-anchor="middle" font-size="11" fill="#3b5e4d">Famille, amis et voisinage actif</text>
+                            </g>
+
+                            <g class="svg-node" onclick="selectConcept('map-env-social', 'fac-accomp', this)">
+                                <rect x="20" y="130" width="250" height="50" rx="8" fill="#eef6f1" stroke="#2f6f4e" stroke-width="1.5"/>
+                                <text x="145" y="153" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a2f">Accompagnement adapté</text>
+                                <text x="145" y="170" text-anchor="middle" font-size="11" fill="#3b5e4d">Confiance, sécurité et motivation</text>
+                            </g>
+
+                            <g class="svg-node" onclick="selectConcept('map-env-social', 'fac-empathie', this)">
+                                <rect x="20" y="195" width="250" height="50" rx="8" fill="#eef6f1" stroke="#2f6f4e" stroke-width="1.5"/>
+                                <text x="145" y="218" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a2f">Compréhension spontanée</text>
+                                <text x="145" y="235" text-anchor="middle" font-size="11" fill="#3b5e4d">Aide respectueuse du rythme</text>
+                            </g>
+
+                            <!-- Noyau Central -->
+                            <g class="svg-node active" onclick="selectConcept('map-env-social', 'centre-env', this)">
+                                <rect x="370" y="112" width="180" height="86" rx="12" fill="#7a2222" stroke="#5e1a1a" stroke-width="2"/>
+                                <text x="460" y="146" text-anchor="middle" font-size="13.5" font-weight="700" fill="#000000">ENVIRONNEMENT</text>
+                                <text x="460" y="164" text-anchor="middle" font-size="13.5" font-weight="700" fill="#000000">SOCIAL</text>
+                                <text x="460" y="183" text-anchor="middle" font-size="10.5" fill="#f7e8e8">(Gouvernance, services, liens)</text>
+                            </g>
+
+                            <!-- Résultante en bas -->
+                            <g class="svg-node" onclick="selectConcept('map-env-social', 'issue-auto', this)">
+                                <rect x="335" y="242" width="250" height="52" rx="8" fill="#f5efe6" stroke="#8c7a6b" stroke-width="1.5"/>
+                                <text x="460" y="264" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a202c">Issue : Participation vs Retrait</text>
+                                <text x="460" y="281" text-anchor="middle" font-size="11" fill="#4a5568">Auto-restriction ou citoyenneté pleine</text>
+                            </g>
+
+                            <!-- Colonne Droite : Obstacles -->
+                            <text x="775" y="34" text-anchor="middle" font-size="12" font-weight="700" fill="#7a2222" letter-spacing="0.8">OBSTACLES &amp; STIGMATES</text>
+
+                            <g class="svg-node" onclick="selectConcept('map-env-social', 'obs-attitudes', this)">
+                                <rect x="650" y="60" width="250" height="50" rx="8" fill="#fdf2f2" stroke="#7a2222" stroke-width="1.5"/>
+                                <text x="775" y="83" text-anchor="middle" font-size="13" font-weight="700" fill="#5e1a1a">Attitudes négatives</text>
+                                <text x="775" y="100" text-anchor="middle" font-size="11" fill="#7a2222">Impatience dans la rue et les transports</text>
+                            </g>
+
+                            <g class="svg-node" onclick="selectConcept('map-env-social', 'obs-fardeau', this)">
+                                <rect x="650" y="130" width="250" height="50" rx="8" fill="#fdf2f2" stroke="#7a2222" stroke-width="1.5"/>
+                                <text x="775" y="153" text-anchor="middle" font-size="13" font-weight="700" fill="#5e1a1a">Peur d’être un fardeau</text>
+                                <text x="775" y="170" text-anchor="middle" font-size="11" fill="#7a2222">Crainte du jugement et de la dépendance</text>
+                            </g>
+
+                            <g class="svg-node" onclick="selectConcept('map-env-social', 'obs-accomm', this)">
+                                <rect x="650" y="200" width="250" height="50" rx="8" fill="#fdf2f2" stroke="#7a2222" stroke-width="1.5"/>
+                                <text x="775" y="223" text-anchor="middle" font-size="13" font-weight="700" fill="#5e1a1a">Accommodements irritants</text>
+                                <text x="775" y="240" text-anchor="middle" font-size="11" fill="#7a2222">Scepticisme face aux besoins exprimés</text>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="concept-detail-panel" id="detail-map-env-social">
+                        <strong>Environnement social (Fougeyrollas, 2010) :</strong> Manière dont la société est organisée sur le plan de la gouverne de l’État, des services aux citoyens et des relations interpersonnelles. L’accessibilité ne relève pas uniquement du bâti, mais de la qualité de ces interactions quotidiennes.
+                    </div>
+                </div>
+
+                <!-- Sous-chapitre : La méthodologie de la recherche -->
+                <h3 class="subsection-title" id="sec-methodologie">La méthodologie de la recherche</h3>
+
+                <p>
+                    Accès-communauté&nbsp;: un objectif partagé (ACOP) est un projet de recherche-action participative. Il a été réalisé par un comité formé d’une équipe de recherche de l’Université Laval et de membres salariés et bénévoles de la Table de quartier l’Engrenage St-Roch<span class="footnote-ref"><a id="sdfootnote26anc" href="#sdfootnote26sym">26</a></span>. L’intention de la recherche était double&nbsp;:
+                </p>
+
+                <ul class="article-list">
+                    <li>
+                        développer des connaissances sur les facteurs facilitant ou freinant les déplacements et la participation sociale des personnes aînées ayant différents types d’incapacités&nbsp;;
+                    </li>
+                    <li>
+                        diffuser ces connaissances pour améliorer l’accès à la ville des personnes principalement concernées.
+                    </li>
+                </ul>
+
+                <p>
+                    Des entretiens individuels ont été réalisés auprès de personnes aînées habitant le territoire de la ville de Québec et ayant au moins une de ces conditions&nbsp;: incapacité visuelle ou auditive, incapacité motrice, déficience intellectuelle ou problématique de santé mentale. Les personnes participantes étaient âgées de 55 ans et plus. Ce choix de seuil d’âge s’explique par le fait que les personnes qui vieillissent avec des incapacités nomment souvent qu’elles ont l’impression de vieillir plus vite que les autres<span class="footnote-ref"><a id="sdfootnote27anc" href="#sdfootnote27sym">27</a></span>.
+                </p>
+
+                <p>
+                    Ces entretiens individuels ont permis d’explorer les stratégies développées tout comme les limites et les obstacles rencontrés par les personnes participantes lorsqu’elles font des sorties. Cela incluait non seulement le déplacement en lui-même, mais aussi l’accès aux lieux de participation sociale. Ensuite, neuf de ces personnes ont été invitées à participer à un entretien déambulatoire. Il s’agissait de les accompagner dans un déplacement et une activité de leur choix afin de documenter ce qu’elles vivent concrètement au quotidien.
+                </p>
+
+                <p>
+                    Les informations recueillies ont fait l’objet d’une analyse de contenu thématique. Nous avons voulu identifier les grands éléments qui favorisent ou nuisent aux déplacements et à la participation sociale des personnes aînées ayant des incapacités.
+                </p>
+
+                <!-- CARTE CONCEPTUELLE INTERACTIVE 2 -->
+                <div class="concept-map-card" id="map-methodo">
+                    <div class="concept-map-header">
+                        <div>
+                            <span class="concept-map-badge">Carte conceptuelle interactive 2</span>
+                            <h4 class="concept-map-title">Architecture de la recherche-action participative (ACOP)</h4>
+                        </div>
+                        <span class="concept-map-hint">Sélectionnez une étape méthodologique pour voir son protocole</span>
+                    </div>
+                    <div class="concept-svg-wrapper">
+                        <svg viewBox="0 0 920 205" role="img" aria-label="Diagramme interactif des 4 étapes de la recherche-action participative ACOP">
+                            <!-- Ligne de progression -->
+                            <line x1="120" y1="88" x2="800" y2="88" stroke="#cbbba8" stroke-width="3"/>
+
+                            <!-- Étape 1 -->
+                            <g class="svg-node active" onclick="selectConcept('map-methodo', 'step-gouvernance', this)">
+                                <rect x="20" y="28" width="195" height="120" rx="10" fill="#f9efef" stroke="#7a2222" stroke-width="2"/>
+                                <circle cx="117" cy="28" r="14" fill="#7a2222"/>
+                                <text x="117" y="33" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">1</text>
+                                <text x="117" y="64" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a202c">Co-construction</text>
+                                <text x="117" y="83" text-anchor="middle" font-size="11" fill="#4a5568">Université Laval +</text>
+                                <text x="117" y="99" text-anchor="middle" font-size="11" fill="#4a5568">Engrenage St-Roch</text>
+                                <text x="117" y="128" text-anchor="middle" font-size="10" font-weight="600" fill="#7a2222">Comité paritaire</text>
+                            </g>
+
+                            <!-- Étape 2 -->
+                            <g class="svg-node" onclick="selectConcept('map-methodo', 'step-indiv', this)">
+                                <rect x="245" y="28" width="195" height="120" rx="10" fill="#FAF6EF" stroke="#8c7a6b" stroke-width="1.5"/>
+                                <circle cx="342" cy="28" r="14" fill="#4a5568"/>
+                                <text x="342" y="33" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">2</text>
+                                <text x="342" y="64" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a202c">Entretiens individuels</text>
+                                <text x="342" y="83" text-anchor="middle" font-size="11" fill="#4a5568">23 personnes aînées</text>
+                                <text x="342" y="99" text-anchor="middle" font-size="11" fill="#4a5568">(55 ans et +, Québec)</text>
+                                <text x="342" y="128" text-anchor="middle" font-size="10" font-weight="600" fill="#7a2222">Récits &amp; stratégies</text>
+                            </g>
+
+                            <!-- Étape 3 -->
+                            <g class="svg-node" onclick="selectConcept('map-methodo', 'step-deamb', this)">
+                                <rect x="470" y="28" width="195" height="120" rx="10" fill="#FAF6EF" stroke="#8c7a6b" stroke-width="1.5"/>
+                                <circle cx="567" cy="28" r="14" fill="#4a5568"/>
+                                <text x="567" y="33" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">3</text>
+                                <text x="567" y="64" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a202c">Parcours déambulatoires</text>
+                                <text x="567" y="83" text-anchor="middle" font-size="11" fill="#4a5568">9 accompagnements</text>
+                                <text x="567" y="99" text-anchor="middle" font-size="11" fill="#4a5568">in situ + captation visuelle</text>
+                                <text x="567" y="128" text-anchor="middle" font-size="10" font-weight="600" fill="#7a2222">Observation incarnée</text>
+                            </g>
+
+                            <!-- Étape 4 -->
+                            <g class="svg-node" onclick="selectConcept('map-methodo', 'step-analyse', this)">
+                                <rect x="695" y="28" width="205" height="120" rx="10" fill="#FAF6EF" stroke="#8c7a6b" stroke-width="1.5"/>
+                                <circle cx="797" cy="28" r="14" fill="#4a5568"/>
+                                <text x="797" y="33" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">4</text>
+                                <text x="797" y="64" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1a202c">Analyse &amp; Diffusion</text>
+                                <text x="797" y="83" text-anchor="middle" font-size="11" fill="#4a5568">Analyse thématique</text>
+                                <text x="797" y="99" text-anchor="middle" font-size="11" fill="#4a5568">de contenu &amp; transfert</text>
+                                <text x="797" y="128" text-anchor="middle" font-size="10" font-weight="600" fill="#7a2222">Action citoyenne</text>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="concept-detail-panel" id="detail-map-methodo">
+                        <strong>Étape 1 — Gouvernance participative :</strong> Alliance entre chercheurs universitaires (Université Laval), intervenants et citoyens aînés de la Table de quartier l’Engrenage St-Roch pour ancrer la recherche dans le vécu réel du quartier.
+                    </div>
+                </div>
+
+                <!-- 2. RÉSULTATS -->
+                <h2 class="section-title" id="sec-2">2. Résultats</h2>
+
+                <h3 class="subsection-title">Présentation des personnes participantes</h3>
+
+                <p>
+                    L’échantillon de ce projet de recherche est composé de 12 femmes et 11 hommes, pour un total de 23 personnes dont la moyenne d’âge était 67 ans. Pour mieux comprendre les informations données à la figure 2, il est pertinent de rappeler que certaines personnes interrogées vivent avec plus d’un type d’incapacités ou de conditions et que certaines d’entre elles ont recours à plusieurs types d’aides techniques.
+                </p>
+
+                <!-- Figure 2 -->
+                <div class="figure-block">
+                    <div class="figure-caption">
+                        Figure 2. Informations relatives aux personnes participantes
+                    </div>
+                    <img class="full-figure" src="https://lh3.googleusercontent.com/d/1Jr-YJFoYR_lTrQNvsjJZzLNdwFSYYyvt" alt="Figure 2 : Graphiques des taux d'incapacités ou de conditions et des taux d'utilisation d'aides techniques chez les 23 personnes participantes">
+                </div>
+
+                <p>
+                    Les données recueillies permettent de constater que plus de la majorité des personnes participantes ont des défis en lien avec la mobilité. Les incapacités liées à la vision et à l’audition présentent également des proportions importantes, soit de 40&nbsp;% et 27&nbsp;% respectivement. Par ailleurs, le déambulateur ou la marchette et la canne blanche constituent les aides techniques les plus utilisées chez les personnes interrogées. Dans des proportions similaires, on y retrouve également l’usage du triporteur ou du quadriporteur, le fauteuil roulant ainsi que la canne ou les bâtons de marche. Il faut toutefois prendre en compte que certaines personnes aînées vivant avec des incapacités n’ont recours à aucun type d’aides techniques.
+                </p>
+
+                <p>
+                    Lors des entretiens individuels et déambulatoires, les personnes participantes nous ont raconté leurs expériences en matière de déplacements et de participation sociale. Ces récits évoquent la rencontre de plusieurs obstacles physiques, comme l’état de la voirie et de l’aménagement urbain. Toutefois, l’accès inclusif comporte aussi des dimensions sociales. Les personnes aînées ayant des incapacités peuvent notamment sentir qu’elles dérangent et qu’elles ne sont pas les bienvenues lorsqu’elles souhaitent réaliser des activités de participation sociale&nbsp;:
+                </p>
+
+                <blockquote class="verbatim-quote">
+                    «&nbsp;Ce qui est plate aussi, c’est quand on s’en va dans un endroit où ils organisent des évènements, ben ils n’ont pas pensé à l’accessibilité. C’est comme si on ne voulait pas de nous autres. Ça, j’trouve ça dommage, parce que tout le monde y a droit là, donc... [je me sens] ben frustrée. C’est comme si on n’était pas les bienvenus. C’est comme si on ne comptait pas. C’est comme si nous autres, on n’existait pas&nbsp;: Ah ben non, eux autres, ils ne chialeront pas. Oui mais, on est là&nbsp;!&nbsp;»
+                    <span class="verbatim-author">— Lise, 57 ans, vivant avec une incapacité visuelle et utilisant une canne blanche</span>
+                </blockquote>
+
+                <p>
+                    À l’inverse, une attitude accueillante et la présence d’accommodements peuvent encourager l’inclusion sociale.
+                </p>
+
+                <blockquote class="verbatim-quote">
+                    «&nbsp;L’accessibilité aide, mais quand ce n’est pas accessible, je ne m’empêche pas de faire des choses. J’essaie de trouver des moyens. Je vais acheter mon pain dans le parc industriel chez moi. Il y a à peu près sept ou huit marches; je leur téléphone, pis ils descendent les marches, pis je l’achète. Moi, je suis la fille qui fonce&nbsp;! Je ne me mets pas de limites, j’ai pas le goût d’en mettre. Je garde mon cœur d’enfant pis j’ai le goût de découvrir (…). Plus que tu es dans le monde, plus que tu veux être dans le monde, plus que c’est facilitant, plus que tu crées des liens avec les gens, plus que tu as une attitude de citoyenne à part entière, ben les gens ils [ne] voient plus le fauteuil, ils l’oublient.&nbsp;»
+                    <span class="verbatim-author">— Dominique, 62 ans, vivant avec des incapacités motrice et auditive, se déplaçant en fauteuil motorisé et portant des appareils auditifs</span>
+                </blockquote>
+
+                <p>
+                    Dans ce qui suit, nous explorerons quatre éléments qui jouent un rôle dans le sentiment ou l’expérience d’inclusion sociale des personnes participantes. Ces éléments ont été choisis parmi d’autres pour deux raisons&nbsp;: ils sont partagés par de nombreuses personnes participantes et illustrés par le travail de captation photographique et filmique réalisé dans le cadre de l’article. Nous serons donc guidés par Paul, Danielle, Josée, Nicole et Claude pour mieux comprendre en quoi ces aspects ont une influence sur leur participation sociale&nbsp;: 1) l’accompagnement&nbsp;; 2) les interactions sociales dans les lieux publics&nbsp;; 3) l’organisation et la prestation des services&nbsp;; 4) le rapport aux incapacités et aux aides techniques.
+                </p>
+
+                <!-- CARTE CONCEPTUELLE INTERACTIVE 3 -->
+                <div class="concept-map-card" id="map-quatre-axes">
+                    <div class="concept-map-header">
+                        <div>
+                            <span class="concept-map-badge">Carte conceptuelle interactive 3</span>
+                            <h4 class="concept-map-title">Les quatre déterminants sociaux de l’expérience d’inclusion</h4>
+                        </div>
+                        <span class="concept-map-hint">Cliquez sur l’un des 4 axes pour afficher la synthèse empirique</span>
+                    </div>
+                    <div class="concept-svg-wrapper">
+                        <svg viewBox="0 0 920 270" role="img" aria-label="Diagramme radial interactif des 4 dimensions de l'inclusion sociale">
+                            <!-- Connexions radiales -->
+                            <line x1="460" y1="135" x2="215" y2="62" stroke="#b8a99a" stroke-width="2"/>
+                            <line x1="460" y1="135" x2="705" y2="62" stroke="#b8a99a" stroke-width="2"/>
+                            <line x1="460" y1="135" x2="215" y2="208" stroke="#b8a99a" stroke-width="2"/>
+                            <line x1="460" y1="135" x2="705" y2="208" stroke="#b8a99a" stroke-width="2"/>
+
+                            <!-- Centre -->
+                            <circle cx="460" cy="135" r="58" fill="#7a2222" stroke="#5e1a1a" stroke-width="2.5"/>
+                            <text x="460" y="128" text-anchor="middle" font-size="12.5" font-weight="700" fill="#ffffff">INCLUSION</text>
+                            <text x="460" y="145" text-anchor="middle" font-size="12.5" font-weight="700" fill="#ffffff">SOCIALE</text>
+                            <text x="460" y="161" text-anchor="middle" font-size="10" fill="#f7e8e8">4 leviers clés</text>
+
+                            <!-- Axe 1 -->
+                            <g class="svg-node active" onclick="selectConcept('map-quatre-axes', 'axe-1', this)">
+                                <rect x="25" y="22" width="320" height="78" rx="10" fill="#f9efef" stroke="#7a2222" stroke-width="2"/>
+                                <text x="42" y="47" font-size="13" font-weight="700" fill="#7a2222">1) L’accompagnement</text>
+                                <text x="42" y="67" font-size="11.5" fill="#2b2b2b">Proches, bénévoles ou intervenants :</text>
+                                <text x="42" y="84" font-size="11.5" fill="#4a5568">baisse de vigilance et plaisir partagé.</text>
+                            </g>
+
+                            <!-- Axe 2 -->
+                            <g class="svg-node" onclick="selectConcept('map-quatre-axes', 'axe-2', this)">
+                                <rect x="575" y="22" width="320" height="78" rx="10" fill="#FAF6EF" stroke="#8c7a6b" stroke-width="1.5"/>
+                                <text x="592" y="47" font-size="13" font-weight="700" fill="#7a2222">2) Interactions en lieux publics</text>
+                                <text x="592" y="67" font-size="11.5" fill="#2b2b2b">Regard d’autrui, écoute des besoins vs</text>
+                                <text x="592" y="84" font-size="11.5" fill="#4a5568">aide imposée, esquive ou impatience.</text>
+                            </g>
+
+                            <!-- Axe 3 -->
+                            <g class="svg-node" onclick="selectConcept('map-quatre-axes', 'axe-3', this)">
+                                <rect x="25" y="170" width="320" height="78" rx="10" fill="#FAF6EF" stroke="#8c7a6b" stroke-width="1.5"/>
+                                <text x="42" y="195" font-size="13" font-weight="700" fill="#7a2222">3) Organisation des services</text>
+                                <text x="42" y="215" font-size="11.5" fill="#2b2b2b">Commerces, loisirs et transport adapté :</text>
+                                <text x="42" y="232" font-size="11.5" fill="#4a5568">flexibilité horaire et soutien humain.</text>
+                            </g>
+
+                            <!-- Axe 4 -->
+                            <g class="svg-node" onclick="selectConcept('map-quatre-axes', 'axe-4', this)">
+                                <rect x="575" y="170" width="320" height="78" rx="10" fill="#FAF6EF" stroke="#8c7a6b" stroke-width="1.5"/>
+                                <text x="592" y="195" font-size="13" font-weight="700" fill="#7a2222">4) Rapport aux aides techniques</text>
+                                <text x="592" y="215" font-size="11.5" fill="#2b2b2b">Visibilité du handicap, fierté, humour</text>
+                                <text x="592" y="232" font-size="11.5" fill="#4a5568">et appropriation identitaire de l’outil.</text>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="concept-detail-panel" id="detail-map-quatre-axes">
+                        <strong>1) L’accompagnement :</strong> Loin d’être un simple palliatif logistique, la présence d’un proche ou d’un accompagnateur réduit la charge cognitive (« baisse du niveau de vigilance »), sécurise l’accès physique aux lieux et transforme la sortie en moment de convivialité.
+                    </div>
+                </div>
+
+                <!-- 1) L'accompagnement -->
+                <h3 class="subsection-title" id="sec-2-1"><em>1) L’accompagnement</em></h3>
+
+                <p>
+                    Pour certaines personnes ayant des incapacités, l’accompagnement peut être nécessaire pour assurer le déplacement et la participation à des activités.
+                </p>
+
+                <blockquote class="verbatim-quote">
+                    <p class="dialogue-line"><span class="dialogue-speaker">Intervieweuse&nbsp;:</span> «&nbsp;Tu as dit qu’il y avait du soutien qui était offert, mais que des fois ce qui était difficile, c’est que quand tu n’avais pas d’accompagnateur, tu ne pouvais pas faire certaines activités.&nbsp;»</p>
+                    <p class="dialogue-line" style="margin-bottom: 0;"><span class="dialogue-speaker">Participant&nbsp;:</span> «&nbsp;Quand je n’ai pas d’accompagnateur, moi je peux pas. Cette semaine, mon frère est venu m’accompagner, il est venu vendredi. Samedi, il ne pouvait pas venir parce qu’il travaille. Quand il ne travaille pas, mon frère, il vient m’chercher pour faire un tour. Moi j’aime ça parce que je vais passer mon après-midi.&nbsp;»</p>
+                    <span class="verbatim-author">— Charles, 66 ans, vivant avec une déficience intellectuelle</span>
+                </blockquote>
+
+                <p>
+                    L’accompagnement des proches (famille, amis) ou de la communauté (bénévoles ou employés des organismes fréquentés) lors de certaines sorties peut permettre de solutionner certains problèmes d’accès. La personne accompagnatrice peut, par exemple, soutenir l’accès aux bâtiments ou aux toilettes, guider l’orientation ou faciliter la communication avec autrui.
+                </p>
+
+                <blockquote class="verbatim-quote">
+                    «&nbsp;Si je fais une activité, c’est sûr que je vais la faire avec quelqu’un d’autre. À mettons que je vais aller manger dans un restaurant, je sais que je vais y aller avec quelqu’un d’autre parce que je sais que je ne suis pas assez autonome pour faire ça toute seule, alors je fais ça avec quelqu’un d’autre.&nbsp;»
+                    <span class="verbatim-author">— Manon, 64 ans, vivant avec une incapacité motrice et se déplaçant avec un déambulateur</span>
+                </blockquote>
+
+                <p>
+                    En plus d’en faciliter le déroulement et de donner un sentiment de sécurité accru, le fait d’être accompagné augmente le plaisir ressenti dans les activités.
+                </p>
+
+                <blockquote class="verbatim-quote">
+                    «&nbsp;Parce que mes amies [elles] sont prêtes à marcher avec moi. Je les tiens par le bras, puis ça, ça fait baisser mon niveau de vigilance énormément. Ça fait que c’est beaucoup plus agréable. Outre le fait que je suis avec quelqu’un, ce qui est bien agréable aussi.&nbsp;»
+                    <span class="verbatim-author">— Diane, 72 ans, vivant avec une incapacité visuelle et utilisant une canne blanche</span>
+                </blockquote>
+
+                <p>
+                    Les participants racontent qu’ils sont plus à l’aise de demander de l’accompagnement à leurs proches lorsqu’ils habitent à proximité. Plus largement, plusieurs personnes mentionnent qu’il est important pour elles de maintenir un réseau social bien vivant. Cela leur permet non seulement de recevoir du soutien, mais aussi et surtout, de se sentir incluses socialement.
+                </p>
+
+                <!-- 2) Les interactions sociales dans les lieux publics -->
+                <h3 class="subsection-title" id="sec-2-2"><em>2) Les interactions sociales dans les lieux publics</em></h3>
+
+                <p>
+                    Il arrive fréquemment que les personnes ayant des incapacités aient besoin de l’aide de leurs concitoyens lors de leur fréquentation de l’espace public, par exemple pour ouvrir une porte, comprendre une indication ou faire face à un obstacle sur leur parcours.
+                </p>
+
+                <blockquote class="verbatim-quote">
+                    «&nbsp;Il y a eu un bout de temps où j’ai eu peur des cônes, mais là, à c’t’heure, bon... J’aime pas ça quand il y a des endroits qui ont des réparations comme ça, ça me frustre tout le temps. Je m’en vais me promener à quelque part&nbsp;: ‘Ah non, y a des réparations là, maudit&nbsp;!’. C’est parce que des fois, je suis obligée de demander de l’aide pour aller à quelque part, pis j’haïs ça demander… Des fois, j’ai pas le choix si je veux me rendre.&nbsp;»
+                    <span class="verbatim-author">— Lise, 57 ans, vivant avec un trouble visuel</span>
+                </blockquote>
+
+                <p>
+                    Il n’est pas toujours facile d’accepter de demander de l’aide aux autres. On peut avoir peur de déranger, se sentir en position de vulnérabilité ou avoir le sentiment d’être moins «&nbsp;autonome&nbsp;».
+                </p>
+
+                <blockquote class="verbatim-quote">
+                    «&nbsp;Moi, j’ai jamais demandé rien à personne, mais maintenant, j’ai appris à demander. J’aimais pas ça. Je me dis&nbsp;: ‘Regarde, c’est mon tour de demander.’ Fait que là, j’essaie de demander pis de pas me sentir honteuse. Parce que vous le savez, les gens de mon âge, on était très orgueilleux pis on aimait pas demander. Mais là, on est rendu plus loin.&nbsp;»
+                    <span class="verbatim-author">— Jeannine, 84 ans, vivant avec une incapacité motrice et se déplaçant avec un déambulateur</span>
+                </blockquote>
+
+                <p>
+                    L’autonomie peut être définie comme la capacité et la possibilité de conduire leur quotidien sans faire appel à autrui et/ou selon leur propre volonté<span class="footnote-ref"><a id="sdfootnote28anc" href="#sdfootnote28sym">28</a></span>. Elle est décrite par plusieurs personnes participantes comme un état à maintenir le plus longtemps possible malgré leurs incapacités et l’évolution de celles-ci.
+                </p>
+
+                <p>
+                    Les personnes ayant participé au projet racontent que, le plus souvent, les gens sont serviables et ouverts aux demandes d’aide.
+                </p>
+
+                <blockquote class="verbatim-quote">
+                    «&nbsp;Je dois dire que les gens sont assez formidables, là, tu peux rencontrer un innocent pour 2&nbsp;000 qui sont gentils pis serviables. Mais c’est le un qui te marque là.&nbsp;»
+                    <span class="verbatim-author">— Nicole, 64 ans, vivant avec des incapacités visuelle et motrice, se déplaçant en déambulateur</span>
+                </blockquote>
+
+                <p>
+                    Les personnes qui offrent spontanément leur appui sont appréciées dans la mesure où elles sont à l’écoute de la manière dont la personne ayant des incapacités souhaite être aidée.
+                </p>
+
+                <blockquote class="verbatim-quote">
+                    «&nbsp;Des fois, ils veulent tellement trop aider qu’ils veulent nous prendre par la main. Quand je veux leur expliquer comment [m’aider], ils ne prennent même pas la peine, ils n’écoutent pas. Dans ce temps-là, j’aime mieux ne pas en avoir, d’aide, parce qu’ils ne me laissent pas leur dire comment faire. Les gens sont pressés, ils sont nerveux.&nbsp;»
+                    <span class="verbatim-author">— Brigitte, 68 ans, vivant avec une incapacité visuelle et utilisant un chien d’assistance</span>
+                </blockquote>
+
+                <p>
+                    Des principes relativement simples peuvent être suivis pour soutenir l’inclusion des personnes&nbsp;: avoir une attitude accueillante, «&nbsp;prendre le temps&nbsp;», respecter les capacités de la personne et s’adapter selon ses besoins. Inversement, trop vouloir en faire et imposer son aide nuisent à la qualité du soutien reçu ainsi qu’au sentiment de sécurité.
+                </p>
+
+                <blockquote class="verbatim-quote">
+                    «&nbsp;Une fois, j’arrive au guichet, ils mettent mon déambulateur dans le vestiaire. Heuuu, je m’excuse, mais ce sont mes jambes! Je peux-tu voir où vous l’avez rangé? Moi, il faut que je le voie tout le temps.&nbsp;»
+                    <span class="verbatim-author">— Nicole, 64 ans, vivant avec des incapacités visuelle et motrice et se déplaçant avec un déambulateur</span>
+                </blockquote>
+
+                <p>
+                    Les participants expliquent que, parfois, il leur est difficile d’obtenir l’aide dont ils ont besoin. Les gens croisés peuvent se montrer pressés ou esquivent un regard cherchant à attirer leur attention. Ces comportements évitants sont à la fois évidents et blessants pour les participants de la recherche.
+                </p>
+
+                <blockquote class="verbatim-quote">
+                    «&nbsp;Il faut comprendre le langage non verbal des gens. Quand ils s’organisent pour pas te voir, tu le sais qu’il ne faut pas que tu leur demandes [de l’aide]. Tu sais, t’existes pas. Ils savent plus où regarder pour pas te regarder&nbsp;».
+                    <span class="verbatim-author">— Dominique, 62 ans, vivant avec des incapacités motrice et auditive, se déplaçant en fauteuil motorisé et portant des appareils auditifs</span>
+                </blockquote>
+
+                <p>
+                    Dans les lieux très occupés ou restreints, à l’intérieur comme à l’extérieur, les personnes aînées ayant des incapacités peuvent faire face à l’impatience des passants, ce qui peut aggraver leur peur de déranger et potentiellement entraîner une diminution de leurs sorties.
+                </p>
+
+                <blockquote class="verbatim-quote">
+                    «&nbsp;Faut zigzaguer. Quand il y a du monde, le monde, ils disent&nbsp;: ‘Qu’est-ce qu’elle fait là, elle embarrasse le chemin’, pis là, il faut attendre que le monde passe. S’il y a du monde qui arrive, tu te fais regarder de travers&nbsp;!&nbsp;»
+                    <span class="verbatim-author">— Manon, 64 ans, vivant avec une incapacité motrice et se déplaçant avec un déambulateur</span>
+                </blockquote>
+
+                <p>
+                    Enfin, des concitoyens croisés lors de déplacements ou d’activités peuvent se montrer indiscrets quant aux problèmes de santé et aux incapacités vécus. Certains participants disent que cela les rend inconfortables et nuit à leur sentiment d’être «&nbsp;comme tout le monde&nbsp;».
+                </p>
+
+                <!-- 3) L'organisation et la prestation des services -->
+                <h3 class="subsection-title" id="sec-2-3"><em>3) L’organisation et la prestation des services</em></h3>
+
+                <p>
+                    Un troisième aspect de l’environnement social qui compte pour le sentiment d’inclusion des participants de l’étude est celui de l’organisation et de la prestation des services, notamment en ce qui concerne les commerces, les milieux de participation sociale et le transport en commun.
+                </p>
+
+                <p>
+                    Dans les commerces comme dans les milieux associatifs et communautaires, la présence de personnel capable d’apporter de l’aide est cruciale pour les personnes aînées ayant des incapacités. Dans le cas contraire, les personnes peuvent vivre du stress et de l’inconfort.
+                </p>
+
+                <blockquote class="verbatim-quote">
+                    «&nbsp;[Dans une épicerie] Ils n’ont pas de commis aux caisses qui fait les sacs. Et là, ça pousse, il y a du monde. Et là, toi, tu es pogné à ta hauteur, il faut que tu ramasses tes affaires, t’essayes, mais tu sais pas trop comment… Ça, c’est majeur.&nbsp;»
+                    <span class="verbatim-author">— Thérèse, âgée dans la soixantaine, vivant avec une incapacité motrice et se déplaçant en fauteuil roulant</span>
+                </blockquote>
+
+                <p>
+                    L’ouverture du personnel aux demandes d’adaptations et d’accommodements est vécue comme un soulagement par les personnes aînées ayant des incapacités. Cette aide peut faire une différence entre maintenir ses activités et y renoncer en raison des difficultés posées par le manque d’accessibilité.
+                </p>
+
+                <blockquote class="verbatim-quote">
+                    «&nbsp;Comme le parc Maizeret, on y allait deux-trois fois dans l’année. C’est là que [nom de l’organisme] faisait leur marche à toutes les mercredis après-midi. On faisait le tour, pis on avait un guide, qui nous guidait. Pis il y avait toutes les personnes qui avaient un handicap ou qui voyaient un p’tit peu, qui étaient capables de se déplacer un p’tit peu. Il y avait beaucoup de bénévoles qui nous aidaient, là.&nbsp;»
+                    <span class="verbatim-author">— Mireille, 58 ans, vivant avec un trouble visuel et de la mobilité, se déplaçant en déambulateur</span>
+                </blockquote>
+
+                <p>
+                    Concernant le transport en commun, et particulièrement le service de transport adapté, il semble que le fonctionnement du système ait changé au cours des dernières années et qu’il soit dorénavant moins adapté aux besoins des usagers. Par exemple, il faut réserver son transport 24 heures à l’avance. Aussi, certains motifs de déplacement sont priorisés par rapport à d’autres. À ce propos, les raisons médicales ou reliées aux études ou au travail sont placées devant celles reliées à la participation sociale.
+                </p>
+
+                <blockquote class="verbatim-quote">
+                    «&nbsp;Le transport adapté, sont pas aussi flexibles qu’ils l’ont déjà été. […] Maintenant, si t’es malade, faut que tu le saches la veille que tu veux aller à l’hôpital. Donc ça nous oblige à caller une ambulance [si on n’a pas prévu la veille qu’on aurait besoin de transport]. […] Avant avec le STAC on avait plus de flexibilité pour les urgences, là, je parle pas d’aller magasiner, je parle des urgences. [Concernant les chauffeurs], il y en a qui sont super fins, là. Moi je porte pas la ceinture de sécurité. Il y en a qui m’engueulent parce que je la porte pas. Je dis&nbsp;: ‘Écoute, si t’as un accident, c’est à mes risques et péril, j’suis consciente de ça, je suis handicapée, je suis pas folle, mais j’ai mon permis, tu vas le respecter&nbsp;!’. Ils le respectent… mais y’en a un je te jure là, il voudrait pas me prendre.&nbsp;»
+                    <span class="verbatim-author">— Nicole, 64 ans, vivant avec un trouble visuel et de la mobilité, se déplaçant en déambulateur</span>
+                </blockquote>
+
+                <p>
+                    Comme le montre l’extrait d’entretien suivant, les attitudes des chauffeurs peuvent influencer l’expérience de déplacement. Certaines actions sont aidantes, comme le fait d’attendre que la personne soit assise avant d’accélérer dans le transport en commun régulier, alors que d’autres nuisent au sentiment de sécurité.
+                </p>
+
+                <blockquote class="verbatim-quote">
+                    «&nbsp;Moi j’ai déjà eu un problème avec un chauffeur. Je devais aller à quelque part, l’endroit était plus ou moins accessible, pis le chauffeur était pas content, il a commencé à m’engueuler, pis bon... Ça fait qu’il y en a beaucoup qui sont gentils, mais il y en a d’autres, vraiment là, ils sont pas à leur place.&nbsp;»
+                    <span class="verbatim-author">— Lise, 57 ans, vivant avec un trouble visuel</span>
+                </blockquote>
+
+                <p>
+                    Si les personnes participantes qui utilisent le transport en commun régulier et adapté apprécient ces services, elles sont plusieurs à évoquer de possibles améliorations qui permettraient de faciliter leur participation sociale et leur sentiment d’inclusion. En somme, les résultats de la recherche montrent que les personnes participantes ont le même désir de faire des sorties et des activités que le reste de la population.
+                </p>
+
+                <blockquote class="verbatim-quote">
+                    «&nbsp;C’est pas parce qu’on est handicapé qu’on peut pas aller prendre une bière.&nbsp;»
+                    <span class="verbatim-author">— Monique, 83 ans, vivant avec une incapacité motrice et se déplaçant avec des bâtons de marche</span>
+                </blockquote>
+
+                <!-- 4) Le rapport aux incapacités et aux aides techniques -->
+                <h3 class="subsection-title" id="sec-2-4"><em>4) Le rapport aux incapacités et aux aides techniques</em></h3>
+
+                <p>
+                    Accepter les incapacités vécues et le besoin d’aides techniques n’est pas toujours facile pour les personnes aînées rencontrées.
+                </p>
+
+                <blockquote class="verbatim-quote">
+                    «&nbsp;J’essaye d’avoir une qualité de vie. La surdité au degré que je l’ai là, ce n’est pas trop pire, mais si c’était pire, faudrait que j’aie un appareil tout le temps pis ça serait déplaisant tout le temps pour avoir une conversation normale.&nbsp;»
+                    <span class="verbatim-author">— Serge, 74 ans, vivant avec un trouble visuel et portant des appareils auditifs</span>
+                </blockquote>
+
+                <blockquote class="verbatim-quote">
+                    «&nbsp;J’pensais jamais, jamais, que j’allais venir devenir impotent comme ça. J’disais&nbsp;: ‘Pour ceux qui sont sédentaires, eux autres y vont manger la claque [quand ils vont vieillir].’ Hein&nbsp;! Moi, j’suis immortel, j’t’un gars, heille monsieur, j’me pétais de la broue moi-même là. Et pis, ça a arrivé comme une flashlight [l’AVC], on éteint une lumière. Pop&nbsp;! Elle a éteint, j’suis resté handicapé, pis j’ai ben eu d’la misère à me familiariser avec mon handicap, là.&nbsp;»
+                    <span class="verbatim-author">— Guy, 73 ans, vivant avec des incapacités auditive, visuelle et motrice, se déplaçant avec un déambulateur et portant des appareils auditifs</span>
+                </blockquote>
+
+                <p>
+                    Cet enjeu est inscrit dans l’environnement social, puisqu’il a un lien avec les représentations sociales au sujet du handicap. Avoir des incapacités implique souvent de faire face à des préjugés et à des stéréotypes.
+                </p>
+
+                <p>
+                    D’ailleurs, les personnes ne sont pas toujours à l’aise de dire aux autres qu’elles ont des incapacités, surtout lorsqu’il s’agit d’incapacités invisibles, qui sont plus faciles à dissimuler. Même le choix du type d’aide technique peut être motivé par son niveau de discrétion.
+                </p>
+
+                <blockquote class="verbatim-quote">
+                    «&nbsp;Pour m’aider par rapport à ma dysfonction auditive, lorsque je vais voir les gens, maintenant, je leur dis&nbsp;: ‘J’ai ce problème-là.’ Ce que je n’aurais pas fait y a 4 ans, 8 ans, 12 ans, j’étais trop orgueilleux.&nbsp;»
+                    <span class="verbatim-author">— René, 67 ans, vivant avec une incapacité auditive et portant des appareils auditifs</span>
+                </blockquote>
+
+                <blockquote class="verbatim-quote">
+                    «&nbsp;Il y en a qui prennent pas de déambulateur, parce qu’ils ont honte de leur état, pis ils disent&nbsp;: ‘Ah non, moi j’en prendrais pas, je vais prendre rien qu’une canne, ça paraît moins’.&nbsp;»
+                    <span class="verbatim-author">— Manon, 64 ans, vivant avec une incapacité motrice et se déplaçant avec un déambulateur</span>
+                </blockquote>
+
+                <p>
+                    Pour faciliter les contacts et briser la glace, certains participants utilisent différentes stratégies sociales, comme l’humour ou le fait de personnaliser leurs aides techniques.
+                </p>
+
+                <blockquote class="verbatim-quote">
+                    «&nbsp;Moi, ce qui est le fun, c’est qu’en avant de mon quadriporteur, j’ai installé une petite peluche. Je l’ai attachée sur mon panier. Quand je vais dans le parc, il y a plusieurs enfants qui me regardent passer, à cause de la peluche. Et puis des fois, j’arrête, pis là ils viennent y toucher. Sur la rue, c’est pareil, les enfants me regardent passer avec la peluche en avant. Même les plus vieux, des jeunes comme des moins jeunes, ils aiment ça.&nbsp;»
+                    <span class="verbatim-author">— Jacques, 72 ans, vivant avec des incapacités motrice et auditive, se déplaçant soit avec une canne, un déambulateur ou un quadriporteur et portant des appareils auditifs</span>
+                </blockquote>
+
+                <p>
+                    Les personnes interviewées ne voulaient pas se victimiser quant à leur situation ou donner l’impression de se plaindre. Elles rappellent qu’elles sont des personnes à part entière qui ont des stratégies pour se débrouiller malgré tout. Toutefois, certaines personnes ont plus de difficulté à nommer leurs besoins&nbsp;: il y a une peur de déranger ainsi qu’un désir d’être positif et de se montrer sous son meilleur jour.
+                </p>
+
+                <blockquote class="verbatim-quote">
+                    «&nbsp;Je fais ma vie comme une personne autonome. C’est sûr, j’ai besoin de l’aide, mais j’ai pas d’affaire à me plaindre pantoute, pantoute.&nbsp;»
+                    <span class="verbatim-author">— Guy, 73 ans, vivant avec des incapacités auditive, visuelle et motrice, se déplaçant avec un déambulateur et portant des appareils auditifs</span>
+                </blockquote>
+
+                <!-- 3. DISCUSSION ET RECOMMANDATIONS -->
+                <h2 class="section-title" id="sec-3">3. Discussion et recommandations</h2>
+
+                <p>
+                    L’article visait à partager les connaissances développées dans le cadre de la recherche «&nbsp;Accès-communauté&nbsp;: un objectif partagé&nbsp;» au sujet des facteurs de l’environnement social facilitant ou freinant les déplacements et la participation sociale des personnes aînées ayant différents types d’incapacités. Les résultats font écho aux thèmes cités par les écrits scientifiques&nbsp;: les attitudes des personnes côtoyées<span class="footnote-ref"><a id="sdfootnote29anc" href="#sdfootnote29sym">29</a>-<a id="sdfootnote30anc" href="#sdfootnote30sym">30</a>-<a id="sdfootnote31anc" href="#sdfootnote31sym">31</a></span>, la nature du soutien et de l’accompagnement requis et reçu<span class="footnote-ref"><a id="sdfootnote32anc" href="#sdfootnote32sym">32</a>-<a id="sdfootnote33anc" href="#sdfootnote33sym">33</a>-<a id="sdfootnote34anc" href="#sdfootnote34sym">34</a>-<a id="sdfootnote35anc" href="#sdfootnote35sym">35</a>-<a id="sdfootnote36anc" href="#sdfootnote36sym">36</a></span>, ainsi que les sentiments des personnes principalement concernées au sujet de leurs incapacités et des défis de leur inclusion sociale<span class="footnote-ref"><a id="sdfootnote37anc" href="#sdfootnote37sym">37</a>-<a id="sdfootnote38anc" href="#sdfootnote38sym">38</a>-<a id="sdfootnote39anc" href="#sdfootnote39sym">39</a>-<a id="sdfootnote40anc" href="#sdfootnote40sym">40</a></span>.
+                </p>
+
+                <p>
+                    Le deuxième objectif de l’article était de diffuser les savoirs produits pour améliorer l’accès à la ville des personnes principalement concernées. Sur ce plan, il apparaît pertinent de conclure en énonçant quelques recommandations&nbsp;:
+                </p>
+
+                <ul class="article-list">
+                    <li>
+                        travailler à sensibiliser le grand public sur le vieillissement, les incapacités et les aides techniques afin de lutter contre les stéréotypes et les préjugés à l’égard des personnes aînées ayant des incapacités et d’encourager des attitudes de soutien respectueuses et appropriées à leur égard&nbsp;;
+                    </li>
+                    <li>
+                        améliorer l’accès inclusif aux espaces de participation sociale et de services publics et commerciaux, notamment en favorisant les attitudes accueillantes et adaptatives ainsi que des options d’accompagnement diversifiées&nbsp;;
+                    </li>
+                    <li>
+                        donner la parole et écouter les personnes aînées ayant des incapacités lorsqu’elles expriment leurs besoins et valoriser leur expertise et leurs stratégies en matière d’inclusion sociale.
+                    </li>
+                </ul>
+
+                <!-- CARTE CONCEPTUELLE INTERACTIVE 4 -->
+                <div class="concept-map-card" id="map-recommandations">
+                    <div class="concept-map-header">
+                        <div>
+                            <span class="concept-map-badge">Carte conceptuelle interactive 4</span>
+                            <h4 class="concept-map-title">Vers une ville réellement accueillante : trois leviers d’action</h4>
+                        </div>
+                        <span class="concept-map-hint">Cliquez sur chaque levier pour consulter les pistes d’application</span>
+                    </div>
+                    <div class="concept-svg-wrapper">
+                        <svg viewBox="0 0 920 220" role="img" aria-label="Diagramme interactif des trois recommandations pour une ville inclusive">
+                            <!-- Flèches vers l'objectif final -->
+                            <path d="M 285 65 L 620 105" fill="none" stroke="#7a2222" stroke-width="2" marker-end="url(#arrow-bordeaux)"/>
+                            <path d="M 285 115 L 620 115" fill="none" stroke="#7a2222" stroke-width="2" marker-end="url(#arrow-bordeaux)"/>
+                            <path d="M 285 165 L 620 125" fill="none" stroke="#7a2222" stroke-width="2" marker-end="url(#arrow-bordeaux)"/>
+
+                            <!-- Pilier 1 -->
+                            <g class="svg-node active" onclick="selectConcept('map-recommandations', 'rec-1', this)">
+                                <rect x="20" y="20" width="265" height="48" rx="8" fill="#f9efef" stroke="#7a2222" stroke-width="2"/>
+                                <text x="35" y="42" font-size="12.5" font-weight="700" fill="#7a2222">1. Sensibilisation citoyenne</text>
+                                <text x="35" y="58" font-size="10.5" fill="#4a5568">Déconstruire l’âgisme et les stéréotypes</text>
+                            </g>
+
+                            <!-- Pilier 2 -->
+                            <g class="svg-node" onclick="selectConcept('map-recommandations', 'rec-2', this)">
+                                <rect x="20" y="88" width="265" height="48" rx="8" fill="#FAF6EF" stroke="#8c7a6b" stroke-width="1.5"/>
+                                <text x="35" y="110" font-size="12.5" font-weight="700" fill="#7a2222">2. Services &amp; espaces adaptatifs</text>
+                                <text x="35" y="126" font-size="10.5" fill="#4a5568">Accueil souple, commerces et transports</text>
+                            </g>
+
+                            <!-- Pilier 3 -->
+                            <g class="svg-node" onclick="selectConcept('map-recommandations', 'rec-3', this)">
+                                <rect x="20" y="156" width="265" height="48" rx="8" fill="#FAF6EF" stroke="#8c7a6b" stroke-width="1.5"/>
+                                <text x="35" y="178" font-size="12.5" font-weight="700" fill="#7a2222">3. Pouvoir d’agir &amp; écoute</text>
+                                <text x="35" y="194" font-size="10.5" fill="#4a5568">Valoriser l’expertise d’usage des aînés</text>
+                            </g>
+
+                            <!-- Cible finale -->
+                            <g class="svg-node" onclick="selectConcept('map-recommandations', 'rec-cible', this)">
+                                <rect x="625" y="55" width="275" height="120" rx="12" fill="#7a2222" stroke="#5e1a1a" stroke-width="2"/>
+                                <text x="762" y="92" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">CITOYENNETÉ PLEINE</text>
+                                <text x="762" y="112" text-anchor="middle" font-size="12" fill="#f7e8e8">Accès équitable à la ville</text>
+                                <text x="762" y="131" text-anchor="middle" font-size="12" fill="#f7e8e8">et participation sociale</text>
+                                <text x="762" y="154" text-anchor="middle" font-size="10.5" font-style="italic" fill="#ebd5d5">Complémentarité des politiques MADA</text>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="concept-detail-panel" id="detail-map-recommandations">
+                        <strong>Levier 1 — Sensibiliser le grand public :</strong> Lutter contre les préjugés entourant le vieillissement et les aides techniques (marchette, canne blanche, appareils auditifs) afin que l’entraide dans la rue ou les transports soit proposée avec respect et sans infantilisation.
+                    </div>
+                </div>
+
+                <!-- SOURCES DE FINANCEMENT -->
+                <h2 class="section-title" id="sec-financement">Sources de financement</h2>
+
+                <p>
+                    La recherche a été réalisée grâce au soutien financier provenant de divers bailleurs de fonds&nbsp;: Programme Nouveaux horizons pour les aînés (Gouvernement du Canada)&nbsp;; Fonds de recherche et d’enseignement Micheline Massé (École de travail social et de criminologie, Faculté des sciences sociales, Université Laval)&nbsp;; Fonds François-et-Rachel-Routhier (Faculté de philosophie, Faculté des sciences sociales et Faculté de théologie et de sciences religieuses, Université Laval)&nbsp;; Fonds Nicolas-et-Suzanne-Zay (École de travail social et de criminologie, Faculté des sciences sociales, Université Laval)&nbsp;; Équipe de recherche en partenariat Participation sociale et villes inclusives (Centre interdisciplinaire de recherche en réadaptation et intégration sociale)&nbsp;; Programme de diffusion et de promotion des résultats de la recherche des Presses de l’Université Laval.
+                </p>
+
+                <!-- REMERCIEMENTS -->
+                <h2 class="section-title" id="sec-remerciements">Remerciements</h2>
+
+                <p>
+                    Merci aux 23 personnes aînées ayant participé aux entretiens individuels et déambulatoires du projet <em>Accès-communauté&nbsp;: un objectif partagé</em> (ACOP) pour leur confiance et leurs témoignages. Nous tenons aussi à remercier les 7 personnes aînées ayant participé au projet <em>Ville inclusive et participation sociale des personnes aînées ayant des incapacités : une cartographie des facilitateurs et des obstacles à la mobilité</em>. Leurs récits ont aussi alimenté la recherche. Un merci tout spécial à Odette Lavoie, citoyenne aînée, pour son implication dans toutes les étapes du projet ainsi qu’à la Table de quartier l’Engrenage de St-Roch, notre partenaire principal depuis les débuts de cette recherche-action participative.
+                </p>
+
+                <!-- RÉFÉRENCES BIBLIOGRAPHIQUES -->
+                <h2 class="section-title" id="sec-references">Références bibliographiques</h2>
+
+                <ul class="bibliography-list">
+                    <li>Abbott, S., Mcconkey, R. (2006), «&nbsp;The barriers to social inclusion as perceived by people with intellectual disabilities&nbsp;», <em>Journal of Intellectual Disabilities</em>, vol. 10, n° 3, DOI&nbsp;: <a href="https://doi.org/10.1177/1744629506067618" target="_blank" rel="noopener noreferrer">https://doi.org/10.1177/1744629506067618</a>, pp. 275–287.</li>
+                    <li>Atoyebi, O. A., Labbé, D., Prescott, M., Mahmood, et als. (2019), «&nbsp;Mobility Challenges Among Older Adult Mobility Device Users&nbsp;», <em>Current Geriatrics Reports</em>, vol. 8, n° 3, DOI&nbsp;: <a href="https://doi.org/10.1007/s13670-019-00295-5" target="_blank" rel="noopener noreferrer">https://doi.org/10.1007/s13670-019-00295-5</a>, pp. 223-231.</li>
+                    <li>Clarke, P., Twardzik, E., Meade, M., et als. (2019), «&nbsp;Participation Among Adults Aging With Long-Term Physical Disability: The Role of Socioenvironmental Factors&nbsp;», <em>Journal of Aging and Health</em>, vol. 31, n° 10, DOI&nbsp;: <a href="https://doi.org/10.1177/0898264318822238" target="_blank" rel="noopener noreferrer">https://doi.org/10.1177/0898264318822238</a>, pp. 145S-168S.</li>
+                    <li>Direction de la recherche, de l’évaluation et de la statistique&nbsp;: Ministère de la Famille (2018), <em>Les aînés du Québec, quelques données récentes&nbsp;: Deuxième édition</em>, <a href="https://publications.msss.gouv.qc.ca/msss/fichiers/ainee/aines-quebec-chiffres.pdf" target="_blank" rel="noopener noreferrer">https://publications.msss.gouv.qc.ca/msss/fichiers/ainee/aines-quebec-chiffres.pdf</a>.</li>
+                    <li>Équipe de recherche Municipalités (&amp; Villes) Amies des Aînés au Québec (2018), <em>À propos</em>, URL&nbsp;: <a href="https://madaquebec.com/a-propos/" target="_blank" rel="noopener noreferrer">https://madaquebec.com/a-propos/</a>.</li>
+                    <li>Fougeyrollas, P. (2010), <em>Le funambule, le fil et la toile. Transformations réciproques du sens du handicap</em>, Québec&nbsp;: Presses de l’Université Laval.</li>
+                    <li>Gallagher, B.A.M., Hart, P. M., O’Brien, C., et als. (2011), «&nbsp;Mobility and access to transport issues as experienced by people with vision impairment living in urban and rural Ireland&nbsp;», <em>Disability and Rehabilitation</em>, vol. 33, n° 12, DOI&nbsp;: 10.3109/09638288.2010.516786, pp. 979-988.</li>
+                    <li>Gouvernement du Québec (2018), <em>Un Québec pour tous les âges&nbsp;: Le plan d’action 2018-2023</em>, URL&nbsp;: <a href="https://tinyurl.com/5fhduyvs" target="_blank" rel="noopener noreferrer">https://tinyurl.com/5fhduyvs</a>.</li>
+                    <li>Hedberg-Kristensson, E., Ivanoff, S. D., Iwarsson, S. (2007), «&nbsp;Experiences among older persons using mobility devices&nbsp;», <em>Disability and rehabilitation: Assistive technology</em>, vol. 2, n° 1, DOI&nbsp;: <a href="https://doi.org/10.1080/17483100600875197" target="_blank" rel="noopener noreferrer">https://doi.org/10.1080/17483100600875197</a>, pp. 15–22.</li>
+                    <li>Korotchenko A., Hurd Clarke, L. (2014), «&nbsp;Power mobility and the built environment: the experiences of older Canadians&nbsp;», <em>Disability &amp; Society</em>, vol. 29, n° 3, DOI&nbsp;: <a href="https://doi.org/10.1080/09687599.2013.816626" target="_blank" rel="noopener noreferrer">https://doi.org/10.1080/09687599.2013.816626</a>, pp. 431-443.</li>
+                    <li>Labbé, D., Mortenson, W.B., Rushton, P. W., et als. (2020), «&nbsp;Mobility and participation among ageing powered wheelchair users: using a lifecourse approach&nbsp;», <em>Ageing &amp; Society</em>, vol. 40, n° 3, DOI&nbsp;: <a href="https://doi.org/10.1017/S0144686X18001228" target="_blank" rel="noopener noreferrer">https://doi.org/10.1017/S0144686X18001228</a>, pp. 626–642.</li>
+                    <li>Laliberté Rudman, D., Durdle, M. (2008), «&nbsp;Living With Fear: The Lived Experience of Community Mobility Among Older Adults With Low Vision&nbsp;», <em>Journal of Aging and Physical Activity</em>, vol. 17, n° 1, DOI&nbsp;: <a href="https://doi.org/10.1123/japa.17.1.106" target="_blank" rel="noopener noreferrer">10.1123/japa.17.1.106</a>, pp. 106-122.</li>
+                    <li>Laliberté Rudman, D., Gold, D., McGrath, C., et als. (2016), «&nbsp;“Why would I want to go out?”: Age-related Vision Loss and Social Participation&nbsp;», <em>Canadian Journal on Aging / La Revue Canadienne Du Vieillissement</em>, vol. 35, n° 4, DOI&nbsp;: <a href="https://doi.org/10.1017/S0714980816000490" target="_blank" rel="noopener noreferrer">https://doi.org/10.1017/S0714980816000490</a>, pp. 465-478.</li>
+                    <li>Lamanna, M., Klinger, C.A., Liu, A. &amp; Mirza, R.M. (2019), «&nbsp;The Association between Public Transportation and Social Isolation in Older Adults: A Scoping Review of the Literature&nbsp;», <em>Canadian Journal on Aging / La Revue canadienne du vieillissement</em>, vol. 39, n° 3, DOI&nbsp;: <a href="https://doi.org/10.1017/S07149808190003" target="_blank" rel="noopener noreferrer">https://doi.org/10.1017/S07149808190003</a>, pp. 1-13.</li>
+                    <li>Levasseur, M., Généreux, M., Bruneau, J., et als. (2015), «&nbsp;Importance of proximity to resources, social support, transportation and neighborhood security for mobility and social participation in older adults: results from a scoping study&nbsp;», <em>BMC Public Health</em>, vol. 15, DOI&nbsp;: <a href="https://doi.org/10.1186/s12889-015-1824-0" target="_blank" rel="noopener noreferrer">https://doi.org/10.1186/s12889-015-1824-0</a>, pp. 1-19.</li>
+                    <li>McGrath, C., Laliberté Rudman, D., Spafford, M., et als. (2017), «&nbsp;The Environmental Production of Disability for Seniors with Age-Related Vision Loss&nbsp;», <em>Canadian journal on aging / La revue canadienne du vieillissement</em>, vol. 36, n° 1, DOI&nbsp;: <a href="https://doi.org/10.1017/S0714980816000623" target="_blank" rel="noopener noreferrer">https://doi.org/10.1017/S0714980816000623</a>, pp. 55–66.</li>
+                    <li>Ministère de la Santé et des Services sociaux (2020), <em>Programme de soutien à la démarche: Volet 1 – Soutien à la réalisation de politiques et de plans d’action en faveur des aînés</em>, Publication n° 21-830-01W.</li>
+                    <li>Nordbakke, S. &amp; Schwanen, T. (2015), «&nbsp;Transport, unmet activity needs and wellbeing in later life: exploring the links&nbsp;», <em>Transportation</em>, vol. 42, n° 6, DOI&nbsp;: <a href="https://doi.org/10.1007/s11116-014-9558-x" target="_blank" rel="noopener noreferrer">https://doi.org/10.1007/s11116-014-9558-x</a>, pp. 1129–1151.</li>
+                    <li>Organisation des Nations unies (2006), <em>Convention relative aux droits des personnes handicapées</em>, URL&nbsp;: <a href="https://tinyurl.com/fk7css8e" target="_blank" rel="noopener noreferrer">https://tinyurl.com/fk7css8e</a>.</li>
+                    <li>Pigeon, C., Boulianne, R., Levasseur, M. (2019), «&nbsp;Accompagnement-citoyen personnalisé d’intégration communautaire (APIC) et changements de la mobilité chez des aînés en perte d’autonomie&nbsp;», <em>Revue Francophone de Recherche en Ergothérapie</em>, vol. 5, n° 2, DOI&nbsp;: <a href="https://doi.org/10.13096/rfre.v5n2.113" target="_blank" rel="noopener noreferrer">https://doi.org/10.13096/rfre.v5n2.113</a>, pp. 65-86.</li>
+                    <li>Raymond, É., Grenier, A. (2016), «&nbsp;La participation sociale des aînés ayant des incapacités : un photoroman pour passer de la marge à l’inclusion&nbsp;», <em>Service social</em>, vol. 62, n° 2, DOI&nbsp;: <a href="https://doi.org/10.7202/1038581ar" target="_blank" rel="noopener noreferrer">https://doi.org/10.7202/1038581ar</a>, pp. 131–149.</li>
+                    <li>Vercauteren, R. (2011), <em>Dictionnaire de la gérontologie sociale&nbsp;: vieillissement et vieillesse</em>, vol. 1, Paris&nbsp;: Érès, URL&nbsp;: <a href="https://tinyurl.com/5db47skv" target="_blank" rel="noopener noreferrer">https://tinyurl.com/5db47skv</a>, p. 38.</li>
+                </ul>
+
+                <!-- NOTES DE BAS DE PAGE -->
+                <section class="footnotes-section" aria-label="Notes de bas de page">
+                    <h3 class="subsection-title" style="margin-top: 0; font-size: 1.05rem;">Notes</h3>
+                    <div class="footnote-item" id="sdfootnote1sym"><a class="fn-back" href="#sdfootnote1anc">1</a> Fougeyrollas, P. (2010), <em>Le funambule, le fil et la toile. Transformations réciproques du sens du handicap</em>, Québec&nbsp;: Presses de l’Université Laval.</div>
+                    <div class="footnote-item" id="sdfootnote2sym"><a class="fn-back" href="#sdfootnote2anc">2</a> Gouvernement du Québec (2018), <em>Un Québec pour tous les âges&nbsp;: Le plan d’action 2018-2023</em>, URL&nbsp;: <a href="https://tinyurl.com/5fhduyvs" target="_blank" rel="noopener noreferrer">https://tinyurl.com/5fhduyvs</a>.</div>
+                    <div class="footnote-item" id="sdfootnote3sym"><a class="fn-back" href="#sdfootnote3anc">3</a> Équipe de recherche Municipalités (&amp; Villes) Amies des Aînés au Québec (2018), <em>À propos</em>, URL&nbsp;: <a href="https://madaquebec.com/a-propos/" target="_blank" rel="noopener noreferrer">https://madaquebec.com/a-propos/</a>.</div>
+                    <div class="footnote-item" id="sdfootnote4sym"><a class="fn-back" href="#sdfootnote4anc">4</a> Ministère de la Santé et des Services sociaux. (2020), <em>Programme de soutien à la démarche: Volet 1 – Soutien à la réalisation de politiques et de plans d’action en faveur des aînés</em>, Publication n° 21-830-01W.</div>
+                    <div class="footnote-item" id="sdfootnote5sym"><a class="fn-back" href="#sdfootnote5anc">5</a> Organisation des Nations unies (2006), <em>Convention relative aux droits des personnes handicapées</em>, URL&nbsp;: <a href="https://tinyurl.com/fk7css8e" target="_blank" rel="noopener noreferrer">https://tinyurl.com/fk7css8e</a>.</div>
+                    <div class="footnote-item" id="sdfootnote6sym"><a class="fn-back" href="#sdfootnote6anc">6</a> Fougeyrollas, P. (2010), <em>op. cit.</em></div>
+                    <div class="footnote-item" id="sdfootnote7sym"><a class="fn-back" href="#sdfootnote7anc">7</a> Direction de la recherche, de l’évaluation et de la statistique&nbsp;: Ministère de la Famille (2018). <em>Les aînés du Québec, quelques données récentes&nbsp;: Deuxième édition</em>. <a href="https://publications.msss.gouv.qc.ca/msss/fichiers/ainee/aines-quebec-chiffres.pdf" target="_blank" rel="noopener noreferrer">https://publications.msss.gouv.qc.ca/msss/fichiers/ainee/aines-quebec-chiffres.pdf</a>.</div>
+                    <div class="footnote-item" id="sdfootnote8sym"><a class="fn-back" href="#sdfootnote8anc">8</a> Clarke, P., Twardzik, E., Meade, M., et als. (2019), «&nbsp;Participation Among Adults Aging With Long-Term Physical Disability: The Role of Socioenvironmental Factors&nbsp;», <em>Journal of Aging and Health</em>, vol. 31. n° 10, DOI&nbsp;: <a href="https://doi.org/10.1177/0898264318822238" target="_blank" rel="noopener noreferrer">https://doi.org/10.1177/0898264318822238</a>, pp. 145S-168S.</div>
+                    <div class="footnote-item" id="sdfootnote9sym"><a class="fn-back" href="#sdfootnote9anc">9</a> Labbé, D., Mortenson, W.B., Rushton, P. W., et als. (2020), «&nbsp;Mobility and participation among ageing powered wheelchair users: using a lifecourse approach&nbsp;», <em>Ageing &amp; Society</em>, vol. 40, n° 3, DOI&nbsp;: <a href="https://doi.org/10.1017/S0144686X18001228" target="_blank" rel="noopener noreferrer">https://doi.org/10.1017/S0144686X18001228</a>, pp. 626–642.</div>
+                    <div class="footnote-item" id="sdfootnote10sym"><a class="fn-back" href="#sdfootnote10anc">10</a> Levasseur, M., Généreux, M., Bruneau, J., et als. (2015), «&nbsp;Importance of proximity to resources, social support, transportation and neighborhood security for mobility and social participation in older adults: results from a scoping study&nbsp;», <em>BMC Public Health</em>, vol. 15, DOI&nbsp;: <a href="https://doi.org/10.1186/s12889-015-1824-0" target="_blank" rel="noopener noreferrer">https://doi.org/10.1186/s12889-015-1824-0</a>, pp. 1-19.</div>
+                    <div class="footnote-item" id="sdfootnote11sym"><a class="fn-back" href="#sdfootnote11anc">11</a> Laliberte Rudman, D., Durdle, M. (2008), «&nbsp;Living With Fear: The Lived Experience of Community Mobility Among Older Adults With Low Vision&nbsp;», <em>Journal of Aging and Physical Activity</em>, vol. 17, n° 1, DOI&nbsp;: <a href="https://doi.org/10.1123/japa.17.1.106" target="_blank" rel="noopener noreferrer">10.1123/japa.17.1.106</a>, pp. 106-122.</div>
+                    <div class="footnote-item" id="sdfootnote12sym"><a class="fn-back" href="#sdfootnote12anc">12</a> Pigeon, C., Boulianne, R., Levasseur, M. (2019), «&nbsp;Accompagnement-citoyen personnalisé d’intégration communautaire (APIC) et changements de la mobilité chez des aînés en perte d’autonomie&nbsp;», <em>Revue Francophone de Recherche en Ergothérapie</em>, vol. 5, n° 2, DOI&nbsp;: <a href="https://doi.org/10.13096/rfre.v5n2.113" target="_blank" rel="noopener noreferrer">https://doi.org/10.13096/rfre.v5n2.113</a>, pp. 65-86.</div>
+                    <div class="footnote-item" id="sdfootnote13sym"><a class="fn-back" href="#sdfootnote13anc">13</a> <em>Idem.</em></div>
+                    <div class="footnote-item" id="sdfootnote14sym"><a class="fn-back" href="#sdfootnote14anc">14</a> Laliberté Rudman, D., Gold, D., McGrath, C., et als. (2016), «&nbsp;“Why would I want to go out?”: Age-related Vision Loss and Social Participation&nbsp;», <em>Canadian Journal on Aging / La Revue Canadienne Du Vieillissement</em>, vol. 35, n° 4, DOI&nbsp;: <a href="https://doi.org/10.1017/S0714980816000490" target="_blank" rel="noopener noreferrer">https://doi.org/10.1017/S0714980816000490</a>, pp. 465-478.</div>
+                    <div class="footnote-item" id="sdfootnote15sym"><a class="fn-back" href="#sdfootnote15anc">15</a> Labbé, D., Mortenson, W.B., Rushton, P. W., et als. (2020), <em>op. cit.</em></div>
+                    <div class="footnote-item" id="sdfootnote16sym"><a class="fn-back" href="#sdfootnote16anc">16</a> Abbott, S., Mcconkey, R. (2006), «&nbsp;The barriers to social inclusion as perceived by people with intellectual disabilities&nbsp;», <em>Journal of Intellectual Disabilities</em>, vol. 10, n° 3, DOI&nbsp;: <a href="https://doi.org/10.1177/1744629506067618" target="_blank" rel="noopener noreferrer">https://doi.org/10.1177/1744629506067618</a>, pp. 275–287.</div>
+                    <div class="footnote-item" id="sdfootnote17sym"><a class="fn-back" href="#sdfootnote17anc">17</a> Laliberté Rudman, D., Gold, D., McGrath, C., et als. (2016), <em>op. cit.</em></div>
+                    <div class="footnote-item" id="sdfootnote18sym"><a class="fn-back" href="#sdfootnote18anc">18</a> Gallagher, B.A.M., Hart, P. M., O’Brien, C., et als. (2011), «&nbsp;Mobility and access to transport issues as experienced by people with vision impairment living in urban and rural Ireland&nbsp;», <em>Disability and Rehabilitation</em>, vol. 33, n° 12, DOI&nbsp;: 10.3109/09638288.2010.516786, pp. 979-988.</div>
+                    <div class="footnote-item" id="sdfootnote19sym"><a class="fn-back" href="#sdfootnote19anc">19</a> Lamanna, M., Klinger, C.A., Liu, A. &amp; Mirza, R.M. (2019), «&nbsp;The Association between Public Transportation and Social Isolation in Older Adults: A Scoping Review of the Literature&nbsp;», <em>Canadian Journal on Aging / La Revue canadienne du vieillissement</em>, vol. 39, n° 3, DOI&nbsp;: <a href="https://doi.org/10.1017/S07149808190003" target="_blank" rel="noopener noreferrer">https://doi.org/10.1017/S07149808190003</a>, pp. 1-13.</div>
+                    <div class="footnote-item" id="sdfootnote20sym"><a class="fn-back" href="#sdfootnote20anc">20</a> Nordbakke, S. &amp; Schwanen, T. (2015), «&nbsp;Transport, unmet activity needs and wellbeing in later life: exploring the links&nbsp;», <em>Transportation</em>, vol. 42, n° 6, DOI&nbsp;: <a href="https://doi.org/10.1007/s11116-014-9558-x" target="_blank" rel="noopener noreferrer">https://doi.org/10.1007/s11116-014-9558-x</a>, pp. 1129–1151.</div>
+                    <div class="footnote-item" id="sdfootnote21sym"><a class="fn-back" href="#sdfootnote21anc">21</a> Laliberté Rudman, D., Gold, D., McGrath, C., et als. (2016), <em>op. cit.</em></div>
+                    <div class="footnote-item" id="sdfootnote22sym"><a class="fn-back" href="#sdfootnote22anc">22</a> McGrath, C., Laliberté Rudman, D., Spafford, M., et als. (2017), «&nbsp;The Environmental Production of Disability for Seniors with Age-Related Vision Loss&nbsp;», <em>Canadian journal on aging / La revue canadienne du vieillissement</em>, vol. 36, n° 1, DOI&nbsp;: <a href="https://doi.org/10.1017/S0714980816000623" target="_blank" rel="noopener noreferrer">https://doi.org/10.1017/S0714980816000623</a>, pp. 55–66.</div>
+                    <div class="footnote-item" id="sdfootnote23sym"><a class="fn-back" href="#sdfootnote23anc">23</a> Atoyebi, O. A., Labbé, D., Prescott, M., Mahmood, et als. (2019), «&nbsp;Mobility Challenges Among Older Adult Mobility Device Users&nbsp;», <em>Current Geriatrics Reports</em>, vol. 8, n° 3, DOI&nbsp;: <a href="https://doi.org/10.1007/s13670-019-00295-5" target="_blank" rel="noopener noreferrer">https://doi.org/10.1007/s13670-019-00295-5</a>, pp. 223-231.</div>
+                    <div class="footnote-item" id="sdfootnote24sym"><a class="fn-back" href="#sdfootnote24anc">24</a> Hedberg-Kristensson, E., Ivanoff, S. D., Iwarsson, S. (2007), «&nbsp;Experiences among older persons using mobility devices&nbsp;», <em>Disability and rehabilitation: Assistive technology</em>, vol. 2, n° 1, DOI&nbsp;: <a href="https://doi.org/10.1080/17483100600875197" target="_blank" rel="noopener noreferrer">https://doi.org/10.1080/17483100600875197</a>, pp. 15–22.</div>
+                    <div class="footnote-item" id="sdfootnote25sym"><a class="fn-back" href="#sdfootnote25anc">25</a> Korotchenko A., Hurd Clarke, L. (2014), «&nbsp;Power mobility and the built environment: the experiences of older Canadians&nbsp;», <em>Disability &amp; Society</em>, vol. 29, n° 3, DOI&nbsp;: <a href="https://doi.org/10.1080/09687599.2013.816626" target="_blank" rel="noopener noreferrer">https://doi.org/10.1080/09687599.2013.816626</a>, pp. 431-443.</div>
+                    <div class="footnote-item" id="sdfootnote26sym"><a class="fn-back" href="#sdfootnote26anc">26</a> «&nbsp;Organisme de charité reconnu, l’Engrenage se donne comme mission de renforcer le tissu social, de célébrer la richesse de la mixité de Saint-Roch et de soutenir le quartier dans la réponse aux besoins sociaux des personnes qui l’habitent et le fréquentent.&nbsp;», (Engrenage St-Roch, 2023).</div>
+                    <div class="footnote-item" id="sdfootnote27sym"><a class="fn-back" href="#sdfootnote27anc">27</a> Raymond, É., Grenier, A. (2016), «&nbsp;La participation sociale des aînés ayant des incapacités : un photoroman pour passer de la marge à l’inclusion&nbsp;», <em>Service social</em>, vol. 62, n° 2, DOI&nbsp;: <a href="https://doi.org/10.7202/1038581ar" target="_blank" rel="noopener noreferrer">https://doi.org/10.7202/1038581ar</a>, pp. 131–149.</div>
+                    <div class="footnote-item" id="sdfootnote28sym"><a class="fn-back" href="#sdfootnote28anc">28</a> Vercauteren, R. (2011), <em>Dictionnaire de la gérontologie sociale&nbsp;: vieillissement et vieillesse</em>, vol. 1, Paris&nbsp;: Érès, URL&nbsp;: <a href="https://tinyurl.com/5db47skv" target="_blank" rel="noopener noreferrer">https://tinyurl.com/5db47skv</a>, p. 38.</div>
+                    <div class="footnote-item" id="sdfootnote29sym"><a class="fn-back" href="#sdfootnote29anc">29</a> Labbé, D., Mortenson, W.B., Rushton, P. W., et als. (2020), <em>op. cit.</em></div>
+                    <div class="footnote-item" id="sdfootnote30sym"><a class="fn-back" href="#sdfootnote30anc">30</a> Laliberte Rudman, D., Durdle, M. (2016), <em>op. cit.</em></div>
+                    <div class="footnote-item" id="sdfootnote31sym"><a class="fn-back" href="#sdfootnote31anc">31</a> McGrath, C., Laliberté Rudman, D., Spafford, M., et als. (2017), «&nbsp;The Environmental Production of Disability for Seniors with Age-Related Vision Loss&nbsp;», <em>Canadian journal on aging / La revue canadienne du vieillissement</em>, vol. 36, n° 1, DOI&nbsp;: <a href="https://doi.org/10.1017/S0714980816000623" target="_blank" rel="noopener noreferrer">https://doi.org/10.1017/S0714980816000623</a>, pp. 55–66.</div>
+                    <div class="footnote-item" id="sdfootnote32sym"><a class="fn-back" href="#sdfootnote32anc">32</a> Pigeon, C., Boulianne, R., Levasseur, M. (2019), <em>op. cit.</em></div>
+                    <div class="footnote-item" id="sdfootnote33sym"><a class="fn-back" href="#sdfootnote33anc">33</a> Laliberte Rudman, D., Durdle, M. (2008), <em>op. cit.</em></div>
+                    <div class="footnote-item" id="sdfootnote34sym"><a class="fn-back" href="#sdfootnote34anc">34</a> Labbé, D., Mortenson, W.B., Rushton, P. W., et als. (2020), <em>op. cit.</em></div>
+                    <div class="footnote-item" id="sdfootnote35sym"><a class="fn-back" href="#sdfootnote35anc">35</a> Clarke, P., Twardzik, E., Meade, M., et als. (2019), <em>op. cit.</em></div>
+                    <div class="footnote-item" id="sdfootnote36sym"><a class="fn-back" href="#sdfootnote36anc">36</a> Levasseur, M., Généreux, M., Bruneau, J., et als. (2015), <em>op. cit.</em></div>
+                    <div class="footnote-item" id="sdfootnote37sym"><a class="fn-back" href="#sdfootnote37anc">37</a> Gallagher, B.A.M., Hart, P. M., O’Brien, C., et als. (2011), <em>op. cit.</em></div>
+                    <div class="footnote-item" id="sdfootnote38sym"><a class="fn-back" href="#sdfootnote38anc">38</a> Laliberte Rudman, D., Gold, D., McGrath, C., et als. (2016), <em>op. cit.</em></div>
+                    <div class="footnote-item" id="sdfootnote39sym"><a class="fn-back" href="#sdfootnote39anc">39</a> Lamanna, M., Klinger, C.A., Liu, A. &amp; Mirza, R.M. (2019), <em>op. cit.</em></div>
+                    <div class="footnote-item" id="sdfootnote40sym"><a class="fn-back" href="#sdfootnote40anc">40</a> Nordbakke, S. &amp; Schwanen, T. (2015), <em>op. cit.</em></div>
+                </section>
+
+            </article>
+        </main>
+    </div>
+
+    <!-- Modal Universel (PDF / Vidéo) -->
+    <div class="modal-overlay" id="mediaModal" onclick="closeModalOnOutside(event)">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 id="modalTitle">Titre de la fenêtre</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBodyContent"></div>
+        </div>
+    </div>
+
+    <!-- Modal de Proposition d'Article / Projet -->
+    <div class="modal-overlay" id="proposalModal" onclick="closeProposalModalOnOutside(event)">
+        <div class="modal-container" style="max-width: 800px; height: auto;">
+            <div class="modal-header">
+                <h3 id="proposalModalTitle">Proposer une captation ou un article / Nous faire part d'un commentaire</h3>
+                <button class="modal-close" onclick="closeProposalModal()">&times;</button>
+            </div>
+            <div class="modal-body" style="padding: 1.5rem; overflow-y: auto;">
+                <form id="proposalForm" onsubmit="submitProposal(event)" style="display: flex; flex-direction: column; gap: 1rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                    <input type="hidden" id="propCategory" value="article">
+                    <div>
+                        <label for="propName" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Votre nom</label>
+                        <input type="text" id="propName" required style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propEmail" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Votre courriel</label>
+                        <input type="email" id="propEmail" required style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propTitle" id="propTitleLabel" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Que désirez-vous nous communiquer ?</label>
+                        <input type="text" id="propTitle" required placeholder="Ex: Analyse de l'accessibilité urbaine..." style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propDesc" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Description ou résumé</label>
+                        <textarea id="propDesc" rows="4" required placeholder="Décrivez votre proposition en quelques lignes..." style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff; resize: vertical;"></textarea>
+                    </div>
+                    <button type="submit" style="background-color: #7a2222; color: #fff; border: none; padding: 0.75rem; border-radius: 4px; font-weight: 600; cursor: pointer; margin-top: 0.5rem; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#5e1a1a'" onmouseout="this.style.backgroundColor='#7a2222'">Envoyer la proposition</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSubmenu(event, submenuId, arrowId) {
+            event.stopPropagation();
+            const submenu = document.getElementById(submenuId);
+            const arrow = document.getElementById(arrowId);
+            const isOpen = submenu.classList.toggle('open');
+            arrow.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+            if (event.currentTarget && event.currentTarget.hasAttribute('aria-expanded')) {
+                event.currentTarget.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            }
+        }
+
+        function scrollToSection(event, targetId) {
+            event.preventDefault();
+            if (targetId === 'presentation') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                return;
+            }
+            const target = document.getElementById(targetId);
+            if (target) {
+                const topbarOffset = 88; // 60px topbar + 28px marge visuelle au-dessus du titre
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - topbarOffset;
+                window.scrollTo({
+                    top: Math.max(0, offsetPosition),
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        const conceptDescriptions = {
+            'centre-env': '<strong>Environnement social (Fougeyrollas, 2010) :</strong> Manière dont la société est organisée sur le plan de la gouverne de l’État, des services aux citoyens et des relations interpersonnelles. L’accessibilité ne relève pas uniquement du bâti, mais de la qualité de ces interactions quotidiennes.',
+            'fac-reseau': '<strong>Soutien du réseau proche :</strong> La présence et la proximité géographique de la famille, des amis et des voisins nourrissent le sentiment d’appartenance et facilitent les demandes d’aide sans gêne (Clarke et al., 2019 ; Levasseur et al., 2015).',
+            'fac-accomp': '<strong>Accompagnement adapté :</strong> Qu’il soit assuré par des proches ou par des ressources rémunérées/bénévoles (APIC), l’accompagnement diminue le niveau de vigilance requis et renforce la sécurité et le plaisir des sorties (Pigeon et al., 2019).',
+            'fac-empathie': '<strong>Compréhension spontanée :</strong> Prendre le temps d’écouter comment la personne souhaite être aidée, sans précipitation ni prise de contrôle, préserve sa dignité et sa maîtrise de la situation (Laliberté Rudman et al., 2016).',
+            'obs-attitudes': '<strong>Attitudes négatives :</strong> Regards insistants, impatience dans les files ou les transports, et esquive du contact visuel dans l’espace public produisent un sentiment d’invisibilité et d’exclusion sociale.',
+            'obs-fardeau': '<strong>Peur d’être un fardeau :</strong> La crainte d’être perçu comme dépendant ou encombrant pousse plusieurs aînés à restreindre volontairement leurs sorties ou à dissimuler leurs aides techniques.',
+            'obs-accomm': '<strong>Accommodements accueillis avec irritation :</strong> Lorsque le personnel ou les usagers réagissent avec scepticisme à une demande d’adaptation, l’accès aux lieux de participation sociale devient une source de stress majeur.',
+
+            'step-gouvernance': '<strong>Étape 1 — Gouvernance participative :</strong> Alliance entre chercheurs universitaires (Université Laval), intervenants et citoyens aînés de la Table de quartier l’Engrenage St-Roch pour ancrer la recherche dans le vécu réel du quartier.',
+            'step-indiv': '<strong>Étape 2 — Entretiens individuels (n = 23) :</strong> Rencontres auprès de 12 femmes et 11 hommes (moyenne de 67 ans, seuil dès 55 ans) vivant à Québec avec diverses incapacités motrices, sensorielles, intellectuelles ou psychiques.',
+            'step-deamb': '<strong>Étape 3 — Entretiens déambulatoires (n = 9) :</strong> Accompagnement des participants lors d’un déplacement et d’une activité réelle afin d’observer et de capter visuellement les obstacles et facilitateurs en contexte.',
+            'step-analyse': '<strong>Étape 4 — Analyse thématique et transfert :</strong> Croisement des récits et du matériau photographique/filmique pour identifier les déterminants sociaux et outiller les acteurs municipaux et communautaires.',
+
+            'axe-1': '<strong>1) L’accompagnement :</strong> Loin d’être un simple palliatif logistique, la présence d’un proche ou d’un accompagnateur réduit la charge cognitive (« baisse du niveau de vigilance »), sécurise l’accès physique aux lieux et transforme la sortie en moment de convivialité.',
+            'axe-2': '<strong>2) Interactions sociales dans les lieux publics :</strong> La qualité du lien citoyen repose sur un équilibre délicat : offrir une aide disponible et respectueuse du rythme de la personne, sans lui retirer son autonomie ni lui imposer un geste brusque.',
+            'axe-3': '<strong>3) Organisation et prestation des services :</strong> La disponibilité du personnel (caisses, accueil) et la souplesse du transport adapté (réservation 24 h à l’avance, hiérarchisation des motifs) conditionnent directement la spontanéité des sorties.',
+            'axe-4': '<strong>4) Rapport aux incapacités et aux aides techniques :</strong> L’acceptation de la marchette, de la canne ou du quadriporteur passe par la déconstruction des stéréotypes et par des stratégies créatives (humour, personnalisation) qui brisent la glace.',
+
+            'rec-1': '<strong>Levier 1 — Sensibiliser le grand public :</strong> Lutter contre les préjugés entourant le vieillissement et les aides techniques (marchette, canne blanche, appareils auditifs) afin que l’entraide dans la rue ou les transports soit proposée avec respect et sans infantilisation.',
+            'rec-2': '<strong>Levier 2 — Espaces et services adaptatifs :</strong> Assouplir les règles du transport adapté pour les activités sociales, former le personnel des commerces et institutions à l’accueil inclusif et multiplier les formules d’accompagnement.',
+            'rec-3': '<strong>Levier 3 — Pouvoir d’agir et écoute active :</strong> Reconnaître les personnes aînées ayant des incapacités comme des expertes de leur quotidien et intégrer leurs solutions pratiques dans la gouvernance municipale (MADA).',
+            'rec-cible': '<strong>Objectif global — Citoyenneté pleine et entière :</strong> Articuler les politiques MADA et les pratiques communautaires pour bâtir une ville où chaque personne aînée, quelles que soient ses incapacités, se sent légitime et bienvenue.'
+        };
+
+        function selectConcept(mapId, key, element) {
+            const container = document.getElementById(mapId);
+            if (!container) return;
+            const nodes = container.querySelectorAll('.svg-node');
+            nodes.forEach(n => n.classList.remove('active'));
+            if (element) element.classList.add('active');
+            const detailPanel = document.getElementById('detail-' + mapId);
+            if (detailPanel && conceptDescriptions[key]) {
+                detailPanel.innerHTML = conceptDescriptions[key];
+            }
+        }
+
+        function openModal(type, title, url) {
+            const modal = document.getElementById('mediaModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalBodyContent = document.getElementById('modalBodyContent');
+
+            modalTitle.textContent = title;
+            modalBodyContent.innerHTML = '';
+
+            if (type === 'pdf') {
+                const iframe = document.createElement('iframe');
+                iframe.className = 'pdf-frame';
+                iframe.src = url;
+                modalBodyContent.appendChild(iframe);
+            } else if (type === 'video') {
+                const iframe = document.createElement('iframe');
+                iframe.className = 'video-frame';
+                iframe.src = url;
+                iframe.setAttribute('allow', 'autoplay; fullscreen');
+                modalBodyContent.appendChild(iframe);
+            }
+
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('mediaModal');
+            modal.style.display = 'none';
+            document.getElementById('modalBodyContent').innerHTML = '';
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeModalOnOutside(event) {
+            const modal = document.getElementById('mediaModal');
+            if (event.target === modal) closeModal();
+        }
+
+        function openProposalModal(type) {
+            const proposalModal = document.getElementById('proposalModal');
+            const titleEl = document.getElementById('proposalModalTitle');
+            const categoryEl = document.getElementById('propCategory');
+            const titleLabelEl = document.getElementById('propTitleLabel');
+            const titleInputEl = document.getElementById('propTitle');
+
+            categoryEl.value = type;
+
+            if (type === 'captation') {
+                titleEl.textContent = "Nous faire part d'un commentaire ou d'une proposition (captation ou article)";
+                titleLabelEl.textContent = "Que voulez-vous nous communiquer ?";
+                titleInputEl.placeholder = "Ex: projet de captation, soumettre un article, faire un commentaire...";
+            } else {
+                titleEl.textContent = "Nous faire part d'un commentaire ou d'une proposition (captation ou article)";
+                titleLabelEl.textContent = "Que voulez-vous nous communiquer ?";
+                titleInputEl.placeholder = "Ex: projet de captation, soumettre un article, faire un commentaire...";
+            }
+
+            proposalModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProposalModal() {
+            const proposalModal = document.getElementById('proposalModal');
+            proposalModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeProposalModalOnOutside(event) {
+            const proposalModal = document.getElementById('proposalModal');
+            if (event.target === proposalModal) closeProposalModal();
+        }
+
+        function submitProposal(event) {
+            event.preventDefault();
+            const name = document.getElementById('propName').value;
+            const email = document.getElementById('propEmail').value;
+            const category = document.getElementById('propCategory').value;
+            const title = document.getElementById('propTitle').value;
+            const desc = document.getElementById('propDesc').value;
+
+            const typeLabel = category === 'captation' ? 'Proposition de captation' : "Proposition d'article";
+            const subject = encodeURIComponent(`${typeLabel} : ${title}`);
+            const body = encodeURIComponent(`Nom : ${name}
+Courriel : ${email}
+Type : ${typeLabel}
+Titre : ${title}
+
+Description :
+${desc}`);
+
+            window.location.href = `mailto:sociocamera@gmail.com?subject=${subject}&body=${body}`;
+            closeProposalModal();
+        }
+
+        window.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+                closeProposalModal();
+            }
+        });
+    </script>
+</body>
+</html>
