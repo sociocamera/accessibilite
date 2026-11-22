@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; frame-src https://drive.google.com; connect-src https://script.google.com; object-src 'none';">
+    <title>Plaidoyer pour une recherche militante | Revue de Sociologie Visuelle</title>
+    <meta name="description" content="Plaidoyer pour une recherche militante par Marie-Eve Veilleux. Numéro spécial de la Revue de Sociologie Visuelle consacré à l'inclusion sociale et à l'accessibilité.">
+    <meta name="keywords" content="inclusion sociale, accessibilité, sociologie visuelle, handicap, recherche militante, Marie-Eve Veilleux, CIRRIS, PSVI">
+    <link rel="canonical" href="https://doi.org/10.13140/RG.2.2.35504.53768">
+
+<!-- Open Graph (Facebook, LinkedIn, WhatsApp, etc.) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Revue Sociologie Visuelle">
+<meta property="og:title" content="Inclusion sociale et accessibilité | Revue de Sociologie Visuelle">
+<meta property="og:description" content="Numéro spécial de la Revue de Sociologie Visuelle consacré à l'inclusion sociale et à l'accessibilité. Contributions empiriques et théoriques dirigées par François Routhier et Pierre Fraser.">
+<meta property="og:url" content="https://inclusionsociale.com/">
+<meta property="og:image" content="https://lh3.googleusercontent.com/d/1R-6VqA6SZ8t1dall1uf0mj_ehOcj7jNW">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="fr_CA">
+
+<!-- Twitter / X Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Inclusion sociale et accessibilité | Revue de Sociologie Visuelle">
+<meta name="twitter:description" content="Numéro spécial de la Revue de Sociologie Visuelle consacré à l'inclusion sociale et à l'accessibilité.">
+<meta name="twitter:image" content="https://inclusionsociale.com/images/vignette-inclusion-sociale.jpg">
+
+
+    <style>
+        :root {
+            --bg-color: #FAF6EF;
+            --text-color: #2b2b2b;
+            --primary-color: #1a202c;
+            --accent-color: #4a5568;
+            --border-color: #e2e8f0;
+            --card-bg: #FAF6EF;
+            --hover-border: #cbd5e0;
+            --max-width: 1400px;
+            --sidebar-width: 320px;
+            --topbar-height: 60px;
+            --modal-header-bg: #7a2222; /* Bordeaux de référence */
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Georgia", "Cambria", "Times New Roman", serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Barre horizontale permanente supérieure : toute la largeur de la page */
+        .top-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--topbar-height);
+            background-color: var(--bg-color);
+            border-bottom: 1px solid var(--border-color);
+            display: grid;
+            grid-template-columns: var(--sidebar-width) 1fr auto;
+            align-items: center;
+            padding: 0;
+            z-index: 1100;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .top-navbar-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            letter-spacing: 0.02em;
+            padding-left: 1.5rem;
+            border-right: 1px solid var(--border-color);
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .top-navbar-location {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            background-color: #f2ede4;
+            padding: 0.3rem 0.75rem;
+            border-radius: 4px;
+            margin-right: 2.5rem;
+        }
+
+        /* Colonne latérale gauche permanente sous la barre fixe du haut */
+        aside.sidebar {
+            position: fixed;
+            top: var(--topbar-height);
+            left: 0;
+            width: var(--sidebar-width);
+            height: calc(100vh - var(--topbar-height));
+            background-color: #f5f0e6;
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            z-index: 1000;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            overflow-y: auto;
+        }
+
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .btn-home {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            background-color: #7a2222;
+            color: #fff;
+            border: none;
+            padding: 0.85rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        .btn-home svg {
+            position: absolute;
+            left: 1rem;
+        }
+
+        .btn-home:hover {
+            background-color: #5e1a1a;
+        }
+
+        .sidebar-info-section {
+            padding: 1rem 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .sidebar-card {
+            background-color: #FAF6EF;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 0.85rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            text-align: justify;
+        }
+
+        .sidebar-card.editor-card {
+            flex-direction: row;
+            align-items: center;
+            gap: 0.75rem;
+            text-align: left;
+        }
+
+        .editor-info h4 {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            margin-bottom: 0.15rem;
+        }
+
+        .editor-info p {
+            font-size: 0.78rem;
+            color: var(--accent-color);
+            line-height: 1.4;
+        }
+
+        .sidebar-nav {
+            padding: 1.25rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            flex: 1;
+        }
+
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--primary-color);
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-align: left;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            background-color: #eae3d5;
+            border-color: var(--hover-border);
+        }
+
+        .submenu {
+            display: none;
+            flex-direction: column;
+            gap: 0.4rem;
+            padding-left: 1rem;
+            margin-top: -0.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .submenu.open {
+            display: flex;
+        }
+
+        .submenu-item {
+            font-size: 0.82rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            padding: 0.4rem 0.75rem;
+            border-radius: 4px;
+            transition: background-color 0.15s, color 0.15s;
+            border-left: 2px solid #d4c5b9;
+        }
+
+        .submenu-item:hover {
+            background-color: #eae3d5;
+            color: var(--primary-color);
+            border-left-color: var(--primary-color);
+        }
+
+        /* Conteneur principal à droite, décalé pour laisser place à la sidebar et topbar */
+        .main-wrapper {
+            margin-left: var(--sidebar-width);
+            margin-top: var(--topbar-height);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            width: calc(100% - var(--sidebar-width));
+            padding: 2rem 2.5rem 4rem;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            padding-left: 2rem;
+        }
+
+        .btn-header {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: 1px solid var(--primary-color);
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: background-color 0.2s;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-header.secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border-color: var(--border-color);
+        }
+
+        .btn-header.secondary:hover {
+            background-color: #f2ede4;
+            border-color: var(--hover-border);
+        }
+
+        /* Styles harmonisés des fenêtres modales selon l'image de référence */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+        }
+
+        .modal-container {
+            background: var(--bg-color);
+            width: 100%;
+            max-width: 900px;
+            height: 85vh;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            border: 1px solid #d4c5b9;
+        }
+
+        .modal-header {
+            padding: 1.25rem 1.5rem;
+            background: var(--modal-header-bg);
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .modal-header h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .modal-close {
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #fff;
+            opacity: 0.85;
+            transition: opacity 0.2s;
+        }
+
+        .modal-close:hover {
+            opacity: 1;
+        }
+
+        .modal-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            background-color: var(--bg-color);
+        }
+
+        .pdf-frame, .video-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* =====================================================================
+           STYLES DE L'ARTICLE (ZONE DYNAMIQUE)
+           ===================================================================== */
+        .article-container {
+            width: 100%;
+            max-width: 1060px;
+            margin: 0 auto;
+        }
+
+        .page-nav-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-top: 1px solid #e2d9c8;
+            padding: 0.85rem 0.25rem 0.4rem;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #7a2222;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            text-align: left;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            transition: opacity 0.2s;
+        }
+
+        .page-nav-toggle:hover {
+            opacity: 0.8;
+        }
+
+        .article-header {
+            margin-bottom: 1.75rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 2px solid #7a2222;
+        }
+
+        .article-kicker {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #7a2222;
+            margin-bottom: 0.5rem;
+        }
+
+        .article-title {
+            font-size: 2.15rem;
+            line-height: 1.22;
+            color: #1a202c;
+            font-weight: 700;
+        }
+
+        /* Deux cases côte à côte sous le titre (Auteurs + Citation) */
+        .meta-boxes-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 1.25rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .whitish-box {
+            background-color: #FDFBF7;
+            border: 1px solid #e5dec9;
+            border-radius: 8px;
+            padding: 1.15rem 1.35rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.025);
+        }
+
+        .meta-box-text {
+            font-size: 0.84rem;
+            line-height: 1.55;
+            color: #3a3a3a;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .meta-box-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #7a2222;
+            margin-bottom: 0.75rem;
+            display: block;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .authors-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.85rem;
+            align-items: start;
+        }
+
+        .author-slot {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .author-photo {
+            width: 74px;
+            height: 74px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d9cdb8;
+            background-color: #f0ebe1;
+            margin-bottom: 0.55rem;
+        }
+
+        .author-photo-placeholder {
+            width: 74px;
+            height: 74px;
+            border-radius: 50%;
+            border: 1px dashed #cbbba0;
+            background-color: #f5f0e6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9e8f78;
+            margin-bottom: 0.55rem;
+        }
+
+        .author-name {
+            font-weight: 700;
+            font-size: 0.86rem;
+            color: #1a202c;
+            line-height: 1.25;
+            margin-bottom: 0.25rem;
+        }
+
+        .author-affiliation {
+            font-size: 0.76rem;
+            color: #555;
+            line-height: 1.35;
+        }
+
+        .citation-box-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: calc(100% - 1.5rem);
+        }
+
+        .citation-text {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #2d3748;
+            font-family: "Georgia", serif;
+        }
+
+        /* Section Résumé : deux cases côte à côte (FR / EN) */
+        .abstract-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            margin-bottom: 2.25rem;
+        }
+
+        .abstract-box p {
+            font-size: 0.88rem;
+            line-height: 1.62;
+            color: #333333;
+            text-align: justify;
+            margin-bottom: 0.65rem;
+        }
+
+        .abstract-keywords {
+            font-size: 0.81rem !important;
+            color: #4a5568 !important;
+            border-top: 1px solid #ede6d6;
+            padding-top: 0.5rem;
+            margin-bottom: 0 !important;
+            text-align: left !important;
+        }
+
+        /* Corps de l'article */
+        .article-body {
+            font-size: 1.06rem;
+            line-height: 1.82;
+            color: #2b2b2b;
+        }
+
+        .article-body p {
+            margin-bottom: 1.25rem;
+            text-align: justify;
+        }
+
+        .section-anchor {
+            scroll-margin-top: calc(var(--topbar-height) + 22px);
+        }
+
+        .subchapter-title {
+            color: #7a2222;
+            font-size: 1.42rem;
+            font-weight: 700;
+            margin-top: 2.35rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.35rem;
+            border-bottom: 1px solid #e2d8c5;
+            line-height: 1.35;
+        }
+
+        /* Lettrine rouge bordeaux en caractère gras pour l'Introduction */
+        .dropcap-intro::first-letter {
+            float: left;
+            font-size: 3.75rem;
+            line-height: 0.82;
+            padding-top: 0.08rem;
+            padding-right: 0.65rem;
+            padding-bottom: 0.1rem;
+            color: #7a2222;
+            font-weight: 700;
+            font-family: "Georgia", "Cambria", serif;
+        }
+
+        .footnote-ref {
+            font-size: 0.74em;
+            vertical-align: super;
+            line-height: 0;
+            margin-left: 1px;
+        }
+
+        .footnote-ref a {
+            color: #7a2222;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0 2px;
+        }
+
+        .footnote-ref a:hover {
+            text-decoration: underline;
+        }
+
+        /* Cartes conceptuelles interactives (fond un peu plus pâle que #FAF6EF) */
+        .concept-map-card {
+            background-color: #FEFDFB;
+            border: 1px solid #e3dac8;
+            border-radius: 10px;
+            padding: 1.35rem 1.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 14px rgba(122, 34, 34, 0.04);
+        }
+
+        .concept-map-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.85rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 1px solid #efe9dc;
+        }
+
+        .concept-map-title {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #7a2222;
+            letter-spacing: 0.01em;
+        }
+
+        .concept-map-hint {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.76rem;
+            color: #718096;
+            font-style: italic;
+        }
+
+        .concept-svg {
+            width: 100%;
+            height: auto;
+            display: block;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .svg-node {
+            cursor: pointer;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .svg-node:hover rect,
+        .svg-node:hover circle {
+            stroke: #7a2222;
+            stroke-width: 2.2;
+        }
+
+        .svg-node.active rect,
+        .svg-node.active circle {
+            stroke: #7a2222;
+            stroke-width: 2.5;
+            fill: #fdf4f4;
+        }
+
+        .concept-detail-panel {
+            margin-top: 0.9rem;
+            padding: 0.85rem 1.05rem;
+            background-color: #FAF6EF;
+            border-left: 3px solid #7a2222;
+            border-radius: 0 6px 6px 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.86rem;
+            line-height: 1.55;
+            color: #2d3748;
+        }
+
+        .concept-detail-panel strong {
+            color: #7a2222;
+        }
+
+        /* Références bibliographiques et Notes de bas de page */
+        .references-list {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 0.75rem;
+        }
+
+        .references-list li {
+            padding-left: 1.75rem;
+            text-indent: -1.75rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.94rem;
+            line-height: 1.6;
+            color: #2d3748;
+            word-break: break-word;
+        }
+
+        .references-list a,
+        .footnotes-section a {
+            color: #7a2222;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .footnotes-section {
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #d9cdb8;
+        }
+
+        .footnotes-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .footnotes-list li {
+            font-size: 0.85rem;
+            line-height: 1.55;
+            color: #4a5568;
+            margin-bottom: 0.55rem;
+            padding-left: 1.6rem;
+            text-indent: -1.6rem;
+            scroll-margin-top: calc(var(--topbar-height) + 25px);
+        }
+
+        .footnotes-list li a.fn-back {
+            font-weight: 700;
+            color: #7a2222;
+            text-decoration: none;
+            margin-right: 0.35rem;
+        }
+
+        @media (max-width: 960px) {
+            .meta-boxes-grid,
+            .abstract-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            :root { --sidebar-width: 0px; }
+            .top-navbar { left: 0; padding: 0 1rem; grid-template-columns: 1fr auto; }
+            .top-navbar-title { display: none; }
+            aside.sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
+            aside.sidebar.mobile-open { transform: translateX(0); }
+            .main-wrapper { margin-left: 0; width: 100%; padding: 1.5rem 1.25rem 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barre horizontale permanente supérieure -->
+    <header class="top-navbar">
+        <div class="top-navbar-title">Revue Sociologie Visuelle</div>
+        <div class="header-actions">
+            <button class="btn-header secondary" onclick="openModal('video', 'Présentation introductive — Vidéo', 'https://drive.google.com/file/d/10Va3etjn9wZIqrVnByyNXDVM-XPKOHkK/preview?autoplay=1')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                Visionner la vidéo de présentation
+            </button>
+            <button class="btn-header secondary" onclick="openProposalModal('article')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                Proposer un projet de captation ou un article
+            </button>
+            <button class="btn-header secondary" onclick="openModal('pdf', 'Télécharger le numéro complet', 'https://drive.google.com/file/d/1d3ZUnnEwYomQ1VRQ1lF8XNei88HelQvy/preview')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Télécharger le numéro
+            </button>
+        </div>
+        <div class="top-navbar-location" id="locationIndicator">Plaidoyer pour une recherche militante</div>
+    </header>
+
+    <!-- Colonne latérale gauche permanente -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="https://inclusionsociale.com/#article-recherche-militante" class="btn-home">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                ACCUEIL
+            </a>
+        </div>
+
+        <div class="sidebar-info-section">
+            <div style="font-size: 0.72rem; color: #718096; text-align: left; margin-bottom: 0.05rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                DOI : <a href="https://doi.org/10.13140/RG.2.2.35504.53768" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; opacity: 0.85;">10.13140/RG.2.2.35504.53768</a>
+            </div>
+
+            <div class="sidebar-card editor-card">
+                <div class="editor-info">
+                    <h4>Éditeurs</h4>
+                    <p><b>François Routhier & Pierre Fraser</b></p>
+                    <p>Plus de 18 équipes de recherche mobilisées afin de saisir comment le milieu façonne et articule l'accès aux services et à l'inclusion sociale.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-nav">
+            <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: #7a2222; letter-spacing: 0.05em; margin-bottom: 0.5rem; padding-left: 0.25rem;">NAVIGATION SUR LE SITE</div>
+
+            <div>
+                <button class="nav-btn" onclick="toggleSubmenu(event, 'accessibilitySubmenu', 'submenuArrow')">
+                    <span>Penser l'accessibilité</span>
+                    <svg id="submenuArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu" id="accessibilitySubmenu">
+                    <a href="https://inclusionsociale.com/#theme-1" class="submenu-item">1. Espace urbain & transports</a>
+                    <a href="https://inclusionsociale.com/#theme-2" class="submenu-item">2. Éducation & institutions</a>
+                    <a href="https://inclusionsociale.com/#theme-3" class="submenu-item">3. Travail, autonomie & loisirs</a>
+                    <a href="https://inclusionsociale.com/#theme-4" class="submenu-item">4. Expérience vécue & stigmates</a>
+                </div>
+            </div>
+
+            <div>
+                <button class="nav-btn" onclick="toggleSubmenu(event, 'bilansSubmenu', 'bilansSubmenuArrow')">
+                    <span>Bilans</span>
+                    <svg id="bilansSubmenuArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu" id="bilansSubmenu">
+                    <a href="https://inclusionsociale.com/mentorat-actif-bilan.html" class="submenu-item">Mentorat actif, un plus tard</a>
+                </div>
+            </div>
+            <!-- Bouton Tournages en cours non gras -->
+            <div>
+                <a href="https://inclusionsociale.com/tournages.html" class="nav-btn" style="font-weight: normal;">
+                    <span>Tournages en cours</span>
+                </a>
+            </div>
+
+            <!-- NAVIGATION DANS LA PAGE -->
+            <div>
+                <button class="page-nav-toggle" onclick="toggleSubmenu(event, 'pageNavSubmenu', 'pageNavArrow')">
+                    <span>NAVIGATION DANS LA PAGE</span>
+                    <svg id="pageNavArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" style="transform: rotate(180deg); transition: transform 0.2s;"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu open" id="pageNavSubmenu" style="margin-top: 0.35rem;">
+                    <a href="#presentation" class="submenu-item">Présentation</a>
+                    <a href="#sec-introduction" class="submenu-item">Introduction</a>
+                    <a href="#sec-jonathan-marchand" class="submenu-item">1. Le cas Jonathan Marchand</a>
+                    <a href="#sec-recherche-militante" class="submenu-item">2. La recherche militante</a>
+                    <a href="#sec-conclusion" class="submenu-item">Conclusion</a>
+                    <a href="#sec-references" class="submenu-item">Références bibliographiques</a>
+                    <a href="#sec-notes" class="submenu-item">Notes de bas de page</a>
+                </div>
+            </div>
+
+        </div>
+    </aside>
+
+    <!-- Zone de contenu dynamique à droite (Frame de base) -->
+    <div class="main-wrapper" id="presentation" style="scroll-margin-top: 60px;">
+        <main class="article-container">
+            <article>
+                <!-- En-tête de l'article -->
+                <header class="article-header">
+                    <div class="article-kicker">Revue Sociologie Visuelle • N° 4 • Penser l'accessibilité</div>
+                    <h1 class="article-title">Plaidoyer pour une recherche militante</h1>
+                </header>
+
+                <!-- Deux cases côte à côte sous le titre : Auteurs (3 emplacements) + Citation -->
+                <section class="meta-boxes-grid" aria-label="Auteurs et référence de citation">
+                    <!-- Case 1 : Trois photos des auteurs côte à côte, noms puis affiliations -->
+                    <div class="whitish-box meta-box-text">
+                        <span class="meta-box-label">Auteure</span>
+                        <div class="authors-row">
+                            <div class="author-slot">
+                                <img src="https://lh3.googleusercontent.com/d/1Hxib9qAaNkN5Ztwx2RF4WKJbb6IvpMXZ" alt="Portrait de Marie-Eve Veilleux" class="author-photo" onerror="this.onerror=null; this.src='https://drive.google.com/thumbnail?id=1U-IJ3tNTWLfkTzGJ7A4jKScgQn9tZXR1&sz=w300';">
+                                <div class="author-name">Marie-Ève Veilleux</div>
+                                <div class="author-affiliation">Militante pour les droits des personnes handicapées.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Case 2 : Citation de l'article -->
+                    <div class="whitish-box meta-box-text">
+                        <span class="meta-box-label">Citer cet article</span>
+                        <div class="citation-box-content">
+                            <p class="citation-text">
+                                Veilleux, M-E. (2023), «&nbsp;Plaidoyer pour une recherche militante&nbsp;», <em>Sociologie Visuelle</em>, n° 4, François Routhier et Pierre Fraser (éds.), Québec&nbsp;: Photo|Société, pp. 265-272.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section Résumé : deux cases côte à côte (Français et Anglais) -->
+                <section class="abstract-grid" aria-label="Résumés en français et en anglais">
+                    <!-- Case 1 : Résumé en français -->
+                    <div class="whitish-box abstract-box">
+                        <span class="meta-box-label">Résumé</span>
+                        <p>
+                            Au Québec, la situation sociale des personnes handicapées stagne depuis des décennies. Les avancées dans un domaine s’accompagnent souvent de reculs dans d’autres domaines, résultat d’une succession de décisions politiques néolibérales et capacitistes. Que ce soit pour accéder à l’emploi, au logement, aux transports, à de l’aide humaine ou aux commerces de proximité, les barrières que doivent franchir les personnes handicapées pour participer pleinement à notre société sont encore trop nombreuses et tenaces. Malgré l’adoption de la <em>Loi canadienne sur l’accessibilité</em> il y a deux ans, et alors que les provinces canadiennes adoptent des lois beaucoup plus contraignantes pour éradiquer les obstacles à l’accessibilité, la question ne semble pas effleurer l’esprit de nos décideuses et décideurs et est encore bien marginale dans le discours public au Québec.
+                        </p>
+                        <p class="abstract-keywords">
+                            <strong>Mots clés :</strong> Recherche militante ; handicap ; posture scientifique.
+                        </p>
+                    </div>
+
+                    <!-- Case 2 : Résumé en anglais -->
+                    <div class="whitish-box abstract-box" lang="en">
+                        <span class="meta-box-label">Abstract</span>
+                        <p>
+                            In Quebec, the social situation of people with disabilities has stagnated for decades. Advances in one area are often accompanied by setbacks in other areas, the result of a succession of neoliberal and ableist political decisions. Whether accessing employment, housing, transportation, human assistance, or local businesses, the barriers that people with disabilities must overcome to participate fully in our society remain far too numerous and persistent. Despite the adoption of the <em>Accessible Canada Act</em> two years ago, and while other Canadian provinces are enacting much more binding legislation to eradicate accessibility barriers, the issue barely crosses the minds of our decision-makers and remains quite marginal in public discourse in Quebec.
+                        </p>
+                        <p class="abstract-keywords">
+                            <strong>Keywords:</strong> Activist research; disability; scientific stance.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Corps de l'article -->
+                <div class="article-body">
+                    <!-- Introduction -->
+                    <h2 id="sec-introduction" class="subchapter-title section-anchor">Introduction</h2>
+                    <p class="dropcap-intro">
+                        La recherche sur le handicap devrait permettre d’outiller tant les personnes en position de pouvoir que les militantes et militants, mais en raison d’un manque de reconnaissance et de visibilité, les décisions sont généralement prises par des personnes qui connaissent peu les réalités des personnes handicapées et encore moins les effets du capacitisme sur leurs propres réflexions et orientations. Ces décisions sont donc influencées par d’autres impératifs, notamment économiques. Face à cette situation, les contre-pouvoirs jouent un rôle essentiel pour faire respecter les droits des personnes handicapées et éviter les reculs. Cependant, le contexte de défense des droits des personnes handicapées traverse également une période difficile. Sous-financés depuis des années, les organismes du milieu des personnes handicapées font des miracles avec les moyens du bord, mais leurs revendications n’arrivent malheureusement pas à s’imposer dans les médias et le discours public.
+                    </p>
+
+                    <!-- Carte conceptuelle interactive 1 -->
+                    <figure class="concept-map-card" aria-label="Carte conceptuelle : L'impasse systémique entre savoir scientifique, décisions politiques et contre-pouvoirs">
+                        <div class="concept-map-header">
+                            <span class="concept-map-title">Carte conceptuelle 1 — L’impasse systémique face au capacitisme institutionnel</span>
+                            <span class="concept-map-hint">Cliquez sur un nœud du diagramme pour explorer son rôle dans l’analyse</span>
+                        </div>
+                        <svg class="concept-svg" viewBox="0 0 880 250" role="img">
+                            <defs>
+                                <marker id="arrowBordeaux" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#7a2222"/>
+                                </marker>
+                                <marker id="arrowSlate" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                    <path d="M 0 1 L 10 5 L 0 9 z" fill="#718096"/>
+                                </marker>
+                            </defs>
+
+                            <!-- Liaisons -->
+                            <line x1="255" y1="75" x2="322" y2="75" stroke="#7a2222" stroke-width="2" marker-end="url(#arrowBordeaux)"/>
+                            <text x="288" y="65" font-size="10" fill="#7a2222" text-anchor="middle" font-weight="600">oriente</text>
+
+                            <line x1="555" y1="75" x2="622" y2="75" stroke="#7a2222" stroke-width="2" marker-end="url(#arrowBordeaux)"/>
+                            <text x="588" y="65" font-size="10" fill="#7a2222" text-anchor="middle" font-weight="600">produit</text>
+
+                            <!-- Boucle du bas -->
+                            <path d="M 740 120 L 740 185 L 558 185" fill="none" stroke="#718096" stroke-width="1.8" stroke-dasharray="5,4" marker-end="url(#arrowSlate)"/>
+                            <text x="650" y="177" font-size="10" fill="#4a5568" text-anchor="middle">résistance &amp; plaidoyer</text>
+
+                            <path d="M 320 185 L 145 185 L 145 123" fill="none" stroke="#718096" stroke-width="1.8" stroke-dasharray="5,4" marker-end="url(#arrowSlate)"/>
+                            <text x="232" y="177" font-size="10" fill="#4a5568" text-anchor="middle">savoirs sous-utilisés</text>
+
+                            <!-- Nœud 1 -->
+                            <g class="svg-node active" onclick="selectConcept1(0, this)">
+                                <rect x="35" y="32" width="220" height="86" rx="8" fill="#FAF6EF" stroke="#cbbba0" stroke-width="1.5"/>
+                                <text x="145" y="60" font-size="12.5" font-weight="700" fill="#7a2222" text-anchor="middle">1. Décideuses &amp; décideurs</text>
+                                <text x="145" y="79" font-size="11" fill="#2b2b2b" text-anchor="middle">Logique néolibérale, impératifs</text>
+                                <text x="145" y="95" font-size="11" fill="#2b2b2b" text-anchor="middle">économiques et biais capacitistes</text>
+                            </g>
+
+                            <!-- Nœud 2 -->
+                            <g class="svg-node" onclick="selectConcept1(1, this)">
+                                <rect x="325" y="32" width="230" height="86" rx="8" fill="#FAF6EF" stroke="#cbbba0" stroke-width="1.5"/>
+                                <text x="440" y="60" font-size="12.5" font-weight="700" fill="#1a202c" text-anchor="middle">2. Gestion au cas par cas</text>
+                                <text x="440" y="79" font-size="11" fill="#2b2b2b" text-anchor="middle">Fardeau reporté sur les individus</text>
+                                <text x="440" y="95" font-size="11" fill="#2b2b2b" text-anchor="middle">plutôt que sur les institutions</text>
+                            </g>
+
+                            <!-- Nœud 3 -->
+                            <g class="svg-node" onclick="selectConcept1(2, this)">
+                                <rect x="625" y="32" width="220" height="86" rx="8" fill="#FAF6EF" stroke="#cbbba0" stroke-width="1.5"/>
+                                <text x="735" y="60" font-size="12.5" font-weight="700" fill="#1a202c" text-anchor="middle">3. Stagnation sociale</text>
+                                <text x="735" y="79" font-size="11" fill="#2b2b2b" text-anchor="middle">Barrières tenaces (emploi, aide</text>
+                                <text x="735" y="95" font-size="11" fill="#2b2b2b" text-anchor="middle">humaine, logement, transport)</text>
+                            </g>
+
+                            <!-- Nœud 4 (bas) -->
+                            <g class="svg-node" onclick="selectConcept1(3, this)">
+                                <rect x="325" y="145" width="230" height="80" rx="8" fill="#FAF6EF" stroke="#cbbba0" stroke-width="1.5"/>
+                                <text x="440" y="172" font-size="12.5" font-weight="700" fill="#1a202c" text-anchor="middle">4. Contre-pouvoirs &amp; recherche</text>
+                                <text x="440" y="191" font-size="11" fill="#2b2b2b" text-anchor="middle">Organismes sous-financés &amp; écart</text>
+                                <text x="440" y="207" font-size="11" fill="#2b2b2b" text-anchor="middle">entre savoirs et action publique</text>
+                            </g>
+                        </svg>
+                        <div class="concept-detail-panel" id="concept1Detail">
+                            <strong>1. Décideuses &amp; décideurs :</strong> Les orientations publiques sont élaborées par des acteurs éloignés du vécu des personnes handicapées, privilégiant la rentabilité économique au détriment des droits fondamentaux.
+                        </div>
+                    </figure>
+
+                    <!-- Section 1 -->
+                    <h2 id="sec-jonathan-marchand" class="subchapter-title section-anchor">1. Le cas Jonathan Marchand</h2>
+                    <p>
+                        En août 2020, Jonathan Marchand a campé devant l’Assemblée nationale pour protester contre sa situation de détention dans un CHSLD depuis près de dix ans en raison de son utilisation d’un respirateur et de son besoin d’aide humaine au-delà de la limite allouée pour habiter à domicile. Cette action a attiré l’attention des médias pendant plusieurs jours et a finalement conduit à une entente de projet pilote négociée avec le gouvernement. Bien que cette action ait eu un certain impact médiatique, elle a rapidement été éclipsée par d’autres faits divers. Malheureusement, cette situation n’est pas rare. Par exemple, la rémunération des personnes ayant une déficience intellectuelle a fait la une des journaux, lorsque Walmart a mis fin à un programme d’employabilité<sup class="footnote-ref"><a id="fnref1" href="#fn1">1</a></sup>, mais le problème de l’exploitation de ces personnes est bien plus grave<sup class="footnote-ref"><a id="fnref2" href="#fn2">2</a></sup>, et a été rapidement oublié par les médias. Cependant, malgré les difficultés, l’action de Jonathan Marchand a donné l’espoir de voir naître un mouvement de contestation pour revendiquer notamment le droit de choisir son lieu de résidence et son indépendance, mais un an après cette action, le gouvernement a abandonné l’entente conclue avec Jonathan Marchand, préférant gérer l’accès à l’aide humaine au cas par cas, ce qui a fait porter le fardeau aux individus plutôt qu’aux institutions. Ce nouveau souffle s’est donc avéré bref, peut-être en raison des luttes quotidiennes des personnes handicapées exacerbées par la pandémie.
+                    </p>
+                    <p>
+                        Ainsi, face à ce type de situation, la disponibilité de données probantes et l’ancrage dans la théorie sont essentiels pour appuyer la recherche de solutions, la prise de décisions et la formulation de revendications. L’inclusion de groupes et de personnes handicapées au sein des équipes de recherche, afin de prendre en compte leur perspective est de plus en plus courante, notamment en recherche participative, en recherche-action et en recherche émancipatoire<sup class="footnote-ref"><a id="fnref3" href="#fn3">3</a></sup>. Toutefois, il semble y avoir un écart important entre la production de connaissances et la mise en application des résultats qui en découlent par les entités gouvernementales. La communauté scientifique peut «&nbsp;produi[re] des connaissances sur des faits humains, sociaux [dans le but] d’aider à construire des débats […]<sup class="footnote-ref"><a id="fnref4" href="#fn4">4</a></sup>&nbsp;», mais si elles ne sont pas utilisées par les décideuses et décideurs pour améliorer la qualité de vie des personnes handicapées, ces dernières demeurent condamnées à être des citoyennes et citoyens de seconde zone.
+                    </p>
+
+                    <!-- Section 2 -->
+                    <h2 id="sec-recherche-militante" class="subchapter-title section-anchor">2. La recherche militante</h2>
+                    <p>
+                        À partir de ces constats, j’ai voulu me pencher sur le rôle de la communauté scientifique dans la propulsion de changements sociétaux en faveur de l’émancipation des personnes handicapées. Mes lectures sur les différents rôles que peuvent jouer les scientifiques m’ont dirigée vers la recherche militante, qui me semble une option nécessaire pour sortir le Québec de son inaction en ce qui concerne les droits des personnes handicapées. Dans les prochains paragraphes, j’offrirai un aperçu de ce rôle dans le contexte de la recherche sur le handicap, un sujet assez peu abordé en français.
+                    </p>
+                    <p>
+                        Dans un article comparant le militantisme académique de chercheuses et chercheurs en agriculture urbaine aux États-Unis et la culture universitaire française, Salomon Cavin et ses collègues définissent la recherche militante comme un moyen «&nbsp;de formuler et de mettre en œuvre des stratégies d’émancipation<sup class="footnote-ref"><a id="fnref5" href="#fn5">5</a></sup>&nbsp;». La recherche militante a émergé «&nbsp;des traditions critiques les plus ancrées dans ce pays [et] s’inscrit dans la continuité historique de la lutte pour les droits civiques et la défense des minorités ethniques<sup class="footnote-ref"><a id="fnref6" href="#fn6">6</a></sup>&nbsp;». La posture militante adoptée par certaines communautés scientifiques aux États-Unis n’est pas étrangère à la «&nbsp;réévaluation critique des catégories de pensée dominantes en sciences sociales<sup class="footnote-ref"><a id="fnref7" href="#fn7">7</a></sup>&nbsp;», notamment avec les études féministes ou les études postcoloniales. Cette remise en question des relations de pouvoir et des rapports d’oppression permet ainsi de «&nbsp;produire des savoirs d’action<sup class="footnote-ref"><a id="fnref8" href="#fn8">8</a></sup>&nbsp;».
+                    </p>
+                    <p>
+                        Dans leur analyse des différentes postures adoptées par les scientifiques dans leur rapport au militantisme, Vézina et Gagnon définissent la posture «&nbsp;avec le militantisme [comme une] opportunité de remettre en question, de critiquer, de changer, de transformer [qui] se mobilise ainsi, en partant d’un positionnement épistémologique et méthodologique qui se veut propice à l’action<sup class="footnote-ref"><a id="fnref9" href="#fn9">9</a></sup>&nbsp;». Dans une étude de cas où l’une des autrices a adopté personnellement la posture «&nbsp;avec le militantisme&nbsp;» pour ses recherches doctorales et postdoctorales en sciences infirmières, elle partage le besoin pour le scientifique de «&nbsp;faire appel à des concepts et des théories qui peuvent d’une part, lui fournir les outils nécessaires pour remettre en question ce qui est pris pour acquis (incluant des pratiques cliniques) et d’autre part, le guider dans la production de savoirs infirmiers politiques<sup class="footnote-ref"><a id="fnref10" href="#fn10">10</a></sup>&nbsp;». Cette focalisation sur l’action pour transformer le système en place fait cruellement défaut à la recherche québécoise, du point de vue militant. Il est nécessaire de s’engager activement dans la recherche militante pour formuler et mettre en œuvre des stratégies d’émancipation qui remettent en question les relations de pouvoir et les rapports d’oppression dans la société. En cela, la posture «&nbsp;avec le militantisme&nbsp;» peut être une voie prometteuse pour les scientifiques qui souhaitent s’engager activement dans la production de savoirs d’action visant à transformer la réalité sociale.
+                    </p>
+
+                    <!-- Carte conceptuelle interactive 2 -->
+                    <figure class="concept-map-card" aria-label="Carte conceptuelle : Comparaison des postures scientifiques face au militantisme">
+                        <div class="concept-map-header">
+                            <span class="concept-map-title">Carte conceptuelle 2 — Typologie des postures scientifiques (Vézina &amp; Gagnon ; Salomon Cavin et al.)</span>
+                            <span class="concept-map-hint">Sélectionnez un pôle épistémologique pour comparer ses fondements et finalités</span>
+                        </div>
+                        <svg class="concept-svg" viewBox="0 0 880 265" role="img">
+                            <!-- Axe central de tension -->
+                            <line x1="280" y1="125" x2="600" y2="125" stroke="#7a2222" stroke-width="2" stroke-dasharray="6,4"/>
+                            <circle cx="440" cy="125" r="34" fill="#7a2222"/>
+                            <text x="440" y="121" font-size="10" font-weight="700" fill="#ffffff" text-anchor="middle">DYNAMIQUE</text>
+                            <text x="440" y="135" font-size="9.5" fill="#fde8e8" text-anchor="middle">non un statut</text>
+
+                            <!-- Colonne gauche : Posture "face au militantisme" -->
+                            <g class="svg-node active" onclick="selectConcept2(0, this)">
+                                <rect x="30" y="25" width="250" height="205" rx="9" fill="#FAF6EF" stroke="#cbbba0" stroke-width="1.5"/>
+                                <rect x="30" y="25" width="250" height="36" rx="9" fill="#e9e1d2"/>
+                                <text x="155" y="48" font-size="12.5" font-weight="700" fill="#1a202c" text-anchor="middle">Posture « Face au militantisme »</text>
+                                <text x="155" y="84" font-size="11" font-weight="600" fill="#4a5568" text-anchor="middle">• Mythe de la neutralité absolue</text>
+                                <text x="155" y="110" font-size="11" fill="#2b2b2b" text-anchor="middle">• Univers académique clos qui</text>
+                                <text x="155" y="126" font-size="11" fill="#2b2b2b" text-anchor="middle">s’auto-évalue entre pairs</text>
+                                <text x="155" y="154" font-size="11" fill="#2b2b2b" text-anchor="middle">• Dissimulation des subjectivités</text>
+                                <text x="155" y="170" font-size="11" fill="#2b2b2b" text-anchor="middle">socio-historiques du chercheur</text>
+                                <text x="155" y="202" font-size="10.5" font-weight="700" fill="#718096" text-anchor="middle">Finalité : Savoir descriptif / statu quo</text>
+                            </g>
+
+                            <!-- Colonne droite : Posture "avec le militantisme" -->
+                            <g class="svg-node" onclick="selectConcept2(1, this)">
+                                <rect x="600" y="25" width="250" height="205" rx="9" fill="#FAF6EF" stroke="#cbbba0" stroke-width="1.5"/>
+                                <rect x="600" y="25" width="250" height="36" rx="9" fill="#7a2222"/>
+                                <text x="725" y="48" font-size="12.5" font-weight="700" fill="#ffffff" text-anchor="middle">Posture « Avec le militantisme »</text>
+                                <text x="725" y="84" font-size="11" font-weight="600" fill="#7a2222" text-anchor="middle">• Réflexivité sur les biais et biais</text>
+                                <text x="725" y="110" font-size="11" fill="#2b2b2b" text-anchor="middle">• Perméabilité assumée entre</text>
+                                <text x="725" y="126" font-size="11" fill="#2b2b2b" text-anchor="middle">objectivité et subjectivité</text>
+                                <text x="725" y="154" font-size="11" fill="#2b2b2b" text-anchor="middle">• Déconstruction des rapports</text>
+                                <text x="725" y="170" font-size="11" fill="#2b2b2b" text-anchor="middle">d’oppression et de pouvoir</text>
+                                <text x="725" y="202" font-size="10.5" font-weight="700" fill="#7a2222" text-anchor="middle">Finalité : Savoirs d’action &amp; émancipation</text>
+                            </g>
+
+                            <!-- Nœud central interactif -->
+                            <g class="svg-node" onclick="selectConcept2(2, this)">
+                                <rect x="315" y="178" width="250" height="58" rx="8" fill="#FAF6EF" stroke="#cbbba0" stroke-width="1.5"/>
+                                <text x="440" y="201" font-size="11.5" font-weight="700" fill="#7a2222" text-anchor="middle">5 questions réflexives clés</text>
+                                <text x="440" y="219" font-size="10.5" fill="#2b2b2b" text-anchor="middle">Formation • Financement • Pouvoir • Impact</text>
+                            </g>
+                        </svg>
+                        <div class="concept-detail-panel" id="concept2Detail">
+                            <strong>Posture « Face au militantisme » :</strong> Dominante au Québec, cette approche postule une impartialité stricte au service des cercles scientifiques qui s’auto-évaluent, au risque de laisser intactes les structures capacitistes.
+                        </div>
+                    </figure>
+
+                    <p>
+                        Une des raisons qui pourrait expliquer l’hésitation des chercheuses et chercheurs à adopter une posture militante est l’impression de perte d’objectivité. Cette question est au cœur de débats, notamment au Québec où la vision majoritaire de la recherche est celle de la neutralité, que Vézina et Gagnon définissent comme une posture du scientifique «&nbsp;face au militantisme&nbsp;», c’est-à-dire «&nbsp;un processus rigoureux, neutre, objectif, impartial qui se déroule dans l’univers académique et qui produit un savoir «&nbsp;au service des cercles scientifiques qui s’auto-évaluent<sup class="footnote-ref"><a id="fnref11" href="#fn11">11</a></sup>&nbsp;». De plus, le contexte actuel semble particulièrement hostile aux scientifiques qui souhaitent mettre en lumière les rapports de pouvoir et critiquer l’ordre établi, pensons notamment à la saga du mot en N<sup class="footnote-ref"><a id="fnref12" href="#fn12">12</a></sup> à l’Université d’Ottawa ou même une chronique dénonçant l’ouverture d’un poste universitaire sur l’éducation anti-raciste à la même université comme étant de la pseudo-science<sup class="footnote-ref"><a id="fnref13" href="#fn13">13</a></sup>. À ce sujet, Vézina et Gagnon rappellent que «&nbsp;tout chercheur est socio-historiquement situé<sup class="footnote-ref"><a id="fnref14" href="#fn14">14</a></sup>&nbsp;». Chaque décision est ainsi teintée de subjectivités dont il est impossible de se débarrasser. Depuis plusieurs décennies, de nombreuses figures de la recherche et du militantisme affirment qu’au lieu de valoriser la neutralité, il serait plus bénéfique de mettre au jour nos subjectivités, de les prendre en considération et de les faire coexister avec les savoirs et méthodes théoriques. Vézina et Gagnon précisent que la posture du scientifique envers le militantisme «&nbsp;renvoie à une dynamique et non, en soi, à un statut<sup class="footnote-ref"><a id="fnref15" href="#fn15">15</a></sup>&nbsp;», ce qui permet une fluidité dans le temps et selon le sujet, les circonstances, etc.
+                    </p>
+                    <p>
+                        En ouvrant leur pratique scientifique à la perméabilité entre objectivité et subjectivité, les scientifiques peuvent affiner leur réflexion sur leurs propres biais. D’où vient mon intérêt pour le handicap&nbsp;? Quelles expériences de recherche et quels savoirs m’ont été offerts lors de ma formation&nbsp;? Quelles recherches sont financées par les bailleurs de fonds et qui sont ces derniers&nbsp;? Est-ce que ma méthodologie reproduit les relations de pouvoir vécues par les participantes et participants à ma recherche&nbsp;? Est-ce que le savoir que j’ai produit a fait une différence dans la communauté étudiée&nbsp;? Toutes ces questions exercent une influence sur les décisions concernant le choix d’un sujet de recherche ou la conception d’une étude. Selon moi, elles sont au cœur de la recherche militante. En effet, la recherche militante implique une réflexion critique sur les relations de pouvoir qui peuvent être reproduites dans le cadre de la recherche, et sur la façon dont la recherche peut contribuer à l’émancipation des communautés étudiées. Cela implique de tenir compte des perspectives des participantes et participants à la recherche, ainsi que des perspectives des scientifiques eux-mêmes, qui sont influencées par leur propre positionnement social et leur expérience personnelle.
+                    </p>
+
+                    <!-- Conclusion -->
+                    <h2 id="sec-conclusion" class="subchapter-title section-anchor">Conclusion</h2>
+                    <p>
+                        La recherche militante est de plus en plus reconnue, notamment aux États-Unis, où l’Institut Paul K. Longmore sur le handicap a récemment annoncé un financement d’un million de dollars pour organiser des ateliers visant à soutenir les chercheuses et chercheurs sur le handicap qui font de la recherche militante<sup class="footnote-ref"><a id="fnref16" href="#fn16">16</a></sup>. Je ne prétends pas que toutes les chercheuses et chercheurs sur le handicap doivent se joindre au militantisme. Je considère toutefois que la création d’une communauté scientifique autour de la recherche militante dans le domaine du handicap permettrait de soutenir l’émancipation des personnes handicapées au sein de notre société.
+                    </p>
+
+                    <!-- Références bibliographiques -->
+                    <h2 id="sec-references" class="subchapter-title section-anchor">Références bibliographiques</h2>
+                    <ul class="references-list">
+                        <li>Boucher, N. (2004), «&nbsp;Handicap, Recherche et Changement Social. L’émergence du paradigme émancipatoire dans l’étude de l’exclusion sociale des personnes handicapées&nbsp;», <em>Lien Social Et Politiques</em>, vol. 50, DOI&nbsp;: <a href="https://doi.org/10.7202/008285ar" target="_blank" rel="noopener noreferrer">doi.org/10.7202/008285ar</a>, pp. 147-164.</li>
+                        <li>Facal, J. (2022, 22 décembre), <em>L’Université d’Ottawa n’est que la pointe de l’iceberg</em>, Journal de Montréal, URL&nbsp;: <a href="https://tinyurl.com/5hae23c9" target="_blank" rel="noopener noreferrer">https://tinyurl.com/5hae23c9</a>.</li>
+                        <li>Fortier, M. (2020, 20 octobre), <em>Le milieu universitaire dénonce une ‘attaque’ contre la ‘liberté académique’</em>, Le Devoir, URL&nbsp;: <a href="https://tinyurl.com/2vjzhwpc" target="_blank" rel="noopener noreferrer">https://tinyurl.com/2vjzhwpc</a>.</li>
+                        <li>Lavigne, C. (2007), «&nbsp;Analyse qualitative du rapport du chercheur à son objet, le handicap&nbsp;: Le chercheur impliqué dans une situation de handicap et travaillant sur le handicap, est-il un chercheur handicapé&nbsp;?&nbsp;», <em>Actes du colloque Bilan et prospectives de la recherche qualitative</em>, URL&nbsp;: <a href="https://tinyurl.com/epsnsepx" target="_blank" rel="noopener noreferrer">https://tinyurl.com/epsnsepx</a>.</li>
+                        <li>Longmore Institute (2023, 3 janvier), <em>EMERGE project announcement</em>, Paul K. Longmore Institute on Disability, URL&nbsp;: <a href="https://tinyurl.com/msubnuk9" target="_blank" rel="noopener noreferrer">https://tinyurl.com/msubnuk9</a>.</li>
+                        <li>Radio-Canada (2018, 29 mars), <em>Walmart congédie ses employés présentant une déficience intellectuelle</em>, URL&nbsp;: <a href="https://tinyurl.com/3d32ds9z" target="_blank" rel="noopener noreferrer">https://tinyurl.com/3d32ds9z</a>.</li>
+                        <li>Rettino-Parazelli, K. (2018, 7 avril), <em>L’affaire Walmart n’est que la pointe de l’iceberg</em>, Le Devoir, URL&nbsp;: <a href="https://tinyurl.com/2z6kev4a" target="_blank" rel="noopener noreferrer">https://tinyurl.com/2z6kev4a</a>.</li>
+                        <li>Salomon, C., Boisvert, J., Ranocchiari, S., et als. (2021), «&nbsp;L’engagement militant dans la recherche en agriculture urbaine. Réflexions sur le contexte français au miroir du ‘scholar activism’ nord-américain&nbsp;», <em>Natures Sciences Sociétés</em>, vol.&nbsp;29, n° 3, DOI&nbsp;: <a href="https://doi.org/10.1051/nss/2021058" target="_blank" rel="noopener noreferrer">doi.org/10.1051/nss/2021058</a>, pp. 288–298.</li>
+                        <li>Vézina, C., Gagnon, M. (2014), <em>Aporia</em>, vol.&nbsp;6, n°2, URL&nbsp;: <a href="https://doi.org/10.18192/aporia.v6i2.2849" target="_blank" rel="noopener noreferrer">doi.org/10.18192/aporia.v6i2.2849</a>.</li>
+                    </ul>
+
+                    <!-- Notes de bas de page -->
+                    <section class="footnotes-section" aria-label="Notes de bas de page">
+                        <h2 id="sec-notes" class="subchapter-title section-anchor" style="margin-top: 0;">Notes de bas de page</h2>
+                        <ol class="footnotes-list">
+                            <li id="fn1"><a class="fn-back" href="#fnref1">1.</a> Radio-Canada (2018, 29 mars), <em>Walmart congédie ses employés présentant une déficience intellectuelle</em>, URL&nbsp;: <a href="https://tinyurl.com/3d32ds9z" target="_blank" rel="noopener noreferrer">https://tinyurl.com/3d32ds9z</a>.</li>
+                            <li id="fn2"><a class="fn-back" href="#fnref2">2.</a> Rettino-Parazelli K. (2018, 7 avril), <em>L’affaire Walmart n’est que «&nbsp;la pointe de l’iceberg&nbsp;»</em>, Le Devoir, URL&nbsp;: <a href="https://tinyurl.com/2z6kev4a" target="_blank" rel="noopener noreferrer">https://tinyurl.com/2z6kev4a</a>.</li>
+                            <li id="fn3"><a class="fn-back" href="#fnref3">3.</a> Boucher, N. (2004), «&nbsp;Handicap, Recherche et Changement Social. L’émergence du paradigme émancipatoire dans l’étude de l’exclusion sociale des personnes handicapées&nbsp;», <em>Lien Social Et Politiques</em>, vol. 50, pp. 147–164, DOI&nbsp;: <a href="https://doi.org/10.7202/008285ar" target="_blank" rel="noopener noreferrer">doi.org/10.7202/008285ar</a>.</li>
+                            <li id="fn4"><a class="fn-back" href="#fnref4">4.</a> Lavigne, C. (2007), «&nbsp;Analyse qualitative du rapport du chercheur à son objet, le handicap&nbsp;: Le chercheur impliqué dans une situation de handicap et travaillant sur le handicap, est-il un chercheur handicapé&nbsp;?&nbsp;», <em>Actes du colloque Bilan et prospectives de la recherche qualitative</em>, p. 94, URL&nbsp;: <a href="https://tinyurl.com/epsnsepx" target="_blank" rel="noopener noreferrer">https://tinyurl.com/epsnsepx</a>.</li>
+                            <li id="fn5"><a class="fn-back" href="#fnref5">5.</a> Salomon, C., Boisvert, J., Ranocchiari, S., et als. (2021), «&nbsp;L’engagement militant dans la recherche en agriculture urbaine. Réflexions sur le contexte français au miroir du <em>scholar activism</em> nord-américain&nbsp;», <em>Natures Sciences Sociétés</em>, vol. 29, n° 3, DOI&nbsp;: <a href="https://doi.org/10.1051/nss/2021058" target="_blank" rel="noopener noreferrer">doi.org/10.1051/nss/2021058</a>, p. 291.</li>
+                            <li id="fn6"><a class="fn-back" href="#fnref6">6.</a> <em>Idem.</em>, p. 290.</li>
+                            <li id="fn7"><a class="fn-back" href="#fnref7">7.</a> <em>Idem.</em>, p. 291.</li>
+                            <li id="fn8"><a class="fn-back" href="#fnref8">8.</a> <em>Idem.</em></li>
+                            <li id="fn9"><a class="fn-back" href="#fnref9">9.</a> Vézina, C., Gagnon, M. (2014), <em>Aporia</em>, vol.&nbsp;6, n°2, URL&nbsp;: <a href="https://doi.org/10.18192/aporia.v6i2.2849" target="_blank" rel="noopener noreferrer">doi.org/10.18192/aporia.v6i2.2849</a>, p. 32.</li>
+                            <li id="fn10"><a class="fn-back" href="#fnref10">10.</a> <em>Idem.</em>, p. 35.</li>
+                            <li id="fn11"><a class="fn-back" href="#fnref11">11.</a> Vézina, C., Gagnon, M. (2014), <em>op. cit</em>., p. 31.</li>
+                            <li id="fn12"><a class="fn-back" href="#fnref12">12.</a> Fortier, M. (2020, 20 octobre), <em>Le milieu universitaire dénonce une ‘attaque’ contre la ‘liberté académique’</em>, Le Devoir, URL&nbsp;: <a href="https://tinyurl.com/2vjzhwpc" target="_blank" rel="noopener noreferrer">https://tinyurl.com/2vjzhwpc</a>.</li>
+                            <li id="fn13"><a class="fn-back" href="#fnref13">13.</a> Facal, J. (2022, 22 décembre), <em>L’Université d’Ottawa n’est que la pointe de l’iceberg</em>, Journal de Montréal, URL&nbsp;: <a href="https://tinyurl.com/5hae23c9" target="_blank" rel="noopener noreferrer">https://tinyurl.com/5hae23c9</a>.</li>
+                            <li id="fn14"><a class="fn-back" href="#fnref14">14.</a> Vézina, C., Gagnon, M. (2014), <em>op. cit</em>., p. 31.</li>
+                            <li id="fn15"><a class="fn-back" href="#fnref15">15.</a> <em>Idem</em>., p. 30.</li>
+                            <li id="fn16"><a class="fn-back" href="#fnref16">16.</a> Longmore Institute (2023, 3 janvier), <em>EMERGE project announcement</em>, Paul K. Longmore Institute on Disability, URL&nbsp;: <a href="https://tinyurl.com/msubnuk9" target="_blank" rel="noopener noreferrer">https://tinyurl.com/msubnuk9</a>.</li>
+                        </ol>
+                    </section>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <!-- Modal Universel (PDF / Vidéo) -->
+    <div class="modal-overlay" id="mediaModal" onclick="closeModalOnOutside(event)">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 id="modalTitle">Titre de la fenêtre</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBodyContent"></div>
+        </div>
+    </div>
+
+    <!-- Modal de Proposition d'Article / Projet -->
+    <div class="modal-overlay" id="proposalModal" onclick="closeProposalModalOnOutside(event)">
+        <div class="modal-container" style="max-width: 800px; height: auto;">
+            <div class="modal-header">
+                <h3 id="proposalModalTitle">Proposer une captation ou un article / Nous faire part d'un commentaire</h3>
+                <button class="modal-close" onclick="closeProposalModal()">&times;</button>
+            </div>
+            <div class="modal-body" style="padding: 1.5rem; overflow-y: auto;">
+                <form id="proposalForm" onsubmit="submitProposal(event)" style="display: flex; flex-direction: column; gap: 1rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                    <input type="hidden" id="propCategory" value="article">
+                    <div>
+                        <label for="propName" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Votre nom</label>
+                        <input type="text" id="propName" required style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propEmail" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Votre courriel</label>
+                        <input type="email" id="propEmail" required style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propTitle" id="propTitleLabel" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Que désirez-vous nous communiquer ?</label>
+                        <input type="text" id="propTitle" required placeholder="Ex: Analyse de l'accessibilité urbaine..." style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propDesc" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Description ou résumé</label>
+                        <textarea id="propDesc" rows="4" required placeholder="Décrivez votre proposition en quelques lignes..." style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff; resize: vertical;"></textarea>
+                    </div>
+                    <button type="submit" style="background-color: #7a2222; color: #fff; border: none; padding: 0.75rem; border-radius: 4px; font-weight: 600; cursor: pointer; margin-top: 0.5rem; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#5e1a1a'" onmouseout="this.style.backgroundColor='#7a2222'">Envoyer la proposition</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSubmenu(event, submenuId, arrowId) {
+            event.stopPropagation();
+            const submenu = document.getElementById(submenuId);
+            const arrow = document.getElementById(arrowId);
+            submenu.classList.toggle('open');
+            arrow.style.transform = submenu.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
+
+        function openModal(type, title, url) {
+            const modal = document.getElementById('mediaModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalBodyContent = document.getElementById('modalBodyContent');
+
+            modalTitle.textContent = title;
+            modalBodyContent.innerHTML = '';
+
+            if (type === 'pdf') {
+                const iframe = document.createElement('iframe');
+                iframe.className = 'pdf-frame';
+                iframe.src = url;
+                modalBodyContent.appendChild(iframe);
+            } else if (type === 'video') {
+                const iframe = document.createElement('iframe');
+                iframe.className = 'video-frame';
+                iframe.src = url;
+                iframe.setAttribute('allow', 'autoplay; fullscreen');
+                modalBodyContent.appendChild(iframe);
+            }
+
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('mediaModal');
+            modal.style.display = 'none';
+            document.getElementById('modalBodyContent').innerHTML = '';
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeModalOnOutside(event) {
+            const modal = document.getElementById('mediaModal');
+            if (event.target === modal) closeModal();
+        }
+
+        function openProposalModal(type) {
+            const proposalModal = document.getElementById('proposalModal');
+            const titleEl = document.getElementById('proposalModalTitle');
+            const categoryEl = document.getElementById('propCategory');
+            const titleLabelEl = document.getElementById('propTitleLabel');
+            const titleInputEl = document.getElementById('propTitle');
+
+            categoryEl.value = type;
+
+            if (type === 'captation') {
+                titleEl.textContent = "Nous faire part d'un commentaire ou d'une proposition (captation ou article)";
+                titleLabelEl.textContent = "Que voulez-vous nous communiquer ?";
+                titleInputEl.placeholder = "Ex: projet de captation, soumettre un article, faire un commentaire...";
+            } else {
+                titleEl.textContent = "Nous faire part d'un commentaire ou d'une proposition (captation ou article)";
+                titleLabelEl.textContent = "Que voulez-vous nous communiquer ?";
+                titleInputEl.placeholder = "Ex: projet de captation, soumettre un article, faire un commentaire...";
+            }
+
+            proposalModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProposalModal() {
+            const proposalModal = document.getElementById('proposalModal');
+            proposalModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeProposalModalOnOutside(event) {
+            const proposalModal = document.getElementById('proposalModal');
+            if (event.target === proposalModal) closeProposalModal();
+        }
+
+        function submitProposal(event) {
+            event.preventDefault();
+            const name = document.getElementById('propName').value;
+            const email = document.getElementById('propEmail').value;
+            const category = document.getElementById('propCategory').value;
+            const title = document.getElementById('propTitle').value;
+            const desc = document.getElementById('propDesc').value;
+
+            const typeLabel = category === 'captation' ? 'Proposition de captation' : "Proposition d'article";
+            const subject = encodeURIComponent(`${typeLabel} : ${title}`);
+            const body = encodeURIComponent(`Nom : ${name}\nCourriel : ${email}\nType : ${typeLabel}\nTitre : ${title}\n\nDescription :\n${desc}`);
+
+            window.location.href = `mailto:sociocamera@gmail.com?subject=${subject}&body=${body}`;
+            closeProposalModal();
+        }
+
+        window.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+                closeProposalModal();
+            }
+        });
+
+        /* Interactivité des cartes conceptuelles */
+        const concept1Notes = [
+            "<strong>1. Décideuses &amp; décideurs :</strong> Les orientations publiques sont élaborées par des acteurs éloignés du vécu des personnes handicapées, privilégiant la rentabilité économique au détriment des droits fondamentaux.",
+            "<strong>2. Gestion au cas par cas :</strong> Comme l’illustre l’abandon de l’entente avec Jonathan Marchand en 2021, l’État évite les réformes structurelles et reporte le poids administratif et humain sur chaque individu.",
+            "<strong>3. Stagnation sociale :</strong> Malgré la <em>Loi canadienne sur l’accessibilité</em>, les obstacles persistent dans l’emploi, l’aide humaine à domicile, le logement et les transports au Québec.",
+            "<strong>4. Contre-pouvoirs &amp; recherche :</strong> Les organismes communautaires sont sous-financés et les données probantes issues de la recherche peinent à franchir le mur de l’inaction politique."
+        ];
+
+        function selectConcept1(idx, el) {
+            const card = el.closest('.concept-map-card');
+            card.querySelectorAll('.svg-node').forEach(n => n.classList.remove('active'));
+            el.classList.add('active');
+            document.getElementById('concept1Detail').innerHTML = concept1Notes[idx];
+        }
+
+        const concept2Notes = [
+            "<strong>Posture « Face au militantisme » :</strong> Dominante au Québec, cette approche postule une impartialité stricte au service des cercles scientifiques qui s’auto-évaluent, au risque de laisser intactes les structures capacitistes.",
+            "<strong>Posture « Avec le militantisme » :</strong> Issue notamment des traditions critiques nord-américaines (<em>scholar activism</em>), elle assume l’ancrage socio-historique du chercheur pour produire des savoirs d’action émancipatoires.",
+            "<strong>5 questions réflexives clés :</strong> Origine de l’intérêt pour le handicap, biais de formation, influence des bailleurs de fonds, reproduction des rapports de pouvoir dans la méthodologie et retombées concrètes pour la communauté."
+        ];
+
+        function selectConcept2(idx, el) {
+            const card = el.closest('.concept-map-card');
+            card.querySelectorAll('.svg-node').forEach(n => n.classList.remove('active'));
+            el.classList.add('active');
+            document.getElementById('concept2Detail').innerHTML = concept2Notes[idx];
+        }
+    </script>
+</body>
+</html>
