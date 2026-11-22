@@ -423,6 +423,206 @@
             text-align: left;
         }
 
+        /* Slider vidéo de type Netflix harmonisé */
+        .video-carousel-section {
+            background-color: #F4EFE6;
+            border: 1px solid #dfd6c7;
+            border-radius: 10px;
+            padding: 1.35rem 1.5rem 1.5rem 1.5rem;
+            margin-bottom: 2.25rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+            position: relative;
+        }
+
+        .video-carousel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.55rem;
+            border-bottom: 1px solid #e2d9ca;
+            gap: 1rem;
+        }
+
+        .video-carousel-title-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+        }
+
+        .video-carousel-title {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #7a2222;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .video-carousel-subtitle {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.8rem;
+            color: #5a5248;
+        }
+
+        .video-carousel-controls {
+            display: flex;
+            gap: 0.5rem;
+            flex-shrink: 0;
+        }
+
+        .carousel-nav-btn {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background-color: #FDFBF7;
+            border: 1px solid #d4c5b9;
+            color: #7a2222;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .carousel-nav-btn:hover {
+            background-color: #7a2222;
+            color: #ffffff;
+            border-color: #7a2222;
+        }
+
+        .video-slider-track {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 0.35rem 0.15rem 0.65rem 0.15rem;
+            scrollbar-width: thin;
+            scrollbar-color: #c8b9a6 #eae3d5;
+        }
+
+        .video-slider-track::-webkit-scrollbar {
+            height: 7px;
+        }
+
+        .video-slider-track::-webkit-scrollbar-track {
+            background: #eae3d5;
+            border-radius: 4px;
+        }
+
+        .video-slider-track::-webkit-scrollbar-thumb {
+            background: #c8b9a6;
+            border-radius: 4px;
+        }
+
+        .video-slider-track::-webkit-scrollbar-thumb:hover {
+            background: #7a2222;
+        }
+
+        .video-card {
+            flex: 0 0 245px;
+            background-color: #FDFBF7;
+            border: 1px solid #dfd6c7;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+            text-align: left;
+            padding: 0;
+        }
+
+        .video-card:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 8px 18px rgba(122, 34, 34, 0.12);
+            border-color: #7a2222;
+        }
+
+        .video-thumb-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background-color: #e8e0d2;
+            overflow: hidden;
+        }
+
+        .video-thumb-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .video-card:hover .video-thumb-img {
+            transform: scale(1.05);
+        }
+
+        .video-thumb-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(26, 32, 44, 0.55) 0%, rgba(26, 32, 44, 0.1) 50%, transparent 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.9;
+            transition: background-color 0.25s ease;
+        }
+
+        .video-play-badge {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background-color: rgba(122, 34, 34, 0.92);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #FAF6EF;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .video-card:hover .video-play-badge {
+            transform: scale(1.12);
+            background-color: #7a2222;
+        }
+
+        .video-number-tag {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background-color: rgba(250, 246, 239, 0.94);
+            color: #7a2222;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.15rem 0.45rem;
+            border-radius: 4px;
+            border: 1px solid #d4c5b9;
+        }
+
+        .video-card-body {
+            padding: 0.75rem 0.85rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .video-card-title {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.83rem;
+            font-weight: 600;
+            color: #1a202c;
+            line-height: 1.38;
+        }
+
+        .video-card:hover .video-card-title {
+            color: #7a2222;
+        }
+
         /* Corps de l'article */
         .article-body {
             font-size: 1.06rem;
@@ -935,6 +1135,235 @@
                 </div>
             </section>
 
+            <!-- Slider de vidéos de type Netflix -->
+            <section class="video-carousel-section" aria-label="Capsules vidéo de terrain">
+                <div class="video-carousel-header">
+                    <div class="video-carousel-title-group">
+                        <h2 class="video-carousel-title">Capsules vidéo de terrain (12 séquences)</h2>
+                        <span class="video-carousel-subtitle">Faites défiler horizontalement et cliquez sur une vignette pour lancer la capsule dans le lecteur vidéo</span>
+                    </div>
+                    <div class="video-carousel-controls">
+                        <button type="button" class="carousel-nav-btn" onclick="scrollVideoSlider(-1)" aria-label="Défiler vers la gauche">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                        </button>
+                        <button type="button" class="carousel-nav-btn" onclick="scrollVideoSlider(1)" aria-label="Défiler vers la droite">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="video-slider-track" id="netflixVideoSlider">
+                    <!-- Capsule 01 -->
+                    <button type="button" class="video-card" onclick="openModal('video', '01. Approche orientée vers l\'individu', 'https://drive.google.com/file/d/14TkjtumrL0DkouQzxoqXDGWevf3dchQJ/preview?autoplay=1')">
+                        <div class="video-thumb-wrapper">
+                            <img src="https://lh3.googleusercontent.com/d/1ZYoXlro9OIYI2Nuf3fZFvFYyc6WN0PkX" alt="01. Approche orientée vers l'individu" class="video-thumb-img">
+                            <span class="video-number-tag">01</span>
+                            <div class="video-thumb-overlay">
+                                <span class="video-play-badge">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="video-card-body">
+                            <span class="video-card-title">01. Approche orientée vers l'individu</span>
+                        </div>
+                    </button>
+
+                    <!-- Capsule 02 -->
+                    <button type="button" class="video-card" onclick="openModal('video', '02. Capitaliser sur les forces de chacun', 'https://drive.google.com/file/d/1P5zC66b7wOmTsRrz23FZCDnwQMzCIygZ/preview?autoplay=1')">
+                        <div class="video-thumb-wrapper">
+                            <img src="https://lh3.googleusercontent.com/d/1NbWJdQKfTJujaB2maagAiU2kJrANJn6W" alt="02. Capitaliser sur les forces de chacun" class="video-thumb-img">
+                            <span class="video-number-tag">02</span>
+                            <div class="video-thumb-overlay">
+                                <span class="video-play-badge">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="video-card-body">
+                            <span class="video-card-title">02. Capitaliser sur les forces de chacun</span>
+                        </div>
+                    </button>
+
+                    <!-- Capsule 03 -->
+                    <button type="button" class="video-card" onclick="openModal('video', '03. Accompagnement aux repas', 'https://drive.google.com/file/d/1EgCkzVLyqggy6ifGwZaVj0fJUohZYxl5/preview?autoplay=1')">
+                        <div class="video-thumb-wrapper">
+                            <img src="https://lh3.googleusercontent.com/d/1mgfAnqOyPYsSnRvhkYmJ84B9i1yxtvdp" alt="03. Accompagnement aux repas" class="video-thumb-img">
+                            <span class="video-number-tag">03</span>
+                            <div class="video-thumb-overlay">
+                                <span class="video-play-badge">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="video-card-body">
+                            <span class="video-card-title">03. Accompagnement aux repas</span>
+                        </div>
+                    </button>
+
+                    <!-- Capsule 04 -->
+                    <button type="button" class="video-card" onclick="openModal('video', '04. Collaboration entre organismes', 'https://drive.google.com/file/d/1uPI0GOHUufDAW7pPROVb67HKtt5xAuM-/preview?autoplay=1')">
+                        <div class="video-thumb-wrapper">
+                            <img src="https://lh3.googleusercontent.com/d/1QMCBjlEPe_SqEb-UJu8NQlZNCt3vDBAW" alt="04. Collaboration entre organismes" class="video-thumb-img">
+                            <span class="video-number-tag">04</span>
+                            <div class="video-thumb-overlay">
+                                <span class="video-play-badge">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="video-card-body">
+                            <span class="video-card-title">04. Collaboration entre organismes</span>
+                        </div>
+                    </button>
+
+                    <!-- Capsule 05 -->
+                    <button type="button" class="video-card" onclick="openModal('video', '05. Moment de répit pour les proches-aidants', 'https://drive.google.com/file/d/1Zj9tjBamQN7i7UUX2yh-rMQTDXF5T5-l/preview?autoplay=1')">
+                        <div class="video-thumb-wrapper">
+                            <img src="https://lh3.googleusercontent.com/d/1wP2V0xokdFIs1GeKu5J0YxExEsiY6r9O" alt="05. Moment de répit pour les proches-aidants" class="video-thumb-img">
+                            <span class="video-number-tag">05</span>
+                            <div class="video-thumb-overlay">
+                                <span class="video-play-badge">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="video-card-body">
+                            <span class="video-card-title">05. Moment de répit pour les proches-aidants</span>
+                        </div>
+                    </button>
+
+                    <!-- Capsule 06 -->
+                    <button type="button" class="video-card" onclick="openModal('video', '06. Importance des associations et du milieu communautaire', 'https://drive.google.com/file/d/126Px8K4fFzriD8Yo6qAF3V32hC89Nt83/preview?autoplay=1')">
+                        <div class="video-thumb-wrapper">
+                            <img src="https://lh3.googleusercontent.com/d/1lQW0l_7oBdIAUKL1CGmF5gBOOqYnt-U5" alt="06. Importance des associations et du milieu communautaire" class="video-thumb-img">
+                            <span class="video-number-tag">06</span>
+                            <div class="video-thumb-overlay">
+                                <span class="video-play-badge">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="video-card-body">
+                            <span class="video-card-title">06. Importance des associations et du milieu communautaire</span>
+                        </div>
+                    </button>
+
+                    <!-- Capsule 07 -->
+                    <button type="button" class="video-card" onclick="openModal('video', '07. Bienfaits du yoga', 'https://drive.google.com/file/d/1yk5bC1awGE-M1JyN0BF1iZOUwOwq3gVN/preview?autoplay=1')">
+                        <div class="video-thumb-wrapper">
+                            <img src="https://lh3.googleusercontent.com/d/1GDXAeMPfvFf8GH2FiUng_ZeGlscxeh7d" alt="07. Bienfaits du yoga" class="video-thumb-img">
+                            <span class="video-number-tag">07</span>
+                            <div class="video-thumb-overlay">
+                                <span class="video-play-badge">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="video-card-body">
+                            <span class="video-card-title">07. Bienfaits du yoga</span>
+                        </div>
+                    </button>
+
+                    <!-- Capsule 08 -->
+                    <button type="button" class="video-card" onclick="openModal('video', '08. Faire son épicerie', 'https://drive.google.com/file/d/1WVJsqvpcATc5FEHMltNawUy0HZybCZD9/preview?autoplay=1')">
+                        <div class="video-thumb-wrapper">
+                            <img src="https://lh3.googleusercontent.com/d/19lKrDjBJ5sIb0EXCdkhAUmh0l4Y3er8-" alt="08. Faire son épicerie" class="video-thumb-img">
+                            <span class="video-number-tag">08</span>
+                            <div class="video-thumb-overlay">
+                                <span class="video-play-badge">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="video-card-body">
+                            <span class="video-card-title">08. Faire son épicerie</span>
+                        </div>
+                    </button>
+
+                    <!-- Capsule 09 -->
+                    <button type="button" class="video-card" onclick="openModal('video', '09. Force des symboles', 'https://drive.google.com/file/d/1H-aIsREaaDAoOX9ll7BuK-7UOEoAoTJY/preview?autoplay=1')">
+                        <div class="video-thumb-wrapper">
+                            <img src="https://lh3.googleusercontent.com/d/16HhOF6oxwhgD7VnNvgG0zF01gqh5ABH6" alt="09. Force des symboles" class="video-thumb-img">
+                            <span class="video-number-tag">09</span>
+                            <div class="video-thumb-overlay">
+                                <span class="video-play-badge">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="video-card-body">
+                            <span class="video-card-title">09. Force des symboles</span>
+                        </div>
+                    </button>
+
+                    <!-- Capsule 10 -->
+                    <button type="button" class="video-card" onclick="openModal('video', '10. Complicité de l\'intervenante avec Johanne Rossignol', 'https://drive.google.com/file/d/11ARpKQw8HdClWwMVfZV9p6C02whgWkdO/preview?autoplay=1')">
+                        <div class="video-thumb-wrapper">
+                            <img src="https://lh3.googleusercontent.com/d/1Cpft6DVg3QiHEdbuVM5Ndm6l4sV-O0QM" alt="10. Complicité de l'intervenante avec Johanne Rossignol" class="video-thumb-img">
+                            <span class="video-number-tag">10</span>
+                            <div class="video-thumb-overlay">
+                                <span class="video-play-badge">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="video-card-body">
+                            <span class="video-card-title">10. Complicité de l'intervenante avec Johanne Rossignol</span>
+                        </div>
+                    </button>
+
+                    <!-- Capsule 11 -->
+                    <button type="button" class="video-card" onclick="openModal('video', '11. Collaboration entre les organismes communautaires', 'https://drive.google.com/file/d/1WMyLoRrEIS3NgLV_51NMjdvjzU1wCMih/preview?autoplay=1')">
+                        <div class="video-thumb-wrapper">
+                            <img src="https://lh3.googleusercontent.com/d/1sDem7KvceBZE9silEM_mlPMv7n0JgDPi" alt="11. Collaboration entre les organismes communautaires" class="video-thumb-img">
+                            <span class="video-number-tag">11</span>
+                            <div class="video-thumb-overlay">
+                                <span class="video-play-badge">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="video-card-body">
+                            <span class="video-card-title">11. Collaboration entre les organismes communautaires</span>
+                        </div>
+                    </button>
+
+                    <!-- Capsule 12 -->
+                    <button type="button" class="video-card" onclick="openModal('video', '12. Congrès Connexion TCC-QC', 'https://drive.google.com/file/d/1I7aJruqLeXTqmjst0zUEk9Oyx9IGnMGq/preview?autoplay=1')">
+                        <div class="video-thumb-wrapper">
+                            <img src="https://lh3.googleusercontent.com/d/1_RGDPrNFoU1mGquUf9NGxPyQfS25f-2s" alt="12. Congrès Connexion TCC-QC" class="video-thumb-img">
+                            <span class="video-number-tag">12</span>
+                            <div class="video-thumb-overlay">
+                                <span class="video-play-badge">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="video-card-body">
+                            <span class="video-card-title">12. Congrès Connexion TCC-QC</span>
+                        </div>
+                    </button>
+
+                    <!-- Modèle commenté pour ajouter manuellement une vignette supplémentaire ultérieurement :
+                    <button type="button" class="video-card" onclick="openModal('video', '13. Titre de la vidéo', 'https://drive.google.com/file/d/ID_VIDEO_GOOGLE_DRIVE/preview?autoplay=1')">
+                        <div class="video-thumb-wrapper">
+                            <img src="https://lh3.googleusercontent.com/d/ID_IMAGE_VIGNETTE" alt="13. Titre de la vidéo" class="video-thumb-img">
+                            <span class="video-number-tag">13</span>
+                            <div class="video-thumb-overlay">
+                                <span class="video-play-badge">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="video-card-body">
+                            <span class="video-card-title">13. Titre de la vidéo</span>
+                        </div>
+                    </button>
+                    -->
+                </div>
+            </section>
+
             <!-- Corps de l'article -->
             <article class="article-body">
 
@@ -1008,7 +1437,7 @@
                 <h2 id="sec-1" class="chapter-title article-anchor">1. Le point de départ : une recherche partenariale avec une association soutenant les personnes vivant avec un TCC et leurs proches</h2>
                 <p>
                     L’idée de ce projet vient d’une recherche initiée en 2020 en partenariat avec une association soutenant des personnes vivant avec un TCC et leurs proches, soit l’Association TCC des Deux-Rives. Cette association, qui inclut 923 membres, couvre un large territoire incluant à la fois des milieux urbains, semi-urbains et ruraux, dans les régions de la Capitale-Nationale et de Chaudière-Appalaches, dans la province de Québec, Canada. L’association offre une diversité de services d’accompagnement, counseling, groupes de soutien et répit aux familles, aide au maintien dans le milieu de vie, activités sociales et de loisirs centrés sur les besoins, les intérêts et les forces de leurs membres, tel qu’expliqué par monsieur Benoît Durand, directeur général de l’Association TCC des Deux-Rives<a class="fn-link" href="#sdfootnote13"><sup>13</sup></a>
-                    <button class="video-trigger-inline" onclick="openModal('video', 'Benoît Durand — Association TCC des Deux-Rives', 'https://www.youtube.com/embed/qyg7dko4jDg?autoplay=1')">▶ Extrait vidéo</button>.
+                    <button class="video-trigger-inline" onclick="openModal('video', 'Benoît Durand — Association TCC des Deux-Rives', 'https://drive.google.com/file/d/14TkjtumrL0DkouQzxoqXDGWevf3dchQJ/preview?autoplay=1')">▶ Extrait vidéo</button>.
                 </p>
                 <p>
                     Dans le cadre du projet de recherche, des entrevues individuelles avaient été réalisées avec douze proches aidants de personnes vivant avec un TCC, afin d’explorer les éléments influençant les transitions et la participation dans les services de la communauté. Ces données ont généré des pistes utiles pour guider la présente démarche de sociologie visuelle, par la captation de différentes scènes et témoignages d’acteurs concernés dans leurs milieux de vie réels. Ces captations illustrent les diverses réalités sociales de personnes vivant avec un TCC (cohabitant ou non avec leurs proches) et celles de proches aidants. Elles présentent aussi des actions concrètes des associations pour les soutenir et favoriser le dialogue avec les autres acteurs de la communauté vers une société plus inclusive.
@@ -1018,11 +1447,11 @@
                 <h2 id="sec-2" class="chapter-title article-anchor">2. Être proche aidant d’une personne ayant vécu un TCC : entre ruptures et continuités</h2>
                 <p>
                     À la suite du TCC, les personnes proches aidantes doivent apprivoiser brusquement de nouveaux rôles et souvent faire le deuil de plusieurs aspects de leur vie antérieure. Plusieurs assument maintenant une grande partie de l’assistance humaine requise par les personnes ayant subi un TCC afin de réaliser leurs activités quotidiennes<a class="fn-link" href="#sdfootnote14"><sup>14</sup></a>. L’importance de l’assistance humaine fournie par les proches aidants est notée, même pour les personnes résidant dans des ressources d’hébergement ou ne cohabitant pas avec ce dernier<a class="fn-link" href="#sdfootnote15"><sup>15</sup></a>. En plus d’assumer des responsabilités familiales accrues (ex. : tâches domestiques, gestion des biens, soins et éducation des enfants), ils doivent aussi s’adapter aux changements dans la relation avec leur proche, qui n’est souvent plus la même après le TCC. Ils doivent aussi apprendre à adapter leur communication afin de prévenir ou de gérer les comportements ou les réactions émotionnelles de leur proche (ex. : anxiété ou colère) dans différentes situations quotidiennes. Cette réalité est illustrée par le témoignage d’une personne proche aidante, madame Maryse Brodeur, dont le conjoint a vécu un TCC<a class="fn-link" href="#sdfootnote16"><sup>16</sup></a>
-                    <button class="video-trigger-inline" onclick="openModal('video', 'Témoignage de Maryse Brodeur — Proche aidante', 'https://www.youtube.com/embed/vxVXihH6Ze8?autoplay=1')">▶ Extrait vidéo</button>.
+                    <button class="video-trigger-inline" onclick="openModal('video', 'Témoignage de Maryse Brodeur — Proche aidante', 'https://drive.google.com/file/d/14TkjtumrL0DkouQzxoqXDGWevf3dchQJ/preview?autoplay=1')">▶ Extrait vidéo</button>.
                 </p>
                 <p>
                     Des défis importants se posent aussi lorsque les personnes ayant vécu un TCC ne perçoivent pas les changements survenus à la suite du TCC. Le développement de l’autoperception et l’adaptation à sa situation peuvent d’ailleurs se poursuivre sur de nombreuses années après le TCC. Cela influence l’ouverture à utiliser les services des associations TCC ou d’autres organismes œuvrant auprès des personnes en situation de handicap auxquelles ils ne s’identifient pas. En effet, des personnes proches aidantes ayant participé à notre recherche expliquent : <em>« C’est parce qu’ils pensent que les autres sont pires qu’eux autres. Ils se considèrent moins touchés » ; « Pour lui il est correct. Ça fait que c’est dur de l’intégrer dans ça. » ; « C’est vraiment un bon 5 ans avant qu’ils acceptent leur condition. Et une fois qu’ils ont accepté ça, c’est plus facile. Ils s’intègrent entre eux, c’est plus facile, mais c’est long<a class="fn-link" href="#sdfootnote17"><sup>17</sup></a>. »</em>
-                    <button class="video-trigger-inline" onclick="openModal('video', 'Autoperception et cheminement après un TCC', 'https://www.youtube.com/embed/B_71PGsMHAw?autoplay=1')">▶ Extrait vidéo</button>
+                    <button class="video-trigger-inline" onclick="openModal('video', 'Autoperception et cheminement après un TCC', 'https://drive.google.com/file/d/14TkjtumrL0DkouQzxoqXDGWevf3dchQJ/preview?autoplay=1')">▶ Extrait vidéo</button>
                     Ces propos accentuent l’importance que les personnes puissent avoir accès à des expériences inclusives dans différents espaces de participation sociale, que ce soit au sein des associations mais aussi plus largement dans la communauté afin de réduire les situations d’isolement et d’exclusion. À cet égard, <strong>les proches aidants agissent souvent comme facilitateur pour qu’elles puissent accéder et utiliser les services de la communauté</strong>. Plusieurs proches offrent de la stimulation, des rappels, de l’accompagnement ou du transport pour aider la personne à participer à différentes activités et services communautaires<a class="fn-link" href="#sdfootnote18"><sup>18</sup></a>.
                 </p>
 
@@ -1084,7 +1513,7 @@
 
                 <p>
                     Devant l’ampleur de ces différentes responsabilités associées au rôle de proche aidant, plusieurs participants à la recherche ont insisté sur l’importance de mobiliser les ressources d’aide disponibles pour acquérir les habiletés nécessaires et pour prévenir la détresse et l’épuisement : « J’ai suivi des cours pour un peu de psychologie, pour avoir des outils pour travailler avec une personne qui a un gros TCC ». Madame Maryse Brodeur, une personne proche aidante, explique également comment l’intervention d’une travailleuse sociale de son centre local de services communautaires (CLSC) a facilité l’acceptation et l’utilisation des services de répit par son conjoint<a class="fn-link" href="#sdfootnote19"><sup>19</sup></a>
-                    <button class="video-trigger-inline" onclick="openModal('video', 'Accompagnement vers le répit — Maryse Brodeur', 'https://www.youtube.com/embed/SK5cY3PXhP8?autoplay=1')">▶ Extrait vidéo</button>.
+                    <button class="video-trigger-inline" onclick="openModal('video', 'Accompagnement vers le répit — Maryse Brodeur', 'https://drive.google.com/file/d/14TkjtumrL0DkouQzxoqXDGWevf3dchQJ/preview?autoplay=1')">▶ Extrait vidéo</button>.
                     Cependant, tous ne sont pas également préparés ni connectés avec les services comme l’illustrent ces citations d’autres participants à la recherche :
                 </p>
 
@@ -1099,9 +1528,9 @@
                 <h2 id="sec-3" class="chapter-title article-anchor">3. Les associations de personnes vivant avec un TCC : un point de connexions</h2>
                 <p>
                     Les proches aidants consultés considèrent tous que les associations facilitent les connexions vers les services de soutien et le maintien de liens signifiants, tant pour eux que pour les personnes vivant avec un TCC. Pour les personnes vivant avec un TCC, les associations offrent des lieux d’échanges accueillants et sécurisants, où elles peuvent briser l’isolement, réaliser des activités plaisantes et stimulantes et créer des liens signifiants avec des pairs. Les participants à notre recherche mettent aussi de l’avant l’importance du lien thérapeutique créé avec les intervenants pour maintenir l’engagement de la personne dans les services (Simon Tellier-Marcil, éducateur spécialisé, explique comment ces différents principes se traduisent dans la réalité du terrain lors des activités de répit à l’association<a class="fn-link" href="#sdfootnote20"><sup>20</sup></a>
-                    <button class="video-trigger-inline" onclick="openModal('video', 'Simon Tellier-Marcil — Activités de répit à l’association', 'https://www.youtube.com/embed/sMTcAhrHi-A?autoplay=1')">▶ Extrait vidéo</button>).
+                    <button class="video-trigger-inline" onclick="openModal('video', 'Simon Tellier-Marcil — Activités de répit à l’association', 'https://drive.google.com/file/d/14TkjtumrL0DkouQzxoqXDGWevf3dchQJ/preview?autoplay=1')">▶ Extrait vidéo</button>).
                     Parmi les autres facilitateurs à l’intégration dans les services, les proches relèvent l’importance d’une approche personnalisée, tenant compte des intérêts et des forces de la personne, ainsi que <em>l’accompagnement par une personne de confiance</em> que ce soit un proche aidant, un pair ou un intervenant. Un membre de l’association, monsieur Jean-François Brousseau, explique aussi comment l’approche adoptée pour l’animation d’un atelier de yoga facilite sa participation, par exemple, en respectant son rythme d’apprentissage, en soutenant un climat positif, etc.<a class="fn-link" href="#sdfootnote21"><sup>21</sup></a>
-                    <button class="video-trigger-inline" onclick="openModal('video', 'Jean-François Brousseau — Atelier de yoga adapté', 'https://www.youtube.com/embed/6Suo3O8fttU?autoplay=1')">▶ Extrait vidéo</button>
+                    <button class="video-trigger-inline" onclick="openModal('video', 'Jean-François Brousseau — Atelier de yoga adapté', 'https://drive.google.com/file/d/14TkjtumrL0DkouQzxoqXDGWevf3dchQJ/preview?autoplay=1')">▶ Extrait vidéo</button>
                 </p>
                 <p>
                     En plus de ces activités sociales et de loisirs, les associations offrent aussi des services d’accompagnement individuel et de répit dans la communauté qui permettent de soutenir le maintien à domicile et l’accès à d’autres espaces de participation sociale, tout en contribuant à réduire le fardeau de l’aidant. Elles contribuent ainsi au filet social pour ces personnes et leurs proches à risque d’isolement. À ce titre, voir l’extrait vidéo illustrant différentes situations d’accompagnement individuel de deux personnes membres de l’Association TCC des Deux-Rives, avec l’éducatrice spécialisée, madame Héloïse Robert<a class="fn-link" href="#sdfootnote22"><sup>22-23</sup></a>
@@ -1110,9 +1539,9 @@
                 </p>
                 <p>
                     Pour les proches aidants, les associations offrent aussi des espaces d’échanges et de connexions sociales avec d’autres personnes vivant des réalités semblables à la leur. Par exemple, lors de cafés-rencontres et de dîners mensuels en groupe, les proches aidants peuvent recevoir du soutien de leurs pairs, partager des expériences, des conseils pratiques ou des ressources pertinentes de la communauté, et ce, dans une ambiance détendue et sans jugement où Camille Jolivet, éducatrice spécialisée à l’Association TCC des Deux-Rives, partage des outils et des stratégies avec un groupe de personnes proches aidantes lors d’un dîner mensuel<a class="fn-link" href="#sdfootnote24"><sup>24</sup></a>
-                    <button class="video-trigger-inline" onclick="openModal('video', 'Camille Jolivet — Dîner mensuel des proches aidants', 'https://www.youtube.com/embed/sVjG0PIl8Dc?autoplay=1')">▶ Extrait vidéo</button>.
+                    <button class="video-trigger-inline" onclick="openModal('video', 'Camille Jolivet — Dîner mensuel des proches aidants', 'https://drive.google.com/file/d/14TkjtumrL0DkouQzxoqXDGWevf3dchQJ/preview?autoplay=1')">▶ Extrait vidéo</button>.
                     Les proches aidants peuvent aussi y recevoir du soutien émotionnel et de l’accompagnement individualisé d’un intervenant afin de les orienter pour naviguer dans les différents services sociaux et communautaires. Madame Maryse Brodeur explique d’ailleurs comment le soutien de l’association l’a aidée à s’adapter à son rôle de personne proche aidante (visionner l’extrait vidéo suivant<a class="fn-link" href="#sdfootnote25"><sup>25</sup></a>
-                    <button class="video-trigger-inline" onclick="openModal('video', 'Adaptation au rôle de proche aidante — Maryse Brodeur', 'https://www.youtube.com/embed/SK5cY3PXhP8?autoplay=1')">▶ Extrait vidéo</button>).
+                    <button class="video-trigger-inline" onclick="openModal('video', 'Adaptation au rôle de proche aidante — Maryse Brodeur', 'https://drive.google.com/file/d/14TkjtumrL0DkouQzxoqXDGWevf3dchQJ/preview?autoplay=1')">▶ Extrait vidéo</button>).
                 </p>
 
                 <!-- Section 4 -->
@@ -1146,7 +1575,7 @@
                 </p>
                 <p>
                     Puisque les associations de personnes vivant avec un TCC connaissent bien les besoins à long terme, elles sont d’ailleurs bien placées pour agir comme point de connexion central vers et entre ces différents services (ex. : services de santé et sociaux, communautaires, municipaux). Pour ce faire, les proches nomment la pertinence de renforcer les ponts de connexions et le référencement en temps opportun vers et entre les services communautaires. Différentes stratégies sont d’ailleurs utilisées, voire à renforcer, pour soutenir les transitions vers les services des associations à la suite de la réadaptation et à plus long terme. Parmi les stratégies identifiées par les proches aidants interrogés, ceux-ci nomment l’importance de créer des opportunités de contacts directs avec les associations dès le moment de la réadaptation en initiant le lien avec les familles et les proches (témoignage d’une personne proche aidante qui illustre bien le rôle clé de l’association comme point de connexion vers et entre les services de la communauté<a class="fn-link" href="#sdfootnote29"><sup>29</sup></a>
-                    <button class="video-trigger-inline" onclick="openModal('video', 'L’association comme point de connexion dès la réadaptation', 'https://www.youtube.com/embed/MVioAAV8rqs?autoplay=1')">▶ Extrait vidéo</button>).
+                    <button class="video-trigger-inline" onclick="openModal('video', 'L’association comme point de connexion dès la réadaptation', 'https://drive.google.com/file/d/14TkjtumrL0DkouQzxoqXDGWevf3dchQJ/preview?autoplay=1')">▶ Extrait vidéo</button>).
                     Les témoignages d’autres proches aidants peuvent aussi être source d’espoir et les inciter à utiliser ces services. En complément, il importe de poursuivre des relances répétées à plus long terme, que ce soit par l’envoi d’infolettres, d’activités de promotion (ex. : portes ouvertes) ou de communications électroniques, afin d’encourager les personnes à recourir aux services au moment où elles en auront besoin.
                 </p>
 
@@ -1223,15 +1652,15 @@
                 </p>
                 <p>
                     Ceci assurerait une meilleure collaboration entre ces différents secteurs afin que « les professionnels soient sensibilisés et qu’ils puissent orienter les gens au besoin ». C’est le cas notamment des personnes vivant avec un TCC et ayant des enjeux de santé mentale ou des dépendances qui sont à risque accru de situations de stigmatisation, de marginalisation ou d’exclusion des services. À cet égard, madame Héloïse Robert, éducatrice spécialisée ainsi que madame Johanne Rossignol, membre de l’Association TCC des Deux-Rives, expliquent comment la collaboration entre les intervenants de l’association et ceux d’autres organismes œuvrant auprès des personnes vivant différents enjeux concomitants (par exemple : santé mentale, toxicomanie, itinérance, marginalisation ou pauvreté) soutient leur inclusion dans les services de la communauté<a class="fn-link" href="#sdfootnote30"><sup>30</sup></a>
-                    <button class="video-trigger-inline" onclick="openModal('video', 'Collaboration autour des enjeux concomitants — Héloïse Robert & Johanne Rossignol', 'https://www.youtube.com/embed/dGbvFTenxyE?autoplay=1')">▶ Extrait vidéo</button>.
+                    <button class="video-trigger-inline" onclick="openModal('video', 'Collaboration autour des enjeux concomitants — Héloïse Robert & Johanne Rossignol', 'https://drive.google.com/file/d/14TkjtumrL0DkouQzxoqXDGWevf3dchQJ/preview?autoplay=1')">▶ Extrait vidéo</button>.
                 </p>
                 <p>
                     Il importe également de sensibiliser les membres de l’entourage immédiat des personnes vivant avec un TCC, afin qu’ils soient en mesure de mieux comprendre les réalités et les besoins de soutien des personnes proches aidantes, comme l’explique madame Katerine Ouimet, intervenante psychosociale aux proches aidants au sein de l’Association des TCC Montérégie<a class="fn-link" href="#sdfootnote31"><sup>31</sup></a>
-                    <button class="video-trigger-inline" onclick="openModal('video', 'Sensibiliser l’entourage immédiat — Katerine Ouimet', 'https://www.youtube.com/embed/FNekbPOcxQM?autoplay=1')">▶ Extrait vidéo</button>.
+                    <button class="video-trigger-inline" onclick="openModal('video', 'Sensibiliser l’entourage immédiat — Katerine Ouimet', 'https://drive.google.com/file/d/14TkjtumrL0DkouQzxoqXDGWevf3dchQJ/preview?autoplay=1')">▶ Extrait vidéo</button>.
                     Par différentes initiatives, telles que la Semaine québécoise du TCC et le Forum annuel du Regroupement Connexion TCC, les associations sensibilisent les citoyens sur le TCC (voir l’extrait vidéo dans lequel madame Marjolaine Tapin, directrice générale du Regroupement des associations de personnes traumatisées craniocérébrales du Québec, présente les objectifs de ce Forum<a class="fn-link" href="#sdfootnote32"><sup>32</sup></a>
-                    <button class="video-trigger-inline" onclick="openModal('video', 'Objectifs du Forum annuel — Marjolaine Tapin', 'https://www.youtube.com/embed/fgNuY79vyCk?autoplay=1')">▶ Extrait vidéo</button>).
+                    <button class="video-trigger-inline" onclick="openModal('video', 'Objectifs du Forum annuel — Marjolaine Tapin', 'https://drive.google.com/file/d/14TkjtumrL0DkouQzxoqXDGWevf3dchQJ/preview?autoplay=1')">▶ Extrait vidéo</button>).
                     Elles collaborent aussi avec les différents secteurs (ex. : services sociaux, santé, communautaire, éducation, municipaux) pour développer des services et des environnements plus inclusifs pour ces personnes et leurs proches aidants, comme l’ajoute monsieur Benoît Durand, directeur général de l’Association TCC des Deux-Rives<a class="fn-link" href="#sdfootnote33"><sup>33</sup></a>
-                    <button class="video-trigger-inline" onclick="openModal('video', 'Collaborations intersectorielles — Benoît Durand', 'https://www.youtube.com/embed/xRs8Mj88m2Y?autoplay=1')">▶ Extrait vidéo</button>.
+                    <button class="video-trigger-inline" onclick="openModal('video', 'Collaborations intersectorielles — Benoît Durand', 'https://drive.google.com/file/d/14TkjtumrL0DkouQzxoqXDGWevf3dchQJ/preview?autoplay=1')">▶ Extrait vidéo</button>.
                     Ceci est d’autant plus important dans un contexte post-pandémique ayant donné lieu à différentes situations de ruptures sociales et de transformations des services de la communauté.
                 </p>
 
@@ -1426,6 +1855,13 @@
                 "<strong>Ancrage en présentiel :</strong> L'offre virtuelle demeure complémentaire : les rencontres physiques, l'accompagnement individuel et le répit sur le terrain restent essentiels pour les personnes les plus vulnérables."
             ]
         };
+
+        function scrollVideoSlider(direction) {
+            const slider = document.getElementById('netflixVideoSlider');
+            if (!slider) return;
+            const scrollAmount = 520;
+            slider.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+        }
 
         function selectConcept(mapId, index, nodeEl) {
             const container = document.getElementById(mapId);
