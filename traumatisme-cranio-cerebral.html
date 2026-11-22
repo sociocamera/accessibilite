@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; frame-src https://drive.google.com https://www.youtube.com https://youtube.com; connect-src https://script.google.com; object-src 'none';">
+    <title>L’importance du soutien social pour la participation sociale à la suite du traumatisme cranio-cérébral | Revue de Sociologie Visuelle</title>
+    <meta name="description" content="Comment favoriser une continuité de services communautaires qui soutiennent l’inclusion et la participation sociale à la suite du traumatisme cranio-cérébral : la perspective des personnes proches aidantes.">
+    <meta name="keywords" content="inclusion sociale, accessibilité, sociologie visuelle, traumatisme cranio-cérébral, proches aidants, participation sociale, CIRRIS, PSVI">
+    <link rel="canonical" href="https://doi.org/10.13140/RG.2.2.35504.53768">
+
+<!-- Open Graph (Facebook, LinkedIn, WhatsApp, etc.) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Revue Sociologie Visuelle">
+<meta property="og:title" content="Inclusion sociale et accessibilité | Revue de Sociologie Visuelle">
+<meta property="og:description" content="Numéro spécial de la Revue de Sociologie Visuelle consacré à l'inclusion sociale et à l'accessibilité. Contributions empiriques et théoriques dirigées par François Routhier et Pierre Fraser.">
+<meta property="og:url" content="https://inclusionsociale.com/">
+<meta property="og:image" content="https://lh3.googleusercontent.com/d/1R-6VqA6SZ8t1dall1uf0mj_ehOcj7jNW">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="fr_CA">
+
+<!-- Twitter / X Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Inclusion sociale et accessibilité | Revue de Sociologie Visuelle">
+<meta name="twitter:description" content="Numéro spécial de la Revue de Sociologie Visuelle consacré à l'inclusion sociale et à l'accessibilité.">
+<meta name="twitter:image" content="https://inclusionsociale.com/images/vignette-inclusion-sociale.jpg">
+
+
+    <style>
+        :root {
+            --bg-color: #FAF6EF;
+            --text-color: #2b2b2b;
+            --primary-color: #1a202c;
+            --accent-color: #4a5568;
+            --border-color: #e2e8f0;
+            --card-bg: #FAF6EF;
+            --hover-border: #cbd5e0;
+            --max-width: 1400px;
+            --sidebar-width: 320px;
+            --topbar-height: 60px;
+            --modal-header-bg: #7a2222; /* Bordeaux de référence */
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Georgia", "Cambria", "Times New Roman", serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Barre horizontale permanente supérieure : toute la largeur de la page */
+        .top-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--topbar-height);
+            background-color: var(--bg-color);
+            border-bottom: 1px solid var(--border-color);
+            display: grid;
+            grid-template-columns: var(--sidebar-width) 1fr auto;
+            align-items: center;
+            padding: 0;
+            z-index: 1100;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .top-navbar-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            letter-spacing: 0.02em;
+            padding-left: 1.5rem;
+            border-right: 1px solid var(--border-color);
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .top-navbar-location {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            background-color: #f2ede4;
+            padding: 0.3rem 0.75rem;
+            border-radius: 4px;
+            margin-right: 2.5rem;
+        }
+
+        /* Colonne latérale gauche permanente sous la barre fixe du haut */
+        aside.sidebar {
+            position: fixed;
+            top: var(--topbar-height);
+            left: 0;
+            width: var(--sidebar-width);
+            height: calc(100vh - var(--topbar-height));
+            background-color: #f5f0e6;
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            z-index: 1000;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            overflow-y: auto;
+        }
+
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .btn-home {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            background-color: #7a2222;
+            color: #fff;
+            border: none;
+            padding: 0.85rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        .btn-home svg {
+            position: absolute;
+            left: 1rem;
+        }
+
+        .btn-home:hover {
+            background-color: #5e1a1a;
+        }
+
+        .sidebar-info-section {
+            padding: 1rem 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .sidebar-card {
+            background-color: #FAF6EF;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 0.85rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            text-align: justify;
+        }
+
+        .sidebar-card.editor-card {
+            flex-direction: row;
+            align-items: center;
+            gap: 0.75rem;
+            text-align: left;
+        }
+
+        .editor-info h4 {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            margin-bottom: 0.15rem;
+        }
+
+        .editor-info p {
+            font-size: 0.78rem;
+            color: var(--accent-color);
+            line-height: 1.4;
+        }
+
+        .sidebar-nav {
+            padding: 1.25rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            flex: 1;
+        }
+
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--primary-color);
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-align: left;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            background-color: #eae3d5;
+            border-color: var(--hover-border);
+        }
+
+        .page-nav-trigger {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background: transparent;
+            border: none;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #7a2222;
+            letter-spacing: 0.05em;
+            margin-top: 0.5rem;
+            margin-bottom: 0.25rem;
+            padding: 0.4rem 0.25rem;
+            cursor: pointer;
+            text-align: left;
+            transition: opacity 0.2s;
+        }
+
+        .page-nav-trigger:hover {
+            opacity: 0.8;
+        }
+
+        .submenu {
+            display: none;
+            flex-direction: column;
+            gap: 0.4rem;
+            padding-left: 1rem;
+            margin-top: -0.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .submenu.open {
+            display: flex;
+        }
+
+        .submenu-item {
+            font-size: 0.82rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            padding: 0.4rem 0.75rem;
+            border-radius: 4px;
+            transition: background-color 0.15s, color 0.15s;
+            border-left: 2px solid #d4c5b9;
+            line-height: 1.35;
+        }
+
+        .submenu-item:hover {
+            background-color: #eae3d5;
+            color: #7a2222;
+            border-left-color: #7a2222;
+        }
+
+        /* Conteneur principal à droite, décalé pour laisser place à la sidebar et topbar */
+        .main-wrapper {
+            margin-left: var(--sidebar-width);
+            margin-top: var(--topbar-height);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            width: calc(100% - var(--sidebar-width));
+            padding: 2.5rem 2rem 4rem 2rem;
+        }
+
+        /* Styles de l'article intégré (max-width 1060px centré) */
+        .article-container {
+            width: 100%;
+            max-width: 1060px;
+            margin: 0 auto;
+            color: var(--text-color);
+        }
+
+        .article-anchor {
+            scroll-margin-top: calc(var(--topbar-height) + 28px);
+        }
+
+        .article-header {
+            margin-bottom: 1.75rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 1px solid #dfd7c8;
+        }
+
+        .article-title {
+            font-size: 2rem;
+            line-height: 1.25;
+            color: #1a202c;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .article-subtitle {
+            font-size: 1.18rem;
+            line-height: 1.5;
+            color: #4a5568;
+            font-weight: 400;
+        }
+
+        /* Deux cases côte à côte sous le titre (Auteurs + Citation) */
+        .meta-boxes-grid {
+            display: grid;
+            grid-template-columns: 1.35fr 0.65fr;
+            gap: 1.25rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .whitish-box {
+            background-color: #FDFBF7;
+            border: 1px solid #e6dfd3;
+            border-radius: 8px;
+            padding: 1.25rem 1.4rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+        }
+
+        .meta-box-text {
+            font-size: 0.84rem;
+            line-height: 1.5;
+            color: #3d3d3d;
+        }
+
+        .authors-photos-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.9rem;
+            border-bottom: 1px solid #ece5d8;
+        }
+
+        .author-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .author-photo {
+            width: 84px;
+            height: 84px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #d4c5b9;
+            margin-bottom: 0.5rem;
+            background-color: #efe9de;
+        }
+
+        .author-name {
+            font-weight: 700;
+            color: #1a202c;
+            font-size: 0.86rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .author-affiliation {
+            font-size: 0.76rem;
+            line-height: 1.35;
+            color: #555;
+        }
+
+        .coauthors-block {
+            font-size: 0.8rem;
+            line-height: 1.48;
+            color: #4a4a4a;
+        }
+
+        .coauthors-block p {
+            margin-bottom: 0.55rem;
+        }
+
+        .coauthors-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        .box-label {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.76rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #7a2222;
+            margin-bottom: 0.55rem;
+            display: block;
+        }
+
+        /* Deux cases côte à côte pour le Résumé (FR / EN) */
+        .abstract-boxes-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            margin-bottom: 2.25rem;
+        }
+
+        .abstract-box-text {
+            font-size: 0.88rem;
+            line-height: 1.6;
+            color: #333;
+            text-align: justify;
+        }
+
+        .abstract-keywords {
+            margin-top: 0.85rem;
+            padding-top: 0.65rem;
+            border-top: 1px dashed #e2d9c8;
+            font-size: 0.82rem;
+            line-height: 1.45;
+            color: #4a5568;
+            text-align: left;
+        }
+
+        /* Corps de l'article */
+        .article-body {
+            font-size: 1.06rem;
+            line-height: 1.78;
+            color: #2b2b2b;
+        }
+
+        .article-body p {
+            margin-bottom: 1.15rem;
+            text-align: justify;
+        }
+
+        .chapter-title {
+            color: #7a2222;
+            font-size: 1.42rem;
+            font-weight: 700;
+            line-height: 1.32;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.35rem;
+            border-bottom: 1px solid #e5ddd0;
+        }
+
+        .dropcap::first-letter {
+            float: left;
+            font-size: 3.6rem;
+            line-height: 0.82;
+            padding-top: 0.12rem;
+            padding-right: 0.55rem;
+            padding-bottom: 0.05rem;
+            color: #7a2222;
+            font-weight: 700;
+            font-family: "Georgia", serif;
+        }
+
+        .article-quote {
+            margin: 1.25rem 0 1.4rem 1.75rem;
+            padding: 0.75rem 1.25rem;
+            border-left: 3px solid #7a2222;
+            background-color: #f6f1e7;
+            font-style: italic;
+            color: #333;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .article-list {
+            margin: 0.75rem 0 1.4rem 2rem;
+        }
+
+        .article-list li {
+            margin-bottom: 0.55rem;
+            text-align: justify;
+        }
+
+        .sub-question {
+            font-style: italic;
+            font-weight: 600;
+            color: #1a202c;
+            margin-top: 1.5rem;
+            margin-bottom: 0.85rem;
+        }
+
+        .fn-link {
+            color: #7a2222;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.78em;
+            padding: 0 1px;
+        }
+
+        .fn-link:hover {
+            text-decoration: underline;
+        }
+
+        .video-trigger-inline {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            background-color: #f2ebe0;
+            color: #7a2222;
+            border: 1px solid #d9cbb8;
+            border-radius: 4px;
+            padding: 0.1rem 0.45rem;
+            font-size: 0.82rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            vertical-align: baseline;
+            transition: background-color 0.2s;
+        }
+
+        .video-trigger-inline:hover {
+            background-color: #e6dac8;
+        }
+
+        /* Cartes conceptuelles interactives SVG (fond plus pâle que #FAF6EF) */
+        .concept-map-wrapper {
+            background-color: #F4EFE6;
+            border: 1px solid #dfd6c7;
+            border-radius: 10px;
+            padding: 1.4rem 1.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+        }
+
+        .concept-map-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.85rem;
+            border-bottom: 1px solid #e2d9ca;
+            padding-bottom: 0.5rem;
+        }
+
+        .concept-map-title {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #7a2222;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .concept-map-hint {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.78rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        .concept-svg {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .svg-node {
+            cursor: pointer;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .svg-node:hover rect,
+        .svg-node:hover circle,
+        .svg-node:hover polygon {
+            stroke: #7a2222;
+            stroke-width: 2.5px;
+        }
+
+        .svg-node.active rect,
+        .svg-node.active circle {
+            fill: #7a2222;
+            stroke: #5e1a1a;
+        }
+
+        .svg-node.active text {
+            fill: #ffffff !important;
+        }
+
+        .concept-detail-panel {
+            margin-top: 0.9rem;
+            padding: 0.85rem 1.1rem;
+            background-color: #FDFBF7;
+            border-left: 4px solid #7a2222;
+            border-radius: 4px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.88rem;
+            line-height: 1.55;
+            color: #2b2b2b;
+        }
+
+        .concept-detail-panel strong {
+            color: #7a2222;
+        }
+
+        /* Bibliographie et notes */
+        .references-section, .footnotes-section {
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #dfd7c8;
+            font-size: 0.9rem;
+            line-height: 1.55;
+        }
+
+        .ref-item {
+            padding-left: 1.5rem;
+            text-indent: -1.5rem;
+            margin-bottom: 0.65rem;
+            text-align: justify;
+        }
+
+        .ref-item a, .fn-item a {
+            color: #7a2222;
+            word-break: break-all;
+        }
+
+        .fn-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .fn-item {
+            margin-bottom: 0.45rem;
+            font-size: 0.84rem;
+            color: #444;
+            scroll-margin-top: calc(var(--topbar-height) + 20px);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            padding-left: 2rem;
+        }
+
+        .btn-header {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: 1px solid var(--primary-color);
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: background-color 0.2s;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-header.secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border-color: var(--border-color);
+        }
+
+        .btn-header.secondary:hover {
+            background-color: #f2ede4;
+            border-color: var(--hover-border);
+        }
+
+        /* Styles harmonisés des fenêtres modales selon l'image de référence */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+        }
+
+        .modal-container {
+            background: var(--bg-color);
+            width: 100%;
+            max-width: 900px;
+            height: 85vh;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            border: 1px solid #d4c5b9;
+        }
+
+        .modal-header {
+            padding: 1.25rem 1.5rem;
+            background: var(--modal-header-bg);
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .modal-header h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .modal-close {
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #fff;
+            opacity: 0.85;
+            transition: opacity 0.2s;
+        }
+
+        .modal-close:hover {
+            opacity: 1;
+        }
+
+        .modal-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            background-color: var(--bg-color);
+        }
+
+        .pdf-frame, .video-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        @media (max-width: 1200px) {
+            :root { --sidebar-width: 0px; }
+            .top-navbar { left: 0; padding: 0 1rem; grid-template-columns: 1fr auto; }
+            .top-navbar-title { display: none; }
+            aside.sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
+            aside.sidebar.mobile-open { transform: translateX(0); }
+            .main-wrapper { margin-left: 0; width: 100%; }
+        }
+
+        @media (max-width: 860px) {
+            .meta-boxes-grid,
+            .abstract-boxes-grid {
+                grid-template-columns: 1fr;
+            }
+            .authors-photos-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barre horizontale permanente supérieure -->
+    <header class="top-navbar">
+        <div class="top-navbar-title"><img src="https://raw.githubusercontent.com/sociocamera/accessibilite/main/Logo_Inclusion_Sociale.png" alt="Logo Inclusion Sociale" width="36" height="36">&nbsp;&nbsp;&nbsp;&nbsp;INCLUSION SOCIALE</div>
+        <div class="header-actions">
+            <button class="btn-header secondary" onclick="openModal('video', 'Présentation introductive — Vidéo', 'https://drive.google.com/file/d/10Va3etjn9wZIqrVnByyNXDVM-XPKOHkK/preview?autoplay=1')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                Visionner la vidéo de présentation
+            </button>
+            <button class="btn-header secondary" onclick="openProposalModal('article')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                Proposer un projet de captation ou un article
+            </button>
+            <button class="btn-header secondary" onclick="openModal('pdf', 'Télécharger le numéro complet', 'https://drive.google.com/file/d/1d3ZUnnEwYomQ1VRQ1lF8XNei88HelQvy/preview')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Télécharger le numéro
+            </button>
+        </div>
+        <div class="top-navbar-location" id="locationIndicator">Traumatisme cranio-cérébral et soutien social</div>
+    </header>
+
+    <!-- Colonne latérale gauche permanente -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="https://inclusionsociale.com/#article-participation-sociale" class="btn-home">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                ACCUEIL
+            </a>
+        </div>
+
+        <div class="sidebar-info-section">
+            <div style="font-size: 0.72rem; color: #718096; text-align: left; margin-bottom: 0.05rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                DOI : <a href="https://doi.org/10.13140/RG.2.2.35504.53768" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; opacity: 0.85;">10.13140/RG.2.2.35504.53768</a>
+            </div>
+
+            <div class="sidebar-card editor-card">
+                <div class="editor-info">
+                    <h4>Éditeurs</h4>
+                    <p><b>François Routhier & Pierre Fraser</b></p>
+                    <p>Plus de 18 équipes de recherche mobilisées afin de saisir comment le milieu façonne et articule l'accès aux services et à l'inclusion sociale.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-nav">
+            <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: #7a2222; letter-spacing: 0.05em; margin-bottom: 0.5rem; padding-left: 0.25rem;">NAVIGATION SUR LE SITE</div>
+
+            <div>
+                <button class="nav-btn" onclick="toggleSubmenu(event, 'accessibilitySubmenu', 'submenuArrow')">
+                    <span>Penser l'accessibilité</span>
+                    <svg id="submenuArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu" id="accessibilitySubmenu">
+                    <a href="https://inclusionsociale.com/#theme-1" class="submenu-item">1. Espace urbain & transports</a>
+                    <a href="https://inclusionsociale.com/#theme-2" class="submenu-item">2. Éducation & institutions</a>
+                    <a href="https://inclusionsociale.com/#theme-3" class="submenu-item">3. Travail, autonomie & loisirs</a>
+                    <a href="https://inclusionsociale.com/#theme-4" class="submenu-item">4. Expérience vécue & stigmates</a>
+                </div>
+            </div>
+
+            <div>
+                <button class="nav-btn" onclick="toggleSubmenu(event, 'bilansSubmenu', 'bilansSubmenuArrow')">
+                    <span>Bilans</span>
+                    <svg id="bilansSubmenuArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu" id="bilansSubmenu">
+                    <a href="https://inclusionsociale.com/mentorat-actif-bilan.html" class="submenu-item">Mentorat actif, un plus tard</a>
+                </div>
+            </div>
+            <!-- Bouton Tournages en cours non gras -->
+            <div>
+                <a href="https://inclusionsociale.com/tournages.html" class="nav-btn" style="font-weight: normal;">
+                    <span>Tournages en cours</span>
+                </a>
+            </div>
+
+            <!-- Navigation intra-page demandée -->
+            <div style="margin-top: 0.35rem; border-top: 1px solid var(--border-color); padding-top: 0.65rem;">
+                <button class="page-nav-trigger" onclick="toggleSubmenu(event, 'pageNavSubmenu', 'pageNavArrow')" aria-expanded="true">
+                    <span>NAVIGATION DANS LA PAGE</span>
+                    <svg id="pageNavArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="transform: rotate(180deg);"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                </button>
+                <div class="submenu open" id="pageNavSubmenu">
+                    <a href="#presentation-haut" class="submenu-item" onclick="scrollToTop(event)">Présentation</a>
+                    <a href="#sec-intro" class="submenu-item">Introduction</a>
+                    <a href="#sec-1" class="submenu-item">1. Le point de départ : recherche partenariale</a>
+                    <a href="#sec-2" class="submenu-item">2. Être proche aidant : ruptures et continuités</a>
+                    <a href="#sec-3" class="submenu-item">3. Les associations TCC : point de connexions</a>
+                    <a href="#sec-4" class="submenu-item">4. Agir en collaboration pour l’accès</a>
+                    <a href="#sec-5" class="submenu-item">5. Leçons tirées de la pandémie</a>
+                    <a href="#sec-conclusion" class="submenu-item">Conclusion</a>
+                    <a href="#sec-references" class="submenu-item">Références bibliographiques</a>
+                </div>
+            </div>
+
+        </div>
+    </aside>
+
+    <!-- Zone de contenu dynamique à droite (Frame de base) -->
+    <div class="main-wrapper" id="presentation-haut">
+        <main class="article-container">
+
+            <!-- En-tête de l'article -->
+            <header class="article-header">
+                <h1 class="article-title">L’importance du soutien social pour la participation sociale à la suite du traumatisme cranio-cérébral</h1>
+                <p class="article-subtitle">Comment favoriser une continuité de services communautaires qui soutiennent l’inclusion et la participation sociale à la suite du traumatisme cranio-cérébral : la perspective des personnes proches aidantes.</p>
+            </header>
+
+            <!-- Deux cases côte à côte sous le titre : 1) Auteurs (photos + noms + affiliations) | 2) Citation -->
+            <section class="meta-boxes-grid" aria-label="Auteurs et citation de l'article">
+                <!-- Case 1 : Trois photos côte à côte + noms + affiliations -->
+                <div class="whitish-box meta-box-text">
+                    <span class="box-label">Autrices principales & équipe de recherche</span>
+                    <div class="authors-photos-row">
+                        <div class="author-profile">
+                            <img src="https://lh3.googleusercontent.com/d/18WbnA1SBGyeoGxzttVdGoK8HV6XYN4N6" alt="Valérie Poulin" class="author-photo">
+                            <div class="author-name">Valérie POULIN<sup>1-5-11</sup></div>
+                        </div>
+                        <div class="author-profile">
+                            <img src="https://lh3.googleusercontent.com/d/1r-t43DX3-EM15V-PPfw_sdnqeYMo92Oo" alt="Marie-Ève Lamontagne" class="author-photo">
+                            <div class="author-name">Marie-Ève LAMONTAGNE<sup>1-3</sup></div>
+                        </div>
+                        <div class="author-profile">
+                            <img src="https://lh3.googleusercontent.com/d/15HyI6Q6_2KR24yBi-MlLbs7iojG4jk4R" alt="Émilie Raymond" class="author-photo">
+                            <div class="author-name">Émilie RAYMOND<sup>1-4</sup></div>
+                        </div>
+                    </div>
+
+                    <div class="coauthors-block">
+                        <p><strong>Coauteurs :</strong> Benoît DURAND<sup>2</sup>, Olivier PIQUER<sup>2</sup>, Simon DEMERS<sup>2</sup>, Mélodie NICOLE<sup>5</sup>, Doriane CHARBONNEAU<sup>5</sup>, Vincent LESSARD<sup>5</sup>.</p>
+                        <p><strong>Participant.e.s aux vidéos :</strong> Benoît Durand<sup>2</sup>, Camille Jolivet<sup>2</sup>, Guillaume Boily<sup>2</sup>, Héloïse Robert<sup>2</sup>, Simon Tellier-Marcil<sup>2</sup>, Sylvie Lévesque<sup>8</sup>, Jean-François Brousseau<sup>8</sup>, Johanne Rossignol<sup>8</sup>, Katerine Ouimet<sup>6</sup>, Marjolaine Tapin<sup>7</sup>, Maryse Brodeur<sup>9</sup>, Marjolaine Fradet<sup>10</sup>, Cynthia Giroux<sup>10</sup>, Huguette Giroux<sup>10</sup>, Claudette Paradis<sup>10</sup>, Denise Rancourt<sup>10</sup>.</p>
+                        <p><strong>Affiliations :</strong> 1. Cirris. 2. Association TCC des Deux-Rives. 3. Université Laval (Département de réadaptation). 4. Université Laval (École de travail social et de criminologie). 5. Université du Québec à Trois-Rivières (Département d’ergothérapie). 6. Association des TCC Montérégie. 7. Regroupement des associations de personnes traumatisées craniocérébrales du Québec. 8. Membre de l'Association TCC des Deux-Rives. 9. Personne proche aidante (conférence). 10. Personnes proches aidantes (Beauce). 11. CIUSSS-CN.</p>
+                    </div>
+                </div>
+
+                <!-- Case 2 : Citation de l'article -->
+                <div class="whitish-box meta-box-text" style="display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <span class="box-label">Citer cet article</span>
+                        <p style="text-align: left; line-height: 1.65;">
+                            Poulin, V., Lamontagne, M.-È., Raymond, É. et als (2023), « L’importance du soutien social pour la participation sociale à la suite du traumatisme cranio-cérébral », <em>Sociologie Visuelle</em>, n° 4, François Routhier et Pierre Fraser (éds.), Québec : Photo|Société, pp. 157-168.
+                        </p>
+                    </div>
+                    <div style="margin-top: 1.25rem; padding-top: 0.85rem; border-top: 1px solid #ece5d8; font-size: 0.78rem; color: #5a5a5a;">
+                        <strong>Numéro thématique :</strong> Inclusion sociale et accessibilité<br>
+                        <strong>Approche :</strong> Recherche partenariale et sociologie visuelle
+                    </div>
+                </div>
+            </section>
+
+            <!-- Deux cases côte à côte pour les résumés (Français / Anglais) -->
+            <section class="abstract-boxes-grid" aria-label="Résumés en français et en anglais">
+                <div class="whitish-box abstract-box-text">
+                    <span class="box-label">Résumé</span>
+                    <p>
+                        Plus de 130 000 Canadiens vivent avec les conséquences d’un traumatisme cranio-cérébral (TCC)<a class="fn-link" href="#sdfootnote1"><sup>1</sup></a>, qui est l’une des principales causes de limitations fonctionnelles à long terme<a class="fn-link" href="#sdfootnote2"><sup>2-3</sup></a>. En vue de les aider à reprendre leurs activités et s’engager dans la communauté, d’importantes ressources pour leur réadaptation et le soutien à la participation sociale sont déployées pendant plusieurs mois, voire plusieurs années<a class="fn-link" href="#sdfootnote4"><sup>4</sup></a>. Malgré cela, plus de la moitié des personnes rencontrent des obstacles à long terme à la suite du retour dans la communauté<a class="fn-link" href="#sdfootnote5"><sup>5</sup></a>. Plusieurs vivent des ruptures relationnelles, la perte d’emploi, des pressions financières ou encore des défis à trouver un nouveau milieu de vie approprié. Comment mieux soutenir leur inclusion et leur participation sociale ? <strong>Et si on agissait en amont, sur nos environnements sociaux, afin de créer des communautés plus inclusives où ces personnes se sentent accueillies et soutenues ?</strong>
+                    </p>
+                    <div class="abstract-keywords">
+                        <strong>Mots-clés. —</strong> Inclusion sociale ; participation sociale ; proches aidants ; services communautaires ; soutien social ; traumatisme craniocérébral.
+                    </div>
+                </div>
+
+                <div class="whitish-box abstract-box-text" lang="en">
+                    <span class="box-label">Abstract</span>
+                    <p>
+                        More than 130,000 Canadians live with the consequences of a traumatic brain injury (TBI), which is one of the leading causes of long-term functional limitations. To help them resume their daily activities and engage in the community, substantial rehabilitation and social participation resources are deployed over several months or even years. Despite these efforts, more than half of affected individuals encounter persistent barriers upon returning to community life, including relationship breakdowns, job loss, financial strain, and difficulties securing suitable housing. How can we better support their social inclusion and participation? <strong>What if we acted upstream on our social environments to foster more inclusive communities where individuals living with TBI and their caregivers feel genuinely welcomed and supported?</strong>
+                    </p>
+                    <div class="abstract-keywords">
+                        <strong>Keywords. —</strong> Social inclusion; social participation; family caregivers; community services; social support; traumatic brain injury.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Corps de l'article -->
+            <article class="article-body">
+
+                <!-- Introduction -->
+                <h2 id="sec-intro" class="chapter-title article-anchor">Introduction</h2>
+                <p class="dropcap">
+                    Les recherches réalisées auprès de la population vivant avec un TCC reconnaissent l’importance du soutien social sur l’inclusion et la participation sociale<a class="fn-link" href="#sdfootnote6"><sup>6-7-8</sup></a>. Ce soutien est d’autant plus crucial que ces personnes sont à risque d’exclusion et de rupture de services dans la communauté vu la complexité des enjeux vécus (ex. : changements des habiletés cognitives, difficultés relationnelles, dépendances, risques d’abus)<a class="fn-link" href="#sdfootnote9"><sup>9</sup></a>. Ces enjeux, souvent invisibles, sont difficiles à comprendre pour l’entourage et les différents intervenants dans la communauté<a class="fn-link" href="#sdfootnote10"><sup>10</sup></a>. La famille et les personnes proches aidantes jouent un rôle essentiel en faisant valoir leurs besoins et en les accompagnant pour accéder et naviguer à travers les services de la communauté<a class="fn-link" href="#sdfootnote11"><sup>11-12</sup></a>. Il est donc pertinent de s’intéresser ici à la perspective des personnes proches aidantes afin de répondre à la question suivante : comment favoriser une continuité de services communautaires qui soutiennent l’inclusion et la participation sociale à la suite du TCC ?
+                </p>
+
+                <!-- Carte conceptuelle 1 : Problématique systémique -->
+                <div class="concept-map-wrapper" id="map-intro">
+                    <div class="concept-map-header">
+                        <span class="concept-map-title">Carte conceptuelle 1 — Du handicap invisible à la continuité des services</span>
+                        <span class="concept-map-hint">Cliquez sur un bloc du diagramme pour explorer ses dimensions</span>
+                    </div>
+                    <svg class="concept-svg" viewBox="0 0 920 210" role="img" aria-label="Diagramme de la dynamique du soutien social après un TCC">
+                        <defs>
+                            <marker id="arrow1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                <path d="M 0 1 L 10 5 L 0 9 z" fill="#7a2222"/>
+                            </marker>
+                        </defs>
+                        <!-- Liens -->
+                        <line x1="210" y1="105" x2="255" y2="105" stroke="#7a2222" stroke-width="2" marker-end="url(#arrow1)"/>
+                        <line x1="455" y1="105" x2="500" y2="105" stroke="#7a2222" stroke-width="2" marker-end="url(#arrow1)"/>
+                        <line x1="700" y1="105" x2="745" y2="105" stroke="#7a2222" stroke-width="2" marker-end="url(#arrow1)"/>
+                        <path d="M 830 160 Q 460 205 110 160" fill="none" stroke="#8a7968" stroke-width="1.5" stroke-dasharray="5,4" marker-end="url(#arrow1)"/>
+                        <text x="460" y="198" text-anchor="middle" font-size="11" fill="#5a4f44" font-family="sans-serif">Rétroaction : environnements sociaux plus inclusifs en amont</text>
+
+                        <!-- Nœud 1 -->
+                        <g class="svg-node active" onclick="selectConcept('map-intro', 0, this)">
+                            <rect x="15" y="45" width="195" height="115" rx="8" fill="#FDFBF7" stroke="#b8a99a" stroke-width="1.5"/>
+                            <text x="112" y="82" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a202c" font-family="sans-serif">1. Séquelles invisibles</text>
+                            <text x="112" y="103" text-anchor="middle" font-size="11" fill="#4a5568" font-family="sans-serif">Troubles cognitifs, fatigue,</text>
+                            <text x="112" y="119" text-anchor="middle" font-size="11" fill="#4a5568" font-family="sans-serif">enjeux relationnels et</text>
+                            <text x="112" y="135" text-anchor="middle" font-size="11" fill="#4a5568" font-family="sans-serif">vulnérabilités multiples</text>
+                        </g>
+
+                        <!-- Nœud 2 -->
+                        <g class="svg-node" onclick="selectConcept('map-intro', 1, this)">
+                            <rect x="260" y="45" width="195" height="115" rx="8" fill="#FDFBF7" stroke="#b8a99a" stroke-width="1.5"/>
+                            <text x="357" y="82" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a202c" font-family="sans-serif">2. Risque de rupture</text>
+                            <text x="357" y="103" text-anchor="middle" font-size="11" fill="#4a5568" font-family="sans-serif">Sortie de réadaptation,</text>
+                            <text x="357" y="119" text-anchor="middle" font-size="11" fill="#4a5568" font-family="sans-serif">incompréhension du milieu</text>
+                            <text x="357" y="135" text-anchor="middle" font-size="11" fill="#4a5568" font-family="sans-serif">et isolement social</text>
+                        </g>
+
+                        <!-- Nœud 3 -->
+                        <g class="svg-node" onclick="selectConcept('map-intro', 2, this)">
+                            <rect x="505" y="45" width="195" height="115" rx="8" fill="#FDFBF7" stroke="#b8a99a" stroke-width="1.5"/>
+                            <text x="602" y="82" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a202c" font-family="sans-serif">3. Médiation des proches</text>
+                            <text x="602" y="103" text-anchor="middle" font-size="11" fill="#4a5568" font-family="sans-serif">Défense des besoins,</text>
+                            <text x="602" y="119" text-anchor="middle" font-size="11" fill="#4a5568" font-family="sans-serif">navigation dans le réseau</text>
+                            <text x="602" y="135" text-anchor="middle" font-size="11" fill="#4a5568" font-family="sans-serif">et assistance quotidienne</text>
+                        </g>
+
+                        <!-- Nœud 4 -->
+                        <g class="svg-node" onclick="selectConcept('map-intro', 3, this)">
+                            <rect x="750" y="45" width="155" height="115" rx="8" fill="#FDFBF7" stroke="#b8a99a" stroke-width="1.5"/>
+                            <text x="827" y="82" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a202c" font-family="sans-serif">4. Participation</text>
+                            <text x="827" y="103" text-anchor="middle" font-size="11" fill="#4a5568" font-family="sans-serif">Continuité des</text>
+                            <text x="827" y="119" text-anchor="middle" font-size="11" fill="#4a5568" font-family="sans-serif">services et</text>
+                            <text x="827" y="135" text-anchor="middle" font-size="11" fill="#4a5568" font-family="sans-serif">inclusion durable</text>
+                        </g>
+                    </svg>
+                    <div class="concept-detail-panel" id="map-intro-detail">
+                        <strong>Séquelles invisibles :</strong> Contrairement à une déficience motrice apparente, les altérations cognitives, émotionnelles et comportementales liées au TCC passent souvent inaperçues, ce qui complique leur reconnaissance par les intervenants généralistes et la communauté.
+                    </div>
+                </div>
+
+                <!-- Section 1 -->
+                <h2 id="sec-1" class="chapter-title article-anchor">1. Le point de départ : une recherche partenariale avec une association soutenant les personnes vivant avec un TCC et leurs proches</h2>
+                <p>
+                    L’idée de ce projet vient d’une recherche initiée en 2020 en partenariat avec une association soutenant des personnes vivant avec un TCC et leurs proches, soit l’Association TCC des Deux-Rives. Cette association, qui inclut 923 membres, couvre un large territoire incluant à la fois des milieux urbains, semi-urbains et ruraux, dans les régions de la Capitale-Nationale et de Chaudière-Appalaches, dans la province de Québec, Canada. L’association offre une diversité de services d’accompagnement, counseling, groupes de soutien et répit aux familles, aide au maintien dans le milieu de vie, activités sociales et de loisirs centrés sur les besoins, les intérêts et les forces de leurs membres, tel qu’expliqué par monsieur Benoît Durand, directeur général de l’Association TCC des Deux-Rives<a class="fn-link" href="#sdfootnote13"><sup>13</sup></a>
+                    <button class="video-trigger-inline" onclick="openModal('video', 'Benoît Durand — Association TCC des Deux-Rives', 'https://www.youtube.com/embed/qyg7dko4jDg?autoplay=1')">▶ Extrait vidéo</button>.
+                </p>
+                <p>
+                    Dans le cadre du projet de recherche, des entrevues individuelles avaient été réalisées avec douze proches aidants de personnes vivant avec un TCC, afin d’explorer les éléments influençant les transitions et la participation dans les services de la communauté. Ces données ont généré des pistes utiles pour guider la présente démarche de sociologie visuelle, par la captation de différentes scènes et témoignages d’acteurs concernés dans leurs milieux de vie réels. Ces captations illustrent les diverses réalités sociales de personnes vivant avec un TCC (cohabitant ou non avec leurs proches) et celles de proches aidants. Elles présentent aussi des actions concrètes des associations pour les soutenir et favoriser le dialogue avec les autres acteurs de la communauté vers une société plus inclusive.
+                </p>
+
+                <!-- Section 2 -->
+                <h2 id="sec-2" class="chapter-title article-anchor">2. Être proche aidant d’une personne ayant vécu un TCC : entre ruptures et continuités</h2>
+                <p>
+                    À la suite du TCC, les personnes proches aidantes doivent apprivoiser brusquement de nouveaux rôles et souvent faire le deuil de plusieurs aspects de leur vie antérieure. Plusieurs assument maintenant une grande partie de l’assistance humaine requise par les personnes ayant subi un TCC afin de réaliser leurs activités quotidiennes<a class="fn-link" href="#sdfootnote14"><sup>14</sup></a>. L’importance de l’assistance humaine fournie par les proches aidants est notée, même pour les personnes résidant dans des ressources d’hébergement ou ne cohabitant pas avec ce dernier<a class="fn-link" href="#sdfootnote15"><sup>15</sup></a>. En plus d’assumer des responsabilités familiales accrues (ex. : tâches domestiques, gestion des biens, soins et éducation des enfants), ils doivent aussi s’adapter aux changements dans la relation avec leur proche, qui n’est souvent plus la même après le TCC. Ils doivent aussi apprendre à adapter leur communication afin de prévenir ou de gérer les comportements ou les réactions émotionnelles de leur proche (ex. : anxiété ou colère) dans différentes situations quotidiennes. Cette réalité est illustrée par le témoignage d’une personne proche aidante, madame Maryse Brodeur, dont le conjoint a vécu un TCC<a class="fn-link" href="#sdfootnote16"><sup>16</sup></a>
+                    <button class="video-trigger-inline" onclick="openModal('video', 'Témoignage de Maryse Brodeur — Proche aidante', 'https://www.youtube.com/embed/vxVXihH6Ze8?autoplay=1')">▶ Extrait vidéo</button>.
+                </p>
+                <p>
+                    Des défis importants se posent aussi lorsque les personnes ayant vécu un TCC ne perçoivent pas les changements survenus à la suite du TCC. Le développement de l’autoperception et l’adaptation à sa situation peuvent d’ailleurs se poursuivre sur de nombreuses années après le TCC. Cela influence l’ouverture à utiliser les services des associations TCC ou d’autres organismes œuvrant auprès des personnes en situation de handicap auxquelles ils ne s’identifient pas. En effet, des personnes proches aidantes ayant participé à notre recherche expliquent : <em>« C’est parce qu’ils pensent que les autres sont pires qu’eux autres. Ils se considèrent moins touchés » ; « Pour lui il est correct. Ça fait que c’est dur de l’intégrer dans ça. » ; « C’est vraiment un bon 5 ans avant qu’ils acceptent leur condition. Et une fois qu’ils ont accepté ça, c’est plus facile. Ils s’intègrent entre eux, c’est plus facile, mais c’est long<a class="fn-link" href="#sdfootnote17"><sup>17</sup></a>. »</em>
+                    <button class="video-trigger-inline" onclick="openModal('video', 'Autoperception et cheminement après un TCC', 'https://www.youtube.com/embed/B_71PGsMHAw?autoplay=1')">▶ Extrait vidéo</button>
+                    Ces propos accentuent l’importance que les personnes puissent avoir accès à des expériences inclusives dans différents espaces de participation sociale, que ce soit au sein des associations mais aussi plus largement dans la communauté afin de réduire les situations d’isolement et d’exclusion. À cet égard, <strong>les proches aidants agissent souvent comme facilitateur pour qu’elles puissent accéder et utiliser les services de la communauté</strong>. Plusieurs proches offrent de la stimulation, des rappels, de l’accompagnement ou du transport pour aider la personne à participer à différentes activités et services communautaires<a class="fn-link" href="#sdfootnote18"><sup>18</sup></a>.
+                </p>
+
+                <!-- Carte conceptuelle 2 : Rôle pivot du proche aidant -->
+                <div class="concept-map-wrapper" id="map-caregiver">
+                    <div class="concept-map-header">
+                        <span class="concept-map-title">Carte conceptuelle 2 — La double posture de la personne proche aidante</span>
+                        <span class="concept-map-hint">Sélectionnez un pôle pour afficher l'analyse correspondante</span>
+                    </div>
+                    <svg class="concept-svg" viewBox="0 0 920 230" role="img" aria-label="Diagramme des tensions et leviers du rôle de proche aidant">
+                        <!-- Centre -->
+                        <g class="svg-node active" onclick="selectConcept('map-caregiver', 0, this)">
+                            <circle cx="460" cy="115" r="78" fill="#FDFBF7" stroke="#7a2222" stroke-width="2"/>
+                            <text x="460" y="102" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a202c" font-family="sans-serif">PROCHE</text>
+                            <text x="460" y="120" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a202c" font-family="sans-serif">AIDANT·E</text>
+                            <text x="460" y="138" text-anchor="middle" font-size="10.5" fill="#4a5568" font-family="sans-serif">Pivot relationnel</text>
+                        </g>
+
+                        <!-- Branches gauche (Ruptures / Charge) -->
+                        <line x1="382" y1="90" x2="295" y2="55" stroke="#8a7968" stroke-width="1.8"/>
+                        <line x1="382" y1="140" x2="295" y2="175" stroke="#8a7968" stroke-width="1.8"/>
+
+                        <g class="svg-node" onclick="selectConcept('map-caregiver', 1, this)">
+                            <rect x="25" y="18" width="270" height="75" rx="7" fill="#FDFBF7" stroke="#b8a99a" stroke-width="1.5"/>
+                            <text x="160" y="44" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#7a2222" font-family="sans-serif">Ruptures & Surcharge</text>
+                            <text x="160" y="63" text-anchor="middle" font-size="11" fill="#4a5568" font-family="sans-serif">Deuil de la vie antérieure, tâches accrues,</text>
+                            <text x="160" y="79" text-anchor="middle" font-size="11" fill="#4a5568" font-family="sans-serif">gestion émotionnelle et risque d'épuisement</text>
+                        </g>
+
+                        <g class="svg-node" onclick="selectConcept('map-caregiver', 2, this)">
+                            <rect x="25" y="138" width="270" height="75" rx="7" fill="#FDFBF7" stroke="#b8a99a" stroke-width="1.5"/>
+                            <text x="160" y="164" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#7a2222" font-family="sans-serif">Défi de l'autoperception</text>
+                            <text x="160" y="183" text-anchor="middle" font-size="11" fill="#4a5568" font-family="sans-serif">Délai d'acceptation (~5 ans) freinant</text>
+                            <text x="160" y="199" text-anchor="middle" font-size="11" fill="#4a5568" font-family="sans-serif">le recours spontané aux organismes TCC</text>
+                        </g>
+
+                        <!-- Branches droite (Continuités / Leviers) -->
+                        <line x1="538" y1="90" x2="625" y2="55" stroke="#8a7968" stroke-width="1.8"/>
+                        <line x1="538" y1="140" x2="625" y2="175" stroke="#8a7968" stroke-width="1.8"/>
+
+                        <g class="svg-node" onclick="selectConcept('map-caregiver', 3, this)">
+                            <rect x="625" y="18" width="270" height="75" rx="7" fill="#FDFBF7" stroke="#b8a99a" stroke-width="1.5"/>
+                            <text x="760" y="44" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#1a202c" font-family="sans-serif">Facilitateur d'accès</text>
+                            <text x="760" y="63" text-anchor="middle" font-size="11" fill="#4a5568" font-family="sans-serif">Stimulation, rappels cognitifs, transport</text>
+                            <text x="760" y="79" text-anchor="middle" font-size="11" fill="#4a5568" font-family="sans-serif">et accompagnement vers la communauté</text>
+                        </g>
+
+                        <g class="svg-node" onclick="selectConcept('map-caregiver', 4, this)">
+                            <rect x="625" y="138" width="270" height="75" rx="7" fill="#FDFBF7" stroke="#b8a99a" stroke-width="1.5"/>
+                            <text x="760" y="164" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#1a202c" font-family="sans-serif">Outils & Répit ciblé</text>
+                            <text x="760" y="183" text-anchor="middle" font-size="11" fill="#4a5568" font-family="sans-serif">Médiation du CLSC, formation psychosociale</text>
+                            <text x="760" y="199" text-anchor="middle" font-size="11" fill="#4a5568" font-family="sans-serif">et réduction des inégalités d'information</text>
+                        </g>
+                    </svg>
+                    <div class="concept-detail-panel" id="map-caregiver-detail">
+                        <strong>Proche aidant·e (Pivot relationnel) :</strong> Même lorsque la personne vit en ressource d'hébergement, le proche demeure le fil conducteur de son histoire, assurant la cohérence entre les milieux de soins et la vie sociale.
+                    </div>
+                </div>
+
+                <p>
+                    Devant l’ampleur de ces différentes responsabilités associées au rôle de proche aidant, plusieurs participants à la recherche ont insisté sur l’importance de mobiliser les ressources d’aide disponibles pour acquérir les habiletés nécessaires et pour prévenir la détresse et l’épuisement : « J’ai suivi des cours pour un peu de psychologie, pour avoir des outils pour travailler avec une personne qui a un gros TCC ». Madame Maryse Brodeur, une personne proche aidante, explique également comment l’intervention d’une travailleuse sociale de son centre local de services communautaires (CLSC) a facilité l’acceptation et l’utilisation des services de répit par son conjoint<a class="fn-link" href="#sdfootnote19"><sup>19</sup></a>
+                    <button class="video-trigger-inline" onclick="openModal('video', 'Accompagnement vers le répit — Maryse Brodeur', 'https://www.youtube.com/embed/SK5cY3PXhP8?autoplay=1')">▶ Extrait vidéo</button>.
+                    Cependant, tous ne sont pas également préparés ni connectés avec les services comme l’illustrent ces citations d’autres participants à la recherche :
+                </p>
+
+                <blockquote class="article-quote">
+                    « Il y en a beaucoup qui gagneraient à rester dans leur milieu familial, mais les familles n’en peuvent plus parce qu’elles n’ont pas les ressources […] Elles n’ont pas les gens pour les aider. »
+                </blockquote>
+                <blockquote class="article-quote">
+                    « Eux ils ont plein de ressources ; ils ont plein de personnes qui viennent leur aider puis ça ne leur coûte rien… parce que la sœur de ma conjointe, elle est dans un milieu où elle connaît toutes les choses qui existent. »
+                </blockquote>
+
+                <!-- Section 3 -->
+                <h2 id="sec-3" class="chapter-title article-anchor">3. Les associations de personnes vivant avec un TCC : un point de connexions</h2>
+                <p>
+                    Les proches aidants consultés considèrent tous que les associations facilitent les connexions vers les services de soutien et le maintien de liens signifiants, tant pour eux que pour les personnes vivant avec un TCC. Pour les personnes vivant avec un TCC, les associations offrent des lieux d’échanges accueillants et sécurisants, où elles peuvent briser l’isolement, réaliser des activités plaisantes et stimulantes et créer des liens signifiants avec des pairs. Les participants à notre recherche mettent aussi de l’avant l’importance du lien thérapeutique créé avec les intervenants pour maintenir l’engagement de la personne dans les services (Simon Tellier-Marcil, éducateur spécialisé, explique comment ces différents principes se traduisent dans la réalité du terrain lors des activités de répit à l’association<a class="fn-link" href="#sdfootnote20"><sup>20</sup></a>
+                    <button class="video-trigger-inline" onclick="openModal('video', 'Simon Tellier-Marcil — Activités de répit à l’association', 'https://www.youtube.com/embed/sMTcAhrHi-A?autoplay=1')">▶ Extrait vidéo</button>).
+                    Parmi les autres facilitateurs à l’intégration dans les services, les proches relèvent l’importance d’une approche personnalisée, tenant compte des intérêts et des forces de la personne, ainsi que <em>l’accompagnement par une personne de confiance</em> que ce soit un proche aidant, un pair ou un intervenant. Un membre de l’association, monsieur Jean-François Brousseau, explique aussi comment l’approche adoptée pour l’animation d’un atelier de yoga facilite sa participation, par exemple, en respectant son rythme d’apprentissage, en soutenant un climat positif, etc.<a class="fn-link" href="#sdfootnote21"><sup>21</sup></a>
+                    <button class="video-trigger-inline" onclick="openModal('video', 'Jean-François Brousseau — Atelier de yoga adapté', 'https://www.youtube.com/embed/6Suo3O8fttU?autoplay=1')">▶ Extrait vidéo</button>
+                </p>
+                <p>
+                    En plus de ces activités sociales et de loisirs, les associations offrent aussi des services d’accompagnement individuel et de répit dans la communauté qui permettent de soutenir le maintien à domicile et l’accès à d’autres espaces de participation sociale, tout en contribuant à réduire le fardeau de l’aidant. Elles contribuent ainsi au filet social pour ces personnes et leurs proches à risque d’isolement. À ce titre, voir l’extrait vidéo illustrant différentes situations d’accompagnement individuel de deux personnes membres de l’Association TCC des Deux-Rives, avec l’éducatrice spécialisée, madame Héloïse Robert<a class="fn-link" href="#sdfootnote22"><sup>22-23</sup></a>
+                    <button class="video-trigger-inline" onclick="openModal('video', 'Accompagnement individuel — Extrait 1 (Héloïse Robert)', 'https://www.youtube.com/embed/poJNYdJ88x8?autoplay=1')">▶ Vidéo 1</button>
+                    <button class="video-trigger-inline" onclick="openModal('video', 'Accompagnement individuel — Extrait 2 (Héloïse Robert)', 'https://www.youtube.com/embed/KT2YrDgEdlU?autoplay=1')">▶ Vidéo 2</button>.
+                </p>
+                <p>
+                    Pour les proches aidants, les associations offrent aussi des espaces d’échanges et de connexions sociales avec d’autres personnes vivant des réalités semblables à la leur. Par exemple, lors de cafés-rencontres et de dîners mensuels en groupe, les proches aidants peuvent recevoir du soutien de leurs pairs, partager des expériences, des conseils pratiques ou des ressources pertinentes de la communauté, et ce, dans une ambiance détendue et sans jugement où Camille Jolivet, éducatrice spécialisée à l’Association TCC des Deux-Rives, partage des outils et des stratégies avec un groupe de personnes proches aidantes lors d’un dîner mensuel<a class="fn-link" href="#sdfootnote24"><sup>24</sup></a>
+                    <button class="video-trigger-inline" onclick="openModal('video', 'Camille Jolivet — Dîner mensuel des proches aidants', 'https://www.youtube.com/embed/sVjG0PIl8Dc?autoplay=1')">▶ Extrait vidéo</button>.
+                    Les proches aidants peuvent aussi y recevoir du soutien émotionnel et de l’accompagnement individualisé d’un intervenant afin de les orienter pour naviguer dans les différents services sociaux et communautaires. Madame Maryse Brodeur explique d’ailleurs comment le soutien de l’association l’a aidée à s’adapter à son rôle de personne proche aidante (visionner l’extrait vidéo suivant<a class="fn-link" href="#sdfootnote25"><sup>25</sup></a>
+                    <button class="video-trigger-inline" onclick="openModal('video', 'Adaptation au rôle de proche aidante — Maryse Brodeur', 'https://www.youtube.com/embed/SK5cY3PXhP8?autoplay=1')">▶ Extrait vidéo</button>).
+                </p>
+
+                <!-- Section 4 -->
+                <h2 id="sec-4" class="chapter-title article-anchor">4. Agir en collaboration pour améliorer l’accès et la continuité des services de la communauté</h2>
+                <p>
+                    Ce soutien des associations est d’autant plus important que les témoignages de proches aidants, appuyés par plusieurs études scientifiques<a class="fn-link" href="#sdfootnote26"><sup>26-27-28</sup></a>, suggèrent un manque important de continuité des services post-réadaptation afin de répondre aux besoins à long terme des personnes et de leurs proches. Parmi les besoins les plus criants exprimés par les douze personnes proches aidantes ayant participé à notre recherche se trouvent l’accès à :
+                </p>
+                <ul class="article-list">
+                    <li>une gamme de logements adaptés offrant différents niveaux d’assistance et de supervision ;</li>
+                    <li>des services de transport plus flexibles et offrant des connexions inter-régionales ;</li>
+                    <li>une continuité de services de soutien psychosocial, incluant aussi en sexologie, pour les personnes et leurs proches ;</li>
+                    <li>du répit et du soutien aux proches pour les démarches administratives et légales.</li>
+                </ul>
+                <p>
+                    De plus, les proches aidants expriment plusieurs inquiétudes face au vieillissement : Quelle sera l’assistance disponible pour aider la personne dans la gestion financière et de ses biens lorsqu’ils ne seront plus en mesure de le faire ? Vers quelles ressources d’hébergement ou de maintien à domicile se tourner lorsque les proches aidants vieillissants ne seront plus en mesure d’offrir l’assistance nécessaire ou que l’autonomie de la personne ayant subi un TCC diminue ? Enfin, ils mentionnent le besoin d’améliorer l’accessibilité à différentes offres de loisirs inclusifs ainsi qu’à des opportunités de travail, de bénévolat et de participation dans la communauté pour briser l’isolement des personnes vivant avec un TCC.
+                </p>
+
+                <p class="sub-question">Et quels sont les éléments clés à considérer pour améliorer l’accès à ces services ?</p>
+                <p>
+                    D’abord, plusieurs proches aidants ayant participé aux entrevues du projet de recherche mentionnent l’importance d’améliorer l’accès à l’information sur les services disponibles dans la communauté :
+                </p>
+                <blockquote class="article-quote">
+                    « Honnêtement, je ne connais pas tant de ressources autres que l’association des traumatismes crâniens. En partant, ce qui m’allume c’est de faire connaître ce qu’il y a. Parce que les familles qui vivent avec des personnes avec des traumatismes crâniens ou ceux même qui en ont ne savent pas nécessairement. »
+                </blockquote>
+                <p>Une participante avait aussi suggéré :</p>
+                <blockquote class="article-quote">
+                    « Ça pourrait être une ligne, quand on sait qu’il y a des endroits où on peut se référer […] qu’on peut appeler. Je pense que ça peut être intéressant des fois, quand on a besoin de conseils ou de se faire orienter vers les bonnes ressources. »
+                </blockquote>
+                <p>
+                    D’autres critères influençant l’accès aux services incluaient également les coûts. Entre autres, certains participants notent que les coûts de services d’accompagnement privés limitent l’utilisation de ceux-ci, qui sont pourtant bénéfiques pour favoriser la participation sociale : « Des accompagnateurs, ça coûte cher. Moi, mon fils est chanceux, je lui en paie deux fois par semaine, mais il y a d’autres activités, mais je ne peux pas toujours payer des accompagnateurs » ; « Ça lui prendrait toujours quelqu’un pour aller avec, là, mais malheureusement je ne peux pas lui payer. » D’autres participants à la recherche ont aussi nommé les enjeux d’accès aux services lors de l’éloignement des centres urbains : « Quand tu te déplaces d’une région à l’autre, ce n’est plus les mêmes services […] Ben, c’est justement qu’ils puissent nous donner des places ressources une fois rendu dans la région… dans notre région à nous autres. »
+                </p>
+                <p>
+                    Puisque les associations de personnes vivant avec un TCC connaissent bien les besoins à long terme, elles sont d’ailleurs bien placées pour agir comme point de connexion central vers et entre ces différents services (ex. : services de santé et sociaux, communautaires, municipaux). Pour ce faire, les proches nomment la pertinence de renforcer les ponts de connexions et le référencement en temps opportun vers et entre les services communautaires. Différentes stratégies sont d’ailleurs utilisées, voire à renforcer, pour soutenir les transitions vers les services des associations à la suite de la réadaptation et à plus long terme. Parmi les stratégies identifiées par les proches aidants interrogés, ceux-ci nomment l’importance de créer des opportunités de contacts directs avec les associations dès le moment de la réadaptation en initiant le lien avec les familles et les proches (témoignage d’une personne proche aidante qui illustre bien le rôle clé de l’association comme point de connexion vers et entre les services de la communauté<a class="fn-link" href="#sdfootnote29"><sup>29</sup></a>
+                    <button class="video-trigger-inline" onclick="openModal('video', 'L’association comme point de connexion dès la réadaptation', 'https://www.youtube.com/embed/MVioAAV8rqs?autoplay=1')">▶ Extrait vidéo</button>).
+                    Les témoignages d’autres proches aidants peuvent aussi être source d’espoir et les inciter à utiliser ces services. En complément, il importe de poursuivre des relances répétées à plus long terme, que ce soit par l’envoi d’infolettres, d’activités de promotion (ex. : portes ouvertes) ou de communications électroniques, afin d’encourager les personnes à recourir aux services au moment où elles en auront besoin.
+                </p>
+
+                <!-- Carte conceptuelle 3 : Écosystème intersectoriel -->
+                <div class="concept-map-wrapper" id="map-collab">
+                    <div class="concept-map-header">
+                        <span class="concept-map-title">Carte conceptuelle 3 — Lever les obstacles et bâtir des ponts intersectoriels</span>
+                        <span class="concept-map-hint">Cliquez sur chaque levier d'action pour afficher les mécanismes clés</span>
+                    </div>
+                    <svg class="concept-svg" viewBox="0 0 920 220" role="img" aria-label="Diagramme des leviers d'action intersectoriels">
+                        <!-- Lignes de connexion vers le centre -->
+                        <line x1="250" y1="60" x2="365" y2="105" stroke="#7a2222" stroke-width="2"/>
+                        <line x1="250" y1="160" x2="365" y2="115" stroke="#7a2222" stroke-width="2"/>
+                        <line x1="670" y1="60" x2="555" y2="105" stroke="#7a2222" stroke-width="2"/>
+                        <line x1="670" y1="160" x2="555" y2="115" stroke="#7a2222" stroke-width="2"/>
+
+                        <!-- Bloc Central -->
+                        <g class="svg-node active" onclick="selectConcept('map-collab', 0, this)">
+                            <rect x="365" y="65" width="190" height="90" rx="10" fill="#FDFBF7" stroke="#7a2222" stroke-width="2.2"/>
+                            <text x="460" y="100" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a202c" font-family="sans-serif">ASSOCIATION TCC</text>
+                            <text x="460" y="118" text-anchor="middle" font-size="11.5" fill="#4a5568" font-family="sans-serif">Point de connexion</text>
+                            <text x="460" y="134" text-anchor="middle" font-size="11.5" fill="#4a5568" font-family="sans-serif">intersectoriel</text>
+                        </g>
+
+                        <!-- Haut Gauche -->
+                        <g class="svg-node" onclick="selectConcept('map-collab', 1, this)">
+                            <rect x="20" y="20" width="230" height="75" rx="7" fill="#FDFBF7" stroke="#b8a99a" stroke-width="1.5"/>
+                            <text x="135" y="45" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a202c" font-family="sans-serif">Arrimage précoce & relances</text>
+                            <text x="135" y="63" text-anchor="middle" font-size="11" fill="#4a5568" font-family="sans-serif">Contact dès la réadaptation,</text>
+                            <text x="135" y="79" text-anchor="middle" font-size="11" fill="#4a5568" font-family="sans-serif">portes ouvertes et infolettres</text>
+                        </g>
+
+                        <!-- Bas Gauche -->
+                        <g class="svg-node" onclick="selectConcept('map-collab', 2, this)">
+                            <rect x="20" y="125" width="230" height="75" rx="7" fill="#FDFBF7" stroke="#b8a99a" stroke-width="1.5"/>
+                            <text x="135" y="150" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a202c" font-family="sans-serif">Accessibilité territoriale & coûts</text>
+                            <text x="135" y="168" text-anchor="middle" font-size="11" fill="#4a5568" font-family="sans-serif">Transport inter-régional, logements</text>
+                            <text x="135" y="184" text-anchor="middle" font-size="11" fill="#4a5568" font-family="sans-serif">adaptés et accompagnement abordable</text>
+                        </g>
+
+                        <!-- Haut Droite -->
+                        <g class="svg-node" onclick="selectConcept('map-collab', 3, this)">
+                            <rect x="670" y="20" width="230" height="75" rx="7" fill="#FDFBF7" stroke="#b8a99a" stroke-width="1.5"/>
+                            <text x="785" y="45" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a202c" font-family="sans-serif">Lutte contre la stigmatisation</text>
+                            <text x="785" y="63" text-anchor="middle" font-size="11" fill="#4a5568" font-family="sans-serif">Formation des policiers, chauffeurs,</text>
+                            <text x="785" y="79" text-anchor="middle" font-size="11" fill="#4a5568" font-family="sans-serif">intervenants sociaux et entourage</text>
+                        </g>
+
+                        <!-- Bas Droite -->
+                        <g class="svg-node" onclick="selectConcept('map-collab', 4, this)">
+                            <rect x="670" y="125" width="230" height="75" rx="7" fill="#FDFBF7" stroke="#b8a99a" stroke-width="1.5"/>
+                            <text x="785" y="150" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a202c" font-family="sans-serif">Enjeux concomitants</text>
+                            <text x="785" y="168" text-anchor="middle" font-size="11" fill="#4a5568" font-family="sans-serif">Maillage santé mentale, dépendances,</text>
+                            <text x="785" y="184" text-anchor="middle" font-size="11" fill="#4a5568" font-family="sans-serif">itinérance et précarité</text>
+                        </g>
+                    </svg>
+                    <div class="concept-detail-panel" id="map-collab-detail">
+                        <strong>Association TCC (Point de connexion intersectoriel) :</strong> En raison de sa connaissance fine des trajectoires à long terme, l'association sert de plaque tournante entre les réseaux de la santé, les municipalités et les organismes communautaires.
+                    </div>
+                </div>
+
+                <p class="sub-question">Et, une fois les premiers pas faits vers les services communautaires, comment faire en sorte que les personnes y vivent une expérience inclusive et continuent à s’y engager ?</p>
+                <p>
+                    Selon les proches aidants interrogés, il persiste encore beaucoup de préjugés, d’incompréhension et d’attitudes stigmatisantes à l’égard des personnes ayant vécu un TCC limitant leur accès et leur participation dans les services de la communauté. Des participants à notre recherche expliquaient :
+                </p>
+                <blockquote class="article-quote">
+                    « Ils passent pour des fous […] c’est ça des gens qui sont fous, qui sont gâtés pourris, pis qu’ils veulent tout avoir, puis qui ne sont pas brillants parce qu’ils ne comprennent pas quelque chose. Puis ça, je pense que c’est plus dur que n’importe quoi. Je pense que dans la société, il n’y a pas de place pour eux autres » ;
+                </blockquote>
+                <blockquote class="article-quote">
+                    « Ça le dérange beaucoup, parce que les gens le regardent autrement » ; « Ah ! Il doit être saoul. Les préjugés sont faciles à faire. »
+                </blockquote>
+                <p>
+                    Ils insistent sur l’importance de la <em>sensibilisation</em> sur le <em>TCC</em> et de la <em>formation</em> des intervenants de la communauté susceptibles de travailler avec eux (ex. : intervenants des services de première ligne, milieux d’hébergement, policiers, chauffeurs d’autobus, etc.). Une proche aidante ayant participé à notre recherche précisait d’ailleurs que « Il n’y en pas beaucoup des travailleurs sociaux qui sont formés pour parler soit avec des traumatisés crâniens ou des parents ou conjoints de traumatisés crâniens [...] C’est dur… »
+                </p>
+                <p>
+                    Ceci assurerait une meilleure collaboration entre ces différents secteurs afin que « les professionnels soient sensibilisés et qu’ils puissent orienter les gens au besoin ». C’est le cas notamment des personnes vivant avec un TCC et ayant des enjeux de santé mentale ou des dépendances qui sont à risque accru de situations de stigmatisation, de marginalisation ou d’exclusion des services. À cet égard, madame Héloïse Robert, éducatrice spécialisée ainsi que madame Johanne Rossignol, membre de l’Association TCC des Deux-Rives, expliquent comment la collaboration entre les intervenants de l’association et ceux d’autres organismes œuvrant auprès des personnes vivant différents enjeux concomitants (par exemple : santé mentale, toxicomanie, itinérance, marginalisation ou pauvreté) soutient leur inclusion dans les services de la communauté<a class="fn-link" href="#sdfootnote30"><sup>30</sup></a>
+                    <button class="video-trigger-inline" onclick="openModal('video', 'Collaboration autour des enjeux concomitants — Héloïse Robert & Johanne Rossignol', 'https://www.youtube.com/embed/dGbvFTenxyE?autoplay=1')">▶ Extrait vidéo</button>.
+                </p>
+                <p>
+                    Il importe également de sensibiliser les membres de l’entourage immédiat des personnes vivant avec un TCC, afin qu’ils soient en mesure de mieux comprendre les réalités et les besoins de soutien des personnes proches aidantes, comme l’explique madame Katerine Ouimet, intervenante psychosociale aux proches aidants au sein de l’Association des TCC Montérégie<a class="fn-link" href="#sdfootnote31"><sup>31</sup></a>
+                    <button class="video-trigger-inline" onclick="openModal('video', 'Sensibiliser l’entourage immédiat — Katerine Ouimet', 'https://www.youtube.com/embed/FNekbPOcxQM?autoplay=1')">▶ Extrait vidéo</button>.
+                    Par différentes initiatives, telles que la Semaine québécoise du TCC et le Forum annuel du Regroupement Connexion TCC, les associations sensibilisent les citoyens sur le TCC (voir l’extrait vidéo dans lequel madame Marjolaine Tapin, directrice générale du Regroupement des associations de personnes traumatisées craniocérébrales du Québec, présente les objectifs de ce Forum<a class="fn-link" href="#sdfootnote32"><sup>32</sup></a>
+                    <button class="video-trigger-inline" onclick="openModal('video', 'Objectifs du Forum annuel — Marjolaine Tapin', 'https://www.youtube.com/embed/fgNuY79vyCk?autoplay=1')">▶ Extrait vidéo</button>).
+                    Elles collaborent aussi avec les différents secteurs (ex. : services sociaux, santé, communautaire, éducation, municipaux) pour développer des services et des environnements plus inclusifs pour ces personnes et leurs proches aidants, comme l’ajoute monsieur Benoît Durand, directeur général de l’Association TCC des Deux-Rives<a class="fn-link" href="#sdfootnote33"><sup>33</sup></a>
+                    <button class="video-trigger-inline" onclick="openModal('video', 'Collaborations intersectorielles — Benoît Durand', 'https://www.youtube.com/embed/xRs8Mj88m2Y?autoplay=1')">▶ Extrait vidéo</button>.
+                    Ceci est d’autant plus important dans un contexte post-pandémique ayant donné lieu à différentes situations de ruptures sociales et de transformations des services de la communauté.
+                </p>
+
+                <!-- Section 5 -->
+                <h2 id="sec-5" class="chapter-title article-anchor">5. Quelles leçons tirer de la pandémie sur les manières de soutenir les connexions sociales et la continuité des services ?</h2>
+                <p>
+                    Avec la rupture temporaire ou la modification de l’offre de services, la pandémie est venue renforcer le risque d’isolement et de stress pour les personnes en situation de vulnérabilité, dont les proches aidants. Plusieurs participants interrogés dans notre recherche, en début de pandémie, ont expliqué à quel point une interruption de services de répit ou de maintien à domicile pouvait augmenter leur fardeau et leur détresse : « Quand ces ressources-là sont fermées, il n’y a plus rien pour eux autres ». Ceci d’autant plus qu’ils devaient offrir davantage d’assistance et de réassurance pour réduire l’anxiété de la personne TCC face aux mesures socio-sanitaires. Il faut donc identifier des solutions alternatives pour assurer une continuité de services, que ce soit pendant une pandémie ou encore à d’autres moments où les services pourraient être affectés comme la période des vacances.
+                </p>
+                <p>
+                    Pendant la pandémie, de nouveaux services ont vu le jour afin de rejoindre les personnes vivant avec un TCC et leurs proches. Il s’agit de groupes d’échanges en ligne entre proches aidants ou encore d’activités sociales, récréatives et de mise en forme en ligne pour les personnes ayant un TCC. Quels besoins sont comblés par ces services ? Lesquels le sont moins ? La programmation virtuelle permet d’abord d’offrir des services sur un territoire élargi, incluant les personnes qui habitent en milieu rural. Ces services contribuent ainsi à soutenir les connexions sociales pour certaines personnes à risque d’isolement. Il s’agit aussi d’une alternative intéressante pour celles dont l’emploi du temps permet plus difficilement de se déplacer. C’était le cas notamment d’une participante proche aidante, occupant un emploi à temps plein et maman d’un jeune enfant, qui expliquait qu’il serait davantage faisable pour elle de se joindre à des groupes d’échanges virtuels. En contrepartie, les services en ligne posent des obstacles à certaines personnes n’ayant pas accès aux outils numériques ou à une connexion internet ou encore qui ne sont pas familières avec leur utilisation. Ceci d’autant plus lorsque l’accessibilité des plateformes web n’est pas optimale. Les associations ont mis en place différentes solutions pour faciliter l’accès à ces services en ligne, par exemple : prêt de tablettes électroniques, ateliers sur l’apprentissage de l’utilisation de la tablette électronique, disponibilité d’une personne dédiée au soutien technologique lors des activités virtuelles, possibilité de participer par téléphone aux cafés-rencontres virtuels afin d’en accroître l’accès. Ces solutions peuvent inspirer d’autres organismes communautaires ou municipaux intéressés à mettre en place des services plus inclusifs. En somme, les services virtuels peuvent contribuer à la continuité de services en soutenant les connexions sociales et en répondant à certains besoins non comblés. Ils doivent toutefois être complémentaires aux offres de services en présentiel, dans les communautés, afin de rejoindre et de soutenir l’engagement des personnes en situations de vulnérabilité accrue.
+                </p>
+
+                <!-- Carte conceptuelle 4 : Modèle hybride post-pandémique -->
+                <div class="concept-map-wrapper" id="map-hybrid">
+                    <div class="concept-map-header">
+                        <span class="concept-map-title">Carte conceptuelle 4 — Complémentarité des services en présentiel et virtuels</span>
+                        <span class="concept-map-hint">Explorez chaque composante du modèle hybride inclusif</span>
+                    </div>
+                    <svg class="concept-svg" viewBox="0 0 920 190" role="img" aria-label="Diagramme de la complémentarité présentiel et virtuel">
+                        <line x1="285" y1="95" x2="335" y2="95" stroke="#7a2222" stroke-width="2"/>
+                        <line x1="585" y1="95" x2="635" y2="95" stroke="#7a2222" stroke-width="2"/>
+
+                        <!-- Bloc 1 -->
+                        <g class="svg-node active" onclick="selectConcept('map-hybrid', 0, this)">
+                            <rect x="20" y="30" width="265" height="130" rx="8" fill="#FDFBF7" stroke="#b8a99a" stroke-width="1.5"/>
+                            <text x="152" y="62" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a202c" font-family="sans-serif">Apports du virtuel</text>
+                            <text x="152" y="84" text-anchor="middle" font-size="11" fill="#4a5568" font-family="sans-serif">• Couverture des milieux ruraux</text>
+                            <text x="152" y="102" text-anchor="middle" font-size="11" fill="#4a5568" font-family="sans-serif">• Conciliation travail-famille-aidance</text>
+                            <text x="152" y="120" text-anchor="middle" font-size="11" fill="#4a5568" font-family="sans-serif">• Continuité lors des ruptures</text>
+                            <text x="152" y="138" text-anchor="middle" font-size="11" fill="#4a5568" font-family="sans-serif">  (crises sanitaires ou vacances)</text>
+                        </g>
+
+                        <!-- Bloc 2 -->
+                        <g class="svg-node" onclick="selectConcept('map-hybrid', 1, this)">
+                            <rect x="335" y="30" width="250" height="130" rx="8" fill="#FDFBF7" stroke="#b8a99a" stroke-width="1.5"/>
+                            <text x="460" y="62" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a202c" font-family="sans-serif">Soutien à l'inclusion numérique</text>
+                            <text x="460" y="84" text-anchor="middle" font-size="11" fill="#4a5568" font-family="sans-serif">• Prêt de tablettes électroniques</text>
+                            <text x="460" y="102" text-anchor="middle" font-size="11" fill="#4a5568" font-family="sans-serif">• Ateliers d'appropriation technique</text>
+                            <text x="460" y="120" text-anchor="middle" font-size="11" fill="#4a5568" font-family="sans-serif">• Soutien technique dédié en direct</text>
+                            <text x="460" y="138" text-anchor="middle" font-size="11" fill="#4a5568" font-family="sans-serif">• Accès alternatif par téléphone</text>
+                        </g>
+
+                        <!-- Bloc 3 -->
+                        <g class="svg-node" onclick="selectConcept('map-hybrid', 2, this)">
+                            <rect x="635" y="30" width="265" height="130" rx="8" fill="#FDFBF7" stroke="#b8a99a" stroke-width="1.5"/>
+                            <text x="767" y="62" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a202c" font-family="sans-serif">Ancrage en présentiel</text>
+                            <text x="767" y="84" text-anchor="middle" font-size="11" fill="#4a5568" font-family="sans-serif">• Indispensable aux personnes</text>
+                            <text x="767" y="102" text-anchor="middle" font-size="11" fill="#4a5568" font-family="sans-serif">  en vulnérabilité accrue</text>
+                            <text x="767" y="120" text-anchor="middle" font-size="11" fill="#4a5568" font-family="sans-serif">• Répit concret à domicile</text>
+                            <text x="767" y="138" text-anchor="middle" font-size="11" fill="#4a5568" font-family="sans-serif">• Socialisation incarnée de proximité</text>
+                        </g>
+                    </svg>
+                    <div class="concept-detail-panel" id="map-hybrid-detail">
+                        <strong>Apports du virtuel :</strong> Les groupes d'échanges et activités en ligne réduisent les contraintes géographiques et temporelles, notamment pour les proches aidants en emploi ou résidant loin des centres urbains.
+                    </div>
+                </div>
+
+                <!-- Conclusion -->
+                <h2 id="sec-conclusion" class="chapter-title article-anchor">Conclusion</h2>
+                <p>
+                    En somme, les témoignages de personnes proches aidantes et des associations suggèrent différents leviers d’action pour créer des environnements sociaux inclusifs, propices à soutenir une meilleure continuité et intégration dans les services de la communauté (ex. : logement, milieux de loisirs, d’emploi, etc.). Ces actions mobilisent à la fois la personne vivant avec un TCC et ses proches, leur entourage immédiat, les intervenants de différents secteurs, mais aussi, plus largement la société. Selon le point de vue des proches aidants consultés, les associations de personnes vivant avec un TCC sont des partenaires clés dans la mise en place de tels environnements sociaux inclusifs au sein de nos villes. Leurs actions de sensibilisation auprès des différents acteurs sociaux nécessitent d’être poursuivies et renforcées par des collaborations intersectorielles pour créer de réels changements sociaux, susceptibles de bénéficier non seulement aux personnes vivant avec un TCC et leurs proches, mais aussi à d’autres personnes vivant avec des conditions invisibles.
+                </p>
+
+                <!-- Références bibliographiques -->
+                <section id="sec-references" class="references-section article-anchor">
+                    <h2 class="chapter-title" style="margin-top: 0;">Références bibliographiques</h2>
+                    <div class="ref-item">Abrahamson, V., Jensen, J., Springett, K. Sakel, M. (2017), « Experiences of patients with traumatic brain injury and their carers during transition from in-patient rehabilitation to the community: a qualitative study », <em>Disability and rehabilitation</em>, vol. 39, n° 17, DOI : <a href="https://doi.org/10.1080/09638288.2016.1211755" target="_blank" rel="noopener noreferrer">doi.org/10.1080/09638288.2016.1211755</a>, pp. 1683–1694.</div>
+                    <div class="ref-item">Bayley, M., Gargaro, J., Kua, A., et als. (2023), <em>Canadian Clinical Practice Guideline for the Rehabilitation of Adults with Moderate to Severe Traumatic Brain Injury</em>, Toronto, ON : University Health Network, URL : <a href="https://kite-uhn.com/brain-injury/fr/guidelines" target="_blank" rel="noopener noreferrer">https://kite-uhn.com/brain-injury/fr/guidelines</a>.</div>
+                    <div class="ref-item">Braaf, S., Ameratunga, S., Christie, N. et als. (2019), « Care coordination experiences of people with traumatic brain injury and their family members in the 4-years after injury: a qualitative analysis », <em>Brain injury</em>, vol. 33, n° 5, DOI : <a href="https://doi.org/10.1080/02699052.2019.1566835" target="_blank" rel="noopener noreferrer">doi.org/10.1080/02699052.2019.1566835</a>, pp. 574-583.</div>
+                    <div class="ref-item">Estrella, M. J., Kirsh, B., Kontos, P. et als. (2021), « Critical Characteristics of Housing and Housing Supports for Individuals with Concurrent Traumatic Brain Injury and Mental Health and/or Substance Use Challenges: A Qualitative Study », <em>International journal of environmental research and public health</em>, vol. 18, n° 22, DOI : <a href="https://doi.org/10.3390/ijerph182212211" target="_blank" rel="noopener noreferrer">https://doi.org/10.3390/ijerph182212211</a>.</div>
+                    <div class="ref-item">Fleming, J., Nalder, E., Alves-Stein, S. et als. (2014), « The effect of environmental barriers on community integration for individuals with moderate to severe traumatic brain injury », <em>The Journal of head trauma rehabilitation</em>, vol. 29, n° 2, DOI : <a href="https://doi.org/10.1097/HTR.0b013e318286545d" target="_blank" rel="noopener noreferrer">doi.org/10.1097/HTR.0b013e318286545d</a>, pp. 125–135.</div>
+                    <div class="ref-item">Hammel, J., Magasi, S., Heinemann, A., et als. (2015), « Environmental barriers and supports to everyday participation: a qualitative insider perspective from people with disabilities », <em>Archives of physical medicine and rehabilitation</em>, vol. 96, n° 4, DOI : <a href="https://doi.org/10.1016/j.apmr.2014.12.008" target="_blank" rel="noopener noreferrer">doi.org/10.1016/j.apmr.2014.12.008</a>, pp. 578–588.</div>
+                    <div class="ref-item">Lamontagne, M. E., Ouellet, M. C., Simard, J. F. (2009), « A descriptive portrait of human assistance required by individuals with brain injury », <em>Brain injury</em>, vol. 23, n° 7, DOI : <a href="https://doi.org/10.1080/02699050902970760" target="_blank" rel="noopener noreferrer">doi.org/10.1080/02699050902970760</a>, pp. 693–701.</div>
+                    <div class="ref-item">Maas, A. I. R., Menon, D. K., Adelson, P. D. et als. (2017), « Traumatic brain injury: integrated approaches to improve prevention, clinical care, and research », <em>The Lancet. Neurology</em>, vol. 16, n° 12, DOI : <a href="https://doi.org/10.1016/S1474-4422(17)30371-X" target="_blank" rel="noopener noreferrer">doi.org/10.1016/S1474-4422(17)30371-X</a>, pp. 987–1048.</div>
+                    <div class="ref-item">Norman, A., Curro, V., Holloway, M. et als. (2023), « Experiences of individuals with acquired brain injury and their families interacting with community services: a systematic scoping review », <em>Disability and rehabilitation</em>, vol. 45, n° 4, DOI : <a href="https://doi.org/10.1080/09638288.2022.2043465" target="_blank" rel="noopener noreferrer">doi.org/10.1080/09638288.2022.2043465</a>, pp. 739–751.</div>
+                    <div class="ref-item">Selassie, A. W., Zaloshnja, E., Langlois, J. A. et als. (2008), « Incidence of long-term disability following traumatic brain injury hospitalization », <em>The Journal of head trauma rehabilitation</em>, vol. 23, n° 2, DOI : <a href="https://doi.org/10.1097/01.HTR.0000314531.30401.39" target="_blank" rel="noopener noreferrer">doi.org/10.1097/01.HTR.0000314531.30401.39</a>, pp. 123–131.</div>
+                    <div class="ref-item">Statistics Canada (2012), <a href="https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1310046701" target="_blank" rel="noopener noreferrer">Table 13-10-0467-01 Neurological conditions in household population</a>, DOI : <a href="https://doi.org/10.25318/1310046701-eng" target="_blank" rel="noopener noreferrer">doi.org/10.25318/1310046701-eng</a>.</div>
+                </section>
+
+                <!-- Notes de bas de page -->
+                <section class="footnotes-section" aria-label="Notes de bas de page">
+                    <h3 style="color: #7a2222; font-size: 1.05rem; margin-bottom: 0.85rem;">Notes et capsules vidéo associées</h3>
+                    <ol class="fn-list">
+                        <li id="sdfootnote1" class="fn-item">1. Statistics Canada (2012), Table 13-10-0467-01 Neurological conditions in household population, DOI : <a href="https://doi.org/10.25318/1310046701-eng" target="_blank" rel="noopener noreferrer">doi.org/10.25318/1310046701-eng</a>.</li>
+                        <li id="sdfootnote2" class="fn-item">2. Selassie, A. W., Zaloshnja, E., Langlois, J. A. et als. (2008), « Incidence of long-term disability following traumatic brain injury hospitalization », <em>The Journal of head trauma rehabilitation</em>, vol. 23, n° 2, pp. 123–131.</li>
+                        <li id="sdfootnote3" class="fn-item">3. Maas, A. I. R., Menon, D. K., Adelson, P. D. et als. (2017), « Traumatic brain injury: integrated approaches to improve prevention, clinical care, and research », <em>The Lancet. Neurology</em>, vol. 16, n° 12, pp. 987–1048.</li>
+                        <li id="sdfootnote4" class="fn-item">4. Bayley, M., Gargaro, J., Kua, A., et als. (2023), <em>Canadian Clinical Practice Guideline for the Rehabilitation of Adults with Moderate to Severe Traumatic Brain Injury</em>, Toronto, ON : University Health Network.</li>
+                        <li id="sdfootnote5" class="fn-item">5. Fleming, J., Nalder, E., Alves-Stein, S. et als. (2014), « The effect of environmental barriers on community integration for individuals with moderate to severe traumatic brain injury », <em>The Journal of head trauma rehabilitation</em>, vol. 29, n° 2, pp. 125–135.</li>
+                        <li id="sdfootnote6" class="fn-item">6. Hammel, J., Magasi, S., Heinemann, A., et als. (2015), « Environmental barriers and supports to everyday participation: a qualitative insider perspective from people with disabilities », <em>Archives of physical medicine and rehabilitation</em>, vol. 96, n° 4, pp. 578–588.</li>
+                        <li id="sdfootnote7" class="fn-item">7. Estrella, M. J., Kirsh, B., Kontos, P. et als. (2021), « Critical Characteristics of Housing and Housing Supports for Individuals with Concurrent Traumatic Brain Injury and Mental Health and/or Substance Use Challenges: A Qualitative Study », <em>International journal of environmental research and public health</em>, vol. 18, n° 22.</li>
+                        <li id="sdfootnote8" class="fn-item">8. Norman, A., Curro, V., Holloway, M. et als. (2023), « Experiences of individuals with acquired brain injury and their families interacting with community services: a systematic scoping review », <em>Disability and rehabilitation</em>, vol. 45, n° 4, pp. 739–751.</li>
+                        <li id="sdfootnote9" class="fn-item">9. Estrella, M. J., Kirsh, B., Kontos, P. et als. (2021), <em>op. cit.</em></li>
+                        <li id="sdfootnote10" class="fn-item">10. Norman, A., Curro, V., Holloway, M. et als. (2023), <em>op. cit.</em></li>
+                        <li id="sdfootnote11" class="fn-item">11. Abrahamson, V., Jensen, J., Springett, K. Sakel, M. (2017), « Experiences of patients with traumatic brain injury and their carers during transition from in-patient rehabilitation to the community: a qualitative study », <em>Disability and rehabilitation</em>, vol. 39, n° 17, pp. 1683–1694.</li>
+                        <li id="sdfootnote12" class="fn-item">12. Braaf, S., Ameratunga, S., Christie, N. et als. (2019), « Care coordination experiences of people with traumatic brain injury and their family members in the 4-years after injury: a qualitative analysis », <em>Brain injury</em>, vol. 33, n° 5, pp. 574-583.</li>
+                        <li id="sdfootnote13" class="fn-item">13. Capsule vidéo — Benoît Durand : <a href="https://youtu.be/qyg7dko4jDg" target="_blank" rel="noopener noreferrer">https://youtu.be/qyg7dko4jDg</a>.</li>
+                        <li id="sdfootnote14" class="fn-item">14. Lamontagne, M. E., Ouellet, M. C., Simard, J. F. (2009), « A descriptive portrait of human assistance required by individuals with brain injury », <em>Brain injury</em>, vol. 23, n° 7, pp. 693–701.</li>
+                        <li id="sdfootnote15" class="fn-item">15. <em>Idem</em>.</li>
+                        <li id="sdfootnote16" class="fn-item">16. Capsule vidéo — Maryse Brodeur : <a href="https://youtu.be/vxVXihH6Ze8" target="_blank" rel="noopener noreferrer">https://youtu.be/vxVXihH6Ze8</a>.</li>
+                        <li id="sdfootnote17" class="fn-item">17. Capsule vidéo — Autoperception et cheminement : <a href="https://youtu.be/B_71PGsMHAw" target="_blank" rel="noopener noreferrer">https://youtu.be/B_71PGsMHAw</a>.</li>
+                        <li id="sdfootnote18" class="fn-item">18. Capsule vidéo — Rôle facilitateur des proches : <a href="https://youtu.be/vxVXihH6Ze8" target="_blank" rel="noopener noreferrer">https://youtu.be/vxVXihH6Ze8</a>.</li>
+                        <li id="sdfootnote19" class="fn-item">19. Capsule vidéo — Médiation du CLSC et services de répit : <a href="https://youtu.be/SK5cY3PXhP8" target="_blank" rel="noopener noreferrer">https://youtu.be/SK5cY3PXhP8</a>.</li>
+                        <li id="sdfootnote20" class="fn-item">20. Capsule vidéo — Simon Tellier-Marcil : <a href="https://youtu.be/sMTcAhrHi-A" target="_blank" rel="noopener noreferrer">https://youtu.be/sMTcAhrHi-A</a>.</li>
+                        <li id="sdfootnote21" class="fn-item">21. Capsule vidéo — Jean-François Brousseau : <a href="https://youtu.be/6Suo3O8fttU" target="_blank" rel="noopener noreferrer">https://youtu.be/6Suo3O8fttU</a>.</li>
+                        <li id="sdfootnote22" class="fn-item">22. Capsule vidéo — Héloïse Robert (extrait 1) : <a href="https://youtu.be/poJNYdJ88x8" target="_blank" rel="noopener noreferrer">https://youtu.be/poJNYdJ88x8</a>.</li>
+                        <li id="sdfootnote23" class="fn-item">23. Capsule vidéo — Héloïse Robert (extrait 2) : <a href="https://youtu.be/KT2YrDgEdlU" target="_blank" rel="noopener noreferrer">https://youtu.be/KT2YrDgEdlU</a>.</li>
+                        <li id="sdfootnote24" class="fn-item">24. Capsule vidéo — Camille Jolivet : <a href="https://youtu.be/sVjG0PIl8Dc" target="_blank" rel="noopener noreferrer">https://youtu.be/sVjG0PIl8Dc</a>.</li>
+                        <li id="sdfootnote25" class="fn-item">25. Capsule vidéo — Soutien de l'association à la proche aidante : <a href="https://youtu.be/SK5cY3PXhP8" target="_blank" rel="noopener noreferrer">https://youtu.be/SK5cY3PXhP8</a>.</li>
+                        <li id="sdfootnote26" class="fn-item">26. Norman, A., Curro, V., Holloway, M. et als. (2023), <em>op. cit.</em></li>
+                        <li id="sdfootnote27" class="fn-item">27. Abrahamson, V., Jensen, J., Springett, K. Sakel, M. (2017), <em>op. cit.</em></li>
+                        <li id="sdfootnote28" class="fn-item">28. Braaf, S., Ameratunga, S., Christie, N. et als. (2019), <em>op. cit.</em></li>
+                        <li id="sdfootnote29" class="fn-item">29. Capsule vidéo — Contact hâtif dès la réadaptation : <a href="https://youtu.be/MVioAAV8rqs" target="_blank" rel="noopener noreferrer">https://youtu.be/MVioAAV8rqs</a>.</li>
+                        <li id="sdfootnote30" class="fn-item">30. Capsule vidéo — Héloïse Robert et Johanne Rossignol : <a href="https://youtu.be/dGbvFTenxyE" target="_blank" rel="noopener noreferrer">https://youtu.be/dGbvFTenxyE</a>.</li>
+                        <li id="sdfootnote31" class="fn-item">31. Capsule vidéo — Katerine Ouimet : <a href="https://youtu.be/FNekbPOcxQM" target="_blank" rel="noopener noreferrer">https://youtu.be/FNekbPOcxQM</a>.</li>
+                        <li id="sdfootnote32" class="fn-item">32. Capsule vidéo — Marjolaine Tapin : <a href="https://youtu.be/fgNuY79vyCk" target="_blank" rel="noopener noreferrer">https://youtu.be/fgNuY79vyCk</a>.</li>
+                        <li id="sdfootnote33" class="fn-item">33. Capsule vidéo — Benoît Durand (collaborations intersectorielles) : <a href="https://youtu.be/xRs8Mj88m2Y" target="_blank" rel="noopener noreferrer">https://youtu.be/xRs8Mj88m2Y</a>.</li>
+                    </ol>
+                </section>
+
+            </article>
+        </main>
+    </div>
+
+    <!-- Modal Universel (PDF / Vidéo) -->
+    <div class="modal-overlay" id="mediaModal" onclick="closeModalOnOutside(event)">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 id="modalTitle">Titre de la fenêtre</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBodyContent"></div>
+        </div>
+    </div>
+
+    <!-- Modal de Proposition d'Article / Projet -->
+    <div class="modal-overlay" id="proposalModal" onclick="closeProposalModalOnOutside(event)">
+        <div class="modal-container" style="max-width: 800px; height: auto;">
+            <div class="modal-header">
+                <h3 id="proposalModalTitle">Proposer une captation ou un article / Nous faire part d'un commentaire</h3>
+                <button class="modal-close" onclick="closeProposalModal()">&times;</button>
+            </div>
+            <div class="modal-body" style="padding: 1.5rem; overflow-y: auto;">
+                <form id="proposalForm" onsubmit="submitProposal(event)" style="display: flex; flex-direction: column; gap: 1rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                    <input type="hidden" id="propCategory" value="article">
+                    <div>
+                        <label for="propName" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Votre nom</label>
+                        <input type="text" id="propName" required style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propEmail" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Votre courriel</label>
+                        <input type="email" id="propEmail" required style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propTitle" id="propTitleLabel" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Que désirez-vous nous communiquer ?</label>
+                        <input type="text" id="propTitle" required placeholder="Ex: Analyse de l'accessibilité urbaine..." style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propDesc" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Description ou résumé</label>
+                        <textarea id="propDesc" rows="4" required placeholder="Décrivez votre proposition en quelques lignes..." style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff; resize: vertical;"></textarea>
+                    </div>
+                    <button type="submit" style="background-color: #7a2222; color: #fff; border: none; padding: 0.75rem; border-radius: 4px; font-weight: 600; cursor: pointer; margin-top: 0.5rem; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#5e1a1a'" onmouseout="this.style.backgroundColor='#7a2222'">Envoyer la proposition</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const conceptDescriptions = {
+            'map-intro': [
+                "<strong>Séquelles invisibles :</strong> Contrairement à une déficience motrice apparente, les altérations cognitives, émotionnelles et comportementales liées au TCC passent souvent inaperçues, ce qui complique leur reconnaissance par les intervenants généralistes et la communauté.",
+                "<strong>Risque de rupture :</strong> Après la phase intensive de réadaptation, plus de la moitié des personnes font face à un vide de services, à l'isolement social et à des obstacles d'intégration dans les milieux ordinaires.",
+                "<strong>Médiation des proches :</strong> Les familles et proches aidants comblent les failles du système en assurant la coordination des soins, le transport, la stimulation et la défense des droits de la personne.",
+                "<strong>Participation et inclusion durable :</strong> Agir en amont sur les environnements sociaux et sensibiliser les acteurs communautaires permet de transformer l'accueil citoyen et de pérenniser la participation sociale."
+            ],
+            'map-caregiver': [
+                "<strong>Proche aidant·e (Pivot relationnel) :</strong> Même lorsque la personne vit en ressource d'hébergement, le proche demeure le fil conducteur de son histoire, assurant la cohérence entre les milieux de soins et la vie sociale.",
+                "<strong>Ruptures & Surcharge :</strong> L'aidant doit composer avec le deuil de la relation antérieure, l'adaptation constante de sa communication pour prévenir l'anxiété ou la colère, et une charge domestique et administrative accrue.",
+                "<strong>Défi de l'autoperception :</strong> L'anosognosie ou le temps nécessaire pour intégrer les changements (souvent près de 5 ans) retarde l'adhésion de la personne aux services spécialisés TCC.",
+                "<strong>Facilitateur d'accès :</strong> Par des rappels, de l'accompagnement physique et du transport, le proche rend concrètement possible la fréquentation des loisirs et des ressources communautaires.",
+                "<strong>Outils & Répit ciblé :</strong> L'accès à des formations psychosociales, à la médiation d'intervenants de CLSC et à des services de répit réduit les inégalités liées au capital social et prévient l'épuisement."
+            ],
+            'map-collab': [
+                "<strong>Association TCC (Point de connexion intersectoriel) :</strong> En raison de sa connaissance fine des trajectoires à long terme, l'association sert de plaque tournante entre les réseaux de la santé, les municipalités et les organismes communautaires.",
+                "<strong>Arrimage précoce & relances :</strong> Initier le contact avec les familles dès la réadaptation, puis maintenir des relances douces (infolettres, portes ouvertes), permet d'intervenir au moment où le besoin émerge.",
+                "<strong>Accessibilité territoriale & coûts :</strong> Le développement du transport inter-régional, d'une gamme de logements supervisés et de services d'accompagnement abordables lève les barrières matérielles.",
+                "<strong>Lutte contre la stigmatisation :</strong> Former les intervenants de première ligne (policiers, chauffeurs d'autobus, travailleurs sociaux) évite que les symptômes du TCC soient confondus avec de l'ivresse ou des troubles volontaires.",
+                "<strong>Enjeux concomitants :</strong> Le maillage étroit entre les associations TCC et les ressources en santé mentale, dépendances ou itinérance protège les personnes les plus marginalisées contre l'exclusion."
+            ],
+            'map-hybrid': [
+                "<strong>Apports du virtuel :</strong> Les groupes d'échanges et activités en ligne réduisent les contraintes géographiques et temporelles, notamment pour les proches aidants en emploi ou résidant loin des centres urbains.",
+                "<strong>Soutien à l'inclusion numérique :</strong> Le prêt de tablettes, les ateliers d'initiation, l'assistance technique en direct et l'option téléphonique neutralisent la fracture numérique.",
+                "<strong>Ancrage en présentiel :</strong> L'offre virtuelle demeure complémentaire : les rencontres physiques, l'accompagnement individuel et le répit sur le terrain restent essentiels pour les personnes les plus vulnérables."
+            ]
+        };
+
+        function selectConcept(mapId, index, nodeEl) {
+            const container = document.getElementById(mapId);
+            if (!container) return;
+            container.querySelectorAll('.svg-node').forEach(n => n.classList.remove('active'));
+            nodeEl.classList.add('active');
+            const detailBox = document.getElementById(mapId + '-detail');
+            if (detailBox && conceptDescriptions[mapId] && conceptDescriptions[mapId][index]) {
+                detailBox.innerHTML = conceptDescriptions[mapId][index];
+            }
+        }
+
+        function scrollToTop(event) {
+            event.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            history.replaceState(null, '', '#presentation-haut');
+        }
+
+        function toggleSubmenu(event, submenuId, arrowId) {
+            event.stopPropagation();
+            const submenu = document.getElementById(submenuId);
+            const arrow = document.getElementById(arrowId);
+            submenu.classList.toggle('open');
+            arrow.style.transform = submenu.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
+
+        function openModal(type, title, url) {
+            const modal = document.getElementById('mediaModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalBodyContent = document.getElementById('modalBodyContent');
+
+            modalTitle.textContent = title;
+            modalBodyContent.innerHTML = '';
+
+            if (type === 'pdf') {
+                const iframe = document.createElement('iframe');
+                iframe.className = 'pdf-frame';
+                iframe.src = url;
+                modalBodyContent.appendChild(iframe);
+            } else if (type === 'video') {
+                const iframe = document.createElement('iframe');
+                iframe.className = 'video-frame';
+                iframe.src = url;
+                iframe.setAttribute('allow', 'autoplay; fullscreen');
+                modalBodyContent.appendChild(iframe);
+            }
+
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('mediaModal');
+            modal.style.display = 'none';
+            document.getElementById('modalBodyContent').innerHTML = '';
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeModalOnOutside(event) {
+            const modal = document.getElementById('mediaModal');
+            if (event.target === modal) closeModal();
+        }
+
+        function openProposalModal(type) {
+            const proposalModal = document.getElementById('proposalModal');
+            const titleEl = document.getElementById('proposalModalTitle');
+            const categoryEl = document.getElementById('propCategory');
+            const titleLabelEl = document.getElementById('propTitleLabel');
+            const titleInputEl = document.getElementById('propTitle');
+
+            categoryEl.value = type;
+
+            if (type === 'captation') {
+                titleEl.textContent = "Nous faire part d'un commentaire ou d'une proposition (captation ou article)";
+                titleLabelEl.textContent = "Que voulez-vous nous communiquer ?";
+                titleInputEl.placeholder = "Ex: projet de captation, soumettre un article, faire un commentaire...";
+            } else {
+                titleEl.textContent = "Nous faire part d'un commentaire ou d'une proposition (captation ou article)";
+                titleLabelEl.textContent = "Que voulez-vous nous communiquer ?";
+                titleInputEl.placeholder = "Ex: projet de captation, soumettre un article, faire un commentaire...";
+            }
+
+            proposalModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProposalModal() {
+            const proposalModal = document.getElementById('proposalModal');
+            proposalModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeProposalModalOnOutside(event) {
+            const proposalModal = document.getElementById('proposalModal');
+            if (event.target === proposalModal) closeProposalModal();
+        }
+
+        function submitProposal(event) {
+            event.preventDefault();
+            const name = document.getElementById('propName').value;
+            const email = document.getElementById('propEmail').value;
+            const category = document.getElementById('propCategory').value;
+            const title = document.getElementById('propTitle').value;
+            const desc = document.getElementById('propDesc').value;
+
+            const typeLabel = category === 'captation' ? 'Proposition de captation' : "Proposition d'article";
+            const subject = encodeURIComponent(`${typeLabel} : ${title}`);
+            const body = encodeURIComponent(`Nom : ${name}\nCourriel : ${email}\nType : ${typeLabel}\nTitre : ${title}\n\nDescription :\n${desc}`);
+
+            window.location.href = `mailto:sociocamera@gmail.com?subject=${subject}&body=${body}`;
+            closeProposalModal();
+        }
+
+        window.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+                closeProposalModal();
+            }
+        });
+    </script>
+</body>
+</html>
