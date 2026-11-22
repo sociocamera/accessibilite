@@ -505,6 +505,245 @@
             margin-bottom: 0 !important;
         }
 
+        /* Slider vidéo type Netflix harmonisé */
+        .netflix-slider-section {
+            background-color: var(--box-whitish);
+            border: 1px solid #e5ddd0;
+            border-radius: 10px;
+            padding: 1.35rem 1.5rem 1.5rem 1.5rem;
+            margin-bottom: 2.25rem;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.035);
+            position: relative;
+        }
+
+        .netflix-slider-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.65rem;
+            border-bottom: 1px solid #eee7dc;
+        }
+
+        .netflix-slider-title-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+        }
+
+        .netflix-slider-kicker {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--bordeaux);
+        }
+
+        .netflix-slider-heading {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .netflix-slider-controls {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .slider-nav-btn {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background-color: var(--bg-color);
+            border: 1px solid #dcd2c2;
+            color: var(--bordeaux);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .slider-nav-btn:hover {
+            background-color: var(--bordeaux);
+            color: #fff;
+            border-color: var(--bordeaux);
+        }
+
+        .netflix-track {
+            display: flex;
+            gap: 1.1rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 0.35rem 0.15rem 0.65rem 0.15rem;
+            scrollbar-width: thin;
+            scrollbar-color: #d4c5b9 transparent;
+        }
+
+        .netflix-track::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .netflix-track::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .netflix-track::-webkit-scrollbar-thumb {
+            background-color: #d4c5b9;
+            border-radius: 3px;
+        }
+
+        .netflix-card {
+            flex: 0 0 260px;
+            background-color: var(--bg-color);
+            border: 1px solid #e2d9cb;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .netflix-card:hover {
+            transform: translateY(-4px) scale(1.015);
+            box-shadow: 0 8px 20px rgba(122, 34, 34, 0.14);
+            border-color: var(--bordeaux);
+        }
+
+        .netflix-thumb-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background-color: #eae3d5;
+            overflow: hidden;
+            border-bottom: 1px solid #e2d9cb;
+        }
+
+        .netflix-thumb-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .netflix-card:hover .netflix-thumb-wrapper img {
+            transform: scale(1.05);
+        }
+
+        .netflix-play-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(26, 32, 44, 0.55) 0%, rgba(26, 32, 44, 0.1) 50%, transparent 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.25s ease;
+        }
+
+        .netflix-card:hover .netflix-play-overlay {
+            background: rgba(122, 34, 34, 0.28);
+        }
+
+        .netflix-play-circle {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background-color: rgba(122, 34, 34, 0.92);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .netflix-card:hover .netflix-play-circle {
+            transform: scale(1.1);
+            background-color: var(--bordeaux-dark);
+        }
+
+        .netflix-card-body {
+            padding: 0.85rem 0.95rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .netflix-card-title {
+            font-family: "Georgia", serif;
+            font-size: 0.88rem;
+            font-weight: 700;
+            line-height: 1.38;
+            color: var(--primary-color);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .netflix-card-meta {
+            margin-top: 0.5rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--bordeaux);
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        /* Disposition modale vidéo + Synopsis à droite */
+        .video-synopsis-layout {
+            display: grid;
+            grid-template-columns: 1.65fr 1fr;
+            height: 100%;
+            width: 100%;
+            background-color: var(--bg-color);
+        }
+
+        .video-player-pane {
+            background-color: #141414;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .synopsis-pane {
+            background-color: var(--box-whitish);
+            border-left: 1px solid #e5ddd0;
+            padding: 1.75rem 1.6rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            overflow-y: auto;
+        }
+
+        .synopsis-heading {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            color: var(--bordeaux);
+            padding-bottom: 0.6rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #e5ddd0;
+        }
+
+        .synopsis-text {
+            font-family: "Georgia", serif;
+            font-size: 0.98rem;
+            line-height: 1.7;
+            color: var(--text-color);
+            text-align: justify;
+        }
+
         /* Corps de l'article */
         .article-body {
             font-size: 1.05rem;
@@ -850,6 +1089,14 @@
             .slam-card {
                 padding: 1.25rem 1.5rem;
             }
+            .video-synopsis-layout {
+                grid-template-columns: 1fr;
+                grid-template-rows: 1.4fr 1fr;
+            }
+            .synopsis-pane {
+                border-left: none;
+                border-top: 1px solid #e5ddd0;
+            }
         }
     </style>
 </head>
@@ -1029,6 +1276,25 @@
                             <strong>Keywords:</strong> Accessibility; inclusive experience; inclusion; leisure.
                         </p>
                     </div>
+                </section>
+
+                <!-- Slider de vidéos de type Netflix juste avant Introduction -->
+                <section class="netflix-slider-section" aria-label="Capsules vidéo sur l'expérience inclusive de loisir">
+                    <div class="netflix-slider-header">
+                        <div class="netflix-slider-title-group">
+                            <span class="netflix-slider-kicker">Sociologie visuelle • Capsules documentaires</span>
+                            <h2 class="netflix-slider-heading">Explorer l’expérience inclusive en images</h2>
+                        </div>
+                        <div class="netflix-slider-controls">
+                            <button type="button" class="slider-nav-btn" onclick="scrollVideoSlider(-1)" aria-label="Défiler vers la gauche">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                            </button>
+                            <button type="button" class="slider-nav-btn" onclick="scrollVideoSlider(1)" aria-label="Défiler vers la droite">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="netflix-track" id="netflixVideoTrack"></div>
                 </section>
 
                 <!-- Corps de l'article -->
@@ -1669,7 +1935,7 @@
 
     <!-- Modal Universel (PDF / Vidéo) -->
     <div class="modal-overlay" id="mediaModal" onclick="closeModalOnOutside(event)">
-        <div class="modal-container">
+        <div class="modal-container" id="mediaModalContainer">
             <div class="modal-header">
                 <h3 id="modalTitle">Titre de la fenêtre</h3>
                 <button class="modal-close" onclick="closeModal()">&times;</button>
@@ -1711,6 +1977,149 @@
     </div>
 
     <script>
+        /* Données des vidéos du dossier Google Drive */
+        const sliderVideos = [
+            {
+                id: "1f2PmbY_msxMP9kwyfh_d9BV2FqsmVDDU",
+                title: "Penser l'accessibilité — Favoriser l'inclusion sociale",
+                url: "https://drive.google.com/file/d/1f2PmbY_msxMP9kwyfh_d9BV2FqsmVDDU/preview?autoplay=1",
+                thumbnail: "https://drive.google.com/thumbnail?id=1f2PmbY_msxMP9kwyfh_d9BV2FqsmVDDU&sz=w640",
+                synopsis: "Cette capsule documentaire présente les enjeux fondamentaux de l’accessibilité universelle et de l’inclusion sociale au Québec, en montrant comment l’adaptation des environnements physiques et sociaux favorise la participation citoyenne pleine et entière des personnes en situation de handicap."
+            },
+            {
+                id: "1X377OJzVebxa_O72AKAKqvrIjfOWBRMy",
+                title: "Atelier de verre pour personnes handicapées",
+                url: "https://drive.google.com/file/d/1X377OJzVebxa_O72AKAKqvrIjfOWBRMy/preview?autoplay=1",
+                thumbnail: "https://drive.google.com/thumbnail?id=1X377OJzVebxa_O72AKAKqvrIjfOWBRMy&sz=w640",
+                synopsis: "Immersion au centre d’arts La Fenêtre où des participants en situation de handicap explorent le travail créatif du verre, illustrant concrètement comment un accompagnement artistique adapté permet d’exprimer sa créativité, de tisser des liens et de valoriser ses talents."
+            },
+
+            {
+                id: "1aQbAFIO6JofLXl3KQ2kjxiNGCDH-EOjt",
+                title: "Compréhension de l'expérience inclusive de loisir",
+                url: "https://drive.google.com/file/d/1aQbAFIO6JofLXl3KQ2kjxiNGCDH-EOjt/preview?autoplay=1",
+                thumbnail: "https://drive.google.com/thumbnail?id=1aQbAFIO6JofLXl3KQ2kjxiNGCDH-EOjt&sz=w640",
+                synopsis: "Les chercheuses du GIREIL expliquent les fondements du cadre conceptuel de l’expérience inclusive de loisir, démontrant pourquoi l’inclusion véritable dépasse le simple accès physique pour englober le plaisir, la réciprocité sociale et la réalisation des aspirations personnelles."
+            },
+            {
+                id: "199Vk3tX2HJv4IAN3yx1nq5XMeu00u7QM",
+                title: "Répondre aux attentes et aspirations des personnes",
+                url: "https://drive.google.com/file/d/199Vk3tX2HJv4IAN3yx1nq5XMeu00u7QM/preview?autoplay=1",
+                thumbnail: "https://drive.google.com/thumbnail?id=199Vk3tX2HJv4IAN3yx1nq5XMeu00u7QM&sz=w640",
+                synopsis: "Cette capsule illustre l’importance d’écouter les désirs individuels et d’offrir une gamme variée d’activités récréatives choisies librement, permettant à chaque personne en situation de handicap de vivre un loisir réellement significatif et adapté à ses propres intérêts."
+            },
+            {
+                id: "1TorwKE90doydEGeyZkpH0rqQMOcr0kpq",
+                title: "Rendre accessible les sites d’activités",
+                url: "https://drive.google.com/file/d/1TorwKE90doydEGeyZkpH0rqQMOcr0kpq/preview?autoplay=1",
+                thumbnail: "https://drive.google.com/thumbnail?id=1TorwKE90doydEGeyZkpH0rqQMOcr0kpq&sz=w640",
+                synopsis: "Un regard concret sur la chaîne d’accessibilité des lieux récréatifs, depuis le transport et la signalétique jusqu’aux équipements spécialisés comme le fauteuil hippocampe, essentiels pour éliminer les barrières environnementales dans les parcs, bibliothèques et sites de plein air."
+            },
+            {
+                id: "14cu8bzQSYXsam4jebcN2WhcPSJnEG118",
+                title: "Mobiliser ses potentiels",
+                url: "https://drive.google.com/file/d/14cu8bzQSYXsam4jebcN2WhcPSJnEG118/preview?autoplay=1",
+                thumbnail: "https://drive.google.com/thumbnail?id=14cu8bzQSYXsam4jebcN2WhcPSJnEG118&sz=w640",
+                synopsis: "Cette vidéo met en lumière comment des activités équilibrant défis et compétences permettent aux personnes en situation de handicap de dépasser le rôle de spectateur, de mobiliser leurs forces et d’éprouver un profond sentiment de liberté et d’accomplissement."
+            },
+            {
+                id: "1SE30YwHxNjoh4cc_vhyaOEyoxEA7Pb3T",
+                title: "Développer sa confiance en ses capacités",
+                url: "https://drive.google.com/file/d/1SE30YwHxNjoh4cc_vhyaOEyoxEA7Pb3T/preview?autoplay=1",
+                thumbnail: "https://drive.google.com/thumbnail?id=1SE30YwHxNjoh4cc_vhyaOEyoxEA7Pb3T&sz=w640",
+                synopsis: "À travers des témoignages issus des études de terrain, cette capsule montre comment la réussite dans une pratique culturelle ou sportive soutenue par un climat bienveillant renforce durablement l’estime de soi et encourage l’ouverture vers de nouveaux loisirs."
+            },
+            {
+                id: "1b5j-AfpdECM6xA8Fiek0EwzHpDIs5rbk",
+                title: "La formation du personnel",
+                url: "https://drive.google.com/file/d/1b5j-AfpdECM6xA8Fiek0EwzHpDIs5rbk/preview?autoplay=1",
+                thumbnail: "https://drive.google.com/thumbnail?id=1b5j-AfpdECM6xA8Fiek0EwzHpDIs5rbk&sz=w640",
+                synopsis: "Cette capsule souligne le rôle déterminant de la formation et de la sensibilisation des animateurs, accompagnateurs et gestionnaires afin de développer des savoir-faire et savoir-être inclusifs favorisant la réciprocité sociale et le sentiment d’appartenance au sein des groupes."
+            },
+            {
+                id: "1Bw7HKicO7nwHh1kqukexm8nOHTWhVi0t",
+                title: "Annie-Kim Charest-Talbot — Slam « Je patine »",
+                url: "https://drive.google.com/file/d/1Bw7HKicO7nwHh1kqukexm8nOHTWhVi0t/preview?autoplay=1",
+                thumbnail: "https://drive.google.com/thumbnail?id=1Bw7HKicO7nwHh1kqukexm8nOHTWhVi0t&sz=w640",
+                synopsis: "L’auteure-interprète Annie-Kim Charest-Talbot livre avec émotion son slam « Je patine », une œuvre poétique vibrante sur la résilience, la liberté de tracer sa propre trajectoire sur la glace et l’affirmation fière de son potentiel face aux regards extérieurs."
+            }
+        ];
+
+        function renderVideoSlider() {
+            const track = document.getElementById('netflixVideoTrack');
+            if (!track) return;
+            track.innerHTML = '';
+            sliderVideos.forEach((video, index) => {
+                const card = document.createElement('div');
+                card.className = 'netflix-card';
+                card.setAttribute('role', 'button');
+                card.setAttribute('tabindex', '0');
+                card.setAttribute('aria-label', `Visionner ${video.title}`);
+                card.onclick = () => openVideoWithSynopsisModal(index);
+                card.onkeydown = (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        openVideoWithSynopsisModal(index);
+                    }
+                };
+
+                card.innerHTML = `
+                    <div class="netflix-thumb-wrapper">
+                        <img src="${video.thumbnail}" alt="${video.title.replace(/"/g, '&quot;')}" loading="lazy">
+                        <div class="netflix-play-overlay">
+                            <div class="netflix-play-circle">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="netflix-card-body">
+                        <div class="netflix-card-title">${video.title}</div>
+                        <div class="netflix-card-meta">
+                            <span>Visionner &amp; Synopsis</span>
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </div>
+                    </div>
+                `;
+                track.appendChild(card);
+            });
+        }
+
+        function scrollVideoSlider(direction) {
+            const track = document.getElementById('netflixVideoTrack');
+            if (!track) return;
+            const scrollAmount = 540;
+            track.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+        }
+
+        function openVideoWithSynopsisModal(index) {
+            const video = sliderVideos[index];
+            if (!video) return;
+            const modal = document.getElementById('mediaModal');
+            const modalContainer = document.getElementById('mediaModalContainer');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalBodyContent = document.getElementById('modalBodyContent');
+
+            modalContainer.style.maxWidth = '1120px';
+            modalContainer.style.height = '76vh';
+            modalTitle.textContent = video.title;
+            modalBodyContent.innerHTML = `
+                <div class="video-synopsis-layout">
+                    <div class="video-player-pane">
+                        <iframe class="video-frame" src="${video.url}" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                    </div>
+                    <aside class="synopsis-pane">
+                        <h4 class="synopsis-heading">Synopsis</h4>
+                        <p class="synopsis-text">${video.synopsis}</p>
+                    </aside>
+                </div>
+            `;
+
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        document.addEventListener('DOMContentLoaded', renderVideoSlider);
+
         function toggleSubmenu(event, submenuId, arrowId) {
             event.stopPropagation();
             const submenu = document.getElementById(submenuId);
@@ -1860,9 +2269,12 @@
         /* Modales */
         function openModal(type, title, url) {
             const modal = document.getElementById('mediaModal');
+            const modalContainer = document.getElementById('mediaModalContainer');
             const modalTitle = document.getElementById('modalTitle');
             const modalBodyContent = document.getElementById('modalBodyContent');
 
+            modalContainer.style.maxWidth = '900px';
+            modalContainer.style.height = '85vh';
             modalTitle.textContent = title;
             modalBodyContent.innerHTML = '';
 
