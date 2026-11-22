@@ -407,282 +407,6 @@
             color: var(--accent-color);
         }
 
-        /* =====================================================================
-           SLIDER DE VIDÉOS DE TYPE NETFLIX (HARMONISÉ AVEC LE THÈME CRÈME/BORDEAUX)
-           ===================================================================== */
-        .netflix-slider-section {
-            margin-bottom: 2.5rem;
-            background-color: #FDFBF7;
-            border: 1px solid #e6dfd3;
-            border-radius: 8px;
-            padding: 1.35rem 1.4rem;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        }
-
-        .netflix-slider-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-            padding-bottom: 0.55rem;
-            border-bottom: 1px solid #ede6d8;
-        }
-
-        .netflix-slider-title {
-            font-size: 0.88rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: #7a2222;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .netflix-slider-count {
-            font-size: 0.78rem;
-            color: var(--accent-color);
-            font-weight: 500;
-        }
-
-        .netflix-carousel-wrapper {
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-
-        .netflix-track {
-            display: flex;
-            gap: 1rem;
-            overflow-x: auto;
-            scroll-behavior: smooth;
-            padding: 0.35rem 0.15rem 0.65rem 0.15rem;
-            scrollbar-width: thin;
-            scrollbar-color: #cbbba6 #FAF6EF;
-            width: 100%;
-        }
-
-        .netflix-track::-webkit-scrollbar {
-            height: 6px;
-        }
-
-        .netflix-track::-webkit-scrollbar-track {
-            background: #FAF6EF;
-            border-radius: 4px;
-        }
-
-        .netflix-track::-webkit-scrollbar-thumb {
-            background: #cbbba6;
-            border-radius: 4px;
-        }
-
-        .netflix-track::-webkit-scrollbar-thumb:hover {
-            background: #7a2222;
-        }
-
-        .netflix-card {
-            flex: 0 0 230px;
-            background-color: #FAF6EF;
-            border: 1px solid #e2d9c8;
-            border-radius: 6px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .netflix-card:hover {
-            transform: translateY(-4px) scale(1.02);
-            border-color: #7a2222;
-            box-shadow: 0 8px 18px rgba(122, 34, 34, 0.12);
-        }
-
-        .netflix-thumb-box {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            background-color: #eae3d5;
-            overflow: hidden;
-        }
-
-        .netflix-thumb-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.3s ease;
-        }
-
-        .netflix-card:hover .netflix-thumb-box img {
-            transform: scale(1.05);
-        }
-
-        .netflix-play-badge {
-            position: absolute;
-            inset: 0;
-            background: rgba(26, 32, 44, 0.25);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0.88;
-            transition: background 0.2s ease, opacity 0.2s ease;
-        }
-
-        .netflix-card:hover .netflix-play-badge {
-            background: rgba(122, 34, 34, 0.42);
-            opacity: 1;
-        }
-
-        .netflix-play-circle {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: rgba(250, 246, 239, 0.94);
-            color: #7a2222;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-            transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
-        }
-
-        .netflix-card:hover .netflix-play-circle {
-            transform: scale(1.1);
-            background-color: #7a2222;
-            color: #FAF6EF;
-        }
-
-        .netflix-card-info {
-            padding: 0.7rem 0.8rem;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .netflix-card-title {
-            font-size: 0.83rem;
-            font-weight: 600;
-            color: var(--primary-color);
-            line-height: 1.35;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .netflix-card:hover .netflix-card-title {
-            color: #7a2222;
-        }
-
-        .netflix-nav-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 34px;
-            height: 34px;
-            border-radius: 50%;
-            background-color: #FAF6EF;
-            border: 1px solid #cbbba6;
-            color: #7a2222;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 10;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.14);
-            transition: background-color 0.2s, color 0.2s, transform 0.2s;
-        }
-
-        .netflix-nav-btn:hover {
-            background-color: #7a2222;
-            color: #FAF6EF;
-            border-color: #7a2222;
-            transform: translateY(-50%) scale(1.06);
-        }
-
-        .netflix-nav-btn.prev {
-            left: -12px;
-        }
-
-        .netflix-nav-btn.next {
-            right: -12px;
-        }
-
-        /* Fenêtre modale dédiée aux vidéos du slider avec Synopsis à droite */
-        .video-synopsis-modal-container {
-            max-width: 1120px;
-            height: 76vh;
-        }
-
-        .video-synopsis-layout {
-            display: flex;
-            flex-direction: row;
-            width: 100%;
-            height: 100%;
-            background-color: var(--bg-color);
-        }
-
-        .video-player-pane {
-            flex: 1 1 66%;
-            background-color: #141414;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-        }
-
-        .synopsis-side-pane {
-            flex: 0 0 34%;
-            background-color: #FDFBF7;
-            border-left: 1px solid #e2d9c8;
-            padding: 1.65rem 1.5rem;
-            display: flex;
-            flex-direction: column;
-            overflow-y: auto;
-        }
-
-        .synopsis-heading {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            font-size: 0.82rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            color: #7a2222;
-            padding-bottom: 0.55rem;
-            margin-bottom: 1rem;
-            border-bottom: 1px solid #e6dfd3;
-        }
-
-        .synopsis-text {
-            font-family: "Georgia", "Cambria", "Times New Roman", serif;
-            font-size: 0.96rem;
-            line-height: 1.75;
-            color: var(--text-color);
-            text-align: justify;
-        }
-
-        @media (max-width: 860px) {
-            .video-synopsis-modal-container {
-                height: 88vh;
-            }
-            .video-synopsis-layout {
-                flex-direction: column;
-            }
-            .video-player-pane {
-                flex: 0 0 52%;
-                height: 52%;
-            }
-            .synopsis-side-pane {
-                flex: 1 1 48%;
-                border-left: none;
-                border-top: 1px solid #e2d9c8;
-                padding: 1.15rem 1.25rem;
-            }
-        }
-
         /* Corps de l'article */
         .article-body {
             font-size: 1.05rem;
@@ -1022,6 +746,215 @@
             }
         }
 
+
+        /* Slider vidéo de type Netflix harmonisé avec la charte de la page */
+        .video-slider-section {
+            margin-bottom: 2.5rem;
+            background-color: #FDFBF7;
+            border: 1px solid #e6dfd3;
+            border-radius: 10px;
+            padding: 1.35rem 1.5rem 1.5rem 1.5rem;
+            box-shadow: 0 4px 14px rgba(122, 34, 34, 0.04);
+            position: relative;
+        }
+
+        .video-slider-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.65rem;
+            border-bottom: 1px solid #ede6d8;
+            gap: 1rem;
+        }
+
+        .video-slider-title-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .video-slider-kicker {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #7a2222;
+        }
+
+        .video-slider-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 0;
+        }
+
+        .video-slider-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-shrink: 0;
+        }
+
+        .slider-nav-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: var(--bg-color);
+            border: 1px solid #d4c5b9;
+            color: #7a2222;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .slider-nav-btn:hover {
+            background-color: #7a2222;
+            border-color: #7a2222;
+            color: #ffffff;
+            transform: scale(1.05);
+        }
+
+        .video-slider-track {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+            padding: 0.35rem 0.15rem 0.65rem 0.15rem;
+            scrollbar-width: thin;
+            scrollbar-color: #cbbba6 #f2ede4;
+        }
+
+        .video-slider-track::-webkit-scrollbar {
+            height: 7px;
+        }
+
+        .video-slider-track::-webkit-scrollbar-track {
+            background: #f2ede4;
+            border-radius: 4px;
+        }
+
+        .video-slider-track::-webkit-scrollbar-thumb {
+            background-color: #cbbba6;
+            border-radius: 4px;
+        }
+
+        .video-slider-track::-webkit-scrollbar-thumb:hover {
+            background-color: #7a2222;
+        }
+
+        .netflix-video-card {
+            flex: 0 0 250px;
+            scroll-snap-align: start;
+            background-color: var(--bg-color);
+            border: 1px solid #e2d9c8;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .netflix-video-card:hover {
+            transform: translateY(-4px) scale(1.02);
+            border-color: #7a2222;
+            box-shadow: 0 10px 20px rgba(122, 34, 34, 0.14);
+            z-index: 2;
+        }
+
+        .netflix-thumb-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background-color: #e8e0d2;
+            overflow: hidden;
+            border-bottom: 1px solid #e2d9c8;
+        }
+
+        .netflix-thumb-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.35s ease;
+        }
+
+        .netflix-video-card:hover .netflix-thumb-wrapper img {
+            transform: scale(1.06);
+        }
+
+        .netflix-play-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(26, 32, 44, 0.55) 0%, rgba(26, 32, 44, 0.12) 55%, transparent 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.25s ease;
+        }
+
+        .netflix-video-card:hover .netflix-play-overlay {
+            background: rgba(122, 34, 34, 0.35);
+        }
+
+        .netflix-play-badge {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background-color: rgba(122, 34, 34, 0.92);
+            color: #ffffff;
+            border: 2px solid #FAF6EF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.28);
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .netflix-video-card:hover .netflix-play-badge {
+            transform: scale(1.1);
+            background-color: #7a2222;
+        }
+
+        .netflix-card-body {
+            padding: 0.75rem 0.85rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 0.45rem;
+        }
+
+        .netflix-card-title {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            line-height: 1.38;
+            color: var(--primary-color);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .netflix-video-card:hover .netflix-card-title {
+            color: #7a2222;
+        }
+
+        .netflix-card-meta {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.72rem;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
 .author-details sup {
     font-weight: normal;
 }
@@ -1181,22 +1114,362 @@
                 </section>
 
                 <!-- Slider de vidéos de type Netflix -->
-                <section class="netflix-slider-section" aria-label="Série documentaire J'ai mon appart'">
-                    <div class="netflix-slider-header">
-                        <div class="netflix-slider-title">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-                            Capsules vidéo — «&nbsp;J’ai mon appart’&nbsp;»
+                <section class="video-slider-section" aria-label="Capsules vidéo de terrain — J'ai mon appart'">
+                    <div class="video-slider-header">
+                        <div class="video-slider-title-group">
+                            <span class="video-slider-kicker">Sociologie visuelle • Capsules vidéo (20 vidéos)</span>
+                            <h2 class="video-slider-title">Explorer le milieu de vie «&nbsp;J’ai mon appart’&nbsp;» en images</h2>
                         </div>
-                        <span class="netflix-slider-count">20 capsules documentaires</span>
+                        <div class="video-slider-controls">
+                            <button type="button" class="slider-nav-btn" aria-label="Défiler vers la gauche" onclick="scrollVideoSlider(-1)">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                            </button>
+                            <button type="button" class="slider-nav-btn" aria-label="Défiler vers la droite" onclick="scrollVideoSlider(1)">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                            </button>
+                        </div>
                     </div>
-                    <div class="netflix-carousel-wrapper">
-                        <button class="netflix-nav-btn prev" onclick="scrollNetflixSlider(-1)" aria-label="Vidéos précédentes">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                        </button>
-                        <div class="netflix-track" id="netflixVideoTrack"></div>
-                        <button class="netflix-nav-btn next" onclick="scrollNetflixSlider(1)" aria-label="Vidéos suivantes">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                        </button>
+                    <div class="video-slider-track" id="netflixVideoTrack">
+                        <div class="netflix-video-card" role="button" tabindex="0" aria-label="Lire la vidéo : « J'ai mon appart' » L'origine du projet d'appartements supervisés" onclick="openModal('video', '« J\'ai mon appart\' » L\'origine du projet d\'appartements supervisés', 'https://drive.google.com/file/d/1kV0mMf_SNx1I48KJp6g9dHxufC29jp9R/preview?autoplay=1')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('video', '« J\'ai mon appart\' » L\'origine du projet d\'appartements supervisés', 'https://drive.google.com/file/d/1kV0mMf_SNx1I48KJp6g9dHxufC29jp9R/preview?autoplay=1');}">
+                            <div class="netflix-thumb-wrapper">
+                                <img src="https://drive.google.com/thumbnail?id=1kV0mMf_SNx1I48KJp6g9dHxufC29jp9R&sz=w640" alt="« J'ai mon appart' » L'origine du projet d'appartements supervisés" loading="lazy" onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/d/1kV0mMf_SNx1I48KJp6g9dHxufC29jp9R=w640';">
+                                <div class="netflix-play-overlay">
+                                    <div class="netflix-play-badge">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="netflix-card-body">
+                                <div class="netflix-card-title">« J'ai mon appart' » L'origine du projet d'appartements supervisés</div>
+                                <div class="netflix-card-meta">
+                                    <span>Capsule 01 / 20</span>
+                                    <span style="color: #7a2222; font-weight: 600;">Visionner &rarr;</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="netflix-video-card" role="button" tabindex="0" aria-label="Lire la vidéo : « J'ai mon appart' » (conférence de presse)" onclick="openModal('video', '« J\'ai mon appart\' » (conférence de presse)', 'https://drive.google.com/file/d/1aY1VqdUbaR0_rqQcbxLK5IDg1Gf1XejF/preview?autoplay=1')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('video', '« J\'ai mon appart\' » (conférence de presse)', 'https://drive.google.com/file/d/1aY1VqdUbaR0_rqQcbxLK5IDg1Gf1XejF/preview?autoplay=1');}">
+                            <div class="netflix-thumb-wrapper">
+                                <img src="https://drive.google.com/thumbnail?id=1aY1VqdUbaR0_rqQcbxLK5IDg1Gf1XejF&sz=w640" alt="« J'ai mon appart' » (conférence de presse)" loading="lazy" onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/d/1aY1VqdUbaR0_rqQcbxLK5IDg1Gf1XejF=w640';">
+                                <div class="netflix-play-overlay">
+                                    <div class="netflix-play-badge">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="netflix-card-body">
+                                <div class="netflix-card-title">« J'ai mon appart' » (conférence de presse)</div>
+                                <div class="netflix-card-meta">
+                                    <span>Capsule 02 / 20</span>
+                                    <span style="color: #7a2222; font-weight: 600;">Visionner &rarr;</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="netflix-video-card" role="button" tabindex="0" aria-label="Lire la vidéo : « J'ai mon appart' » - Enjeux, défis et implication du milieu" onclick="openModal('video', '« J\'ai mon appart\' » - Enjeux, défis et implication du milieu', 'https://drive.google.com/file/d/1YAXjcJngpHT-knXczKe6b6gXd6DgT_bs/preview?autoplay=1')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('video', '« J\'ai mon appart\' » - Enjeux, défis et implication du milieu', 'https://drive.google.com/file/d/1YAXjcJngpHT-knXczKe6b6gXd6DgT_bs/preview?autoplay=1');}">
+                            <div class="netflix-thumb-wrapper">
+                                <img src="https://drive.google.com/thumbnail?id=1YAXjcJngpHT-knXczKe6b6gXd6DgT_bs&sz=w640" alt="« J'ai mon appart' » - Enjeux, défis et implication du milieu" loading="lazy" onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/d/1YAXjcJngpHT-knXczKe6b6gXd6DgT_bs=w640';">
+                                <div class="netflix-play-overlay">
+                                    <div class="netflix-play-badge">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="netflix-card-body">
+                                <div class="netflix-card-title">« J'ai mon appart' » - Enjeux, défis et implication du milieu</div>
+                                <div class="netflix-card-meta">
+                                    <span>Capsule 03 / 20</span>
+                                    <span style="color: #7a2222; font-weight: 600;">Visionner &rarr;</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="netflix-video-card" role="button" tabindex="0" aria-label="Lire la vidéo : Vivre en appartement supervisé" onclick="openModal('video', 'Vivre en appartement supervisé', 'https://drive.google.com/file/d/105Iri8vhQyKgrrfq5cpjTQ14-szSD7pd/preview?autoplay=1')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('video', 'Vivre en appartement supervisé', 'https://drive.google.com/file/d/105Iri8vhQyKgrrfq5cpjTQ14-szSD7pd/preview?autoplay=1');}">
+                            <div class="netflix-thumb-wrapper">
+                                <img src="https://drive.google.com/thumbnail?id=105Iri8vhQyKgrrfq5cpjTQ14-szSD7pd&sz=w640" alt="Vivre en appartement supervisé" loading="lazy" onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/d/105Iri8vhQyKgrrfq5cpjTQ14-szSD7pd=w640';">
+                                <div class="netflix-play-overlay">
+                                    <div class="netflix-play-badge">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="netflix-card-body">
+                                <div class="netflix-card-title">Vivre en appartement supervisé</div>
+                                <div class="netflix-card-meta">
+                                    <span>Capsule 04 / 20</span>
+                                    <span style="color: #7a2222; font-weight: 600;">Visionner &rarr;</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="netflix-video-card" role="button" tabindex="0" aria-label="Lire la vidéo : Se sentir chez soi, vivre pleinement son inclusion" onclick="openModal('video', 'Se sentir chez soi, vivre pleinement son inclusion', 'https://drive.google.com/file/d/1G8R8ZVzhGSwH6zYCa8y1JVqlq7jBmkQF/preview?autoplay=1')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('video', 'Se sentir chez soi, vivre pleinement son inclusion', 'https://drive.google.com/file/d/1G8R8ZVzhGSwH6zYCa8y1JVqlq7jBmkQF/preview?autoplay=1');}">
+                            <div class="netflix-thumb-wrapper">
+                                <img src="https://drive.google.com/thumbnail?id=1G8R8ZVzhGSwH6zYCa8y1JVqlq7jBmkQF&sz=w640" alt="Se sentir chez soi, vivre pleinement son inclusion" loading="lazy" onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/d/1G8R8ZVzhGSwH6zYCa8y1JVqlq7jBmkQF=w640';">
+                                <div class="netflix-play-overlay">
+                                    <div class="netflix-play-badge">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="netflix-card-body">
+                                <div class="netflix-card-title">Se sentir chez soi, vivre pleinement son inclusion</div>
+                                <div class="netflix-card-meta">
+                                    <span>Capsule 05 / 20</span>
+                                    <span style="color: #7a2222; font-weight: 600;">Visionner &rarr;</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="netflix-video-card" role="button" tabindex="0" aria-label="Lire la vidéo : Alexis emménage dans son nouvel appartement" onclick="openModal('video', 'Alexis emménage dans son nouvel appartement', 'https://drive.google.com/file/d/1tHK9gGtRDoN7VBWhCklTWyatwkKW2IvS/preview?autoplay=1')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('video', 'Alexis emménage dans son nouvel appartement', 'https://drive.google.com/file/d/1tHK9gGtRDoN7VBWhCklTWyatwkKW2IvS/preview?autoplay=1');}">
+                            <div class="netflix-thumb-wrapper">
+                                <img src="https://drive.google.com/thumbnail?id=1tHK9gGtRDoN7VBWhCklTWyatwkKW2IvS&sz=w640" alt="Alexis emménage dans son nouvel appartement" loading="lazy" onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/d/1tHK9gGtRDoN7VBWhCklTWyatwkKW2IvS=w640';">
+                                <div class="netflix-play-overlay">
+                                    <div class="netflix-play-badge">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="netflix-card-body">
+                                <div class="netflix-card-title">Alexis emménage dans son nouvel appartement</div>
+                                <div class="netflix-card-meta">
+                                    <span>Capsule 06 / 20</span>
+                                    <span style="color: #7a2222; font-weight: 600;">Visionner &rarr;</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="netflix-video-card" role="button" tabindex="0" aria-label="Lire la vidéo : Alexis au quotidien" onclick="openModal('video', 'Alexis au quotidien', 'https://drive.google.com/file/d/1XtXlaWbTtY-4npt0FkBMwZ7uhOGSxJ1B/preview?autoplay=1')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('video', 'Alexis au quotidien', 'https://drive.google.com/file/d/1XtXlaWbTtY-4npt0FkBMwZ7uhOGSxJ1B/preview?autoplay=1');}">
+                            <div class="netflix-thumb-wrapper">
+                                <img src="https://drive.google.com/thumbnail?id=1XtXlaWbTtY-4npt0FkBMwZ7uhOGSxJ1B&sz=w640" alt="Alexis au quotidien" loading="lazy" onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/d/1XtXlaWbTtY-4npt0FkBMwZ7uhOGSxJ1B=w640';">
+                                <div class="netflix-play-overlay">
+                                    <div class="netflix-play-badge">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="netflix-card-body">
+                                <div class="netflix-card-title">Alexis au quotidien</div>
+                                <div class="netflix-card-meta">
+                                    <span>Capsule 07 / 20</span>
+                                    <span style="color: #7a2222; font-weight: 600;">Visionner &rarr;</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="netflix-video-card" role="button" tabindex="0" aria-label="Lire la vidéo : Félix au quotidien - L'accompagnement supervisé" onclick="openModal('video', 'Félix au quotidien - L\'accompagnement supervisé', 'https://drive.google.com/file/d/1YuBNgLGZWJKdBmP8KLpLKuOSekzhJC2e/preview?autoplay=1')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('video', 'Félix au quotidien - L\'accompagnement supervisé', 'https://drive.google.com/file/d/1YuBNgLGZWJKdBmP8KLpLKuOSekzhJC2e/preview?autoplay=1');}">
+                            <div class="netflix-thumb-wrapper">
+                                <img src="https://drive.google.com/thumbnail?id=1YuBNgLGZWJKdBmP8KLpLKuOSekzhJC2e&sz=w640" alt="Félix au quotidien - L'accompagnement supervisé" loading="lazy" onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/d/1YuBNgLGZWJKdBmP8KLpLKuOSekzhJC2e=w640';">
+                                <div class="netflix-play-overlay">
+                                    <div class="netflix-play-badge">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="netflix-card-body">
+                                <div class="netflix-card-title">Félix au quotidien - L'accompagnement supervisé</div>
+                                <div class="netflix-card-meta">
+                                    <span>Capsule 08 / 20</span>
+                                    <span style="color: #7a2222; font-weight: 600;">Visionner &rarr;</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="netflix-video-card" role="button" tabindex="0" aria-label="Lire la vidéo : Félix fait son épicerie" onclick="openModal('video', 'Félix fait son épicerie', 'https://drive.google.com/file/d/1RYEekc9odvMfTNOeOWN1wEhEcPrU96vx/preview?autoplay=1')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('video', 'Félix fait son épicerie', 'https://drive.google.com/file/d/1RYEekc9odvMfTNOeOWN1wEhEcPrU96vx/preview?autoplay=1');}">
+                            <div class="netflix-thumb-wrapper">
+                                <img src="https://drive.google.com/thumbnail?id=1RYEekc9odvMfTNOeOWN1wEhEcPrU96vx&sz=w640" alt="Félix fait son épicerie" loading="lazy" onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/d/1RYEekc9odvMfTNOeOWN1wEhEcPrU96vx=w640';">
+                                <div class="netflix-play-overlay">
+                                    <div class="netflix-play-badge">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="netflix-card-body">
+                                <div class="netflix-card-title">Félix fait son épicerie</div>
+                                <div class="netflix-card-meta">
+                                    <span>Capsule 09 / 20</span>
+                                    <span style="color: #7a2222; font-weight: 600;">Visionner &rarr;</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="netflix-video-card" role="button" tabindex="0" aria-label="Lire la vidéo : L'accompagnement, plusieurs méthodes, un seul but" onclick="openModal('video', 'L\'accompagnement, plusieurs méthodes, un seul but', 'https://drive.google.com/file/d/1Rb6xE_bUX9m9HqYQqRnvts6dju7CZVl0/preview?autoplay=1')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('video', 'L\'accompagnement, plusieurs méthodes, un seul but', 'https://drive.google.com/file/d/1Rb6xE_bUX9m9HqYQqRnvts6dju7CZVl0/preview?autoplay=1');}">
+                            <div class="netflix-thumb-wrapper">
+                                <img src="https://drive.google.com/thumbnail?id=1Rb6xE_bUX9m9HqYQqRnvts6dju7CZVl0&sz=w640" alt="L'accompagnement, plusieurs méthodes, un seul but" loading="lazy" onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/d/1Rb6xE_bUX9m9HqYQqRnvts6dju7CZVl0=w640';">
+                                <div class="netflix-play-overlay">
+                                    <div class="netflix-play-badge">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="netflix-card-body">
+                                <div class="netflix-card-title">L'accompagnement, plusieurs méthodes, un seul but</div>
+                                <div class="netflix-card-meta">
+                                    <span>Capsule 10 / 20</span>
+                                    <span style="color: #7a2222; font-weight: 600;">Visionner &rarr;</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="netflix-video-card" role="button" tabindex="0" aria-label="Lire la vidéo : Autonomie et indépendance" onclick="openModal('video', 'Autonomie et indépendance', 'https://drive.google.com/file/d/1pCS_mvf8_Tw20YEby9ReKJA_08ZEO7Ky/preview?autoplay=1')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('video', 'Autonomie et indépendance', 'https://drive.google.com/file/d/1pCS_mvf8_Tw20YEby9ReKJA_08ZEO7Ky/preview?autoplay=1');}">
+                            <div class="netflix-thumb-wrapper">
+                                <img src="https://drive.google.com/thumbnail?id=1pCS_mvf8_Tw20YEby9ReKJA_08ZEO7Ky&sz=w640" alt="Autonomie et indépendance" loading="lazy" onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/d/1pCS_mvf8_Tw20YEby9ReKJA_08ZEO7Ky=w640';">
+                                <div class="netflix-play-overlay">
+                                    <div class="netflix-play-badge">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="netflix-card-body">
+                                <div class="netflix-card-title">Autonomie et indépendance</div>
+                                <div class="netflix-card-meta">
+                                    <span>Capsule 11 / 20</span>
+                                    <span style="color: #7a2222; font-weight: 600;">Visionner &rarr;</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="netflix-video-card" role="button" tabindex="0" aria-label="Lire la vidéo : Changer la dynamique d'autonomie - Relation père-fils" onclick="openModal('video', 'Changer la dynamique d\'autonomie - Relation père-fils', 'https://drive.google.com/file/d/1CbaV8POjHT8K3hrOBK-qtyLN5McwQJFf/preview?autoplay=1')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('video', 'Changer la dynamique d\'autonomie - Relation père-fils', 'https://drive.google.com/file/d/1CbaV8POjHT8K3hrOBK-qtyLN5McwQJFf/preview?autoplay=1');}">
+                            <div class="netflix-thumb-wrapper">
+                                <img src="https://drive.google.com/thumbnail?id=1CbaV8POjHT8K3hrOBK-qtyLN5McwQJFf&sz=w640" alt="Changer la dynamique d'autonomie - Relation père-fils" loading="lazy" onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/d/1CbaV8POjHT8K3hrOBK-qtyLN5McwQJFf=w640';">
+                                <div class="netflix-play-overlay">
+                                    <div class="netflix-play-badge">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="netflix-card-body">
+                                <div class="netflix-card-title">Changer la dynamique d'autonomie - Relation père-fils</div>
+                                <div class="netflix-card-meta">
+                                    <span>Capsule 12 / 20</span>
+                                    <span style="color: #7a2222; font-weight: 600;">Visionner &rarr;</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="netflix-video-card" role="button" tabindex="0" aria-label="Lire la vidéo : L'importance du soutien familial pour acquérir l'autonomie" onclick="openModal('video', 'L\'importance du soutien familial pour acquérir l\'autonomie', 'https://drive.google.com/file/d/1sY-Udz7YtumOcs6Zk4pWV9tR6fgkR1Ef/preview?autoplay=1')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('video', 'L\'importance du soutien familial pour acquérir l\'autonomie', 'https://drive.google.com/file/d/1sY-Udz7YtumOcs6Zk4pWV9tR6fgkR1Ef/preview?autoplay=1');}">
+                            <div class="netflix-thumb-wrapper">
+                                <img src="https://drive.google.com/thumbnail?id=1sY-Udz7YtumOcs6Zk4pWV9tR6fgkR1Ef&sz=w640" alt="L'importance du soutien familial pour acquérir l'autonomie" loading="lazy" onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/d/1sY-Udz7YtumOcs6Zk4pWV9tR6fgkR1Ef=w640';">
+                                <div class="netflix-play-overlay">
+                                    <div class="netflix-play-badge">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="netflix-card-body">
+                                <div class="netflix-card-title">L'importance du soutien familial pour acquérir l'autonomie</div>
+                                <div class="netflix-card-meta">
+                                    <span>Capsule 13 / 20</span>
+                                    <span style="color: #7a2222; font-weight: 600;">Visionner &rarr;</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="netflix-video-card" role="button" tabindex="0" aria-label="Lire la vidéo : Entraide entre locataires" onclick="openModal('video', 'Entraide entre locataires', 'https://drive.google.com/file/d/1Taot1ou1PqEgUsMONr74DjY7S4zQVqeM/preview?autoplay=1')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('video', 'Entraide entre locataires', 'https://drive.google.com/file/d/1Taot1ou1PqEgUsMONr74DjY7S4zQVqeM/preview?autoplay=1');}">
+                            <div class="netflix-thumb-wrapper">
+                                <img src="https://drive.google.com/thumbnail?id=1Taot1ou1PqEgUsMONr74DjY7S4zQVqeM&sz=w640" alt="Entraide entre locataires" loading="lazy" onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/d/1Taot1ou1PqEgUsMONr74DjY7S4zQVqeM=w640';">
+                                <div class="netflix-play-overlay">
+                                    <div class="netflix-play-badge">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="netflix-card-body">
+                                <div class="netflix-card-title">Entraide entre locataires</div>
+                                <div class="netflix-card-meta">
+                                    <span>Capsule 14 / 20</span>
+                                    <span style="color: #7a2222; font-weight: 600;">Visionner &rarr;</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="netflix-video-card" role="button" tabindex="0" aria-label="Lire la vidéo : La vie communautaire comme facteur d'inclusion sociale" onclick="openModal('video', 'La vie communautaire comme facteur d\'inclusion sociale', 'https://drive.google.com/file/d/1Sv9DHD0V8H6yn1oq3h3NtNm0JC5kS_Fl/preview?autoplay=1')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('video', 'La vie communautaire comme facteur d\'inclusion sociale', 'https://drive.google.com/file/d/1Sv9DHD0V8H6yn1oq3h3NtNm0JC5kS_Fl/preview?autoplay=1');}">
+                            <div class="netflix-thumb-wrapper">
+                                <img src="https://drive.google.com/thumbnail?id=1Sv9DHD0V8H6yn1oq3h3NtNm0JC5kS_Fl&sz=w640" alt="La vie communautaire comme facteur d'inclusion sociale" loading="lazy" onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/d/1Sv9DHD0V8H6yn1oq3h3NtNm0JC5kS_Fl=w640';">
+                                <div class="netflix-play-overlay">
+                                    <div class="netflix-play-badge">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="netflix-card-body">
+                                <div class="netflix-card-title">La vie communautaire comme facteur d'inclusion sociale</div>
+                                <div class="netflix-card-meta">
+                                    <span>Capsule 15 / 20</span>
+                                    <span style="color: #7a2222; font-weight: 600;">Visionner &rarr;</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="netflix-video-card" role="button" tabindex="0" aria-label="Lire la vidéo : « J'ai mon asphalt' » - L'art urbain comme inclusion" onclick="openModal('video', '« J\'ai mon asphalt\' » - L\'art urbain comme inclusion', 'https://drive.google.com/file/d/1nFH07DMe2qg3jZBebWkB7BMIEbu6vrzk/preview?autoplay=1')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('video', '« J\'ai mon asphalt\' » - L\'art urbain comme inclusion', 'https://drive.google.com/file/d/1nFH07DMe2qg3jZBebWkB7BMIEbu6vrzk/preview?autoplay=1');}">
+                            <div class="netflix-thumb-wrapper">
+                                <img src="https://drive.google.com/thumbnail?id=1nFH07DMe2qg3jZBebWkB7BMIEbu6vrzk&sz=w640" alt="« J'ai mon asphalt' » - L'art urbain comme inclusion" loading="lazy" onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/d/1nFH07DMe2qg3jZBebWkB7BMIEbu6vrzk=w640';">
+                                <div class="netflix-play-overlay">
+                                    <div class="netflix-play-badge">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="netflix-card-body">
+                                <div class="netflix-card-title">« J'ai mon asphalt' » - L'art urbain comme inclusion</div>
+                                <div class="netflix-card-meta">
+                                    <span>Capsule 16 / 20</span>
+                                    <span style="color: #7a2222; font-weight: 600;">Visionner &rarr;</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="netflix-video-card" role="button" tabindex="0" aria-label="Lire la vidéo : Socialisation et inclusion par l'art" onclick="openModal('video', 'Socialisation et inclusion par l\'art', 'https://drive.google.com/file/d/1eVDNWBieQp6KhivqQup1LZF43NqXZOei/preview?autoplay=1')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('video', 'Socialisation et inclusion par l\'art', 'https://drive.google.com/file/d/1eVDNWBieQp6KhivqQup1LZF43NqXZOei/preview?autoplay=1');}">
+                            <div class="netflix-thumb-wrapper">
+                                <img src="https://drive.google.com/thumbnail?id=1eVDNWBieQp6KhivqQup1LZF43NqXZOei&sz=w640" alt="Socialisation et inclusion par l'art" loading="lazy" onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/d/1eVDNWBieQp6KhivqQup1LZF43NqXZOei=w640';">
+                                <div class="netflix-play-overlay">
+                                    <div class="netflix-play-badge">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="netflix-card-body">
+                                <div class="netflix-card-title">Socialisation et inclusion par l'art</div>
+                                <div class="netflix-card-meta">
+                                    <span>Capsule 17 / 20</span>
+                                    <span style="color: #7a2222; font-weight: 600;">Visionner &rarr;</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="netflix-video-card" role="button" tabindex="0" aria-label="Lire la vidéo : S'impliquer pour une cause - David Gélinas" onclick="openModal('video', 'S\'impliquer pour une cause - David Gélinas', 'https://drive.google.com/file/d/1D1_GcCbKTABrEXlDJN8Lcv3sWSpLyIl8/preview?autoplay=1')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('video', 'S\'impliquer pour une cause - David Gélinas', 'https://drive.google.com/file/d/1D1_GcCbKTABrEXlDJN8Lcv3sWSpLyIl8/preview?autoplay=1');}">
+                            <div class="netflix-thumb-wrapper">
+                                <img src="https://drive.google.com/thumbnail?id=1D1_GcCbKTABrEXlDJN8Lcv3sWSpLyIl8&sz=w640" alt="S'impliquer pour une cause - David Gélinas" loading="lazy" onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/d/1D1_GcCbKTABrEXlDJN8Lcv3sWSpLyIl8=w640';">
+                                <div class="netflix-play-overlay">
+                                    <div class="netflix-play-badge">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="netflix-card-body">
+                                <div class="netflix-card-title">S'impliquer pour une cause - David Gélinas</div>
+                                <div class="netflix-card-meta">
+                                    <span>Capsule 18 / 20</span>
+                                    <span style="color: #7a2222; font-weight: 600;">Visionner &rarr;</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="netflix-video-card" role="button" tabindex="0" aria-label="Lire la vidéo : Employer une personne en situation de handicap" onclick="openModal('video', 'Employer une personne en situation de handicap', 'https://drive.google.com/file/d/1gyus32ubbbwBT4ezLYHX_CJNBww-9OLl/preview?autoplay=1')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('video', 'Employer une personne en situation de handicap', 'https://drive.google.com/file/d/1gyus32ubbbwBT4ezLYHX_CJNBww-9OLl/preview?autoplay=1');}">
+                            <div class="netflix-thumb-wrapper">
+                                <img src="https://drive.google.com/thumbnail?id=1gyus32ubbbwBT4ezLYHX_CJNBww-9OLl&sz=w640" alt="Employer une personne en situation de handicap" loading="lazy" onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/d/1gyus32ubbbwBT4ezLYHX_CJNBww-9OLl=w640';">
+                                <div class="netflix-play-overlay">
+                                    <div class="netflix-play-badge">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="netflix-card-body">
+                                <div class="netflix-card-title">Employer une personne en situation de handicap</div>
+                                <div class="netflix-card-meta">
+                                    <span>Capsule 19 / 20</span>
+                                    <span style="color: #7a2222; font-weight: 600;">Visionner &rarr;</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="netflix-video-card" role="button" tabindex="0" aria-label="Lire la vidéo : S'adapter au travail pour une personne en situation de handicap" onclick="openModal('video', 'S\'adapter au travail pour une personne en situation de handicap', 'https://drive.google.com/file/d/1fmiozBMM59ZpAQAkcMSovxwm5OUOC140/preview?autoplay=1')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('video', 'S\'adapter au travail pour une personne en situation de handicap', 'https://drive.google.com/file/d/1fmiozBMM59ZpAQAkcMSovxwm5OUOC140/preview?autoplay=1');}">
+                            <div class="netflix-thumb-wrapper">
+                                <img src="https://drive.google.com/thumbnail?id=1fmiozBMM59ZpAQAkcMSovxwm5OUOC140&sz=w640" alt="S'adapter au travail pour une personne en situation de handicap" loading="lazy" onerror="this.onerror=null;this.src='https://lh3.googleusercontent.com/d/1fmiozBMM59ZpAQAkcMSovxwm5OUOC140=w640';">
+                                <div class="netflix-play-overlay">
+                                    <div class="netflix-play-badge">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="netflix-card-body">
+                                <div class="netflix-card-title">S'adapter au travail pour une personne en situation de handicap</div>
+                                <div class="netflix-card-meta">
+                                    <span>Capsule 20 / 20</span>
+                                    <span style="color: #7a2222; font-weight: 600;">Visionner &rarr;</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </section>
 
@@ -1617,7 +1890,7 @@
 
     <!-- Modal Universel (PDF / Vidéo) -->
     <div class="modal-overlay" id="mediaModal" onclick="closeModalOnOutside(event)">
-        <div class="modal-container" id="mediaModalContainer">
+        <div class="modal-container">
             <div class="modal-header">
                 <h3 id="modalTitle">Titre de la fenêtre</h3>
                 <button class="modal-close" onclick="closeModal()">&times;</button>
@@ -1659,175 +1932,13 @@
     </div>
 
     <script>
-        // Catalogue des 20 vidéos récupérées depuis le dossier Google Drive
-        const netflixVideosData = [
-            {
-                id: "1kV0mMf_SNx1I48KJp6g9dHxufC29jp9R",
-                title: "« J'ai mon appart' » L'origine du projet d'appartements supervisés",
-                synopsis: "Cette capsule retrace la genèse citoyenne de l’organisme « J’ai mon appart’ » à Shawinigan. Face aux limites des formules d’hébergement institutionnelles traditionnelles, des parents et proches ont uni leurs forces dès 2018 pour fonder un organisme à but non lucratif. À travers leurs témoignages, on découvre comment cette mobilisation familiale et communautaire a permis de concevoir un milieu de vie inclusif, sécuritaire et véritablement adapté aux aspirations résidentielles des adultes autistes ou ayant une déficience intellectuelle."
-            },
-            {
-                id: "1YAXjcJngpHT-knXczKe6b6gXd6DgT_bs",
-                title: "« J'ai mon appart' » - Enjeux, défis et implication du milieu",
-                synopsis: "Le développement d’un immeuble d’appartements supervisés exige une concertation étroite entre une multitude d’acteurs publics, communautaires et privés. Cette vidéo examine les défis administratifs, financiers et réglementaires surmontés par le conseil d’administration pour décloisonner les réseaux de la santé et de l’habitation. Elle illustre comment la mobilisation des élus municipaux, des fondations philanthropiques, des commerces locaux et des citoyens de la Mauricie a transformé un projet ambitieux en une réussite collective."
-            },
-            {
-                id: "105Iri8vhQyKgrrfq5cpjTQ14-szSD7pd",
-                title: "Vivre en appartement supervisé",
-                synopsis: "Plongée au cœur du quotidien des résidents de « J’ai mon appart’ » qui accèdent enfin à leur propre logement locatif. Contrairement aux ressources d’hébergement substituts, cette formule permet à chaque adulte de détenir son bail, de décorer son espace personnel et d’exercer un contrôle réel sur son horaire de vie. Les locataires partagent leur fierté d’habiter chez eux tout en bénéficiant d’un filet de sécurité humain et bienveillant adapté à leurs besoins."
-            },
-            {
-                id: "1pCS_mvf8_Tw20YEby9ReKJA_08ZEO7Ky",
-                title: "Autonomie et indépendance",
-                synopsis: "Comment conjuguer le désir d’indépendance résidentielle avec le besoin d’un soutien personnalisé au quotidien ? Cette capsule explore l’équilibre délicat entre liberté individuelle et accompagnement éducatif au sein des appartements supervisés. À travers des situations concrètes de gestion budgétaire, de préparation des repas et d’organisation domestique, les intervenants et locataires démontrent que l’autodétermination se construit pas à pas lorsque l’environnement physique et humain favorise la prise d’initiative et la confiance en soi."
-            },
-            {
-                id: "1Rb6xE_bUX9m9HqYQqRnvts6dju7CZVl0",
-                title: "L'accompagnement, plusieurs méthodes, un seul but",
-                synopsis: "L’accompagnement offert par l’équipe de « J’ai mon appart’ » repose sur une approche souple, respectueuse et centrée sur les forces de chaque personne. Cette vidéo met en lumière la diversité des stratégies déployées par la coordonnatrice et les intervenants pour soutenir les locataires dans leurs activités quotidiennes et leurs relations interpersonnelles. Loin de faire à la place de l’autre, l’équipe privilégie des outils visuels, des rappels bienveillants et une présence rassurante."
-            },
-            {
-                id: "1YuBNgLGZWJKdBmP8KLpLKuOSekzhJC2e",
-                title: "Félix au quotidien - L'accompagnement supervisé",
-                synopsis: "Suivez Félix dans le déroulement de sa journée au sein de son appartement à Shawinigan. Cette capsule documentaire illustre concrètement la manière dont l’accompagnement supervisé s’intègre avec discrétion et efficacité dans la routine d’un jeune adulte. De l’organisation de son emploi du temps à l’entretien de son logement, le parcours de Félix témoigne de l’impact positif d’un soutien ajusté qui respecte son rythme, ses préférences et son intimité résidentielle."
-            },
-            {
-                id: "1RYEekc9odvMfTNOeOWN1wEhEcPrU96vx",
-                title: "Félix fait son épicerie",
-                synopsis: "Faire ses courses constitue un geste banal de la vie adulte, mais représente un apprentissage déterminant vers l’autonomie résidentielle. Cette capsule accompagne Félix lors de son épicerie hebdomadaire dans un commerce de quartier de Shawinigan. De la préparation de la liste d’achats au choix des aliments en rayon jusqu’au passage à la caisse, la séquence montre comment cette activité ordinaire favorise l’inclusion sociale, la gestion budgétaire et l’ancrage communautaire."
-            },
-            {
-                id: "1tHK9gGtRDoN7VBWhCklTWyatwkKW2IvS",
-                title: "Alexis emménage dans son nouvel appartement",
-                synopsis: "Moment charnière dans le parcours d’un jeune adulte : le jour du déménagement vers son tout premier appartement. Cette capsule capte l’émotion, l’enthousiasme et les préparatifs entourant l’installation d’Alexis dans son nouveau chez-soi à « J’ai mon appart’ ». Entouré de ses proches, il découvre son espace de vie privé, installe ses effets personnels et franchit avec fierté cette étape symbolique vers une vie adulte autonome et valorisante."
-            },
-            {
-                id: "1XtXlaWbTtY-4npt0FkBMwZ7uhOGSxJ1B",
-                title: "Alexis au quotidien",
-                synopsis: "Une fois l’emménagement complété, comment s’organise la nouvelle vie d’Alexis dans son appartement supervisé ? Cette capsule observe ses habitudes quotidiennes, son appropriation des lieux et les repères qu’il a développés pour gagner en assurance. Entre moments de détente dans son salon, tâches ménagères et interactions avec l’équipe de soutien, le portrait d’Alexis illustre la transformation profonde qu’apporte le fait de disposer d’un domicile stable et sécurisant."
-            },
-            {
-                id: "1sY-Udz7YtumOcs6Zk4pWV9tR6fgkR1Ef",
-                title: "L'importance du soutien familial pour acquérir l'autonomie",
-                synopsis: "La transition vers un appartement supervisé représente une étape majeure autant pour les adultes ayant une déficience intellectuelle ou autistes que pour leurs parents. Cette vidéo donne la parole aux familles qui accompagnent ce passage vers l’autonomie résidentielle. Elles abordent avec authenticité leurs appréhensions initiales, le nécessaire lâcher-prise parental et la fierté de voir leur enfant s’épanouir dans son propre logement tout en maintenant des liens familiaux chaleureux."
-            },
-            {
-                id: "1CbaV8POjHT8K3hrOBK-qtyLN5McwQJFf",
-                title: "Changer la dynamique d'autonomie - Relation père-fils",
-                synopsis: "À travers le regard complice d’un père et de son fils locataire à « J’ai mon appart’ », cette capsule explore la transformation des relations familiales qu’induit le départ du nid familial. Lorsque le parent n’a plus à assumer seul la charge quotidienne des soins et de l’encadrement, la relation père-fils se redéfinit sur un pied d’égalité renouvelé, laissant davantage de place au partage, aux loisirs communs et à la reconnaissance de l’identité adulte."
-            },
-            {
-                id: "1Taot1ou1PqEgUsMONr74DjY7S4zQVqeM",
-                title: "Entraide entre locataires",
-                synopsis: "Vivre dans son propre appartement ne signifie pas vivre dans l’isolement. Cette capsule met en valeur la solidarité spontanée et les gestes d’entraide qui se tissent entre les douze locataires de l’immeuble de Shawinigan. Qu’il s’agisse de partager un repas, de s’échanger un coup de main pour une tâche domestique ou simplement de prendre des nouvelles d’un voisin, ces interactions quotidiennes créent un véritable tissu social basé sur la réciprocité."
-            },
-            {
-                id: "1Sv9DHD0V8H6yn1oq3h3NtNm0JC5kS_Fl",
-                title: "La vie communautaire comme facteur d'inclusion sociale",
-                synopsis: "Au-delà des logements individuels, l’architecture de « J’ai mon appart’ » intègre une salle multifonctionnelle et une cuisine collective conçues pour stimuler la vie associative. Cette capsule montre comment les activités de groupe, les soupers communautaires et les rencontres animées sur place brisent la solitude et développent les habiletés sociales des résidents. Cette dynamique interne agit comme un tremplin sécurisant vers une participation citoyenne plus large dans le quartier."
-            },
-            {
-                id: "1G8R8ZVzhGSwH6zYCa8y1JVqlq7jBmkQF",
-                title: "Se sentir chez soi, vivre pleinement son inclusion",
-                synopsis: "Avoir un toit ne suffit pas pour se sentir véritablement chez soi : encore faut-il pouvoir habiter les lieux selon ses goûts, recevoir ses proches et être reconnu comme un voisin à part entière. Cette capsule documentaire examine le sentiment d’appartenance des locataires envers leur appartement et leur quartier de Shawinigan. Elle démontre que l’accès à un logement citoyen constitue le socle indispensable d’une inclusion sociale durable."
-            },
-            {
-                id: "1eVDNWBieQp6KhivqQup1LZF43NqXZOei",
-                title: "Socialisation et inclusion par l'art",
-                synopsis: "L’expression artistique offre un langage privilégié pour raconter son histoire et tisser des liens avec la collectivité. Cette capsule retrace la collaboration entre une artiste peintre de la Mauricie et les locataires de « J’ai mon appart’ » autour de la création d’œuvres picturales évoquant leur attachement à Shawinigan. En exposant leurs toiles et en partageant leur démarche créative, les résidents affirment leur sensibilité et enrichissent la vie culturelle locale."
-            },
-            {
-                id: "1nFH07DMe2qg3jZBebWkB7BMIEbu6vrzk",
-                title: "« J'ai mon asphalt' » - L'art urbain comme inclusion",
-                synopsis: "Clin d’œil créatif au nom de l’organisme, le projet « J’ai mon asphalt’ » investit l’espace extérieur pour transformer l’environnement immédiat de l’immeuble grâce à l’art urbain. Cette capsule documente la réalisation d’une œuvre collective colorée qui embellit le milieu de vie tout en suscitant la curiosité bienveillante du voisinage. Par cette intervention artistique visible depuis la rue, l’art devient un vecteur de rencontre, de fierté et d’appropriation citoyenne."
-            },
-            {
-                id: "1gyus32ubbbwBT4ezLYHX_CJNBww-9OLl",
-                title: "Employer une personne en situation de handicap",
-                synopsis: "L’autonomie résidentielle s’accompagne souvent d’un désir de contribution professionnelle au sein de la communauté. Dans cette capsule, un employeur local témoigne de son expérience d’embauche auprès d’un résident de « J’ai mon appart’ ». Il souligne l’assiduité, la motivation et l’impact positif de cette intégration sur l’esprit d’équipe de son entreprise, démontrant que l’ouverture du milieu économique profite autant aux travailleurs qu’aux employeurs de la région."
-            },
-            {
-                id: "1fmiozBMM59ZpAQAkcMSovxwm5OUOC140",
-                title: "S'adapter au travail pour une personne en situation de handicap",
-                synopsis: "Intégrer un milieu de travail ordinaire demande parfois des ajustements organisationnels simples mais essentiels. Cette capsule explore les conditions gagnantes mises en place pour permettre à un locataire ayant une déficience intellectuelle ou autiste d’exercer ses tâches avec succès. Clarté des consignes, encadrement bienveillant et valorisation des compétences permettent de lever les obstacles habituels et de favoriser le maintien en emploi dans un climat respectueux."
-            },
-            {
-                id: "1D1_GcCbKTABrEXlDJN8Lcv3sWSpLyIl8",
-                title: "S'impliquer pour une cause - David Gélinas",
-                synopsis: "La concrétisation des appartements supervisés « J’ai mon appart’ » repose sur l’élan de solidarité de citoyens et de partenaires engagés de la Mauricie. Dans cette capsule, David Gélinas partage les motivations personnelles et sociales qui l’ont amené à soutenir activement l’organisme. Son témoignage illustre comment l’implication bénévole et philanthropique d’acteurs du milieu contribue directement à transformer la vie des adultes autistes ou ayant une déficience intellectuelle."
-            },
-            {
-                id: "1aY1VqdUbaR0_rqQcbxLK5IDg1Gf1XejF",
-                title: "« J'ai mon appart' » (conférence de presse)",
-                synopsis: "Captation de la conférence de presse officielle marquant une étape décisive dans la réalisation des appartements supervisés « J’ai mon appart’ » à Shawinigan. En présence des membres du conseil d’administration, des élus municipaux, des représentants gouvernementaux, des partenaires financiers et des futurs locataires, cet événement public souligne la mobilisation exemplaire de toute une collectivité autour du droit au logement autonome et de l’inclusion sociale."
+        function scrollVideoSlider(direction) {
+            const track = document.getElementById('netflixVideoTrack');
+            if (track) {
+                const scrollAmount = Math.max(track.clientWidth * 0.78, 280);
+                track.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
             }
-        ];
-
-        // Génération dynamique des cartes du slider Netflix au chargement
-        function initNetflixSlider() {
-            const track = document.getElementById('netflixVideoTrack');
-            if (!track) return;
-
-            track.innerHTML = netflixVideosData.map((video, idx) => {
-                const thumbUrl = `https://lh3.googleusercontent.com/d/${video.id}=w640-h360-c`;
-                return `
-                    <div class="netflix-card" role="button" tabindex="0" onclick="openVideoSynopsisModal(${idx})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openVideoSynopsisModal(${idx});}">
-                        <div class="netflix-thumb-box">
-                            <img src="${thumbUrl}" alt="${video.title.replace(/"/g, '&quot;')}" loading="lazy">
-                            <div class="netflix-play-badge">
-                                <div class="netflix-play-circle">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="netflix-card-info">
-                            <div class="netflix-card-title">${video.title}</div>
-                        </div>
-                    </div>
-                `;
-            }).join('');
         }
-
-        function scrollNetflixSlider(direction) {
-            const track = document.getElementById('netflixVideoTrack');
-            if (!track) return;
-            const scrollAmount = Math.max(track.clientWidth * 0.75, 480);
-            track.scrollBy({
-                left: direction * scrollAmount,
-                behavior: 'smooth'
-            });
-        }
-
-        function openVideoSynopsisModal(index) {
-            const video = netflixVideosData[index];
-            if (!video) return;
-
-            const modal = document.getElementById('mediaModal');
-            const modalContainer = document.getElementById('mediaModalContainer');
-            const modalTitle = document.getElementById('modalTitle');
-            const modalBodyContent = document.getElementById('modalBodyContent');
-
-            modalContainer.classList.add('video-synopsis-modal-container');
-            modalTitle.textContent = video.title;
-
-            const embedUrl = `https://drive.google.com/file/d/${video.id}/preview?autoplay=1`;
-            modalBodyContent.innerHTML = `
-                <div class="video-synopsis-layout">
-                    <div class="video-player-pane">
-                        <iframe class="video-frame" src="${embedUrl}" allow="autoplay; fullscreen" allowfullscreen></iframe>
-                    </div>
-                    <aside class="synopsis-side-pane">
-                        <h4 class="synopsis-heading">Synopsis</h4>
-                        <p class="synopsis-text">${video.synopsis}</p>
-                    </aside>
-                </div>
-            `;
-
-            modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }
-
-        document.addEventListener('DOMContentLoaded', initNetflixSlider);
 
         function toggleSubmenu(event, submenuId, arrowId) {
             event.stopPropagation();
@@ -1954,11 +2065,9 @@
 
         function openModal(type, title, url) {
             const modal = document.getElementById('mediaModal');
-            const modalContainer = document.getElementById('mediaModalContainer');
             const modalTitle = document.getElementById('modalTitle');
             const modalBodyContent = document.getElementById('modalBodyContent');
 
-            modalContainer.classList.remove('video-synopsis-modal-container');
             modalTitle.textContent = title;
             modalBodyContent.innerHTML = '';
 
@@ -1981,9 +2090,7 @@
 
         function closeModal() {
             const modal = document.getElementById('mediaModal');
-            const modalContainer = document.getElementById('mediaModalContainer');
             modal.style.display = 'none';
-            modalContainer.classList.remove('video-synopsis-modal-container');
             document.getElementById('modalBodyContent').innerHTML = '';
             document.body.style.overflow = 'auto';
         }
