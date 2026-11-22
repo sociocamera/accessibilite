@@ -470,6 +470,274 @@
             text-align: left;
         }
 
+        /* Slider de capsules vidéo de type Netflix */
+        .netflix-slider-section {
+            background-color: var(--pale-box-bg);
+            border: 1px solid #e5ddd0;
+            border-radius: 10px;
+            padding: 1.35rem 1.5rem 1.5rem 1.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+            position: relative;
+        }
+
+        .netflix-slider-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            gap: 1rem;
+        }
+
+        .netflix-slider-title-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .netflix-slider-kicker {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #7a2222;
+        }
+
+        .netflix-slider-heading {
+            font-family: "Georgia", "Cambria", "Times New Roman", serif;
+            font-size: 1.22rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .netflix-slider-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .slider-nav-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid #d4c5b9;
+            background-color: var(--bg-color);
+            color: #7a2222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .slider-nav-btn:hover {
+            background-color: #7a2222;
+            color: #ffffff;
+            border-color: #7a2222;
+        }
+
+        .netflix-carousel-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .netflix-track {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 0.35rem 0.15rem 0.65rem 0.15rem;
+            scrollbar-width: thin;
+            scrollbar-color: #cbbba8 #f2ede4;
+        }
+
+        .netflix-track::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .netflix-track::-webkit-scrollbar-track {
+            background: #f2ede4;
+            border-radius: 4px;
+        }
+
+        .netflix-track::-webkit-scrollbar-thumb {
+            background: #cbbba8;
+            border-radius: 4px;
+        }
+
+        .netflix-track::-webkit-scrollbar-thumb:hover {
+            background: #7a2222;
+        }
+
+        .netflix-card {
+            flex: 0 0 232px;
+            background-color: var(--bg-color);
+            border: 1px solid #dfd6c7;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .netflix-card:hover {
+            transform: translateY(-4px) scale(1.02);
+            border-color: #7a2222;
+            box-shadow: 0 8px 18px rgba(122, 34, 34, 0.14);
+        }
+
+        .netflix-thumb-box {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background-color: #2b2320;
+            overflow: hidden;
+        }
+
+        .netflix-thumb-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.35s ease, filter 0.35s ease;
+        }
+
+        .netflix-card:hover .netflix-thumb-box img {
+            transform: scale(1.05);
+            filter: brightness(0.85);
+        }
+
+        .netflix-episode-badge {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background-color: rgba(122, 34, 34, 0.92);
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.18rem 0.48rem;
+            border-radius: 4px;
+            letter-spacing: 0.03em;
+        }
+
+        .netflix-play-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(to top, rgba(26, 32, 44, 0.55) 0%, rgba(26, 32, 44, 0.08) 55%, transparent 100%);
+            opacity: 0.88;
+            transition: opacity 0.25s ease;
+        }
+
+        .netflix-play-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(250, 246, 239, 0.95);
+            color: #7a2222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+            transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+        }
+
+        .netflix-card:hover .netflix-play-circle {
+            transform: scale(1.12);
+            background-color: #7a2222;
+            color: #ffffff;
+        }
+
+        .netflix-card-body {
+            padding: 0.75rem 0.85rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex: 1;
+            background-color: var(--bg-color);
+        }
+
+        .netflix-card-title {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.84rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            line-height: 1.35;
+        }
+
+        .netflix-card:hover .netflix-card-title {
+            color: #7a2222;
+        }
+
+        /* Modale enrichie pour les capsules vidéo avec Synopsis à droite */
+        .modal-container.video-synopsis-modal {
+            max-width: 1120px;
+            height: 76vh;
+            max-height: 660px;
+        }
+
+        .video-synopsis-layout {
+            display: grid;
+            grid-template-columns: 1.65fr 1fr;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: var(--bg-color);
+        }
+
+        .video-player-pane {
+            background-color: #161412;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .synopsis-pane {
+            background-color: var(--pale-box-bg);
+            border-left: 1px solid #d4c5b9;
+            padding: 1.75rem 1.65rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow-y: auto;
+        }
+
+        .synopsis-heading {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #7a2222;
+            padding-bottom: 0.6rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #e3d9c8;
+        }
+
+        .synopsis-text {
+            font-family: "Georgia", "Cambria", "Times New Roman", serif;
+            font-size: 0.96rem;
+            line-height: 1.75;
+            color: var(--text-color);
+            text-align: justify;
+        }
+
+        .synopsis-footer-meta {
+            margin-top: 1.5rem;
+            padding-top: 0.85rem;
+            border-top: 1px dashed #dcd3c4;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.78rem;
+            color: var(--accent-color);
+        }
+
         /* Corps de l'article */
         .article-body {
             font-size: 1.05rem;
@@ -723,6 +991,14 @@
             .abstract-two-boxes {
                 grid-template-columns: 1fr;
             }
+            .video-synopsis-layout {
+                grid-template-columns: 1fr;
+                grid-template-rows: 1.2fr 1fr;
+            }
+            .synopsis-pane {
+                border-left: none;
+                border-top: 1px solid #d4c5b9;
+            }
         }
     </style>
 </head>
@@ -909,6 +1185,27 @@
                     </div>
                 </section>
 
+                <!-- Slider de capsules vidéo de type Netflix -->
+                <section class="netflix-slider-section" aria-label="Capsules vidéo documentaires">
+                    <div class="netflix-slider-header">
+                        <div class="netflix-slider-title-group">
+                            <span class="netflix-slider-kicker">Capsules vidéo documentaires • Cirris &amp; AQEPA</span>
+                            <h2 class="netflix-slider-heading">Regards croisés sur l'implant cochléaire et le milieu scolaire</h2>
+                        </div>
+                        <div class="netflix-slider-controls">
+                            <button type="button" class="slider-nav-btn" onclick="scrollVideoSlider(-1)" aria-label="Vidéos précédentes">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                            </button>
+                            <button type="button" class="slider-nav-btn" onclick="scrollVideoSlider(1)" aria-label="Vidéos suivantes">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="netflix-carousel-wrapper">
+                        <div class="netflix-track" id="videoCarouselTrack"></div>
+                    </div>
+                </section>
+
                 <!-- Corps de l'article -->
                 <div class="article-body">
 
@@ -1034,7 +1331,7 @@
                     </p>
 
                     <blockquote class="verbatim-quote">
-                        «&nbsp;C’est un énorme gain. C’est déjà mieux que ce que ça avait été si elle n’avait pas eu ses implants. [...] Je pense qu’elle est dans un parcours, elle va continuer de s’améliorer. Je ne pense pas qu’elle a atteint son maximum. Elle va continuer à progresser. Son vocabulaire, ses apprentissages. Elle va se développer. […] Mais, déjà, je pense, que ce qu’elle a là, c’est déjà beaucoup mieux, c’est déjà un beau gain. [...] Parce qu’au début, quand j’ai eu le diagnostic qu’elle était sourde complètement et que je ne savais même pas si elle allait être éligible à l’implant ou pas, je ne voyais pas comment on pourrait s’en sortir. Mais c’est déjà le jour et la nuit. Je trouve qu’elle fonctionne énormément bien.&nbsp;» <span class="verbatim-source">(parent d’une enfant porteuse d’implant).</span>
+                        «&nbsp;C’est un énorme gain. C’est déjà mieux que ce que ça avait été si elle n’avait pas eu ses implants. [...] Je pense qu’elle est dans un parcours, elle va continuer de s’améliorer. Je ne pense pas qu’elle a atteint son maximum. Elle va continuer à progresser. Son vocabulaire, ses apprentissages. Elle va se développer. […] Mais, déjà, je pense, que ce qu’elle a là, c’est déjà beaucoup mieux, c’est déjà un beau gain. [...] Parce qu’au début, quand j’ai eu le diagnostic qu’elle était sourde complètement et que je ne voyais pas comment on pourrait s’en sortir. Mais c’est déjà le jour et la nuit. Je trouve qu’elle fonctionne énormément bien.&nbsp;» <span class="verbatim-source">(parent d’une enfant porteuse d’implant).</span>
                     </blockquote>
 
                     <blockquote class="verbatim-quote">
@@ -1460,9 +1757,9 @@
         </main>
     </div>
 
-    <!-- Modal Universel (PDF / Vidéo) -->
+    <!-- Modal Universel (PDF / Vidéo / Vidéo + Synopsis) -->
     <div class="modal-overlay" id="mediaModal" onclick="closeModalOnOutside(event)">
-        <div class="modal-container">
+        <div class="modal-container" id="mediaModalContainer">
             <div class="modal-header">
                 <h3 id="modalTitle">Titre de la fenêtre</h3>
                 <button class="modal-close" onclick="closeModal()">&times;</button>
@@ -1504,6 +1801,191 @@
     </div>
 
     <script>
+        const cochlearVideos = [
+            {
+                number: "01",
+                title: "Qu'est-ce qu'un implant cochléaire ?",
+                id: "1iRJ0hhPtgeihtTCb11Ufp75iTaXqL-Gz",
+                synopsis: "Cette première capsule présente le fonctionnement fondamental de l’implant cochléaire, un dispositif électronique inséré chirurgicalement dans l’oreille interne pour stimuler directement le nerf auditif. Contrairement aux prothèses auditives conventionnelles qui amplifient simplement les sons, l’implant contourne les cellules ciliées endommagées et transmet des signaux électriques précis interprétés par le cerveau. Nicolas Rouleau, audiologiste au CHU de Québec, précise les critères cliniques d’admissibilité pour les enfants vivant avec une surdité sévère à profonde."
+            },
+            {
+                number: "02",
+                title: "L'implantation",
+                id: "1kdQOXy_8XNyuYz72QyKnF_5xK7d2L58J",
+                synopsis: "Cette capsule détaille les étapes entourant la chirurgie d’implantation cochléaire et l’activation progressive du processeur externe au Québec. Depuis la première intervention réalisée à l’Hôtel-Dieu de Québec en mai 1984 par le docteur Pierre Ferron, l’expertise médicale s’est considérablement développée jusqu’à offrir aujourd’hui l’implantation bilatérale aux jeunes enfants. Les témoignages recueillis rappellent l’importance cruciale du réglage initial et du suivi audiologique rigoureux pour permettre au cerveau d’apprivoiser ces nouvelles sensations auditives."
+            },
+            {
+                number: "03",
+                title: "Mythes et réalités",
+                id: "1tFj1fkpI1VxxI1touvg7zCm1W4Y9ge0Q",
+                synopsis: "L’implant cochléaire est souvent perçu à tort comme une oreille bionique restaurant une audition parfaitement normale en toute circonstance. Cette capsule déconstruit cette croyance tenace en rappelant que l’enfant implanté demeure sourd ou malentendant dès qu’il retire son processeur externe ou se trouve dans un milieu bruyant. Mieux comprendre les limites réelles de cet appareil évite aux proches et au personnel scolaire de sous-estimer l’effort cognitif constant exigé pour décoder la parole."
+            },
+            {
+                number: "04",
+                title: "Difficultés rencontrées",
+                id: "1AQg8gAK2Vb3IMtSjpEooDF5bJTWzRxAB",
+                synopsis: "Au quotidien, les enfants porteurs d’un implant cochléaire font face à de nombreux obstacles acoustiques et communicationnels en société. Le bruit ambiant, la réverbération des locaux, les conversations simultanées en groupe ou un débit de parole trop rapide compliquent nettement la discrimination des mots entendus. Les parents décrivent également la fatigue auditive accumulée en fin de journée ainsi que les subtilités grammaticales ou lexicales qui exigent une attention soutenue et des répétitions fréquentes."
+            },
+            {
+                number: "05",
+                title: "Constat de surdité",
+                id: "1IW8cDDJkMJ0VN8FAC4Ure4x5DFL2vgex",
+                synopsis: "L’annonce d’une surdité sévère à profonde chez un jeune enfant représente un bouleversement émotionnel majeur pour les parents entendants. À travers des récits authentiques et touchants, cette capsule explore le choc initial du diagnostic médical, les questionnements profonds sur l’avenir linguistique de l’enfant et le deuil d’une parentalité sans embûches. Elle met aussi en lumière la résilience des familles qui, accompagnées par des spécialistes, transforment progressivement cette inquiétude en engagement actif et éclairé."
+            },
+            {
+                number: "06",
+                title: "Obtenir un diagnostic",
+                id: "1xG3-wF3S6TDus3-BKKxRInljhY1f9WLA",
+                synopsis: "Le parcours menant à la confirmation officielle de la surdité exige souvent persévérance et vigilance de la part des familles. Cette capsule retrace les démarches médicales et audiologiques nécessaires pour obtenir un diagnostic précis, depuis les premiers doutes parentaux face à l’absence de réaction aux sons quotidiens jusqu’aux examens spécialisés. Un dépistage précoce s’avère déterminant pour amorcer rapidement les interventions en réadaptation et optimiser le développement de la communication orale chez l’enfant."
+            },
+            {
+                number: "07",
+                title: "À la garderie",
+                id: "1WBOeuCpsBckyB7N7dXobVag2P0_UtQtt",
+                synopsis: "L’intégration en service de garde constitue souvent la première expérience collective d’un jeune enfant porteur d’implant cochléaire hors du foyer familial. Les locaux animés, les jeux de groupe et le niveau sonore élevé des garderies posent des défis particuliers pour l’écoute fine et l’apprentissage du langage. Cette capsule souligne l’importance d’outiller les éducatrices afin d’instaurer des routines visuelles claires, de réduire les bruits parasites et de soutenir les premières interactions sociales."
+            },
+            {
+                number: "08",
+                title: "Parcours scolaire",
+                id: "1QMRop3TNGX2bnRDUh3UXPUZMWmOdziXW",
+                synopsis: "Depuis l’adoption de la politique québécoise À part entière, la scolarisation en classe ordinaire dans l’école de quartier est privilégiée pour les enfants implantés. Cette capsule retrace les étapes marquantes de ce cheminement primaire, entre volonté de normalisation sociale et besoins d’ajustements pédagogiques constants. Les témoignages recueillis illustrent comment la réussite scolaire repose sur une transition harmonieuse d’une année à l’autre et sur la reconnaissance concrète des besoins particuliers de l’élève."
+            },
+            {
+                number: "09",
+                title: "Stratégies de communication",
+                id: "1iPmVeuWYP9-pRPFViAAjcSPp8xpImFNb",
+                synopsis: "Pour faciliter la compréhension orale d’un enfant porteur d’implant cochléaire, des gestes simples mais essentiels doivent être adoptés par l’entourage. Parler distinctement en se plaçant face à l’enfant, capter son attention visuelle avant de s’exprimer, éviter de parler de dos et privilégier les échanges à tour de rôle favorisent grandement la lecture labiale. Cette capsule démontre comment ces habitudes communicationnelles réduisent considérablement les bris d’échange en classe comme à la maison."
+            },
+            {
+                number: "10",
+                title: "Réadaptation",
+                id: "15YiBiuNZmvuJebVpw-VoPMZjAnbuI0ZK",
+                synopsis: "La chirurgie d’implantation ne constitue que le point de départ d’un long processus d’apprentissage auditif et langagier chez l’enfant. Cette capsule met en valeur le travail indispensable des orthophonistes, audiologistes et orthopédagogues qui accompagnent quotidiennement l’élève dans l’enrichissement de son vocabulaire, la structuration des phrases et la compréhension en lecture. Cet entraînement régulier et ciblé, prolongé chaque jour par les parents, permet de consolider durablement les acquis nécessaires à la réussite scolaire."
+            },
+            {
+                number: "11",
+                title: "En milieu scolaire",
+                id: "1USQv0WNxup3b8pz5lo8cAlzzWKXrUNy-",
+                synopsis: "La salle de classe ordinaire peut devenir un environnement acoustiquement exigeant si aucune mesure d’accommodement n’est mise en place rapidement. Cette capsule examine les conditions gagnantes en milieu scolaire : placement stratégique de l’élève à l’avant du côté de son implant, réduction du bruit des chaises, utilisation rigoureuse du système MF par l’enseignant, sous-titrage systématique des vidéos et recours à l’interprétation orale lors des activités complexes ou des évaluations."
+            },
+            {
+                number: "12",
+                title: "Relations sociales",
+                id: "1UCjguI66c2cg07zJMKDiZnoU7ZbXPzpi",
+                synopsis: "Au-delà des apprentissages académiques, l’école demeure un lieu central de socialisation où les échanges spontanés entre pairs se déroulent souvent dans le bruit de la cour ou de la cafétéria. Cette capsule aborde les défis relationnels vécus par les enfants porteurs d’implant cochléaire qui peinent parfois à suivre les discussions rapides en groupe. Sensibiliser activement les camarades de classe favorise l’empathie, prévient l’isolement social et soutient des amitiés durables."
+            },
+            {
+                number: "13",
+                title: "Assumer sa différence",
+                id: "1bsy7wXwKQESxom_eJV67ThXFRVYwT5Ih",
+                synopsis: "Grandir avec un implant cochléaire amène progressivement l’enfant à construire son identité entre le monde des entendants et sa réalité de personne sourde ou malentendante. Cette capsule donne la parole aux jeunes et aux familles sur la visibilité de l’appareil externe, le regard des autres et la fierté d’affirmer ses besoins sans gêne. Apprendre à nommer ses propres limites et à demander des répétitions devient un levier d’autonomie et d’estime de soi."
+            },
+            {
+                number: "14",
+                title: "Rôle des associations",
+                id: "1liRnzFWIXQUcr_I_e09JmilvwgJXv6ZU",
+                synopsis: "Les organismes communautaires tels que l’Association du Québec pour enfants avec problèmes auditifs (AQEPA) jouent un rôle névralgique auprès des familles et des écoles. Claire Moussel et Geneviève St-Germain expliquent concrètement comment l’AQEPA brise l’isolement des parents, offre des ateliers de sensibilisation dans les classes et défend le droit à des accommodements équitables. Ce réseau solidaire d’entraide accompagne chaque étape du parcours de l’enfant vers une pleine citoyenneté."
+            },
+            {
+                number: "15",
+                title: "Rôle des parents",
+                id: "1oBdG8TnXYLd_-pkwRt7aNBByTcCFNtrp",
+                synopsis: "Les parents d’enfants porteurs d’implant cochléaire agissent à la fois comme soutiens pédagogiques quotidiens à la maison et comme porte-parole éclairés auprès du milieu scolaire. Cette capsule illustre leur engagement constant lors des rencontres de début d’année et des plans d’intervention pour rappeler l’importance du système MF et des adaptations en évaluation. Une collaboration ouverte, transparente et respectueuse entre la famille, la direction et les enseignants s’avère toujours déterminante."
+            },
+            {
+                number: "16",
+                title: "Bénéfices et limites de l’implant cochléaire",
+                id: "1HijV0FSw4oPZ41N7opn8YdbqkNsUUMOo",
+                synopsis: "Cette capsule synthèse met en perspective les avancées majeures procurées par l’implant cochléaire et les réalités qui demeurent incontournables en contexte éducatif. Si cette technologie ouvre un accès précieux à la voix, au langage oral et à l’autonomie sociale, elle exige en contrepartie un environnement physique et humain véritablement adapté. La pleine participation des élèves implantés repose ainsi sur une responsabilité partagée entre famille, équipe de réadaptation et école inclusive."
+            }
+        ];
+
+        function renderVideoSlider() {
+            const track = document.getElementById('videoCarouselTrack');
+            if (!track) return;
+            track.innerHTML = '';
+
+            cochlearVideos.forEach((video, index) => {
+                const card = document.createElement('div');
+                card.className = 'netflix-card';
+                card.setAttribute('role', 'button');
+                card.setAttribute('tabindex', '0');
+                card.setAttribute('aria-label', `Visionner la capsule ${video.title}`);
+
+                const thumbUrl = `https://drive.google.com/thumbnail?id=${video.id}&sz=w640`;
+                const previewUrl = `https://drive.google.com/file/d/${video.id}/preview?autoplay=1`;
+
+                card.innerHTML = `
+                    <div class="netflix-thumb-box">
+                        <img src="${thumbUrl}" alt="${video.title}" loading="lazy">
+                        <span class="netflix-episode-badge">Capsule ${video.number}</span>
+                        <div class="netflix-play-overlay">
+                            <div class="netflix-play-circle">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="6 4 20 12 6 20 6 4"></polygon></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="netflix-card-body">
+                        <div class="netflix-card-title">${video.title}</div>
+                    </div>
+                `;
+
+                card.addEventListener('click', () => {
+                    openVideoWithSynopsis(video.title, previewUrl, video.synopsis, video.number);
+                });
+
+                card.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        openVideoWithSynopsis(video.title, previewUrl, video.synopsis, video.number);
+                    }
+                });
+
+                track.appendChild(card);
+            });
+        }
+
+        function scrollVideoSlider(direction) {
+            const track = document.getElementById('videoCarouselTrack');
+            if (!track) return;
+            const scrollAmount = Math.max(track.clientWidth * 0.78, 480);
+            track.scrollBy({
+                left: direction * scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+
+        function openVideoWithSynopsis(title, url, synopsis, number) {
+            const modal = document.getElementById('mediaModal');
+            const modalContainer = document.getElementById('mediaModalContainer');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalBodyContent = document.getElementById('modalBodyContent');
+
+            modalContainer.classList.add('video-synopsis-modal');
+            modalTitle.textContent = title;
+            modalBodyContent.innerHTML = `
+                <div class="video-synopsis-layout">
+                    <div class="video-player-pane">
+                        <iframe class="video-frame" src="${url}" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                    </div>
+                    <aside class="synopsis-pane" aria-label="Synopsis de la capsule">
+                        <div>
+                            <h4 class="synopsis-heading">Synopsis</h4>
+                            <p class="synopsis-text">${synopsis}</p>
+                        </div>
+                        <div class="synopsis-footer-meta">
+                            Série documentaire • Capsule ${number} sur 16 — Partenariat Cirris &amp; AQEPA
+                        </div>
+                    </aside>
+                </div>
+            `;
+
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        document.addEventListener('DOMContentLoaded', renderVideoSlider);
+
         function toggleSubmenu(event, submenuId, arrowId) {
             event.stopPropagation();
             const submenu = document.getElementById(submenuId);
@@ -1565,9 +2047,11 @@
 
         function openModal(type, title, url) {
             const modal = document.getElementById('mediaModal');
+            const modalContainer = document.getElementById('mediaModalContainer');
             const modalTitle = document.getElementById('modalTitle');
             const modalBodyContent = document.getElementById('modalBodyContent');
 
+            modalContainer.classList.remove('video-synopsis-modal');
             modalTitle.textContent = title;
             modalBodyContent.innerHTML = '';
 
@@ -1590,7 +2074,9 @@
 
         function closeModal() {
             const modal = document.getElementById('mediaModal');
+            const modalContainer = document.getElementById('mediaModalContainer');
             modal.style.display = 'none';
+            modalContainer.classList.remove('video-synopsis-modal');
             document.getElementById('modalBodyContent').innerHTML = '';
             document.body.style.overflow = 'auto';
         }
@@ -1644,7 +2130,13 @@
 
             const typeLabel = category === 'captation' ? 'Proposition de captation' : "Proposition d'article";
             const subject = encodeURIComponent(`${typeLabel} : ${title}`);
-            const body = encodeURIComponent(`Nom : ${name}\nCourriel : ${email}\nType : ${typeLabel}\nTitre : ${title}\n\nDescription :\n${desc}`);
+            const body = encodeURIComponent(`Nom : ${name}
+Courriel : ${email}
+Type : ${typeLabel}
+Titre : ${title}
+
+Description :
+${desc}`);
 
             window.location.href = `mailto:sociocamera@gmail.com?subject=${subject}&body=${body}`;
             closeProposalModal();
