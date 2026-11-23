@@ -1399,7 +1399,7 @@
                     <h2 id="sec-introduction" class="chapter-heading">Introduction</h2>
 
                     <p>
-                        <span class="dropcap-bordeaux">L’</span>avènement de l’implantation cochléaire au Québec, en 1984, de même que l’adoption de la politique gouvernementale <i>À part entière&nbsp;: pour un véritable exercice du droit à l’égalité</i>, parue la même année, ont amené la société québécoise à progressivement changer les lieux et les manières de scolariser les enfants vivant avec une surdité sévère à profonde, notamment ceux dont les parents ont opté pour le développement d’une communication orale. Avant que la chirurgie d’implantation cochléaire ne s’instaure au Québec, les aides à l’audition étaient limitées aux prothèses auditives. Pour les personnes ayant une surdité sévère à profonde, ces appareils donnaient un accès à l’audition et à la communication orale beaucoup plus restreint qu’un implant cochléaire (lorsque celui-ci fonctionne de façon optimale). De son côté, la politique <i>À part entière&nbsp;: pour un véritable exercice du droit à l’égalité</i> adoptée par le gouvernement du Québec visait notamment à accroître la participation des personnes handicapées à la société québécoise dans l’optique de favoriser la pleine participation de tous et de toutes afin de construire une société plus inclusive, solidaire et plus équitable. Si, dans le passé, les enfants vivant un handicap, ce qui inclut les enfants avec une surdité sévère à profonde, fréquentaient surtout des écoles spécialisées, le système scolaire québécois a tenté, depuis 1984, d’inclure les élèves qui ont des besoins particuliers, dont les enfants ayant une surdité, dans les écoles de quartier, en classes ordinaires. Toutefois, ces milieux accueillent des enfants majoritairement entendants et ne sont pas toujours bien adaptés aux besoins des enfants porteurs d’implants cochléaires, sans compter que l’implant cochléaire est un outil technologique d’aide à l’audition qui présente ses propres limites, par exemple dans des environnements bruyants.
+                        <span class="dropcap-bordeaux">L’</span>avènement de l’implantation cochléaire au Québec, en 1984, de même que l’adoption de la politique gouvernementale <i>À part entière&nbsp;: pour un véritable exercice du droit à l’égalité</i>, parue la même année, ont amené la société québécoise à progressivement changer les lieux et les manières de scolariser les enfants vivant avec une surdité sévère à profonde, notamment ceux dont les parents ont opté pour le développement d’une communication orale. Avant que la chirurgie d’implantation cochléaire ne s’instaure au Québec, les aides à l’audition étaient limitées aux prothèses auditives. Pour les personnes ayant une surdité sévère à profonde, ces appareils donnaient un accès à l’audition et à la communication orale beaucoup plus restreint qu’un implant cochléaire (lorsque celui-ci fonctionne de façon optimale). De son côté, la politique <i>À part entière&nbsp;: pour un véritable exercice du droit à l’égalité</i> adoptée par le gouvernement du Québec visait notamment à accroître la participation des personnes handicapées à la société québécoise dans l’optique de favoriser la pleine participation de tous et de toutes afin de construire une société plus inclusive, solidaire et plus équitable. Si, dans le passé, les enfants vivant un handicap, ce qui inclut les enfants avec une surdité sévère à profonde, fréquentaient surtout des écoles spécialisées, le système scolaire québécois a tenté, depuis 1984, d’inclure les élèves qui ont des besoins particuliers, dont les enfants ayant une surdité, dans les écoles de quartier, en classes ordinaires. Toutefois, ces milieux accueillent des enfants majoritairement entendants et ne sont pas toujours bien adaptés aux besoins de l’élève avec une surdité, sans compter que l’implant cochléaire est un outil technologique d’aide à l’audition qui présente ses propres limites, par exemple dans des environnements bruyants.
                     </p>
 
                     <p>
@@ -1987,6 +1987,25 @@
     </div>
 
     <script>
+        // Définition de l'URL du script et fonction d'envoi des données
+        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwsWWx6rfNttj2ydWQ_qx5UJfjoQZ3PXKbGN2m4gdJV9oBbBX4-cO19FJEV8bc7ZZY/exec";
+
+        function sendLog(type, target) {
+            if (!GOOGLE_SCRIPT_URL) return;
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ type: type, target: target })
+            }).catch(error => {
+                console.error("Erreur lors de l'enregistrement du log :", error);
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', function() {
+            sendLog("Ouverture", "Implants cochléaires");
+        });
+
         function scrollVideoSlider(direction) {
             const track = document.getElementById('videoSliderTrack');
             if (track) {
