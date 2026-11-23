@@ -406,6 +406,55 @@
             border: none;
         }
 
+        /* Styles interactifs pour les cartes conceptuelles SVG */
+        .svg-interactive-node {
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+        }
+        .svg-interactive-node:hover .node-card {
+            stroke: #7A2222;
+            stroke-width: 3;
+            filter: drop-shadow(0 4px 6px rgba(122, 34, 34, 0.14));
+        }
+        .svg-interactive-node.is-active .node-card {
+            stroke: #7A2222;
+            stroke-width: 3.5;
+            filter: drop-shadow(0 5px 10px rgba(122, 34, 34, 0.22));
+        }
+        input[type="range"].burgundy-slider {
+            -webkit-appearance: none;
+            appearance: none;
+            height: 8px;
+            background: #e4decb;
+            border-radius: 999px;
+            outline: none;
+        }
+        input[type="range"].burgundy-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #7A2222;
+            border: 2px solid #fbf9f4;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.25);
+            cursor: pointer;
+            transition: transform 0.15s ease, background-color 0.15s ease;
+        }
+        input[type="range"].burgundy-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.15);
+            background: #5c1717;
+        }
+        input[type="range"].burgundy-slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #7A2222;
+            border: 2px solid #fbf9f4;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.25);
+            cursor: pointer;
+        }
+
         @media (max-width: 1200px) {
             :root { --sidebar-width: 0px; }
             .top-navbar { left: 0; padding: 0 1rem; grid-template-columns: 1fr auto; }
@@ -420,7 +469,7 @@
 
     <!-- Barre horizontale permanente supérieure -->
     <header class="top-navbar">
-        <div class="top-navbar-title">Revue Sociologie Visuelle</div>
+        <div class="top-navbar-title"><img src="https://raw.githubusercontent.com/sociocamera/accessibilite/main/Logo_Inclusion_Sociale.png" alt="Logo Inclusion Sociale" width="36" height="36">&nbsp;&nbsp;&nbsp;&nbsp;INCLUSION SOCIALE</div> 
         <div class="header-actions">
             <button class="btn-header secondary" onclick="openModal('video', 'Présentation introductive — Vidéo', 'https://drive.google.com/file/d/10Va3etjn9wZIqrVnByyNXDVM-XPKOHkK/preview?autoplay=1')">
                 <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
@@ -435,15 +484,15 @@
                 Télécharger le numéro
             </button>
         </div>
-        <div class="top-navbar-location" id="locationIndicator">Bilans</div>
+        <div class="top-navbar-location" id="locationIndicator">Mentorat Actif</div> 
     </header>
 
     <!-- Colonne latérale gauche permanente -->
     <aside class="sidebar">
         <div class="sidebar-header">
-            <a href="https://inclusionsociale.com/#theme-5" class="btn-home">
+            <a href="https://inclusionsociale.com/#mentorat" class="btn-home">
                 <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-                INCLUSION SOCIALE
+                ACCUEIL
             </a>
         </div>
 
@@ -577,26 +626,27 @@
                     </p>
                 </div>
 
-                <!-- Conceptual Card 1: Traditional vs Active Mentoring -->
-                <div class="my-8 bg-cream-card border border-academic-border rounded-xl p-6 shadow-sm space-y-4">
-                    <div class="flex items-center space-x-2 text-burgundy font-semibold text-sm uppercase tracking-wider">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-                        <span>Figure explicative 1<br>— Comparaison des approches d'inclusion</span>
+                <!-- Conceptual Card 1: Traditional vs Active Mentoring (Interactive) -->
+                <div class="my-8 bg-cream-card border border-academic-border rounded-xl p-6 shadow-sm space-y-4" id="card-fig-1">
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                        <div class="flex items-center space-x-2 text-burgundy font-semibold text-sm uppercase tracking-wider">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                            <span>Figure explicative 1<br>— Comparaison des approches d'inclusion</span>
+                        </div>
+                        <span class="text-xs bg-burgundy-subtle text-burgundy px-2.5 py-1 rounded-full font-medium">Cliquez sur un bloc pour explorer</span>
                     </div>
                     
                     <!-- SVG Conceptual Diagram -->
                     <div class="w-full bg-cream p-4 rounded-lg border border-academic-border/55 overflow-x-auto">
                         <svg viewBox="0 0 700 320" class="w-full h-auto min-w-[600px]">
-                            <!-- Background Grid / Styling -->
                             <rect width="700" height="320" fill="#fbf9f4" rx="8" />
                             
                             <!-- Box 1: Jumelage Traditionnel -->
-                            <g transform="translate(40, 40)">
-                                <rect width="270" height="240" rx="10" fill="#f5f2e9" stroke="#d4ccb8" stroke-width="2" />
+                            <g transform="translate(40, 40)" class="svg-interactive-node is-active" data-fig="1" data-node="trad" onclick="selectConceptNode('fig1', 'trad', this)">
+                                <rect class="node-card" width="270" height="240" rx="10" fill="#f5f2e9" stroke="#d4ccb8" stroke-width="2" />
                                 <rect x="20" y="20" width="230" height="40" rx="6" fill="#e4decb" />
                                 <text x="135" y="45" font-family="Inter, sans-serif" font-size="13" font-weight="bold" fill="#2c2925" text-anchor="middle">Jumelage Traditionnel</text>
                                 
-                                <!-- Diagrammatic elements -->
                                 <circle cx="85" cy="130" r="24" fill="#7A2222" opacity="0.85" />
                                 <text x="85" y="135" font-family="Inter, sans-serif" font-size="11" fill="#ffffff" text-anchor="middle">Bénévole</text>
                                 
@@ -611,12 +661,11 @@
                             </g>
 
                             <!-- Box 2: Mentorat Actif -->
-                            <g transform="translate(390, 40)">
-                                <rect width="270" height="240" rx="10" fill="#f3e6e6" stroke="#9e3535" stroke-width="2" />
+                            <g transform="translate(390, 40)" class="svg-interactive-node" data-fig="1" data-node="actif" onclick="selectConceptNode('fig1', 'actif', this)">
+                                <rect class="node-card" width="270" height="240" rx="10" fill="#f3e6e6" stroke="#9e3535" stroke-width="2" />
                                 <rect x="20" y="20" width="230" height="40" rx="6" fill="#7A2222" />
                                 <text x="135" y="45" font-family="Inter, sans-serif" font-size="13" font-weight="bold" fill="#ffffff" text-anchor="middle">Mentorat Actif</text>
                                 
-                                <!-- Diagrammatic elements (Group) -->
                                 <circle cx="85" cy="115" r="18" fill="#7A2222" opacity="0.85" />
                                 <circle cx="60" cy="150" r="18" fill="#7A2222" opacity="0.85" />
                                 <circle cx="110" cy="150" r="18" fill="#7A2222" opacity="0.85" />
@@ -633,6 +682,13 @@
                             </g>
                         </svg>
                     </div>
+
+                    <!-- Panneau de détail interactif Fig. 1 -->
+                    <div id="detail-fig1" class="bg-cream border-l-4 border-burgundy p-4 rounded-r-lg text-sm text-academic-text transition-all">
+                        <div class="font-bold text-burgundy-dark mb-1">Jumelage traditionnel — Relation dyadique ciblée</div>
+                        <p class="text-academic-muted leading-relaxed">Repose sur la création d’un lien significatif entre une personne accompagnée et un seul bénévole. Bien qu’essentiel pour briser l’isolement, ce modèle fait porter le soutien d’intégration sur l’engagement d’un individu isolé.</p>
+                    </div>
+
                     <p class="text-xs text-academic-muted italic text-center">
                         Illustration conceptuelle : passage d’une relation duelle (jumelage traditionnel) à une inclusion portée par un groupe engagé (Mentorat Actif).
                     </p>
@@ -964,11 +1020,14 @@
                     </p>
                 </div>
 
-                <!-- Conceptual Card 2: Support & Community of Practice Structure -->
-                <div class="my-8 bg-cream-card border border-academic-border rounded-xl p-6 shadow-sm space-y-4">
-                    <div class="flex items-center space-x-2 text-burgundy font-semibold text-sm uppercase tracking-wider">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
-                        <span>Figure explicative 2<br>— Architecture de l'accompagnement et de la communauté de pratique</span>
+                <!-- Conceptual Card 2: Support & Community of Practice Structure (Interactive) -->
+                <div class="my-8 bg-cream-card border border-academic-border rounded-xl p-6 shadow-sm space-y-4" id="card-fig-2">
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                        <div class="flex items-center space-x-2 text-burgundy font-semibold text-sm uppercase tracking-wider">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                            <span>Figure explicative 2<br>— Architecture de l'accompagnement et de la communauté de pratique</span>
+                        </div>
+                        <span class="text-xs bg-burgundy-subtle text-burgundy px-2.5 py-1 rounded-full font-medium">Cliquez sur un nœud pour explorer</span>
                     </div>
                     
                     <div class="w-full bg-cream p-4 rounded-lg border border-academic-border/55 overflow-x-auto">
@@ -976,17 +1035,19 @@
                             <rect width="700" height="280" fill="#fbf9f4" rx="8" />
                             
                             <!-- Center box: Regroupement & Monique Maltais -->
-                            <rect x="235" y="20" width="230" height="60" rx="8" fill="#7A2222" />
-                            <text x="350" y="45" font-family="Inter, sans-serif" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">Regroupement & Monique Maltais</text>
-                            <text x="350" y="62" font-family="Inter, sans-serif" font-size="10" fill="#f3e6e6" text-anchor="middle">Personne-ressource & accompagnement</text>
+                            <g class="svg-interactive-node is-active" data-fig="2" data-node="pivot" onclick="selectConceptNode('fig2', 'pivot', this)">
+                                <rect class="node-card" x="235" y="20" width="230" height="60" rx="8" fill="#7A2222" stroke="#5c1717" stroke-width="2" />
+                                <text x="350" y="45" font-family="Inter, sans-serif" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">Regroupement & Monique Maltais</text>
+                                <text x="350" y="62" font-family="Inter, sans-serif" font-size="10" fill="#f3e6e6" text-anchor="middle">Personne-ressource & accompagnement</text>
+                            </g>
                             
                             <!-- Branching lines -->
                             <path d="M 350 80 L 350 115 L 175 115 L 175 130" stroke="#7A2222" stroke-width="2" fill="none" />
                             <path d="M 350 115 L 525 115 L 525 130" stroke="#7A2222" stroke-width="2" fill="none" />
                             
                             <!-- Left Node: Rencontres Collectives -->
-                            <g transform="translate(60, 130)">
-                                <rect width="230" height="120" rx="8" fill="#f5f2e9" stroke="#d4ccb8" stroke-width="2" />
+                            <g transform="translate(60, 130)" class="svg-interactive-node" data-fig="2" data-node="collectif" onclick="selectConceptNode('fig2', 'collectif', this)">
+                                <rect class="node-card" width="230" height="120" rx="8" fill="#f5f2e9" stroke="#d4ccb8" stroke-width="2" />
                                 <text x="115" y="30" font-family="Inter, sans-serif" font-size="12" font-weight="bold" fill="#2c2925" text-anchor="middle">Rencontres Collectives</text>
                                 <text x="115" y="50" font-family="Inter, sans-serif" font-size="10" fill="#635e57" text-anchor="middle">4 fois par année (Pairs)</text>
                                 <text x="115" y="80" font-family="Inter, sans-serif" font-size="10" fill="#2c2925" text-anchor="middle">• Partager réussites et défis</text>
@@ -995,8 +1056,8 @@
                             </g>
                             
                             <!-- Right Node: Accompagnement Individualisé -->
-                            <g transform="translate(410, 130)">
-                                <rect width="230" height="120" rx="8" fill="#f3e6e6" stroke="#9e3535" stroke-width="2" />
+                            <g transform="translate(410, 130)" class="svg-interactive-node" data-fig="2" data-node="individuel" onclick="selectConceptNode('fig2', 'individuel', this)">
+                                <rect class="node-card" width="230" height="120" rx="8" fill="#f3e6e6" stroke="#9e3535" stroke-width="2" />
                                 <text x="115" y="30" font-family="Inter, sans-serif" font-size="12" font-weight="bold" fill="#7A2222" text-anchor="middle">Suivi Individualisé</text>
                                 <text x="115" y="50" font-family="Inter, sans-serif" font-size="10" fill="#635e57" text-anchor="middle">Téléphone / Visioconférence</text>
                                 <text x="115" y="80" font-family="Inter, sans-serif" font-size="10" fill="#2c2925" text-anchor="middle">• Soutien au financement</text>
@@ -1005,6 +1066,13 @@
                             </g>
                         </svg>
                     </div>
+
+                    <!-- Panneau de détail interactif Fig. 2 -->
+                    <div id="detail-fig2" class="bg-cream border-l-4 border-burgundy p-4 rounded-r-lg text-sm text-academic-text transition-all">
+                        <div class="font-bold text-burgundy-dark mb-1">Pivot central — Regroupement québécois du parrainage civique & Monique Maltais</div>
+                        <p class="text-academic-muted leading-relaxed">Agit à la fois comme personne-ressource, accompagnatrice et courroie de transmission entre les organismes membres afin de maintenir l’élan des équipes et l’unité de l’approche à l’échelle du Québec.</p>
+                    </div>
+
                     <p class="text-xs text-academic-muted italic text-center">
                         Schéma de la structure double d'accompagnement : espaces collectifs et soutien personnalisé.
                     </p>
@@ -1053,19 +1121,22 @@
                     </p>
                 </div>
 
-                <!-- Conceptual Card 3: Trust & Support Pillars -->
-                <div class="my-8 bg-cream-card border border-academic-border rounded-xl p-6 shadow-sm space-y-4">
-                    <div class="flex items-center space-x-2 text-burgundy font-semibold text-sm uppercase tracking-wider">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-                        <span>Figure explicative 3<br>— Piliers du lien de confiance et rôle de la personne-ressource</span>
+                <!-- Conceptual Card 3: Trust & Support Pillars (Interactive) -->
+                <div class="my-8 bg-cream-card border border-academic-border rounded-xl p-6 shadow-sm space-y-4" id="card-fig-3">
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                        <div class="flex items-center space-x-2 text-burgundy font-semibold text-sm uppercase tracking-wider">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                            <span>Figure explicative 3<br>— Piliers du lien de confiance et rôle de la personne-ressource</span>
+                        </div>
+                        <span class="text-xs bg-burgundy-subtle text-burgundy px-2.5 py-1 rounded-full font-medium">Cliquez sur un pilier pour explorer</span>
                     </div>
                     
                     <div class="w-full bg-cream p-4 rounded-lg border border-academic-border/55 overflow-x-auto">
                         <svg viewBox="0 0 700 220" class="w-full h-auto min-w-[600px]">
                             <rect width="700" height="220" fill="#fbf9f4" rx="8" />
                             <!-- Pillar 1 -->
-                            <g transform="translate(40, 20)">
-                                <rect width="180" height="175" rx="8" fill="#f5f2e9" stroke="#d4ccb8" stroke-width="2" />
+                            <g transform="translate(40, 20)" class="svg-interactive-node is-active" data-fig="3" data-node="p1" onclick="selectConceptNode('fig3', 'p1', this)">
+                                <rect class="node-card" width="180" height="175" rx="8" fill="#f5f2e9" stroke="#d4ccb8" stroke-width="2" />
                                 <rect x="15" y="15" width="150" height="30" rx="4" fill="#e4decb" />
                                 <text x="90" y="35" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#2c2925" text-anchor="middle">Expérience & Réseau</text>
                                 <text x="90" y="75" font-family="Inter, sans-serif" font-size="10" fill="#635e57" text-anchor="middle">+30 ans d'intervention</text>
@@ -1073,8 +1144,8 @@
                                 <text x="90" y="130" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#7A2222" text-anchor="middle">Personne-ressource</text>
                             </g>
                             <!-- Pillar 2 -->
-                            <g transform="translate(260, 20)">
-                                <rect width="180" height="175" rx="8" fill="#f3e6e6" stroke="#9e3535" stroke-width="2" />
+                            <g transform="translate(260, 20)" class="svg-interactive-node" data-fig="3" data-node="p2" onclick="selectConceptNode('fig3', 'p2', this)">
+                                <rect class="node-card" width="180" height="175" rx="8" fill="#f3e6e6" stroke="#9e3535" stroke-width="2" />
                                 <rect x="15" y="15" width="150" height="30" rx="4" fill="#7A2222" />
                                 <text x="90" y="35" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">Espace Sécurisant</text>
                                 <text x="90" y="75" font-family="Inter, sans-serif" font-size="10" fill="#2c2925" text-anchor="middle">Accompagnement</text>
@@ -1082,8 +1153,8 @@
                                 <text x="90" y="130" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#7A2222" text-anchor="middle">Cadre sans jugement</text>
                             </g>
                             <!-- Pillar 3 -->
-                            <g transform="translate(480, 20)">
-                                <rect width="180" height="175" rx="8" fill="#f5f2e9" stroke="#d4ccb8" stroke-width="2" />
+                            <g transform="translate(480, 20)" class="svg-interactive-node" data-fig="3" data-node="p3" onclick="selectConceptNode('fig3', 'p3', this)">
+                                <rect class="node-card" width="180" height="175" rx="8" fill="#f5f2e9" stroke="#d4ccb8" stroke-width="2" />
                                 <rect x="15" y="15" width="150" height="30" rx="4" fill="#e4decb" />
                                 <text x="90" y="35" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#2c2925" text-anchor="middle">Évolution Durable</text>
                                 <text x="90" y="75" font-family="Inter, sans-serif" font-size="10" fill="#635e57" text-anchor="middle">Avancer à son</text>
@@ -1092,6 +1163,13 @@
                             </g>
                         </svg>
                     </div>
+
+                    <!-- Panneau de détail interactif Fig. 3 -->
+                    <div id="detail-fig3" class="bg-cream border-l-4 border-burgundy p-4 rounded-r-lg text-sm text-academic-text transition-all">
+                        <div class="font-bold text-burgundy-dark mb-1">Pilier 1 — Expérience terrain et légitimité au sein du réseau</div>
+                        <p class="text-academic-muted leading-relaxed">Plus de 30 ans d’expérience en intervention et en gestion du Centre de parrainage civique de Québec, conjugués à la participation directe à la recherche-action, confèrent une crédibilité immédiate auprès des équipes.</p>
+                    </div>
+
                     <p class="text-xs text-academic-muted italic text-center">
                         Illustration : la confiance comme fondement de l'expérimentation et du développement des compétences.
                     </p>
@@ -1116,54 +1194,84 @@
                     </p>
                 </div>
 
-                <!-- Conceptual Card 4: Practice Evolution Cycle -->
-                <div class="my-8 bg-cream-card border border-academic-border rounded-xl p-6 shadow-sm space-y-4">
-                    <div class="flex items-center space-x-2 text-burgundy font-semibold text-sm uppercase tracking-wider">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
-                        <span>Figure explicative 4<br>— Cycle graduel de l'évolution des pratiques</span>
+                <!-- Conceptual Card 4: Practice Evolution Cycle (Interactive + Real-Time Slider) -->
+                <div class="my-8 bg-cream-card border border-academic-border rounded-xl p-6 shadow-sm space-y-4" id="card-fig-4">
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                        <div class="flex items-center space-x-2 text-burgundy font-semibold text-sm uppercase tracking-wider">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                            <span>Figure explicative 4<br>— Cycle graduel de l'évolution des pratiques</span>
+                        </div>
+                        <span id="fig4-badge" class="text-xs bg-burgundy text-white px-3 py-1 rounded-full font-semibold">Mois 12 — Intégration durable (100 %)</span>
+                    </div>
+
+                    <!-- Contrôle interactif en temps réel (Slider temporel sur 12 mois) -->
+                    <div class="bg-cream p-3.5 rounded-lg border border-academic-border/70 flex flex-col sm:flex-row sm:items-center gap-3">
+                        <label for="cycleSlider" class="text-xs font-semibold text-burgundy-dark whitespace-nowrap">
+                            Progression sur l'année : <span id="cycleMonthLabel" class="text-burgundy font-bold">Mois 12</span>
+                        </label>
+                        <input type="range" id="cycleSlider" min="0" max="100" value="100" class="burgundy-slider w-full" oninput="updatePracticeCycle(this.value)">
+                        <div class="flex justify-between sm:justify-end gap-3 text-xs text-academic-muted whitespace-nowrap">
+                            <span>Appropriation : <strong id="cycleMetricValue" class="text-burgundy-dark">100 %</strong></span>
+                        </div>
                     </div>
                     
                     <div class="w-full bg-cream p-4 rounded-lg border border-academic-border/55 overflow-x-auto">
-                        <svg viewBox="0 0 700 180" class="w-full h-auto min-w-[600px]">
-                            <rect width="700" height="180" fill="#fbf9f4" rx="8" />
+                        <svg viewBox="0 0 700 205" class="w-full h-auto min-w-[600px]">
+                            <rect width="700" height="205" fill="#fbf9f4" rx="8" />
+                            
                             <!-- Step 1 -->
-                            <g transform="translate(30, 30)">
-                                <rect width="125" height="110" rx="8" fill="#f5f2e9" stroke="#d4ccb8" stroke-width="2" />
-                                <text x="62" y="30" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#2c2925" text-anchor="middle">1. Expérimentation</text>
-                                <text x="62" y="60" font-family="Inter, sans-serif" font-size="9" fill="#635e57" text-anchor="middle">Mise en œuvre</text>
-                                <text x="62" y="75" font-family="Inter, sans-serif" font-size="9" fill="#635e57" text-anchor="middle">sur le terrain</text>
+                            <g id="fig4-step-1" transform="translate(30, 22)" class="svg-interactive-node" onclick="setCyclePreset(25)">
+                                <rect id="fig4-rect-1" class="node-card" width="125" height="110" rx="8" fill="#f3e6e6" stroke="#9e3535" stroke-width="2" />
+                                <text id="fig4-title-1" x="62" y="30" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#7A2222" text-anchor="middle">1. Expérimentation</text>
+                                <text id="fig4-sub1-1" x="62" y="60" font-family="Inter, sans-serif" font-size="9" fill="#2c2925" text-anchor="middle">Mise en œuvre</text>
+                                <text id="fig4-sub2-1" x="62" y="75" font-family="Inter, sans-serif" font-size="9" fill="#2c2925" text-anchor="middle">sur le terrain</text>
                             </g>
-                            <path d="M 160 85 L 185 85" stroke="#7A2222" stroke-width="2" />
+                            <path id="fig4-arrow-1" d="M 160 77 L 185 77" stroke="#7A2222" stroke-width="2.5" />
                             
                             <!-- Step 2 -->
-                            <g transform="translate(190, 30)">
-                                <rect width="125" height="110" rx="8" fill="#f5f2e9" stroke="#d4ccb8" stroke-width="2" />
-                                <text x="62" y="30" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#2c2925" text-anchor="middle">2. Réflexion</text>
-                                <text x="62" y="60" font-family="Inter, sans-serif" font-size="9" fill="#635e57" text-anchor="middle">Échanges entre</text>
-                                <text x="62" y="75" font-family="Inter, sans-serif" font-size="9" fill="#635e57" text-anchor="middle">intervenantes</text>
+                            <g id="fig4-step-2" transform="translate(190, 22)" class="svg-interactive-node" onclick="setCyclePreset(50)">
+                                <rect id="fig4-rect-2" class="node-card" width="125" height="110" rx="8" fill="#f3e6e6" stroke="#9e3535" stroke-width="2" />
+                                <text id="fig4-title-2" x="62" y="30" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#7A2222" text-anchor="middle">2. Réflexion</text>
+                                <text id="fig4-sub1-2" x="62" y="60" font-family="Inter, sans-serif" font-size="9" fill="#2c2925" text-anchor="middle">Échanges entre</text>
+                                <text id="fig4-sub2-2" x="62" y="75" font-family="Inter, sans-serif" font-size="9" fill="#2c2925" text-anchor="middle">intervenantes</text>
                             </g>
-                            <path d="M 320 85 L 345 85" stroke="#7A2222" stroke-width="2" />
+                            <path id="fig4-arrow-2" d="M 320 77 L 345 77" stroke="#7A2222" stroke-width="2.5" />
                             
                             <!-- Step 3 -->
-                            <g transform="translate(350, 30)">
-                                <rect width="125" height="110" rx="8" fill="#f3e6e6" stroke="#9e3535" stroke-width="2" />
-                                <text x="62" y="30" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#7A2222" text-anchor="middle">3. Apprentissage</text>
-                                <text x="62" y="60" font-family="Inter, sans-serif" font-size="9" fill="#2c2925" text-anchor="middle">Soutien du</text>
-                                <text x="62" y="75" font-family="Inter, sans-serif" font-size="9" fill="#2c2925" text-anchor="middle">Regroupement</text>
+                            <g id="fig4-step-3" transform="translate(350, 22)" class="svg-interactive-node" onclick="setCyclePreset(75)">
+                                <rect id="fig4-rect-3" class="node-card" width="125" height="110" rx="8" fill="#f3e6e6" stroke="#9e3535" stroke-width="2" />
+                                <text id="fig4-title-3" x="62" y="30" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#7A2222" text-anchor="middle">3. Apprentissage</text>
+                                <text id="fig4-sub1-3" x="62" y="60" font-family="Inter, sans-serif" font-size="9" fill="#2c2925" text-anchor="middle">Soutien du</text>
+                                <text id="fig4-sub2-3" x="62" y="75" font-family="Inter, sans-serif" font-size="9" fill="#2c2925" text-anchor="middle">Regroupement</text>
                             </g>
-                            <path d="M 480 85 L 505 85" stroke="#7A2222" stroke-width="2" />
+                            <path id="fig4-arrow-3" d="M 480 77 L 505 77" stroke="#7A2222" stroke-width="2.5" />
                             
                             <!-- Step 4 -->
-                            <g transform="translate(510, 30)">
-                                <rect width="155" height="110" rx="8" fill="#7A2222" stroke="#7A2222" stroke-width="2" />
-                                <text x="77" y="30" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">4. Intégration durable</text>
-                                <text x="77" y="60" font-family="Inter, sans-serif" font-size="9" fill="#f3e6e6" text-anchor="middle">Évolution des pratiques</text>
-                                <text x="77" y="75" font-family="Inter, sans-serif" font-size="9" fill="#f3e6e6" text-anchor="middle">quotidiennes</text>
+                            <g id="fig4-step-4" transform="translate(510, 22)" class="svg-interactive-node is-active" onclick="setCyclePreset(100)">
+                                <rect id="fig4-rect-4" class="node-card" width="155" height="110" rx="8" fill="#7A2222" stroke="#5c1717" stroke-width="2.5" />
+                                <text id="fig4-title-4" x="77" y="30" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">4. Intégration durable</text>
+                                <text id="fig4-sub1-4" x="77" y="60" font-family="Inter, sans-serif" font-size="9" fill="#f3e6e6" text-anchor="middle">Évolution des pratiques</text>
+                                <text id="fig4-sub2-4" x="77" y="75" font-family="Inter, sans-serif" font-size="9" fill="#f3e6e6" text-anchor="middle">quotidiennes</text>
                             </g>
+
+                            <!-- Barre de progression dynamique intégrée au SVG -->
+                            <rect x="30" y="155" width="635" height="10" rx="5" fill="#e4decb" />
+                            <rect id="fig4-progress-fill" x="30" y="155" width="635" height="10" rx="5" fill="#7A2222" />
+                            <circle id="fig4-progress-dot" cx="665" cy="160" r="7" fill="#5c1717" stroke="#fbf9f4" stroke-width="2" />
+                            <text id="fig4-svg-caption" x="347" y="185" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#7A2222" text-anchor="middle">
+                                Phase 4/4 : Ancrage dans l’offre de services et postes dédiés (Trois-Rivières, Champlain)
+                            </text>
                         </svg>
                     </div>
+
+                    <!-- Panneau de lecture dynamique synchronisé avec le slider -->
+                    <div id="detail-fig4" class="bg-cream border-l-4 border-burgundy p-4 rounded-r-lg text-sm text-academic-text transition-all">
+                        <div class="font-bold text-burgundy-dark mb-1">Étape 4 (Mois 10 à 12) — Intégration durable dans l'offre de services</div>
+                        <p class="text-academic-muted leading-relaxed">Le Mentorat Actif est désormais intégré aux pratiques quotidiennes des organismes, avec des investissements concrets (ex. poste dédié 4 jours/semaine à Trois-Rivières, 2 jours/semaine à Champlain) et l’adaptation d’outils internes.</p>
+                    </div>
+
                     <p class="text-xs text-academic-muted italic text-center">
-                        Schéma : le processus graduel d'appropriation et d'ajustement des pratiques au sein des organismes.
+                        Schéma : déplacez le curseur ou cliquez sur une étape pour observer la progression graduelle sur 12 mois.
                     </p>
                 </div>
 
@@ -1189,11 +1297,14 @@
                     </p>
                 </div>
 
-                <!-- Conceptual Card 5: New Vision of Inclusion -->
-                <div class="my-8 bg-cream-card border border-academic-border rounded-xl p-6 shadow-sm space-y-4">
-                    <div class="flex items-center space-x-2 text-burgundy font-semibold text-sm uppercase tracking-wider">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
-                        <span>Figure explicative 5<br>— Transformation paradigmatique de l'inclusion sociale</span>
+                <!-- Conceptual Card 5: New Vision of Inclusion (Interactive) -->
+                <div class="my-8 bg-cream-card border border-academic-border rounded-xl p-6 shadow-sm space-y-4" id="card-fig-5">
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                        <div class="flex items-center space-x-2 text-burgundy font-semibold text-sm uppercase tracking-wider">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                            <span>Figure explicative 5<br>— Transformation paradigmatique de l'inclusion sociale</span>
+                        </div>
+                        <span class="text-xs bg-burgundy-subtle text-burgundy px-2.5 py-1 rounded-full font-medium">Cliquez sur un paradigme pour comparer</span>
                     </div>
                     
                     <div class="w-full bg-cream p-4 rounded-lg border border-academic-border/55 overflow-x-auto">
@@ -1201,8 +1312,8 @@
                             <rect width="700" height="220" fill="#fbf9f4" rx="8" />
                             
                             <!-- Left: Traditional approach -->
-                            <g transform="translate(30, 25)">
-                                <rect width="280" height="170" rx="8" fill="#f5f2e9" stroke="#d4ccb8" stroke-width="2" />
+                            <g transform="translate(30, 25)" class="svg-interactive-node" data-fig="5" data-node="ancien" onclick="selectConceptNode('fig5', 'ancien', this)">
+                                <rect class="node-card" width="280" height="170" rx="8" fill="#f5f2e9" stroke="#d4ccb8" stroke-width="2" />
                                 <rect x="15" y="15" width="250" height="30" rx="4" fill="#e4decb" />
                                 <text x="140" y="35" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#2c2925" text-anchor="middle">Jumelage Traditionnel</text>
                                 <text x="140" y="75" font-family="Inter, sans-serif" font-size="10" fill="#635e57" text-anchor="middle">• Inclusion centrée sur la personne seule</text>
@@ -1217,8 +1328,8 @@
                             </g>
 
                             <!-- Right: Mentorat Actif -->
-                            <g transform="translate(355, 25)">
-                                <rect width="315" height="170" rx="8" fill="#f3e6e6" stroke="#9e3535" stroke-width="2" />
+                            <g transform="translate(355, 25)" class="svg-interactive-node is-active" data-fig="5" data-node="nouveau" onclick="selectConceptNode('fig5', 'nouveau', this)">
+                                <rect class="node-card" width="315" height="170" rx="8" fill="#f3e6e6" stroke="#9e3535" stroke-width="2" />
                                 <rect x="15" y="15" width="285" height="30" rx="4" fill="#7A2222" />
                                 <text x="157" y="35" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">Mentorat Actif (Vision Nouvelle)</text>
                                 <text x="157" y="70" font-family="Inter, sans-serif" font-size="10" fill="#2c2925" text-anchor="middle">• Adaptation des environnements</text>
@@ -1228,6 +1339,13 @@
                             </g>
                         </svg>
                     </div>
+
+                    <!-- Panneau de détail interactif Fig. 5 -->
+                    <div id="detail-fig5" class="bg-cream border-l-4 border-burgundy p-4 rounded-r-lg text-sm text-academic-text transition-all">
+                        <div class="font-bold text-burgundy-dark mb-1">Mentorat Actif — Adaptation des milieux et pouvoir d'agir</div>
+                        <p class="text-academic-muted leading-relaxed">Déplace le regard des seules capacités individuelles vers l’adaptation des environnements communautaires : les groupes et milieux de vie deviennent des acteurs solidaires de l’inclusion et reconnaissent pleinement les talents et intérêts de la personne.</p>
+                    </div>
+
                     <p class="text-xs text-academic-muted italic text-center">
                         Schéma comparatif : le déplacement d'une charge individuelle vers une responsabilité collective d'inclusion.
                     </p>
@@ -1261,11 +1379,14 @@
                     </p>
                 </div>
 
-                <!-- Conceptual Card: Synthesis Conclusion Diagram -->
-                <div class="my-8 bg-cream-card border border-academic-border rounded-xl p-6 shadow-sm space-y-4">
-                    <div class="flex items-center space-x-2 text-burgundy font-semibold text-sm uppercase tracking-wider">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                        <span>Figure de synthèse<br>— Les piliers du Mentorat Actif et sa portée inclusive</span>
+                <!-- Conceptual Card: Synthesis Conclusion Diagram (Interactive) -->
+                <div class="my-8 bg-cream-card border border-academic-border rounded-xl p-6 shadow-sm space-y-4" id="card-fig-6">
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                        <div class="flex items-center space-x-2 text-burgundy font-semibold text-sm uppercase tracking-wider">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                            <span>Figure de synthèse<br>— Les piliers du Mentorat Actif et sa portée inclusive</span>
+                        </div>
+                        <span class="text-xs bg-burgundy-subtle text-burgundy px-2.5 py-1 rounded-full font-medium">Cliquez sur un élément pour explorer</span>
                     </div>
                     
                     <div class="w-full bg-cream p-4 rounded-lg border border-academic-border/55 overflow-x-auto">
@@ -1273,17 +1394,19 @@
                             <rect width="700" height="340" fill="#fbf9f4" rx="8" />
                             
                             <!-- Central Core: Mentorat Actif -->
-                            <rect x="250" y="20" width="200" height="50" rx="8" fill="#7A2222" />
-                            <text x="350" y="42" font-family="Inter, sans-serif" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">Mentorat Actif</text>
-                            <text x="350" y="58" font-family="Inter, sans-serif" font-size="9" fill="#f3e6e6" text-anchor="middle">Bilan un an plus tard</text>
+                            <g class="svg-interactive-node is-active" data-fig="6" data-node="core" onclick="selectConceptNode('fig6', 'core', this)">
+                                <rect class="node-card" x="250" y="20" width="200" height="50" rx="8" fill="#7A2222" stroke="#5c1717" stroke-width="2" />
+                                <text x="350" y="42" font-family="Inter, sans-serif" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">Mentorat Actif</text>
+                                <text x="350" y="58" font-family="Inter, sans-serif" font-size="9" fill="#f3e6e6" text-anchor="middle">Bilan un an plus tard</text>
+                            </g>
                             
                             <!-- Connectors to 4 pillars -->
                             <path d="M 350 70 L 350 100" stroke="#7A2222" stroke-width="2" />
                             
                             <!-- 4 Pillars Grid (Y: 100 to 200) -->
                             <!-- Pillar 1: Communauté -->
-                            <g transform="translate(30, 100)">
-                                <rect width="145" height="95" rx="6" fill="#f5f2e9" stroke="#d4ccb8" stroke-width="1.5" />
+                            <g transform="translate(30, 100)" class="svg-interactive-node" data-fig="6" data-node="c1" onclick="selectConceptNode('fig6', 'c1', this)">
+                                <rect class="node-card" width="145" height="95" rx="6" fill="#f5f2e9" stroke="#d4ccb8" stroke-width="1.5" />
                                 <text x="72" y="25" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#7A2222" text-anchor="middle">1. Communauté</text>
                                 <text x="72" y="48" font-family="Inter, sans-serif" font-size="9" fill="#2c2925" text-anchor="middle">Force des groupes</text>
                                 <text x="72" y="64" font-family="Inter, sans-serif" font-size="9" fill="#635e57" text-anchor="middle">& milieux de vie</text>
@@ -1291,8 +1414,8 @@
                             </g>
                             
                             <!-- Pillar 2: Responsabilité Collective -->
-                            <g transform="translate(195, 100)">
-                                <rect width="145" height="95" rx="6" fill="#f5f2e9" stroke="#d4ccb8" stroke-width="1.5" />
+                            <g transform="translate(195, 100)" class="svg-interactive-node" data-fig="6" data-node="c2" onclick="selectConceptNode('fig6', 'c2', this)">
+                                <rect class="node-card" width="145" height="95" rx="6" fill="#f5f2e9" stroke="#d4ccb8" stroke-width="1.5" />
                                 <text x="72" y="25" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#7A2222" text-anchor="middle">2. Resp. Collective</text>
                                 <text x="72" y="48" font-family="Inter, sans-serif" font-size="9" fill="#2c2925" text-anchor="middle">Partage de l'inclusion</text>
                                 <text x="72" y="64" font-family="Inter, sans-serif" font-size="9" fill="#635e57" text-anchor="middle">au-delà de la</text>
@@ -1300,8 +1423,8 @@
                             </g>
                             
                             <!-- Pillar 3: Accompagnement & Confiance -->
-                            <g transform="translate(360, 100)">
-                                <rect width="145" height="95" rx="6" fill="#f3e6e6" stroke="#9e3535" stroke-width="1.5" />
+                            <g transform="translate(360, 100)" class="svg-interactive-node" data-fig="6" data-node="c3" onclick="selectConceptNode('fig6', 'c3', this)">
+                                <rect class="node-card" width="145" height="95" rx="6" fill="#f3e6e6" stroke="#9e3535" stroke-width="1.5" />
                                 <text x="72" y="25" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#7A2222" text-anchor="middle">3. Accompagnement</text>
                                 <text x="72" y="48" font-family="Inter, sans-serif" font-size="9" fill="#2c2925" text-anchor="middle">Communauté de pratique</text>
                                 <text x="72" y="64" font-family="Inter, sans-serif" font-size="9" fill="#635e57" text-anchor="middle">& lien de confiance</text>
@@ -1309,8 +1432,8 @@
                             </g>
                             
                             <!-- Pillar 4: Évolution des Pratiques -->
-                            <g transform="translate(525, 100)">
-                                <rect width="145" height="95" rx="6" fill="#f5f2e9" stroke="#d4ccb8" stroke-width="1.5" />
+                            <g transform="translate(525, 100)" class="svg-interactive-node" data-fig="6" data-node="c4" onclick="selectConceptNode('fig6', 'c4', this)">
+                                <rect class="node-card" width="145" height="95" rx="6" fill="#f5f2e9" stroke="#d4ccb8" stroke-width="1.5" />
                                 <text x="72" y="25" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#7A2222" text-anchor="middle">4. Évolution</text>
                                 <text x="72" y="48" font-family="Inter, sans-serif" font-size="9" fill="#2c2925" text-anchor="middle">Transformation</text>
                                 <text x="72" y="64" font-family="Inter, sans-serif" font-size="9" fill="#635e57" text-anchor="middle">graduelle des</text>
@@ -1321,12 +1444,21 @@
                             <path d="M 350 195 L 350 220" stroke="#7A2222" stroke-width="2" />
                             
                             <!-- Bottom Target: Vision Renouvelée de l'Inclusion Sociale -->
-                            <rect x="150" y="220" width="400" height="90" rx="8" fill="#7A2222" />
-                            <text x="350" y="245" font-family="Inter, sans-serif" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">Vision Renouvelée de l'Inclusion Sociale</text>
-                            <text x="350" y="268" font-family="Inter, sans-serif" font-size="10" fill="#f3e6e6" text-anchor="middle">Participation ne dépendant plus seulement des capacités individuelles,</text>
-                            <text x="350" y="286" font-family="Inter, sans-serif" font-size="10" fill="#f3e6e6" text-anchor="middle">mais de notre volonté collective de créer des communautés inclusives et équitables.</text>
+                            <g class="svg-interactive-node" data-fig="6" data-node="vision" onclick="selectConceptNode('fig6', 'vision', this)">
+                                <rect class="node-card" x="150" y="220" width="400" height="90" rx="8" fill="#7A2222" stroke="#5c1717" stroke-width="2" />
+                                <text x="350" y="245" font-family="Inter, sans-serif" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">Vision Renouvelée de l'Inclusion Sociale</text>
+                                <text x="350" y="268" font-family="Inter, sans-serif" font-size="10" fill="#f3e6e6" text-anchor="middle">Participation ne dépendant plus seulement des capacités individuelles,</text>
+                                <text x="350" y="286" font-family="Inter, sans-serif" font-size="10" fill="#f3e6e6" text-anchor="middle">mais de notre volonté collective de créer des communautés inclusives et équitables.</text>
+                            </g>
                         </svg>
                     </div>
+
+                    <!-- Panneau de détail interactif Fig. 6 -->
+                    <div id="detail-fig6" class="bg-cream border-l-4 border-burgundy p-4 rounded-r-lg text-sm text-academic-text transition-all">
+                        <div class="font-bold text-burgundy-dark mb-1">Synthèse générale — Un levier de transformation durable</div>
+                        <p class="text-academic-muted leading-relaxed">Un an après l’implantation issue de la recherche-action, le Mentorat Actif articule quatre leviers interdépendants pour ancrer une pratique durable au sein des organismes de parrainage civique du Québec.</p>
+                    </div>
+
                     <p class="text-xs text-academic-muted italic text-center">
                         Synthèse conceptuelle : articulation des quatre piliers du Mentorat Actif vers la vision renouvelée de l'inclusion sociale.
                     </p>
@@ -1398,6 +1530,202 @@
     </div>
 
     <script>
+        /* Données des cartes conceptuelles interactives (Figures 1, 2, 3, 5, 6) */
+        const conceptualDetails = {
+            fig1: {
+                trad: {
+                    title: "Jumelage traditionnel — Relation dyadique ciblée",
+                    text: "Repose sur la création d’un lien significatif entre une personne accompagnée et un seul bénévole. Bien qu’essentiel pour briser l’isolement, ce modèle fait porter le soutien d’intégration sur l’engagement d’un individu isolé."
+                },
+                actif: {
+                    title: "Mentorat Actif — Mobilisation collective au sein d’un milieu",
+                    text: "Les membres d’un club, d’une équipe, d’un comité ou d’un regroupement de bénévoles déjà engagés dans la communauté se mobilisent collectivement pour accueillir, soutenir et inclure une personne dans une activité choisie selon ses intérêts."
+                }
+            },
+            fig2: {
+                pivot: {
+                    title: "Pivot central — Regroupement québécois du parrainage civique & Monique Maltais",
+                    text: "Agit à la fois comme personne-ressource, accompagnatrice et courroie de transmission entre les organismes membres afin de maintenir l’élan des équipes et l’unité de l’approche à l’échelle du Québec."
+                },
+                collectif: {
+                    title: "Rencontres collectives de suivi — Communauté de pratique (4 fois/an)",
+                    text: "Réunissent les personnes intervenantes, la direction du Regroupement et Monique Maltais pour partager réussites et défis, résoudre collectivement des cas vécus, échanger sur les outils adaptés et préserver la cohérence de l’approche."
+                },
+                individuel: {
+                    title: "Accompagnement individualisé — Soutien ciblé sur mesure",
+                    text: "Échanges par téléphone, visioconférence ou courriel soutenant les premières étapes d’implantation : analyse de situations particulières, rédaction de demandes de financement, relecture de formulaires et maintien de la motivation."
+                }
+            },
+            fig3: {
+                p1: {
+                    title: "Pilier 1 — Expérience terrain et légitimité au sein du réseau",
+                    text: "Plus de 30 ans d’expérience en intervention et en gestion du Centre de parrainage civique de Québec, conjugués à la participation directe à la recherche-action, confèrent une crédibilité immédiate auprès des équipes."
+                },
+                p2: {
+                    title: "Pilier 2 — Espace sécurisant et accompagnement bienveillant",
+                    text: "Offre aux personnes intervenantes un cadre sans jugement pour exposer leurs questionnements, partager les obstacles rencontrés sur le terrain et explorer différentes pistes de solution en toute confiance."
+                },
+                p3: {
+                    title: "Pilier 3 — Évolution durable au rythme de chaque organisme",
+                    text: "Permet aux équipes d’avancer à leur propre rythme tout en restant fidèles aux valeurs d’autodétermination et de valorisation des rôles sociaux, consolidant ainsi leurs compétences sur le long terme."
+                }
+            },
+            fig5: {
+                ancien: {
+                    title: "Approche centrée sur l'individu — Charge portée par la dyade",
+                    text: "L’inclusion repose principalement sur l’accompagnement individuel et l’adaptation de la personne elle-même, au sein d’une relation dyadique parfois isolée des réseaux communautaires existants."
+                },
+                nouveau: {
+                    title: "Mentorat Actif — Adaptation des milieux et pouvoir d'agir",
+                    text: "Déplace le regard des seules capacités individuelles vers l’adaptation des environnements communautaires : les groupes et milieux de vie deviennent des acteurs solidaires de l’inclusion et reconnaissent pleinement les talents et intérêts de la personne."
+                }
+            },
+            fig6: {
+                core: {
+                    title: "Synthèse générale — Un levier de transformation durable",
+                    text: "Un an après l’implantation issue de la recherche-action, le Mentorat Actif articule quatre leviers interdépendants pour ancrer une pratique durable au sein des organismes de parrainage civique du Québec."
+                },
+                c1: {
+                    title: "1. Communauté — Mobilisation des groupes et milieux de vie",
+                    text: "Mise sur l’ouverture et la capacité d’accueil de groupes citoyens déjà actifs (clubs, équipes, comités) qui intègrent naturellement la personne au cœur de la vie collective."
+                },
+                c2: {
+                    title: "2. Responsabilité collective — Partage de l'inclusion",
+                    text: "Dépasse la seule relation dyadique bénévole-personne accompagnée pour faire de la participation sociale une responsabilité partagée par tout un groupe d’accueil."
+                },
+                c3: {
+                    title: "3. Accompagnement & Confiance — Soutien du Regroupement",
+                    text: "S’appuie sur la communauté de pratique trimestrielle et le suivi individualisé de Monique Maltais pour soutenir les intervenantes et outiller les organismes."
+                },
+                c4: {
+                    title: "4. Évolution des pratiques — Transformation graduelle",
+                    text: "Renouvelle les méthodes d’intervention, favorise la création d’outils adaptés sur mesure et consolide le pouvoir d’agir des personnes accompagnées."
+                },
+                vision: {
+                    title: "Finalité — Une vision renouvelée de la citoyenneté et de l'inclusion",
+                    text: "La participation sociale ne dépend plus uniquement des capacités individuelles des personnes, mais de la volonté collective de bâtir des communautés équitables où chacun et chacune trouve sa place."
+                }
+            }
+        };
+
+        function selectConceptNode(figKey, nodeKey, element) {
+            const container = element.closest('svg');
+            if (container) {
+                container.querySelectorAll('.svg-interactive-node').forEach(node => {
+                    node.classList.remove('is-active');
+                });
+            }
+            element.classList.add('is-active');
+
+            const panel = document.getElementById('detail-' + figKey);
+            const info = conceptualDetails[figKey] && conceptualDetails[figKey][nodeKey];
+            if (panel && info) {
+                panel.innerHTML = `<div class="font-bold text-burgundy-dark mb-1">${info.title}</div><p class="text-academic-muted leading-relaxed">${info.text}</p>`;
+            }
+        }
+
+        /* Mise à jour en temps réel de la Figure explicative 4 via le slider */
+        function updatePracticeCycle(rawValue) {
+            const val = Math.max(0, Math.min(100, Number(rawValue)));
+            const month = Math.max(1, Math.round((val / 100) * 12));
+            const activeStage = val < 25 ? 1 : (val < 50 ? 2 : (val < 80 ? 3 : 4));
+
+            document.getElementById('cycleMonthLabel').textContent = `Mois ${month}`;
+            document.getElementById('cycleMetricValue').textContent = `${val} %`;
+
+            const badge = document.getElementById('fig4-badge');
+            const stageNames = {
+                1: "Expérimentation terrain",
+                2: "Réflexion collective",
+                3: "Apprentissage & outillage",
+                4: "Intégration durable"
+            };
+            badge.textContent = `Mois ${month} — ${stageNames[activeStage]} (${val} %)`;
+
+            // Mise à jour de la barre de progression SVG (largeur max = 635)
+            const fillWidth = Math.max(12, Math.round((val / 100) * 635));
+            const fillEl = document.getElementById('fig4-progress-fill');
+            const dotEl = document.getElementById('fig4-progress-dot');
+            if (fillEl) fillEl.setAttribute('width', fillWidth);
+            if (dotEl) dotEl.setAttribute('cx', 30 + fillWidth);
+
+            // Mise à jour visuelle des 4 étapes SVG
+            for (let i = 1; i <= 4; i++) {
+                const group = document.getElementById(`fig4-step-${i}`);
+                const rect = document.getElementById(`fig4-rect-${i}`);
+                const title = document.getElementById(`fig4-title-${i}`);
+                const sub1 = document.getElementById(`fig4-sub1-${i}`);
+                const sub2 = document.getElementById(`fig4-sub2-${i}`);
+                const arrow = document.getElementById(`fig4-arrow-${i}`);
+
+                if (i === activeStage) {
+                    group.classList.add('is-active');
+                    rect.setAttribute('fill', '#7A2222');
+                    rect.setAttribute('stroke', '#5c1717');
+                    rect.setAttribute('stroke-width', '2.5');
+                    title.setAttribute('fill', '#ffffff');
+                    sub1.setAttribute('fill', '#f3e6e6');
+                    sub2.setAttribute('fill', '#f3e6e6');
+                } else if (i < activeStage) {
+                    group.classList.remove('is-active');
+                    rect.setAttribute('fill', '#f3e6e6');
+                    rect.setAttribute('stroke', '#9e3535');
+                    rect.setAttribute('stroke-width', '2');
+                    title.setAttribute('fill', '#7A2222');
+                    sub1.setAttribute('fill', '#2c2925');
+                    sub2.setAttribute('fill', '#2c2925');
+                } else {
+                    group.classList.remove('is-active');
+                    rect.setAttribute('fill', '#f5f2e9');
+                    rect.setAttribute('stroke', '#d4ccb8');
+                    rect.setAttribute('stroke-width', '1.5');
+                    title.setAttribute('fill', '#635e57');
+                    sub1.setAttribute('fill', '#8c857b');
+                    sub2.setAttribute('fill', '#8c857b');
+                }
+
+                if (arrow) {
+                    arrow.setAttribute('stroke', i < activeStage ? '#7A2222' : '#cbd5e0');
+                    arrow.setAttribute('stroke-width', i < activeStage ? '2.5' : '1.5');
+                }
+            }
+
+            const stageDescriptions = {
+                1: {
+                    svg: "Phase 1/4 : Premiers jumelages collectifs et repérage des milieux accueillants",
+                    title: "Étape 1 (Mois 1 à 3) — Expérimentation initiale sur le terrain",
+                    text: "Les organismes amorcent leurs premiers jumelages en Mentorat Actif en identifiant des groupes communautaires accueillants et en explorant comment mobiliser les ressources déjà présentes dans leur milieu."
+                },
+                2: {
+                    svg: "Phase 2/4 : Mise en commun des défis lors des rencontres trimestrielles",
+                    title: "Étape 2 (Mois 4 à 6) — Réflexion collective entre intervenantes",
+                    text: "À travers les rencontres trimestrielles animées par le Regroupement, les intervenantes partagent leurs questionnements, analysent les défis rencontrés et revoient le rôle des groupes d’accueil."
+                },
+                3: {
+                    svg: "Phase 3/4 : Ajustement des pratiques et création d’outils sur mesure",
+                    title: "Étape 3 (Mois 7 à 9) — Apprentissage et adaptation des outils",
+                    text: "Avec le soutien individualisé de Monique Maltais, les équipes bonifient les outils issus de la recherche (questionnaires d’intérêts, dépliants de recrutement, guides adaptés) selon leurs réalités locales."
+                },
+                4: {
+                    svg: "Phase 4/4 : Ancrage dans l’offre de services et postes dédiés (Trois-Rivières, Champlain)",
+                    title: "Étape 4 (Mois 10 à 12) — Intégration durable dans l'offre de services",
+                    text: "Le Mentorat Actif est désormais intégré aux pratiques quotidiennes des organismes, avec des investissements concrets (ex. poste dédié 4 jours/semaine à Trois-Rivières, 2 jours/semaine à Champlain) et l’adaptation d’outils internes."
+                }
+            };
+
+            const currentInfo = stageDescriptions[activeStage];
+            document.getElementById('fig4-svg-caption').textContent = currentInfo.svg;
+            document.getElementById('detail-fig4').innerHTML = `<div class="font-bold text-burgundy-dark mb-1">${currentInfo.title}</div><p class="text-academic-muted leading-relaxed">${currentInfo.text}</p>`;
+        }
+
+        function setCyclePreset(targetVal) {
+            const slider = document.getElementById('cycleSlider');
+            if (slider) {
+                slider.value = targetVal;
+                updatePracticeCycle(targetVal);
+            }
+        }
+
         function scrollToTop(event) {
             if (event) event.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
