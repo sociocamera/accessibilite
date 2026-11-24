@@ -99,7 +99,7 @@
             font-weight: 600;
             color: var(--primary-color);
             letter-spacing: 0.02em;
-            padding-left: 1.5rem; /* Décalage vers la droite par rapport au rebord de la fenêtre */
+            padding-left: 1.5rem;
         }
 
         .top-navbar-center-area {
@@ -172,7 +172,6 @@
             background-color: #5e1a1a;
         }
 
-        /* Styles pour les blocs d'information et éditeurs dans la sidebar */
         .sidebar-info-section {
             padding: 1rem 1.25rem;
             display: flex;
@@ -222,7 +221,6 @@
             line-height: 1.4;
         }
 
-        /* Style pour les deux boutons côte à côte sous les éditeurs (Aligné sur le style de .nav-btn) */
         .sidebar-proposal-buttons {
             display: flex;
             gap: 0.5rem;
@@ -287,7 +285,6 @@
             border-color: var(--primary-color);
         }
 
-        /* Sous-menu déployable pour Penser l'accessibilité et Bilans */
         .submenu {
             display: none;
             flex-direction: column;
@@ -317,7 +314,6 @@
             border-left-color: var(--primary-color);
         }
 
-        /* Contenu principal décalé pour laisser place à la sidebar et topbar */
         .main-wrapper {
             margin-left: var(--sidebar-width);
             margin-top: var(--topbar-height);
@@ -348,6 +344,7 @@
             gap: 3.5rem;
             align-items: start;
         }
+
         .header-left, .header-right {
             display: flex;
             flex-direction: column;
@@ -506,9 +503,9 @@
             padding: 4rem 2rem;
         }
 
-        .theme-section { 
-            margin-bottom: 5rem; 
-            scroll-margin-top: calc(var(--topbar-height) + 2rem); 
+        .theme-section {
+            margin-bottom: 5rem;
+            scroll-margin-top: calc(var(--topbar-height) + 2rem);
         }
 
         .theme-title {
@@ -587,9 +584,17 @@
         .article-summary {
             font-size: 0.95rem;
             color: var(--accent-color);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             flex: 1;
             text-align: justify;
+        }
+
+        .article-authors {
+            font-size: 0.8rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            color: #718096;
+            margin-top: auto;
+            font-style: italic;
         }
 
         .article-actions {
@@ -857,7 +862,7 @@
             align-items: center;
             gap: 4px;
         }
-          
+
         .partenaires-links a:hover {
             text-decoration: underline;
         }
@@ -885,10 +890,11 @@
               Proposer un projet ou un article
             </button>
 
-            <button class="btn-header secondary" onclick="openModal('pdf', 'Télécharger le numéro complet', 'https://drive.google.com/file/d/1d3ZUnnEwYomQ1VRQ1lF8XNei88HelQvy/preview')">
-              <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-              Télécharger le numéro
+<button class="btn-header secondary" onclick="window.location.href='https://inclusionsociale.com/editeurs.html'">
+              <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              Éditeurs et coéditeurs
             </button>
+
         </div>
         <div class="top-navbar-location" id="locationIndicator">Accueil</div>
     </div>
@@ -902,13 +908,11 @@
             </a>
         </div>
 
-        <!-- 4 cases demandées sous le bouton -->
         <div class="sidebar-info-section">
             <div style="font-size: 0.72rem; color: #718096; text-align: left; margin-bottom: 0.05rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
                 DOI : <a href="https://doi.org/10.13140/RG.2.2.35504.53768" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; opacity: 0.85;">10.13140/RG.2.2.35504.53768</a>
             </div>
 
-            <!-- Deuxième case : Premier éditeur (François Routhier) -->
             <div class="sidebar-card editor-card">
                 <div class="editor-info">
                     <h4>Éditeurs</h4>
@@ -935,7 +939,6 @@
                 </div>
             </div>
 
-            <!-- Bouton Bilans avec sous-menu déployable -->
             <div>
                 <button class="nav-btn" onclick="toggleBilansSubmenu(event)">
                     <span>Bilans</span>
@@ -946,7 +949,6 @@
                 </div>
             </div>
 
-            <!-- Bouton Tournages en cours non gras -->
             <div>
                 <a href="https://inclusionsociale.com/tournages.html" class="nav-btn" style="font-weight: normal;">
                     <span>Tournages en cours</span>
@@ -967,8 +969,8 @@
                     </p>
                     <div class="header-meta">
                         <p class="partenaires-links">
-                          Une initiative conjointe du 
-                          <a href="https://cirris.ulaval.ca/" target="_blank" rel="noopener noreferrer">Cirris<span class="external-icon">↗</span></a>, de 
+                          Une initiative conjointe du
+                          <a href="https://cirris.ulaval.ca/" target="_blank" rel="noopener noreferrer">Cirris<span class="external-icon">↗</span></a>, de
                           <a href="https://villesinclusives.org/" target="_blank" rel="noopener noreferrer">PSVI<span class="external-icon">↗</span></a> et de la Revue Sociologie Visuelle
                         </p>
                     </div>
@@ -1002,6 +1004,7 @@
                             <div class="article-doi">Mobilité urbaine</div>
                             <h3 class="article-title"><a href="https://inclusionsociale.com/tramway-quebec.html" style="text-decoration: none; color: inherit;" onclick="sendLog('Clic En ligne', 'Le tramway de Québec : transformer la ville pour la rendre plus inclusive')">Le tramway de Québec : transformer la ville pour la rendre plus inclusive</a></h3>
                             <p class="article-summary">Analyse des enjeux sociopolitiques, territoriaux et urbanistiques liés à l'implantation d'un système de transport structurant pour repenser l'accessibilité globale dans la capitale.</p>
+                            <p class="article-authors">Auteures) : Josée Bouchard, Valérie Martel</p>
                         </div>
                     </article>
 
@@ -1015,6 +1018,7 @@
                             <div class="article-doi">Mobilité et territoire</div>
                             <h3 class="article-title"><a href="https://inclusionsociale.com/handicaps-et-transports-urbains.html" style="text-decoration: none; color: inherit;" onclick="sendLog('Clic En ligne', 'Handicaps et transports urbains')">Handicaps et transports urbains</a></h3>
                             <p class="article-summary">Examen des barrières systémiques dans les réseaux de transport en commun et pistes d'amélioration pour la mobilité autonome.</p>
+                            <p class="article-authors">Auteures : Morgane Bouësseau, Maëva Lucas</p>
                         </div>
                     </article>
 
@@ -1028,6 +1032,7 @@
                             <div class="article-doi">Analyse critique</div>
                             <h3 class="article-title"><a href="https://inclusionsociale.com/capacitisme.html" style="text-decoration: none; color: inherit;" onclick="openModal('bilan', 'Capacitisme', 'https://inclusionsociale.com/capacitisme.html'); return false;">Monuments au capacitisme</a></h3>
                             <p class="article-summary">Réflexion critique sur l'architecture monumentale et les symboles urbains qui perpétuent l'exclusion physique et sociale.</p>
+                            <p class="article-authors">Auteur : Jérôme Saunier</p>
                         </div>
                     </article>
                 </div>
@@ -1046,6 +1051,7 @@
                             <div class="article-doi">Linguistique et éducation</div>
                             <h3 class="article-title"><a href="https://inclusionsociale.com/kelly-anne.html" style="text-decoration: none; color: inherit;" onclick="sendLog('Clic En ligne', 'Dans la classe de Kelly-Anne, élève sourde signeure')">Dans la classe de Kelly-Anne, élève sourde signeure</a></h3>
                             <p class="article-summary">Immersion sociolinguistique dans le quotidien d'une élève pratiquant la Langue des Signes Québécoise au sein d'un établissement régulier.</p>
+                            <p class="article-authors">Auteur.e.s : Sylvain Letscher, Audrey Dupont, Rachel Berthiaume et als.</p>
                         </div>
                     </article>
 
@@ -1059,6 +1065,7 @@
                             <div class="article-doi">Technologie et audition</div>
                             <h3 class="article-title"><a href="https://inclusionsociale.com/implants-cochleaires.html" style="text-decoration: none; color: inherit;" onclick="openModal('bilan', 'Capacitisme', 'https://inclusionsociale.com/implants-cochleaires.html'); return false;">Implants cochléaires : enjeux et défis en milieu scolaire</a></h3>
                             <p class="article-summary">Évaluation des dynamiques d'intégration auditive et des adaptations acoustiques requises pour les enfants appareillés.</p>
+                            <p class="article-authors">Auteur.e.s : Normand Boucher, Marie-Ève Schmouth, Maude Gagnon</p>
                         </div>
                     </article>
 
@@ -1072,6 +1079,7 @@
                             <div class="article-doi">Étude institutionnelle</div>
                             <h3 class="article-title"><a href="https://inclusionsociale.com/bibliotheque-inclusive.html" style="text-decoration: none; color: inherit;" onclick="sendLog('Clic En ligne', 'Co-conception d\'une bibliothèque scolaire inclusive')">Co-conception d'une bibliothèque scolaire inclusive</a></h3>
                             <p class="article-summary">Réflexion méthodologique sur l'aménagement participatif des espaces documentaires scolaires ouverts à la diversité fonctionnelle.</p>
+                            <p class="article-authors">Auteur.e.s : Ernesto Morales, Julie Ruel</p>
                         </div>
                     </article>
 
@@ -1085,6 +1093,7 @@
                             <div class="article-doi">Pédagogie et espace</div>
                             <h3 class="article-title"><a href="https://inclusionsociale.com/classe-inclusive.html" style="text-decoration: none; color: inherit;" onclick="sendLog('Clic En ligne', 'Co-conception d\'une salle de classe inclusive')">Co-conception d'une salle de classe inclusive</a></h3>
                             <p class="article-summary">Examen des critères architecturaux et pédagogiques nécessaires pour repenser l'ergonomie des espaces d'apprentissage ordinaires.</p>
+                            <p class="article-authors">Auteur.e.s : Ernesto Morales, Julie Ruel</p>
                         </div>
                     </article>
                 </div>
@@ -1103,6 +1112,7 @@
                             <div class="article-doi">Autonomie résidentielle</div>
                             <h3 class="article-title"><a href="https://inclusionsociale.com/appart.html" style="text-decoration: none; color: inherit;" onclick="openModal('bilan', 'Appartements', 'https://inclusionsociale.com/appart.html'); return false;">« J'ai mon appart' ! » pour adultes DI et autistes</a></h3>
                             <p class="article-summary">Présentation du projet concernant l'accès à l'autonomie résidentielle pour les adultes présentant une déficience intellectuelle ou un autisme.</p>
+                            <p class="article-authors">Auteur.e.s : Martin Caouette, Sarah Pellerin, Michèle Lafontaine</p>
                         </div>
                     </article>
 
@@ -1116,6 +1126,7 @@
                             <div class="article-doi">Sociologie du travail</div>
                             <h3 class="article-title"><a href="https://inclusionsociale.com/epicerie-travail-autistes.html" style="text-decoration: none; color: inherit;" onclick="sendLog('Clic En ligne', 'Le travail des personnes autistes en épicerie')">Le travail des personnes autistes en épicerie</a></h3>
                             <p class="article-summary">Étude empirique sur l'intégration professionnelle ordinaire, l'organisation des tâches et les aménagements relationnels en milieu commercial.</p>
+                            <p class="article-authors">Auteur.e.s : Frédéric Dumont, Claude Vincent, Alexandra Marchand</p>
                         </div>
                     </article>
 
@@ -1129,6 +1140,7 @@
                             <div class="article-doi">Sociologie des loisirs</div>
                             <h3 class="article-title"><a href="https://inclusionsociale.com/experience-inclusive-loisir.html" style="text-decoration: none; color: inherit;" onclick="sendLog('Clic En ligne', 'L\'expérience inclusive de loisir : au-delà de l\'accessibilité')">L'expérience inclusive de loisir : au-delà de l'accessibilité</a></h3>
                             <p class="article-summary">Comment repenser l'activité récréative non pas sous l'angle de la simple adaptation, mais à travers l'expérience partagée et l'appartenance.</p>
+                            <p class="article-authors">Auteures : Hélène Carbonneau, Valérie Poulin, Amélie Garban</p>
                         </div>
                     </article>
 
@@ -1142,6 +1154,7 @@
                             <div class="article-doi">Action communautaire</div>
                             <h3 class="article-title"><a href="https://inclusionsociale.com/reussite-loisir.html" style="text-decoration: none; color: inherit;" onclick="sendLog('Clic En ligne', 'Unir nos forces pour la réussite du loisir des personnes ayant des besoins particuliers')">Unir nos forces pour la réussite du loisir des personnes ayant des besoins particuliers</a></h3>
                             <p class="article-summary">Coordination des acteurs municipaux et communautaires pour soutenir l'inclusion active dans les programmes de loisirs.</p>
+                            <p class="article-authors">Auteur : Jacques Laberge</p>
                         </div>
                     </article>
 
@@ -1155,6 +1168,7 @@
                             <div class="article-doi">Muséologie sociale</div>
                             <h3 class="article-title"><a href="https://inclusionsociale.com/musees-inclusifs.html" style="text-decoration: none; color: inherit;" onclick="sendLog('Clic En ligne', 'Les musées inclusifs : le cas du MNBAQ')">Les musées inclusifs : le cas du MNBAQ</a></h3>
                             <p class="article-summary">Analyse des pratiques de médiation culturelle et d'accessibilité muséale au Musée national des beaux-arts du Québec.</p>
+                            <p class="article-authors">Auteures : Aude Porcedda, Josée Duhaime</p>
                         </div>
                     </article>
                 </div>
@@ -1173,6 +1187,7 @@
                             <div class="article-doi">Défis liés à l'inclusion sociale</div>
                             <h3 class="article-title"><a href="https://inclusionsociale.com/traumatisme-cranio-cerebral.html" style="text-decoration: none; color: inherit;" onclick="sendLog('Clic En ligne', 'Participation sociale à la suite d\'un traumatisme cranio-cérébral')">Participation sociale à la suite d'un traumatisme cranio-cérébral</a></h3>
                             <p class="article-summary">Analyse des trajectoires de réinsertion sociale et des obstacles rencontrés par les individus après un traumatisme cranio-cérébral sévère.</p>
+                            <p class="article-authors">Auteures : Valérie Poulin, Marie-Ève Lamontagne, Émilie Raymond</p>
                         </div>
                     </article>
 
@@ -1186,6 +1201,7 @@
                             <div class="article-doi">Cadre juridique et social</div>
                             <h3 class="article-title"><a href="https://inclusionsociale.com/droitshumains.html" style="text-decoration: none; color: inherit;" onclick="openModal('bilan', 'Droits humains', 'https://inclusionsociale.com/droitshumains.html'); return false;">Réalités des personnes en situation de handicap : poser un regard de droits humains</a></h3>
                             <p class="article-summary">Transition paradigmatique du modèle médical vers l'approche fondée sur les droits fondamentaux et la citoyenneté intégrale.</p>
+                            <p class="article-authors">Auteures : Élisabeth Dupuis, Laurence Guénette</p>
                         </div>
                     </article>
 
@@ -1199,6 +1215,7 @@
                             <div class="article-doi">Politiques publiques</div>
                             <h3 class="article-title"><a href="https://inclusionsociale.com/ophq.html" style="text-decoration: none; color: inherit;" onclick="sendLog('Clic En ligne', 'OPHQ : plans d\'action municipaux pour les personnes handicapées')">OPHQ : plans d'action municipaux pour les personnes handicapées</a></h3>
                             <p class="article-summary">Évaluation critique de la mise en œuvre des plans d'action municipaux exigés par l'Office des personnes handicapées du Québec.</p>
+                            <p class="article-authors">Auteur.e.s : Olivier Clément-Sainte-Marie, Mélanie Deslauriers, Vanessa Marquis</p>
                         </div>
                     </article>
 
@@ -1212,6 +1229,7 @@
                             <div class="article-doi">Sociologie relationnelle</div>
                             <h3 class="article-title"><a href="https://inclusionsociale.com/bienvenus.html" style="text-decoration: none; color: inherit;" onclick="sendLog('Clic En ligne', '« C\'est comme si on n\'était pas les bienvenus… »')">« C'est comme si on n'était pas les bienvenus… »</a></h3>
                             <p class="article-summary">Analyse qualitative des micro-agressions et du sentiment d'exclusion symbolique éprouvé dans les espaces publics et marchands.</p>
+                            <p class="article-authors">Auteures : Émilie Raymond, Synnott Mélanie, Anne-Marie Trempe</p>
                         </div>
                     </article>
 
@@ -1225,6 +1243,7 @@
                             <div class="article-doi">Représentations sociales</div>
                             <h3 class="article-title"><a href="https://inclusionsociale.com/prejuges.html" style="text-decoration: none; color: inherit;" onclick="openModal('bilan', 'Préjugés', 'https://inclusionsociale.com/prejuges.html'); return false;">Les préjugés face à la différence</a></h3>
                             <p class="article-summary">Déconstruction des stéréotypes culturels et des mécanismes psychologiques sous-tendant la stigmatisation du handicap.</p>
+                            <p class="article-authors">Auteur : Olivier Bernard</p>
                         </div>
                     </article>
 
@@ -1238,6 +1257,7 @@
                             <div class="article-doi">Épistémologie</div>
                             <h3 class="article-title"><a href="https://inclusionsociale.com/recherche-militante.html" style="text-decoration: none; color: inherit;" onclick="sendLog('Clic En ligne', 'Plaidoyer pour une recherche militante')">Plaidoyer pour une recherche militante</a></h3>
                             <p class="article-summary">Réflexion épistémologique sur l'engagement du chercheur en sciences sociales aux côtés des mouvements pour les droits des personnes handicapées.</p>
+                            <p class="article-authors">Auteure : Marie-Ève Veilleux</p>
                         </div>
                     </article>
                 </div>
@@ -1246,8 +1266,7 @@
             <section class="theme-section" id="theme-5" data-title="Parrainage et mentorat">
                 <h2 class="theme-title">Parrainage et mentorat</h2>
                 <div class="grid-container">
-
-<article class="article-card" id="mentorat">
+                    <article class="article-card" id="mentorat">
                         <a href="https://inclusionsociale.com/mentorat-actif-bilan.html" style="text-decoration: none; color: inherit;" onclick="sendLog('Clic En ligne', 'Le Mentorat actif, une autre approche de l\'accompagnement')">
                             <div class="article-media">
                                 <img src="https://lh3.googleusercontent.com/d/1UnZJ8bxyxuy32BKO0KkB3XcnsiecrE0w" alt="Trajectoire de réinsertion sociale">
@@ -1257,10 +1276,9 @@
                             <div class="article-doi">Mentorat actif</div>
                             <h3 class="article-title"><a href="https://inclusionsociale.com/mentorat-actif-bilan.html" style="text-decoration: none; color: inherit;" onclick="sendLog('Clic En ligne', 'Le Mentorat actif, une autre approche de l\'accompagnement')">Le Mentorat actif, une autre approche de l'accompagnement</a></h3>
                             <p class="article-summary">De l'approche « une personne qui accompagne une autre personne » à une approche « un groupe qui accompagne une autre personne ».</p>
+                            <p class="article-authors">Auteures : Monique Maltais, Élise Milot</p>
                         </div>
                     </article>
-
-
                 </div>
             </section>
         </main>
@@ -1332,7 +1350,6 @@
             sendLog("Ouverture de page", "Accueil du site");
         });
 
-        // Gestion du sous-menu de navigation "Penser l'accessibilité"
         function toggleSubmenu(event) {
             event.stopPropagation();
             const submenu = document.getElementById('accessibilitySubmenu');
@@ -1341,7 +1358,6 @@
             arrow.style.transform = submenu.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
         }
 
-        // Gestion du sous-menu de navigation "Bilans"
         function toggleBilansSubmenu(event) {
             event.stopPropagation();
             const submenu = document.getElementById('bilansSubmenu');
@@ -1350,7 +1366,6 @@
             arrow.style.transform = submenu.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
         }
 
-        // Indicateur de position dynamique dans la barre horizontale supérieure
         window.addEventListener('scroll', function() {
             const sections = document.querySelectorAll('.theme-section');
             const indicator = document.getElementById('locationIndicator');
@@ -1365,7 +1380,6 @@
             indicator.textContent = currentPosition;
         });
 
-        // Gestion de la modale de proposition (Captation ou Article)
         const proposalModal = document.getElementById('proposalModal');
 
         function openProposalModal(type) {
@@ -1542,7 +1556,7 @@
             modalTitle.textContent = title;
             modalBodyContent.innerHTML = '';
 
-if (type === 'pdf') {
+            if (type === 'pdf') {
                 sendLog("Clic PDF", title);
             } else if (type.includes('playlist') || type === 'video') {
                 sendLog("Clic Vidéo", title);
@@ -1564,7 +1578,7 @@ if (type === 'pdf') {
             } else if (type.includes('playlist')) {
                 let currentList = playlistVideos;
                 let sidebarHeading = 'Capsules Vidéo';
-                
+
                 if (type === 'kelly-anne-playlist') { currentList = kellyAnneVideos; sidebarHeading = 'Vidéos de Kelly-Anne'; }
                 else if (type === 'implants-playlist') { currentList = implantsCochleairesVideos; sidebarHeading = 'Implants Cochléaires'; }
                 else if (type === 'epicerie-playlist') { currentList = epicerieVideos; sidebarHeading = 'Travail en épicerie'; }
@@ -1580,7 +1594,7 @@ if (type === 'pdf') {
 
                 const playerPane = document.createElement('div');
                 playerPane.className = 'playlist-player-pane';
-                
+
                 const playerIframe = document.createElement('iframe');
                 playerIframe.id = 'activeVideoPlayer';
                 playerIframe.src = currentList[0].url;
@@ -1589,7 +1603,7 @@ if (type === 'pdf') {
 
                 const sidebar = document.createElement('div');
                 sidebar.className = 'playlist-sidebar';
-                
+
                 const sidebarTitle = document.createElement('h3');
                 sidebarTitle.textContent = sidebarHeading;
                 sidebar.appendChild(sidebarTitle);
@@ -1640,7 +1654,7 @@ if (type === 'pdf') {
                 closeModal();
                 closeProposalModal();
             }
-        }); 
+        });
     </script>
 </body>
 </html>
