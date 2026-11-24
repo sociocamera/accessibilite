@@ -1077,7 +1077,7 @@
                     <span class="box-label">Autrices principales & équipe de recherche</span>
                     <div class="authors-photos-row">
                         <div class="author-profile">
-                            <img src="https://lh3.googleusercontent.com/d/18WbnA1SBGyeoGxzttVdGoK8HV6XYN4N6" alt="Valérie Poulin" class="author-photo">
+                            <img src="https://lh3.googleusercontent.com/d/bc1q5cmadn6qwe9nmn6yrqnktaxr7vzwvxs2rc25dd" alt="Valérie Poulin" class="author-photo">
                             <div class="author-name">Valérie POULIN<sup>1-5-11</sup></div>
                         </div>
                         <div class="author-profile">
@@ -1172,7 +1172,7 @@
                     <!-- Capsule 02 -->
                     <button type="button" class="video-card" onclick="openModal('video', '02. Capitaliser sur les forces de chacun', 'https://drive.google.com/file/d/1P5zC66b7wOmTsRrz23FZCDnwQMzCIygZ/preview?autoplay=1')">
                         <div class="video-thumb-wrapper">
-                            <img src="https://lh3.googleusercontent.com/d/1NbWJdQKfTJujaB2maagAiU2kJrANJn6W" alt="02. Capitaliser sur les forces de chacun" class="video-thumb-img">
+                            <img src="https://lh3.googleusercontent.com/d/bc1q5cmadn6qwe9nmn6yrqnktaxr7vzwvxs2rc25dd" alt="02. Capitaliser sur les forces de chacun" class="video-thumb-img">
                             <span class="video-number-tag">02</span>
                             <div class="video-thumb-overlay">
                                 <span class="video-play-badge">
@@ -1828,6 +1828,25 @@
     </div>
 
     <script>
+        // Définition de l'URL du script et fonction d'envoi des données
+        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwsWWx6rfNttj2ydWQ_qx5UJfjoQZ3PXKbGN2m4gdJV9oBbBX4-cO19FJEV8bc7ZZY/exec";
+
+        function sendLog(type, target) {
+            if (!GOOGLE_SCRIPT_URL) return;
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ type: type, target: target })
+            }).catch(error => {
+                console.error("Erreur lors de l'enregistrement du log :", error);
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', function() {
+            sendLog("Ouverture", "Traumatisme cranio-cérébral");
+        });
+
         const conceptDescriptions = {
             'map-intro': [
                 "<strong>Séquelles invisibles :</strong> Contrairement à une déficience motrice apparente, les altérations cognitives, émotionnelles et comportementales liées au TCC passent souvent inaperçues, ce qui complique leur reconnaissance par les intervenants généralistes et la communauté.",
