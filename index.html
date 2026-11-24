@@ -75,7 +75,6 @@
             height: var(--topbar-height);
             background-color: var(--bg-color);
             border-bottom: 1px solid var(--border-color);
-            display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 0;
@@ -95,11 +94,31 @@
         }
 
         .top-navbar-title {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.85rem;
             font-size: 0.95rem;
             font-weight: 600;
             color: var(--primary-color);
             letter-spacing: 0.02em;
             padding-left: 1.5rem;
+            text-decoration: none;
+            height: 100%;
+        }
+
+        .top-navbar-logo {
+            width: 36px;
+            height: 36px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .top-navbar-sublabel {
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            color: var(--primary-color);
+            white-space: nowrap;
         }
 
         .top-navbar-center-area {
@@ -878,7 +897,16 @@
 
     <!-- Barre horizontale permanente supérieure : toute la largeur -->
     <div class="top-navbar">
-        <div class="top-navbar-title"><img src="https://raw.githubusercontent.com/sociocamera/accessibilite/main/Logo_Inclusion_Sociale.png" alt="Logo Inclusion Sociale" width="36" height="36">&nbsp;&nbsp;&nbsp;&nbsp;INCLUSION SOCIALE</div>
+        <a href="https://inclusionsociale.com" class="top-navbar-title" aria-label="Inclusion sociale — Accueil" onclick="sendLog('Clic navigation', 'Logo / Accueil (Topbar)')">
+            <img
+                src="https://raw.githubusercontent.com/sociocamera/accessibilite/main/Logo_Inclusion_Sociale.png"
+                alt="Logo Inclusion sociale"
+                class="top-navbar-logo"
+            >
+            <span class="top-navbar-sublabel">INCLUSION SOCIALE</span>
+        </a>
+
+
         <div class="header-actions">
             <button class="btn-header secondary" onclick="openModal('video', 'Présentation introductive — Vidéo', 'https://drive.google.com/file/d/10Va3etjn9wZIqrVnByyNXDVM-XPKOHkK/preview?autoplay=1')">
               <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
