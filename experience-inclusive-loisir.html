@@ -1355,7 +1355,7 @@
                                 <div class="author-photo-role">Professeure titulaire (retraitée), UQTR</div>
                             </div>
                             <div class="author-photo-card">
-                                <img src="https://lh3.googleusercontent.com/d/18WbnA1SBGyeoGxzttVdGoK8HV6XYN4N6" alt="Valérie Poulin">
+                                <img src="https://lh3.googleusercontent.com/d/bc1q5cmadn6qwe9nmn6yrqnktaxr7vzwvxs2rc25dd" alt="Valérie Poulin">
                                 <div class="author-photo-name">Valérie Poulin<sup>2-3-5</sup></div>
                                 <div class="author-photo-role">Professeure-chercheuse, UQTR</div>
                             </div>
@@ -1544,7 +1544,7 @@
                                  onclick="openModal('video', '07. Rendre accessible les sites d’activités', 'https://drive.google.com/file/d/1bwwqjo5ra_2kxiG2ma0STBHenn6m0H02/preview?autoplay=1')"
                                  onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}">
                                 <div class="netflix-thumb-box">
-                                    <img src="https://lh3.googleusercontent.com/d/1E8tWnw55WpzKg2kZymjDrsEerGzRcyze" alt="07. Rendre accessible les sites d’activités" loading="lazy">
+                                    <img src="https://lh3.googleusercontent.com/d/bc1q5cmadn6qwe9nmn6yrqnktaxr7vzwvxs2rc25dd" alt="07. Rendre accessible les sites d’activités" loading="lazy">
                                     <span class="netflix-badge-num">07</span>
                                     <div class="netflix-play-overlay">
                                         <span class="netflix-play-circle">
@@ -2317,6 +2317,25 @@
     </div>
 
     <script>
+        // Définition de l'URL du script et fonction d'envoi des données
+        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwsWWx6rfNttj2ydWQ_qx5UJfjoQZ3PXKbGN2m4gdJV9oBbBX4-cO19FJEV8bc7ZZY/exec";
+
+        function sendLog(type, target) {
+            if (!GOOGLE_SCRIPT_URL) return;
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ type: type, target: target })
+            }).catch(error => {
+                console.error("Erreur lors de l'enregistrement du log :", error);
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', function() {
+            sendLog("Ouverture", "Loisirs inclusifs");
+        });
+
         function toggleSubmenu(event, submenuId, arrowId) {
             event.stopPropagation();
             const submenu = document.getElementById(submenuId);
