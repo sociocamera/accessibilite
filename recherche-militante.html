@@ -522,7 +522,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 1.25rem;
-            margin-bottom: 2.25rem;
+            margin-bottom: 1.75rem;
         }
 
         .abstract-box p {
@@ -540,6 +540,107 @@
             padding-top: 0.5rem;
             margin-bottom: 0 !important;
             text-align: left !important;
+        }
+
+        /* Barre des versions linguistiques déployables (EN / ES) */
+        .lang-toggle-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.85rem;
+            margin-bottom: 1.75rem;
+            padding: 0.95rem 1.15rem;
+            background-color: #f5f0e6;
+            border: 1px solid #e2d8c5;
+            border-radius: 8px;
+            align-items: center;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .lang-toggle-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: #FDFBF7;
+            color: #7a2222;
+            border: 1.5px solid #7a2222;
+            padding: 0.55rem 1.1rem;
+            border-radius: 6px;
+            font-size: 0.86rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .lang-toggle-btn:hover,
+        .lang-toggle-btn.active {
+            background-color: #7a2222;
+            color: #ffffff;
+        }
+
+        .lang-version-drawer {
+            display: none;
+            background-color: #FDFBF7;
+            border: 1.5px solid #d9cdb8;
+            border-top: 4px solid #7a2222;
+            border-radius: 8px;
+            padding: 2rem 2.15rem;
+            margin-bottom: 2.25rem;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .lang-version-drawer.open {
+            display: block;
+        }
+
+        .lang-drawer-banner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #e2d8c5;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .lang-drawer-badge {
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            color: #7a2222;
+            background-color: #f5ecec;
+            padding: 0.35rem 0.75rem;
+            border-radius: 4px;
+        }
+
+        .lang-close-footer {
+            margin-top: 2.25rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid #e2d8c5;
+            display: flex;
+            justify-content: flex-end;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .btn-close-lang {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            background-color: #7a2222;
+            color: #ffffff;
+            border: none;
+            padding: 0.65rem 1.25rem;
+            border-radius: 6px;
+            font-size: 0.86rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-close-lang:hover {
+            background-color: #5e1a1a;
         }
 
         /* Corps de l'article */
@@ -750,7 +851,7 @@
 
     <!-- Barre horizontale permanente supérieure -->
     <header class="top-navbar">
-        <div class="top-navbar-title">Revue Sociologie Visuelle</div>
+        <div class="top-navbar-title"><img src="https://raw.githubusercontent.com/sociocamera/accessibilite/main/Logo_Inclusion_Sociale.png" alt="Logo Inclusion Sociale" width="36" height="36">&nbsp;&nbsp;&nbsp;&nbsp;INCLUSION SOCIALE</div>
         <div class="header-actions">
             <button class="btn-header secondary" onclick="openModal('video', 'Présentation introductive — Vidéo', 'https://drive.google.com/file/d/10Va3etjn9wZIqrVnByyNXDVM-XPKOHkK/preview?autoplay=1')">
                 <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
@@ -903,6 +1004,490 @@
                     </div>
                 </section>
 
+                <!-- Boutons des versions linguistiques déployables juste avant "Introduction" -->
+                <div class="lang-toggle-bar" aria-label="Autres versions linguistiques de l'article">
+                    <button type="button" class="lang-toggle-btn" id="btnToggleEn" aria-expanded="false" aria-controls="drawerEn" onclick="toggleLangVersion('en')">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                        <span>English Version</span>
+                    </button>
+                    <button type="button" class="lang-toggle-btn" id="btnToggleEs" aria-expanded="false" aria-controls="drawerEs" onclick="toggleLangVersion('es')">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                        <span>Versión en español</span>
+                    </button>
+                </div>
+
+                <!-- VERSION ANGLAISE DÉPLOYABLE -->
+                <section id="drawerEn" class="lang-version-drawer" lang="en" aria-label="Full English version of the article">
+                    <div class="lang-drawer-banner">
+                        <span class="lang-drawer-badge">English Version — Full Translation</span>
+                        <button type="button" class="btn-close-lang" onclick="closeLangVersion('en')">
+                            <span>Close English version</span>
+                            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                        </button>
+                    </div>
+
+                    <header class="article-header">
+                        <div class="article-kicker">Visual Sociology Review • Issue 4 • Rethinking Accessibility</div>
+                        <h2 class="article-title">A Plea for Activist Research</h2>
+                    </header>
+
+                    <section class="meta-boxes-grid" aria-label="Author and citation reference">
+                        <div class="whitish-box meta-box-text">
+                            <span class="meta-box-label">Author</span>
+                            <div class="authors-row">
+                                <div class="author-slot">
+                                    <img src="https://lh3.googleusercontent.com/d/1Hxib9qAaNkN5Ztwx2RF4WKJbb6IvpMXZ" alt="Portrait of Marie-Eve Veilleux" class="author-photo" onerror="this.onerror=null; this.src='https://drive.google.com/thumbnail?id=1U-IJ3tNTWLfkTzGJ7A4jKScgQn9tZXR1&sz=w300';">
+                                    <div class="author-name">Marie-Ève Veilleux</div>
+                                    <div class="author-affiliation">Disability rights activist.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="whitish-box meta-box-text">
+                            <span class="meta-box-label">Cite this article</span>
+                            <div class="citation-box-content">
+                                <p class="citation-text">
+                                    Veilleux, M-E. (2023), “A Plea for Activist Research” [Plaidoyer pour une recherche militante], <em>Sociologie Visuelle</em>, no. 4, François Routhier and Pierre Fraser (eds.), Quebec: Photo|Société, pp. 265-272.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="whitish-box abstract-box" style="margin-bottom: 2rem;" aria-label="Abstract">
+                        <span class="meta-box-label">Abstract</span>
+                        <p>
+                            In Quebec, the social situation of people with disabilities has stagnated for decades. Advances in one area are often accompanied by setbacks in other areas, the result of a succession of neoliberal and ableist political decisions. Whether accessing employment, housing, transportation, human assistance, or local businesses, the barriers that people with disabilities must overcome to participate fully in our society remain far too numerous and persistent. Despite the adoption of the <em>Accessible Canada Act</em> two years ago, and while other Canadian provinces are enacting much more binding legislation to eradicate accessibility barriers, the issue barely crosses the minds of our decision-makers and remains quite marginal in public discourse in Quebec.
+                        </p>
+                        <p class="abstract-keywords">
+                            <strong>Keywords:</strong> Activist research; disability; scientific stance.
+                        </p>
+                    </section>
+
+                    <div class="article-body">
+                        <h3 class="subchapter-title" style="margin-top: 0;">Introduction</h3>
+                        <p class="dropcap-intro">
+                            Disability research should equip both people in positions of power and activists, yet due to a lack of recognition and visibility, decisions are generally made by people who know very little about the realities of people with disabilities and even less about the effects of ableism on their own thinking and orientations. These decisions are therefore influenced by other imperatives, notably economic ones. Faced with this situation, counter-powers play an essential role in upholding the rights of people with disabilities and preventing setbacks. However, the context of disability rights advocacy is also going through a difficult period. Underfunded for years, community organizations in the disability sector perform miracles with the limited means at their disposal, yet their demands unfortunately fail to gain traction in the media and public discourse.
+                        </p>
+
+                        <!-- Interactive Concept Map 1 (English) -->
+                        <figure class="concept-map-card" aria-label="Concept Map: The systemic impasse between scientific knowledge, political decisions, and counter-powers">
+                            <div class="concept-map-header">
+                                <span class="concept-map-title">Concept Map 1 — The Systemic Impasse Facing Institutional Ableism</span>
+                                <span class="concept-map-hint">Click on a diagram node to explore its role in the analysis</span>
+                            </div>
+                            <svg class="concept-svg" viewBox="0 0 880 250" role="img">
+                                <defs>
+                                    <marker id="arrowBordeauxEn" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                        <path d="M 0 1 L 10 5 L 0 9 z" fill="#7a2222"/>
+                                    </marker>
+                                    <marker id="arrowSlateEn" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                        <path d="M 0 1 L 10 5 L 0 9 z" fill="#718096"/>
+                                    </marker>
+                                </defs>
+
+                                <line x1="255" y1="75" x2="322" y2="75" stroke="#7a2222" stroke-width="2" marker-end="url(#arrowBordeauxEn)"/>
+                                <text x="288" y="65" font-size="10" fill="#7a2222" text-anchor="middle" font-weight="600">shapes</text>
+
+                                <line x1="555" y1="75" x2="622" y2="75" stroke="#7a2222" stroke-width="2" marker-end="url(#arrowBordeauxEn)"/>
+                                <text x="588" y="65" font-size="10" fill="#7a2222" text-anchor="middle" font-weight="600">produces</text>
+
+                                <path d="M 740 120 L 740 185 L 558 185" fill="none" stroke="#718096" stroke-width="1.8" stroke-dasharray="5,4" marker-end="url(#arrowSlateEn)"/>
+                                <text x="650" y="177" font-size="10" fill="#4a5568" text-anchor="middle">resistance &amp; advocacy</text>
+
+                                <path d="M 320 185 L 145 185 L 145 123" fill="none" stroke="#718096" stroke-width="1.8" stroke-dasharray="5,4" marker-end="url(#arrowSlateEn)"/>
+                                <text x="232" y="177" font-size="10" fill="#4a5568" text-anchor="middle">underutilized knowledge</text>
+
+                                <g class="svg-node active" onclick="selectConcept1En(0, this)">
+                                    <rect x="35" y="32" width="220" height="86" rx="8" fill="#FAF6EF" stroke="#cbbba0" stroke-width="1.5"/>
+                                    <text x="145" y="60" font-size="12.5" font-weight="700" fill="#7a2222" text-anchor="middle">1. Decision-Makers</text>
+                                    <text x="145" y="79" font-size="11" fill="#2b2b2b" text-anchor="middle">Neoliberal logic, economic</text>
+                                    <text x="145" y="95" font-size="11" fill="#2b2b2b" text-anchor="middle">imperatives &amp; ableist biases</text>
+                                </g>
+
+                                <g class="svg-node" onclick="selectConcept1En(1, this)">
+                                    <rect x="325" y="32" width="230" height="86" rx="8" fill="#FAF6EF" stroke="#cbbba0" stroke-width="1.5"/>
+                                    <text x="440" y="60" font-size="12.5" font-weight="700" fill="#1a202c" text-anchor="middle">2. Case-by-Case Management</text>
+                                    <text x="440" y="79" font-size="11" fill="#2b2b2b" text-anchor="middle">Burden shifted onto individuals</text>
+                                    <text x="440" y="95" font-size="11" fill="#2b2b2b" text-anchor="middle">rather than institutions</text>
+                                </g>
+
+                                <g class="svg-node" onclick="selectConcept1En(2, this)">
+                                    <rect x="625" y="32" width="220" height="86" rx="8" fill="#FAF6EF" stroke="#cbbba0" stroke-width="1.5"/>
+                                    <text x="735" y="60" font-size="12.5" font-weight="700" fill="#1a202c" text-anchor="middle">3. Social Stagnation</text>
+                                    <text x="735" y="79" font-size="11" fill="#2b2b2b" text-anchor="middle">Persistent barriers (employment,</text>
+                                    <text x="735" y="95" font-size="11" fill="#2b2b2b" text-anchor="middle">human assistance, housing, transit)</text>
+                                </g>
+
+                                <g class="svg-node" onclick="selectConcept1En(3, this)">
+                                    <rect x="325" y="145" width="230" height="80" rx="8" fill="#FAF6EF" stroke="#cbbba0" stroke-width="1.5"/>
+                                    <text x="440" y="172" font-size="12.5" font-weight="700" fill="#1a202c" text-anchor="middle">4. Counter-Powers &amp; Research</text>
+                                    <text x="440" y="191" font-size="11" fill="#2b2b2b" text-anchor="middle">Underfunded organizations &amp; gap</text>
+                                    <text x="440" y="207" font-size="11" fill="#2b2b2b" text-anchor="middle">between knowledge &amp; public action</text>
+                                </g>
+                            </svg>
+                            <div class="concept-detail-panel" id="concept1DetailEn">
+                                <strong>1. Decision-Makers:</strong> Public policies are crafted by actors far removed from the lived experience of people with disabilities, prioritizing economic profitability over fundamental rights.
+                            </div>
+                        </figure>
+
+                        <h3 class="subchapter-title">1. The Jonathan Marchand Case</h3>
+                        <p>
+                            In August 2020, Jonathan Marchand camped outside the National Assembly to protest his confinement in a long-term care facility (CHSLD) for nearly ten years due to his use of a ventilator and his need for human assistance beyond the limit allocated for living at home. This action drew media attention for several days and ultimately led to a negotiated pilot project agreement with the government. Although this action generated some media impact, it was quickly overshadowed by other news stories. Unfortunately, this situation is not uncommon. For example, the remuneration of people with intellectual disabilities made headlines when Walmart ended an employability program<sup class="footnote-ref"><a id="en-fnref1" href="#en-fn1">1</a></sup>, yet the broader issue of their exploitation is far more serious<sup class="footnote-ref"><a id="en-fnref2" href="#en-fn2">2</a></sup> and was quickly forgotten by the media. Nevertheless, despite the difficulties, Jonathan Marchand’s protest sparked hope for a protest movement demanding, in particular, the right to choose one’s place of residence and live independently; however, one year after this action, the government abandoned the agreement reached with Jonathan Marchand, preferring to manage access to human assistance on a case-by-case basis, shifting the burden onto individuals rather than institutions. This new momentum thus proved short-lived, perhaps due to the daily struggles of people with disabilities exacerbated by the pandemic.
+                        </p>
+                        <p>
+                            Thus, faced with this kind of situation, the availability of evidence-based data and theoretical grounding are essential to support the search for solutions, decision-making, and the formulation of demands. The inclusion of disability groups and individuals within research teams to account for their perspective is increasingly common, notably in participatory research, action research, and emancipatory research<sup class="footnote-ref"><a id="en-fnref3" href="#en-fn3">3</a></sup>. However, there appears to be a significant gap between the production of knowledge and the implementation of its resulting findings by government entities. The scientific community can “produce knowledge on human and social facts [with the aim] of helping to build debates […]<sup class="footnote-ref"><a id="en-fnref4" href="#en-fn4">4</a></sup>,” yet if this knowledge is not used by decision-makers to improve the quality of life of people with disabilities, the latter remain condemned to be second-class citizens.
+                        </p>
+
+                        <h3 class="subchapter-title">2. Activist Research</h3>
+                        <p>
+                            Based on these observations, I wanted to examine the role of the scientific community in propelling societal changes toward the emancipation of people with disabilities. My readings on the different roles scientists can play led me to activist research, which seems to me a necessary option to pull Quebec out of its inaction regarding the rights of people with disabilities. In the following paragraphs, I will offer an overview of this role in the context of disability research, a topic relatively little discussed in French.
+                        </p>
+                        <p>
+                            In an article comparing the academic activism of urban agriculture researchers in the United States with French university culture, Salomon Cavin and colleagues define activist research as a means “to formulate and implement emancipation strategies<sup class="footnote-ref"><a id="en-fnref5" href="#en-fn5">5</a></sup>.” Activist research emerged “from the most deeply rooted critical traditions in that country [and] stands in historical continuity with the struggle for civil rights and the defense of ethnic minorities<sup class="footnote-ref"><a id="en-fnref6" href="#en-fn6">6</a></sup>.” The activist stance adopted by certain scientific communities in the United States is closely tied to the “critical reassessment of dominant categories of thought in the social sciences<sup class="footnote-ref"><a id="en-fnref7" href="#en-fn7">7</a></sup>,” notably through feminist studies and postcolonial studies. This questioning of power dynamics and oppressive relationships makes it possible to “produce actionable knowledge<sup class="footnote-ref"><a id="en-fnref8" href="#en-fn8">8</a></sup>.”
+                        </p>
+                        <p>
+                            In their analysis of the different stances adopted by scientists in their relationship to activism, Vézina and Gagnon define the stance “with activism [as an] opportunity to question, criticize, change, and transform [which] is mobilized from an epistemological and methodological positioning intended to be conducive to action<sup class="footnote-ref"><a id="en-fnref9" href="#en-fn9">9</a></sup>.” In a case study where one of the authors personally adopted the “with activism” stance for her doctoral and postdoctoral nursing research, she shares the scientist’s need to “draw upon concepts and theories that can, on the one hand, provide the necessary tools to question what is taken for granted (including clinical practices) and, on the other hand, guide the production of political nursing knowledge<sup class="footnote-ref"><a id="en-fnref10" href="#en-fn10">10</a></sup>.” From an activist standpoint, this focus on action to transform the existing system is sorely lacking in Quebec research. It is necessary to engage actively in activist research to formulate and implement emancipation strategies that challenge power relations and structures of oppression in society. In this respect, the “with activism” stance can be a promising path for scientists who wish to engage actively in producing actionable knowledge aimed at transforming social reality.
+                        </p>
+
+                        <!-- Interactive Concept Map 2 (English) -->
+                        <figure class="concept-map-card" aria-label="Concept Map: Comparison of scientific stances toward activism">
+                            <div class="concept-map-header">
+                                <span class="concept-map-title">Concept Map 2 — Typology of Scientific Stances (Vézina &amp; Gagnon; Salomon Cavin et al.)</span>
+                                <span class="concept-map-hint">Select an epistemological pole to compare its foundations and aims</span>
+                            </div>
+                            <svg class="concept-svg" viewBox="0 0 880 265" role="img">
+                                <line x1="280" y1="125" x2="600" y2="125" stroke="#7a2222" stroke-width="2" stroke-dasharray="6,4"/>
+                                <circle cx="440" cy="125" r="34" fill="#7a2222"/>
+                                <text x="440" y="121" font-size="10" font-weight="700" fill="#ffffff" text-anchor="middle">DYNAMIC</text>
+                                <text x="440" y="135" font-size="9.5" fill="#fde8e8" text-anchor="middle">not a status</text>
+
+                                <g class="svg-node active" onclick="selectConcept2En(0, this)">
+                                    <rect x="30" y="25" width="250" height="205" rx="9" fill="#FAF6EF" stroke="#cbbba0" stroke-width="1.5"/>
+                                    <rect x="30" y="25" width="250" height="36" rx="9" fill="#e9e1d2"/>
+                                    <text x="155" y="48" font-size="12" font-weight="700" fill="#1a202c" text-anchor="middle">Stance “Facing Activism”</text>
+                                    <text x="155" y="84" font-size="11" font-weight="600" fill="#4a5568" text-anchor="middle">• Myth of absolute neutrality</text>
+                                    <text x="155" y="110" font-size="11" fill="#2b2b2b" text-anchor="middle">• Closed academic sphere that</text>
+                                    <text x="155" y="126" font-size="11" fill="#2b2b2b" text-anchor="middle">evaluates itself among peers</text>
+                                    <text x="155" y="154" font-size="11" fill="#2b2b2b" text-anchor="middle">• Concealment of the researcher’s</text>
+                                    <text x="155" y="170" font-size="11" fill="#2b2b2b" text-anchor="middle">socio-historical subjectivities</text>
+                                    <text x="155" y="202" font-size="10.5" font-weight="700" fill="#718096" text-anchor="middle">Aim: Descriptive knowledge / status quo</text>
+                                </g>
+
+                                <g class="svg-node" onclick="selectConcept2En(1, this)">
+                                    <rect x="600" y="25" width="250" height="205" rx="9" fill="#FAF6EF" stroke="#cbbba0" stroke-width="1.5"/>
+                                    <rect x="600" y="25" width="250" height="36" rx="9" fill="#7a2222"/>
+                                    <text x="725" y="48" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">Stance “With Activism”</text>
+                                    <text x="725" y="84" font-size="11" font-weight="600" fill="#7a2222" text-anchor="middle">• Reflexivity on personal biases</text>
+                                    <text x="725" y="110" font-size="11" fill="#2b2b2b" text-anchor="middle">• Acknowledged permeability between</text>
+                                    <text x="725" y="126" font-size="11" fill="#2b2b2b" text-anchor="middle">objectivity and subjectivity</text>
+                                    <text x="725" y="154" font-size="11" fill="#2b2b2b" text-anchor="middle">• Deconstruction of power and</text>
+                                    <text x="725" y="170" font-size="11" fill="#2b2b2b" text-anchor="middle">oppressive social relationships</text>
+                                    <text x="725" y="202" font-size="10.5" font-weight="700" fill="#7a2222" text-anchor="middle">Aim: Actionable knowledge &amp; emancipation</text>
+                                </g>
+
+                                <g class="svg-node" onclick="selectConcept2En(2, this)">
+                                    <rect x="315" y="178" width="250" height="58" rx="8" fill="#FAF6EF" stroke="#cbbba0" stroke-width="1.5"/>
+                                    <text x="440" y="201" font-size="11.5" font-weight="700" fill="#7a2222" text-anchor="middle">5 Key Reflexive Questions</text>
+                                    <text x="440" y="219" font-size="10.5" fill="#2b2b2b" text-anchor="middle">Training • Funding • Power • Impact</text>
+                                </g>
+                            </svg>
+                            <div class="concept-detail-panel" id="concept2DetailEn">
+                                <strong>Stance “Facing Activism”:</strong> Dominant in Quebec, this approach postulates strict impartiality in the service of self-evaluating scientific circles, at the risk of leaving ableist structures intact.
+                            </div>
+                        </figure>
+
+                        <p>
+                            One reason that may explain researchers’ hesitation to adopt an activist stance is the perception of a loss of objectivity. This question lies at the heart of debates, particularly in Quebec where the prevailing view of research is that of neutrality, which Vézina and Gagnon define as a scientist’s stance “facing activism,” namely “a rigorous, neutral, objective, impartial process that takes place within the academic universe and produces knowledge ‘in the service of self-evaluating scientific circles’<sup class="footnote-ref"><a id="en-fnref11" href="#en-fn11">11</a></sup>.” Moreover, the current climate appears particularly hostile to scientists who seek to highlight power relations and critique the established order—consider, for instance, the N-word controversy<sup class="footnote-ref"><a id="en-fnref12" href="#en-fn12">12</a></sup> at the University of Ottawa, or even an opinion column denouncing the creation of a faculty position in anti-racist education at the same university as pseudoscience<sup class="footnote-ref"><a id="en-fnref13" href="#en-fn13">13</a></sup>. On this subject, Vézina and Gagnon remind us that “every researcher is socio-historically situated<sup class="footnote-ref"><a id="en-fnref14" href="#en-fn14">14</a></sup>.” Every decision is thus tinged with subjectivities that are impossible to eliminate. For several decades, many figures in research and activism have argued that rather than valorizing neutrality, it would be more beneficial to bring our subjectivities to light, take them into account, and let them coexist with theoretical knowledge and methods. Vézina and Gagnon specify that the scientist’s stance toward activism “refers to a dynamic rather than, in itself, a status<sup class="footnote-ref"><a id="en-fnref15" href="#en-fn15">15</a></sup>,” allowing fluidity over time and depending on the topic, circumstances, and so on.
+                        </p>
+                        <p>
+                            By opening their scientific practice to the permeability between objectivity and subjectivity, scientists can sharpen their reflection on their own biases. Where does my interest in disability come from? What research experiences and knowledge were offered to me during my training? What research is funded by granting agencies, and who are those funders? Does my methodology reproduce the power relations experienced by the participants in my research? Has the knowledge I produced made a difference in the community studied? All of these questions influence decisions regarding the choice of a research topic or the design of a study. In my view, they lie at the core of activist research. Indeed, activist research entails critical reflection on the power relations that can be reproduced within the research framework, and on how research can contribute to the emancipation of the communities studied. This means taking into account the perspectives of research participants, as well as the perspectives of the scientists themselves, who are shaped by their own social positioning and personal experience.
+                        </p>
+
+                        <h3 class="subchapter-title">Conclusion</h3>
+                        <p>
+                            Activist research is gaining growing recognition, particularly in the United States, where the Paul K. Longmore Institute on Disability recently announced $1 million in funding to organize workshops aimed at supporting disability researchers engaged in activist research<sup class="footnote-ref"><a id="en-fnref16" href="#en-fn16">16</a></sup>. I do not claim that all disability researchers must join activism. However, I believe that building a scientific community around activist research in the field of disability would help support the emancipation of people with disabilities within our society.
+                        </p>
+
+                        <h3 class="subchapter-title">Bibliographic References</h3>
+                        <ul class="references-list">
+                            <li>Boucher, N. (2004), “Handicap, Recherche et Changement Social. L’émergence du paradigme émancipatoire dans l’étude de l’exclusion sociale des personnes handicapées”, <em>Lien Social Et Politiques</em>, vol. 50, DOI: <a href="https://doi.org/10.7202/008285ar" target="_blank" rel="noopener noreferrer">doi.org/10.7202/008285ar</a>, pp. 147-164.</li>
+                            <li>Facal, J. (2022, December 22), <em>L’Université d’Ottawa n’est que la pointe de l’iceberg</em>, Journal de Montréal, URL: <a href="https://tinyurl.com/5hae23c9" target="_blank" rel="noopener noreferrer">https://tinyurl.com/5hae23c9</a>.</li>
+                            <li>Fortier, M. (2020, October 20), <em>Le milieu universitaire dénonce une ‘attaque’ contre la ‘liberté académique’</em>, Le Devoir, URL: <a href="https://tinyurl.com/2vjzhwpc" target="_blank" rel="noopener noreferrer">https://tinyurl.com/2vjzhwpc</a>.</li>
+                            <li>Lavigne, C. (2007), “Analyse qualitative du rapport du chercheur à son objet, le handicap : Le chercheur impliqué dans une situation de handicap et travaillant sur le handicap, est-il un chercheur handicapé ?”, <em>Actes du colloque Bilan et prospectives de la recherche qualitative</em>, URL: <a href="https://tinyurl.com/epsnsepx" target="_blank" rel="noopener noreferrer">https://tinyurl.com/epsnsepx</a>.</li>
+                            <li>Longmore Institute (2023, January 3), <em>EMERGE project announcement</em>, Paul K. Longmore Institute on Disability, URL: <a href="https://tinyurl.com/msubnuk9" target="_blank" rel="noopener noreferrer">https://tinyurl.com/msubnuk9</a>.</li>
+                            <li>Radio-Canada (2018, March 29), <em>Walmart congédie ses employés présentant une déficience intellectuelle</em>, URL: <a href="https://tinyurl.com/3d32ds9z" target="_blank" rel="noopener noreferrer">https://tinyurl.com/3d32ds9z</a>.</li>
+                            <li>Rettino-Parazelli, K. (2018, April 7), <em>L’affaire Walmart n’est que la pointe de l’iceberg</em>, Le Devoir, URL: <a href="https://tinyurl.com/2z6kev4a" target="_blank" rel="noopener noreferrer">https://tinyurl.com/2z6kev4a</a>.</li>
+                            <li>Salomon, C., Boisvert, J., Ranocchiari, S., et al. (2021), “L’engagement militant dans la recherche en agriculture urbaine. Réflexions sur le contexte français au miroir du ‘scholar activism’ nord-américain”, <em>Natures Sciences Sociétés</em>, vol. 29, no. 3, DOI: <a href="https://doi.org/10.1051/nss/2021058" target="_blank" rel="noopener noreferrer">doi.org/10.1051/nss/2021058</a>, pp. 288–298.</li>
+                            <li>Vézina, C., Gagnon, M. (2014), <em>Aporia</em>, vol. 6, no. 2, URL: <a href="https://doi.org/10.18192/aporia.v6i2.2849" target="_blank" rel="noopener noreferrer">doi.org/10.18192/aporia.v6i2.2849</a>.</li>
+                        </ul>
+
+                        <section class="footnotes-section" aria-label="Footnotes">
+                            <h3 class="subchapter-title" style="margin-top: 0;">Footnotes</h3>
+                            <ol class="footnotes-list">
+                                <li id="en-fn1"><a class="fn-back" href="#en-fnref1">1.</a> Radio-Canada (2018, March 29), <em>Walmart congédie ses employés présentant une déficience intellectuelle</em>, URL: <a href="https://tinyurl.com/3d32ds9z" target="_blank" rel="noopener noreferrer">https://tinyurl.com/3d32ds9z</a>.</li>
+                                <li id="en-fn2"><a class="fn-back" href="#en-fnref2">2.</a> Rettino-Parazelli K. (2018, April 7), <em>L’affaire Walmart n’est que «&nbsp;la pointe de l’iceberg&nbsp;»</em>, Le Devoir, URL: <a href="https://tinyurl.com/2z6kev4a" target="_blank" rel="noopener noreferrer">https://tinyurl.com/2z6kev4a</a>.</li>
+                                <li id="en-fn3"><a class="fn-back" href="#en-fnref3">3.</a> Boucher, N. (2004), “Handicap, Recherche et Changement Social. L’émergence du paradigme émancipatoire dans l’étude de l’exclusion sociale des personnes handicapées”, <em>Lien Social Et Politiques</em>, vol. 50, pp. 147–164, DOI: <a href="https://doi.org/10.7202/008285ar" target="_blank" rel="noopener noreferrer">doi.org/10.7202/008285ar</a>.</li>
+                                <li id="en-fn4"><a class="fn-back" href="#en-fnref4">4.</a> Lavigne, C. (2007), “Analyse qualitative du rapport du chercheur à son objet, le handicap : Le chercheur impliqué dans une situation de handicap et travaillant sur le handicap, est-il un chercheur handicapé ?”, <em>Actes du colloque Bilan et prospectives de la recherche qualitative</em>, p. 94, URL: <a href="https://tinyurl.com/epsnsepx" target="_blank" rel="noopener noreferrer">https://tinyurl.com/epsnsepx</a>.</li>
+                                <li id="en-fn5"><a class="fn-back" href="#en-fnref5">5.</a> Salomon, C., Boisvert, J., Ranocchiari, S., et al. (2021), “L’engagement militant dans la recherche en agriculture urbaine. Réflexions sur le contexte français au miroir du <em>scholar activism</em> nord-américain”, <em>Natures Sciences Sociétés</em>, vol. 29, no. 3, DOI: <a href="https://doi.org/10.1051/nss/2021058" target="_blank" rel="noopener noreferrer">doi.org/10.1051/nss/2021058</a>, p. 291.</li>
+                                <li id="en-fn6"><a class="fn-back" href="#en-fnref6">6.</a> <em>Idem.</em>, p. 290.</li>
+                                <li id="en-fn7"><a class="fn-back" href="#en-fnref7">7.</a> <em>Idem.</em>, p. 291.</li>
+                                <li id="en-fn8"><a class="fn-back" href="#en-fnref8">8.</a> <em>Idem.</em></li>
+                                <li id="en-fn9"><a class="fn-back" href="#en-fnref9">9.</a> Vézina, C., Gagnon, M. (2014), <em>Aporia</em>, vol. 6, no. 2, URL: <a href="https://doi.org/10.18192/aporia.v6i2.2849" target="_blank" rel="noopener noreferrer">doi.org/10.18192/aporia.v6i2.2849</a>, p. 32.</li>
+                                <li id="en-fn10"><a class="fn-back" href="#en-fnref10">10.</a> <em>Idem.</em>, p. 35.</li>
+                                <li id="en-fn11"><a class="fn-back" href="#en-fnref11">11.</a> Vézina, C., Gagnon, M. (2014), <em>op. cit.</em>, p. 31.</li>
+                                <li id="en-fn12"><a class="fn-back" href="#en-fnref12">12.</a> Fortier, M. (2020, October 20), <em>Le milieu universitaire dénonce une ‘attaque’ contre la ‘liberté académique’</em>, Le Devoir, URL: <a href="https://tinyurl.com/2vjzhwpc" target="_blank" rel="noopener noreferrer">https://tinyurl.com/2vjzhwpc</a>.</li>
+                                <li id="en-fn13"><a class="fn-back" href="#en-fnref13">13.</a> Facal, J. (2022, December 22), <em>L’Université d’Ottawa n’est que la pointe de l’iceberg</em>, Journal de Montréal, URL: <a href="https://tinyurl.com/5hae23c9" target="_blank" rel="noopener noreferrer">https://tinyurl.com/5hae23c9</a>.</li>
+                                <li id="en-fn14"><a class="fn-back" href="#en-fnref14">14.</a> Vézina, C., Gagnon, M. (2014), <em>op. cit.</em>, p. 31.</li>
+                                <li id="en-fn15"><a class="fn-back" href="#en-fnref15">15.</a> <em>Idem.</em>, p. 30.</li>
+                                <li id="en-fn16"><a class="fn-back" href="#en-fnref16">16.</a> Longmore Institute (2023, January 3), <em>EMERGE project announcement</em>, Paul K. Longmore Institute on Disability, URL: <a href="https://tinyurl.com/msubnuk9" target="_blank" rel="noopener noreferrer">https://tinyurl.com/msubnuk9</a>.</li>
+                            </ol>
+                        </section>
+                    </div>
+
+                    <div class="lang-close-footer">
+                        <button type="button" class="btn-close-lang" onclick="closeLangVersion('en')">
+                            <span>Close English version</span>
+                            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- VERSION ESPAGNOLE DÉPLOYABLE -->
+                <section id="drawerEs" class="lang-version-drawer" lang="es" aria-label="Versión completa en español del artículo">
+                    <div class="lang-drawer-banner">
+                        <span class="lang-drawer-badge">Versión en español — Traducción íntegra</span>
+                        <button type="button" class="btn-close-lang" onclick="closeLangVersion('es')">
+                            <span>Cerrar la versión en español</span>
+                            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                        </button>
+                    </div>
+
+                    <header class="article-header">
+                        <div class="article-kicker">Revista Sociología Visual • N.º 4 • Pensar la accesibilidad</div>
+                        <h2 class="article-title">Alegato por una investigación militante</h2>
+                    </header>
+
+                    <section class="meta-boxes-grid" aria-label="Autora y referencia de citación">
+                        <div class="whitish-box meta-box-text">
+                            <span class="meta-box-label">Autora</span>
+                            <div class="authors-row">
+                                <div class="author-slot">
+                                    <img src="https://lh3.googleusercontent.com/d/1Hxib9qAaNkN5Ztwx2RF4WKJbb6IvpMXZ" alt="Retrato de Marie-Eve Veilleux" class="author-photo" onerror="this.onerror=null; this.src='https://drive.google.com/thumbnail?id=1U-IJ3tNTWLfkTzGJ7A4jKScgQn9tZXR1&sz=w300';">
+                                    <div class="author-name">Marie-Ève Veilleux</div>
+                                    <div class="author-affiliation">Activista por los derechos de las personas con discapacidad.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="whitish-box meta-box-text">
+                            <span class="meta-box-label">Citar este artículo</span>
+                            <div class="citation-box-content">
+                                <p class="citation-text">
+                                    Veilleux, M-E. (2023), «Alegato por una investigación militante» [Plaidoyer pour une recherche militante], <em>Sociologie Visuelle</em>, n.º 4, François Routhier y Pierre Fraser (eds.), Quebec: Photo|Société, pp. 265-272.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="whitish-box abstract-box" style="margin-bottom: 2rem;" aria-label="Resumen">
+                        <span class="meta-box-label">Resumen</span>
+                        <p>
+                            En Quebec, la situación social de las personas con discapacidad lleva décadas estancada. Los avances en un ámbito suelen ir acompañados de retrocesos en otros ámbitos, resultado de una sucesión de decisiones políticas neoliberales y capacitistas. Ya sea para acceder al empleo, a la vivienda, al transporte, a la asistencia humana o a los comercios de proximidad, las barreras que deben superar las personas con discapacidad para participar plenamente en nuestra sociedad siguen siendo demasiado numerosas y persistentes. A pesar de la adopción de la <em>Ley Canadiense de Accesibilidad</em> hace dos años, y mientras las provincias canadienses aprueban leyes mucho más vinculantes para erradicar los obstáculos a la accesibilidad, la cuestión parece no pasar por la mente de quienes toman las decisiones y sigue siendo muy marginal en el discurso público en Quebec.
+                        </p>
+                        <p class="abstract-keywords">
+                            <strong>Palabras clave:</strong> Investigación militante; discapacidad; postura científica.
+                        </p>
+                    </section>
+
+                    <div class="article-body">
+                        <h3 class="subchapter-title" style="margin-top: 0;">Introducción</h3>
+                        <p class="dropcap-intro">
+                            La investigación sobre la discapacidad debería permitir dotar de herramientas tanto a las personas en posiciones de poder como a las y los activistas, pero debido a una falta de reconocimiento y visibilidad, las decisiones suelen ser tomadas por personas que conocen poco las realidades de las personas con discapacidad y aún menos los efectos del capacitismo sobre sus propias reflexiones y orientaciones. Estas decisiones están, por tanto, influenciadas por otros imperativos, especialmente económicos. Ante esta situación, los contrapoderes desempeñan un papel esencial para hacer respetar los derechos de las personas con discapacidad y evitar retrocesos. Sin embargo, el contexto de defensa de los derechos de las personas con discapacidad atraviesa también un período difícil. Subfinanciadas desde hace años, las organizaciones del sector de las personas con discapacidad hacen milagros con los medios a su alcance, pero lamentablemente sus reivindicaciones no logran imponerse en los medios de comunicación ni en el discurso público.
+                        </p>
+
+                        <!-- Mapa conceptual interactivo 1 (Español) -->
+                        <figure class="concept-map-card" aria-label="Mapa conceptual: El estancamiento sistémico entre saber científico, decisiones políticas y contrapoderes">
+                            <div class="concept-map-header">
+                                <span class="concept-map-title">Mapa conceptual 1 — El estancamiento sistémico frente al capacitismo institucional</span>
+                                <span class="concept-map-hint">Haga clic en un nodo del diagrama para explorar su papel en el análisis</span>
+                            </div>
+                            <svg class="concept-svg" viewBox="0 0 880 250" role="img">
+                                <defs>
+                                    <marker id="arrowBordeauxEs" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                        <path d="M 0 1 L 10 5 L 0 9 z" fill="#7a2222"/>
+                                    </marker>
+                                    <marker id="arrowSlateEs" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                        <path d="M 0 1 L 10 5 L 0 9 z" fill="#718096"/>
+                                    </marker>
+                                </defs>
+
+                                <line x1="255" y1="75" x2="322" y2="75" stroke="#7a2222" stroke-width="2" marker-end="url(#arrowBordeauxEs)"/>
+                                <text x="288" y="65" font-size="10" fill="#7a2222" text-anchor="middle" font-weight="600">orienta</text>
+
+                                <line x1="555" y1="75" x2="622" y2="75" stroke="#7a2222" stroke-width="2" marker-end="url(#arrowBordeauxEs)"/>
+                                <text x="588" y="65" font-size="10" fill="#7a2222" text-anchor="middle" font-weight="600">produce</text>
+
+                                <path d="M 740 120 L 740 185 L 558 185" fill="none" stroke="#718096" stroke-width="1.8" stroke-dasharray="5,4" marker-end="url(#arrowSlateEs)"/>
+                                <text x="650" y="177" font-size="10" fill="#4a5568" text-anchor="middle">resistencia y defensa</text>
+
+                                <path d="M 320 185 L 145 185 L 145 123" fill="none" stroke="#718096" stroke-width="1.8" stroke-dasharray="5,4" marker-end="url(#arrowSlateEs)"/>
+                                <text x="232" y="177" font-size="10" fill="#4a5568" text-anchor="middle">saberes infrautilizados</text>
+
+                                <g class="svg-node active" onclick="selectConcept1Es(0, this)">
+                                    <rect x="35" y="32" width="220" height="86" rx="8" fill="#FAF6EF" stroke="#cbbba0" stroke-width="1.5"/>
+                                    <text x="145" y="60" font-size="12.5" font-weight="700" fill="#7a2222" text-anchor="middle">1. Responsables políticos</text>
+                                    <text x="145" y="79" font-size="11" fill="#2b2b2b" text-anchor="middle">Lógica neoliberal, imperativos</text>
+                                    <text x="145" y="95" font-size="11" fill="#2b2b2b" text-anchor="middle">económicos y sesgos capacitistas</text>
+                                </g>
+
+                                <g class="svg-node" onclick="selectConcept1Es(1, this)">
+                                    <rect x="325" y="32" width="230" height="86" rx="8" fill="#FAF6EF" stroke="#cbbba0" stroke-width="1.5"/>
+                                    <text x="440" y="60" font-size="12.5" font-weight="700" fill="#1a202c" text-anchor="middle">2. Gestión caso por caso</text>
+                                    <text x="440" y="79" font-size="11" fill="#2b2b2b" text-anchor="middle">Carga trasladada a los individuos</text>
+                                    <text x="440" y="95" font-size="11" fill="#2b2b2b" text-anchor="middle">en lugar de las instituciones</text>
+                                </g>
+
+                                <g class="svg-node" onclick="selectConcept1Es(2, this)">
+                                    <rect x="625" y="32" width="220" height="86" rx="8" fill="#FAF6EF" stroke="#cbbba0" stroke-width="1.5"/>
+                                    <text x="735" y="60" font-size="12.5" font-weight="700" fill="#1a202c" text-anchor="middle">3. Estancamiento social</text>
+                                    <text x="735" y="79" font-size="11" fill="#2b2b2b" text-anchor="middle">Barreras persistentes (empleo,</text>
+                                    <text x="735" y="95" font-size="11" fill="#2b2b2b" text-anchor="middle">asistencia, vivienda, transporte)</text>
+                                </g>
+
+                                <g class="svg-node" onclick="selectConcept1Es(3, this)">
+                                    <rect x="325" y="145" width="230" height="80" rx="8" fill="#FAF6EF" stroke="#cbbba0" stroke-width="1.5"/>
+                                    <text x="440" y="172" font-size="12.5" font-weight="700" fill="#1a202c" text-anchor="middle">4. Contrapoderes e investigación</text>
+                                    <text x="440" y="191" font-size="11" fill="#2b2b2b" text-anchor="middle">Organizaciones subfinanciadas y</text>
+                                    <text x="440" y="207" font-size="11" fill="#2b2b2b" text-anchor="middle">brecha entre saber y acción pública</text>
+                                </g>
+                            </svg>
+                            <div class="concept-detail-panel" id="concept1DetailEs">
+                                <strong>1. Responsables políticos:</strong> Las orientaciones públicas son elaboradas por actores alejados de la vivencia de las personas con discapacidad, privilegiando la rentabilidad económica en detrimento de los derechos fundamentales.
+                            </div>
+                        </figure>
+
+                        <h3 class="subchapter-title">1. El caso Jonathan Marchand</h3>
+                        <p>
+                            En agosto de 2020, Jonathan Marchand acampó frente a la Asamblea Nacional para protestar contra su situación de reclusión en un centro residencial de cuidados prolongados (CHSLD) durante casi diez años debido al uso de un respirador y a su necesidad de asistencia humana por encima del límite asignado para vivir en el hogar. Esta acción atrajo la atención de los medios de comunicación durante varios días y condujo finalmente a un acuerdo de proyecto piloto negociado con el gobierno. Aunque esta acción tuvo cierto impacto mediático, pronto quedó eclipsada por otras noticias. Desafortunadamente, esta situación no es infrecuente. Por ejemplo, la remuneración de las personas con discapacidad intelectual ocupó los titulares cuando Walmart puso fin a un programa de empleabilidad<sup class="footnote-ref"><a id="es-fnref1" href="#es-fn1">1</a></sup>, pero el problema de la explotación de estas personas es mucho más grave<sup class="footnote-ref"><a id="es-fnref2" href="#es-fn2">2</a></sup> y fue rápidamente olvidado por los medios. Sin embargo, a pesar de las dificultades, la acción de Jonathan Marchand despertó la esperanza de ver nacer un movimiento de protesta para reivindicar, en particular, el derecho a elegir el propio lugar de residencia y la independencia; no obstante, un año después de esta acción, el gobierno abandonó el acuerdo alcanzado con Jonathan Marchand, prefiriendo gestionar el acceso a la asistencia humana caso por caso, lo que trasladó la carga a los individuos en lugar de a las instituciones. Este nuevo impulso resultó, por tanto, breve, quizá debido a las luchas cotidianas de las personas con discapacidad exacerbadas por la pandemia.
+                        </p>
+                        <p>
+                            Así, ante este tipo de situaciones, la disponibilidad de datos probatorios y el anclaje en la teoría son esenciales para respaldar la búsqueda de soluciones, la toma de decisiones y la formulación de reivindicaciones. La inclusión de grupos y personas con discapacidad dentro de los equipos de investigación, con el fin de tener en cuenta su perspectiva, es cada vez más habitual, especialmente en la investigación participativa, la investigación-acción y la investigación emancipadora<sup class="footnote-ref"><a id="es-fnref3" href="#es-fn3">3</a></sup>. Sin embargo, parece existir una brecha importante entre la producción de conocimientos y la aplicación de los resultados derivados de ellos por parte de las entidades gubernamentales. La comunidad científica puede «producir conocimientos sobre hechos humanos y sociales [con el objetivo] de ayudar a construir debates […]<sup class="footnote-ref"><a id="es-fnref4" href="#es-fn4">4</a></sup>», pero si estos no son utilizados por quienes toman las decisiones para mejorar la calidad de vida de las personas con discapacidad, estas últimas siguen condenadas a ser ciudadanas y ciudadanos de segunda categoría.
+                        </p>
+
+                        <h3 class="subchapter-title">2. La investigación militante</h3>
+                        <p>
+                            A partir de estas constataciones, quise examinar el papel de la comunidad científica en el impulso de cambios sociales en favor de la emancipación de las personas con discapacidad. Mis lecturas sobre los distintos roles que pueden desempeñar las y los científicos me llevaron hacia la investigación militante, que me parece una opción necesaria para sacar a Quebec de su inacción en lo que respecta a los derechos de las personas con discapacidad. En los próximos párrafos ofreceré una visión general de este papel en el contexto de la investigación sobre la discapacidad, un tema bastante poco abordado en francés.
+                        </p>
+                        <p>
+                            En un artículo que compara el activismo académico de investigadoras e investigadores en agricultura urbana en Estados Unidos y la cultura universitaria francesa, Salomon Cavin y sus colegas definen la investigación militante como un medio «de formular y poner en práctica estrategias de emancipación<sup class="footnote-ref"><a id="es-fnref5" href="#es-fn5">5</a></sup>». La investigación militante surgió «de las tradiciones críticas más arraigadas en ese país [y] se inscribe en la continuidad histórica de la lucha por los derechos civiles y la defensa de las minorías étnicas<sup class="footnote-ref"><a id="es-fnref6" href="#es-fn6">6</a></sup>». La postura militante adoptada por ciertas comunidades científicas en Estados Unidos no es ajena a la «reevaluación crítica de las categorías de pensamiento dominantes en ciencias sociales<sup class="footnote-ref"><a id="es-fnref7" href="#es-fn7">7</a></sup>», especialmente con los estudios feministas o los estudios poscoloniales. Este cuestionamiento de las relaciones de poder y de las relaciones de opresión permite así «producir saberes de acción<sup class="footnote-ref"><a id="es-fnref8" href="#es-fn8">8</a></sup>».
+                        </p>
+                        <p>
+                            En su análisis de las diferentes posturas adoptadas por las y los científicos en su relación con el activismo, Vézina y Gagnon definen la postura «con el activismo [como una] oportunidad de cuestionar, criticar, cambiar, transformar [que] se moviliza así, partiendo de un posicionamiento epistemológico y metodológico que se pretende propicio para la acción<sup class="footnote-ref"><a id="es-fnref9" href="#es-fn9">9</a></sup>». En un estudio de caso en el que una de las autoras adoptó personalmente la postura «con el activismo» para sus investigaciones doctorales y posdoctorales en ciencias de la enfermería, comparte la necesidad de que el científico recurra «a conceptos y teorías que puedan, por un lado, proporcionarle las herramientas necesarias para cuestionar lo que se da por sentado (incluidas las prácticas clínicas) y, por otro, guiarlo en la producción de saberes enfermeros políticos<sup class="footnote-ref"><a id="es-fnref10" href="#es-fn10">10</a></sup>». Esta focalización en la acción para transformar el sistema vigente brilla por su ausencia en la investigación quebequense, desde el punto de vista militante. Es necesario comprometerse activamente en la investigación militante para formular y aplicar estrategias de emancipación que cuestionen las relaciones de poder y las estructuras de opresión en la sociedad. En este sentido, la postura «con el activismo» puede ser una vía prometedora para quienes desean participar activamente en la producción de saberes de acción orientados a transformar la realidad social.
+                        </p>
+
+                        <!-- Mapa conceptual interactivo 2 (Español) -->
+                        <figure class="concept-map-card" aria-label="Mapa conceptual: Comparación de las posturas científicas frente al activismo">
+                            <div class="concept-map-header">
+                                <span class="concept-map-title">Mapa conceptual 2 — Tipología de las posturas científicas (Vézina y Gagnon; Salomon Cavin et al.)</span>
+                                <span class="concept-map-hint">Seleccione un polo epistemológico para comparar sus fundamentos y finalidades</span>
+                            </div>
+                            <svg class="concept-svg" viewBox="0 0 880 265" role="img">
+                                <line x1="280" y1="125" x2="600" y2="125" stroke="#7a2222" stroke-width="2" stroke-dasharray="6,4"/>
+                                <circle cx="440" cy="125" r="34" fill="#7a2222"/>
+                                <text x="440" y="121" font-size="10" font-weight="700" fill="#ffffff" text-anchor="middle">DINÁMICA</text>
+                                <text x="440" y="135" font-size="9.5" fill="#fde8e8" text-anchor="middle">no un estatus</text>
+
+                                <g class="svg-node active" onclick="selectConcept2Es(0, this)">
+                                    <rect x="30" y="25" width="250" height="205" rx="9" fill="#FAF6EF" stroke="#cbbba0" stroke-width="1.5"/>
+                                    <rect x="30" y="25" width="250" height="36" rx="9" fill="#e9e1d2"/>
+                                    <text x="155" y="48" font-size="11.5" font-weight="700" fill="#1a202c" text-anchor="middle">Postura «Frente al activismo»</text>
+                                    <text x="155" y="84" font-size="11" font-weight="600" fill="#4a5568" text-anchor="middle">• Mito de la neutralidad absoluta</text>
+                                    <text x="155" y="110" font-size="11" fill="#2b2b2b" text-anchor="middle">• Universo académico cerrado que</text>
+                                    <text x="155" y="126" font-size="11" fill="#2b2b2b" text-anchor="middle">se autoevalúa entre pares</text>
+                                    <text x="155" y="154" font-size="11" fill="#2b2b2b" text-anchor="middle">• Ocultación de subjetividades</text>
+                                    <text x="155" y="170" font-size="11" fill="#2b2b2b" text-anchor="middle">sociohistóricas del investigador</text>
+                                    <text x="155" y="202" font-size="10.5" font-weight="700" fill="#718096" text-anchor="middle">Fin: Saber descriptivo / statu quo</text>
+                                </g>
+
+                                <g class="svg-node" onclick="selectConcept2Es(1, this)">
+                                    <rect x="600" y="25" width="250" height="205" rx="9" fill="#FAF6EF" stroke="#cbbba0" stroke-width="1.5"/>
+                                    <rect x="600" y="25" width="250" height="36" rx="9" fill="#7a2222"/>
+                                    <text x="725" y="48" font-size="11.5" font-weight="700" fill="#ffffff" text-anchor="middle">Postura «Con el activismo»</text>
+                                    <text x="725" y="84" font-size="11" font-weight="600" fill="#7a2222" text-anchor="middle">• Reflexividad sobre los sesgos</text>
+                                    <text x="725" y="110" font-size="11" fill="#2b2b2b" text-anchor="middle">• Permeabilidad asumida entre</text>
+                                    <text x="725" y="126" font-size="11" fill="#2b2b2b" text-anchor="middle">objetividad y subjetividad</text>
+                                    <text x="725" y="154" font-size="11" fill="#2b2b2b" text-anchor="middle">• Deconstrucción de relaciones</text>
+                                    <text x="725" y="170" font-size="11" fill="#2b2b2b" text-anchor="middle">de opresión y de poder</text>
+                                    <text x="725" y="202" font-size="10.5" font-weight="700" fill="#7a2222" text-anchor="middle">Fin: Saberes de acción y emancipación</text>
+                                </g>
+
+                                <g class="svg-node" onclick="selectConcept2Es(2, this)">
+                                    <rect x="315" y="178" width="250" height="58" rx="8" fill="#FAF6EF" stroke="#cbbba0" stroke-width="1.5"/>
+                                    <text x="440" y="201" font-size="11.5" font-weight="700" fill="#7a2222" text-anchor="middle">5 preguntas reflexivas clave</text>
+                                    <text x="440" y="219" font-size="10.5" fill="#2b2b2b" text-anchor="middle">Formación • Financiación • Poder • Impacto</text>
+                                </g>
+                            </svg>
+                            <div class="concept-detail-panel" id="concept2DetailEs">
+                                <strong>Postura «Frente al activismo»:</strong> Dominante en Quebec, este enfoque postula una imparcialidad estricta al servicio de los círculos científicos que se autoevalúan, con el riesgo de dejar intactas las estructuras capacitistas.
+                            </div>
+                        </figure>
+
+                        <p>
+                            Una de las razones que podría explicar la vacilación de las investigadoras e investigadores a la hora de adoptar una postura militante es la impresión de pérdida de objetividad. Esta cuestión está en el centro de los debates, especialmente en Quebec, donde la visión mayoritaria de la investigación es la de la neutralidad, que Vézina y Gagnon definen como una postura del científico «frente al activismo», es decir, «un proceso riguroso, neutral, objetivo e imparcial que se desarrolla en el universo académico y que produce un saber “al servicio de los círculos científicos que se autoevalúan”<sup class="footnote-ref"><a id="es-fnref11" href="#es-fn11">11</a></sup>». Además, el contexto actual parece particularmente hostil hacia las y los científicos que desean sacar a la luz las relaciones de poder y criticar el orden establecido; pensemos, por ejemplo, en la controversia de la palabra con N<sup class="footnote-ref"><a id="es-fnref12" href="#es-fn12">12</a></sup> en la Universidad de Ottawa o incluso en una columna de opinión que denunciaba la apertura de una plaza universitaria sobre educación antirracista en la misma universidad calificándola de pseudociencia<sup class="footnote-ref"><a id="es-fnref13" href="#es-fn13">13</a></sup>. Al respecto, Vézina y Gagnon recuerdan que «todo investigador está sociohistóricamente situado<sup class="footnote-ref"><a id="es-fnref14" href="#es-fn14">14</a></sup>». Cada decisión está así teñida de subjetividades de las que resulta imposible deshacerse. Desde hace varias décadas, numerosas figuras de la investigación y del activismo afirman que, en lugar de valorizar la neutralidad, sería más beneficioso sacar a la luz nuestras subjetividades, tomarlas en consideración y hacerlas coexistir con los saberes y métodos teóricos. Vézina y Gagnon precisan que la postura del científico hacia el activismo «remite a una dinámica y no, en sí misma, a un estatus<sup class="footnote-ref"><a id="es-fnref15" href="#es-fn15">15</a></sup>», lo que permite una fluidez en el tiempo y según el tema, las circunstancias, etc.
+                        </p>
+                        <p>
+                            Al abrir su práctica científica a la permeabilidad entre objetividad y subjetividad, las y los científicos pueden afinar su reflexión sobre sus propios sesgos. ¿De dónde proviene mi interés por la discapacidad? ¿Qué experiencias de investigación y qué saberes se me ofrecieron durante mi formación? ¿Qué investigaciones financian los organismos subvencionadores y quiénes son estos últimos? ¿Reproduce mi metodología las relaciones de poder vividas por las y los participantes en mi investigación? ¿Ha marcado una diferencia en la comunidad estudiada el saber que he producido? Todas estas preguntas ejercen una influencia sobre las decisiones relativas a la elección de un tema de investigación o al diseño de un estudio. En mi opinión, están en el corazón de la investigación militante. En efecto, la investigación militante implica una reflexión crítica sobre las relaciones de poder que pueden reproducirse en el marco de la investigación y sobre la manera en que esta puede contribuir a la emancipación de las comunidades estudiadas. Ello implica tener en cuenta las perspectivas de las y los participantes en la investigación, así como las perspectivas de las propias científicas y científicos, que están influenciadas por su propio posicionamiento social y su experiencia personal.
+                        </p>
+
+                        <h3 class="subchapter-title">Conclusión</h3>
+                        <p>
+                            La investigación militante goza de un reconocimiento cada vez mayor, especialmente en Estados Unidos, donde el Instituto Paul K. Longmore sobre la Discapacidad anunció recientemente una financiación de un millón de dólares para organizar talleres destinados a apoyar a las investigadoras e investigadores sobre la discapacidad que realizan investigación militante<sup class="footnote-ref"><a id="es-fnref16" href="#es-fn16">16</a></sup>. No pretendo afirmar que todas las investigadoras e investigadores sobre la discapacidad deban sumarse al activismo. Considero, sin embargo, que la creación de una comunidad científica en torno a la investigación militante en el ámbito de la discapacidad permitiría apoyar la emancipación de las personas con discapacidad en el seno de nuestra sociedad.
+                        </p>
+
+                        <h3 class="subchapter-title">Referencias bibliográficas</h3>
+                        <ul class="references-list">
+                            <li>Boucher, N. (2004), «Handicap, Recherche et Changement Social. L’émergence du paradigme émancipatoire dans l’étude de l’exclusion sociale des personas handicapées», <em>Lien Social Et Politiques</em>, vol. 50, DOI: <a href="https://doi.org/10.7202/008285ar" target="_blank" rel="noopener noreferrer">doi.org/10.7202/008285ar</a>, pp. 147-164.</li>
+                            <li>Facal, J. (2022, 22 de diciembre), <em>L’Université d’Ottawa n’est que la pointe de l’iceberg</em>, Journal de Montréal, URL: <a href="https://tinyurl.com/5hae23c9" target="_blank" rel="noopener noreferrer">https://tinyurl.com/5hae23c9</a>.</li>
+                            <li>Fortier, M. (2020, 20 de octubre), <em>Le milieu universitaire dénonce une ‘attaque’ contre la ‘liberté académique’</em>, Le Devoir, URL: <a href="https://tinyurl.com/2vjzhwpc" target="_blank" rel="noopener noreferrer">https://tinyurl.com/2vjzhwpc</a>.</li>
+                            <li>Lavigne, C. (2007), «Analyse qualitative du rapport du chercheur à son objet, le handicap : Le chercheur impliqué dans une situation de handicap et travaillant sur le handicap, est-il un chercheur handicapé ?», <em>Actes du colloque Bilan et prospectives de la recherche qualitative</em>, URL: <a href="https://tinyurl.com/epsnsepx" target="_blank" rel="noopener noreferrer">https://tinyurl.com/epsnsepx</a>.</li>
+                            <li>Longmore Institute (2023, 3 de enero), <em>EMERGE project announcement</em>, Paul K. Longmore Institute on Disability, URL: <a href="https://tinyurl.com/msubnuk9" target="_blank" rel="noopener noreferrer">https://tinyurl.com/msubnuk9</a>.</li>
+                            <li>Radio-Canada (2018, 29 de marzo), <em>Walmart congédie ses employés présentant une déficience intellectuelle</em>, URL: <a href="https://tinyurl.com/3d32ds9z" target="_blank" rel="noopener noreferrer">https://tinyurl.com/3d32ds9z</a>.</li>
+                            <li>Rettino-Parazelli, K. (2018, 7 de abril), <em>L’affaire Walmart n’est que la pointe de l’iceberg</em>, Le Devoir, URL: <a href="https://tinyurl.com/2z6kev4a" target="_blank" rel="noopener noreferrer">https://tinyurl.com/2z6kev4a</a>.</li>
+                            <li>Salomon, C., Boisvert, J., Ranocchiari, S., et al. (2021), «L’engagement militant dans la investigación en agricultura urbana. Réflexions sur le contexte français au miroir du ‘scholar activism’ nord-américain», <em>Natures Sciences Sociétés</em>, vol. 29, n.º 3, DOI: <a href="https://doi.org/10.1051/nss/2021058" target="_blank" rel="noopener noreferrer">doi.org/10.1051/nss/2021058</a>, pp. 288–298.</li>
+                            <li>Vézina, C., Gagnon, M. (2014), <em>Aporia</em>, vol. 6, n.º 2, URL: <a href="https://doi.org/10.18192/aporia.v6i2.2849" target="_blank" rel="noopener noreferrer">doi.org/10.18192/aporia.v6i2.2849</a>.</li>
+                        </ul>
+
+                        <section class="footnotes-section" aria-label="Notas al pie de página">
+                            <h3 class="subchapter-title" style="margin-top: 0;">Notas al pie de página</h3>
+                            <ol class="footnotes-list">
+                                <li id="es-fn1"><a class="fn-back" href="#es-fnref1">1.</a> Radio-Canada (2018, 29 de marzo), <em>Walmart congédie ses employés présentant une déficience intellectuelle</em>, URL: <a href="https://tinyurl.com/3d32ds9z" target="_blank" rel="noopener noreferrer">https://tinyurl.com/3d32ds9z</a>.</li>
+                                <li id="es-fn2"><a class="fn-back" href="#es-fnref2">2.</a> Rettino-Parazelli K. (2018, 7 de abril), <em>L’affaire Walmart n’est que «&nbsp;la pointe de l’iceberg&nbsp;»</em>, Le Devoir, URL: <a href="https://tinyurl.com/2z6kev4a" target="_blank" rel="noopener noreferrer">https://tinyurl.com/2z6kev4a</a>.</li>
+                                <li id="es-fn3"><a class="fn-back" href="#es-fnref3">3.</a> Boucher, N. (2004), «Handicap, Recherche et Changement Social. L’émergence du paradigme émancipatoire dans l’étude de l’exclusion sociale des personas handicapées», <em>Lien Social Et Politiques</em>, vol. 50, pp. 147–164, DOI: <a href="https://doi.org/10.7202/008285ar" target="_blank" rel="noopener noreferrer">doi.org/10.7202/008285ar</a>.</li>
+                                <li id="es-fn4"><a class="fn-back" href="#es-fnref4">4.</a> Lavigne, C. (2007), «Analyse qualitative du rapport du chercheur à son objet, le handicap : Le chercheur impliqué dans une situation de handicap et travaillant sur le handicap, est-il un chercheur handicapé ?», <em>Actes du colloque Bilan et prospectives de la recherche qualitative</em>, p. 94, URL: <a href="https://tinyurl.com/epsnsepx" target="_blank" rel="noopener noreferrer">https://tinyurl.com/epsnsepx</a>.</li>
+                                <li id="es-fn5"><a class="fn-back" href="#es-fnref5">5.</a> Salomon, C., Boisvert, J., Ranocchiari, S., et al. (2021), «L’engagement militant dans la recherche en agricultura urbana. Réflexions sur le contexte français au miroir du <em>scholar activism</em> nord-américain», <em>Natures Sciences Sociétés</em>, vol. 29, n.º 3, DOI: <a href="https://doi.org/10.1051/nss/2021058" target="_blank" rel="noopener noreferrer">doi.org/10.1051/nss/2021058</a>, p. 291.</li>
+                                <li id="es-fn6"><a class="fn-back" href="#es-fnref6">6.</a> <em>Idem.</em>, p. 290.</li>
+                                <li id="es-fn7"><a class="fn-back" href="#es-fnref7">7.</a> <em>Idem.</em>, p. 291.</li>
+                                <li id="es-fn8"><a class="fn-back" href="#es-fnref8">8.</a> <em>Idem.</em></li>
+                                <li id="es-fn9"><a class="fn-back" href="#es-fnref9">9.</a> Vézina, C., Gagnon, M. (2014), <em>Aporia</em>, vol. 6, n.º 2, URL: <a href="https://doi.org/10.18192/aporia.v6i2.2849" target="_blank" rel="noopener noreferrer">doi.org/10.18192/aporia.v6i2.2849</a>, p. 32.</li>
+                                <li id="es-fn10"><a class="fn-back" href="#es-fnref10">10.</a> <em>Idem.</em>, p. 35.</li>
+                                <li id="es-fn11"><a class="fn-back" href="#es-fnref11">11.</a> Vézina, C., Gagnon, M. (2014), <em>op. cit.</em>, p. 31.</li>
+                                <li id="es-fn12"><a class="fn-back" href="#es-fnref12">12.</a> Fortier, M. (2020, 20 de octubre), <em>Le milieu universitaire dénonce une ‘attaque’ contre la ‘liberté académique’</em>, Le Devoir, URL: <a href="https://tinyurl.com/2vjzhwpc" target="_blank" rel="noopener noreferrer">https://tinyurl.com/2vjzhwpc</a>.</li>
+                                <li id="es-fn13"><a class="fn-back" href="#es-fnref13">13.</a> Facal, J. (2022, 22 de diciembre), <em>L’Université d’Ottawa n’est que la pointe de l’iceberg</em>, Journal de Montréal, URL: <a href="https://tinyurl.com/5hae23c9" target="_blank" rel="noopener noreferrer">https://tinyurl.com/5hae23c9</a>.</li>
+                                <li id="es-fn14"><a class="fn-back" href="#es-fnref14">14.</a> Vézina, C., Gagnon, M. (2014), <em>op. cit.</em>, p. 31.</li>
+                                <li id="es-fn15"><a class="fn-back" href="#es-fnref15">15.</a> <em>Idem.</em>, p. 30.</li>
+                                <li id="es-fn16"><a class="fn-back" href="#es-fnref16">16.</a> Longmore Institute (2023, 3 de enero), <em>EMERGE project announcement</em>, Paul K. Longmore Institute on Disability, URL: <a href="https://tinyurl.com/msubnuk9" target="_blank" rel="noopener noreferrer">https://tinyurl.com/msubnuk9</a>.</li>
+                            </ol>
+                        </section>
+                    </div>
+
+                    <div class="lang-close-footer">
+                        <button type="button" class="btn-close-lang" onclick="closeLangVersion('es')">
+                            <span>Cerrar la versión en español</span>
+                            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                        </button>
+                    </div>
+                </section>
+
                 <!-- Corps de l'article -->
                 <div class="article-body">
                     <!-- Introduction -->
@@ -993,10 +1578,10 @@
                         À partir de ces constats, j’ai voulu me pencher sur le rôle de la communauté scientifique dans la propulsion de changements sociétaux en faveur de l’émancipation des personnes handicapées. Mes lectures sur les différents rôles que peuvent jouer les scientifiques m’ont dirigée vers la recherche militante, qui me semble une option nécessaire pour sortir le Québec de son inaction en ce qui concerne les droits des personnes handicapées. Dans les prochains paragraphes, j’offrirai un aperçu de ce rôle dans le contexte de la recherche sur le handicap, un sujet assez peu abordé en français.
                     </p>
                     <p>
-                        Dans un article comparant le militantisme académique de chercheuses et chercheurs en agriculture urbaine aux États-Unis et la culture universitaire française, Salomon Cavin et ses collègues définissent la recherche militante comme un moyen «&nbsp;de formuler et de mettre en œuvre des stratégies d’émancipation<sup class="footnote-ref"><a id="fnref5" href="#fn5">5</a></sup>&nbsp;». La recherche militante a émergé «&nbsp;des traditions critiques les plus ancrées dans ce pays [et] s’inscrit dans la continuité historique de la lutte pour les droits civiques et la défense des minorités ethniques<sup class="footnote-ref"><a id="fnref6" href="#fn6">6</a></sup>&nbsp;». La posture militante adoptée par certaines communautés scientifiques aux États-Unis n’est pas étrangère à la «&nbsp;réévaluation critique des catégories de pensée dominantes en sciences sociales<sup class="footnote-ref"><a id="fnref7" href="#fn7">7</a></sup>&nbsp;», notamment avec les études féministes ou les études postcoloniales. Cette remise en question des relations de pouvoir et des rapports d’oppression permet ainsi de «&nbsp;produire des savoirs d’action<sup class="footnote-ref"><a id="fnref8" href="#fn8">8</a></sup>&nbsp;».
+                        Dans un article comparant le militantisme académique de chercheuses et chercheurs en agriculture urbaine aux États-Unis et la culture universitaire française, Salomon Cavin et ses collègues définissent la recherche militante comme un moyen «&nbsp;de formuler et de mettre en œuvre des stratégies d’émancipation<sup class="footnote-ref"><a id="fnref5" href="#fnref5">5</a></sup>&nbsp;». La recherche militante a émergé «&nbsp;des traditions critiques les plus ancrées dans ce pays [et] s’inscrit dans la continuité historique de la lutte pour les droits civiques et la défense des minorités ethniques<sup class="footnote-ref"><a id="fnref6" href="#fnref6">6</a></sup>&nbsp;». La posture militante adoptée par certaines communautés scientifiques aux États-Unis n’est pas étrangère à la «&nbsp;réévaluation critique des catégories de pensée dominantes en sciences sociales<sup class="footnote-ref"><a id="fnref7" href="#fnref7">7</a></sup>&nbsp;», notamment avec les études féministes ou les études postcoloniales. Cette remise en question des relations de pouvoir et des rapports d’oppression permet ainsi de «&nbsp;produire des savoirs d’action<sup class="footnote-ref"><a id="fnref8" href="#fnref8">8</a></sup>&nbsp;».
                     </p>
                     <p>
-                        Dans leur analyse des différentes postures adoptées par les scientifiques dans leur rapport au militantisme, Vézina et Gagnon définissent la posture «&nbsp;avec le militantisme [comme une] opportunité de remettre en question, de critiquer, de changer, de transformer [qui] se mobilise ainsi, en partant d’un positionnement épistémologique et méthodologique qui se veut propice à l’action<sup class="footnote-ref"><a id="fnref9" href="#fn9">9</a></sup>&nbsp;». Dans une étude de cas où l’une des autrices a adopté personnellement la posture «&nbsp;avec le militantisme&nbsp;» pour ses recherches doctorales et postdoctorales en sciences infirmières, elle partage le besoin pour le scientifique de «&nbsp;faire appel à des concepts et des théories qui peuvent d’une part, lui fournir les outils nécessaires pour remettre en question ce qui est pris pour acquis (incluant des pratiques cliniques) et d’autre part, le guider dans la production de savoirs infirmiers politiques<sup class="footnote-ref"><a id="fnref10" href="#fn10">10</a></sup>&nbsp;». Cette focalisation sur l’action pour transformer le système en place fait cruellement défaut à la recherche québécoise, du point de vue militant. Il est nécessaire de s’engager activement dans la recherche militante pour formuler et mettre en œuvre des stratégies d’émancipation qui remettent en question les relations de pouvoir et les rapports d’oppression dans la société. En cela, la posture «&nbsp;avec le militantisme&nbsp;» peut être une voie prometteuse pour les scientifiques qui souhaitent s’engager activement dans la production de savoirs d’action visant à transformer la réalité sociale.
+                        Dans leur analyse des différentes postures adoptées par les scientifiques dans leur rapport au militantisme, Vézina et Gagnon définissent la posture «&nbsp;avec le militantisme [comme une] opportunité de remettre en question, de critiquer, de changer, de transformer [qui] se mobilise ainsi, en partant d’un positionnement épistémologique et méthodologique qui se veut propice à l’action<sup class="footnote-ref"><a id="fnref9" href="#fnref9">9</a></sup>&nbsp;». Dans une étude de cas où l’une des autrices a adopté personnellement la posture «&nbsp;avec le militantisme&nbsp;» pour ses recherches doctorales et postdoctorales en sciences infirmières, elle partage le besoin pour le scientifique de «&nbsp;faire appel à des concepts et des théories qui peuvent d’une part, lui fournir les outils nécessaires pour remettre en question ce qui est pris pour acquis (incluant des pratiques cliniques) et d’autre part, le guider dans la production de savoirs infirmiers politiques<sup class="footnote-ref"><a id="fnref10" href="#fnref10">10</a></sup>&nbsp;». Cette focalisation sur l’action pour transformer le système en place fait cruellement défaut à la recherche québécoise, du point de vue militant. Il est nécessaire de s’engager activement dans la recherche militante pour formuler et mettre en œuvre des stratégies d’émancipation qui remettent en question les relations de pouvoir et les rapports d’oppression dans la société. En cela, la posture «&nbsp;avec le militantisme&nbsp;» peut être une voie prometteuse pour les scientifiques qui souhaitent s’engager activement dans la production de savoirs d’action visant à transformer la réalité sociale.
                     </p>
 
                     <!-- Carte conceptuelle interactive 2 -->
@@ -1051,7 +1636,7 @@
                     </figure>
 
                     <p>
-                        Une des raisons qui pourrait expliquer l’hésitation des chercheuses et chercheurs à adopter une posture militante est l’impression de perte d’objectivité. Cette question est au cœur de débats, notamment au Québec où la vision majoritaire de la recherche est celle de la neutralité, que Vézina et Gagnon définissent comme une posture du scientifique «&nbsp;face au militantisme&nbsp;», c’est-à-dire «&nbsp;un processus rigoureux, neutre, objectif, impartial qui se déroule dans l’univers académique et qui produit un savoir «&nbsp;au service des cercles scientifiques qui s’auto-évaluent<sup class="footnote-ref"><a id="fnref11" href="#fn11">11</a></sup>&nbsp;». De plus, le contexte actuel semble particulièrement hostile aux scientifiques qui souhaitent mettre en lumière les rapports de pouvoir et critiquer l’ordre établi, pensons notamment à la saga du mot en N<sup class="footnote-ref"><a id="fnref12" href="#fn12">12</a></sup> à l’Université d’Ottawa ou même une chronique dénonçant l’ouverture d’un poste universitaire sur l’éducation anti-raciste à la même université comme étant de la pseudo-science<sup class="footnote-ref"><a id="fnref13" href="#fn13">13</a></sup>. À ce sujet, Vézina et Gagnon rappellent que «&nbsp;tout chercheur est socio-historiquement situé<sup class="footnote-ref"><a id="fnref14" href="#fn14">14</a></sup>&nbsp;». Chaque décision est ainsi teintée de subjectivités dont il est impossible de se débarrasser. Depuis plusieurs décennies, de nombreuses figures de la recherche et du militantisme affirment qu’au lieu de valoriser la neutralité, il serait plus bénéfique de mettre au jour nos subjectivités, de les prendre en considération et de les faire coexister avec les savoirs et méthodes théoriques. Vézina et Gagnon précisent que la posture du scientifique envers le militantisme «&nbsp;renvoie à une dynamique et non, en soi, à un statut<sup class="footnote-ref"><a id="fnref15" href="#fn15">15</a></sup>&nbsp;», ce qui permet une fluidité dans le temps et selon le sujet, les circonstances, etc.
+                        Une des raisons qui pourrait expliquer l’hésitation des chercheuses et chercheurs à adopter une posture militante est l’impression de perte d’objectivité. Cette question est au cœur de débats, notamment au Québec où la vision majoritaire de la recherche est celle de la neutralité, que Vézina et Gagnon définissent comme une posture du scientifique «&nbsp;face au militantisme&nbsp;», c’est-à-dire «&nbsp;un processus riguroso, neutre, objectif, impartial qui se déroule dans l’univers académique et qui produit un savoir «&nbsp;au service des cercles scientifiques qui s’auto-évaluent<sup class="footnote-ref"><a id="fnref11" href="#fn11">11</a></sup>&nbsp;». De plus, le contexte actuel semble particulièrement hostile aux scientifiques qui souhaitent mettre en lumière les rapports de pouvoir et critiquer l’ordre établi, pensons notamment à la saga du mot en N<sup class="footnote-ref"><a id="fnref12" href="#fn12">12</a></sup> à l’Université d’Ottawa ou même une chronique dénonçant l’ouverture d’un poste universitaire sur l’éducation anti-raciste à la même université comme étant de la pseudo-science<sup class="footnote-ref"><a id="fnref13" href="#fn13">13</a></sup>. À ce sujet, Vézina et Gagnon rappellent que «&nbsp;tout chercheur est socio-historiquement situé<sup class="footnote-ref"><a id="fnref14" href="#fnref14">14</a></sup>&nbsp;». Chaque décision est ainsi teintée de subjectivités dont il est impossible de se débarrasser. Depuis plusieurs décennies, de nombreuses figures de la recherche et du militantisme affirment qu’au lieu de valoriser la neutralité, il serait plus bénéfique de mettre au jour nos subjectivités, de les prendre en considération et de les faire coexister avec les savoirs et méthodes théoriques. Vézina et Gagnon précisent que la posture du scientifique envers le militantisme «&nbsp;renvoie à une dynamique et non, en soi, à un statut<sup class="footnote-ref"><a id="fnref15" href="#fnref15">15</a></sup>&nbsp;», ce qui permet une fluidité dans le temps et selon le sujet, les circonstances, etc.
                     </p>
                     <p>
                         En ouvrant leur pratique scientifique à la perméabilité entre objectivité et subjectivité, les scientifiques peuvent affiner leur réflexion sur leurs propres biais. D’où vient mon intérêt pour le handicap&nbsp;? Quelles expériences de recherche et quels savoirs m’ont été offerts lors de ma formation&nbsp;? Quelles recherches sont financées par les bailleurs de fonds et qui sont ces derniers&nbsp;? Est-ce que ma méthodologie reproduit les relations de pouvoir vécues par les participantes et participants à ma recherche&nbsp;? Est-ce que le savoir que j’ai produit a fait une différence dans la communauté étudiée&nbsp;? Toutes ces questions exercent une influence sur les décisions concernant le choix d’un sujet de recherche ou la conception d’une étude. Selon moi, elles sont au cœur de la recherche militante. En effet, la recherche militante implique une réflexion critique sur les relations de pouvoir qui peuvent être reproduites dans le cadre de la recherche, et sur la façon dont la recherche peut contribuer à l’émancipation des communautés étudiées. Cela implique de tenir compte des perspectives des participantes et participants à la recherche, ainsi que des perspectives des scientifiques eux-mêmes, qui sont influencées par leur propre positionnement social et leur expérience personnelle.
@@ -1060,7 +1645,7 @@
                     <!-- Conclusion -->
                     <h2 id="sec-conclusion" class="subchapter-title section-anchor">Conclusion</h2>
                     <p>
-                        La recherche militante est de plus en plus reconnue, notamment aux États-Unis, où l’Institut Paul K. Longmore sur le handicap a récemment annoncé un financement d’un million de dollars pour organiser des ateliers visant à soutenir les chercheuses et chercheurs sur le handicap qui font de la recherche militante<sup class="footnote-ref"><a id="fnref16" href="#fn16">16</a></sup>. Je ne prétends pas que toutes les chercheuses et chercheurs sur le handicap doivent se joindre au militantisme. Je considère toutefois que la création d’une communauté scientifique autour de la recherche militante dans le domaine du handicap permettrait de soutenir l’émancipation des personnes handicapées au sein de notre société.
+                        La recherche militante est de plus en plus reconnue, notamment aux États-Unis, où l’Institut Paul K. Longmore sur le handicap a récemment annoncé un financement d’un million de dollars pour organiser des ateliers visant à soutenir les chercheuses et chercheurs sur le handicap qui font de la recherche militante<sup class="footnote-ref"><a id="fnref16" href="#fnref16">16</a></sup>. Je ne prétends pas que toutes les chercheuses et chercheurs sur le handicap doivent se joindre au militantisme. Je considère toutefois que la création d’une communauté scientifique autour de la recherche militante dans le domaine du handicap permettrait de soutenir l’émancipation des personnes handicapées au sein de notre société.
                     </p>
 
                     <!-- Références bibliographiques -->
@@ -1148,12 +1733,81 @@
     </div>
 
     <script>
+        // Définition de l'URL du script et fonction d'envoi des données
+        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwsWWx6rfNttj2ydWQ_qx5UJfjoQZ3PXKbGN2m4gdJV9oBbBX4-cO19FJEV8bc7ZZY/exec";
+
+        function sendLog(type, target) {
+            if (!GOOGLE_SCRIPT_URL) return;
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ type: type, target: target })
+            }).catch(error => {
+                console.error("Erreur lors de l'enregistrement du log :", error);
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', function() {
+            sendLog("Ouverture", "Recherche militante");
+        });
+
         function toggleSubmenu(event, submenuId, arrowId) {
             event.stopPropagation();
             const submenu = document.getElementById(submenuId);
             const arrow = document.getElementById(arrowId);
             submenu.classList.toggle('open');
             arrow.style.transform = submenu.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
+
+        function toggleLangVersion(lang) {
+            const drawerEn = document.getElementById('drawerEn');
+            const drawerEs = document.getElementById('drawerEs');
+            const btnEn = document.getElementById('btnToggleEn');
+            const btnEs = document.getElementById('btnToggleEs');
+
+            if (lang === 'en') {
+                const isOpen = drawerEn.classList.contains('open');
+                drawerEs.classList.remove('open');
+                btnEs.classList.remove('active');
+                btnEs.setAttribute('aria-expanded', 'false');
+
+                if (isOpen) {
+                    drawerEn.classList.remove('open');
+                    btnEn.classList.remove('active');
+                    btnEn.setAttribute('aria-expanded', 'false');
+                } else {
+                    drawerEn.classList.add('open');
+                    btnEn.classList.add('active');
+                    btnEn.setAttribute('aria-expanded', 'true');
+                    drawerEn.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            } else if (lang === 'es') {
+                const isOpen = drawerEs.classList.contains('open');
+                drawerEn.classList.remove('open');
+                btnEn.classList.remove('active');
+                btnEn.setAttribute('aria-expanded', 'false');
+
+                if (isOpen) {
+                    drawerEs.classList.remove('open');
+                    btnEs.classList.remove('active');
+                    btnEs.setAttribute('aria-expanded', 'false');
+                } else {
+                    drawerEs.classList.add('open');
+                    btnEs.classList.add('active');
+                    btnEs.setAttribute('aria-expanded', 'true');
+                    drawerEs.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+        }
+
+        function closeLangVersion(lang) {
+            const drawer = document.getElementById(lang === 'en' ? 'drawerEn' : 'drawerEs');
+            const btn = document.getElementById(lang === 'en' ? 'btnToggleEn' : 'btnToggleEs');
+            drawer.classList.remove('open');
+            btn.classList.remove('active');
+            btn.setAttribute('aria-expanded', 'false');
+            btn.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
 
         function openModal(type, title, url) {
@@ -1250,7 +1904,7 @@
             }
         });
 
-        /* Interactivité des cartes conceptuelles */
+        /* Interactivité des cartes conceptuelles — Français */
         const concept1Notes = [
             "<strong>1. Décideuses &amp; décideurs :</strong> Les orientations publiques sont élaborées par des acteurs éloignés du vécu des personnes handicapées, privilégiant la rentabilité économique au détriment des droits fondamentaux.",
             "<strong>2. Gestion au cas par cas :</strong> Comme l’illustre l’abandon de l’entente avec Jonathan Marchand en 2021, l’État évite les réformes structurelles et reporte le poids administratif et humain sur chaque individu.",
@@ -1276,6 +1930,62 @@
             card.querySelectorAll('.svg-node').forEach(n => n.classList.remove('active'));
             el.classList.add('active');
             document.getElementById('concept2Detail').innerHTML = concept2Notes[idx];
+        }
+
+        /* Interactivité des cartes conceptuelles — Anglais */
+        const concept1NotesEn = [
+            "<strong>1. Decision-Makers:</strong> Public policies are crafted by actors far removed from the lived experience of people with disabilities, prioritizing economic profitability over fundamental rights.",
+            "<strong>2. Case-by-Case Management:</strong> As illustrated by the abandonment of the agreement with Jonathan Marchand in 2021, the state avoids structural reforms and shifts the administrative and human burden onto each individual.",
+            "<strong>3. Social Stagnation:</strong> Despite the <em>Accessible Canada Act</em>, barriers persist in employment, in-home human assistance, housing, and transportation in Quebec.",
+            "<strong>4. Counter-Powers &amp; Research:</strong> Community organizations are underfunded, and evidence-based research findings struggle to break through the wall of political inaction."
+        ];
+
+        function selectConcept1En(idx, el) {
+            const card = el.closest('.concept-map-card');
+            card.querySelectorAll('.svg-node').forEach(n => n.classList.remove('active'));
+            el.classList.add('active');
+            document.getElementById('concept1DetailEn').innerHTML = concept1NotesEn[idx];
+        }
+
+        const concept2NotesEn = [
+            "<strong>Stance “Facing Activism”:</strong> Dominant in Quebec, this approach postulates strict impartiality in the service of self-evaluating scientific circles, at the risk of leaving ableist structures intact.",
+            "<strong>Stance “With Activism”:</strong> Rooted notably in North American critical traditions (<em>scholar activism</em>), it embraces the researcher’s socio-historical situatedness to produce emancipatory actionable knowledge.",
+            "<strong>5 Key Reflexive Questions:</strong> Origin of interest in disability, training biases, influence of funding bodies, reproduction of power dynamics in methodology, and tangible impact for the community."
+        ];
+
+        function selectConcept2En(idx, el) {
+            const card = el.closest('.concept-map-card');
+            card.querySelectorAll('.svg-node').forEach(n => n.classList.remove('active'));
+            el.classList.add('active');
+            document.getElementById('concept2DetailEn').innerHTML = concept2NotesEn[idx];
+        }
+
+        /* Interactivité des cartes conceptuelles — Espagnol */
+        const concept1NotesEs = [
+            "<strong>1. Responsables políticos:</strong> Las orientaciones públicas son elaboradas por actores alejados de la vivencia de las personas con discapacidad, privilegiando la rentabilidad económica en detrimento de los derechos fundamentales.",
+            "<strong>2. Gestión caso por caso:</strong> Como ilustra el abandono del acuerdo con Jonathan Marchand en 2021, el Estado evita las reformas estructurales y traslada el peso administrativo y humano a cada individuo.",
+            "<strong>3. Estancamiento social:</strong> A pesar de la <em>Ley Canadiense de Accesibilidad</em>, los obstáculos persisten en el empleo, la asistencia humana a domicilio, la vivienda y el transporte en Quebec.",
+            "<strong>4. Contrapoderes e investigación:</strong> Las organizaciones comunitarias están subfinanciadas y los datos probatorios derivados de la investigación tienen dificultades para franquear el muro de la inacción política."
+        ];
+
+        function selectConcept1Es(idx, el) {
+            const card = el.closest('.concept-map-card');
+            card.querySelectorAll('.svg-node').forEach(n => n.classList.remove('active'));
+            el.classList.add('active');
+            document.getElementById('concept1DetailEs').innerHTML = concept1NotesEs[idx];
+        }
+
+        const concept2NotesEs = [
+            "<strong>Postura «Frente al activismo»:</strong> Dominante en Quebec, este enfoque postula una imparcialidad estricta al servicio de los círculos científicos que se autoevalúan, con el riesgo de dejar intactas las estructuras capacitistas.",
+            "<strong>Postura «Con el activismo»:</strong> Surgida especialmente de las tradiciones críticas norteamericanas (<em>scholar activism</em>), asume el anclaje sociohistórico del investigador para producir saberes de acción emancipadores.",
+            "<strong>5 preguntas reflexivas clave:</strong> Origen del interés por la discapacidad, sesgos de formación, influencia de los organismos financiadores, reproducción de las relaciones de poder en la metodología e impacto concreto para la comunidad."
+        ];
+
+        function selectConcept2Es(idx, el) {
+            const card = el.closest('.concept-map-card');
+            card.querySelectorAll('.svg-node').forEach(n => n.classList.remove('active'));
+            el.classList.add('active');
+            document.getElementById('concept2DetailEs').innerHTML = concept2NotesEs[idx];
         }
     </script>
 </body>
