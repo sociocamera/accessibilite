@@ -12,7 +12,7 @@
     <!-- Open Graph -->
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="Revue Sociologie Visuelle">
-    <meta property="og:title" content="Les musées inclusifs : le cas du plan d’action sur l’accessibilité universelle du MNBAQ">
+    <meta property="og:title" content="Les musées inclusifs : le cas du plan d’action sur l’accessibilité universelle du Musée national des beaux-arts du Québec">
     <meta property="og:description" content="Partage d’expériences entre l’équipe du MNBAQ, les usagers PAI, les experts et les scientifiques autour de l’accessibilité universelle.">
     <meta property="og:url" content="https://inclusionsociale.com/musees-inclusifs.html">
     <meta property="og:image" content="https://lh3.googleusercontent.com/d/1R-6VqA6SZ8t1dall1uf0mj_ehOcj7jNW">
@@ -783,7 +783,7 @@
 
     <!-- Barre horizontale permanente supérieure -->
     <header class="top-navbar">
-        <div class="top-navbar-title">Revue Sociologie Visuelle</div>
+        <div class="top-navbar-title"><img src="https://raw.githubusercontent.com/sociocamera/accessibilite/main/Logo_Inclusion_Sociale.png" alt="Logo Inclusion Sociale" width="36" height="36">&nbsp;&nbsp;&nbsp;&nbsp;INCLUSION SOCIALE</div>
         <div class="header-actions">
             <button class="btn-header secondary" onclick="openModal('video', 'Présentation introductive — Vidéo', 'https://drive.google.com/file/d/10Va3etjn9wZIqrVnByyNXDVM-XPKOHkK/preview?autoplay=1')">
                 <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
@@ -1606,6 +1606,25 @@
     </div>
 
     <script>
+        // Définition de l'URL du script et fonction d'envoi des données
+        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwsWWx6rfNttj2ydWQ_qx5UJfjoQZ3PXKbGN2m4gdJV9oBbBX4-cO19FJEV8bc7ZZY/exec";
+
+        function sendLog(type, target) {
+            if (!GOOGLE_SCRIPT_URL) return;
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ type: type, target: target })
+            }).catch(error => {
+                console.error("Erreur lors de l'enregistrement du log :", error);
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', function() {
+            sendLog("Ouverture", "Loisirs inclusifs");
+        });
+
         function toggleSubmenu(event, submenuId, arrowId) {
             event.stopPropagation();
             const submenu = document.getElementById(submenuId);
