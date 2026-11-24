@@ -930,7 +930,7 @@
     <!-- Colonne latérale gauche permanente -->
     <aside class="sidebar">
         <div class="sidebar-header">
-            <a href="https://inclusionsociale.com/#theme-3" class="btn-home">
+            <a href="https://inclusionsociale.com/#article-unir-forces" class="btn-home">
                 <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
                 ACCUEIL
             </a>
@@ -1315,7 +1315,7 @@
                     </section>
 
                     <!-- Notes de bas de page -->
-                    <footer class="footnotes-section" aria-label="Notes de bas de page">
+                    <footer class="footnotes-section" aria-label="Notes et références">
                         <h3>Notes et références</h3>
                         <div class="footnote-item" id="fn1">
                             <strong>1.</strong> <a href="https://youtu.be/4Ec8lTYKxEI" target="_blank" rel="noopener noreferrer">https://youtu.be/4Ec8lTYKxEI</a>
@@ -1584,6 +1584,25 @@ ${desc}`);
                 closeModal();
                 closeProposalModal();
             }
+        });
+
+        // Définition de l'URL du script et fonction d'envoi des données
+        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwsWWx6rfNttj2ydWQ_qx5UJfjoQZ3PXKbGN2m4gdJV9oBbBX4-cO19FJEV8bc7ZZY/exec";
+
+        function sendLog(type, target) {
+            if (!GOOGLE_SCRIPT_URL) return;
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ type: type, target: target })
+            }).catch(error => {
+                console.error("Erreur lors de l'enregistrement du log :", error);
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', function() {
+            sendLog("Ouverture", "Loisirs accessibles");
         });
     </script>
 </body>
