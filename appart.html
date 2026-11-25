@@ -966,19 +966,36 @@
     <header class="top-navbar">
         <div class="top-navbar-title"><img src="https://raw.githubusercontent.com/sociocamera/accessibilite/main/Logo_Inclusion_Sociale.png" alt="Logo Inclusion Sociale" width="36" height="36">&nbsp;&nbsp;&nbsp;&nbsp;INCLUSION SOCIALE</div>
         <div class="header-actions">
-            <button class="btn-header secondary" onclick="openModal('video', 'Présentation introductive — Vidéo', 'https://drive.google.com/file/d/10Va3etjn9wZIqrVnByyNXDVM-XPKOHkK/preview?autoplay=1')">
-                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-                Visionner la vidéo de présentation
-            </button>
+
             <button class="btn-header secondary" onclick="openProposalModal('article')">
                 <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
                 Proposer un projet de captation ou un article
             </button>
-            <button class="btn-header secondary" onclick="openModal('pdf', 'Télécharger le numéro complet', 'https://drive.google.com/file/d/1d3ZUnnEwYomQ1VRQ1lF8XNei88HelQvy/preview')">
-                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                Télécharger le numéro
+
+            <button class="btn-header secondary" onclick="sendLog('Clic navigation', 'Éditeurs et coéditeurs'); window.location.href='https://inclusionsociale.com/editeurs.html'">
+              <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              Éditeurs et coéditeurs
             </button>
+
+            <button class="btn-header secondary" onclick="window.location.href='https://inclusionsociale.com/sociofinancement.html'">
+              <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              Sociofinancement
+            </button>
+
+<button class="btn-header secondary" onclick="window.location.href='https://inclusionsociale.com/apropos.html'">
+  <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <circle cx="12" cy="12" r="10"></circle>
+    <line x1="12" y1="16" x2="12" y2="12"></line>
+    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+  </svg>
+  À propos
+</button>
         </div>
+
+
+
+
+
         <div class="top-navbar-location" id="locationIndicator">Appartements supervisés</div>
     </header>
 
@@ -1008,53 +1025,61 @@
         <div class="sidebar-nav">
             <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: #7a2222; letter-spacing: 0.05em; margin-bottom: 0.5rem; padding-left: 0.25rem;">NAVIGATION SUR LE SITE</div>
 
-            <div>
-                <button class="nav-btn" onclick="toggleSubmenu(event, 'accessibilitySubmenu', 'submenuArrow')">
-                    <span>Penser l'accessibilité</span>
-                    <svg id="submenuArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-                </button>
-                <div class="submenu" id="accessibilitySubmenu">
-                    <a href="https://inclusionsociale.com/#theme-1" class="submenu-item">1. Espace urbain & transports</a>
-                    <a href="https://inclusionsociale.com/#theme-2" class="submenu-item">2. Éducation & institutions</a>
-                    <a href="https://inclusionsociale.com/#theme-3" class="submenu-item">3. Travail, autonomie & loisirs</a>
-                    <a href="https://inclusionsociale.com/#theme-4" class="submenu-item">4. Expérience vécue & stigmates</a>
-                </div>
-            </div>
+ <div>
+    <a href="https://inclusionsociale.com/index.html" class="nav-btn" style="font-weight: normal; justify-content: flex-start; gap: 0.6rem;">
+        <span style="display: inline-flex; align-items: center; gap: 0.25rem;" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+            </svg>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
+                <line x1="7" y1="2" x2="7" y2="22"></line>
+                <line x1="17" y1="2" x2="17" y2="22"></line>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <line x1="2" y1="7" x2="7" y2="7"></line>
+                <line x1="2" y1="17" x2="7" y2="17"></line>
+                <line x1="17" y1="17" x2="22" y2="17"></line>
+                <line x1="17" y1="7" x2="22" y2="7"></line>
+            </svg>
+        </span>
+        <span>Articles et vidéos</span>
+    </a>
+</div>
 
-            <div>
-                <button class="nav-btn" onclick="toggleSubmenu(event, 'bilansSubmenu', 'bilansSubmenuArrow')">
-                    <span>Bilans</span>
-                    <svg id="bilansSubmenuArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-                </button>
-                <div class="submenu" id="bilansSubmenu">
-                    <a href="https://inclusionsociale.com/mentorat-actif-bilan.html" class="submenu-item">Mentorat actif, un plus tard</a>
-                </div>
-            </div>
             <!-- Bouton Tournages en cours non gras -->
-            <div>
-                <a href="https://inclusionsociale.com/tournages.html" class="nav-btn" style="font-weight: normal;">
+
+<div>
+                <a href="https://inclusionsociale.com/tournages.html" class="nav-btn" style="font-weight: normal; justify-content: flex-start; gap: 0.6rem;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
                     <span>Tournages en cours</span>
                 </a>
             </div>
 
-            <!-- Mention cliquable NAVIGATION DANS LA PAGE -->
             <div>
-                <button class="page-nav-toggle" onclick="toggleSubmenu(event, 'pageNavSubmenu', 'pageNavArrow')" aria-expanded="false">
-                    <span>NAVIGATION DANS LA PAGE</span>
-                    <svg id="pageNavArrow" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="transition: transform 0.2s;"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
-                </button>
-                <div class="page-nav-submenu" id="pageNavSubmenu">
-                    <a href="#top-presentation" class="submenu-item" onclick="scrollToSection(event, 'top-presentation')">Présentation</a>
-                    <a href="#section-intro" class="submenu-item" onclick="scrollToSection(event, 'section-0')">Introduction</a>
-                    <a href="#section-1" class="submenu-item" onclick="scrollToSection(event, 'section-1')">1. Historique de l'habitation</a>
-                    <a href="#section-2" class="submenu-item" onclick="scrollToSection(event, 'section-2')">2. Aspirations résidentielles</a>
-                    <a href="#section-3" class="submenu-item" onclick="scrollToSection(event, 'section-3')">3. Nouvelles formules et « J'ai mon appart' »</a>
-                    <a href="#section-4" class="submenu-item" onclick="scrollToSection(event, 'section-4')">4. Les acteurs impliqués</a>
-                    <a href="#section-5" class="submenu-item" onclick="scrollToSection(event, 'section-5')">5. Leçons tirées</a>
-                    <a href="#section-conclusion" class="submenu-item" onclick="scrollToSection(event, 'section-conclusion')">Conclusion</a>
-                    <a href="#section-references" class="submenu-item" onclick="scrollToSection(event, 'section-references')">Références bibliographiques</a>
-                </div>
+                <a href="https://inclusionsociale.com/sociofinancement.html" class="nav-btn" style="font-weight: normal; justify-content: flex-start; gap: 0.6rem;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    <span>Sociofinancement</span>
+                </a>
             </div>
+
+            <div>
+                <a href="https://inclusionsociale.com/apropos.html" class="nav-btn" style="font-weight: normal; justify-content: flex-start; gap: 0.6rem;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                    <span>À propos</span>
+                </a>
+            </div>
+
+            <div>
+                <a href="https://inclusionsociale.com/contacter.html" class="nav-btn" style="font-weight: normal; justify-content: flex-start; gap: 0.6rem;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    <span>Contact</span>
+                </a>
+            </div>
+
+
 
         </div>
     </aside>
@@ -1932,6 +1957,25 @@
     </div>
 
     <script>
+        // Définition de l'URL du script et fonction d'envoi des données
+        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwsWWx6rfNttj2ydWQ_qx5UJfjoQZ3PXKbGN2m4gdJV9oBbBX4-cO19FJEV8bc7ZZY/exec";
+
+        function sendLog(type, target) {
+            if (!GOOGLE_SCRIPT_URL) return;
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ type: type, target: target })
+            }).catch(error => {
+                console.error("Erreur lors de l'enregistrement du log :", error);
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', function() {
+            sendLog("Ouverture", "J'ai mon appart");
+        });
+
         function scrollVideoSlider(direction) {
             const track = document.getElementById('netflixVideoTrack');
             if (track) {
