@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; frame-src https://drive.google.com; connect-src https://script.google.com; object-src 'none';">
+    <title>À propos — Inclusion sociale et accessibilité | Revue de Sociologie Visuelle</title>
+    <meta name="description" content="À propos du numéro spécial de la Revue de Sociologie Visuelle consacré à l'inclusion sociale et à l'accessibilité, dirigé par François Routhier et Pierre Fraser.">
+    <meta name="keywords" content="inclusion sociale, accessibilité, sociologie visuelle, handicap, transport urbain, éducation inclusive, CIRRIS, PSVI, à propos">
+    <link rel="canonical" href="https://doi.org/10.13140/RG.2.2.35504.53768">
+
+    <!-- Open Graph (Facebook, LinkedIn, WhatsApp, etc.) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Revue Sociologie Visuelle">
+    <meta property="og:title" content="À propos — Inclusion sociale et accessibilité | Revue de Sociologie Visuelle">
+    <meta property="og:description" content="Présentation éditoriale, méthodologique et scientifique de la plateforme Inclusion sociale et accessibilité.">
+    <meta property="og:url" content="https://inclusionsociale.com/apropos.html">
+    <meta property="og:image" content="https://lh3.googleusercontent.com/d/1R-6VqA6SZ8t1dall1uf0mj_ehOcj7jNW">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="fr_CA">
+
+    <!-- Twitter / X Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="À propos — Inclusion sociale et accessibilité | Revue de Sociologie Visuelle">
+    <meta name="twitter:description" content="Présentation éditoriale, méthodologique et scientifique de la plateforme Inclusion sociale et accessibilité.">
+    <meta name="twitter:image" content="https://inclusionsociale.com/images/vignette-inclusion-sociale.jpg">
+
+    <style>
+        :root {
+            --bg-color: #FAF6EF;
+            --text-color: #2b2b2b;
+            --primary-color: #1a202c;
+            --accent-color: #4a5568;
+            --border-color: #e2e8f0;
+            --card-bg: #FAF6EF;
+            --hover-border: #cbd5e0;
+            --max-width: 1400px;
+            --sidebar-width: 320px;
+            --topbar-height: 60px;
+            --modal-header-bg: #7a2222; /* Bordeaux de référence */
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: "Georgia", "Cambria", "Times New Roman", serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Barre horizontale permanente supérieure */
+        .top-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--topbar-height);
+            background-color: var(--bg-color);
+            border-bottom: 1px solid var(--border-color);
+            display: grid;
+            grid-template-columns: var(--sidebar-width) 1fr auto;
+            align-items: center;
+            padding: 0;
+            z-index: 1100;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .top-navbar-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            letter-spacing: 0.02em;
+            padding: 0.2rem 1rem;
+            border-right: 1px solid var(--border-color);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.1rem;
+            text-decoration: none;
+            overflow: hidden;
+        }
+
+        .top-navbar-logo {
+            max-height: 30px;
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .top-navbar-sublabel {
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            line-height: 1.1;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .top-navbar-location {
+            font-size: 0.85rem;
+            color: #7a2222;
+            font-weight: 600;
+            background-color: #f2ede4;
+            padding: 0.3rem 0.75rem;
+            border-radius: 4px;
+            margin-right: 2.5rem;
+            border: 1px solid #e2d9c8;
+        }
+
+        /* Colonne latérale gauche permanente */
+        aside.sidebar {
+            position: fixed;
+            top: var(--topbar-height);
+            left: 0;
+            width: var(--sidebar-width);
+            height: calc(100vh - var(--topbar-height));
+            background-color: #f5f0e6;
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            z-index: 1000;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            overflow-y: auto;
+        }
+
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .btn-home {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            background-color: #7a2222;
+            color: #fff;
+            border: none;
+            padding: 0.85rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        .btn-home svg {
+            position: absolute;
+            left: 1rem;
+        }
+
+        .btn-home:hover {
+            background-color: #5e1a1a;
+        }
+
+        .sidebar-info-section {
+            padding: 1rem 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .sidebar-card {
+            background-color: #FAF6EF;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 0.85rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            text-align: justify;
+        }
+
+        .sidebar-card.editor-card {
+            flex-direction: row;
+            align-items: center;
+            gap: 0.75rem;
+            text-align: left;
+        }
+
+        .editor-info h4 {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            margin-bottom: 0.15rem;
+        }
+
+        .editor-info p {
+            font-size: 0.78rem;
+            color: var(--accent-color);
+            line-height: 1.4;
+        }
+
+        .sidebar-nav {
+            padding: 1.25rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            flex: 1;
+        }
+
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--primary-color);
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-align: left;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            background-color: #eae3d5;
+            border-color: var(--hover-border);
+        }
+
+        .nav-btn.active {
+            background-color: #eae3d5;
+            border-color: #7a2222;
+            color: #7a2222;
+            font-weight: 600 !important;
+        }
+
+        /* Conteneur principal à droite */
+        .main-wrapper {
+            margin-left: var(--sidebar-width);
+            margin-top: var(--topbar-height);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            width: calc(100% - var(--sidebar-width));
+            padding: 2.5rem 3rem;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            padding-left: 2rem;
+        }
+
+        .btn-header {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: 1px solid var(--primary-color);
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: background-color 0.2s;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-header.secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border-color: var(--border-color);
+        }
+
+        .btn-header.secondary:hover {
+            background-color: #f2ede4;
+            border-color: var(--hover-border);
+        }
+
+        /* =========================================================
+           STYLES DE LA ZONE DYNAMIQUE : PAGE "À PROPOS"
+           ========================================================= */
+        .about-container {
+            max-width: 1080px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .about-hero {
+            border-bottom: 2px solid #7a2222;
+            padding-bottom: 1.75rem;
+            margin-bottom: 2.25rem;
+        }
+
+        .about-kicker {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #7a2222;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .about-hero h1 {
+            font-size: 2.15rem;
+            line-height: 1.25;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .about-lead {
+            font-size: 1.12rem;
+            color: #3a3a3a;
+            line-height: 1.75;
+            text-align: justify;
+        }
+
+        .drop-cap::first-letter {
+            float: left;
+            font-size: 3.4rem;
+            line-height: 0.82;
+            padding-top: 4px;
+            padding-right: 10px;
+            padding-left: 2px;
+            color: #7a2222;
+            font-weight: 700;
+        }
+
+        /* Bandeau de métriques institutionnelles */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
+            margin-bottom: 2.75rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .metric-card {
+            background-color: #f5f0e6;
+            border: 1px solid #dfd6c7;
+            border-top: 3px solid #7a2222;
+            border-radius: 6px;
+            padding: 1.25rem 1rem;
+            text-align: center;
+        }
+
+        .metric-value {
+            display: block;
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: #7a2222;
+            line-height: 1.2;
+            margin-bottom: 0.35rem;
+        }
+
+        .metric-label {
+            font-size: 0.82rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            line-height: 1.35;
+        }
+
+        /* Sections éditoriales */
+        .about-section {
+            margin-bottom: 3rem;
+        }
+
+        .about-section h2 {
+            font-size: 1.45rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.45rem;
+            border-bottom: 1px solid #dfd6c7;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .about-section h2 .sec-num {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            background-color: #7a2222;
+            color: #fff;
+            padding: 0.15rem 0.55rem;
+            border-radius: 4px;
+            letter-spacing: 0.04em;
+        }
+
+        .about-section p {
+            margin-bottom: 1.15rem;
+            text-align: justify;
+            font-size: 1.02rem;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .pillar-box {
+            background-color: #f5f0e6;
+            border: 1px solid #dfd6c7;
+            border-radius: 8px;
+            padding: 1.4rem;
+        }
+
+        .pillar-box h3 {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 1rem;
+            color: #7a2222;
+            margin-bottom: 0.55rem;
+            font-weight: 700;
+        }
+
+        .pillar-box p {
+            font-size: 0.94rem;
+            margin-bottom: 0;
+            line-height: 1.6;
+        }
+
+        /* =========================================================
+           CARTES INTERACTIVES (SVG + PANNEAU D'EXPLORATION)
+           ========================================================= */
+        .interactive-map-card {
+            background-color: #f5f0e6;
+            border: 1px solid #d8cebe;
+            border-radius: 10px;
+            padding: 1.75rem;
+            margin: 1.75rem 0 2.75rem 0;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+        }
+
+        .map-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+            border-bottom: 1px solid #dfd6c7;
+            padding-bottom: 1rem;
+        }
+
+        .map-header-titles h3 {
+            font-size: 1.22rem;
+            color: var(--primary-color);
+            margin-bottom: 0.25rem;
+        }
+
+        .map-header-titles p {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            margin: 0;
+            text-align: left;
+        }
+
+        .map-badge {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            background-color: #FAF6EF;
+            color: #7a2222;
+            border: 1px solid #7a2222;
+            padding: 0.3rem 0.7rem;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        .map-workspace {
+            display: grid;
+            grid-template-columns: 1.35fr 1fr;
+            gap: 1.5rem;
+            align-items: stretch;
+        }
+
+        .svg-stage {
+            background-color: #FAF6EF;
+            border: 1px solid #dfd6c7;
+            border-radius: 8px;
+            padding: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .svg-stage svg {
+            width: 100%;
+            height: auto;
+            max-height: 360px;
+            display: block;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .map-node {
+            cursor: pointer;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .map-node:hover .node-shape {
+            stroke: #7a2222;
+            stroke-width: 2.5px;
+        }
+
+        .map-node.is-selected .node-shape {
+            fill: #7a2222;
+            stroke: #4a1212;
+            stroke-width: 2.5px;
+        }
+
+        .map-node.is-selected text {
+            fill: #ffffff !important;
+        }
+
+        .map-detail-panel {
+            background-color: #FAF6EF;
+            border: 1px solid #dfd6c7;
+            border-left: 4px solid #7a2222;
+            border-radius: 8px;
+            padding: 1.35rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .detail-tag {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #7a2222;
+            margin-bottom: 0.4rem;
+            display: inline-block;
+        }
+
+        .map-detail-panel h4 {
+            font-size: 1.15rem;
+            color: var(--primary-color);
+            margin-bottom: 0.75rem;
+            line-height: 1.35;
+        }
+
+        .map-detail-panel p {
+            font-size: 0.94rem;
+            color: #333;
+            line-height: 1.65;
+            text-align: left;
+            margin-bottom: 1rem;
+        }
+
+        .detail-meta {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            background-color: #f5f0e6;
+            padding: 0.65rem 0.85rem;
+            border-radius: 6px;
+            border: 1px solid #e6dec8;
+        }
+
+        .detail-meta strong {
+            color: var(--primary-color);
+        }
+
+        /* Citation académique */
+        .citation-box {
+            background-color: #f5f0e6;
+            border: 1px solid #dfd6c7;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .citation-box h3 {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #7a2222;
+            margin-bottom: 0.65rem;
+        }
+
+        .citation-text {
+            font-family: "Georgia", serif;
+            font-size: 0.95rem;
+            background-color: #FAF6EF;
+            border: 1px solid #e2d9c8;
+            padding: 1rem 1.25rem;
+            border-radius: 6px;
+            color: var(--primary-color);
+            margin-bottom: 0.85rem;
+            text-align: left !important;
+        }
+
+        .btn-copy-citation {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #7a2222;
+            color: #fff;
+            border: none;
+            padding: 0.55rem 1rem;
+            border-radius: 5px;
+            font-size: 0.83rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-copy-citation:hover {
+            background-color: #5e1a1a;
+        }
+
+        /* Fenêtres modales */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+        }
+
+        .modal-container {
+            background: var(--bg-color);
+            width: 100%;
+            max-width: 900px;
+            height: 85vh;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            border: 1px solid #d4c5b9;
+        }
+
+        .modal-header {
+            padding: 1.25rem 1.5rem;
+            background: var(--modal-header-bg);
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .modal-header h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .modal-close {
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #fff;
+            opacity: 0.85;
+            transition: opacity 0.2s;
+        }
+
+        .modal-close:hover {
+            opacity: 1;
+        }
+
+        .modal-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            background-color: var(--bg-color);
+        }
+
+        .pdf-frame, .video-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        @media (max-width: 1200px) {
+            :root { --sidebar-width: 0px; }
+            .top-navbar { left: 0; padding: 0 1rem; grid-template-columns: 1fr auto; }
+            .top-navbar-title { display: none; }
+            aside.sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
+            aside.sidebar.mobile-open { transform: translateX(0); }
+            .main-wrapper { margin-left: 0; width: 100%; padding: 1.5rem; }
+            .map-workspace { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+            .pillars-grid { grid-template-columns: 1fr; }
+            .about-hero h1 { font-size: 1.65rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barre horizontale permanente supérieure -->
+    <header class="top-navbar">
+        <a href="https://inclusionsociale.com" class="top-navbar-title" aria-label="Inclusion sociale — Accueil" onclick="sendLog('Clic navigation', 'Logo / Accueil (Topbar)')">
+            <img
+                src="https://raw.githubusercontent.com/sociocamera/accessibilite/main/Logo_Inclusion_Sociale.png"
+                alt="Logo Inclusion sociale"
+                class="top-navbar-logo"
+            >
+            <span class="top-navbar-sublabel">INCLUSION SOCIALE</span>
+        </a> 
+        <div class="header-actions">
+            <button class="btn-header secondary" onclick="openProposalModal('article')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                Proposer un projet de captation ou un article
+            </button>
+
+            <button class="btn-header secondary" onclick="sendLog('Clic navigation', 'Éditeurs et coéditeurs'); window.location.href='https://inclusionsociale.com/editeurs.html'">
+              <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              Éditeurs et coéditeurs
+            </button>
+
+            <button class="btn-header secondary" onclick="window.location.href='https://inclusionsociale.com/sociofinancement.html'">
+              <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              Sociofinancement
+            </button>
+
+<button class="btn-header secondary" onclick="window.location.href='https://inclusionsociale.com/apropos.html'">
+  <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <circle cx="12" cy="12" r="10"></circle>
+    <line x1="12" y1="16" x2="12" y2="12"></line>
+    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+  </svg>
+  À propos
+</button>
+
+        </div>
+        <div class="top-navbar-location" id="locationIndicator">À propos</div>
+    </header>
+
+    <!-- Colonne latérale gauche permanente -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="https://inclusionsociale.com" class="btn-home" onclick="sendLog('Clic navigation', 'Bouton ACCUEIL')">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                ACCUEIL
+            </a>
+        </div>
+
+        <div class="sidebar-info-section">
+            <div style="font-size: 0.72rem; color: #718096; text-align: left; margin-bottom: 0.05rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                DOI : <a href="https://doi.org/10.13140/RG.2.2.35504.53768" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; opacity: 0.85;" onclick="sendLog('Clic lien externe', 'DOI 10.13140/RG.2.2.35504.53768')">10.13140/RG.2.2.35504.53768</a>
+            </div>
+
+            <div class="sidebar-card editor-card">
+                <div class="editor-info">
+                    <h4>Éditeurs</h4>
+                    <p><b>François Routhier & Pierre Fraser</b></p>
+                    <p>Plus de 18 équipes de recherche mobilisées afin de saisir comment le milieu façonne et articule l'accès aux services et à l'inclusion sociale.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-nav">
+            <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: #7a2222; letter-spacing: 0.05em; margin-bottom: 0.5rem; padding-left: 0.25rem;">NAVIGATION SUR LE SITE</div>
+
+            <div>
+                <a href="https://inclusionsociale.com/index.html" class="nav-btn" style="font-weight: normal; justify-content: flex-start; gap: 0.6rem;">
+                    <span style="display: inline-flex; align-items: center; gap: 0.25rem;" aria-hidden="true">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                        </svg>
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
+                            <line x1="7" y1="2" x2="7" y2="22"></line>
+                            <line x1="17" y1="2" x2="17" y2="22"></line>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <line x1="2" y1="7" x2="7" y2="7"></line>
+                            <line x1="2" y1="17" x2="7" y2="17"></line>
+                            <line x1="17" y1="17" x2="22" y2="17"></line>
+                            <line x1="17" y1="7" x2="22" y2="7"></line>
+                        </svg>
+                    </span>
+                    <span>Articles et vidéos</span>
+                </a>
+            </div>
+
+            <div>
+                <a href="https://inclusionsociale.com/tournages.html" class="nav-btn" style="font-weight: normal; justify-content: flex-start; gap: 0.6rem;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+                    <span>Tournages en cours</span>
+                </a>
+            </div>
+
+            <div>
+                <a href="https://inclusionsociale.com/sociofinancement.html" class="nav-btn" style="font-weight: normal; justify-content: flex-start; gap: 0.6rem;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    <span>Sociofinancement</span>
+                </a>
+            </div>
+
+            <div>
+                <a href="https://inclusionsociale.com/apropos.html" class="nav-btn active" style="justify-content: flex-start; gap: 0.6rem;" aria-current="page">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                    <span>À propos</span>
+                </a>
+            </div>
+
+            <div>
+                <a href="https://inclusionsociale.com/contacter.html" class="nav-btn" style="font-weight: normal; justify-content: flex-start; gap: 0.6rem;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    <span>Contact</span>
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Zone de contenu dynamique à droite : PAGE À PROPOS -->
+    <div class="main-wrapper">
+        <main class="about-container">
+
+            <!-- En-tête éditorial -->
+            <header class="about-hero">
+                <span class="about-kicker">Revue Sociologie Visuelle • N° 4 et 5</span>
+                <h1>À propos de la plateforme <em>Inclusion sociale et accessibilité</em></h1>
+                <p class="about-lead drop-cap">
+                    Conçue comme un carrefour éditorial, scientifique et documentaire en libre accès, la plateforme <strong>inclusionsociale.com</strong> déploie les numéros spéciaux N° 4 et 5 de la <em>Revue Sociologie Visuelle</em>. Sous la direction scientifique de <strong>François Routhier</strong> (Ph.D.) et <strong>Pierre Fraser</strong> (Ph.D.), ce projet réunit plusieurs équipes de recherche ainsi que des citoyens  afin d'analyser concrètement comment les environnements bâtis, institutionnels, sociaux, de loisirs et de culture conditionnent l'accès aux services, l'autonomie et la pleine participation citoyenne.
+                </p>
+            </header>
+
+            <!-- Indicateurs clés -->
+            <section class="metrics-grid" aria-label="Repères clés du projet">
+                <div class="metric-card">
+                    <span class="metric-value">Recherche</span>
+                    <span class="metric-label">Équipes de recherche interdisciplinaires mobilisées</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-value">Pratiques</span>
+                    <span class="metric-label">Des initiatives citoyennes engagées et impliquées dans leurs communautés</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-value">Transfert</span>
+                    <span class="metric-label">Favoriser le transfert de connaissances vers le public</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-value">Libre accès</span>
+                    <span class="metric-label">Des textes évalués par les pairs et des capsules documentaires</span>
+                </div>
+            </section>
+
+            <!-- Section 1 : Genèse et architecture -->
+            <section class="about-section">
+                <h2><span class="sec-num">01</span> Genèse scientifique et partenariat institutionnel</h2>
+                <p>
+                    La plateforme est née en 2022 d'une collaboration étroite entre le <strong>Centre interdisciplinaire de recherche en réadaptation et intégration sociale (CIRRIS)</strong>, l'équipe de recherche <strong>Participation sociale et villes inclusives (PSVI)</strong>, la <strong>Revue Sociologie Visuelle</strong> et l'éditeur PhotoSociété. Plutôt que de cantonner les résultats de recherche aux seuls cercles universitaires spécialisés, ce dispositif propose une édition numérique interactive où l'analyse sociologique écrite dialogue directement avec l'image documentaire.
+                </p>
+                <p>
+                    Chaque contribution explore les mécanismes d'inclusion et d'exclusion à l'œuvre dans le quotidien des personnes vivant avec des incapacités physiques, sensorielles ou cognitives. L'approche privilégiée met en lumière l'interaction dynamique entre les caractéristiques individuelles et les facteurs environnementaux, qu'il s'agisse d'infrastructures urbaines, de transports collectifs, de parcours scolaires ou de dispositifs numériques.
+                </p>
+
+                <div class="pillars-grid">
+                    <div class="pillar-box">
+                        <h3>Rigueur académique et libre accès</h3>
+                        <p>Les articles publiés s'appuient sur des enquêtes empiriques rigoureuses, dotées d'un identifiant pérenne (DOI) et accessibles intégralement en ligne ainsi qu'au format PDF pour faciliter leur citation et leur appropriation par les milieux de pratique.</p>
+                    </div>
+                    <div class="pillar-box">
+                        <h3>La sociologie visuelle comme levier</h3>
+                        <p>À travers des capsules documentaires, des entretiens filmés sur le terrain et un suivi transparent des tournages en cours, la vidéo rend tangibles les obstacles rencontrés et les innovations sociales portées par les acteurs du milieu.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CARTE INTERACTIVE 1 : Écosystème de la plateforme -->
+            <section class="about-section" aria-labelledby="map1-title">
+                <h2><span class="sec-num">02</span> Architecture et synergie de la plateforme</h2>
+<p>
+  Explorez l'articulation entre les quatre pôles qui structurent le fonctionnement d'<strong>inclusionsociale.com</strong>.<br>
+  <span style="font-size: 0.88em; opacity: 0.72;">Cliquez sur l'un des nœuds de la carte conceptuelle ci-dessous pour afficher le détail de sa fonction éditoriale et méthodologique.</span>
+</p>
+                <div class="interactive-map-card" id="ecosystemMapCard">
+                    <div class="map-header">
+                        <div class="map-header-titles">
+                            <h3 id="map1-title">Carte interactive 1 — Écosystème éditorial et méthodologique</h3>
+                            <p>Sélectionnez un pôle dans le diagramme pour inspecter son rôle au sein du dispositif.</p>
+                        </div>
+                        <span class="map-badge">4 pôles interconnectés</span>
+                    </div>
+
+                    <div class="map-workspace">
+                        <div class="svg-stage">
+                            <svg viewBox="0 0 560 360" role="img" aria-label="Diagramme interactif de l'écosystème de la plateforme Inclusion sociale">
+                                <!-- Lignes de liaison -->
+                                <line x1="280" y1="180" x2="125" y2="75" stroke="#cbbba6" stroke-width="2" stroke-dasharray="4 3" />
+                                <line x1="280" y1="180" x2="435" y2="75" stroke="#cbbba6" stroke-width="2" stroke-dasharray="4 3" />
+                                <line x1="280" y1="180" x2="125" y2="285" stroke="#cbbba6" stroke-width="2" stroke-dasharray="4 3" />
+                                <line x1="280" y1="180" x2="435" y2="285" stroke="#cbbba6" stroke-width="2" stroke-dasharray="4 3" />
+                                <rect x="125" y="75" width="310" height="210" fill="none" stroke="#e2d8c7" stroke-width="1.5" rx="12" />
+
+                                <!-- Nœud central -->
+                                <g class="map-node is-selected" data-map="eco" data-id="centre" tabindex="0" role="button" aria-label="Nœud central : Plateforme Inclusion Sociale">
+                                    <circle class="node-shape" cx="280" cy="180" r="64" fill="#f5f0e6" stroke="#7a2222" stroke-width="2" />
+                                    <text x="280" y="173" text-anchor="middle" font-size="12" font-weight="700" fill="#1a202c">INCLUSION</text>
+                                    <text x="280" y="189" text-anchor="middle" font-size="12" font-weight="700" fill="#1a202c">SOCIALE</text>
+                                    <text x="280" y="205" text-anchor="middle" font-size="9.5" fill="#4a5568">Revue n° 4</text>
+                                </g>
+
+                                <!-- Nœud 1 : Recherche empirique -->
+                                <g class="map-node" data-map="eco" data-id="recherche" tabindex="0" role="button" aria-label="Pôle Recherche empirique CIRRIS et PSVI">
+                                    <rect class="node-shape" x="35" y="35" width="180" height="72" rx="8" fill="#ffffff" stroke="#b8a996" stroke-width="1.5" />
+                                    <text x="125" y="66" text-anchor="middle" font-size="12" font-weight="700" fill="#1a202c">Recherche empirique</text>
+                                    <text x="125" y="84" text-anchor="middle" font-size="10.5" fill="#4a5568">CIRRIS • PSVI • 18+ équipes</text>
+                                </g>
+
+                                <!-- Nœud 2 : Sociologie visuelle -->
+                                <g class="map-node" data-map="eco" data-id="visuelle" tabindex="0" role="button" aria-label="Pôle Sociologie visuelle et documentaire">
+                                    <rect class="node-shape" x="345" y="35" width="180" height="72" rx="8" fill="#ffffff" stroke="#b8a996" stroke-width="1.5" />
+                                    <text x="435" y="66" text-anchor="middle" font-size="12" font-weight="700" fill="#1a202c">Sociologie visuelle</text>
+                                    <text x="435" y="84" text-anchor="middle" font-size="10.5" fill="#4a5568">Documentaires &amp; captations</text>
+                                </g>
+
+                                <!-- Nœud 3 : Édition ouverte -->
+                                <g class="map-node" data-map="eco" data-id="edition" tabindex="0" role="button" aria-label="Pôle Édition numérique ouverte">
+                                    <rect class="node-shape" x="35" y="250" width="180" height="72" rx="8" fill="#ffffff" stroke="#b8a996" stroke-width="1.5" />
+                                    <text x="125" y="281" text-anchor="middle" font-size="12" font-weight="700" fill="#1a202c">Édition ouverte</text>
+                                    <text x="125" y="299" text-anchor="middle" font-size="10.5" fill="#4a5568">Articles, PDF &amp; multilingue</text>
+                                </g>
+
+                                <!-- Nœud 4 : Co-construction -->
+                                <g class="map-node" data-map="eco" data-id="action" tabindex="0" role="button" aria-label="Pôle Co-construction et transfert">
+                                    <rect class="node-shape" x="345" y="250" width="180" height="72" rx="8" fill="#ffffff" stroke="#b8a996" stroke-width="1.5" />
+                                    <text x="435" y="281" text-anchor="middle" font-size="12" font-weight="700" fill="#1a202c">Transfert &amp; milieu</text>
+                                    <text x="435" y="299" text-anchor="middle" font-size="10.5" fill="#4a5568">Décideurs, citoyens &amp; terrain</text>
+                                </g>
+                            </svg>
+                        </div>
+
+                        <div class="map-detail-panel" id="ecoDetailPanel" aria-live="polite">
+                            <div>
+                                <span class="detail-tag" id="ecoTag">Noyau éditorial</span>
+                                <h4 id="ecoTitle">Un dispositif hybride entre revue savante et média documentaire</h4>
+                                <p id="ecoDesc">La plateforme articule la rigueur de la publication scientifique évaluée avec la force narrative du cinéma documentaire. Elle offre un espace unique où textes de fond, cartes conceptuelles et capsules vidéo s'éclairent mutuellement.</p>
+                            </div>
+                            <div class="detail-meta" id="ecoMeta">
+                                <strong>Direction :</strong> François Routhier &amp; Pierre Fraser • <strong>DOI :</strong> 10.13140/RG.2.2.35504.53768
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CARTE INTERACTIVE 2 : Axes thématiques du numéro -->
+            <section class="about-section" aria-labelledby="map2-title">
+                <h2><span class="sec-num">03</span> Cartographie des chantiers thématiques</h2>
+                <p>
+                    Les travaux rassemblés sur la plateforme abordent l'inclusion sociale sous l'angle des environnements capacitants. Cliquez sur chacun des cinq domaines d'intervention pour examiner les problématiques étudiées par les équipes de recherche.
+                </p>
+
+                <div class="interactive-map-card" id="themesMapCard">
+                    <div class="map-header">
+                        <div class="map-header-titles">
+                            <h3 id="map2-title">Carte interactive 2 — Axes empiriques de l'accessibilité</h3>
+                            <p>Cliquez sur un axe thématique pour consulter les enjeux analysés dans le numéro.</p>
+                        </div>
+                        <span class="map-badge">5 axes d'analyse</span>
+                    </div>
+
+                    <div class="map-workspace">
+                        <div class="svg-stage">
+                            <svg viewBox="0 0 560 360" role="img" aria-label="Carte conceptuelle des cinq axes thématiques de l'inclusion sociale">
+                                <!-- Rayons vers les 5 axes -->
+                                <line x1="280" y1="185" x2="280" y2="55" stroke="#cbbba6" stroke-width="2" />
+                                <line x1="280" y1="185" x2="465" y2="120" stroke="#cbbba6" stroke-width="2" />
+                                <line x1="280" y1="185" x2="415" y2="295" stroke="#cbbba6" stroke-width="2" />
+                                <line x1="280" y1="185" x2="145" y2="295" stroke="#cbbba6" stroke-width="2" />
+                                <line x1="280" y1="185" x2="95" y2="120" stroke="#cbbba6" stroke-width="2" />
+
+                                <!-- Pivot central (non cliquable, repère conceptuel) -->
+                                <circle cx="280" cy="185" r="46" fill="#eae2d3" stroke="#7a2222" stroke-width="2" />
+                                <text x="280" y="181" text-anchor="middle" font-size="11" font-weight="700" fill="#7a2222">MILIEU</text>
+                                <text x="280" y="196" text-anchor="middle" font-size="10" font-weight="600" fill="#1a202c">CAPACITANT</text>
+
+                                <!-- Axe 1 : Mobilité & Transport -->
+                                <g class="map-node is-selected" data-map="theme" data-id="mobilite" tabindex="0" role="button" aria-label="Axe 1 : Transport et mobilité urbaine">
+                                    <rect class="node-shape" x="195" y="20" width="170" height="54" rx="27" fill="#ffffff" stroke="#b8a996" stroke-width="1.5" />
+                                    <text x="280" y="44" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a202c">Transport &amp; mobilité</text>
+                                    <text x="280" y="60" text-anchor="middle" font-size="9.5" fill="#4a5568">Chaîne de déplacement</text>
+                                </g>
+
+                                <!-- Axe 2 : Éducation inclusive -->
+                                <g class="map-node" data-map="theme" data-id="education" tabindex="0" role="button" aria-label="Axe 2 : Éducation inclusive">
+                                    <rect class="node-shape" x="380" y="92" width="165" height="54" rx="27" fill="#ffffff" stroke="#b8a996" stroke-width="1.5" />
+                                    <text x="462.5" y="116" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a202c">Éducation inclusive</text>
+                                    <text x="462.5" y="132" text-anchor="middle" font-size="9.5" fill="#4a5568">Parcours &amp; pédagogie</text>
+                                </g>
+
+                                <!-- Axe 3 : Habitat & Autonomie -->
+                                <g class="map-node" data-map="theme" data-id="habitat" tabindex="0" role="button" aria-label="Axe 3 : Habitat et vie autonome">
+                                    <rect class="node-shape" x="330" y="268" width="170" height="54" rx="27" fill="#ffffff" stroke="#b8a996" stroke-width="1.5" />
+                                    <text x="415" y="292" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a202c">Habitat &amp; autonomie</text>
+                                    <text x="415" y="308" text-anchor="middle" font-size="9.5" fill="#4a5568">Logement &amp; quartier</text>
+                                </g>
+
+                                <!-- Axe 4 : Participation citoyenne -->
+                                <g class="map-node" data-map="theme" data-id="citoyennete" tabindex="0" role="button" aria-label="Axe 4 : Participation sociale et citoyenne">
+                                    <rect class="node-shape" x="60" y="268" width="170" height="54" rx="27" fill="#ffffff" stroke="#b8a996" stroke-width="1.5" />
+                                    <text x="145" y="292" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a202c">Participation sociale</text>
+                                    <text x="145" y="308" text-anchor="middle" font-size="9.5" fill="#4a5568">Culture, loisirs &amp; emploi</text>
+                                </g>
+
+                                <!-- Axe 5 : Services & Technologies -->
+                                <g class="map-node" data-map="theme" data-id="services" tabindex="0" role="button" aria-label="Axe 5 : Accès aux services et technologies">
+                                    <rect class="node-shape" x="15" y="92" width="165" height="54" rx="27" fill="#ffffff" stroke="#b8a996" stroke-width="1.5" />
+                                    <text x="97.5" y="116" text-anchor="middle" font-size="11.5" font-weight="700" fill="#1a202c">Services &amp; technologies</text>
+                                    <text x="97.5" y="132" text-anchor="middle" font-size="9.5" fill="#4a5568">Aides techniques &amp; soins</text>
+                                </g>
+                            </svg>
+                        </div>
+
+                        <div class="map-detail-panel" id="themeDetailPanel" aria-live="polite">
+                            <div>
+                                <span class="detail-tag" id="themeTag">Axe thématique 01</span>
+                                <h4 id="themeTitle">Transport urbain et continuité de la chaîne de déplacement</h4>
+                                <p id="themeDesc">Analyse des ruptures d'accessibilité dans l'espace public, les transports collectifs, les aménagements piétonniers et les conditions hivernales, afin d'assurer une mobilité fluide et sécuritaire de porte à porte.</p>
+                            </div>
+                            <div class="detail-meta" id="themeMeta">
+                                <strong>Focus analytique :</strong> Urbanisme universel, transport adapté, design inclusif et expériences vécues des usagers.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4 : Gouvernance éditoriale et citation -->
+            <section class="about-section">
+                <h2><span class="sec-num">04</span> Gouvernance éditoriale, transparence et citation</h2>
+                <p>
+                    Les textes scientifiques publiés sur <strong>inclusionsociale.com</strong> sont rédigés par les chercheuses, chercheurs et praticiens signataires et citoyens sous la supervision éditoriale de Pierre Fraser et Olivier Bernard, avec la collaboration de l'équipe de coédition. Conformément aux normes d'intégrité scientifique et de transparence numérique, les outils numériques sont mobilisés exclusivement pour la structuration web, l'infographie interactive et la diffusion multilingue, tandis que l'analyse empirique et la validation éditoriale demeurent entièrement sous responsabilité humaine.
+                </p>
+
+                <div class="citation-box">
+                    <h3>Citer ce numéro spécial (Format APA)</h3>
+
+<div class="citation-text" id="apaCitation">
+<div class="citation-text" id="apaCitation">
+    Routhier, F., &amp; Fraser, P. (dir.). (2023- <span id="currentYear"></span>). <em>Inclusion sociale et accessibilité</em>. <em>Revue Sociologie Visuelle</em>, (4-5). Sociologie Visuelle Média. https://doi.org/10.13140/RG.2.2.35504.53768.
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const yearEl = document.getElementById("currentYear");
+        if (yearEl) {
+            yearEl.textContent = new Date().getFullYear();
+        }
+    });
+</script> 
+                    <button type="button" class="btn-copy-citation" id="copyCitationBtn" onclick="copyCitation()">
+                        Copier la référence bibliographique
+                    </button>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Modal Universel (PDF / Vidéo) -->
+    <div class="modal-overlay" id="mediaModal" onclick="closeModalOnOutside(event)">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 id="modalTitle">Titre de la fenêtre</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBodyContent"></div>
+        </div>
+    </div>
+
+    <!-- Modal de Proposition d'Article / Projet -->
+    <div class="modal-overlay" id="proposalModal" onclick="closeProposalModalOnOutside(event)">
+        <div class="modal-container" style="max-width: 800px; height: auto;">
+            <div class="modal-header">
+                <h3 id="proposalModalTitle">Proposer une captation ou un article / Nous faire part d'un commentaire</h3>
+                <button class="modal-close" onclick="closeProposalModal()">&times;</button>
+            </div>
+            <div class="modal-body" style="padding: 1.5rem; overflow-y: auto;">
+                <form id="proposalForm" onsubmit="submitProposal(event)" style="display: flex; flex-direction: column; gap: 1rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                    <input type="hidden" id="propCategory" value="article">
+                    <div>
+                        <label for="propName" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Votre nom</label>
+                        <input type="text" id="propName" required style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propEmail" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Votre courriel</label>
+                        <input type="email" id="propEmail" required style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propTitle" id="propTitleLabel" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Que désirez-vous nous communiquer ?</label>
+                        <input type="text" id="propTitle" required placeholder="Ex: Analyse de l'accessibilité urbaine..." style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propDesc" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Description ou résumé</label>
+                        <textarea id="propDesc" rows="4" required placeholder="Décrivez votre proposition en quelques lignes..." style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff; resize: vertical;"></textarea>
+                    </div>
+                    <button type="submit" style="background-color: #7a2222; color: #fff; border: none; padding: 0.75rem; border-radius: 4px; font-weight: 600; cursor: pointer; margin-top: 0.5rem; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#5e1a1a'" onmouseout="this.style.backgroundColor='#7a2222'">Envoyer la proposition</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwsWWx6rfNttj2ydWQ_qx5UJfjoQZ3PXKbGN2m4gdJV9oBbBX4-cO19FJEV8bc7ZZY/exec";
+
+        function sendLog(type, target) {
+            if (!GOOGLE_SCRIPT_URL) return;
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ type: type, target: target })
+            }).catch(error => {
+                console.error("Erreur lors de l'enregistrement du log :", error);
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', function() {
+            sendLog("Ouverture", "Page À propos");
+            initInteractiveMaps();
+        });
+
+        /* =========================================================
+           LOGIQUE DES DEUX CARTES INTERACTIVES
+           ========================================================= */
+        const ecoData = {
+            centre: {
+                tag: "Noyau éditorial",
+                title: "Un dispositif hybride entre revue savante et média documentaire",
+                desc: "La plateforme articule la rigueur de la publication scientifique évaluée avec la force narrative du cinéma documentaire. Elle offre un espace unique où textes de fond, cartes conceptuelles et capsules vidéo s'éclairent mutuellement.",
+                meta: "<strong>Direction :</strong> François Routhier &amp; Pierre Fraser • <strong>DOI :</strong> 10.13140/RG.2.2.35504.53768"
+            },
+            recherche: {
+                tag: "Pôle 01 • Fondement scientifique",
+                title: "Des équipes de recherche mobilisées (CIRRIS & PSVI)",
+                desc: "Ancrée dans les travaux du Centre interdisciplinaire de recherche en réadaptation et intégration sociale (CIRRIS) et du partenariat Participation sociale et villes inclusives (PSVI), la plateforme fédère des chercheurs en réadaptation, sociologie, urbanisme, éducation et ergothérapie.",
+                meta: "<strong>Approche :</strong> Recherche interdisciplinaire, méthodes mixtes et analyse des environnements."
+            },
+            visuelle: {
+                tag: "Pôle 02 • Sociologie visuelle",
+                title: "Captations documentaires et incarnation des terrains",
+                desc: "Sous la direction documentaire de Photo|Société, des tournages réalisés directement auprès des personnes concernées, des intervenants et des chercheurs permettent de documenter visuellement les situations de handicap et les leviers d'inclusion.",
+                meta: "<strong>Suivi :</strong> Rubrique « Tournages en cours » dédiée à l'avancement des productions."
+            },
+            edition: {
+                tag: "Pôle 03 • Libre accès & diffusion",
+                title: "Édition numérique ouverte et rayonnement international",
+                desc: "Publiée par Sociologie Visuelle Média, la plateforme garantit un accès gratuit et immédiat aux articles intégraux, aux versions PDF téléchargeables ainsi qu'à des traductions en anglais et en espagnol pour élargir la portée des travaux.",
+                meta: "<strong>Modèle :</strong> Science ouverte, archivage pérenne et indexation académique."
+            },
+action: {
+                tag: "Pôle 04 • Transfert & co-construction",
+                title: "Dialogue entre science, milieux de pratique et décideurs",
+                desc: "Pensée pour les organismes communautaires, les municipalités, les professionnels de la santé et le grand public, la plateforme facilite l'appropriation concrète des connaissances et invite la communauté à proposer de nouveaux sujets de captation.",
+                meta: '<strong>Interaction :</strong> <a href="https://inclusionsociale.com/contacter.html" rel="noopener noreferrer">Formulaire ouvert de proposition d\'articles et de captations.</a>'
+            }
+        };
+
+        const themeData = {
+            mobilite: {
+                tag: "Axe thématique 01",
+                title: "Transport urbain et continuité de la chaîne de déplacement",
+                desc: "Analyse des ruptures d'accessibilité dans l'espace public, les transports collectifs, les aménagements piétonniers et les conditions hivernales, afin d'assurer une mobilité fluide et sécuritaire de porte à porte.",
+                meta: "<strong>Focus analytique :</strong> Urbanisme universel, transport adapté, design inclusif et expériences vécues."
+            },
+            education: {
+                tag: "Axe thématique 02",
+                title: "Éducation inclusive et transition vers l'âge adulte",
+                desc: "Étude des pratiques pédagogiques, des mesures d'accommodement et du soutien à la réussite éducative des élèves et étudiants ayant des besoins particuliers, de l'école primaire jusqu'à l'enseignement supérieur.",
+                meta: "<strong>Focus analytique :</strong> Équité scolaire, accompagnement personnalisé et milieux d'apprentissage."
+            },
+            habitat: {
+                tag: "Axe thématique 03",
+                title: "Milieux de vie, logement accessible et autonomie résidentielle",
+                desc: "Exploration des conditions résidentielles favorisant le maintien dans la communauté, l'accès au logement adaptable et le développement de quartiers solidaires soutenant l'autodétermination.",
+                meta: "<strong>Focus analytique :</strong> Habiter la ville, soutien communautaire et qualité de vie à domicile."
+            },
+            citoyennete: {
+                tag: "Axe thématique 04",
+                title: "Participation sociale, culturelle, sportive et professionnelle",
+                desc: "Examen des leviers permettant l'exercice plein et entier de la citoyenneté : accès à l'emploi, pratiques sportives et culturelles inclusives, et réduction des préjugés sociaux liés au handicap.",
+                meta: "<strong>Focus analytique :</strong> Justice sociale, reconnaissance citoyenne et inclusion professionnelle."
+            },
+            services: {
+                tag: "Axe thématique 05",
+                title: "Accès aux services de santé, aides techniques et inclusion numérique",
+                desc: "Évaluation de l'adéquation entre les services offerts, les technologies d'assistance (aides à la mobilité, implants cochléaires, interfaces numériques) et les besoins réels des personnes au quotidien.",
+                meta: "<strong>Focus analytique :</strong> Accessibilité numérique, réadaptation et appropriation technologique."
+            }
+        };
+
+        function initInteractiveMaps() {
+            const nodes = document.querySelectorAll('.map-node');
+            nodes.forEach(node => {
+                const activateNode = () => {
+                    const mapType = node.getAttribute('data-map');
+                    const id = node.getAttribute('data-id');
+
+                    document.querySelectorAll(`.map-node[data-map="${mapType}"]`).forEach(n => {
+                        n.classList.remove('is-selected');
+                    });
+                    node.classList.add('is-selected');
+
+                    if (mapType === 'eco' && ecoData[id]) {
+                        document.getElementById('ecoTag').textContent = ecoData[id].tag;
+                        document.getElementById('ecoTitle').textContent = ecoData[id].title;
+                        document.getElementById('ecoDesc').textContent = ecoData[id].desc;
+                        document.getElementById('ecoMeta').innerHTML = ecoData[id].meta;
+                        sendLog("Interaction Carte 1 (Écosystème)", id);
+                    } else if (mapType === 'theme' && themeData[id]) {
+                        document.getElementById('themeTag').textContent = themeData[id].tag;
+                        document.getElementById('themeTitle').textContent = themeData[id].title;
+                        document.getElementById('themeDesc').textContent = themeData[id].desc;
+                        document.getElementById('themeMeta').innerHTML = themeData[id].meta;
+                        sendLog("Interaction Carte 2 (Thématiques)", id);
+                    }
+                };
+
+                node.addEventListener('click', activateNode);
+                node.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        activateNode();
+                    }
+                });
+            });
+        }
+
+        function copyCitation() {
+            const citationText = document.getElementById('apaCitation').innerText.trim();
+            const btn = document.getElementById('copyCitationBtn');
+            navigator.clipboard.writeText(citationText).then(() => {
+                const originalText = btn.textContent;
+                btn.textContent = "Référence copiée dans le presse-papiers !";
+                btn.style.backgroundColor = "#2f6f4e";
+                sendLog("Copie citation APA", "Page À propos");
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.backgroundColor = "#7a2222";
+                }, 2500);
+            });
+        }
+
+        function openModal(type, title, url) {
+            const modal = document.getElementById('mediaModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalBodyContent = document.getElementById('modalBodyContent');
+
+            modalTitle.textContent = title;
+            modalBodyContent.innerHTML = '';
+
+            if (type === 'pdf') {
+                const iframe = document.createElement('iframe');
+                iframe.className = 'pdf-frame';
+                iframe.src = url;
+                modalBodyContent.appendChild(iframe);
+            } else if (type === 'video') {
+                const iframe = document.createElement('iframe');
+                iframe.className = 'video-frame';
+                iframe.src = url;
+                iframe.setAttribute('allow', 'autoplay; fullscreen');
+                modalBodyContent.appendChild(iframe);
+            }
+
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            sendLog(`Ouverture ${type}`, title);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('mediaModal');
+            modal.style.display = 'none';
+            document.getElementById('modalBodyContent').innerHTML = '';
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeModalOnOutside(event) {
+            const modal = document.getElementById('mediaModal');
+            if (event.target === modal) closeModal();
+        }
+
+        function openProposalModal(type) {
+            const proposalModal = document.getElementById('proposalModal');
+            const titleEl = document.getElementById('proposalModalTitle');
+            const categoryEl = document.getElementById('propCategory');
+            const titleLabelEl = document.getElementById('propTitleLabel');
+            const titleInputEl = document.getElementById('propTitle');
+
+            categoryEl.value = type;
+            titleEl.textContent = "Nous faire part d'un commentaire ou d'une proposition (captation ou article)";
+            titleLabelEl.textContent = "Que voulez-vous nous communiquer ?";
+            titleInputEl.placeholder = "Ex: projet de captation, soumettre un article, faire un commentaire...";
+
+            proposalModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            sendLog("Ouverture formulaire proposition", type);
+        }
+
+        function closeProposalModal() {
+            const proposalModal = document.getElementById('proposalModal');
+            proposalModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeProposalModalOnOutside(event) {
+            const proposalModal = document.getElementById('proposalModal');
+            if (event.target === proposalModal) closeProposalModal();
+        }
+
+        function submitProposal(event) {
+            event.preventDefault();
+            const name = document.getElementById('propName').value;
+            const email = document.getElementById('propEmail').value;
+            const category = document.getElementById('propCategory').value;
+            const title = document.getElementById('propTitle').value;
+            const desc = document.getElementById('propDesc').value;
+
+            sendLog("Soumission proposition", `${category} : ${title}`);
+
+            const typeLabel = category === 'captation' ? 'Proposition de captation' : "Proposition d'article";
+            const subject = encodeURIComponent(`${typeLabel} : ${title}`);
+            const body = encodeURIComponent(`Nom : ${name}\nCourriel : ${email}\nType : ${typeLabel}\nTitre : ${title}\n\nDescription :\n${desc}`);
+
+            window.location.href = `mailto:sociocamera@gmail.com?subject=${subject}&body=${body}`;
+            closeProposalModal();
+        }
+
+        window.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+                closeProposalModal();
+            }
+        });
+    </script>
+</body>
+</html>
