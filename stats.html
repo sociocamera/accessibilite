@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; frame-src https://drive.google.com; connect-src https://script.google.com https://script.googleusercontent.com; object-src 'none';">
+    <title>Statistiques de fréquentation | Inclusion sociale et accessibilité</title>
+    <meta name="description" content="Tableau de bord des statistiques de fréquentation du numéro spécial Inclusion sociale et accessibilité de la Revue de Sociologie Visuelle.">
+    <link rel="canonical" href="https://doi.org/10.13140/RG.2.2.35504.53768">
+
+    <style>
+        :root {
+            --bg-color: #FAF6EF;
+            --text-color: #2b2b2b;
+            --primary-color: #1a202c;
+            --accent-color: #4a5568;
+            --border-color: #e2e8f0;
+            --card-bg: #FAF6EF;
+            --hover-border: #cbd5e0;
+            --max-width: 1400px;
+            --sidebar-width: 320px;
+            --topbar-height: 60px;
+            --modal-header-bg: #7a2222;
+            --burgundy: #7a2222;
+            --burgundy-dark: #5e1a1a;
+            --burgundy-soft: rgba(122, 34, 34, 0.1);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: "Georgia", "Cambria", "Times New Roman", serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Barre horizontale permanente supérieure */
+        .top-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--topbar-height);
+            background-color: var(--bg-color);
+            border-bottom: 1px solid var(--border-color);
+            display: grid;
+            grid-template-columns: var(--sidebar-width) 1fr auto;
+            align-items: center;
+            padding: 0;
+            z-index: 1100;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .top-navbar-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            letter-spacing: 0.02em;
+            padding: 0.2rem 1rem;
+            border-right: 1px solid var(--border-color);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.1rem;
+            text-decoration: none;
+            overflow: hidden;
+        }
+
+        .top-navbar-logo {
+            max-height: 30px;
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .top-navbar-sublabel {
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            line-height: 1.1;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .top-navbar-location {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            background-color: #f2ede4;
+            padding: 0.3rem 0.75rem;
+            border-radius: 4px;
+            margin-right: 2.5rem;
+        }
+
+        /* Colonne latérale gauche permanente */
+        aside.sidebar {
+            position: fixed;
+            top: var(--topbar-height);
+            left: 0;
+            width: var(--sidebar-width);
+            height: calc(100vh - var(--topbar-height));
+            background-color: #f5f0e6;
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            z-index: 1000;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            overflow-y: auto;
+        }
+
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .btn-home {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 100%;
+            background-color: #7a2222;
+            color: #fff;
+            border: none;
+            padding: 0.85rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        .btn-home svg {
+            position: absolute;
+            left: 1rem;
+        }
+
+        .btn-home:hover {
+            background-color: #5e1a1a;
+        }
+
+        .sidebar-info-section {
+            padding: 1rem 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .sidebar-card {
+            background-color: #FAF6EF;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 0.85rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            text-align: justify;
+        }
+
+        .sidebar-card.editor-card {
+            flex-direction: row;
+            align-items: center;
+            gap: 0.75rem;
+            text-align: left;
+        }
+
+        .editor-info h4 {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            margin-bottom: 0.15rem;
+        }
+
+        .editor-info p {
+            font-size: 0.78rem;
+            color: var(--accent-color);
+            line-height: 1.4;
+        }
+
+        .sidebar-nav {
+            padding: 1.25rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            flex: 1;
+        }
+
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--primary-color);
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-align: left;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .nav-btn:hover {
+            background-color: #eae3d5;
+            border-color: var(--hover-border);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            padding-left: 2rem;
+        }
+
+        .btn-header {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: 1px solid var(--primary-color);
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: background-color 0.2s;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-header.secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border-color: var(--border-color);
+        }
+
+        .btn-header.secondary:hover {
+            background-color: #f2ede4;
+            border-color: var(--hover-border);
+        }
+
+        /* Conteneur principal */
+        .main-wrapper {
+            margin-left: var(--sidebar-width);
+            margin-top: var(--topbar-height);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            width: calc(100% - var(--sidebar-width));
+            padding: 2.25rem 2.5rem;
+        }
+
+        /* Styles spécifiques au tableau de bord statistique */
+        .stats-container {
+            max-width: 1120px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .stats-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 1rem;
+            padding-bottom: 1.25rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #d8cfc0;
+        }
+
+        .stats-header-title h1 {
+            font-size: 1.85rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.25rem;
+        }
+
+        .stats-header-title p {
+            font-size: 0.95rem;
+            color: var(--accent-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .stats-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            background-color: #f2ede4;
+            border: 1px solid #dfd7c8;
+            padding: 0.4rem 0.75rem;
+            border-radius: 6px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #d97706;
+        }
+
+        .status-dot.online { background-color: #2f855a; }
+        .status-dot.error { background-color: #c53030; }
+
+        .btn-refresh {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background-color: var(--burgundy);
+            color: #fff;
+            border: none;
+            padding: 0.45rem 0.9rem;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-refresh:hover {
+            background-color: var(--burgundy-dark);
+        }
+
+        .btn-refresh:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* Grille des 3 indicateurs clés (KPI) */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .kpi-card {
+            background-color: #fffdf9;
+            border: 1px solid #dfd7c8;
+            border-top: 4px solid var(--burgundy);
+            border-radius: 8px;
+            padding: 1.4rem 1.5rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .kpi-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+        }
+
+        .kpi-card.secondary-accent {
+            border-top-color: #2d3748;
+        }
+
+        .kpi-card.tertiary-accent {
+            border-top-color: #8c6d46;
+        }
+
+        .kpi-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .kpi-label {
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent-color);
+        }
+
+        .kpi-cell-tag {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--burgundy);
+            background-color: var(--burgundy-soft);
+            padding: 0.15rem 0.45rem;
+            border-radius: 4px;
+        }
+
+        .kpi-value {
+            font-family: "Georgia", serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1.15;
+            margin-bottom: 0.6rem;
+        }
+
+        .kpi-footer {
+            font-size: 0.82rem;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .trend-pill {
+            display: inline-block;
+            padding: 0.15rem 0.45rem;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.78rem;
+        }
+
+        .trend-up { background-color: #def7ec; color: #03543f; }
+        .trend-down { background-color: #fde8e8; color: #9b1c1c; }
+        .trend-neutral { background-color: #edf2f7; color: #4a5568; }
+
+        /* Grille des graphiques */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: 1.45fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .chart-panel {
+            background-color: #fffdf9;
+            border: 1px solid #dfd7c8;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chart-panel-header {
+            margin-bottom: 1.25rem;
+            border-bottom: 1px solid #ede7dc;
+            padding-bottom: 0.75rem;
+        }
+
+        .chart-panel-header h2 {
+            font-family: "Georgia", serif;
+            font-size: 1.15rem;
+            color: var(--primary-color);
+            margin-bottom: 0.2rem;
+        }
+
+        .chart-panel-header p {
+            font-size: 0.82rem;
+            color: var(--accent-color);
+        }
+
+        .chart-canvas-wrapper {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 250px;
+        }
+
+        /* Tableau récapitulatif analytique */
+        .analysis-panel {
+            background-color: #fffdf9;
+            border: 1px solid #dfd7c8;
+            border-radius: 8px;
+            padding: 1.5rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .analysis-panel h2 {
+            font-family: "Georgia", serif;
+            font-size: 1.15rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .stats-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        .stats-table th, .stats-table td {
+            padding: 0.8rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid #ede7dc;
+        }
+
+        .stats-table th {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--accent-color);
+            background-color: #f7f3eb;
+        }
+
+        .stats-table td.num {
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+            font-weight: 600;
+        }
+
+        .stats-table th.num {
+            text-align: right;
+        }
+
+        .alert-box {
+            display: none;
+            background-color: #fff5f5;
+            border: 1px solid #feb2b2;
+            color: #9b2c2c;
+            padding: 1rem 1.25rem;
+            border-radius: 6px;
+            margin-bottom: 1.5rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-size: 0.88rem;
+        }
+
+        /* Fenêtres modales */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+        }
+
+        .modal-container {
+            background: var(--bg-color);
+            width: 100%;
+            max-width: 900px;
+            height: 85vh;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            border: 1px solid #d4c5b9;
+        }
+
+        .modal-header {
+            padding: 1.25rem 1.5rem;
+            background: var(--modal-header-bg);
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .modal-header h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .modal-close {
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #fff;
+            opacity: 0.85;
+            transition: opacity 0.2s;
+        }
+
+        .modal-close:hover { opacity: 1; }
+
+        .modal-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            background-color: var(--bg-color);
+        }
+
+        @media (max-width: 1200px) {
+            :root { --sidebar-width: 0px; }
+            .top-navbar { left: 0; padding: 0 1rem; grid-template-columns: 1fr auto; }
+            .top-navbar-title { display: none; }
+            aside.sidebar { transform: translateX(-100%); transition: transform 0.3s ease; }
+            .main-wrapper { margin-left: 0; width: 100%; padding: 1.5rem; }
+        }
+
+        @media (max-width: 900px) {
+            .kpi-grid { grid-template-columns: 1fr; }
+            .charts-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barre horizontale permanente supérieure -->
+    <header class="top-navbar">
+        <a href="https://inclusionsociale.com" class="top-navbar-title" aria-label="Inclusion sociale — Accueil" onclick="sendLog('Clic navigation', 'Logo / Accueil (Topbar)')">
+            <img
+                src="https://raw.githubusercontent.com/sociocamera/accessibilite/main/Logo_Inclusion_Sociale.png"
+                alt="Logo Inclusion sociale"
+                class="top-navbar-logo"
+            >
+            <span class="top-navbar-sublabel">INCLUSION SOCIALE</span>
+        </a> 
+        <div class="header-actions">
+            <button class="btn-header secondary" onclick="openProposalModal('article')">
+                <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                Proposer un projet de captation ou un article
+            </button>
+
+            <button class="btn-header secondary" onclick="sendLog('Clic navigation', 'Éditeurs et coéditeurs'); window.location.href='https://inclusionsociale.com/editeurs.html'">
+              <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              Éditeurs et coéditeurs
+            </button>
+
+            <button class="btn-header secondary" onclick="window.location.href='https://inclusionsociale.com/sociofinancement.html'">
+              <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              Sociofinancement
+            </button>
+
+            <button class="btn-header secondary" onclick="window.location.href='https://inclusionsociale.com/apropos.html'">
+              <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              À propos
+            </button>
+        </div>
+        <div class="top-navbar-location" id="locationIndicator">Statistiques</div>
+    </header>
+
+    <!-- Colonne latérale gauche permanente -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="https://inclusionsociale.com" class="btn-home" onclick="sendLog('Clic navigation', 'Bouton ACCUEIL')">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                ACCUEIL
+            </a>
+        </div>
+
+        <div class="sidebar-info-section">
+            <div style="font-size: 0.72rem; color: #718096; text-align: left; margin-bottom: 0.05rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                DOI : <a href="https://doi.org/10.13140/RG.2.2.35504.53768" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; opacity: 0.85;" onclick="sendLog('Clic lien externe', 'DOI 10.13140/RG.2.2.35504.53768')">10.13140/RG.2.2.35504.53768</a>
+            </div>
+
+            <div class="sidebar-card editor-card">
+                <div class="editor-info">
+                    <h4>Éditeurs</h4>
+                    <p><b>François Routhier & Pierre Fraser</b></p>
+                    <p>Plus de 18 équipes de recherche mobilisées afin de saisir comment le milieu façonne et articule l'accès aux services et à l'inclusion sociale.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-nav">
+            <div style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: #7a2222; letter-spacing: 0.05em; margin-bottom: 0.5rem; padding-left: 0.25rem;">NAVIGATION SUR LE SITE</div>
+
+            <div>
+                <a href="https://inclusionsociale.com/index.html" class="nav-btn" style="font-weight: normal; justify-content: flex-start; gap: 0.6rem;">
+                    <span style="display: inline-flex; align-items: center; gap: 0.25rem;" aria-hidden="true">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                        </svg>
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
+                            <line x1="7" y1="2" x2="7" y2="22"></line>
+                            <line x1="17" y1="2" x2="17" y2="22"></line>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <line x1="2" y1="7" x2="7" y2="7"></line>
+                            <line x1="2" y1="17" x2="7" y2="17"></line>
+                            <line x1="17" y1="17" x2="22" y2="17"></line>
+                            <line x1="17" y1="7" x2="22" y2="7"></line>
+                        </svg>
+                    </span>
+                    <span>Articles et vidéos</span>
+                </a>
+            </div>
+
+            <div>
+                <a href="https://inclusionsociale.com/tournages.html" class="nav-btn" style="font-weight: normal; justify-content: flex-start; gap: 0.6rem;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+                    <span>Tournages en cours</span>
+                </a>
+            </div>
+
+            <div>
+                <a href="https://inclusionsociale.com/sociofinancement.html" class="nav-btn" style="font-weight: normal; justify-content: flex-start; gap: 0.6rem;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    <span>Sociofinancement</span>
+                </a>
+            </div>
+
+            <div>
+                <a href="https://inclusionsociale.com/apropos.html" class="nav-btn" style="font-weight: normal; justify-content: flex-start; gap: 0.6rem;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                    <span>À propos</span>
+                </a>
+            </div>
+
+            <div>
+                <a href="https://inclusionsociale.com/contacter.html" class="nav-btn" style="font-weight: normal; justify-content: flex-start; gap: 0.6rem;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    <span>Contact</span>
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Zone principale de statistiques -->
+    <div class="main-wrapper">
+        <main class="stats-container">
+            <div class="stats-header">
+                <div class="stats-header-title">
+                    <h1>Statistiques de fréquentation</h1>
+                    <p>Suivi en temps réel de l'audience du portail <em>Inclusion sociale et accessibilité</em></p>
+                </div>
+                <div class="stats-controls">
+                    <div class="status-badge">
+                        <span class="status-dot" id="statusDot"></span>
+                        <span id="statusText">Connexion au journal...</span>
+                    </div>
+                    <button class="btn-refresh" id="btnRefresh" onclick="loadStats()">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+                        Actualiser
+                    </button>
+                </div>
+            </div>
+
+            <div class="alert-box" id="errorBox"></div>
+
+            <!-- Cartes KPI (F2, F3, F4) -->
+            <section class="kpi-grid" aria-label="Indicateurs clés de fréquentation">
+                <article class="kpi-card">
+                    <div class="kpi-top">
+                        <span class="kpi-label">Visiteurs aujourd'hui</span>
+                        <span class="kpi-cell-tag" id="tagF2">—</span>
+                    </div>
+                    <div class="kpi-value" id="valF2">—</div>
+                    <div class="kpi-footer" id="footerF2">En attente des données...</div>
+                </article>
+
+                <article class="kpi-card secondary-accent">
+                    <div class="kpi-top">
+                        <span class="kpi-label">Visiteurs ce mois-ci</span>
+                        <span class="kpi-cell-tag" id="tagF3">—</span>
+                    </div>
+                    <div class="kpi-value" id="valF3">—</div>
+                    <div class="kpi-footer" id="footerF3">En attente des données...</div>
+                </article>
+
+                <article class="kpi-card tertiary-accent">
+                    <div class="kpi-top">
+                        <span class="kpi-label">Visiteurs le mois dernier</span>
+                        <span class="kpi-cell-tag" id="tagF4">—</span>
+                    </div>
+                    <div class="kpi-value" id="valF4">—</div>
+                    <div class="kpi-footer" id="footerF4">Période mensuelle de référence</div>
+                </article>
+            </section>
+
+            <!-- Section Graphiques SVG -->
+            <section class="charts-grid" aria-label="Représentations graphiques de l'audience">
+                <div class="chart-panel">
+                    <div class="chart-panel-header">
+                        <h2>Comparaison des volumes de visites</h2>
+                        <p>Distribution comparative entre aujourd'hui (F2), le mois en cours (F3) et le mois précédent (F4)</p>
+                    </div>
+                    <div class="chart-canvas-wrapper" id="barChartContainer">
+                        <!-- Graphique à barres généré dynamiquement en SVG -->
+                    </div>
+                </div>
+
+                <div class="chart-panel">
+                    <div class="chart-panel-header">
+                        <h2>Taux d'atteinte mensuel</h2>
+                        <p>Progression du mois en cours (F3) par rapport au volume du mois dernier (F4)</p>
+                    </div>
+                    <div class="chart-canvas-wrapper" id="gaugeChartContainer">
+                        <!-- Jauge circulaire générée dynamiquement en SVG -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tableau de synthèse analytique -->
+            <section class="analysis-panel" aria-label="Synthèse analytique">
+                <h2>Synthèse des indicateurs et ratios</h2>
+                <table class="stats-table">
+                    <thead>
+                        <tr>
+                            <th>Indicateur</th>
+                            <th>Source</th>
+                            <th class="num">Valeur</th>
+                            <th class="num">Part / Ratio</th>
+                        </tr>
+                    </thead>
+                    <tbody id="summaryTableBody">
+                        <tr>
+                            <td colspan="4" style="text-align:center; color: var(--accent-color);">Chargement des métriques...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal de Proposition d'Article / Projet -->
+    <div class="modal-overlay" id="proposalModal" onclick="closeProposalModalOnOutside(event)">
+        <div class="modal-container" style="max-width: 800px; height: auto;">
+            <div class="modal-header">
+                <h3 id="proposalModalTitle">Proposer une captation ou un article / Nous faire part d'un commentaire</h3>
+                <button class="modal-close" onclick="closeProposalModal()">&times;</button>
+            </div>
+            <div class="modal-body" style="padding: 1.5rem; overflow-y: auto;">
+                <form id="proposalForm" onsubmit="submitProposal(event)" style="display: flex; flex-direction: column; gap: 1rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                    <input type="hidden" id="propCategory" value="article">
+                    <div>
+                        <label for="propName" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Votre nom</label>
+                        <input type="text" id="propName" required style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propEmail" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Votre courriel</label>
+                        <input type="email" id="propEmail" required style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propTitle" id="propTitleLabel" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Que désirez-vous nous communiquer ?</label>
+                        <input type="text" id="propTitle" required placeholder="Ex: Analyse de l'accessibilité urbaine..." style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff;">
+                    </div>
+                    <div>
+                        <label for="propDesc" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; color: #7a2222;">Description ou résumé</label>
+                        <textarea id="propDesc" rows="4" required placeholder="Décrivez votre proposition en quelques lignes..." style="width: 100%; padding: 0.6rem; border: 1px solid var(--border-color); border-radius: 4px; background: #fff; resize: vertical;"></textarea>
+                    </div>
+                    <button type="submit" style="background-color: #7a2222; color: #fff; border: none; padding: 0.75rem; border-radius: 4px; font-weight: 600; cursor: pointer; margin-top: 0.5rem; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#5e1a1a'" onmouseout="this.style.backgroundColor='#7a2222'">Envoyer la proposition</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwsWWx6rfNttj2ydWQ_qx5UJfjoQZ3PXKbGN2m4gdJV9oBbBX4-cO19FJEV8bc7ZZY/exec";
+        const STATS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby8MNSBgs7HfZDX_tnXzn73UUCJnQFXLpRVDY_VGynxsfvJnVYqn02jqxbD9AxXmbab/exec";
+
+        const now = new Date();
+        const dayName = new Intl.DateTimeFormat('fr-CA', { weekday: 'long' }).format(now);
+        const currentMonthName = new Intl.DateTimeFormat('fr-CA', { month: 'long' }).format(now);
+        const previousMonthDate = new Date(now.getFullYear(), now.getMonth() - 1, 1);
+        const previousMonthName = new Intl.DateTimeFormat('fr-CA', { month: 'long' }).format(previousMonthDate);
+
+        let prevMonthLabel = '';
+
+        function sendLog(type, target) {
+            if (!GOOGLE_SCRIPT_URL) return;
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ type: type, target: target })
+            }).catch(error => {
+                console.error("Erreur lors de l'enregistrement du log :", error);
+            });
+        }
+
+        function formatNumber(n) {
+            return new Intl.NumberFormat('fr-CA').format(n);
+        }
+
+        async function loadStats() {
+            updateDateTags();
+            const btnRefresh = document.getElementById('btnRefresh');
+            const statusDot = document.getElementById('statusDot');
+            const statusText = document.getElementById('statusText');
+            const errorBox = document.getElementById('errorBox');
+
+            btnRefresh.disabled = true;
+            statusDot.className = 'status-dot';
+            statusText.textContent = 'Lecture des cellules F2, F3, F4...';
+            errorBox.style.display = 'none';
+
+            try {
+                const response = await fetch(`${STATS_SCRIPT_URL}?action=getStats&t=${Date.now()}`, {
+                    method: 'GET',
+                    redirect: 'follow'
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Erreur HTTP ${response.status}`);
+                }
+
+                const data = await response.json();
+
+                // Extraction flexible selon les clés renvoyées par le script
+                const f2 = Number(data.today ?? data.F2 ?? data.f2 ?? 0);
+                const f3 = Number(data.currentMonth ?? data.F3 ?? data.f3 ?? 0);
+                const f4 = Number(data.lastMonth ?? data.F4 ?? data.f4 ?? 0);
+
+                renderDashboard(f2, f3, f4);
+
+                const now = new Date();
+                const timeStr = now.toLocaleTimeString('fr-CA', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+                statusDot.className = 'status-dot online';
+                statusText.textContent = `Synchronisé à ${timeStr}`;
+            } catch (err) {
+                console.error('Erreur lors de la récupération des statistiques :', err);
+                statusDot.className = 'status-dot error';
+                statusText.textContent = 'Erreur de lecture';
+                errorBox.innerHTML = `<strong>Impossible de lire les cellules F2, F3 et F4.</strong> Vérifiez que le script des statistiques est bien déployé avec l'accès « Tout le monde » et renvoie les valeurs de <code>F2</code>, <code>F3</code> et <code>F4</code>.<br><small>Détail technique : ${err.message}</small>`;
+                errorBox.style.display = 'block';
+            } finally {
+                btnRefresh.disabled = false;
+            }
+        }
+
+        function renderDashboard(f2, f3, f4) {
+            // 1. Mise à jour des cartes KPI
+            document.getElementById('valF2').textContent = formatNumber(f2);
+            document.getElementById('valF3').textContent = formatNumber(f3);
+            document.getElementById('valF4').textContent = formatNumber(f4);
+
+            const shareToday = f3 > 0 ? ((f2 / f3) * 100).toFixed(1) : '0.0';
+            document.getElementById('footerF2').innerHTML = `Représente <strong>${shareToday} %</strong> du trafic du mois en cours`;
+
+            const diffMonth = f3 - f4;
+            const pctMonth = f4 > 0 ? ((diffMonth / f4) * 100).toFixed(1) : (f3 > 0 ? '100.0' : '0.0');
+            let trendClass = 'trend-neutral';
+            let trendSign = '';
+            if (diffMonth > 0) { trendClass = 'trend-up'; trendSign = '+'; }
+            else if (diffMonth < 0) { trendClass = 'trend-down'; }
+
+            document.getElementById('footerF3').innerHTML = `
+                <span class="trend-pill ${trendClass}">${trendSign}${pctMonth} %</span>
+                <span>vs le mois dernier (${trendSign}${formatNumber(diffMonth)})</span>
+            `;
+
+            const dayOfMonth = new Date().getDate();
+            const dailyAvgCurrent = (f3 / dayOfMonth).toFixed(1);
+            document.getElementById('footerF4').innerHTML = `Moyenne actuelle : <strong>${dailyAvgCurrent}</strong> visiteurs / jour`;
+
+            // 2. Rendu des graphiques SVG
+            renderBarChart(f2, f3, f4);
+            renderGaugeChart(f3, f4);
+
+            // 3. Rendu du tableau récapitulatif
+            const ratioAchieved = f4 > 0 ? ((f3 / f4) * 100).toFixed(1) + ' % du mois dernier' : '—';
+            const totalTwoMonths = f3 + f4;
+
+            document.getElementById('summaryTableBody').innerHTML = `
+  <tr>
+    <td>Visiteurs aujourd'hui</td>
+    <td><code>${dayName}</code></td>
+    <td class="num">${formatNumber(f2)}</td>
+    <td class="num">${shareToday} % du mois en cours</td>
+  </tr>
+  <tr>
+    <td>Visiteurs ce mois-ci</td>
+    <td><code>${currentMonthName}</code></td>
+    <td class="num">${formatNumber(f3)}</td>
+    <td class="num">${ratioAchieved}</td>
+  </tr>
+  <tr>
+    <td>Visiteurs le mois dernier</td>
+    <td><code>${previousMonthName}</code></td>
+    <td class="num">${formatNumber(f4)}</td>
+    <td class="num">Base de référence (100 %)</td>
+  </tr>
+                <tr style="background-color: #f7f3eb;">
+                    <td><strong>Cumul des deux derniers mois</strong></td>
+                    <td><code>Sommation</code></td>
+                    <td class="num">${formatNumber(totalTwoMonths)}</td>
+                    <td class="num">Moyenne ${dailyAvgCurrent} visiteurs/jour ce mois-ci</td>
+                </tr>
+            `;
+        }
+
+        function renderBarChart(f2, f3, f4) {
+            const container = document.getElementById('barChartContainer');
+            const items = [
+                { label: "Aujourd'hui", value: f2, color: "#7a2222" },
+                { label: "Ce mois-ci", value: f3, color: "#1a202c" },
+                { label: "Mois dernier", value: f4, color: "#8c6d46" }
+            ];
+
+            const maxVal = Math.max(f2, f3, f4, 1);
+            const width = 520;
+            const height = 260;
+            const padTop = 32;
+            const padBottom = 42;
+            const padLeft = 48;
+            const padRight = 24;
+            const chartW = width - padLeft - padRight;
+            const chartH = height - padTop - padBottom;
+
+            let gridLines = '';
+            const steps = 4;
+            for (let i = 0; i <= steps; i++) {
+                const y = padTop + (chartH / steps) * i;
+                const tickVal = Math.round(maxVal - (maxVal / steps) * i);
+                gridLines += `
+                    <line x1="${padLeft}" y1="${y}" x2="${width - padRight}" y2="${y}" stroke="#e6dfd3" stroke-dasharray="3,3" />
+                    <text x="${padLeft - 8}" y="${y + 4}" text-anchor="end" font-size="11" fill="#718096">${formatNumber(tickVal)}</text>
+                `;
+            }
+
+            const slotW = chartW / items.length;
+            const barW = Math.min(72, slotW * 0.52);
+
+            let bars = '';
+            items.forEach((item, idx) => {
+                const barH = Math.max(2, (item.value / maxVal) * chartH);
+                const x = padLeft + slotW * idx + (slotW - barW) / 2;
+                const y = padTop + chartH - barH;
+                const centerX = x + barW / 2;
+
+                bars += `
+                    <rect x="${x}" y="${y}" width="${barW}" height="${barH}" rx="4" fill="${item.color}">
+                        <title>${item.label} : ${formatNumber(item.value)} visiteurs</title>
+                    </rect>
+                    <text x="${centerX}" y="${y - 8}" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">${formatNumber(item.value)}</text>
+                    <text x="${centerX}" y="${height - 14}" text-anchor="middle" font-size="12" font-weight="600" fill="#4a5568">${item.label}</text>
+                `;
+            });
+
+            container.innerHTML = `
+                <svg viewBox="0 0 ${width} ${height}" width="100%" height="100%" role="img" aria-label="Histogramme comparatif des visiteurs">
+                    ${gridLines}
+                    <line x1="${padLeft}" y1="${padTop + chartH}" x2="${width - padRight}" y2="${padTop + chartH}" stroke="#cbd5e0" stroke-width="1.5" />
+                    ${bars}
+                </svg>
+            `;
+        }
+
+        function renderGaugeChart(f3, f4) {
+            const container = document.getElementById('gaugeChartContainer');
+            const rawPct = f4 > 0 ? (f3 / f4) * 100 : (f3 > 0 ? 100 : 0);
+            const clampedPct = Math.min(rawPct, 100);
+            const displayPct = rawPct.toFixed(1);
+
+            const size = 240;
+            const cx = size / 2;
+            const cy = size / 2;
+            const radius = 84;
+            const strokeWidth = 18;
+            const circumference = 2 * Math.PI * radius;
+            const dashOffset = circumference - (clampedPct / 100) * circumference;
+
+            const ringColor = rawPct >= 100 ? '#2f855a' : '#7a2222';
+
+            container.innerHTML = `
+                <svg viewBox="0 0 ${size} ${size}" width="230" height="230" role="img" aria-label="Jauge de progression mensuelle">
+                    <circle cx="${cx}" cy="${cy}" r="${radius}" fill="none" stroke="#ede7dc" stroke-width="${strokeWidth}" />
+                    <circle
+                        cx="${cx}"
+                        cy="${cy}"
+                        r="${radius}"
+                        fill="none"
+                        stroke="${ringColor}"
+                        stroke-width="${strokeWidth}"
+                        stroke-linecap="round"
+                        stroke-dasharray="${circumference}"
+                        stroke-dashoffset="${dashOffset}"
+                        transform="rotate(-90 ${cx} ${cy})"
+                    />
+                    <text x="${cx}" y="${cy - 4}" text-anchor="middle" font-family="Georgia, serif" font-size="28" font-weight="700" fill="#1a202c">${displayPct} %</text>
+                    <text x="${cx}" y="${cy + 20}" text-anchor="middle" font-size="11" font-weight="600" fill="#718096">de ${prevMonthLabel || 'mois précédent'} atteint</text>
+                    <text x="${cx}" y="${cy + 36}" text-anchor="middle" font-size="10.5" fill="#718096">(${formatNumber(f3)} / ${formatNumber(f4)})</text>
+                </svg>
+            `;
+        }
+
+        function openProposalModal(type) {
+            const proposalModal = document.getElementById('proposalModal');
+            const titleEl = document.getElementById('proposalModalTitle');
+            const categoryEl = document.getElementById('propCategory');
+            const titleLabelEl = document.getElementById('propTitleLabel');
+            const titleInputEl = document.getElementById('propTitle');
+
+            categoryEl.value = type;
+            titleEl.textContent = "Nous faire part d'un commentaire ou d'une proposition (captation ou article)";
+            titleLabelEl.textContent = "Que voulez-vous nous communiquer ?";
+            titleInputEl.placeholder = "Ex: projet de captation, soumettre un article, faire un commentaire...";
+
+            proposalModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            sendLog("Ouverture formulaire proposition", type);
+        }
+
+        function closeProposalModal() {
+            document.getElementById('proposalModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function closeProposalModalOnOutside(event) {
+            if (event.target === document.getElementById('proposalModal')) closeProposalModal();
+        }
+
+        function submitProposal(event) {
+            event.preventDefault();
+            const name = document.getElementById('propName').value;
+            const email = document.getElementById('propEmail').value;
+            const category = document.getElementById('propCategory').value;
+            const title = document.getElementById('propTitle').value;
+            const desc = document.getElementById('propDesc').value;
+
+            sendLog("Soumission proposition", `${category} : ${title}`);
+
+            const typeLabel = category === 'captation' ? 'Proposition de captation' : "Proposition d'article";
+            const subject = encodeURIComponent(`${typeLabel} : ${title}`);
+            const body = encodeURIComponent(`Nom : ${name}\nCourriel : ${email}\nType : ${typeLabel}\nTitre : ${title}\n\nDescription :\n${desc}`);
+
+            window.location.href = `mailto:sociocamera@gmail.com?subject=${subject}&body=${body}`;
+            closeProposalModal();
+        }
+
+        window.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') closeProposalModal();
+        });
+
+        function updateDateTags() {
+            const now = new Date();
+            const prevMonthDate = new Date(now.getFullYear(), now.getMonth() - 1, 1);
+
+            const todayFormatted = now.toLocaleDateString('fr-CA', {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric'
+            });
+
+            const currentMonthFormatted = now.toLocaleDateString('fr-CA', {
+                month: 'long',
+                year: 'numeric'
+            });
+
+            const prevMonthFormatted = prevMonthDate.toLocaleDateString('fr-CA', {
+                month: 'long',
+                year: 'numeric'
+            });
+
+            const cap = (str) => str.charAt(0).toUpperCase() + str.slice(1);
+
+            const tagF2 = document.getElementById('tagF2');
+            const tagF3 = document.getElementById('tagF3');
+            const tagF4 = document.getElementById('tagF4');
+
+            prevMonthLabel = cap(prevMonthFormatted);
+
+            if (tagF2) tagF2.textContent = todayFormatted;
+            if (tagF3) tagF3.textContent = cap(currentMonthFormatted);
+            if (tagF4) tagF4.textContent = prevMonthLabel;
+        }
+
+        window.addEventListener('DOMContentLoaded', function() {
+            updateDateTags();
+            sendLog("Ouverture", "Statistiques de fréquentation (stats.html)");
+            loadStats();
+        });
+    </script>
+</body>
+</html>
