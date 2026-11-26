@@ -617,32 +617,57 @@
                 </p>
             </section>
 
-            <!-- Trois cases des autrices côte-à-côte juste au-dessus d'Introduction -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <!-- Author 1: Monique Maltais -->
-                <div class="flex items-start space-x-3 bg-cream p-3 rounded-lg border border-academic-border shadow-xs">
-                    <img src="https://raw.githubusercontent.com/sociocamera/mentoratactif/images/Maltais_Monique.jpg" alt="Monique Maltais" class="w-12 h-12 rounded-full object-cover border border-burgundy/30 flex-shrink-0" onerror="this.src='https://placehold.co/120x120/7A2222/ffffff?text=MM'">
-                    <div class="text-xs">
-                        <h3 class="font-bold text-academic-text">Monique Maltais</h3>
-                        <p class="text-academic-muted mt-0.5 leading-relaxed">Anciennement coordonnatrice du Centre de parrainage civique de Québec, Responsable de l’application du Mentorat Actif au Regroupement québécois du parrainage civique.</p>
+            <!-- Autrices, Citation, Résumé et Abstract juste au-dessus d'Introduction -->
+            <div class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Case unique des autrices avec photos circulaires, noms dessous, et section Affiliations -->
+                    <div class="bg-cream p-5 rounded-xl border border-academic-border shadow-xs flex flex-col justify-between space-y-5">
+                        <div class="flex flex-wrap items-start justify-around gap-4">
+                            <div class="flex flex-col items-center text-center w-28">
+                                <img src="https://raw.githubusercontent.com/sociocamera/mentoratactif/images/Maltais_Monique.jpg" alt="Monique Maltais" class="w-16 h-16 rounded-full object-cover border border-burgundy/30 flex-shrink-0" onerror="this.src='https://placehold.co/120x120/7A2222/ffffff?text=MM'">
+                                <span class="mt-2 text-xs font-bold text-academic-text leading-snug">Monique Maltais<sup>1</sup></span>
+                            </div>
+
+                            <div class="flex flex-col items-center text-center w-28">
+                                <img src="https://raw.githubusercontent.com/sociocamera/mentoratactif/images/Milot_Elise.jpg" alt="Élise Milot" class="w-16 h-16 rounded-full object-cover border border-burgundy/30 flex-shrink-0" onerror="this.src='https://placehold.co/120x120/5c4033/ffffff?text=EM'">
+                                <span class="mt-2 text-xs font-bold text-academic-text leading-snug">Élise Milot<sup>2</sup></span>
+                            </div>
+
+                            <div class="flex flex-col items-center text-center w-28">
+                                <img src="https://raw.githubusercontent.com/sociocamera/mentoratactif/images/Ouellet_Laurence.jpg" alt="Laurence Ouellet" class="w-16 h-16 rounded-full object-cover border border-burgundy/30 flex-shrink-0" onerror="this.src='https://placehold.co/120x120/3b4d61/ffffff?text=LO'">
+                                <span class="mt-2 text-xs font-bold text-academic-text leading-snug">Laurence Ouellet<sup>3</sup></span>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-academic-border/70 pt-3 space-y-2 text-xs">
+                            <h3 class="font-bold uppercase tracking-wider text-burgundy-dark">Affiliations</h3>
+                            <p class="text-academic-muted leading-relaxed"><strong class="text-academic-text">1</strong> Centre de parrainage civique de Québec. <strong class="text-academic-text">2</strong> École de travail social et de criminologie de l’Université Laval & Chaire Autodétermination et Handicap. <strong class="text-academic-text">3</strong> Chaire Autodétermination et Handicap, UQTR.</p>
+                        </div>
+                    </div>
+
+                    <!-- Case à droite : Citer cet article -->
+                    <div class="bg-cream p-5 rounded-xl border border-academic-border shadow-xs flex flex-col justify-center space-y-3">
+                        <h3 class="font-bold uppercase tracking-wider text-xs text-burgundy-dark">Citer cet article</h3>
+                        <p class="academic-text text-sm text-academic-text leading-relaxed">
+                            Maltais, M., Milot, É. (2026), « Le Mentorat Actif, un an plus tard », Sociologie Visuelle, n° 5, François Routhier et Pierre Fraser (éds.), Québec : Photo|Société.
+                        </p>
                     </div>
                 </div>
 
-                <!-- Author 2: Élise Milot -->
-                <div class="flex items-start space-x-3 bg-cream p-3 rounded-lg border border-academic-border shadow-xs">
-                    <img src="https://raw.githubusercontent.com/sociocamera/mentoratactif/images/Milot_Elise.jpg" alt="Élise Milot" class="w-12 h-12 rounded-full object-cover border border-burgundy/30 flex-shrink-0" onerror="this.src='https://placehold.co/120x120/5c4033/ffffff?text=EM'">
-                    <div class="text-xs">
-                        <h3 class="font-bold text-academic-text">Élise Milot</h3>
-                        <p class="text-academic-muted mt-0.5 leading-relaxed">Professeure titulaire à l’École de travail social et de criminologie de l’Université Laval et cotitulaire de la Chaire Autodétermination et Handicap.</p>
+                <!-- Deux cases côte-à-côte : Résumé et Abstract -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-cream-card p-5 rounded-xl border border-academic-border shadow-xs space-y-2.5">
+                        <h3 class="font-bold uppercase tracking-wider text-xs text-burgundy-dark">Résumé</h3>
+                        <p class="academic-text text-sm text-academic-text leading-relaxed text-justify">
+                            Issu d’une recherche-action menée avec l’Université Laval et le Regroupement québécois du parrainage civique, le Mentorat Actif mobilise un groupe communautaire déjà engagé pour accueillir et soutenir la participation sociale d’une personne ayant des besoins particuliers, en complément du jumelage dyadique traditionnel. Un an après son implantation, les organismes se sont approprié l’approche, créé ou adapté des outils locaux et consacré des ressources dédiées, soutenus par des rencontres collectives trimestrielles et l’accompagnement individualisé de Monique Maltais fondé sur la confiance. Cette première année marque une évolution graduelle des pratiques et une vision renouvelée de l’inclusion fondée sur l’adaptation des milieux et la responsabilité collective.
+                        </p>
                     </div>
-                </div>
 
-                <!-- Author 3: Laurence Ouellet -->
-                <div class="flex items-start space-x-3 bg-cream p-3 rounded-lg border border-academic-border shadow-xs">
-                    <img src="https://raw.githubusercontent.com/sociocamera/mentoratactif/images/Ouellet_Laurence.jpg" alt="Laurence Ouellet" class="w-12 h-12 rounded-full object-cover border border-burgundy/30 flex-shrink-0" onerror="this.src='https://placehold.co/120x120/3b4d61/ffffff?text=LO'">
-                    <div class="text-xs">
-                        <h3 class="font-bold text-academic-text">Laurence Ouellet</h3>
-                        <p class="text-academic-muted mt-0.5 leading-relaxed">Agente de recherche, Chaire Autodétermination et Handicap, UQTR.</p>
+                    <div class="bg-cream-card p-5 rounded-xl border border-academic-border shadow-xs space-y-2.5">
+                        <h3 class="font-bold uppercase tracking-wider text-xs text-burgundy-dark">Abstract</h3>
+                        <p class="academic-text text-sm text-academic-text leading-relaxed text-justify" lang="en">
+                            Developed through an action-research project with Université Laval and the Regroupement québécois du parrainage civique, Active Mentoring mobilizes an existing community group to welcome and support the social participation of a person with support needs, complementing traditional one-to-one matching. One year after implementation, organizations have adopted the approach, adapted or created tailored local tools, and committed dedicated resources, supported by quarterly peer meetings and trust-based individualized guidance from Monique Maltais. Findings from this first year point to a gradual evolution in practice and a renewed vision of inclusion centered on environmental adaptation and collective responsibility.
+                        </p>
                     </div>
                 </div>
             </div>
