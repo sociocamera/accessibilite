@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -409,7 +409,7 @@
         /* Styles interactifs pour les cartes conceptuelles SVG */
         .svg-interactive-node {
             cursor: pointer;
-            transition: opacity 0.2s ease;
+            transition: opacity 0.2s ease, transform 0.2s ease;
         }
         .svg-interactive-node:hover .node-card {
             stroke: #7A2222;
@@ -687,59 +687,106 @@
                     </p>
                 </div>
 
-                <!-- Conceptual Card 1: Traditional vs Active Mentoring (Interactive) -->
+                <!-- Conceptual Card 1: Traditional vs Active Mentoring (Interactive Infographic) -->
                 <div class="my-8 bg-cream-card border border-academic-border rounded-xl p-6 shadow-sm space-y-4" id="card-fig-1">
                     <div class="flex flex-wrap items-center justify-between gap-2">
                         <div class="flex items-center space-x-2 text-burgundy font-semibold text-sm uppercase tracking-wider">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-                            <span>Figure explicative 1<br>— Comparaison des approches d'inclusion</span>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            <span>Figure explicative 1<br>— Comparaison infographique : relation duelle vs groupe d'accueil</span>
                         </div>
                         <span class="text-xs bg-burgundy-subtle text-burgundy px-2.5 py-1 rounded-full font-medium">Cliquez sur un bloc pour explorer</span>
                     </div>
                     
-                    <!-- SVG Conceptual Diagram -->
+                    <!-- SVG Conceptual Infographic Diagram -->
                     <div class="w-full bg-cream p-4 rounded-lg border border-academic-border/55 overflow-x-auto">
-                        <svg viewBox="0 0 700 320" class="w-full h-auto min-w-[600px]">
-                            <rect width="700" height="320" fill="#fbf9f4" rx="8" />
+                        <svg viewBox="0 0 720 330" class="w-full h-auto min-w-[620px]">
+                            <rect width="720" height="330" fill="#fbf9f4" rx="8" />
                             
-                            <!-- Box 1: Jumelage Traditionnel -->
-                            <g transform="translate(40, 40)" class="svg-interactive-node is-active" data-fig="1" data-node="trad" onclick="selectConceptNode('fig1', 'trad', this)">
-                                <rect class="node-card" width="270" height="240" rx="10" fill="#f5f2e9" stroke="#d4ccb8" stroke-width="2" />
-                                <rect x="20" y="20" width="230" height="40" rx="6" fill="#e4decb" />
-                                <text x="135" y="45" font-family="Inter, sans-serif" font-size="13" font-weight="bold" fill="#2c2925" text-anchor="middle">Jumelage Traditionnel</text>
-                                
-                                <circle cx="85" cy="130" r="24" fill="#7A2222" opacity="0.85" />
-                                <text x="85" y="135" font-family="Inter, sans-serif" font-size="11" fill="#ffffff" text-anchor="middle">Bénévole</text>
-                                
-                                <path d="M 115 130 L 185 130" stroke="#7A2222" stroke-width="2.5" stroke-dasharray="4,4" />
-                                <text x="150" y="120" font-family="Inter, sans-serif" font-size="10" fill="#635e57" text-anchor="middle">Lien 1 à 1</text>
-                                
-                                <circle cx="215" cy="130" r="24" fill="#3b4d61" opacity="0.85" />
-                                <text x="215" y="135" font-family="Inter, sans-serif" font-size="11" fill="#ffffff" text-anchor="middle">Personne</text>
-                                
-                                <text x="135" y="200" font-family="Inter, sans-serif" font-size="11" fill="#635e57" text-anchor="middle">Responsabilité individuelle</text>
-                                <text x="135" y="218" font-family="Inter, sans-serif" font-size="10" fill="#8c857b" text-anchor="middle">Relation dyadique ciblée</text>
+                            <!-- Box 1: Jumelage Traditionnel (Infographie relation 1 à 1) -->
+                            <g transform="translate(30, 25)" class="svg-interactive-node is-active" data-fig="1" data-node="trad" onclick="selectConceptNode('fig1', 'trad', this)">
+                                <rect class="node-card" width="305" height="280" rx="10" fill="#f5f2e9" stroke="#d4ccb8" stroke-width="2" />
+                                <rect x="18" y="16" width="269" height="36" rx="6" fill="#e4decb" />
+                                <text x="152" y="39" font-family="Inter, sans-serif" font-size="13" font-weight="bold" fill="#2c2925" text-anchor="middle">Jumelage Traditionnel</text>
+
+                                <!-- Scène infographique dyadique -->
+                                <rect x="24" y="64" width="257" height="122" rx="8" fill="#fbf9f4" stroke="#e4decb" stroke-width="1.2" />
+
+                                <!-- Personnage bénévole (gauche) -->
+                                <g transform="translate(68, 86)">
+                                    <circle cx="0" cy="14" r="11" fill="#7A2222" />
+                                    <path d="M -16 46 C -16 32, 16 32, 16 46 L 16 56 L -16 56 Z" fill="#7A2222" />
+                                    <circle cx="24" cy="4" r="9" fill="#f3e6e6" stroke="#7A2222" stroke-width="1.2" />
+                                    <text x="24" y="7" font-family="Inter, sans-serif" font-size="8" font-weight="bold" fill="#7A2222" text-anchor="middle">1</text>
+                                    <text x="0" y="72" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#2c2925" text-anchor="middle">Bénévole</text>
+                                </g>
+
+                                <!-- Lien pointillé 1 à 1 + cœur/pont -->
+                                <line x1="94" y1="116" x2="210" y2="116" stroke="#7A2222" stroke-width="2.2" stroke-dasharray="5,4" />
+                                <polygon points="210,111 219,116 210,121" fill="#7A2222" />
+                                <rect x="122" y="96" width="60" height="18" rx="9" fill="#f5f2e9" stroke="#d4ccb8" />
+                                <text x="152" y="108" font-family="Inter, sans-serif" font-size="9" font-weight="600" fill="#635e57" text-anchor="middle">Lien 1 à 1</text>
+
+                                <!-- Personne accompagnée (droite) -->
+                                <g transform="translate(237, 86)">
+                                    <circle cx="0" cy="14" r="11" fill="#3b4d61" />
+                                    <path d="M -16 46 C -16 32, 16 32, 16 46 L 16 56 L -16 56 Z" fill="#3b4d61" />
+                                    <text x="0" y="72" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#2c2925" text-anchor="middle">Personne</text>
+                                </g>
+
+                                <text x="152" y="214" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#2c2925" text-anchor="middle">Responsabilité individuelle</text>
+                                <text x="152" y="234" font-family="Inter, sans-serif" font-size="10" fill="#635e57" text-anchor="middle">Soutien porté par un seul bénévole</text>
+                                <rect x="44" y="246" width="217" height="22" rx="11" fill="#e4decb" opacity="0.65" />
+                                <text x="152" y="261" font-family="Inter, sans-serif" font-size="9.5" fill="#635e57" text-anchor="middle">Relation dyadique ciblée</text>
                             </g>
 
-                            <!-- Box 2: Mentorat Actif -->
-                            <g transform="translate(390, 40)" class="svg-interactive-node" data-fig="1" data-node="actif" onclick="selectConceptNode('fig1', 'actif', this)">
-                                <rect class="node-card" width="270" height="240" rx="10" fill="#f3e6e6" stroke="#9e3535" stroke-width="2" />
-                                <rect x="20" y="20" width="230" height="40" rx="6" fill="#7A2222" />
-                                <text x="135" y="45" font-family="Inter, sans-serif" font-size="13" font-weight="bold" fill="#ffffff" text-anchor="middle">Mentorat Actif</text>
-                                
-                                <circle cx="85" cy="115" r="18" fill="#7A2222" opacity="0.85" />
-                                <circle cx="60" cy="150" r="18" fill="#7A2222" opacity="0.85" />
-                                <circle cx="110" cy="150" r="18" fill="#7A2222" opacity="0.85" />
-                                <text x="85" y="138" font-family="Inter, sans-serif" font-size="9" fill="#000000" text-anchor="middle">Groupe</text>
-                                
-                                <path d="M 135 132 L 185 132" stroke="#7A2222" stroke-width="2.5" />
-                                <text x="160" y="122" font-family="Inter, sans-serif" font-size="10" fill="#7A2222" font-weight="600" text-anchor="middle">Accueil</text>
-                                
-                                <circle cx="215" cy="132" r="24" fill="#3b4d61" opacity="0.85" />
-                                <text x="215" y="137" font-family="Inter, sans-serif" font-size="11" fill="#ffffff" text-anchor="middle">Personne</text>
-                                
-                                <text x="135" y="200" font-family="Inter, sans-serif" font-size="11" fill="#7A2222" font-weight="600" text-anchor="middle">Responsabilité partagée</text>
-                                <text x="135" y="218" font-family="Inter, sans-serif" font-size="10" fill="#635e57" text-anchor="middle">Mobilisation collective au sein d’un milieu</text>
+                            <!-- Box 2: Mentorat Actif (Infographie groupe communautaire + milieu d'activité) -->
+                            <g transform="translate(385, 25)" class="svg-interactive-node" data-fig="1" data-node="actif" onclick="selectConceptNode('fig1', 'actif', this)">
+                                <rect class="node-card" width="305" height="280" rx="10" fill="#f3e6e6" stroke="#9e3535" stroke-width="2" />
+                                <rect x="18" y="16" width="269" height="36" rx="6" fill="#7A2222" />
+                                <text x="152" y="39" font-family="Inter, sans-serif" font-size="13" font-weight="bold" fill="#ffffff" text-anchor="middle">Mentorat Actif</text>
+
+                                <!-- Scène infographique collective (Groupe + activité + personne accueillie) -->
+                                <rect x="24" y="64" width="257" height="122" rx="8" fill="#fbf9f4" stroke="#d9b4b4" stroke-width="1.2" />
+
+                                <!-- Petit milieu / salle d'activité en arrière-plan -->
+                                <path d="M 36 82 L 155 82 L 155 174 L 36 174 Z" fill="#f5f2e9" rx="6" opacity="0.7" />
+                                <path d="M 34 84 L 95 70 L 157 84" fill="none" stroke="#9e3535" stroke-width="1.5" stroke-linecap="round" />
+
+                                <!-- Groupe de 3 membres (club / équipe / comité) -->
+                                <g transform="translate(56, 92)">
+                                    <circle cx="0" cy="10" r="8.5" fill="#7A2222" />
+                                    <path d="M -12 34 C -12 24, 12 24, 12 34 Z" fill="#7A2222" />
+                                </g>
+                                <g transform="translate(95, 86)">
+                                    <circle cx="0" cy="10" r="9" fill="#9e3535" />
+                                    <path d="M -13 35 C -13 24, 13 24, 13 35 Z" fill="#9e3535" />
+                                </g>
+                                <g transform="translate(132, 95)">
+                                    <circle cx="0" cy="10" r="8.5" fill="#7A2222" opacity="0.88" />
+                                    <path d="M -12 34 C -12 24, 12 24, 12 34 Z" fill="#7A2222" opacity="0.88" />
+                                </g>
+                                <text x="95" y="144" font-family="Inter, sans-serif" font-size="9.5" font-weight="bold" fill="#7A2222" text-anchor="middle">Groupe engagé</text>
+                                <text x="95" y="156" font-family="Inter, sans-serif" font-size="8.5" fill="#635e57" text-anchor="middle">(club, équipe, comité)</text>
+
+                                <!-- Flèche d'accueil collectif -->
+                                <path d="M 152 116 L 204 116" stroke="#7A2222" stroke-width="2.5" stroke-linecap="round" />
+                                <polygon points="204,110 215,116 204,122" fill="#7A2222" />
+                                <rect x="155" y="96" width="54" height="17" rx="8.5" fill="#7A2222" />
+                                <text x="182" y="107" font-family="Inter, sans-serif" font-size="8.5" font-weight="bold" fill="#ffffff" text-anchor="middle">Accueil</text>
+
+                                <!-- Personne accompagnée (droite) -->
+                                <g transform="translate(239, 86)">
+                                    <circle cx="0" cy="14" r="11" fill="#3b4d61" />
+                                    <path d="M -16 46 C -16 32, 16 32, 16 46 L 16 56 L -16 56 Z" fill="#3b4d61" />
+                                    <!-- Étoile / intérêt partagé -->
+                                    <circle cx="0" cy="-6" r="5" fill="#d97706" opacity="0.9" />
+                                    <text x="0" y="72" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#2c2925" text-anchor="middle">Personne</text>
+                                </g>
+
+                                <text x="152" y="214" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#7A2222" text-anchor="middle">Responsabilité partagée</text>
+                                <text x="152" y="234" font-family="Inter, sans-serif" font-size="10" fill="#2c2925" text-anchor="middle">Mobilisation collective au sein d’un milieu</text>
+                                <rect x="38" y="246" width="229" height="22" rx="11" fill="#7A2222" opacity="0.12" />
+                                <text x="152" y="261" font-family="Inter, sans-serif" font-size="9.5" font-weight="600" fill="#7A2222" text-anchor="middle">Activité choisie selon les intérêts</text>
                             </g>
                         </svg>
                     </div>
@@ -751,7 +798,7 @@
                     </div>
 
                     <p class="text-xs text-academic-muted italic text-center">
-                        Illustration conceptuelle : passage d’une relation duelle (jumelage traditionnel) à une inclusion portée par un groupe engagé (Mentorat Actif).
+                        Infographie comparative : passage d’une relation duelle (jumelage traditionnel) à une inclusion collective portée par un groupe dans un milieu d’activité (Mentorat Actif).
                     </p>
                 </div>
 
@@ -1081,49 +1128,79 @@
                     </p>
                 </div>
 
-                <!-- Conceptual Card 2: Support & Community of Practice Structure (Interactive) -->
+                <!-- Conceptual Card 2: Support & Community of Practice Structure (Interactive Infographic) -->
                 <div class="my-8 bg-cream-card border border-academic-border rounded-xl p-6 shadow-sm space-y-4" id="card-fig-2">
                     <div class="flex flex-wrap items-center justify-between gap-2">
                         <div class="flex items-center space-x-2 text-burgundy font-semibold text-sm uppercase tracking-wider">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
-                            <span>Figure explicative 2<br>— Architecture de l'accompagnement et de la communauté de pratique</span>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                            <span>Figure explicative 2<br>— Architecture infographique de l'accompagnement et de la communauté de pratique</span>
                         </div>
                         <span class="text-xs bg-burgundy-subtle text-burgundy px-2.5 py-1 rounded-full font-medium">Cliquez sur un nœud pour explorer</span>
                     </div>
                     
                     <div class="w-full bg-cream p-4 rounded-lg border border-academic-border/55 overflow-x-auto">
-                        <svg viewBox="0 0 700 280" class="w-full h-auto min-w-[600px]">
-                            <rect width="700" height="280" fill="#fbf9f4" rx="8" />
+                        <svg viewBox="0 0 720 305" class="w-full h-auto min-w-[620px]">
+                            <rect width="720" height="305" fill="#fbf9f4" rx="8" />
                             
-                            <!-- Center box: Regroupement & Monique Maltais -->
+                            <!-- Pivot central: Regroupement & Monique Maltais (Personne-ressource & réseau) -->
                             <g class="svg-interactive-node is-active" data-fig="2" data-node="pivot" onclick="selectConceptNode('fig2', 'pivot', this)">
-                                <rect class="node-card" x="235" y="20" width="230" height="60" rx="8" fill="#7A2222" stroke="#5c1717" stroke-width="2" />
-                                <text x="350" y="45" font-family="Inter, sans-serif" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">Regroupement & Monique Maltais</text>
-                                <text x="350" y="62" font-family="Inter, sans-serif" font-size="10" fill="#f3e6e6" text-anchor="middle">Personne-ressource & accompagnement</text>
+                                <rect class="node-card" x="200" y="14" width="320" height="72" rx="10" fill="#7A2222" stroke="#5c1717" stroke-width="2" />
+                                <!-- Icône infographique personne-ressource + signal réseau -->
+                                <circle cx="234" cy="43" r="10" fill="#f3e6e6" />
+                                <path d="M 221 66 C 221 55, 247 55, 247 66 Z" fill="#f3e6e6" />
+                                <circle cx="250" cy="33" r="4" fill="#d97706" />
+                                <text x="378" y="42" font-family="Inter, sans-serif" font-size="12.5" font-weight="bold" fill="#ffffff" text-anchor="middle">Regroupement & Monique Maltais</text>
+                                <text x="378" y="61" font-family="Inter, sans-serif" font-size="10" fill="#f3e6e6" text-anchor="middle">Personne-ressource, accompagnatrice & courroie de transmission</text>
                             </g>
                             
-                            <!-- Branching lines -->
-                            <path d="M 350 80 L 350 115 L 175 115 L 175 130" stroke="#7A2222" stroke-width="2" fill="none" />
-                            <path d="M 350 115 L 525 115 L 525 130" stroke="#7A2222" stroke-width="2" fill="none" />
+                            <!-- Lignes de branchement -->
+                            <path d="M 360 86 L 360 116 L 170 116 L 170 132" stroke="#7A2222" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M 360 116 L 550 116 L 550 132" stroke="#7A2222" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
                             
-                            <!-- Left Node: Rencontres Collectives -->
-                            <g transform="translate(60, 130)" class="svg-interactive-node" data-fig="2" data-node="collectif" onclick="selectConceptNode('fig2', 'collectif', this)">
-                                <rect class="node-card" width="230" height="120" rx="8" fill="#f5f2e9" stroke="#d4ccb8" stroke-width="2" />
-                                <text x="115" y="30" font-family="Inter, sans-serif" font-size="12" font-weight="bold" fill="#2c2925" text-anchor="middle">Rencontres Collectives</text>
-                                <text x="115" y="50" font-family="Inter, sans-serif" font-size="10" fill="#635e57" text-anchor="middle">4 fois par année (Pairs)</text>
-                                <text x="115" y="80" font-family="Inter, sans-serif" font-size="10" fill="#2c2925" text-anchor="middle">• Partager réussites et défis</text>
-                                <text x="115" y="98" font-family="Inter, sans-serif" font-size="10" fill="#2c2925" text-anchor="middle">• Résolution collective de cas</text>
-                                <text x="115" y="116" font-family="Inter, sans-serif" font-size="10" fill="#2c2925" text-anchor="middle">• Cohérence de l'approche</text>
+                            <!-- Nœud gauche: Rencontres Collectives (Groupe de pairs + bulles d'échange) -->
+                            <g transform="translate(35, 132)" class="svg-interactive-node" data-fig="2" data-node="collectif" onclick="selectConceptNode('fig2', 'collectif', this)">
+                                <rect class="node-card" width="270" height="156" rx="10" fill="#f5f2e9" stroke="#d4ccb8" stroke-width="2" />
+                                <!-- Infographie : groupe de 3 intervenantes + bulles de dialogue -->
+                                <g transform="translate(36, 20)">
+                                    <circle cx="-16" cy="14" r="7" fill="#7A2222" opacity="0.85" />
+                                    <path d="M -25 32 C -25 24, -7 24, -7 32 Z" fill="#7A2222" opacity="0.85" />
+                                    <circle cx="0" cy="12" r="8" fill="#7A2222" />
+                                    <path d="M -10 32 C -10 23, 10 23, 10 32 Z" fill="#7A2222" />
+                                    <circle cx="16" cy="14" r="7" fill="#3b4d61" />
+                                    <path d="M 7 32 C 7 24, 25 24, 25 32 Z" fill="#3b4d61" />
+                                    <!-- Bulle de dialogue -->
+                                    <rect x="30" y="2" width="28" height="16" rx="6" fill="#f3e6e6" stroke="#9e3535" stroke-width="1" />
+                                    <circle cx="38" cy="10" r="1.5" fill="#7A2222" />
+                                    <circle cx="44" cy="10" r="1.5" fill="#7A2222" />
+                                    <circle cx="50" cy="10" r="1.5" fill="#7A2222" />
+                                </g>
+                                <text x="155" y="34" font-family="Inter, sans-serif" font-size="12" font-weight="bold" fill="#2c2925" text-anchor="middle">Rencontres Collectives</text>
+                                <text x="155" y="51" font-family="Inter, sans-serif" font-size="9.5" font-weight="600" fill="#7A2222" text-anchor="middle">4 fois par année • Communauté de pratique</text>
+                                <line x1="22" y1="62" x2="248" y2="62" stroke="#e4decb" stroke-width="1.2" />
+                                <text x="135" y="82" font-family="Inter, sans-serif" font-size="10" fill="#2c2925" text-anchor="middle">• Partager réussites, défis et leçons apprises</text>
+                                <text x="135" y="102" font-family="Inter, sans-serif" font-size="10" fill="#2c2925" text-anchor="middle">• Résolution collective de cas terrain</text>
+                                <text x="135" y="122" font-family="Inter, sans-serif" font-size="10" fill="#2c2925" text-anchor="middle">• Échanges sur les outils & cohérence</text>
                             </g>
                             
-                            <!-- Right Node: Accompagnement Individualisé -->
-                            <g transform="translate(410, 130)" class="svg-interactive-node" data-fig="2" data-node="individuel" onclick="selectConceptNode('fig2', 'individuel', this)">
-                                <rect class="node-card" width="230" height="120" rx="8" fill="#f3e6e6" stroke="#9e3535" stroke-width="2" />
-                                <text x="115" y="30" font-family="Inter, sans-serif" font-size="12" font-weight="bold" fill="#7A2222" text-anchor="middle">Suivi Individualisé</text>
-                                <text x="115" y="50" font-family="Inter, sans-serif" font-size="10" fill="#635e57" text-anchor="middle">Téléphone / Visioconférence</text>
-                                <text x="115" y="80" font-family="Inter, sans-serif" font-size="10" fill="#2c2925" text-anchor="middle">• Soutien au financement</text>
-                                <text x="115" y="98" font-family="Inter, sans-serif" font-size="10" fill="#2c2925" text-anchor="middle">• Relecture de documents</text>
-                                <text x="115" y="116" font-family="Inter, sans-serif" font-size="10" fill="#2c2925" text-anchor="middle">• Maintien de la motivation</text>
+                            <!-- Nœud droit: Accompagnement Individualisé (Casque/écoute + document/dossier) -->
+                            <g transform="translate(415, 132)" class="svg-interactive-node" data-fig="2" data-node="individuel" onclick="selectConceptNode('fig2', 'individuel', this)">
+                                <rect class="node-card" width="270" height="156" rx="10" fill="#f3e6e6" stroke="#9e3535" stroke-width="2" />
+                                <!-- Infographie : échange direct + document/dossier -->
+                                <g transform="translate(36, 20)">
+                                    <circle cx="-6" cy="14" r="8" fill="#7A2222" />
+                                    <path d="M -16 32 C -16 23, 4 23, 4 32 Z" fill="#7A2222" />
+                                    <!-- Document / fiche d'accompagnement -->
+                                    <rect x="24" y="4" width="20" height="26" rx="2.5" fill="#fbf9f4" stroke="#7A2222" stroke-width="1.4" />
+                                    <line x1="28" y1="11" x2="40" y2="11" stroke="#9e3535" stroke-width="1.4" />
+                                    <line x1="28" y1="17" x2="40" y2="17" stroke="#9e3535" stroke-width="1.4" />
+                                    <line x1="28" y1="23" x2="36" y2="23" stroke="#9e3535" stroke-width="1.4" />
+                                </g>
+                                <text x="155" y="34" font-family="Inter, sans-serif" font-size="12" font-weight="bold" fill="#7A2222" text-anchor="middle">Suivi Individualisé</text>
+                                <text x="155" y="51" font-family="Inter, sans-serif" font-size="9.5" font-weight="600" fill="#635e57" text-anchor="middle">Téléphone • Visioconférence • Courriel</text>
+                                <line x1="22" y1="62" x2="248" y2="62" stroke="#d9b4b4" stroke-width="1.2" />
+                                <text x="135" y="82" font-family="Inter, sans-serif" font-size="10" fill="#2c2925" text-anchor="middle">• Situations particulières & financement</text>
+                                <text x="135" y="102" font-family="Inter, sans-serif" font-size="10" fill="#2c2925" text-anchor="middle">• Relecture de documents et formulaires</text>
+                                <text x="135" y="122" font-family="Inter, sans-serif" font-size="10" fill="#2c2925" text-anchor="middle">• Suivis réguliers & maintien de l'élan</text>
                             </g>
                         </svg>
                     </div>
@@ -1135,7 +1212,7 @@
                     </div>
 
                     <p class="text-xs text-academic-muted italic text-center">
-                        Schéma de la structure double d'accompagnement : espaces collectifs et soutien personnalisé.
+                        Schéma infographique de la double structure d'accompagnement : échanges collectifs entre pairs et soutien individualisé sur mesure.
                     </p>
                 </div>
 
@@ -1182,45 +1259,62 @@
                     </p>
                 </div>
 
-                <!-- Conceptual Card 3: Trust & Support Pillars (Interactive) -->
+                <!-- Conceptual Card 3: Trust & Support Pillars (Interactive Infographic) -->
                 <div class="my-8 bg-cream-card border border-academic-border rounded-xl p-6 shadow-sm space-y-4" id="card-fig-3">
                     <div class="flex flex-wrap items-center justify-between gap-2">
                         <div class="flex items-center space-x-2 text-burgundy font-semibold text-sm uppercase tracking-wider">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-                            <span>Figure explicative 3<br>— Piliers du lien de confiance et rôle de la personne-ressource</span>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                            <span>Figure explicative 3<br>— Piliers infographiques du lien de confiance</span>
                         </div>
                         <span class="text-xs bg-burgundy-subtle text-burgundy px-2.5 py-1 rounded-full font-medium">Cliquez sur un pilier pour explorer</span>
                     </div>
                     
                     <div class="w-full bg-cream p-4 rounded-lg border border-academic-border/55 overflow-x-auto">
-                        <svg viewBox="0 0 700 220" class="w-full h-auto min-w-[600px]">
-                            <rect width="700" height="220" fill="#fbf9f4" rx="8" />
-                            <!-- Pillar 1 -->
-                            <g transform="translate(40, 20)" class="svg-interactive-node is-active" data-fig="3" data-node="p1" onclick="selectConceptNode('fig3', 'p1', this)">
-                                <rect class="node-card" width="180" height="175" rx="8" fill="#f5f2e9" stroke="#d4ccb8" stroke-width="2" />
-                                <rect x="15" y="15" width="150" height="30" rx="4" fill="#e4decb" />
-                                <text x="90" y="35" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#2c2925" text-anchor="middle">Expérience & Réseau</text>
-                                <text x="90" y="75" font-family="Inter, sans-serif" font-size="10" fill="#635e57" text-anchor="middle">+30 ans d'intervention</text>
-                                <text x="90" y="95" font-family="Inter, sans-serif" font-size="10" fill="#635e57" text-anchor="middle">et de gestion</text>
-                                <text x="90" y="130" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#7A2222" text-anchor="middle">Personne-ressource</text>
+                        <svg viewBox="0 0 720 248" class="w-full h-auto min-w-[620px]">
+                            <rect width="720" height="248" fill="#fbf9f4" rx="8" />
+                            <!-- Pillar 1: Expérience & Réseau (Badge 30+ ans & réseau) -->
+                            <g transform="translate(28, 18)" class="svg-interactive-node is-active" data-fig="3" data-node="p1" onclick="selectConceptNode('fig3', 'p1', this)">
+                                <rect class="node-card" width="204" height="210" rx="10" fill="#f5f2e9" stroke="#d4ccb8" stroke-width="2" />
+                                <rect x="14" y="14" width="176" height="30" rx="5" fill="#e4decb" />
+                                <text x="102" y="33" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#2c2925" text-anchor="middle">Expérience & Réseau</text>
+                                <!-- Infographie médaillon + personnes reliées -->
+                                <circle cx="102" cy="78" r="22" fill="#fbf9f4" stroke="#7A2222" stroke-width="2" />
+                                <text x="102" y="76" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#7A2222" text-anchor="middle">30+</text>
+                                <text x="102" y="88" font-family="Inter, sans-serif" font-size="8" font-weight="600" fill="#635e57" text-anchor="middle">ANS</text>
+                                <circle cx="72" cy="82" r="5.5" fill="#3b4d61" />
+                                <circle cx="132" cy="82" r="5.5" fill="#3b4d61" />
+                                <text x="102" y="124" font-family="Inter, sans-serif" font-size="10" fill="#2c2925" text-anchor="middle">Intervention, gestion</text>
+                                <text x="102" y="140" font-family="Inter, sans-serif" font-size="10" fill="#635e57" text-anchor="middle">& recherche-action</text>
+                                <rect x="24" y="158" width="156" height="24" rx="12" fill="#f3e6e6" />
+                                <text x="102" y="174" font-family="Inter, sans-serif" font-size="9.5" font-weight="bold" fill="#7A2222" text-anchor="middle">Personne-ressource</text>
                             </g>
-                            <!-- Pillar 2 -->
-                            <g transform="translate(260, 20)" class="svg-interactive-node" data-fig="3" data-node="p2" onclick="selectConceptNode('fig3', 'p2', this)">
-                                <rect class="node-card" width="180" height="175" rx="8" fill="#f3e6e6" stroke="#9e3535" stroke-width="2" />
-                                <rect x="15" y="15" width="150" height="30" rx="4" fill="#7A2222" />
-                                <text x="90" y="35" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">Espace Sécurisant</text>
-                                <text x="90" y="75" font-family="Inter, sans-serif" font-size="10" fill="#2c2925" text-anchor="middle">Accompagnement</text>
-                                <text x="90" y="95" font-family="Inter, sans-serif" font-size="10" fill="#2c2925" text-anchor="middle">bienveillant</text>
-                                <text x="90" y="130" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#7A2222" text-anchor="middle">Cadre sans jugement</text>
+                            <!-- Pillar 2: Espace Sécurisant (Bouclier & dialogue bienveillant) -->
+                            <g transform="translate(258, 18)" class="svg-interactive-node" data-fig="3" data-node="p2" onclick="selectConceptNode('fig3', 'p2', this)">
+                                <rect class="node-card" width="204" height="210" rx="10" fill="#f3e6e6" stroke="#9e3535" stroke-width="2" />
+                                <rect x="14" y="14" width="176" height="30" rx="5" fill="#7A2222" />
+                                <text x="102" y="33" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">Espace Sécurisant</text>
+                                <!-- Infographie bouclier protecteur -->
+                                <path d="M 102 56 L 122 64 L 120 86 C 118 98, 102 105, 102 105 C 102 105, 86 98, 84 86 L 82 64 Z" fill="#fbf9f4" stroke="#7A2222" stroke-width="2" />
+                                <path d="M 94 80 L 100 86 L 111 73" fill="none" stroke="#7A2222" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                                <text x="102" y="124" font-family="Inter, sans-serif" font-size="10" fill="#2c2925" text-anchor="middle">Accompagnement</text>
+                                <text x="102" y="140" font-family="Inter, sans-serif" font-size="10" fill="#2c2925" text-anchor="middle">bienveillant et ouvert</text>
+                                <rect x="24" y="158" width="156" height="24" rx="12" fill="#7A2222" />
+                                <text x="102" y="174" font-family="Inter, sans-serif" font-size="9.5" font-weight="bold" fill="#ffffff" text-anchor="middle">Cadre sans jugement</text>
                             </g>
-                            <!-- Pillar 3 -->
-                            <g transform="translate(480, 20)" class="svg-interactive-node" data-fig="3" data-node="p3" onclick="selectConceptNode('fig3', 'p3', this)">
-                                <rect class="node-card" width="180" height="175" rx="8" fill="#f5f2e9" stroke="#d4ccb8" stroke-width="2" />
-                                <rect x="15" y="15" width="150" height="30" rx="4" fill="#e4decb" />
-                                <text x="90" y="35" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#2c2925" text-anchor="middle">Évolution Durable</text>
-                                <text x="90" y="75" font-family="Inter, sans-serif" font-size="10" fill="#635e57" text-anchor="middle">Avancer à son</text>
-                                <text x="90" y="95" font-family="Inter, sans-serif" font-size="10" fill="#635e57" text-anchor="middle">propre rythme</text>
-                                <text x="90" y="130" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#3b4d61" text-anchor="middle">Pilier du déploiement</text>
+                            <!-- Pillar 3: Évolution Durable (Pousse / croissance au rythme de chacun) -->
+                            <g transform="translate(488, 18)" class="svg-interactive-node" data-fig="3" data-node="p3" onclick="selectConceptNode('fig3', 'p3', this)">
+                                <rect class="node-card" width="204" height="210" rx="10" fill="#f5f2e9" stroke="#d4ccb8" stroke-width="2" />
+                                <rect x="14" y="14" width="176" height="30" rx="5" fill="#e4decb" />
+                                <text x="102" y="33" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#2c2925" text-anchor="middle">Évolution Durable</text>
+                                <!-- Infographie pousse / croissance ancrée -->
+                                <path d="M 102 102 L 102 72" stroke="#7A2222" stroke-width="2.5" stroke-linecap="round" />
+                                <path d="M 102 86 C 86 86, 80 74, 88 68 C 96 64, 102 74, 102 86 Z" fill="#9e3535" opacity="0.85" />
+                                <path d="M 102 78 C 118 78, 124 66, 116 60 C 108 56, 102 66, 102 78 Z" fill="#3b4d61" opacity="0.85" />
+                                <line x1="82" y1="102" x2="122" y2="102" stroke="#635e57" stroke-width="2" stroke-linecap="round" />
+                                <text x="102" y="124" font-family="Inter, sans-serif" font-size="10" fill="#2c2925" text-anchor="middle">Avancer à son</text>
+                                <text x="102" y="140" font-family="Inter, sans-serif" font-size="10" fill="#635e57" text-anchor="middle">propre rythme</text>
+                                <rect x="24" y="158" width="156" height="24" rx="12" fill="#e4decb" />
+                                <text x="102" y="174" font-family="Inter, sans-serif" font-size="9.5" font-weight="bold" fill="#3b4d61" text-anchor="middle">Pilier du déploiement</text>
                             </g>
                         </svg>
                     </div>
@@ -1232,7 +1326,7 @@
                     </div>
 
                     <p class="text-xs text-academic-muted italic text-center">
-                        Illustration : la confiance comme fondement de l'expérimentation et du développement des compétences.
+                        Infographie : la confiance comme fondement de l'expérimentation et de la croissance durable des pratiques.
                     </p>
                 </div>
 
@@ -1255,12 +1349,12 @@
                     </p>
                 </div>
 
-                <!-- Conceptual Card 4: Practice Evolution Cycle (Interactive + Real-Time Slider) -->
+                <!-- Conceptual Card 4: Practice Evolution Cycle (Interactive Infographic + Real-Time Slider) -->
                 <div class="my-8 bg-cream-card border border-academic-border rounded-xl p-6 shadow-sm space-y-4" id="card-fig-4">
                     <div class="flex flex-wrap items-center justify-between gap-2">
                         <div class="flex items-center space-x-2 text-burgundy font-semibold text-sm uppercase tracking-wider">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
-                            <span>Figure explicative 4<br>— Cycle graduel de l'évolution des pratiques</span>
+                            <span>Figure explicative 4<br>— Cycle infographique graduel de l'évolution des pratiques</span>
                         </div>
                         <span id="fig4-badge" class="text-xs bg-burgundy text-white px-3 py-1 rounded-full font-semibold">Mois 12 — Intégration durable (100 %)</span>
                     </div>
@@ -1277,49 +1371,68 @@
                     </div>
                     
                     <div class="w-full bg-cream p-4 rounded-lg border border-academic-border/55 overflow-x-auto">
-                        <svg viewBox="0 0 700 205" class="w-full h-auto min-w-[600px]">
-                            <rect width="700" height="205" fill="#fbf9f4" rx="8" />
+                        <svg viewBox="0 0 720 222" class="w-full h-auto min-w-[620px]">
+                            <rect width="720" height="222" fill="#fbf9f4" rx="8" />
                             
-                            <!-- Step 1 -->
-                            <g id="fig4-step-1" transform="translate(30, 22)" class="svg-interactive-node" onclick="setCyclePreset(25)">
-                                <rect id="fig4-rect-1" class="node-card" width="125" height="110" rx="8" fill="#f3e6e6" stroke="#9e3535" stroke-width="2" />
-                                <text id="fig4-title-1" x="62" y="30" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#7A2222" text-anchor="middle">1. Expérimentation</text>
-                                <text id="fig4-sub1-1" x="62" y="60" font-family="Inter, sans-serif" font-size="9" fill="#2c2925" text-anchor="middle">Mise en œuvre</text>
-                                <text id="fig4-sub2-1" x="62" y="75" font-family="Inter, sans-serif" font-size="9" fill="#2c2925" text-anchor="middle">sur le terrain</text>
+                            <!-- Step 1: Expérimentation (Boussole / pas de terrain) -->
+                            <g id="fig4-step-1" transform="translate(24, 18)" class="svg-interactive-node" onclick="setCyclePreset(25)">
+                                <rect id="fig4-rect-1" class="node-card" width="144" height="126" rx="8" fill="#f3e6e6" stroke="#9e3535" stroke-width="2" />
+                                <text id="fig4-title-1" x="72" y="24" font-family="Inter, sans-serif" font-size="10.5" font-weight="bold" fill="#7A2222" text-anchor="middle">1. Expérimentation</text>
+                                <!-- Infographie : boussole / exploration -->
+                                <circle cx="72" cy="52" r="14" fill="#fbf9f4" stroke="#9e3535" stroke-width="1.6" />
+                                <polygon points="72,42 76,52 72,62 68,52" fill="#7A2222" />
+                                <circle cx="72" cy="52" r="2.5" fill="#fbf9f4" />
+                                <text id="fig4-sub1-1" x="72" y="86" font-family="Inter, sans-serif" font-size="9.5" fill="#2c2925" text-anchor="middle">Premiers groupes</text>
+                                <text id="fig4-sub2-1" x="72" y="102" font-family="Inter, sans-serif" font-size="9" fill="#635e57" text-anchor="middle">sur le terrain</text>
                             </g>
-                            <path id="fig4-arrow-1" d="M 160 77 L 185 77" stroke="#7A2222" stroke-width="2.5" />
+                            <path id="fig4-arrow-1" d="M 173 81 L 191 81" stroke="#7A2222" stroke-width="2.5" stroke-linecap="round" />
                             
-                            <!-- Step 2 -->
-                            <g id="fig4-step-2" transform="translate(190, 22)" class="svg-interactive-node" onclick="setCyclePreset(50)">
-                                <rect id="fig4-rect-2" class="node-card" width="125" height="110" rx="8" fill="#f3e6e6" stroke="#9e3535" stroke-width="2" />
-                                <text id="fig4-title-2" x="62" y="30" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#7A2222" text-anchor="middle">2. Réflexion</text>
-                                <text id="fig4-sub1-2" x="62" y="60" font-family="Inter, sans-serif" font-size="9" fill="#2c2925" text-anchor="middle">Échanges entre</text>
-                                <text id="fig4-sub2-2" x="62" y="75" font-family="Inter, sans-serif" font-size="9" fill="#2c2925" text-anchor="middle">intervenantes</text>
+                            <!-- Step 2: Réflexion (Dialogue entre pairs) -->
+                            <g id="fig4-step-2" transform="translate(196, 18)" class="svg-interactive-node" onclick="setCyclePreset(50)">
+                                <rect id="fig4-rect-2" class="node-card" width="144" height="126" rx="8" fill="#f3e6e6" stroke="#9e3535" stroke-width="2" />
+                                <text id="fig4-title-2" x="72" y="24" font-family="Inter, sans-serif" font-size="10.5" font-weight="bold" fill="#7A2222" text-anchor="middle">2. Réflexion</text>
+                                <!-- Infographie : deux silhouettes face à face + bulle -->
+                                <circle cx="58" cy="48" r="6" fill="#7A2222" />
+                                <path d="M 50 64 C 50 57, 66 57, 66 64 Z" fill="#7A2222" />
+                                <circle cx="86" cy="48" r="6" fill="#3b4d61" />
+                                <path d="M 78 64 C 78 57, 94 57, 94 64 Z" fill="#3b4d61" />
+                                <rect x="64" y="34" width="16" height="10" rx="4" fill="#fbf9f4" stroke="#7A2222" stroke-width="1" />
+                                <text id="fig4-sub1-2" x="72" y="86" font-family="Inter, sans-serif" font-size="9.5" fill="#2c2925" text-anchor="middle">Échanges entre</text>
+                                <text id="fig4-sub2-2" x="72" y="102" font-family="Inter, sans-serif" font-size="9" fill="#635e57" text-anchor="middle">intervenantes</text>
                             </g>
-                            <path id="fig4-arrow-2" d="M 320 77 L 345 77" stroke="#7A2222" stroke-width="2.5" />
+                            <path id="fig4-arrow-2" d="M 345 81 L 363 81" stroke="#7A2222" stroke-width="2.5" stroke-linecap="round" />
                             
-                            <!-- Step 3 -->
-                            <g id="fig4-step-3" transform="translate(350, 22)" class="svg-interactive-node" onclick="setCyclePreset(75)">
-                                <rect id="fig4-rect-3" class="node-card" width="125" height="110" rx="8" fill="#f3e6e6" stroke="#9e3535" stroke-width="2" />
-                                <text id="fig4-title-3" x="62" y="30" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#7A2222" text-anchor="middle">3. Apprentissage</text>
-                                <text id="fig4-sub1-3" x="62" y="60" font-family="Inter, sans-serif" font-size="9" fill="#2c2925" text-anchor="middle">Soutien du</text>
-                                <text id="fig4-sub2-3" x="62" y="75" font-family="Inter, sans-serif" font-size="9" fill="#2c2925" text-anchor="middle">Regroupement</text>
+                            <!-- Step 3: Apprentissage (Outils & guide adaptés) -->
+                            <g id="fig4-step-3" transform="translate(368, 18)" class="svg-interactive-node" onclick="setCyclePreset(75)">
+                                <rect id="fig4-rect-3" class="node-card" width="144" height="126" rx="8" fill="#f3e6e6" stroke="#9e3535" stroke-width="2" />
+                                <text id="fig4-title-3" x="72" y="24" font-family="Inter, sans-serif" font-size="10.5" font-weight="bold" fill="#7A2222" text-anchor="middle">3. Apprentissage</text>
+                                <!-- Infographie : carnet / outil adapté -->
+                                <rect x="60" y="39" width="24" height="28" rx="3" fill="#fbf9f4" stroke="#7A2222" stroke-width="1.6" />
+                                <line x1="65" y1="47" x2="79" y2="47" stroke="#9e3535" stroke-width="1.4" />
+                                <line x1="65" y1="53" x2="79" y2="53" stroke="#9e3535" stroke-width="1.4" />
+                                <line x1="65" y1="59" x2="75" y2="59" stroke="#9e3535" stroke-width="1.4" />
+                                <text id="fig4-sub1-3" x="72" y="86" font-family="Inter, sans-serif" font-size="9.5" fill="#2c2925" text-anchor="middle">Outils adaptés</text>
+                                <text id="fig4-sub2-3" x="72" y="102" font-family="Inter, sans-serif" font-size="9" fill="#635e57" text-anchor="middle">& soutien Regroupement</text>
                             </g>
-                            <path id="fig4-arrow-3" d="M 480 77 L 505 77" stroke="#7A2222" stroke-width="2.5" />
+                            <path id="fig4-arrow-3" d="M 517 81 L 535 81" stroke="#7A2222" stroke-width="2.5" stroke-linecap="round" />
                             
-                            <!-- Step 4 -->
-                            <g id="fig4-step-4" transform="translate(510, 22)" class="svg-interactive-node is-active" onclick="setCyclePreset(100)">
-                                <rect id="fig4-rect-4" class="node-card" width="155" height="110" rx="8" fill="#7A2222" stroke="#5c1717" stroke-width="2.5" />
-                                <text id="fig4-title-4" x="77" y="30" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">4. Intégration durable</text>
-                                <text id="fig4-sub1-4" x="77" y="60" font-family="Inter, sans-serif" font-size="9" fill="#f3e6e6" text-anchor="middle">Évolution des pratiques</text>
-                                <text id="fig4-sub2-4" x="77" y="75" font-family="Inter, sans-serif" font-size="9" fill="#f3e6e6" text-anchor="middle">quotidiennes</text>
+                            <!-- Step 4: Intégration durable (Ancrage dans l'offre de services) -->
+                            <g id="fig4-step-4" transform="translate(540, 18)" class="svg-interactive-node is-active" onclick="setCyclePreset(100)">
+                                <rect id="fig4-rect-4" class="node-card" width="156" height="126" rx="8" fill="#7A2222" stroke="#5c1717" stroke-width="2.5" />
+                                <text id="fig4-title-4" x="78" y="24" font-family="Inter, sans-serif" font-size="10.5" font-weight="bold" fill="#ffffff" text-anchor="middle">4. Intégration durable</text>
+                                <!-- Infographie : ancre / socle solide -->
+                                <circle cx="78" cy="44" r="5" fill="none" stroke="#f3e6e6" stroke-width="2" />
+                                <line x1="78" y1="49" x2="78" y2="66" stroke="#f3e6e6" stroke-width="2.2" />
+                                <path d="M 65 58 C 65 68, 91 68, 91 58" fill="none" stroke="#f3e6e6" stroke-width="2.2" stroke-linecap="round" />
+                                <text id="fig4-sub1-4" x="78" y="86" font-family="Inter, sans-serif" font-size="9.5" font-weight="600" fill="#f3e6e6" text-anchor="middle">Offre de services</text>
+                                <text id="fig4-sub2-4" x="78" y="102" font-family="Inter, sans-serif" font-size="9" fill="#f3e6e6" text-anchor="middle">& postes dédiés</text>
                             </g>
 
                             <!-- Barre de progression dynamique intégrée au SVG -->
-                            <rect x="30" y="155" width="635" height="10" rx="5" fill="#e4decb" />
-                            <rect id="fig4-progress-fill" x="30" y="155" width="635" height="10" rx="5" fill="#7A2222" />
-                            <circle id="fig4-progress-dot" cx="665" cy="160" r="7" fill="#5c1717" stroke="#fbf9f4" stroke-width="2" />
-                            <text id="fig4-svg-caption" x="347" y="185" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#7A2222" text-anchor="middle">
+                            <rect x="24" y="164" width="672" height="10" rx="5" fill="#e4decb" />
+                            <rect id="fig4-progress-fill" x="24" y="164" width="672" height="10" rx="5" fill="#7A2222" />
+                            <circle id="fig4-progress-dot" cx="696" cy="169" r="7" fill="#5c1717" stroke="#fbf9f4" stroke-width="2" />
+                            <text id="fig4-svg-caption" x="360" y="196" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#7A2222" text-anchor="middle">
                                 Phase 4/4 : Ancrage dans l’offre de services et postes dédiés (Trois-Rivières, Champlain)
                             </text>
                         </svg>
@@ -1332,7 +1445,7 @@
                     </div>
 
                     <p class="text-xs text-academic-muted italic text-center">
-                        Schéma : déplacez le curseur ou cliquez sur une étape pour observer la progression graduelle sur 12 mois.
+                        Infographie dynamique : déplacez le curseur ou cliquez sur une étape pour observer la progression graduelle sur 12 mois.
                     </p>
                 </div>
 
@@ -1358,45 +1471,71 @@
                     </p>
                 </div>
 
-                <!-- Conceptual Card 5: New Vision of Inclusion (Interactive) -->
+                <!-- Conceptual Card 5: New Vision of Inclusion (Interactive Infographic) -->
                 <div class="my-8 bg-cream-card border border-academic-border rounded-xl p-6 shadow-sm space-y-4" id="card-fig-5">
                     <div class="flex flex-wrap items-center justify-between gap-2">
                         <div class="flex items-center space-x-2 text-burgundy font-semibold text-sm uppercase tracking-wider">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
-                            <span>Figure explicative 5<br>— Transformation paradigmatique de l'inclusion sociale</span>
+                            <span>Figure explicative 5<br>— Transformation infographique de l'inclusion sociale</span>
                         </div>
                         <span class="text-xs bg-burgundy-subtle text-burgundy px-2.5 py-1 rounded-full font-medium">Cliquez sur un paradigme pour comparer</span>
                     </div>
                     
                     <div class="w-full bg-cream p-4 rounded-lg border border-academic-border/55 overflow-x-auto">
-                        <svg viewBox="0 0 700 220" class="w-full h-auto min-w-[600px]">
-                            <rect width="700" height="220" fill="#fbf9f4" rx="8" />
+                        <svg viewBox="0 0 720 244" class="w-full h-auto min-w-[620px]">
+                            <rect width="720" height="244" fill="#fbf9f4" rx="8" />
                             
-                            <!-- Left: Traditional approach -->
-                            <g transform="translate(30, 25)" class="svg-interactive-node" data-fig="5" data-node="ancien" onclick="selectConceptNode('fig5', 'ancien', this)">
-                                <rect class="node-card" width="280" height="170" rx="8" fill="#f5f2e9" stroke="#d4ccb8" stroke-width="2" />
-                                <rect x="15" y="15" width="250" height="30" rx="4" fill="#e4decb" />
-                                <text x="140" y="35" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#2c2925" text-anchor="middle">Jumelage Traditionnel</text>
-                                <text x="140" y="75" font-family="Inter, sans-serif" font-size="10" fill="#635e57" text-anchor="middle">• Inclusion centrée sur la personne seule</text>
-                                <text x="140" y="95" font-family="Inter, sans-serif" font-size="10" fill="#635e57" text-anchor="middle">• Responsabilité individuelle</text>
-                                <text x="140" y="115" font-family="Inter, sans-serif" font-size="10" fill="#635e57" text-anchor="middle">• Relation dyadique isolée</text>
+                            <!-- Left: Jumelage Traditionnel (Infographie relation isolée) -->
+                            <g transform="translate(24, 20)" class="svg-interactive-node" data-fig="5" data-node="ancien" onclick="selectConceptNode('fig5', 'ancien', this)">
+                                <rect class="node-card" width="285" height="202" rx="10" fill="#f5f2e9" stroke="#d4ccb8" stroke-width="2" />
+                                <rect x="14" y="14" width="257" height="30" rx="5" fill="#e4decb" />
+                                <text x="142" y="33" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#2c2925" text-anchor="middle">Jumelage Traditionnel</text>
+
+                                <!-- Infographie : deux personnes reliées à l'écart d'un cercle communautaire vide -->
+                                <circle cx="215" cy="82" r="26" fill="none" stroke="#cbd5e0" stroke-width="1.5" stroke-dasharray="3,3" />
+                                <circle cx="72" cy="74" r="9" fill="#7A2222" opacity="0.8" />
+                                <path d="M 60 96 C 60 87, 84 87, 84 96 Z" fill="#7A2222" opacity="0.8" />
+                                <line x1="86" y1="80" x2="112" y2="80" stroke="#635e57" stroke-width="1.8" stroke-dasharray="3,3" />
+                                <circle cx="126" cy="74" r="9" fill="#3b4d61" opacity="0.85" />
+                                <path d="M 114 96 C 114 87, 138 87, 138 96 Z" fill="#3b4d61" opacity="0.85" />
+                                <text x="215" y="85" font-family="Inter, sans-serif" font-size="8.5" fill="#8c857b" text-anchor="middle">Milieu</text>
+
+                                <text x="142" y="126" font-family="Inter, sans-serif" font-size="10" fill="#635e57" text-anchor="middle">• Inclusion centrée sur la personne seule</text>
+                                <text x="142" y="146" font-family="Inter, sans-serif" font-size="10" fill="#635e57" text-anchor="middle">• Responsabilité portée individuellement</text>
+                                <text x="142" y="166" font-family="Inter, sans-serif" font-size="10" fill="#635e57" text-anchor="middle">• Relation dyadique ciblée</text>
                             </g>
 
-                            <!-- Arrow -->
-                            <g transform="translate(325, 100)">
-                                <polygon points="0,0 25,-12 25,12" fill="#7A2222" />
-                                <rect x="25" y="-4" width="15" height="8" fill="#7A2222" />
+                            <!-- Grande flèche de transformation -->
+                            <g transform="translate(320, 108)">
+                                <rect x="0" y="7" width="24" height="10" rx="3" fill="#7A2222" />
+                                <polygon points="22,0 38,12 22,24" fill="#7A2222" />
                             </g>
 
-                            <!-- Right: Mentorat Actif -->
-                            <g transform="translate(355, 25)" class="svg-interactive-node is-active" data-fig="5" data-node="nouveau" onclick="selectConceptNode('fig5', 'nouveau', this)">
-                                <rect class="node-card" width="315" height="170" rx="8" fill="#f3e6e6" stroke="#9e3535" stroke-width="2" />
-                                <rect x="15" y="15" width="285" height="30" rx="4" fill="#7A2222" />
-                                <text x="157" y="35" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">Mentorat Actif (Vision Nouvelle)</text>
-                                <text x="157" y="70" font-family="Inter, sans-serif" font-size="10" fill="#2c2925" text-anchor="middle">• Adaptation des environnements</text>
-                                <text x="157" y="90" font-family="Inter, sans-serif" font-size="10" fill="#2c2925" text-anchor="middle">• Force des groupes & milieux de vie</text>
-                                <text x="157" y="110" font-family="Inter, sans-serif" font-size="10" fill="#2c2925" text-anchor="middle">• Reconnaissance du pouvoir d'agir</text>
-                                <text x="157" y="130" font-family="Inter, sans-serif" font-size="10" fill="#2c2925" text-anchor="middle">• Responsabilité collective et solidaire</text>
+                            <!-- Right: Mentorat Actif (Infographie communauté ouverte & milieu accueillant) -->
+                            <g transform="translate(368, 20)" class="svg-interactive-node is-active" data-fig="5" data-node="nouveau" onclick="selectConceptNode('fig5', 'nouveau', this)">
+                                <rect class="node-card" width="328" height="202" rx="10" fill="#f3e6e6" stroke="#9e3535" stroke-width="2" />
+                                <rect x="14" y="14" width="300" height="30" rx="5" fill="#7A2222" />
+                                <text x="164" y="33" font-family="Inter, sans-serif" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">Mentorat Actif (Vision Nouvelle)</text>
+
+                                <!-- Infographie : milieu communautaire accueillant entourant un groupe + personne incluse -->
+                                <ellipse cx="222" cy="80" rx="54" ry="28" fill="#fbf9f4" stroke="#9e3535" stroke-width="1.6" />
+                                <circle cx="195" cy="74" r="7" fill="#7A2222" />
+                                <path d="M 186 92 C 186 85, 204 85, 204 92 Z" fill="#7A2222" />
+                                <circle cx="216" cy="72" r="7" fill="#9e3535" />
+                                <path d="M 207 92 C 207 85, 225 85, 225 92 Z" fill="#9e3535" />
+                                <circle cx="240" cy="75" r="7.5" fill="#3b4d61" />
+                                <path d="M 230 92 C 230 85, 250 85, 250 92 Z" fill="#3b4d61" />
+                                <text x="222" y="103" font-family="Inter, sans-serif" font-size="8" font-weight="bold" fill="#7A2222" text-anchor="middle">Milieu adapté & solidaire</text>
+
+                                <g transform="translate(32, 62)">
+                                    <rect width="122" height="36" rx="8" fill="#fbf9f4" stroke="#d9b4b4" />
+                                    <text x="61" y="16" font-family="Inter, sans-serif" font-size="9" font-weight="bold" fill="#7A2222" text-anchor="middle">Pouvoir d'agir</text>
+                                    <text x="61" y="29" font-family="Inter, sans-serif" font-size="8.5" fill="#2c2925" text-anchor="middle">& capacités reconnues</text>
+                                </g>
+
+                                <text x="164" y="128" font-family="Inter, sans-serif" font-size="10" fill="#2c2925" text-anchor="middle">• Adaptation des environnements et milieux de vie</text>
+                                <text x="164" y="148" font-family="Inter, sans-serif" font-size="10" fill="#2c2925" text-anchor="middle">• Force des groupes et ouverture vers la communauté</text>
+                                <text x="164" y="168" font-family="Inter, sans-serif" font-size="10" font-weight="600" fill="#7A2222" text-anchor="middle">• Responsabilité collective et citoyenneté active</text>
                             </g>
                         </svg>
                     </div>
@@ -1408,7 +1547,7 @@
                     </div>
 
                     <p class="text-xs text-academic-muted italic text-center">
-                        Schéma comparatif : le déplacement d'une charge individuelle vers une responsabilité collective d'inclusion.
+                        Infographie comparative : le déplacement d'une charge individuelle vers une communauté ouverte, adaptative et solidaire.
                     </p>
                 </div>
 
@@ -1440,76 +1579,89 @@
                     </p>
                 </div>
 
-                <!-- Conceptual Card: Synthesis Conclusion Diagram (Interactive) -->
+                <!-- Conceptual Card: Synthesis Conclusion Diagram (Interactive Infographic) -->
                 <div class="my-8 bg-cream-card border border-academic-border rounded-xl p-6 shadow-sm space-y-4" id="card-fig-6">
                     <div class="flex flex-wrap items-center justify-between gap-2">
                         <div class="flex items-center space-x-2 text-burgundy font-semibold text-sm uppercase tracking-wider">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                            <span>Figure de synthèse<br>— Les piliers du Mentorat Actif et sa portée inclusive</span>
+                            <span>Figure de synthèse<br>— Infographie des piliers du Mentorat Actif et sa portée inclusive</span>
                         </div>
                         <span class="text-xs bg-burgundy-subtle text-burgundy px-2.5 py-1 rounded-full font-medium">Cliquez sur un élément pour explorer</span>
                     </div>
                     
                     <div class="w-full bg-cream p-4 rounded-lg border border-academic-border/55 overflow-x-auto">
-                        <svg viewBox="0 0 700 340" class="w-full h-auto min-w-[600px]">
-                            <rect width="700" height="340" fill="#fbf9f4" rx="8" />
+                        <svg viewBox="0 0 720 356" class="w-full h-auto min-w-[620px]">
+                            <rect width="720" height="356" fill="#fbf9f4" rx="8" />
                             
-                            <!-- Central Core: Mentorat Actif -->
+                            <!-- Central Core: Mentorat Actif (Groupe + personne reliée) -->
                             <g class="svg-interactive-node is-active" data-fig="6" data-node="core" onclick="selectConceptNode('fig6', 'core', this)">
-                                <rect class="node-card" x="250" y="20" width="200" height="50" rx="8" fill="#7A2222" stroke="#5c1717" stroke-width="2" />
-                                <text x="350" y="42" font-family="Inter, sans-serif" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">Mentorat Actif</text>
-                                <text x="350" y="58" font-family="Inter, sans-serif" font-size="9" fill="#f3e6e6" text-anchor="middle">Bilan un an plus tard</text>
+                                <rect class="node-card" x="220" y="14" width="280" height="56" rx="10" fill="#7A2222" stroke="#5c1717" stroke-width="2" />
+                                <circle cx="250" cy="42" r="9" fill="#f3e6e6" />
+                                <circle cx="266" cy="42" r="9" fill="#3b4d61" stroke="#f3e6e6" stroke-width="1.2" />
+                                <text x="382" y="38" font-family="Inter, sans-serif" font-size="12.5" font-weight="bold" fill="#ffffff" text-anchor="middle">Mentorat Actif</text>
+                                <text x="382" y="55" font-family="Inter, sans-serif" font-size="9.5" fill="#f3e6e6" text-anchor="middle">Bilan un an plus tard • Québec</text>
                             </g>
                             
                             <!-- Connectors to 4 pillars -->
-                            <path d="M 350 70 L 350 100" stroke="#7A2222" stroke-width="2" />
+                            <path d="M 360 70 L 360 92 L 99 92 L 99 104" stroke="#7A2222" stroke-width="1.8" fill="none" />
+                            <path d="M 360 92 L 267 92 L 267 104" stroke="#7A2222" stroke-width="1.8" fill="none" />
+                            <path d="M 360 92 L 453 92 L 453 104" stroke="#7A2222" stroke-width="1.8" fill="none" />
+                            <path d="M 360 92 L 621 92 L 621 104" stroke="#7A2222" stroke-width="1.8" fill="none" />
                             
-                            <!-- 4 Pillars Grid (Y: 100 to 200) -->
-                            <!-- Pillar 1: Communauté -->
-                            <g transform="translate(30, 100)" class="svg-interactive-node" data-fig="6" data-node="c1" onclick="selectConceptNode('fig6', 'c1', this)">
-                                <rect class="node-card" width="145" height="95" rx="6" fill="#f5f2e9" stroke="#d4ccb8" stroke-width="1.5" />
-                                <text x="72" y="25" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#7A2222" text-anchor="middle">1. Communauté</text>
-                                <text x="72" y="48" font-family="Inter, sans-serif" font-size="9" fill="#2c2925" text-anchor="middle">Force des groupes</text>
-                                <text x="72" y="64" font-family="Inter, sans-serif" font-size="9" fill="#635e57" text-anchor="middle">& milieux de vie</text>
-                                <text x="72" y="80" font-family="Inter, sans-serif" font-size="9" fill="#635e57" text-anchor="middle">accueillants</text>
+                            <!-- 4 Pillars Grid with Infographic Icons (Y: 104 to 216) -->
+                            <!-- Pillar 1: Communauté (Milieu / maisons-lieux de vie) -->
+                            <g transform="translate(24, 104)" class="svg-interactive-node" data-fig="6" data-node="c1" onclick="selectConceptNode('fig6', 'c1', this)">
+                                <rect class="node-card" width="150" height="112" rx="8" fill="#f5f2e9" stroke="#d4ccb8" stroke-width="1.6" />
+                                <path d="M 63 34 L 75 24 L 87 34 V 44 H 63 Z" fill="#7A2222" opacity="0.85" />
+                                <text x="75" y="60" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#7A2222" text-anchor="middle">1. Communauté</text>
+                                <text x="75" y="76" font-family="Inter, sans-serif" font-size="9" fill="#2c2925" text-anchor="middle">Force des groupes</text>
+                                <text x="75" y="90" font-family="Inter, sans-serif" font-size="8.5" fill="#635e57" text-anchor="middle">& milieux accueillants</text>
                             </g>
                             
-                            <!-- Pillar 2: Responsabilité Collective -->
-                            <g transform="translate(195, 100)" class="svg-interactive-node" data-fig="6" data-node="c2" onclick="selectConceptNode('fig6', 'c2', this)">
-                                <rect class="node-card" width="145" height="95" rx="6" fill="#f5f2e9" stroke="#d4ccb8" stroke-width="1.5" />
-                                <text x="72" y="25" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#7A2222" text-anchor="middle">2. Resp. Collective</text>
-                                <text x="72" y="48" font-family="Inter, sans-serif" font-size="9" fill="#2c2925" text-anchor="middle">Partage de l'inclusion</text>
-                                <text x="72" y="64" font-family="Inter, sans-serif" font-size="9" fill="#635e57" text-anchor="middle">au-delà de la</text>
-                                <text x="72" y="80" font-family="Inter, sans-serif" font-size="9" fill="#635e57" text-anchor="middle">dyade individuelle</text>
+                            <!-- Pillar 2: Responsabilité Collective (Mains / cercle partagé) -->
+                            <g transform="translate(192, 104)" class="svg-interactive-node" data-fig="6" data-node="c2" onclick="selectConceptNode('fig6', 'c2', this)">
+                                <rect class="node-card" width="150" height="112" rx="8" fill="#f5f2e9" stroke="#d4ccb8" stroke-width="1.6" />
+                                <circle cx="67" cy="34" r="6" fill="#7A2222" />
+                                <circle cx="83" cy="34" r="6" fill="#3b4d61" />
+                                <path d="M 60 44 Q 75 49 90 44" fill="none" stroke="#7A2222" stroke-width="2" stroke-linecap="round" />
+                                <text x="75" y="60" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#7A2222" text-anchor="middle">2. Resp. Collective</text>
+                                <text x="75" y="76" font-family="Inter, sans-serif" font-size="9" fill="#2c2925" text-anchor="middle">Partage de l'inclusion</text>
+                                <text x="75" y="90" font-family="Inter, sans-serif" font-size="8.5" fill="#635e57" text-anchor="middle">au-delà de la dyade</text>
                             </g>
                             
-                            <!-- Pillar 3: Accompagnement & Confiance -->
-                            <g transform="translate(360, 100)" class="svg-interactive-node" data-fig="6" data-node="c3" onclick="selectConceptNode('fig6', 'c3', this)">
-                                <rect class="node-card" width="145" height="95" rx="6" fill="#f3e6e6" stroke="#9e3535" stroke-width="1.5" />
-                                <text x="72" y="25" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#7A2222" text-anchor="middle">3. Accompagnement</text>
-                                <text x="72" y="48" font-family="Inter, sans-serif" font-size="9" fill="#2c2925" text-anchor="middle">Communauté de pratique</text>
-                                <text x="72" y="64" font-family="Inter, sans-serif" font-size="9" fill="#635e57" text-anchor="middle">& lien de confiance</text>
-                                <text x="72" y="80" font-family="Inter, sans-serif" font-size="9" fill="#635e57" text-anchor="middle">(M. Maltais / Regr.)</text>
+                            <!-- Pillar 3: Accompagnement & Confiance (Bouclier / lien) -->
+                            <g transform="translate(360, 104)" class="svg-interactive-node" data-fig="6" data-node="c3" onclick="selectConceptNode('fig6', 'c3', this)">
+                                <rect class="node-card" width="150" height="112" rx="8" fill="#f3e6e6" stroke="#9e3535" stroke-width="1.6" />
+                                <path d="M 75 23 L 85 27 L 84 38 C 83 43, 75 46, 75 46 C 75 46, 67 43, 66 38 L 65 27 Z" fill="#7A2222" />
+                                <text x="75" y="60" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#7A2222" text-anchor="middle">3. Accompagnement</text>
+                                <text x="75" y="76" font-family="Inter, sans-serif" font-size="9" fill="#2c2925" text-anchor="middle">Pairs & confiance</text>
+                                <text x="75" y="90" font-family="Inter, sans-serif" font-size="8.5" fill="#635e57" text-anchor="middle">(M. Maltais / Regr.)</text>
                             </g>
                             
-                            <!-- Pillar 4: Évolution des Pratiques -->
-                            <g transform="translate(525, 100)" class="svg-interactive-node" data-fig="6" data-node="c4" onclick="selectConceptNode('fig6', 'c4', this)">
-                                <rect class="node-card" width="145" height="95" rx="6" fill="#f5f2e9" stroke="#d4ccb8" stroke-width="1.5" />
-                                <text x="72" y="25" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#7A2222" text-anchor="middle">4. Évolution</text>
-                                <text x="72" y="48" font-family="Inter, sans-serif" font-size="9" fill="#2c2925" text-anchor="middle">Transformation</text>
-                                <text x="72" y="64" font-family="Inter, sans-serif" font-size="9" fill="#635e57" text-anchor="middle">graduelle des</text>
-                                <text x="72" y="80" font-family="Inter, sans-serif" font-size="9" fill="#635e57" text-anchor="middle">pratiques d'intervention</text>
+                            <!-- Pillar 4: Évolution des Pratiques (Flèche ascendante / outil) -->
+                            <g transform="translate(528, 104)" class="svg-interactive-node" data-fig="6" data-node="c4" onclick="selectConceptNode('fig6', 'c4', this)">
+                                <rect class="node-card" width="168" height="112" rx="8" fill="#f5f2e9" stroke="#d4ccb8" stroke-width="1.6" />
+                                <path d="M 76 44 L 92 28 M 82 28 H 92 V 38" fill="none" stroke="#7A2222" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                                <text x="84" y="60" font-family="Inter, sans-serif" font-size="10" font-weight="bold" fill="#7A2222" text-anchor="middle">4. Évolution</text>
+                                <text x="84" y="76" font-family="Inter, sans-serif" font-size="9" fill="#2c2925" text-anchor="middle">Transformation graduelle</text>
+                                <text x="84" y="90" font-family="Inter, sans-serif" font-size="8.5" fill="#635e57" text-anchor="middle">& outils sur mesure</text>
                             </g>
 
                             <!-- Connecting lines down to Vision Renouvelée -->
-                            <path d="M 350 195 L 350 220" stroke="#7A2222" stroke-width="2" />
+                            <path d="M 99 216 V 232 H 621 V 216" stroke="#9e3535" stroke-width="1.5" fill="none" stroke-dasharray="4,3" />
+                            <line x1="360" y1="232" x2="360" y2="246" stroke="#7A2222" stroke-width="2.2" />
                             
-                            <!-- Bottom Target: Vision Renouvelée de l'Inclusion Sociale -->
+                            <!-- Bottom Target: Vision Renouvelée de l'Inclusion Sociale (Communauté citoyenne unie) -->
                             <g class="svg-interactive-node" data-fig="6" data-node="vision" onclick="selectConceptNode('fig6', 'vision', this)">
-                                <rect class="node-card" x="150" y="220" width="400" height="90" rx="8" fill="#7A2222" stroke="#5c1717" stroke-width="2" />
-                                <text x="350" y="245" font-family="Inter, sans-serif" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">Vision Renouvelée de l'Inclusion Sociale</text>
-                                <text x="350" y="268" font-family="Inter, sans-serif" font-size="10" fill="#f3e6e6" text-anchor="middle">Participation ne dépendant plus seulement des capacités individuelles,</text>
-                                <text x="350" y="286" font-family="Inter, sans-serif" font-size="10" fill="#f3e6e6" text-anchor="middle">mais de notre volonté collective de créer des communautés inclusives et équitables.</text>
+                                <rect class="node-card" x="110" y="246" width="500" height="92" rx="10" fill="#7A2222" stroke="#5c1717" stroke-width="2" />
+                                <!-- Groupe de citoyens inclus dans le bas -->
+                                <circle cx="152" cy="284" r="7" fill="#f3e6e6" />
+                                <circle cx="170" cy="282" r="7.5" fill="#d97706" />
+                                <circle cx="188" cy="284" r="7" fill="#f3e6e6" />
+                                <path d="M 143 302 C 143 295, 197 295, 197 302 Z" fill="#f3e6e6" opacity="0.9" />
+                                <text x="392" y="274" font-family="Inter, sans-serif" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">Vision Renouvelée de l'Inclusion Sociale</text>
+                                <text x="392" y="294" font-family="Inter, sans-serif" font-size="9.8" fill="#f3e6e6" text-anchor="middle">La participation ne dépend plus seulement des capacités individuelles,</text>
+                                <text x="392" y="312" font-family="Inter, sans-serif" font-size="9.8" fill="#f3e6e6" text-anchor="middle">mais de notre volonté collective de bâtir des communautés inclusives et équitables.</text>
                             </g>
                         </svg>
                     </div>
@@ -1521,7 +1673,7 @@
                     </div>
 
                     <p class="text-xs text-academic-muted italic text-center">
-                        Synthèse conceptuelle : articulation des quatre piliers du Mentorat Actif vers la vision renouvelée de l'inclusion sociale.
+                        Infographie de synthèse : articulation des quatre piliers du Mentorat Actif vers une citoyenneté et une inclusion collective.
                     </p>
                 </div>
 
@@ -1722,12 +1874,12 @@
             };
             badge.textContent = `Mois ${month} — ${stageNames[activeStage]} (${val} %)`;
 
-            // Mise à jour de la barre de progression SVG (largeur max = 635)
-            const fillWidth = Math.max(12, Math.round((val / 100) * 635));
+            // Mise à jour de la barre de progression SVG (largeur max = 672)
+            const fillWidth = Math.max(12, Math.round((val / 100) * 672));
             const fillEl = document.getElementById('fig4-progress-fill');
             const dotEl = document.getElementById('fig4-progress-dot');
             if (fillEl) fillEl.setAttribute('width', fillWidth);
-            if (dotEl) dotEl.setAttribute('cx', 30 + fillWidth);
+            if (dotEl) dotEl.setAttribute('cx', 24 + fillWidth);
 
             // Mise à jour visuelle des 4 étapes SVG
             for (let i = 1; i <= 4; i++) {
@@ -1753,7 +1905,7 @@
                     rect.setAttribute('stroke-width', '2');
                     title.setAttribute('fill', '#7A2222');
                     sub1.setAttribute('fill', '#2c2925');
-                    sub2.setAttribute('fill', '#2c2925');
+                    sub2.setAttribute('fill', '#635e57');
                 } else {
                     group.classList.remove('is-active');
                     rect.setAttribute('fill', '#f5f2e9');
